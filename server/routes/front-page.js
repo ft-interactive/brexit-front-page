@@ -11,7 +11,7 @@ export default (region) => {
 
 		res.set({
 			// needs to be private so we can vary for signed in state, ab tests, etc
-			'Surrogate-Control': 'max-age=60'
+			'Surrogate-Control': 'max-age=60,stale-while-revalidate,stale-if-error=259200'
 		});
 
 		graphql(useElasticSearch, mockBackend, { flags: res.locals.flags }).fetch(queries.frontPage(region))
