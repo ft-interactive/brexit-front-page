@@ -25,7 +25,8 @@ const init = (el, opts) => {
 			items = fastft.items;
 
 			if(document.visibilityState !== 'hidden') {
-				renderFeed(el, items);
+				if(items && items.length > 1)
+					renderFeed(el, items);
 			}
 		})
 		.catch((error) => {
@@ -35,7 +36,8 @@ const init = (el, opts) => {
 
 	document.addEventListener('visibilitychange', function() {
 		if(document.visibilityState === 'visible') {
-			renderFeed(el, items);
+			if(items && items.length > 1)
+				renderFeed(el, items);
 		}
 	});
 
