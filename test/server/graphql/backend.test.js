@@ -70,7 +70,7 @@ describe('GraphQL Backend', () => {
 		})
 
 		it('fetches topics', () => {
-			testBackend.popularTopics()
+			testBackend.popularTopics({})
 			.then(it => {
 				expect(it.length).to.eq(2);
 			})
