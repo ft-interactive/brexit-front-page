@@ -6,7 +6,7 @@ module.exports = function(req, res) {
 
 	const query = req.body;
 
-	graphql(useElasticSearch, mockBackend).fetch(query)
+	graphql(useElasticSearch, mockBackend, { flags: res.locals.flags }).fetch(query)
 	.then(data => {
 		res.json(data);
 	})

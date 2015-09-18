@@ -5,6 +5,7 @@ import CAPI from './backend-adapters/capi';
 import Popular from './backend-adapters/popular';
 import Liveblog from './backend-adapters/liveblog';
 import Playlist from './backend-adapters/playlist';
+import PopularAPI from './backend-adapters/popular-api';
 
 import MockCAPI from './backend-adapters/mock-capi';
 import MockLiveblog from './backend-adapters/mock-liveblog';
@@ -143,6 +144,10 @@ class Backend {
 			// return 'fake' list, so Collection can resolveType correctly
 			.catch(e => ({ apiUrl: `http://api.ft.com/lists/${uuid}` }));
 	}
+
+	popularTopics(ttl = 50) {
+		return this.adapters.popularApi.topics(ttl);
+	}
 }
 
 // Assemble the beast
@@ -157,6 +162,7 @@ const esCAPI = new CAPI(true, memCache);
 const directCAPI = new CAPI(false, memCache);
 
 const popular = new Popular(memCache);
+const popularApi = new PopularAPI(memCache);
 
 const playlist = new Playlist(memCache);
 
@@ -167,11 +173,33 @@ const mockedCAPI = new MockCAPI(esCAPI);
 const mockLiveblog = new MockLiveblog(liveblog);
 
 // Elasticsearch & direct CAPI Backends
-const esBackend = new Backend({fastFT: esFastFT, capi: esCAPI, popular: popular, liveblog: liveblog, videos: playlist}, 'elasticsearch');
-const capiBackend = new Backend({fastFT: capiFastFT, capi: directCAPI, popular: popular, liveblog: liveblog, videos: playlist}, 'direct');
+const esBackend = new Backend({
+	fastFT: esFastFT,
+	capi: esCAPI,
+	popular: popular,
+	liveblog: liveblog,
+	videos: playlist,
+	popularApi: popularApi
+}, 'elasticsearch');
+
+const capiBackend = new Backend({
+	fastFT: capiFastFT,
+	capi: directCAPI,
+	popular: popular,
+	liveblog: liveblog,
+	videos: playlist,
+	popularApi: popularApi
+}, 'direct');
 
 // Mock backend
-const mockBackend = new Backend({fastFT: esFastFT, capi: mockedCAPI, popular: popular, liveblog: mockLiveblog, videos: playlist}, 'mocked');
+const mockBackend = new Backend({
+	fastFT: esFastFT,
+	capi: mockedCAPI,
+	popular: popular,
+	liveblog: mockLiveblog,
+	videos: playlist,
+	popularApi: popularApi
+}, 'mocked');
 
 export default {
 	Backend: Backend,
