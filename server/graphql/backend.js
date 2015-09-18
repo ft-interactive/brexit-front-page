@@ -12,6 +12,13 @@ import MockLiveblog from './backend-adapters/mock-liveblog';
 
 import articleGenres from 'ft-next-article-genre';
 
+const sliceList = (items, {from, limit}) => {
+	items = (from ? items.slice(from) : items);
+	items = (limit ? items.slice(0, limit) : items);
+
+	return items;
+}
+
 // internal content filtering logic shared for ContentV1 and ContentV2
 const filterContent = ({from, limit, genres, type}, resolveType) => {
 	return (items = []) => {
@@ -27,10 +34,7 @@ const filterContent = ({from, limit, genres, type}, resolveType) => {
 			}
 		}
 
-		items = (from ? items.slice(from) : items);
-		items = (limit ? items.slice(0, limit) : items);
-
-		return items;
+		return sliceList(items, {from, limit});
 	};
 };
 
@@ -145,8 +149,9 @@ class Backend {
 			.catch(e => ({ apiUrl: `http://api.ft.com/lists/${uuid}` }));
 	}
 
-	popularTopics(ttl = 50) {
-		return this.adapters.popularApi.topics(ttl);
+	popularTopics({from, limit}, ttl = 50) {
+		return this.adapters.popularApi.topics(ttl)
+		.then(topics => sliceList(topics, {from, limit}));
 	}
 }
 

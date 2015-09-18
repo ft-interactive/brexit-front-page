@@ -6,6 +6,7 @@ import {
 	GraphQLObjectType,
 	GraphQLNonNull,
 	GraphQLString,
+	GraphQLInt,
 	GraphQLList,
 } from 'graphql';
 
@@ -105,8 +106,12 @@ const queryType = new GraphQLObjectType({
 		},
 		popularTopics: {
 			type: new GraphQLList(Concept),
-			resolve: (root, _, {rootValue: {backend}}) => {
-				return backend.popularTopics();
+			args: {
+				from: { type: GraphQLInt },
+				limit: { type: GraphQLInt },
+			},
+			resolve: (root, {from, limit}, {rootValue: {backend}}) => {
+				return backend.popularTopics({from, limit})
 			}
 		}
 	}
