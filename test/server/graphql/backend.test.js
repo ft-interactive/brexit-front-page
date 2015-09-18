@@ -1,7 +1,7 @@
 /* globals describe it */
-import fetch from 'isomorphic-fetch';
+import realFetch from 'isomorphic-fetch';
 import {Promise} from 'es6-promise';
-global.fetch = fetch;
+global.fetch = realFetch;
 
 import chai from 'chai';
 import chaiAsPromised from 'chai-as-promised';
@@ -11,6 +11,8 @@ const expect = chai.expect;
 import contentv1fixture from './fixtures/contentv1';
 import listfixture from './fixtures/list';
 import {Backend} from '../../../server/graphql/backend';
+import PopularAPI from '../../../server/graphql/backend-adapters/popular-api';
+import Cache from '../../../server/graphql/cache';
 
 const mockCAPI = {
 	contentv1: () => {
@@ -52,4 +54,26 @@ describe('GraphQL Backend', () => {
 			});
 		});
 	});
+	describe('#popularTopics', () => {
+		const testBackend = new Backend({popularApi: new PopularAPI(new Cache(10))}, 'test');
+
+		before(() => {
+			global.fetch = function() {
+				return Promise.resolve({
+					json: () => [{a: 'b'}, {b: 'c'}]
+				})
+			}
+		});
+
+		after(() => {
+			global.fetch = realFetch;
+		})
+
+		it('fetches topics', () => {
+			testBackend.popularTopics({})
+			.then(it => {
+				expect(it.length).to.eq(2);
+			})
+		})
+	})
 });

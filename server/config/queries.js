@@ -57,6 +57,10 @@ const frontPage = (region) => (`
 	${fragments}
 
 	query FrontPage {
+		popularTopics {
+			name
+			url
+		}
 		top(region: ${region}) {
 			leads: items(limit: 1, type: Article) {
 				... Basic

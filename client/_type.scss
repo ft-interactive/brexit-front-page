@@ -30,6 +30,23 @@
 	}
 }
 
+.popular-topics {
+	float: right;
+	display: inline-block;
+	padding-top: 0.7em;
+
+	li {
+		display: inline-block;
+		padding-left: 0.7em;
+		list-style: none;
+	}
+}
+
+.popular-topics__tag {
+	@include nLinksTopic;
+	@include nTypeBravo(5);
+}
+
 .carousel-heading {
 	@include podHeading;
 	border: 0;
