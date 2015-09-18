@@ -1,5 +1,6 @@
 {{#if items}}
 	<section class="flexipod flexipod--lead-today" id="site-content" data-trackable="lead-today" role="region" tabindex="0" aria-labelledby="lead-pod-title">
+		{{#if flags.popularTopics}}
 		<div class="pod-heading" role="presentation">
 			<h1 id="{{id}}-title" aria-hidden="true">Top stories</h1>
 			<ul data-trackable="popular-tags" class="popular-topics">
@@ -8,6 +9,7 @@
 			{{/slice}}
 			</ul>
 		</div>
+		{{/if}}
 		<div role="presentation">
 			<div class="article-group" role="presentation">
 				{{#slice leads limit=1}}
