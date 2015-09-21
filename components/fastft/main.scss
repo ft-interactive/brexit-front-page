@@ -4,7 +4,7 @@
 @mixin nhFastFtTitle {
 	a {
 		display: block;
-		width: 100%;
+		border-bottom: 0;
 	}
 
 	.fastft__logo__fast {
