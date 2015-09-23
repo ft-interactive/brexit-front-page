@@ -1,6 +1,6 @@
 <article class='story-card article--{{genre}} {{#ifEquals contentType "LiveBlog"}}story-card--liveblog liveblog--{{lowercase status}}{{/ifEquals}}' data-trackable="story" tabindex="0" aria-labelledby="{{id}}-title" role="article">
 	{{#if primaryImage}}
-		<a href="/{{id}}" class="story-card__link" data-trackable="image" role="presentation" aria-hidden="true">
+		<a href="/content/{{id}}" class="story-card__link" data-trackable="image" role="presentation" aria-hidden="true">
 			{{#with primaryImage}}
 				<img class='story-card__image'
 				src="{{src}}" alt=""
@@ -18,7 +18,7 @@
 			</a>
 		</div>
 		<h1 id="{{id}}-title" class="story-card__title" data-trackable="title">
-			<a href="/{{id}}" class="story-card__link" data-trackable="main-link">
+			<a href="/content/{{id}}" class="story-card__link" data-trackable="main-link">
 			{{title}}
 			</a>
 		</h1>
@@ -38,7 +38,7 @@
 				<article class="story-card__related-link" aria-labelledby="{{id}}-title" tabindex="0" role="article">
 					<a href="{{{primaryTag.url}}}" data-trackable="primary-tag" class="story-card__taxon story-card__link">
 						<span aria-label="Topic: {{primaryTag.name}}">{{primaryTag.name}}</span></a><span aria-hidden="true">|</span>
-					<a href="/{{id}}" data-trackable="title" role="heading"><span id="{{id}}-title">{{title}}</span></a>
+					<a href="/content/{{id}}" data-trackable="title" role="heading"><span id="{{id}}-title">{{title}}</span></a>
 				</article>
 			{{/slice}}
 		</div>
