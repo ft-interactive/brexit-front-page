@@ -42,6 +42,7 @@
 		a {
 			@include oGridColumn(1/2);
 
+			border-bottom: 0;
 			text-align: center;
 			cursor: pointer;
 			overflow-y: visible;
