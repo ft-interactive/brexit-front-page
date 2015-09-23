@@ -28,7 +28,7 @@ const Collection = new GraphQLInterfaceType({
 	resolveType: (value) => {
 		if (value.apiUrl && /lists\/[a-z\d\-]{36}$/.test(value.apiUrl)) {
 			return List;
-		} else if (value.conceptId == null) {
+		} else if (!value.conceptId) {
 			return Page;
 		} else {
 			return ContentByConcept;
