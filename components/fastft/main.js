@@ -1,8 +1,9 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import FastFtFeed from './fastftfeed';
 
 const renderFeed = (el, items) => {
-	React.render(<FastFtFeed items={items} />, el);
+	ReactDOM.render(<FastFtFeed items={items} />, el);
 }
 
 const init = el => {

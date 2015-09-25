@@ -1,23 +1,24 @@
 /* eslint no-unused-vars: 1 */
 
-import React from 'react/addons';
+import React, {Component} from 'react';
+import Animation from 'react-addons-css-transition-group';
 import Article from './article';
 
-let Anim = React.addons.CSSTransitionGroup;
-
-class Feed extends React.Component {
+class Feed extends Component {
 	render() {
 		const articles = this.props.items ? this.props.items.map((it) => <Article article={it} key={it.id} />) : [];
 
 		return (
-			<Anim
+			<Animation
 				transitionName="fade"
+				transitionEnterTimeout={500}
+				transitionLeaveTimeout={500}
 				className="feed"
 				tabIndex="0"
 				role="region"
 				aria-labelledby={this.props.labelId} >
 				{articles}
-			</Anim>
+			</Animation>
 		);
 	}
 }
