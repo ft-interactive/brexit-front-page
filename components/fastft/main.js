@@ -6,7 +6,8 @@ const renderFeed = (el, items) => {
 }
 
 const init = el => {
-	el = el || document.body;
+	if(!el) return;
+
 	const initialItems = JSON.parse(el.getAttribute('data-fastft-articles'));
 	let items = null;
 

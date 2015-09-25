@@ -18,7 +18,7 @@ const clickHandler = (links, link) => {
 };
 
 const init = (el, initialTab) => {
-	el = el || document.body;
+	if(!el) return;
 
 	const links = Array.prototype.slice.call(el.getElementsByTagName('a'));
 
