@@ -20,6 +20,12 @@ var app = express({
 });
 const logger = express.logger;
 
+// install dev middleware for easy development
+if(process.env.NODE_ENV !== 'production') {
+	const dev = require('./dev');
+	dev.extend(app);
+}
+
 app.use(bodyParser.text());
 
 app.get('/__gtg', (req, res) => {

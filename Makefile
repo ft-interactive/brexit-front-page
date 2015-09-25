@@ -21,6 +21,14 @@ smoke:
 
 test: verify unit-test
 
+# no nodemon for hot loading
+run:
+	nbt run --no-nodemon
+
+# no nodemon for hot loading
+run-local:
+	nbt run --local --no-nodemon
+
 build:
 	nbt build --dev
 
@@ -30,12 +38,6 @@ build-production:
 
 watch:
 	nbt build --dev --watch
-
-run:
-	nbt run
-
-run-local:
-	nbt run --local
 
 provision:
 	nbt provision ${TEST_HOST}
