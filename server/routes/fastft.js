@@ -1,6 +1,8 @@
 import graphql from '../lib/graphql';
 import queries from '../config/queries';
-import logger from 'ft-next-logger';
+import express from 'ft-next-express';
+
+const logger = express.logger;
 
 module.exports = function(req, res, next) {
 	const useElasticSearch = res.locals.flags.elasticSearchItemGet;
@@ -16,7 +18,7 @@ module.exports = function(req, res, next) {
 			res.json(data.fastFT);
 		})
 		.catch(err => {
-			logger.error(`${err.name}: ${err.message}`);
+			logger.error('Error fetching fastFt data', err);
 			next(err);
 		});
 };

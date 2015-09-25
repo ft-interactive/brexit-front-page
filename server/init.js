@@ -19,6 +19,7 @@ var app = express({
 		}
 	}
 });
+const logger = express.logger;
 
 app.use(bodyParser.text());
 
@@ -41,5 +42,5 @@ var port = process.env.PORT || 3001;
 
 export default app;
 export let listen = app.listen(port, () => {
-	console.log('Listening on ' + port);
+	logger.info('Listening on ' + port);
 });
