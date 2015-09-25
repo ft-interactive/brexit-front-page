@@ -2,6 +2,9 @@ import {graphql} from 'graphql';
 
 import schema from '../graphql/schema';
 import {factory as backend} from '../graphql/backend';
+import express from 'ft-next-express';
+
+const logger = express.logger;
 
 const fetch = (backend, opts = {}) => {
 	return (query) => {
@@ -13,7 +16,7 @@ const fetch = (backend, opts = {}) => {
 		.then(it => {
 			const now = new Date().getTime();
 
-			console.log('Graphql (', backend.type, ') responded in', now - then, 'ms');
+			logger.info(`Graphql (${backend.type}) responded in ${now - then} ms`);
 
 			if (it.errors) {
 				throw it.errors;
