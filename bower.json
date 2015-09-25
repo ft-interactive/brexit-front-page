@@ -17,7 +17,8 @@
     "o-grid": "4.0.0-beta.1",
     "next-feature-flags-client": "^v8.0.0",
     "next-js-setup": "^4.0.0",
-    "lodash": "^3.10.0"
+    "lodash": "^3.10.0",
+    "n-third-party-code": "^1.0.0"
   },
   "main": [
     "client/main.js"
