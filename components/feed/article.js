@@ -1,3 +1,4 @@
+/* eslint no-unused-vars: 1 */
 import {init as initDate, format} from 'o-date';
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';

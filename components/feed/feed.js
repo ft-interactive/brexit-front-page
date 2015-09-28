@@ -1,3 +1,5 @@
+/* eslint no-unused-vars: 1 */
+
 import React, {Component} from 'react';
 import Animation from 'react-addons-css-transition-group';
 import Article from './article';

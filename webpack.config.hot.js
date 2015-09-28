@@ -1,8 +1,8 @@
-var path = require('path');
-var webpack = require('webpack');
-var BowerWebpackPlugin = require('bower-webpack-plugin');
+import path from 'path';
+import webpack from 'webpack';
+import BowerWebpackPlugin from 'bower-webpack-plugin';
 
-var plugins = [
+const plugins = [
 	new BowerWebpackPlugin({ includes: [/\.js?$/] }),
 	// Global definitions
 	new webpack.DefinePlugin({
@@ -15,7 +15,7 @@ var plugins = [
 	new webpack.NoErrorsPlugin()
 ];
 
-var config = {
+const config = {
 	devtool: 'source-map',
 	debug: true,
 	entry: [
@@ -68,4 +68,4 @@ var config = {
 	}
 };
 
-module.exports = config;
+export default config;

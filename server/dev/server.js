@@ -18,7 +18,7 @@ const hotmw = hotMiddleware(compiler, {
 });
 
 // We're not serving a CSS bundle in watch mode
-app.get('/front-page/main.css', (req, res, next) => {
+app.get('/front-page/main.css', (req, res) => {
 	res.sendStatus(404);
 })
 
