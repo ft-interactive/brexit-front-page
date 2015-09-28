@@ -22,14 +22,14 @@ smoke:
 test: verify unit-test
 
 build:
-	webpack
+	nbt build --dev
 
 build-production:
-	NODE_ENV=production webpack --bail
+	nbt build
 	nbt about
 
 watch:
-	webpack --watch
+	nbt build --dev --watch
 
 run:
 	nbt run

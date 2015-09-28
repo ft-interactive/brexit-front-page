@@ -48,6 +48,9 @@
     "style-loader": "^0.12.3",
     "webpack": "^1.10.5"
   },
+  "babel": {
+    "optional": "es7.classProperties"
+  },
   "engines": {
     "node": "4.1.0"
   }
