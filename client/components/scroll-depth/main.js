@@ -1,5 +1,3 @@
-'use strict';
-
 var fireTracking = require('../../utils/fire-tracking');
 var throttle = require('../../utils/throttle');
 

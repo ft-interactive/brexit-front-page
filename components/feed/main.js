@@ -1,4 +1,4 @@
-'use strict';
+/* eslint no-unused-vars: 1 */
 
 import React from 'react/addons';
 import Article from './article';

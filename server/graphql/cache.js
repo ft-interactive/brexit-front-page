@@ -60,7 +60,7 @@ class Cache {
 
 			return it;
 		})
-		.catch((e) => {
+		.catch(() => {
 			delete this.requestMap[key];
 		});
 
