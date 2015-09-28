@@ -1,3 +1,5 @@
+/* eslint no-unused-vars: 1 */
+
 import React from 'react';
 import {Feed} from '../feed/main';
 

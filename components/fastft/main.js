@@ -5,7 +5,7 @@ const renderFeed = (el, items) => {
 	React.render(<FastFtFeed items={items} />, el);
 }
 
-const init = (el, opts) => {
+const init = el => {
 	el = el || document.body;
 	const initialItems = JSON.parse(el.getAttribute('data-fastft-articles'));
 	let items = null;

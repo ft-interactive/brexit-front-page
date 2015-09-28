@@ -1,4 +1,3 @@
-import {equal as assertEqual} from 'assert';
 import express from 'ft-next-express';
 import React from 'react';
 import bodyParser from 'body-parser';

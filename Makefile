@@ -3,21 +3,23 @@ TEST_URL := "http://ft-next-fp-branch-${CIRCLE_BUILD_NUM}.herokuapp.com"
 
 .PHONY: test build
 
+clean:
+	git clean -fxd
+
 install:
-	origami-build-tools install --verbose
+	obt install --verbose
 
 verify:
 	obt verify --esLintPath=./.eslintrc
 
-# FIXME enable verify for ES6 + JSX, test: verify unit-test
-test:
+unit-test:
 	mocha --compilers js:babel/register --recursive --reporter spec test/server/
 
-run:
-	nbt run
+smoke:
+	nbt test-urls ${TEST_HOST}
+	export TEST_URL=${TEST_URL}; nbt nightwatch test/browser/tests/*
 
-run-local:
-	nbt run --local
+test: verify unit-test
 
 build:
 	webpack
@@ -29,11 +31,11 @@ build-production:
 watch:
 	webpack --watch
 
-clean:
-	git clean -fxd
+run:
+	nbt run
 
-tidy:
-	nbt destroy ${TEST_HOST}
+run-local:
+	nbt run --local
 
 provision:
 	nbt provision ${TEST_HOST}
@@ -42,13 +44,12 @@ provision:
 	nbt deploy ${TEST_HOST} --skip-enable-preboot
 	make smoke
 
+tidy:
+	nbt destroy ${TEST_HOST}
+
 deploy:
 	nbt configure
 	nbt deploy-hashed-assets
 	nbt deploy
 
 clean-deploy: clean install build-production deploy
-
-smoke:
-	#nbt test-urls ${TEST_HOST}
-	export TEST_URL=${TEST_URL}; nbt nightwatch test/browser/tests/*

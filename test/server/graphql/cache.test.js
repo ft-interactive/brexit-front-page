@@ -47,7 +47,7 @@ describe('GraphQL Cache', () => {
 
 		it('fetches new data when cache expires', () => {
 			return cache.cached('test-key-4', -10, () => Promise.resolve('stale'))
-			.then((it) => {
+			.then(() => {
 				return cache.cached('test-key-4', 10, fetcher);
 			})
 			.then((it) => {

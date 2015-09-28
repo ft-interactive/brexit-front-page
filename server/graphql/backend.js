@@ -103,6 +103,8 @@ class Backend {
 	liveblogExtras(uri, {limit}, ttl = 50) {
 		return this.adapters.liveblog.fetch(uri, ttl)
 		.then(json => {
+			/* eslint no-unused-vars: 1 */
+
 			const dated = json.filter(it => !!it.data.datemodified);
 			const [first, second] = dated.slice(0, 2);
 
@@ -150,7 +152,7 @@ class Backend {
 	list(uuid, ttl = 50) {
 		return this.adapters.capi.list(uuid, ttl)
 			// return 'fake' list, so Collection can resolveType correctly
-			.catch(e => ({ apiUrl: `http://api.ft.com/lists/${uuid}` }));
+			.catch(() => ({ apiUrl: `http://api.ft.com/lists/${uuid}` }));
 	}
 
 	popularTopics({from, limit}, ttl = 50) {

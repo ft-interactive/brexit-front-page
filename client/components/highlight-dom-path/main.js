@@ -1,5 +1,3 @@
-'use strict';
-
 module.exports = () => {
 
 	var domPath = document.location.hash.split('#').pop();
