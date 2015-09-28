@@ -1,5 +1,6 @@
-@import "next-type/main";
-@import "o-colors/main";
+@import "next-sass-setup/main";
+@import "../feed/main";
+@import "../client/colors";
 
 @mixin nhFastFtTitle {
 	a {
@@ -25,4 +26,9 @@
 	.fastft__more-icon {
 		float: right;
 	}
+}
+
+#fastft {
+	h1 { @include nhFastFtTitle; }
+	article { @include nhFeedItem(fastft-brand); }
 }

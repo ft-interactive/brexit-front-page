@@ -1,9 +1,9 @@
 /* eslint no-unused-vars: 1 */
 
-import React from 'react';
-import {Feed} from '../feed/main';
+import React, {Component} from 'react';
+import Feed from '../feed/feed';
 
-class FastFtFeed extends React.Component {
+class FastFtFeed extends Component {
 	render() {
 		return (
 			<div aria-live='assertive' aria-relevant='additions'>

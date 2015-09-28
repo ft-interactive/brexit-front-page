@@ -1,8 +1,8 @@
 import graphql from '../lib/graphql';
 import queries from '../config/queries';
 
-import {FastFtFeed} from '../../components/fastft/main';
-import {Feed} from '../../components/feed/main';
+import FastFtFeed from '../../components/fastft/fastftfeed';
+import Feed from '../../components/feed/feed';
 
 export function getFrontPageData(region, flags) {
 	const useElasticSearch = flags.elasticSearchItemGet;

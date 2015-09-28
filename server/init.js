@@ -1,5 +1,6 @@
 import express from 'ft-next-express';
 import React from 'react';
+import ReactServer from 'react-dom/server';
 import bodyParser from 'body-parser';
 
 // routes
@@ -14,7 +15,7 @@ var app = express({
 			return it.split(/\.\s/).slice(0, sentences).join('. ') + '.';
 		},
 		reactRenderToString: (klass, props) => {
-			return React.renderToString(React.createElement(klass, props.hash));
+			return ReactServer.renderToString(React.createElement(klass, props.hash));
 		}
 	}
 });
