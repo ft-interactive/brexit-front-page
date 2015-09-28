@@ -3,8 +3,6 @@ import React from 'react';
 import ReactServer from 'react-dom/server';
 import bodyParser from 'body-parser';
 
-import devProxy from './dev/proxy';
-
 // routes
 import frontPage, { getFrontPageData } from './routes/front-page';
 import fastft from './routes/fastft';
@@ -24,6 +22,7 @@ var app = express({
 const logger = express.logger;
 
 if(process.env.NODE_ENV !== 'production') {
+	const devProxy = require('./dev/proxy');
 	 // proxies CSS and JS endpoints to the dev server for hot-loading
 	app.use('/front-page/', devProxy(8888))
 }
