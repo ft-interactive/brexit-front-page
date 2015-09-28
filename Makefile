@@ -32,10 +32,10 @@ run-local:
 	nbt run --local
 
 build:
-	nbt build --dev
+	webpack
 
 build-production:
-	nbt build
+	NODE_ENV=production webpack --bail
 	nbt about
 
 provision:
