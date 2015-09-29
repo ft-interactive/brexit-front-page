@@ -12,6 +12,8 @@ import fastFT from '../components/fastft/main';
 
 import './main.scss';
 
+import Section from '../components/section/main';
+
 setup.bootstrap(({flags}) => {
 	layout.init(flags);
 
@@ -32,4 +34,7 @@ setup.bootstrap(({flags}) => {
 	prompts.init();
 	highlightDomPath();
 	scrollDepth.init(flags);
+
+	const topStories = document.getElementById('top-stories');
+	Section.init(topStories);
 });

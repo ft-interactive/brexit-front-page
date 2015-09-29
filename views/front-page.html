@@ -1,68 +1,69 @@
-{{#defineBlock 'head'}}
+{{#if @root.flags.frontPageLayoutPrototype}}
+	<section id="top-stories" class="o-grid-container">{{{ reactRenderToString Section }}}</section>
+{{else}}
+	{{#defineBlock 'head'}}
 	<meta name="dfp_site" content="home" />
 	<meta name="dfp_zone" content="{{region}}" />
-{{/defineBlock}}
+	{{/defineBlock}}
 
-{{> header-tabs}}
-<a id="news-tab" class="nh-header-tabs__marker" >News</a>
-<a id="fastft-tab" class="nh-header-tabs__marker" >fastFT</a>
-<div class="o-grid-container fixed-width-container">
-	<div class="o-grid-row">
-		<div class="main-content nh-header-tabs__panel" data-o-grid-colspan="12 L9">
-			<h1 class="n-util-visually-hidden" id="lead-pod-title">Top stories</h1>
-			{{> lead-today leads=content.top.leads liveBlogs=content.top.liveBlogs items=content.top.items popularTopics=content.popularTopics }}
+	{{> header-tabs}}
+	<a id="news-tab" class="nh-header-tabs__marker" >News</a>
+	<a id="fastft-tab" class="nh-header-tabs__marker" >fastFT</a>
+	<div class="o-grid-container fixed-width-container">
+		<div class="o-grid-row">
+			<div class="main-content nh-header-tabs__panel" data-o-grid-colspan="12 L9">
+				<h1 class="n-util-visually-hidden" id="lead-pod-title">Top stories</h1>
+				{{> lead-today leads=content.top.leads liveBlogs=content.top.liveBlogs items=content.top.items popularTopics=content.popularTopics }}
+			</div>
 		</div>
-		<aside class="sidebar sidebar--fastft nh-header-tabs__panel" data-trackable="fastft" data-o-grid-colspan="12 L3" role="presentation">
-			<section id="fastft" data-fastft-articles="{{json content.fastFT.items}}">{{{ reactRenderToString FastFtFeed items=content.fastFT.items }}}</section>
-		</aside>
 	</div>
-</div>
-{{#if content.editorsPicks.items}}
-	<div class="bordered-row nh-header-tabs__panel">
-		<div class="o-grid-container">
-			<div class="o-grid-row">
-				<div class="main-content" data-o-grid-colspan="12">
-					<div class="flexipod flexipod--editors o-grid-container o-grid-container--compact" data-trackable="editors-picks" id="editors-picks">
-						<h1 class='carousel-heading' id="editors-picks-title" aria-hidden="true">{{content.editorsPicks.title}}</h1>
-						{{> editors items=content.editorsPicks.items id="editors-picks"}}
+	{{#if content.editorsPicks.items}}
+		<div class="bordered-row nh-header-tabs__panel">
+			<div class="o-grid-container">
+				<div class="o-grid-row">
+					<div class="main-content" data-o-grid-colspan="12">
+						<div class="flexipod flexipod--editors o-grid-container o-grid-container--compact" data-trackable="editors-picks" id="editors-picks">
+							<h1 class='carousel-heading' id="editors-picks-title" aria-hidden="true">{{content.editorsPicks.title}}</h1>
+							{{> editors items=content.editorsPicks.items id="editors-picks"}}
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+	{{/if}}
+	<div class="o-grid-container nh-header-tabs__panel">
+		<div class="o-grid-row">
+			<div class="main-content" data-o-grid-colspan="12 L9">
+				{{> opinion items=content.opinion.items url=content.opinion.url title="Opinion" id="opinion" }}
+				{{> topic items=content.lifestyle.items url=content.lifestyle.url title="Life & Arts" id="life-arts" }}
+				{{> topic items=content.markets.items url=content.markets.url title="Markets" id="markets" }}
+				{{> topic items=content.technology.items url=content.technology.url title="Technology" id="technology" }}
+			</div>
+			<aside class="sidebar sidebar--feed" role="presentation" data-o-grid-colspan="12 L3">
+				<section class="feed feed--popular" data-trackable="popular">
+					<div>
+						<div class="pod-heading pod-heading--feed">
+							<h1 id="popular-title" aria-hidden="true">Popular</h1>
+						</div>
+					</section>
+				</aside>
+			</div>
+		</div>
 	</div>
+	{{#ifAll flags.frontPageVideo content.videos}}
+		<div class="bordered-row nh-header-tabs__panel video-hub">
+			<div class="o-grid-container">
+				<div class="o-grid-row">
+					<div class="main-content" data-o-grid-colspan="12">
+						<div class="flexipod flexipod--video" data-trackable="video-picks" id="video-picks">
+							<h1 class='carousel-heading' id="editors-picks-title" aria-hidden="true">Video</h1>
+							<p class="video-hub--subtitle">Over 80 videos per week bring the news agenda to life</p>
+							{{> videos items=content.videos }}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		{{/ifAll}}
+	{{/if}}
 {{/if}}
-<div class="o-grid-container nh-header-tabs__panel">
-	<div class="o-grid-row">
-		<div class="main-content" data-o-grid-colspan="12 L9">
-			{{> opinion items=content.opinion.items url=content.opinion.url title="Opinion" id="opinion" }}
-			{{> topic items=content.lifestyle.items url=content.lifestyle.url title="Life & Arts" id="life-arts" }}
-			{{> topic items=content.markets.items url=content.markets.url title="Markets" id="markets" }}
-			{{> topic items=content.technology.items url=content.technology.url title="Technology" id="technology" }}
-		</div>
-		<aside class="sidebar sidebar--feed" role="presentation" data-o-grid-colspan="12 L3">
-			<section class="feed feed--popular" data-trackable="popular">
-				<div>
-					<div class="pod-heading pod-heading--feed">
-						<h1 id="popular-title" aria-hidden="true">Popular</h1>
-					</div>
-					{{{ reactRenderToString Feed items=content.popular.items labelId="popular-title" }}}
-				</div>
-			</section>
-		</aside>
-	</div>
-</div>
-{{#ifAll flags.frontPageVideo content.videos}}
-	<div class="bordered-row nh-header-tabs__panel video-hub">
-		<div class="o-grid-container">
-			<div class="o-grid-row">
-				<div class="main-content" data-o-grid-colspan="12">
-					<div class="flexipod flexipod--video" data-trackable="video-picks" id="video-picks">
-						<h1 class='carousel-heading' id="editors-picks-title" aria-hidden="true">Video</h1>
-						<p class="video-hub--subtitle">Over 80 videos per week bring the news agenda to life</p>
-						{{> videos items=content.videos }}
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-{{/ifAll}}

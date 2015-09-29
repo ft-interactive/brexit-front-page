@@ -3,6 +3,7 @@ import queries from '../config/queries';
 
 import FastFtFeed from '../../components/fastft/fastftfeed';
 import Feed from '../../components/feed/feed';
+import Section from '../../components/section/section';
 
 export function getFrontPageData(region, flags) {
 	const useElasticSearch = flags.elasticSearchItemGet;
@@ -31,6 +32,7 @@ export default (region) => {
 				layout: 'wrapper',
 				FastFtFeed: FastFtFeed,
 				Feed: Feed,
+				Section: Section,
 				content: contentData,
 				region: region
 			});
