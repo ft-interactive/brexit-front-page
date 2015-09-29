@@ -29,12 +29,13 @@ if(process.env.NODE_ENV !== 'production') {
 
 app.use(bodyParser.text());
 
-app.get('/__gtg', (req, res) => {
+app.get('/__gtg', (req, res, next) => {
 	// wait for data to be available
 	getFrontPageData('UK', res.locals.flags)
 		.then(() => {
 			res.status(200).end();
-		});
+		})
+		.catch(next)
 });
 app.get('/', (req, res) => {
 	res.sendStatus(404);
