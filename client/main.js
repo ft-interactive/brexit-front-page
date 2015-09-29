@@ -1,4 +1,3 @@
-import fastFT from '../components/fastft/main';
 import headerTabs from './components/header-tabs/main';
 import highlightDomPath from './components/highlight-dom-path/main';
 import scrollDepth from './components/scroll-depth/main';
@@ -8,6 +7,10 @@ import setup from 'next-js-setup';
 import oDate from 'o-date';
 import nVideo from 'n-video';
 import prompts from 'n-message-prompts';
+
+import fastFT from '../components/fastft/main';
+
+import './main.scss';
 
 setup.bootstrap(({flags}) => {
 	layout.init(flags);

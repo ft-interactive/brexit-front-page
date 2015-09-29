@@ -26,7 +26,6 @@ $_next-ui-setup-first-pass: false;
 @import "n-video/main";
 @import "n-message-prompts/main";
 
-@import "components/grid/main";
 @import "components/story-card/main";
 @import "components/carousel-card/main";
 @import "components/header-tabs/main";
@@ -34,9 +33,6 @@ $_next-ui-setup-first-pass: false;
 @import "components/highlight-dom-path/main";
 
 @import "icons";
-
-@import "../components/feed/main";
-@import "../components/fastft/main";
 
 @import "components/flexipod/main";
 
@@ -240,15 +236,6 @@ body {
 			display: block;
 		}
 	}
-}
-
-#fastft {
-	h1 {@include nhFastFtTitle; }
-	article { @include nhFeedItem(fastft-brand); }
-}
-
-.feed {
-	article { @include nhFeedItem(link-2); }
 }
 
 .bordered-spacer {

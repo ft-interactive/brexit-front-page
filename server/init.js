@@ -1,5 +1,6 @@
 import express from 'ft-next-express';
 import React from 'react';
+import ReactServer from 'react-dom/server';
 import bodyParser from 'body-parser';
 
 // routes
@@ -14,20 +15,27 @@ var app = express({
 			return it.split(/\.\s/).slice(0, sentences).join('. ') + '.';
 		},
 		reactRenderToString: (klass, props) => {
-			return React.renderToString(React.createElement(klass, props.hash));
+			return ReactServer.renderToString(React.createElement(klass, props.hash));
 		}
 	}
 });
 const logger = express.logger;
 
+if(process.env.NODE_ENV !== 'production' && process.env.NODE_ENV !== 'branch') {
+	const devProxy = require('./dev/proxy');
+	 // proxies CSS and JS endpoints to the dev server for hot-loading
+	app.use('/front-page/', devProxy(8888))
+}
+
 app.use(bodyParser.text());
 
-app.get('/__gtg', (req, res) => {
+app.get('/__gtg', (req, res, next) => {
 	// wait for data to be available
 	getFrontPageData('UK', res.locals.flags)
 		.then(() => {
 			res.status(200).end();
-		});
+		})
+		.catch(next)
 });
 app.get('/', (req, res) => {
 	res.sendStatus(404);

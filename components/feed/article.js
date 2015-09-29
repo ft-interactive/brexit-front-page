@@ -1,13 +1,15 @@
+/* eslint no-unused-vars: 1 */
 import {init as initDate, format} from 'o-date';
-import React from 'react';
+import React, {Component} from 'react';
+import ReactDOM from 'react-dom';
 
 const dateFormat = 'h:mm a';
 
 const linkHref = (id) => (id ? '/content/' + id.split('/').slice(-1)[0] : '');
 
-class Article extends React.Component {
+class Article extends Component {
 	componentDidMount() {
-		const el = React.findDOMNode(this);
+		const el = ReactDOM.findDOMNode(this);
 		initDate(el);
 	}
 

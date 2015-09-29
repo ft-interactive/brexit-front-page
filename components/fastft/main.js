@@ -1,12 +1,19 @@
+/* eslint no-unused-vars: 1 */
+
 import React from 'react';
+import ReactDOM from 'react-dom';
 import FastFtFeed from './fastftfeed';
+import Feed from '../feed/feed';
+
+import './main.scss';
 
 const renderFeed = (el, items) => {
-	React.render(<FastFtFeed items={items} />, el);
+	ReactDOM.render(<FastFtFeed items={items} />, el);
 }
 
 const init = el => {
-	el = el || document.body;
+	if(!el) return;
+
 	const initialItems = JSON.parse(el.getAttribute('data-fastft-articles'));
 	let items = null;
 
