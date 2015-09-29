@@ -1,4 +1,3 @@
-/* global document */
 import headerTabs from './components/header-tabs/main';
 import highlightDomPath from './components/highlight-dom-path/main';
 import scrollDepth from './components/scroll-depth/main';
