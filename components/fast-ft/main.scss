@@ -1,0 +1,30 @@
+.fast-ft {
+	background-color: getColor('pink');
+	padding: 10px;
+}
+.fast-ft__items {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+.fast-ft__item {
+	position: relative;
+	margin-top: 10px;
+	padding-left: 60px;
+
+	*:first-child > & {
+		margin-top: 0;
+	}
+}
+.fast-ft__time {
+	position: absolute;
+	top: 0;
+	left: 0;
+	color: getColor('claret');
+}
+.fast-ft__item__title-link {
+
+}
+.fast-ft__item__title {
+	@include nTypeAlpha(4);
+}

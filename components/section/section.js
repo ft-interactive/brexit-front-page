@@ -1,41 +1,27 @@
 /*eslint no-unused-vars: 1*/
 import React, {Component} from 'react';
 
+import SectionMeta from '../section-meta/section-meta';
+import TopStories from '../top-stories/top-stories';
+import FastFt from '../fast-ft/fast-ft';
+
 class Section extends Component {
 	render() {
-		return (<div className="section o-grid-row">
-			<aside data-o-grid-colspan="hide XL2">
-				<div className="section__meta full-cell" >
-					Top Stories
-				</div>
-			</aside>
-			<div data-o-grid-colspan="12 L10 XL8">
-				<div className="section__meta--mobile">
-					Top Stories
-				</div>
+		return (
+			<section className="section o-grid-container">
 				<div className="o-grid-row">
-					<div data-o-grid-colspan="12 M5">
-						<article>Card</article>
-						<article>Card</article>
+					<div data-o-grid-colspan="hide XL2">
+						<SectionMeta title="Top Stories"/>
 					</div>
-					<div data-o-grid-colspan="12 M4">
-						<article>Card</article>
-						<article>Card</article>
+					<div data-o-grid-colspan="12 L10 XL8">
+						<TopStories articles={this.props.topArticles} />
 					</div>
-					<div data-o-grid-colspan="12 M3">
-						<article>Card</article>
-						<article>Card</article>
-						<article>Card</article>
-						<article>Card</article>
-					</div>
+					<aside data-o-grid-colspan="hide L2">
+						<FastFt articles={this.props.fastFtArticles} />
+					</aside>
 				</div>
-			</div>
-			<aside data-o-grid-colspan="hide L2">
-				<div className="section__extra full-cell">
-					Extra stuff
-				</div>
-			</aside>
-		</div>);
+			</section>
+		);
 	}
 }
 

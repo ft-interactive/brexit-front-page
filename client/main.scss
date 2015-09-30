@@ -18,7 +18,11 @@ $o-grid-start-snappy-mode-at: XL;
 @import "components/highlight-dom-path/main";
 @import "components/flexipod/main";
 
-@import "flexipod-layouts";
+@import "../components/section/main";
+@import "../components/section-meta/main";
+@import "../components/top-stories/main";
+@import "../components/fast-ft/main";
+@import "../components/card/main";
 
 html {
 	background-color: oColorsGetColorFor('page', 'background');

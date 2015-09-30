@@ -1,5 +1,5 @@
 {{#if @root.flags.frontPageLayoutPrototype}}
-	<section id="top-stories" class="o-grid-container">{{{ reactRenderToString Section }}}</section>
+	<div id="top-stories">{{{ reactRenderToString Section topArticles=content.top.items fastFtArticles=content.fastFT.items}}}</div>
 {{else}}
 	{{#defineBlock 'head'}}
 	<meta name="dfp_site" content="home" />

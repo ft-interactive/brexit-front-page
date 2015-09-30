@@ -1,0 +1,53 @@
+.card {
+	background-color: getColor('pink');
+	margin-bottom: 10px;
+	padding: 10px;
+}
+.card__tag {
+	@include nTypeAlpha(4);
+	color: getColor('teal-1');
+	border-bottom: 0;
+
+	.card--large &,
+	.card--medium & {
+		@include nTypeAlpha(3);
+	}
+}
+.card__title-link {
+	border-bottom: 0;
+}
+.card__title {
+	@include nTypeFoxtrot(3);
+	margin-top: 5px;
+
+	.card--large & {
+		@include nTypeFoxtrot(2);
+	}
+	.card--small &,
+	.card--headline & {
+		 @include nTypeFoxtrot(4);
+	 }
+	.card--headline & {
+		display: inline;
+
+		&:before {
+			content: '|';
+			margin: 0 5px;
+		}
+	}
+}
+.card__standfirst {
+	@include nTypeAlpha(3);
+	margin-top: 5px;
+}
+.card__image-link,
+.card__image {
+	display: block;
+}
+.card__image-link {
+	margin-top: 5px;
+	border-bottom: 0;
+}
+.card__image {
+	width: 100%;
+}

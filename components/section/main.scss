@@ -1,5 +1,3 @@
-@import "o-grid/main";
-
 .full-cell {
 	position: absolute;
 	height: 100%;
@@ -12,33 +10,11 @@
 }
 
 .section {
+	margin-top: 10px;
 	min-height: 300px;
 }
-
-.section__main-content {
-	background-color: lightgray;
-}
-
-.section__meta {
-	background-color: red;
-}
-
 .section__meta--mobile {
 	@include oGridRespondTo(XL) {
 		display: none;
-	}
-}
-
-.section__extra {
-	background-color: red;
-}
-
-article {
-	background-color: yellow;
-	margin-bottom: oGridGutter();
-	min-height: 50px;
-
-	@include oGridRespondTo(M) {
-		margin-bottom: oGridGutter(M);
 	}
 }
