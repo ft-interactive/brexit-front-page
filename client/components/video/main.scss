@@ -68,7 +68,7 @@ video {
 
 .video__list {
 	@include oGridRow();
-	@include oGridRowReset;
+	//@include oGridRowReset;
 
 	overflow: hidden;
 	margin-bottom: 20px;

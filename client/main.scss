@@ -213,7 +213,7 @@ body {
 	.flexipod--editors {
 		.article-group {
 			@include oGridRow;
-			@include oGridRowReset;
+			//@include oGridRowReset;
 		}
 	}
 }
