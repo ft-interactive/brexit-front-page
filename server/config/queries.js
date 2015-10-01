@@ -81,7 +81,6 @@ const frontPage = (region) => (`
 			items(from: 1, type: Article) {
 				... Basic
 				... Extended
-				... Related
 			}
 		}
 		fastFT {
