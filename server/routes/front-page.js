@@ -28,6 +28,7 @@ export default (region) => {
 
 		getFrontPageData(region, res.locals.flags)
 		.then(contentData => {
+				//console.log(contentData.top.items);
 			res.render('front-page', {
 				layout: 'wrapper',
 				FastFtFeed: FastFtFeed,

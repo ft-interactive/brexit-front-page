@@ -1,6 +1,5 @@
 /*eslint no-unused-vars: 1*/
 import React, {Component} from 'react';
-
 import FastFtItem from './fast-ft-item';
 
 class FastFt extends Component {

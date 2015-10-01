@@ -30,8 +30,13 @@ if(process.env.NODE_ENV !== 'production' && process.env.NODE_ENV !== 'branch') {
 app.use(bodyParser.text());
 
 app.get('/__gtg', (req, res, next) => {
-	// wait for data to be available
-	getFrontPageData('UK', res.locals.flags)
+	// warm up the data
+	Promise.all([
+			getFrontPageData('UK', Object.assign({}, res.locals.flags, { elasticSearchItemGet: true, mockBackend: false })),
+			getFrontPageData('US', Object.assign({}, res.locals.flags, { elasticSearchItemGet: true, mockBackend: false })),
+			getFrontPageData('UK', Object.assign({}, res.locals.flags, { elasticSearchItemGet: false, mockBackend: false })),
+			getFrontPageData('US', Object.assign({}, res.locals.flags, { elasticSearchItemGet: false, mockBackend: false }))
+		])
 		.then(() => {
 			res.status(200).end();
 		})

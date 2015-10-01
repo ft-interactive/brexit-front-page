@@ -4,7 +4,7 @@ import React, {Component} from 'react';
 class CardSmall extends Component {
 	render() {
 		const article = this.props.article;
-		const image = article.primaryImage ? <img className="card__image" src={article.primaryImage.src} /> : '';
+		const image = article.primaryImage && this.props.showImage !== false ? <img className="card__image" src={article.primaryImage.src} /> : '';
 		return (
 			<article className="card card--small" data-trackable="card">
 				<a className="card__tag" href={article.primaryTag.url} data-trackable="tag">{article.primaryTag.name}</a>

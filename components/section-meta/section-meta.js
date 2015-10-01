@@ -1,6 +1,5 @@
 /*eslint no-unused-vars: 1*/
 import React, {Component} from 'react';
-
 import dateFormat from 'dateformat';
 
 class SectionMeta extends Component {

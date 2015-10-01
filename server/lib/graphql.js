@@ -16,7 +16,7 @@ const fetch = (backend, opts = {}) => {
 		.then(it => {
 			const now = new Date().getTime();
 
-			logger.info(`Graphql (${backend.type}) responded in ${now - then} ms`);
+			logger.info(`Graphql (${backend.type}) responded in ${now - then} ms`	);
 
 			if (it.errors) {
 				throw it.errors;
