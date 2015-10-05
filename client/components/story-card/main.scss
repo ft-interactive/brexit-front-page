@@ -138,7 +138,6 @@
 	}
 	.story-card__content {
 		@include oGridColspan(12);
-		padding-top: 10px;
 	}
 	.story-card__summary {
 		display: none;
