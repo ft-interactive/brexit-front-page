@@ -12,13 +12,6 @@ export function getFrontPageData(region, flags) {
 	return graphql(useElasticSearch, mockBackend, { flags }).fetch(queries.frontPage(region));
 }
 
-// prime both front-page graphql queries to warm up caches
-
-getFrontPageData('UK', {elasticSearchItemGet: true, mockBackend: false });
-getFrontPageData('US', {elasticSearchItemGet: true, mockBackend: false });
-getFrontPageData('UK', {elasticSearchItemGet: false, mockBackend: false });
-getFrontPageData('US', {elasticSearchItemGet: false, mockBackend: false });
-
 export default (region) => {
 	return (req, res, next) => {
 		res.set({

@@ -15,6 +15,9 @@
 				<h1 class="n-util-visually-hidden" id="lead-pod-title">Top stories</h1>
 				{{> lead-today leads=content.top.leads liveBlogs=content.top.liveBlogs items=content.top.items popularTopics=content.popularTopics }}
 			</div>
+			<aside class="sidebar sidebar--fastft nh-header-tabs__panel" data-trackable="fastft" data-o-grid-colspan="12 L3" role="presentation">
+				<section id="fastft" data-fastft-articles="{{json content.fastFT.items}}">{{{ reactRenderToString FastFtFeed items=content.fastFT.items }}}</section>
+			</aside>
 		</div>
 	</div>
 	{{#if content.editorsPicks.items}}
@@ -45,9 +48,10 @@
 						<div class="pod-heading pod-heading--feed">
 							<h1 id="popular-title" aria-hidden="true">Popular</h1>
 						</div>
-					</section>
-				</aside>
-			</div>
+						{{{ reactRenderToString Feed items=content.popular.items labelId="popular-title" }}}
+					</div>
+				</section>
+			</aside>
 		</div>
 	</div>
 	{{#ifAll flags.frontPageVideo content.videos}}
@@ -64,6 +68,5 @@
 				</div>
 			</div>
 		</div>
-		{{/ifAll}}
-	{{/if}}
+	{{/ifAll}}
 {{/if}}
