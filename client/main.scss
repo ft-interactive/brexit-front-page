@@ -157,8 +157,6 @@ body {
 }
 
 .main-content {
-	@include oGridColumn($span: (default: 12, L: 9));
-
 	.flexipod--lead-today {
 		// TODO think about sinking the breakpoints into nhFlexipod
 		@include nhFlexipod(map-get($layout-lead-today, default));
@@ -207,13 +205,6 @@ body {
 
 		@include oGridRespondTo(M) {
 			@include nhFlexipod(map-get($layout-topic, S), 9);
-		}
-	}
-
-	.flexipod--editors {
-		.article-group {
-			@include oGridRow;
-			//@include oGridRowReset;
 		}
 	}
 }

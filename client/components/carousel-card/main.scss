@@ -1,21 +1,27 @@
 .carousel-card {
-	@include oGridColumn((default: 12, XS: 6, S: 4, L: 2));
-
-	width: 100%;
 	text-align: left;
-	margin-top: 0px;
 	margin-bottom: 20px;
-	float: left;
+	min-width: 0 !important;
 
-	@include oGridRespondTo(S) { text-align: center; }
-
-	.story-card__title { font-size: 0.9em; }
-	.story-card__taxon { margin-bottom: 5px; }
-
-	a {
-		@include linkHover;
+	@include oGridRespondTo(S) {
+		text-align: center;
 	}
+	.story-card__title {
+		font-size: 0.9em;
+	}
+	.story-card__taxon {
+		margin-bottom: 5px;
+	}
+}
 
+.carousel-card__image-link {
+	@include oGridColspan((default: 4, XS: 12));
+	border-bottom: 0;
+}
+
+.carousel-card__image {
+	width: 100%;
+	margin-bottom: 10px;
 }
 
 .carousel-card--link {
@@ -23,29 +29,5 @@
 }
 
 .carousel-card__content {
-	@include oGridColumn((default: 8, XS: 12));
-}
-
-.carousel-card__image {
-	@include oGridColumn(4);
-	margin-bottom: 10px;
-	float: left;
-
-	@include oGridRespondTo(XS) {
-		width: 100%;
-		padding: 0;
-		margin: 0 0 10px;
-		display: inline;
-	}
-
-}
-
-.flexipod--editors .carousel-card {
-	@include oGridRespondTo($from: XS, $until: S) {
-		&:nth-child(2n+1) { clear: both; }
-	}
-
-	@include oGridRespondTo($from: S, $until: L) {
-		&:nth-child(3n+1) { clear: both; }
-	}
+	@include oGridColspan((default: 8, XS: 12));
 }
