@@ -2,8 +2,8 @@
 	<div id="top-stories">{{{ reactRenderToString Section topArticles=content.top.items fastFtArticles=content.fastFT.items}}}</div>
 {{else}}
 	{{#defineBlock 'head'}}
-	<meta name="dfp_site" content="home" />
-	<meta name="dfp_zone" content="{{region}}" />
+		<meta name="dfp_site" content="home" />
+		<meta name="dfp_zone" content="{{region}}" />
 	{{/defineBlock}}
 
 	{{> header-tabs}}
