@@ -6,7 +6,7 @@
 {{> header-tabs}}
 <a id="news-tab" class="nh-header-tabs__marker" >News</a>
 <a id="fastft-tab" class="nh-header-tabs__marker" >fastFT</a>
-<div class="o-grid-container">
+<div class="o-grid-container fixed-width-container">
 	<div class="o-grid-row">
 		<div class="main-content nh-header-tabs__panel" data-o-grid-colspan="12 L9">
 			<h1 class="n-util-visually-hidden" id="lead-pod-title">Top stories</h1>
@@ -35,11 +35,8 @@
 	<div class="o-grid-row">
 		<div class="main-content" data-o-grid-colspan="12 L9">
 			{{> opinion items=content.opinion.items url=content.opinion.url title="Opinion" id="opinion" }}
-			<div class="bordered-spacer"></div>
 			{{> topic items=content.lifestyle.items url=content.lifestyle.url title="Life & Arts" id="life-arts" }}
-			<div class="bordered-spacer"></div>
 			{{> topic items=content.markets.items url=content.markets.url title="Markets" id="markets" }}
-			<div class="bordered-spacer"></div>
 			{{> topic items=content.technology.items url=content.technology.url title="Technology" id="technology" }}
 		</div>
 		<aside class="sidebar sidebar--feed" role="presentation" data-o-grid-colspan="12 L3">

@@ -1,53 +1,24 @@
-$o-grid-column: 100 / 1440;
-$o-grid-gutter: 20 / 1440;
-
-$o-grid-layouts: (
-	XS: 330px,
-	S: 480px,
-	M: 720px,
-	L: 960px,
-	XL: 1200px
-	//	XXL: 1440px
-);
-
-$o-grid-min-width: 280px;
 $o-grid-start-snappy-mode-at: XL;
-
-// Shut up next-sass-setup
-$_next-ui-setup-first-pass: false;
-
-@import "next-sass-setup/main";
-
-@import "colors";
-@import "type";
 
 @import "n-layout/main";
 @import "next-myft-ui/main";
 @import "n-video/main";
 @import "n-message-prompts/main";
 
+@include oGridSurfaceCurrentLayout;
+
+@import "colors";
+@import "type";
+@import "icons";
+
 @import "components/story-card/main";
 @import "components/carousel-card/main";
 @import "components/header-tabs/main";
 @import "components/video/main";
 @import "components/highlight-dom-path/main";
-
-@import "icons";
-
 @import "components/flexipod/main";
 
 @import "flexipod-layouts";
-
-@include oGridSurfaceCurrentLayout;
-
-$container-widths: (
-	XS: 100%,
-	S: 100%,
-	M: 100%,
-	L: 100%,
-	XL: 100%
-//	XXL: 1440px
-);
 
 html {
 	background-color: oColorsGetColorFor('page', 'background');
@@ -81,7 +52,7 @@ img {
 }
 
 body {
-	@include oGridGenerate();
+	//@include oGridGenerate();
 	@include nhHeaderTabs();
 
 	padding: 0;
@@ -143,16 +114,6 @@ body {
 }
 
 .fixed-width-container {
-	@each $layout in $container-widths {
-		@include oGridRespondTo(nth($layout, 1)) {
-			$width: nth($layout, 2);
-
-			@if $width != 100% {
-				width: $width;
-			}
-		}
-	}
-
 	margin: 0 auto;
 }
 
