@@ -2,17 +2,49 @@
 @import 'footer';
 @import 'liveblog';
 
-.story-card {
-	background-color: oColorsGetColorFor('card', 'background');
-	width: 100%;
-	overflow: hidden;
-	padding-bottom: $story-card--footer-height;
-	position: relative;
-	font-size: 18px;
+.o-grid-container--compact {
+	padding-left: 0 !important;
+	padding-right: 0 !important;
 }
 
-.story-card__related {
-	clear: both;
+.story-card {
+	background-color: oColorsGetColorFor('card', 'background');
+	margin-bottom: oGridGutter();
+	padding-bottom: $story-card--footer-height;
+	font-size: 18px;
+	width: 100%;
+	min-width: 0 !important;
+
+	@include oGridRespondTo(M) {
+		margin-bottom: oGridGutter(M);
+	}
+}
+
+.story-card__image-link {
+	border-bottom: 0;
+}
+
+.story-card__image {
+	display: block;
+	width: 100%;
+}
+
+.story-card__content-inner {
+	padding: 10px 10px 0;
+}
+
+.story-card__taxon {
+	@include nTypeBravoSize(4);
+	margin-bottom: 5px;
+
+	&.story-card__link,
+	.story-card__link {
+		@include nLinksTopic();
+	}
+}
+
+.story-card__link {
+	border-bottom: 0;
 }
 
 .story-card__heading {
@@ -23,32 +55,35 @@
 .story-card__title,
 .story-card__related-link {
 	@include nTypeFoxtrot(3);
-	margin-bottom: 10px;
+
 	a {
 		@include nLinksHeadline();
 	}
 }
 
 .story-card__related-link {
-	@include oGridColumn((default: 9, M: 3), 9);
 	@include nTypeFoxtrotSize(4);
-
+	margin-top: oGridGutter();
 	font-size: 16px;
-	border-bottom: 1px dotted oColorsGetPaletteColor('warm-3');
-	margin-bottom: 4px;
-	padding-bottom: 4px;
 
-	@include oGridRespondTo($from: M) { border-bottom: 0; }
+	@include oGridRespondTo(M) {
+		margin-top: oGridGutter(M);
+	}
 }
 
-.story-card__image { width: 100%; }
-.story-card__taxon {
-	margin-right: 5px;
-	margin-bottom: 5px;
-	@include nTypeBravoSize(4);
-	&.story-card__link,
-	.story-card__link {
-		@include nLinksTopic();
+.story-card__related-link-inner {
+	padding-left: 10px;
+	border-bottom: 1px dotted oColorsGetPaletteColor('warm-3');
+
+	@include oGridRespondTo(M) {
+		padding-left: 0;
+		border-bottom: 0;
+	}
+	.story-card__related-link:first-child > & {
+		padding-left: 10px;
+	}
+	.story-card__related-link:nth-child(3) > & {
+		padding-right: 10px;
 	}
 }
 
@@ -57,13 +92,10 @@
 	line-height: 1;
 	font-size: 18px;
 }
-.story-card__content {
-	padding: 10px;
-	overflow: hidden;
-	& > * { margin-bottom: 10px; }
-}
 
-.story-card__footer { @include storyCardFooter;	}
+.story-card__footer {
+	@include storyCardFooter;
+}
 
 @mixin nhStoryCard($type) {
 	@if $type == 'large' {
@@ -84,75 +116,91 @@
 
 @mixin nhLargeCard() {
 	font-size: 1.2em;
-	@include oGridRespondTo($from: L) {
-		.story-card__summary {
-			display: initial;
+
+	.story-card__image-link {
+		@include oGridColspan((default: 12, M: 8));
+	}
+	.story-card__content {
+		@include oGridColspan((default: 12, M: 4));
+	}
+	.story-card__content-inner {
+		@include oGridRespondTo(M) {
+			padding-left: 0;
 		}
 	}
-
 	.story-card__title {
 		@include nTypeFoxtrotSize(2);
 	}
-
-	.story-card__image {
-		@include oGridColumn(6, 9);
-		padding-top: 0;
-		padding-bottom: 0;
-		padding-left: 0;
-		height: auto;
-		display: block;
-	}
-
-	.story-card__content { @include oGridColumn(3, 9); }
-
-	.story-card__image,
-	.story-card__content {
-		@include oGridRespondTo($until: M) {
-			width: 100%;
+	.story-card__summary {
+		@include oGridRespondTo($from: L) {
+			display: initial;
 		}
-
-		// @include oGridRespondTo($from:S, $until: L) {
-		// 	width: 100%;
-		// }
 	}
 }
 
 @mixin nhMediumCard {
-	.story-card__image { display: none; }
-	.story-card__summary { display: none; }
+	.story-card__image {
+		display: none;
+	}
+	.story-card__content {
+		@include oGridColspan(12);
+	}
+	.story-card__summary {
+		display: none;
+	}
 }
 
 @mixin nhSmallCard {
-	.story-card__image { display: none; }
-	.story-card__summary { display: none; }
+	.story-card__image {
+		display: none;
+	}
+	.story-card__content {
+		@include oGridColspan(12);
+	}
+	.story-card__summary {
+		display: none;
+	}
 }
 
 @mixin nhTallCard {
-	display: block;
-	padding-bottom: 42px;
-
-	.story-card__image {
-		width: 100%;
-		height: auto;
-		display: block;
+	.story-card__image-link {
+		@include oGridColspan(12);
 	}
-
-	.story-card__summary { display: none; }
+	.story-card__content {
+		@include oGridColspan(12);
+	}
+	.story-card__content-inner {
+		padding-left: 10px;
+	}
+	.story-card__summary {
+		display: none;
+	}
 }
 
 @mixin nhWideCard() {
-	.story-card__image {
-		@include oGridColumn(3, 9);
-		height: 100%;
-		display: block;
-		float: left;
-		padding: 0;
+	.story-card__image-link {
+		@include oGridColspan(4);
 	}
-	.story-card__summary { display: none; }
-	.story-card__content { margin: 0; }
+	.story-card__content {
+		@include oGridColspan(8);
+	}
+	.story-card__content-inner {
+		padding-left: 0;
+	}
+	.story-card__summary {
+		display: none;
+	}
 }
 
 @mixin nhWideImagelessCard {
-	@include nhWideCard();
-	.story-card__image { display: none; }
+	.story-card__image {
+		display: none;
+	}
+	.story-card__content {
+		@include oGridColspan(12);
+		margin: 0;
+	}
+	.story-card__summary {
+		display: none;
+	}
 }

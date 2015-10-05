@@ -1,81 +1,91 @@
-<article class='story-card article--{{genre}} {{#ifEquals contentType "LiveBlog"}}story-card--liveblog liveblog--{{lowercase status}}{{/ifEquals}}' data-trackable="story" tabindex="0" aria-labelledby="{{id}}-title" role="article">
-	{{#if primaryImage}}
-		<a href="/content/{{id}}" class="story-card__link" data-trackable="image" role="presentation" aria-hidden="true">
-			{{#with primaryImage}}
-				<img class='story-card__image'
-				src="{{src}}" alt=""
-				/>
-			{{/with}}
-		</a>
-	{{/if}}
-	<div class="story-card__content">
-		{{#ifEquals type 'LiveBlog'}}
-			<span class="liveblog__badge">live</span>
-		{{/ifEquals}}
-		<div class="story-card__taxon" aria-label="Topic: {{primaryTag.name}}">
-			<a href="{{{primaryTag.url}}}" data-trackable="primary-tag" class="story-card__tag story-card__link">
-				{{primaryTag.name}}
+<article class="story-card article--{{genre}} {{#ifEquals contentType "LiveBlog"}}story-card--liveblog liveblog--{{lowercase status}}{{/ifEquals}} o-grid-container o-grid-container--compact" data-trackable="story" tabindex="0" aria-labelledby="{{id}}-title" role="article">
+	<div class="story-card--inner o-grid-row">
+		{{#if primaryImage}}
+			<a href="/content/{{id}}" class="story-card__image-link" data-trackable="image" role="presentation" aria-hidden="true">
+				{{#with primaryImage}}
+					<img class='story-card__image'
+					src="{{src}}" alt=""
+					/>
+				{{/with}}
 			</a>
-		</div>
-		<h1 id="{{id}}-title" class="story-card__title" data-trackable="title">
-			<a href="/content/{{id}}" class="story-card__link" data-trackable="main-link">
-			{{title}}
-			</a>
-		</h1>
-		{{#if updates}}
-			{{#slice updates limit=1}}
-				<h2 class="story-card__summary" data-trackable="summary">{{trim text sentences=1}}</h2>
-			{{/slice}}
-		{{else}}
-			{{#if showSummary}}
-				<h2 class="story-card__summary" data-trackable="summary">{{{summary}}}</h2>
-			{{/if}}
 		{{/if}}
-	</div>
-	{{#if relatedContent}}
-		<div class="story-card__related" data-trackable="related-links" tabindex="0" role="group" aria-label="Related links">
-			{{#slice relatedContent limit=3}}
-				<article class="story-card__related-link" aria-labelledby="{{id}}-title" tabindex="0" role="article">
-					<a href="{{{primaryTag.url}}}" data-trackable="primary-tag" class="story-card__taxon story-card__link">
-						<span aria-label="Topic: {{primaryTag.name}}">{{primaryTag.name}}</span></a><span aria-hidden="true">|</span>
-					<a href="/content/{{id}}" data-trackable="title" role="heading"><span id="{{id}}-title">{{title}}</span></a>
-				</article>
-			{{/slice}}
+		<div class="story-card__content">
+			<div class="story-card__content-inner">
+				{{#ifEquals type 'LiveBlog'}}
+					<span class="liveblog__badge">live</span>
+				{{/ifEquals}}
+				<div class="story-card__taxon" aria-label="Topic: {{primaryTag.name}}">
+					<a href="{{{primaryTag.url}}}" data-trackable="primary-tag" class="story-card__tag story-card__link">
+						{{primaryTag.name}}
+					</a>
+				</div>
+				<h1 id="{{id}}-title" class="story-card__title" data-trackable="title">
+					<a href="/content/{{id}}" class="story-card__link" data-trackable="main-link">
+					{{title}}
+					</a>
+				</h1>
+				{{#if updates}}
+					{{#slice updates limit=1}}
+						<h2 class="story-card__summary" data-trackable="summary">{{trim text sentences=1}}</h2>
+					{{/slice}}
+				{{else}}
+					{{#if showSummary}}
+						<h2 class="story-card__summary" data-trackable="summary">{{{summary}}}</h2>
+					{{/if}}
+				{{/if}}
+			</div>
 		</div>
-	{{/if}}
-	<div class='story-card__footer'>
-		{{#ifEquals type 'LiveBlog'}}
-			<i class="liveblog__live-indicator"><i class="glow"></i></i>
-			{{#ifEquals status 'InProgress'}}
-				<span>last post</span>
-			{{/ifEquals}}
-			{{#ifEquals status 'Closed'}}
-				<span>liveblog closed</span>
-			{{/ifEquals}}
+		{{#if relatedContent}}
+			<div class="story-card__related--wrapper" data-o-grid-colspan="12">
+				<div class="story-card__related o-grid-container o-grid-container--compact" data-trackable="related-links" tabindex="0" role="group" aria-label="Related links">
+					<div class="story-card__related--inline o-grid-row">
+						{{#slice relatedContent limit=3}}
+							<article class="story-card__related-link" aria-labelledby="{{id}}-title" tabindex="0" role="article" data-o-grid-colspan="12 M4">
+								<div class="story-card__related-link-inner">
+									<a href="{{{primaryTag.url}}}" data-trackable="primary-tag" class="story-card__taxon story-card__link">
+										<span aria-label="Topic: {{primaryTag.name}}">{{primaryTag.name}}</span></a><span aria-hidden="true">|</span>
+									<a href="/content/{{id}}" data-trackable="title" role="heading"><span id="{{id}}-title">{{title}}</span></a>
+								</div>
+							</article>
+						{{/slice}}
+					</div>
+				</div>
+			</div>
+		{{/if}}
+		<div class='story-card__footer'>
+			{{#ifEquals type 'LiveBlog'}}
+				<i class="liveblog__live-indicator"><i class="glow"></i></i>
+				{{#ifEquals status 'InProgress'}}
+					<span>last post</span>
+				{{/ifEquals}}
+				{{#ifEquals status 'Closed'}}
+					<span>liveblog closed</span>
+				{{/ifEquals}}
 
-			{{#ifEquals status 'ComingSoon'}}
-				<span>coming soon</span>
+				{{#ifEquals status 'ComingSoon'}}
+					<span>coming soon</span>
+				{{else}}
+					{{#slice updates limit=1}}
+						<time
+							data-o-component="o-date"
+							class="o-date"
+							datetime="{{#dateformat}}{{date}}{{/dateformat}}">
+									{{#dateformat "dddd, d mmmm, yyyy"}}{{date}}{{/dateformat}}
+						</time>
+					{{/slice}}
+				{{/ifEquals}}
 			{{else}}
-				{{#slice updates limit=1}}
-					<time
-						data-o-component="o-date"
-						class="o-date"
-						datetime="{{#dateformat}}{{date}}{{/dateformat}}">
-								{{#dateformat "dddd, d mmmm, yyyy"}}{{date}}{{/dateformat}}
-					</time>
-				{{/slice}}
+				<span class="n-util-visually-hidden">Published</span>
+				<time
+					data-o-component="o-date"
+					class="o-date"
+					datetime="{{#dateformat}}{{lastPublished}}{{/dateformat}}">
+						{{#dateformat "dddd, d mmmm, yyyy"}}{{lastPublished}}{{/dateformat}}
+				</time>
 			{{/ifEquals}}
-		{{else}}
-			<span class="n-util-visually-hidden">Published</span>
-			<time
-				data-o-component="o-date"
-				class="o-date"
-				datetime="{{#dateformat}}{{lastPublished}}{{/dateformat}}">
-					{{#dateformat "dddd, d mmmm, yyyy"}}{{lastPublished}}{{/dateformat}}
-			</time>
-		{{/ifEquals}}
-		{{#unless related}}
-			{{>next-myft-ui/templates/save-for-later contentId=id}}
-		{{/unless}}
+			{{#unless related}}
+				{{>next-myft-ui/templates/save-for-later contentId=id}}
+			{{/unless}}
+		</div>
 	</div>
 </article>

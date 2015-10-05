@@ -1,26 +1,21 @@
 {
   "name": "next-front-page",
-  "dependencies": {
-    "sass-mq": "^3.1.2",
-    "o-date": "^1.1.1",
-    "o-grid": "4.0.0-beta.1",
-    "n-video": "^2.8.2",
-    "n-message-prompts": "Financial-Times/n-message-prompts#^v1.0.0",
-    "n-layout": "^1.0.0"
-  },
-  "resolutions": {
-    "next-myft-ui": "^3.0.0",
-    "o-buttons": "v3",
-    "o-fonts": "^2.0.0",
-    "o-ft-icons": "^2.3.4",
-    "o-grid": "4.0.0-beta.1",
-    "next-feature-flags-client": "^v8.0.0",
-    "lodash": "^3.10.0",
-    "n-third-party-code": "^1.0.0",
-    "o-errors": "^3.1.0",
-    "next-sass-setup": "^7.0.0"
-  },
   "main": [
     "client/main.js"
-  ]
+  ],
+  "dependencies": {
+    "o-date": "^2.0.0",
+    "n-video": "^2.8.2",
+    "n-message-prompts": "Financial-Times/n-message-prompts#^v1.0.0",
+    "n-layout": "^2.0.0"
+  },
+  "resolutions": {
+    "next-sass-setup": "^7.0.0",
+    "o-ft-icons": "next",
+    "o-grid": "^4.0.0",
+    "n-third-party-code": "^1.0.0",
+    "o-fonts": "^2.0.0",
+    "o-errors": "^3.1.0",
+    "lodash": "3.10.1-npm"
+  }
 }

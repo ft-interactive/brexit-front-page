@@ -6,9 +6,9 @@
 {{> header-tabs}}
 <a id="news-tab" class="nh-header-tabs__marker" >News</a>
 <a id="fastft-tab" class="nh-header-tabs__marker" >fastFT</a>
-<div class="fixed-width-container">
+<div class="o-grid-container fixed-width-container">
 	<div class="o-grid-row">
-		<div class="main-content nh-header-tabs__panel">
+		<div class="main-content nh-header-tabs__panel" data-o-grid-colspan="12 L9">
 			<h1 class="n-util-visually-hidden" id="lead-pod-title">Top stories</h1>
 			{{> lead-today leads=content.top.leads liveBlogs=content.top.liveBlogs items=content.top.items popularTopics=content.popularTopics }}
 		</div>
@@ -18,11 +18,11 @@
 	</div>
 </div>
 {{#if content.editorsPicks.items}}
-	<div class="o-grid-container bordered-row nh-header-tabs__panel">
-		<div class="fixed-width-container">
+	<div class="bordered-row nh-header-tabs__panel">
+		<div class="o-grid-container">
 			<div class="o-grid-row">
 				<div class="main-content" data-o-grid-colspan="12">
-					<div class="flexipod flexipod--editors" data-trackable="editors-picks" id="editors-picks">
+					<div class="flexipod flexipod--editors o-grid-container o-grid-container--compact" data-trackable="editors-picks" id="editors-picks">
 						<h1 class='carousel-heading' id="editors-picks-title" aria-hidden="true">{{content.editorsPicks.title}}</h1>
 						{{> editors items=content.editorsPicks.items id="editors-picks"}}
 					</div>
@@ -31,15 +31,12 @@
 		</div>
 	</div>
 {{/if}}
-<div class="fixed-width-container nh-header-tabs__panel">
+<div class="o-grid-container nh-header-tabs__panel">
 	<div class="o-grid-row">
-		<div class="main-content">
+		<div class="main-content" data-o-grid-colspan="12 L9">
 			{{> opinion items=content.opinion.items url=content.opinion.url title="Opinion" id="opinion" }}
-			<div class="bordered-spacer"></div>
 			{{> topic items=content.lifestyle.items url=content.lifestyle.url title="Life & Arts" id="life-arts" }}
-			<div class="bordered-spacer"></div>
 			{{> topic items=content.markets.items url=content.markets.url title="Markets" id="markets" }}
-			<div class="bordered-spacer"></div>
 			{{> topic items=content.technology.items url=content.technology.url title="Technology" id="technology" }}
 		</div>
 		<aside class="sidebar sidebar--feed" role="presentation" data-o-grid-colspan="12 L3">
@@ -55,8 +52,8 @@
 	</div>
 </div>
 {{#ifAll flags.frontPageVideo content.videos}}
-	<div class="o-grid-container bordered-row nh-header-tabs__panel video-hub">
-		<div class="fixed-width-container">
+	<div class="bordered-row nh-header-tabs__panel video-hub">
+		<div class="o-grid-container">
 			<div class="o-grid-row">
 				<div class="main-content" data-o-grid-colspan="12">
 					<div class="flexipod flexipod--video" data-trackable="video-picks" id="video-picks">

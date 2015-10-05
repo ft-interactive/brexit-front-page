@@ -28,7 +28,7 @@ $layout-lead-today: (
 		(1/3, 'small')
 	),
 	L: (
-		(9, 'large'),
+		(12, 'large'),
 		(12, 'wideImageless'),
 		(1/3, 'tall'),
 		(1/3, 'small'),
@@ -49,7 +49,7 @@ $layout-opinion: (
 	M: (
 		((2/3, 'wide'), (1/3, 'small')),
 		(1/3, 'medium'),
-		((1/3, 'small'), (2/3, 'wide')),
+		((1/3, 'small'), (2/3, 'wide'))
 	)
 );
 
