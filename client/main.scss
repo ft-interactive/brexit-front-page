@@ -12,8 +12,6 @@ $o-grid-layouts: (
 @import "n-video/main";
 @import "n-message-prompts/main";
 
-@include oGridSurfaceCurrentLayout;
-
 @import "colors";
 @import "type";
 @import "icons";
