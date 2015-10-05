@@ -4,7 +4,12 @@ import React, {Component} from 'react';
 class CardLarge extends Component {
 	render() {
 		const article = this.props.article;
-		const image = article.primaryImage ? <img className="card__image" src={article.primaryImage.src} /> : '';
+		const imageEl = article.primaryImage ? <img className="card__image" src={article.primaryImage.src} /> : '';
+		const relatedEls = article.relatedContent.map(related => (
+			<li className="card__related-item">
+				<a href={'/content/' + related.id} data-trackable="related">{related.title}</a>
+			</li>
+		));
 		return (
 			<article className="card card--large" data-trackable="card">
 				<a className="card__tag" href={article.primaryTag.url} data-trackable="tag">{article.primaryTag.name}</a>
@@ -13,8 +18,11 @@ class CardLarge extends Component {
 				</a>
 				<p className="card__standfirst">{article.summary}</p>
 				<a className="card__image-link" href={'/content/' + article.id} data-trackable="image">
-					{image}
+					{imageEl}
 				</a>
+				<ol className="card__related-items">
+					{relatedEls}
+				</ol>
 			</article>
 		);
 	}

@@ -1,8 +1,12 @@
 .card {
 	width: 100%;
 	background-color: getColor('pink');
-	margin-bottom: 10px;
+	margin-bottom: oGridGutter();
 	padding: 10px;
+
+	@include oGridRespondTo(M) {
+		margin-bottom: oGridGutter(M);
+	}
 }
 .card__tag {
 	@include nTypeAlpha(4);
@@ -51,4 +55,12 @@
 }
 .card__image {
 	width: 100%;
+}
+.card__related-items {
+	padding: 0;
+	list-style-type: none;
+}
+.card__related-item {
+	@include nTypeAlpha(4);
+	margin-top: 10px;
 }
