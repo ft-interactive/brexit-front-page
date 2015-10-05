@@ -4,11 +4,11 @@ import FastFtItem from './fast-ft-item';
 
 class FastFt extends Component {
 	render() {
-		const articles = this.props.articles.map(article => <li><FastFtItem key={article.id} article={article} /></li>);
+		const articleEls = this.props.articles.map(article => <li key={article.id}><FastFtItem article={article} /></li>);
 		return (
 			<div className="fast-ft">
 				<ol className="fast-ft__items">
-					{articles}
+					{articleEls}
 				</ol>
 			</div>
 		);
