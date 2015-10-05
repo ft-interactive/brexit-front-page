@@ -40,7 +40,7 @@
 		}
 
 		a {
-			@include oGridColumn(1/2);
+			@include oGridColspan(1/2);
 
 			border-bottom: 0;
 			text-align: center;

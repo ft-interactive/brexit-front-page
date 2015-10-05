@@ -61,8 +61,10 @@ class TopStories extends Component {
 			);
 		});
 		return (
-			<div className="top-stories o-grid-container">
-				{columns}
+			<div className="top-stories o-grid-container o-grid-container--compact">
+				<div className="o-grid-row">
+					{columns}
+				</div>
 			</div>
 		)
 	}
