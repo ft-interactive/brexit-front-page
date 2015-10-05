@@ -44,12 +44,12 @@ video {
 	}
 
 	.video-item {
-		@include oGridColumn(12);
+		@include oGridColspan(12);
 
 		text-align: center;
 
 		@include oGridRespondTo($from: XS) {
-			@include oGridColumn(8);
+			@include oGridColspan(8);
 			@include oGridPush(2);
 			.video-item--title {
 				font-size: 27px;
@@ -74,7 +74,7 @@ video {
 	margin-bottom: 20px;
 
 	.video-item {
-		@include oGridColumn((default: 12, XS: 6, M: 3));
+		@include oGridColspan((default: 12, XS: 6, M: 3));
 
 		margin-bottom: 20px;
 

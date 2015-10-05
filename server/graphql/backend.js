@@ -103,8 +103,6 @@ class Backend {
 	liveblogExtras(uri, {limit}, ttl = 50) {
 		return this.adapters.liveblog.fetch(uri, ttl)
 		.then(json => {
-			/* eslint no-unused-vars: 1 */
-
 			const dated = json.filter(it => !!it.data.datemodified);
 			const [first, second] = dated.slice(0, 2);
 
@@ -112,7 +110,7 @@ class Backend {
 			if((first && first.data.datemodified) < (second && second.data.datemodified)) { json.reverse(); }
 
 			// dedupe updates and only keep messages, decide on status
-			let [_, updates, status] = json.reduce(([skip, updates, status], event) => {
+			let [, updates, status] = json.reduce(([skip, updates, status], event) => {
 				if (event.event === 'end') { return [skip, updates, 'closed']; }
 
 				if (event.event === 'msg' && event.data.mid && !skip[event.data.mid]) {

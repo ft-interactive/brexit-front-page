@@ -3,6 +3,7 @@ import queries from '../config/queries';
 
 import FastFtFeed from '../../components/fastft/fastftfeed';
 import Feed from '../../components/feed/feed';
+import Section from '../../components/section/section';
 
 export function getFrontPageData(region, flags) {
 	const useElasticSearch = flags.elasticSearchItemGet;
@@ -10,13 +11,6 @@ export function getFrontPageData(region, flags) {
 
 	return graphql(useElasticSearch, mockBackend, { flags }).fetch(queries.frontPage(region));
 }
-
-// prime both front-page graphql queries to warm up caches
-
-getFrontPageData('UK', {elasticSearchItemGet: true, mockBackend: false });
-getFrontPageData('US', {elasticSearchItemGet: true, mockBackend: false });
-getFrontPageData('UK', {elasticSearchItemGet: false, mockBackend: false });
-getFrontPageData('US', {elasticSearchItemGet: false, mockBackend: false });
 
 export default (region) => {
 	return (req, res, next) => {
@@ -31,6 +25,7 @@ export default (region) => {
 				layout: 'wrapper',
 				FastFtFeed: FastFtFeed,
 				Feed: Feed,
+				Section: Section,
 				content: contentData,
 				region: region
 			});

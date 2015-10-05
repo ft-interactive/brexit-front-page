@@ -1,0 +1,8 @@
+.section-meta__date,
+.section-meta__title {
+	@include nTypeBravo(3);
+
+	&:nth-child(n+2) {
+		margin-top: 10px;
+	}
+}
