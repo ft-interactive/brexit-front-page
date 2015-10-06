@@ -1,5 +1,5 @@
 module.exports = (name, data) => {
-	var event = (() => {
+	const event = (() => {
 		try {
 			return new CustomEvent(name, { bubbles: true, cancelable: true, detail: data });
 		} catch (e) {

@@ -2,8 +2,8 @@
 
 require('es6-promise').polyfill();
 require('isomorphic-fetch');
-var notifySaucelabs = require('notify-saucelabs');
-var TEST_HOST = process.env.TEST_URL;
+const notifySaucelabs = require('notify-saucelabs');
+const TEST_HOST = process.env.TEST_URL;
 
 module.exports = {
 	'js-success test': function(browser) {

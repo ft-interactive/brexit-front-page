@@ -1,4 +1,4 @@
-var requestAnimationFrame = (fn, args) => {
+const requestAnimationFrame = (fn, args) => {
 	if (window.requestAnimationFrame) {
 		window.requestAnimationFrame(() => fn.apply(null, args));
 	} else {
@@ -7,19 +7,19 @@ var requestAnimationFrame = (fn, args) => {
 };
 
 module.exports = (fn, threshold) => {
-	var lastFired;
-	var timer;
+	let lastFired;
+	let timer;
 
 	return (...args) => {
 		if (timer) {
 			return;
 		}
-		var now = +new Date();
+		const now = +new Date();
 		if (!lastFired || lastFired + threshold < now) {
 			requestAnimationFrame(fn, args);
 			lastFired = now;
 		} else {
-			var delay = threshold - (now - lastFired);
+			const delay = threshold - (now - lastFired);
 			timer = setTimeout(() => {
 				timer = null;
 				requestAnimationFrame(fn, args);

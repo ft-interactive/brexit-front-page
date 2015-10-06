@@ -2,7 +2,6 @@
 import React, {Component} from 'react';
 import SectionMeta from '../section-meta/section-meta';
 import Opinion from '../opinion/opinion';
-import FastFt from '../fast-ft/fast-ft';
 
 class SectionOpinion extends Component {
 	render() {

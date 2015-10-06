@@ -1,12 +1,12 @@
-var fireTracking = require('../../utils/fire-tracking');
-var throttle = require('../../utils/throttle');
+const fireTracking = require('../../utils/fire-tracking');
+const throttle = require('../../utils/throttle');
 
-var toArray = nodeList => Array.prototype.slice.call(nodeList);
+const toArray = nodeList => Array.prototype.slice.call(nodeList);
 
-var track = componentPos => fireTracking('oTracking.event', { category: 'page', action: 'scrolldepth', componentPos: componentPos });
+const track = componentPos => fireTracking('oTracking.event', { category: 'page', action: 'scrolldepth', componentPos: componentPos });
 
-var scrollHandlerFactory = components => {
-	var componentsViewed = [];
+const scrollHandlerFactory = components => {
+	const componentsViewed = [];
 	return () => {
 		components.forEach((component, index) => {
 			if (component.getBoundingClientRect().top < window.innerHeight && componentsViewed.indexOf(component) === -1) {
@@ -17,8 +17,8 @@ var scrollHandlerFactory = components => {
 	};
 };
 
-var init = () => {
-	var components = toArray(document.querySelectorAll('.flexipod'));
+const init = () => {
+	const components = toArray(document.querySelectorAll('.flexipod'));
 	window.addEventListener('scroll', throttle(scrollHandlerFactory(components), 250));
 };
 

@@ -87,8 +87,8 @@ class Backend {
 		return this.adapters.popular.fetch(url, ttl)
 		.then((data) => {
 			return data.mostRead.pages.map(function (page) {
-				var index = page.url.lastIndexOf('/');
-				var id = page.url.substr(index + 1).replace('.html', '');
+				const index = page.url.lastIndexOf('/');
+				const id = page.url.substr(index + 1).replace('.html', '');
 				return id;
 			});
 		})

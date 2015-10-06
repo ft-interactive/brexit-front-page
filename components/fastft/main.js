@@ -3,7 +3,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import FastFtFeed from './fastftfeed';
-import Feed from '../feed/feed';
 
 import './main.scss';
 

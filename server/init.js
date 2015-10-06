@@ -8,7 +8,7 @@ import frontPage, { getFrontPageData } from './routes/front-page';
 import fastft from './routes/fastft';
 import query from './routes/query';
 
-var app = express({
+const app = express({
 	helpers: {
 		lowercase: (it) => it && it.toLowerCase(),
 		trim: (it, {hash: {sentences}}) => {
@@ -54,7 +54,7 @@ app.get('/uk', frontPage('UK'));
 app.get('/home/fastft.json', fastft);
 app.post('/front-page/query.json', query);
 
-var port = process.env.PORT || 3001;
+const port = process.env.PORT || 3001;
 
 export default app;
 export let listen = app.listen(port, () => {
