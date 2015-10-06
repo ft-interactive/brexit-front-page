@@ -3,5 +3,11 @@
   "ecmaFeatures": {
 	"jsx": true,
 	"modules": true
-  }
+  },
+  "rules": {
+    "react/jsx-uses-react": 1
+  },
+  "plugins": [
+    "react"
+  ]
 }
