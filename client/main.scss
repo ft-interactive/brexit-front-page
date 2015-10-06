@@ -1,10 +1,11 @@
 $o-grid-layouts: (
-	S:   490px,  // column-width: 30px, inner width: 470px
-	M:   740px,  // column-width: 40px, inner width: 700px
-	L:   980px,  // column-width: 60px, inner width: 940px
-	XL:  1220px, // column-width: 80px, inner width: 1180px
-	XXL: 1460px, // column-width: 100px, inner width: 1420px
-);$o-grid-start-snappy-mode-at: XXL;
+	S:   490px,
+	M:   740px,
+	L:   980px,
+	XL:  1220px,
+	XXL: 1440px
+);
+$o-grid-start-snappy-mode-at: XXL;
 
 
 @import "n-layout/main";

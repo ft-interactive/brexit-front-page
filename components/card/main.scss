@@ -2,37 +2,71 @@
 	width: 100%;
 	background-color: getColor('pink');
 	margin-bottom: oGridGutter();
-	padding: 5px 10px;
+	padding: 10px;
 
 	@include oGridRespondTo(M) {
 		margin-bottom: oGridGutter(M);
 	}
 }
 .card__tag {
-	@include nTypeAlpha(4);
-	color: getColor('teal-1');
+	font-family: $n-type-sans-serif;
+	font-weight: oFontsWeight(light);
+	color: #4a90e2;
 	border-bottom: 0;
 
 	.card--large &,
 	.card--medium & {
-		@include nTypeAlpha(3);
+		font-size: 16px;
+		line-height: 16px;
+	}
+	.card--small & {
+		font-size: 14px;
+		line-height: 14px;
+	}
+	.card--headline & {
+		font-size: 12px;
+		line-height: 12px;
+	}
+	&.card__tag--authors {
+		color: #fbba2d;
+
+		&:before {
+			content: '“';
+			color: #c3bdb6;
+			font-size: 60px;
+			line-height: 0;
+			vertical-align: bottom;
+			margin-right: 5px;
+		}
 	}
 }
 .card__title-link {
 	border-bottom: 0;
+
+	&:hover {
+		border-bottom: 1px dotted;
+	}
 }
 .card__title {
-	@include nTypeFoxtrot(3);
+	font-family: $n-type-serif;
+	font-weight: oFontsWeight(regular);
 	margin-top: 5px;
 
 	.card--large & {
-		@include nTypeFoxtrot(2);
+		font-size: 24px;
+		line-height: 28px;
 	}
-	.card--small &,
-	.card--headline & {
-		 @include nTypeFoxtrot(4);
+	.card--medium & {
+		font-size: 20px;
+		line-height: 24px;
+	}
+	.card--small & {
+		font-size: 16px;
+		line-height: 18px;
 	 }
 	.card--headline & {
+		font-size: 14px;
+		line-height: 14px;
 		display: inline;
 
 		&:before {
@@ -42,15 +76,25 @@
 	}
 }
 .card__standfirst {
-	@include nTypeAlpha(3);
+	font-family: $n-type-sans-serif;
+	font-weight: oFontsWeight(light);
 	margin-top: 5px;
+
+	.card--large & {
+		font-size: 20px;
+		line-height: 24px;
+	}
+	.card--medium & {
+		font-size: 16px;
+		line-height: 16px;
+	}
 }
 .card__image-link,
 .card__image {
 	display: block;
 }
 .card__image-link {
-	margin-top: 5px;
+	margin-top: 10px;
 	border-bottom: 0;
 }
 .card__image {
@@ -61,13 +105,25 @@
 	list-style-type: none;
 }
 .card__related-item {
-	@include nTypeAlpha(4);
+	font-family: $n-type-sans-serif;
+	font-weight: oFontsWeight(light);
+	font-size: 14px;
+	line-height: 14px;
 	margin-top: 10px;
 }
+.card__related-item__link {
+	border-bottom: 0;
 
+	&:hover {
+		border-bottom: 1px dotted;
+	}
+}
+
+.card--ad {
+	padding-left: 0;
+	padding-right: 0;
+}
 .ad {
-	width: 300px;
-	height: 250px;
+	display: block;
 	margin: 0 auto;
-	border: 1px solid black;
 }

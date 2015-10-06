@@ -23,10 +23,10 @@ const config = [
 		colSpan: '12 M4',
 		cards: [
 			{
-				type: 'headline'
+				type: 'ad'
 			},
 			{
-				type: 'ad'
+				type: 'headline'
 			}
 		]
 	},
