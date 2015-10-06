@@ -1,11 +1,17 @@
 .card {
 	width: 100%;
 	background-color: getColor('pink');
-	margin-bottom: oGridGutter();
+	margin-top: oGridGutter();
 	padding: 10px;
 
 	@include oGridRespondTo(M) {
-		margin-bottom: oGridGutter(M);
+		margin-top: oGridGutter(M);
+	}
+	&:first-child {
+		margin-top: 0;
+	}
+	&:last-child {
+		flex: 2;
 	}
 }
 .card__tag {

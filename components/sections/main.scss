@@ -10,8 +10,11 @@
 }
 
 .section {
-	margin-top: 10px;
-	min-height: 300px;
+	margin-top: oGridGutter();
+
+	@include oGridRespondTo(M) {
+		margin-top: oGridGutter(M);
+	}
 }
 .section__meta--mobile {
 	@include oGridRespondTo(XL) {
