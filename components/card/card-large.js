@@ -6,7 +6,7 @@ class CardLarge extends Component {
 	render() {
 		const article = this.props.article;
 		return (
-			<article className="card card--large" data-trackable="card">
+			<article className={'card card--large card__tag--' + article.primaryTag.taxonomy} data-trackable="card">
 				<CardTag article={article} />
 				<CardTitle article={article} />
 				<CardStandfirst article={article} />

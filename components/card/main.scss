@@ -27,7 +27,7 @@
 		font-size: 12px;
 		line-height: 12px;
 	}
-	&.card__tag--authors {
+	.card__tag--authors & {
 		color: #fbba2d;
 
 		&:before {
@@ -80,6 +80,11 @@
 	font-weight: oFontsWeight(light);
 	margin-top: 5px;
 
+	.card__tag--authors & {
+		font-family: $n-type-serif;
+		font-style: italic;
+		font-weight: oFontsWeight(light);
+	}
 	.card--large & {
 		font-size: 20px;
 		line-height: 24px;
@@ -116,6 +121,13 @@
 
 	&:hover {
 		border-bottom: 1px dotted;
+	}
+	&:before {
+		content: '>';
+		font-size: 25px;
+		line-height: 0;
+		vertical-align: sub;
+		margin-right: 5px;
 	}
 }
 

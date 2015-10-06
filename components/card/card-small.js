@@ -7,7 +7,7 @@ class CardSmall extends Component {
 		const article = this.props.article;
 		const imageEl = this.props.showImage === false ? '' : <CardImage article={article} />;
 		return (
-			<article className="card card--small" data-trackable="card">
+			<article className={'card card--small card__tag--' + article.primaryTag.taxonomy} data-trackable="card">
 				<CardTag article={article} />
 				<CardTitle article={article} />
 				{imageEl}

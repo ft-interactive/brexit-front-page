@@ -6,7 +6,7 @@ class CardHeadline extends Component {
 	render() {
 		const article = this.props.article;
 		return (
-			<article className="card card--headline" data-trackable="card">
+			<article className={'card card--headline card__tag--' + article.primaryTag.taxonomy} data-trackable="card">
 				<CardTag article={article} />
 				<CardTitle article={article} />
 			</article>
