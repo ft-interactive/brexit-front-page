@@ -8,8 +8,10 @@
 		margin-top: oGridGutter(M);
 	}
 	&.card--tall.card--has-image {
-		position: relative;
-		padding-bottom: 108px;
+		@include oGridRespondTo(XXL) {
+			position: relative;
+			padding-bottom: 108px;
+		}
 	}
 	&:first-child {
 		@include oGridRespondTo(M) {
@@ -28,16 +30,17 @@
 
 	.card--large &,
 	.card--medium & {
-		font-size: 22px;
-		line-height: 22px;
-	}
-	.card--small & {
-		font-size: 19px;
-		line-height: 19px;
-	}
-	.card--headline & {
 		font-size: 16px;
 		line-height: 16px;
+	}
+	.card--small & {
+		font-size: 14px;
+		line-height: 14px;
+	}
+	.card--headline & {
+		float: left;
+		font-size: 12px;
+		line-height: 14px;
 	}
 	.card__tag--authors & {
 		color: #fbba2d;
@@ -65,21 +68,21 @@
 	margin-top: 5px;
 
 	.card--large & {
-		font-size: 32px;
-		line-height: 37px;
+		font-size: 24px;
+		line-height: 28px;
 	}
 	.card--medium & {
-		font-size: 26px;
-		line-height: 32px;
+		font-size: 20px;
+		line-height: 24px;
 	}
 	.card--small & {
-		font-size: 22px;
-		line-height: 24px;
+		font-size: 16px;
+		line-height: 18px;
 	 }
 	.card--headline & {
-		font-size: 16px;
+		font-size: 14px;
 		line-height: 16px;
-		display: inline;
+		margin-top: 0;
 
 		&:before {
 			content: '|';
@@ -98,12 +101,12 @@
 		font-weight: oFontsWeight(light);
 	}
 	.card--large & {
-		font-size: 26px;
-		line-height: 32px;
+		font-size: 20px;
+		line-height: 24px;
 	}
 	.card--medium & {
-		font-size: 22px;
-		line-height: 22px;
+		font-size: 16px;
+		line-height: 18px;
 	}
 }
 .card__image-link,
@@ -122,10 +125,12 @@
 		}
 	}
 	.card--tall & {
-		position: absolute;
-		bottom: 10px;
-		left: 10px;
-		right: 10px;
+		@include oGridRespondTo(XXL) {
+			position: absolute;
+			bottom: 10px;
+			left: 10px;
+			right: 10px;
+		}
 	}
 }
 .card__image {
@@ -138,8 +143,8 @@
 .card__related-item {
 	font-family: $n-type-sans-serif;
 	font-weight: oFontsWeight(light);
-	font-size: 16px;
-	line-height: 16px;
+	font-size: 14px;
+	line-height: 14px;
 	margin-top: 10px;
 }
 .card__related-item__link {

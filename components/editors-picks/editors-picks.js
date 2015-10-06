@@ -4,7 +4,7 @@ import Card from '../card/card';
 
 const config = [
 	{
-		colSpan: '12 M2',
+		colSpan: '12 M4 L2',
 		cards: [
 			{
 				type: 'tall'
@@ -12,7 +12,7 @@ const config = [
 		]
 	},
 	{
-		colSpan: '12 M2',
+		colSpan: '12 M4 L2',
 		cards: [
 			{
 				type: 'tall'
@@ -20,7 +20,7 @@ const config = [
 		]
 	},
 	{
-		colSpan: '12 M2',
+		colSpan: '12 M4 L2',
 		cards: [
 			{
 				type: 'tall'
@@ -28,7 +28,7 @@ const config = [
 		]
 	},
 	{
-		colSpan: '12 M2',
+		colSpan: '12 M4 L2',
 		cards: [
 			{
 				type: 'tall'
@@ -36,7 +36,7 @@ const config = [
 		]
 	},
 	{
-		colSpan: '12 M2',
+		colSpan: '12 M4 L2',
 		cards: [
 			{
 				type: 'tall'
@@ -44,7 +44,7 @@ const config = [
 		]
 	},
 	{
-		colSpan: '12 M2',
+		colSpan: '12 M4 L2',
 		cards: [
 			{
 				type: 'tall'
