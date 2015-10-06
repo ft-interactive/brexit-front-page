@@ -123,7 +123,7 @@ const List = new GraphQLObjectType({
 			resolve: (result, args, {rootValue: {backend}}) => {
 				if(!result.items || result.items.length < 1) { return []; }
 
-				return backend.contentv1(result.items.map(result => result.id.replace('http://api.ft.com/thing/', '')), args);
+				return backend.contentv1(result.items.map(result => result.id.replace(/http:\/\/api\.ft\.com\/things?\//, '')), args);
 			}
 		}
 	}
