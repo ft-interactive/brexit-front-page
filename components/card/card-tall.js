@@ -5,15 +5,17 @@ import {CardTag, CardTitle, CardStandfirst, CardImage, CardRelated} from '../car
 class CardLarge extends Component {
 	render() {
 		const article = this.props.article;
-		const imageEl = article.primaryImage ? <CardImage article={article} /> : '';
-		const relatedEl = (article.relatedContent || []).length ? <CardRelated article={article} /> : '';
+		const hasImage = !!article.primaryImage;
+		const imageEl = hasImage ? <CardImage article={article} /> : '';
+		const classes = ['card', 'card--small', 'card--tall', 'card__tag--' + article.primaryTag.taxonomy];
+		if (hasImage) {
+			classes.push('card--has-image');
+		}
 		return (
-			<article className={'card card--large card__tag--' + article.primaryTag.taxonomy} data-trackable="card">
+			<article className={classes.join(' ')} data-trackable="card">
 				<CardTag article={article} />
 				<CardTitle article={article} />
-				<CardStandfirst article={article} />
 				{imageEl}
-				{relatedEl}
 			</article>
 		);
 	}

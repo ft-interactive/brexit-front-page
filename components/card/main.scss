@@ -7,8 +7,16 @@
 	@include oGridRespondTo(M) {
 		margin-top: oGridGutter(M);
 	}
+	&.card--tall.card--has-image {
+		@include oGridRespondTo(XXL) {
+			position: relative;
+			padding-bottom: 108px;
+		}
+	}
 	&:first-child {
-		margin-top: 0;
+		@include oGridRespondTo(M) {
+			margin-top: 0;
+		}
 	}
 	&:last-child {
 		flex: 2;
@@ -30,8 +38,9 @@
 		line-height: 14px;
 	}
 	.card--headline & {
+		float: left;
 		font-size: 12px;
-		line-height: 12px;
+		line-height: 14px;
 	}
 	.card__tag--authors & {
 		color: #fbba2d;
@@ -72,8 +81,8 @@
 	 }
 	.card--headline & {
 		font-size: 14px;
-		line-height: 14px;
-		display: inline;
+		line-height: 16px;
+		margin-top: 0;
 
 		&:before {
 			content: '|';
@@ -97,7 +106,7 @@
 	}
 	.card--medium & {
 		font-size: 16px;
-		line-height: 16px;
+		line-height: 18px;
 	}
 }
 .card__image-link,
@@ -107,6 +116,22 @@
 .card__image-link {
 	margin-top: 10px;
 	border-bottom: 0;
+
+	@include oGridRespondTo($until: M) {
+		display: none;
+
+		.card--large & {
+			display: block;
+		}
+	}
+	.card--tall & {
+		@include oGridRespondTo(XXL) {
+			position: absolute;
+			bottom: 10px;
+			left: 10px;
+			right: 10px;
+		}
+	}
 }
 .card__image {
 	width: 100%;

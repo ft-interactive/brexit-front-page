@@ -4,45 +4,56 @@ import Card from '../card/card';
 
 const config = [
 	{
-		colSpan: '12 M5',
+		colSpan: '12 M4 L2',
 		cards: [
 			{
-				type: 'large'
+				type: 'tall'
 			}
 		]
 	},
 	{
-		colSpan: '12 M4',
+		colSpan: '12 M4 L2',
 		cards: [
 			{
-				type: 'medium'
-			},
-			{
-				type: 'small',
-				showImage: false
+				type: 'tall'
 			}
 		]
 	},
 	{
-		colSpan: '12 M3',
+		colSpan: '12 M4 L2',
 		cards: [
 			{
-				type: 'small'
-			},
+				type: 'tall'
+			}
+		]
+	},
+	{
+		colSpan: '12 M4 L2',
+		cards: [
 			{
-				type: 'headline'
-			},
+				type: 'tall'
+			}
+		]
+	},
+	{
+		colSpan: '12 M4 L2',
+		cards: [
 			{
-				type: 'headline'
-			},
+				type: 'tall'
+			}
+		]
+	},
+	{
+		colSpan: '12 M4 L2',
+		cards: [
 			{
-				type: 'headline'
+				type: 'tall'
 			}
 		]
 	}
 ]
 
-class TopStories extends Component {
+class EditorsPicks extends Component {
 	render() {
 		const articles = this.props.articles;
 		const columns = config.map(colConfig => {
@@ -52,13 +63,13 @@ class TopStories extends Component {
 				return <Card {...props} />;
 			});
 			return (
-				<div className="column top-stories__column" data-o-grid-colspan={colConfig.colSpan}>
+				<div className="column editors-picks__column" data-o-grid-colspan={colConfig.colSpan}>
 					{cards}
 				</div>
 			);
 		});
 		return (
-			<div className="top-stories o-grid-container o-grid-container--compact">
+			<div className="editors-picks o-grid-container o-grid-container--compact">
 				<div className="o-grid-row">
 					{columns}
 				</div>
@@ -67,4 +78,4 @@ class TopStories extends Component {
 	}
 }
 
-export default TopStories;
+export default EditorsPicks;

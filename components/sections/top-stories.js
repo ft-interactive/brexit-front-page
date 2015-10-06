@@ -9,7 +9,7 @@ class SectionTopStories extends Component {
 		return (
 			<section className="section o-grid-container">
 				<div className="o-grid-row">
-					<div data-o-grid-colspan="hide XL2">
+					<div data-o-grid-colspan="12 XL2">
 						<SectionMeta title="Top Stories"/>
 					</div>
 					<div data-o-grid-colspan="12 L10 XL8">

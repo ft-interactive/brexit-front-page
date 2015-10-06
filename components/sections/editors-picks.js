@@ -1,19 +1,18 @@
 /*eslint no-unused-vars: 1*/
 import React, {Component} from 'react';
 import SectionMeta from '../section-meta/section-meta';
-import Opinion from '../opinion/opinion';
-import FastFt from '../fast-ft/fast-ft';
+import EditorsPicks from '../editors-picks/editors-picks';
 
-class SectionOpinion extends Component {
+class SectionEditorsPicks extends Component {
 	render() {
 		return (
 			<section className="section o-grid-container">
 				<div className="o-grid-row">
 					<div data-o-grid-colspan="12 XL2">
-						<SectionMeta title="Opinion" showDate={false} />
+						<SectionMeta title="Editor's Picks" showDate={false} />
 					</div>
 					<div data-o-grid-colspan="12 XL10">
-						<Opinion articles={this.props.articles} />
+						<EditorsPicks articles={this.props.articles} />
 					</div>
 				</div>
 			</section>
@@ -21,4 +20,4 @@ class SectionOpinion extends Component {
 	}
 }
 
-export default SectionOpinion;
+export default SectionEditorsPicks;
