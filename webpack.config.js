@@ -1,9 +1,9 @@
-var path = require('path');
-var webpack = require('webpack');
-var BowerWebpackPlugin = require('bower-webpack-plugin');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
+const path = require('path');
+const webpack = require('webpack');
+const BowerWebpackPlugin = require('bower-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
-var plugins = [
+const plugins = [
 	new BowerWebpackPlugin({ includes: [/\.js?$/] }),
 	// Global definitions
 	new webpack.DefinePlugin({
@@ -22,7 +22,7 @@ if(process.env.NODE_ENV === 'production') {
 	]);
 }
 
-var config = {
+const config = {
 	entry: ['./client/main.js', './client/main.scss'],
 	output: {
 		path: path.join(__dirname, 'public'),

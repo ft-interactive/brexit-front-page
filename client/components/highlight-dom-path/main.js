@@ -1,8 +1,8 @@
 module.exports = () => {
 
-	var domPath = document.location.hash.split('#').pop();
+	const domPath = document.location.hash.split('#').pop();
 	if (/^domPath:/.test(domPath)) {
-		var selector = domPath
+		const selector = domPath
 			.replace(/^domPath:/, '')
 			.split(' | ')
 			.map(part => `[data-trackable="${part}"]`)
