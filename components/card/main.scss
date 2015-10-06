@@ -4,23 +4,21 @@
 	margin-top: oGridGutter();
 	padding: 10px;
 
-	@include oGridRespondTo(M) {
+	@include oGridRespondTo(M, $until: XL) {
 		margin-top: oGridGutter(M);
 	}
-	&.card--tall.card--has-image {
-		@include oGridRespondTo(XXL) {
-			position: relative;
-			padding-bottom: 108px;
-		}
-	}
 	&:first-child {
-		@include oGridRespondTo(M) {
+		@include oGridRespondTo(XL) {
 			margin-top: 0;
 		}
 	}
 	&:last-child {
 		flex: 2;
 	}
+}
+.card--tall {
+	display: flex;
+	flex-flow: column;
 }
 .card__tag {
 	font-family: $n-type-sans-serif;
@@ -89,6 +87,9 @@
 			margin: 0 5px;
 		}
 	}
+	.card--tall & {
+		flex: 1;
+	}
 }
 .card__standfirst {
 	font-family: $n-type-sans-serif;
@@ -122,14 +123,6 @@
 
 		.card--large & {
 			display: block;
-		}
-	}
-	.card--tall & {
-		@include oGridRespondTo(XXL) {
-			position: absolute;
-			bottom: 10px;
-			left: 10px;
-			right: 10px;
 		}
 	}
 }
