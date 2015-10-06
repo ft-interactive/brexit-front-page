@@ -1,4 +1,3 @@
-/*eslint no-unused-vars: 1*/
 import React, {Component} from 'react';
 import {CardTag, CardTitle, CardStandfirst, CardImage, CardRelated} from '../card-components/card-components';
 

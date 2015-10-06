@@ -1,6 +1,5 @@
-/*eslint no-unused-vars: 1*/
 import React, {Component} from 'react';
-import {CardTag, CardTitle, CardStandfirst, CardImage, CardRelated} from '../card-components/card-components';
+import {CardTag, CardTitle, CardImage} from '../card-components/card-components';
 
 class CardLarge extends Component {
 	render() {

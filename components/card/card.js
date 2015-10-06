@@ -1,4 +1,3 @@
-/*eslint no-unused-vars: 1*/
 import React, {Component} from 'react';
 import CardLarge from './card-large';
 import CardMedium from './card-medium';

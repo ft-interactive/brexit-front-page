@@ -1,4 +1,3 @@
-/*eslint no-unused-vars: 1*/
 import React from 'react';
 import ReactDOM from 'react-dom';
 
