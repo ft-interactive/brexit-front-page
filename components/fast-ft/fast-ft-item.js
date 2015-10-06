@@ -10,9 +10,9 @@ class FastFtItem extends Component {
 		return (
 			<div className="fast-ft__item">
 				<time className="fast-ft__time" datetime={article.lastPublished}>{time}</time>
-				<a className="fast-ft__item__title-link" href={'/content/' + article.id} data-trackable="link">
-					<h2 className="fast-ft__item__title">{article.title}</h2>
-				</a>
+				<h2 className="fast-ft__item__title">
+					<a className="fast-ft__item__title-link" href={'/content/' + article.id} data-trackable="link">{article.title}</a>
+				</h2>
 			</div>
 		);
 	}

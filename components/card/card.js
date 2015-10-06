@@ -4,6 +4,7 @@ import CardLarge from './card-large';
 import CardMedium from './card-medium';
 import CardSmall from './card-small';
 import CardHeadline from './card-headline';
+import CardAd from './card-ad';
 
 class Card extends Component {
 	render() {
@@ -14,6 +15,8 @@ class Card extends Component {
 				return <CardSmall {...this.props} />;
 			case 'headline':
 				return <CardHeadline {...this.props} />;
+			case 'ad':
+				return <CardAd />;
 			default:
 				return <CardMedium {...this.props} />;
 		}

@@ -2,6 +2,18 @@
 	background-color: getColor('pink');
 	padding: 10px;
 }
+.fast-ft__logo {
+	text-indent: -9999px;
+	background-size: contain;
+	background-position: center;
+}
+.fast-ft__logo--fast {
+	@include nextIcon(brand-fast, getColor('fastft-brand'), 30px);
+	height: 35px;
+}
+.fast-ft__logo--ft {
+	@include nextIcon(brand-ft, getColor('warm-4'), 30px);
+}
 .fast-ft__items {
 	margin: 0;
 	padding: 0;
@@ -10,21 +22,26 @@
 .fast-ft__item {
 	position: relative;
 	margin-top: 10px;
-	padding-left: 70px;
+	padding-left: 55px;
 
 	*:first-child > & {
 		margin-top: 0;
 	}
 }
 .fast-ft__time {
+	@include nTypeAlpha(4);
 	position: absolute;
 	top: 0;
 	left: 0;
 	color: getColor('claret');
 }
-.fast-ft__item__title-link {
-
-}
 .fast-ft__item__title {
 	@include nTypeAlpha(4);
+}
+.fast-ft__item__title-link {
+	border-bottom: 0;
+
+	&:hover {
+		border-bottom: 1px dotted;
+	}
 }
