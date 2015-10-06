@@ -1,4 +1,3 @@
-/*eslint no-unused-vars: 1*/
 import React, {Component} from 'react';
 import SectionMeta from '../section-meta/section-meta';
 import TopStories from '../top-stories/top-stories';
