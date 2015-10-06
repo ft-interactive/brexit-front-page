@@ -2,7 +2,7 @@
 	width: 100%;
 	background-color: getColor('pink');
 	margin-bottom: oGridGutter();
-	padding: 10px;
+	padding: 5px 10px;
 
 	@include oGridRespondTo(M) {
 		margin-bottom: oGridGutter(M);
@@ -63,4 +63,11 @@
 .card__related-item {
 	@include nTypeAlpha(4);
 	margin-top: 10px;
+}
+
+.ad {
+	width: 300px;
+	height: 250px;
+	margin: 0 auto;
+	border: 1px solid black;
 }

@@ -2,6 +2,18 @@
 	background-color: getColor('pink');
 	padding: 10px;
 }
+.fast-ft__logo {
+	text-indent: -9999px;
+	background-size: contain;
+	background-position: center;
+}
+.fast-ft__logo--fast {
+	@include nextIcon(brand-fast, getColor('fastft-brand'), 30px);
+	height: 35px;
+}
+.fast-ft__logo--ft {
+	@include nextIcon(brand-ft, getColor('warm-4'), 30px);
+}
 .fast-ft__items {
 	margin: 0;
 	padding: 0;

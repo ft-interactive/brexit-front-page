@@ -4,7 +4,7 @@ import SectionMeta from '../section-meta/section-meta';
 import TopStories from '../top-stories/top-stories';
 import FastFt from '../fast-ft/fast-ft';
 
-class Section extends Component {
+class SectionTopStories extends Component {
 	render() {
 		return (
 			<section className="section o-grid-container">
@@ -24,4 +24,4 @@ class Section extends Component {
 	}
 }
 
-export default Section;
+export default SectionTopStories;

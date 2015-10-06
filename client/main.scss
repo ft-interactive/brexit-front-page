@@ -25,10 +25,11 @@ $o-grid-layouts: (
 
 @import "flexipod-layouts";
 
-@import "../components/section/main";
+@import "../components/sections/main";
 @import "../components/section-meta/main";
-@import "../components/top-stories/main";
 @import "../components/fast-ft/main";
+@import "../components/top-stories/main";
+@import "../components/opinion/main";
 @import "../components/card/main";
 
 html {

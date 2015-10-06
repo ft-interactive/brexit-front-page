@@ -4,7 +4,7 @@ import Card from '../card/card';
 
 const config = [
 	{
-		colSpan: '12 M5',
+		colSpan: '12 M3',
 		cards: [
 			{
 				type: 'large'
@@ -12,37 +12,38 @@ const config = [
 		]
 	},
 	{
-		colSpan: '12 M4',
+		colSpan: '12 M3',
 		cards: [
 			{
 				type: 'medium'
-			},
-			{
-				type: 'small',
-				showImage: false
 			}
 		]
 	},
 	{
-		colSpan: '12 M3',
+		colSpan: '12 M4',
+		cards: [
+			{
+				type: 'headline'
+			},
+			{
+				type: 'ad'
+			}
+		]
+	},
+	{
+		colSpan: '12 M2',
 		cards: [
 			{
 				type: 'small'
 			},
 			{
-				type: 'headline'
-			},
-			{
-				type: 'headline'
-			},
-			{
-				type: 'headline'
+				type: 'small'
 			}
 		]
 	}
 ]
 
-class TopStories extends Component {
+class Opinion extends Component {
 	render() {
 		const articles = this.props.articles;
 		const columns = config.map(colConfig => {
@@ -52,13 +53,13 @@ class TopStories extends Component {
 				return <Card {...props} />;
 			});
 			return (
-				<div className="top-stories__column" data-o-grid-colspan={colConfig.colSpan}>
+				<div className="opinion__column" data-o-grid-colspan={colConfig.colSpan}>
 					{cards}
 				</div>
 			);
 		});
 		return (
-			<div className="top-stories o-grid-container o-grid-container--compact">
+			<div className="opinion o-grid-container o-grid-container--compact">
 				<div className="o-grid-row">
 					{columns}
 				</div>
@@ -67,4 +68,4 @@ class TopStories extends Component {
 	}
 }
 
-export default TopStories;
+export default Opinion;

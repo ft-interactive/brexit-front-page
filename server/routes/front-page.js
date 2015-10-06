@@ -3,7 +3,8 @@ import queries from '../config/queries';
 
 import FastFtFeed from '../../components/fastft/fastftfeed';
 import Feed from '../../components/feed/feed';
-import Section from '../../components/section/section';
+import TopStoriesSection from '../../components/sections/top-stories';
+import OpinionSection from '../../components/sections/opinion';
 
 export function getFrontPageData(region, flags) {
 	const useElasticSearch = flags.elasticSearchItemGet;
@@ -23,11 +24,12 @@ export default (region) => {
 		.then(contentData => {
 			res.render('front-page', {
 				layout: 'wrapper',
-				FastFtFeed: FastFtFeed,
-				Feed: Feed,
-				Section: Section,
+				FastFtFeed,
+				Feed,
+				TopStoriesSection,
+				OpinionSection,
 				content: contentData,
-				region: region
+				region
 			});
 		})
 		.catch(next);
