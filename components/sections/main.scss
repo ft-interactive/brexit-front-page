@@ -10,8 +10,6 @@
 }
 
 .section {
-	margin-top: oGridGutter();
-
 	@include oGridRespondTo(M) {
 		margin-top: oGridGutter(M);
 	}
@@ -20,4 +18,8 @@
 	@include oGridRespondTo(XL) {
 		display: none;
 	}
+}
+.column {
+	display: flex;
+	flex-flow: column wrap;
 }

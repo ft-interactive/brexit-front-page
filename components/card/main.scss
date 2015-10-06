@@ -7,8 +7,14 @@
 	@include oGridRespondTo(M) {
 		margin-top: oGridGutter(M);
 	}
+	&.card--tall.card--has-image {
+		position: relative;
+		padding-bottom: 108px;
+	}
 	&:first-child {
-		margin-top: 0;
+		@include oGridRespondTo(M) {
+			margin-top: 0;
+		}
 	}
 	&:last-child {
 		flex: 2;
@@ -22,16 +28,16 @@
 
 	.card--large &,
 	.card--medium & {
-		font-size: 16px;
-		line-height: 16px;
+		font-size: 22px;
+		line-height: 22px;
 	}
 	.card--small & {
-		font-size: 14px;
-		line-height: 14px;
+		font-size: 19px;
+		line-height: 19px;
 	}
 	.card--headline & {
-		font-size: 12px;
-		line-height: 12px;
+		font-size: 16px;
+		line-height: 16px;
 	}
 	.card__tag--authors & {
 		color: #fbba2d;
@@ -59,20 +65,20 @@
 	margin-top: 5px;
 
 	.card--large & {
-		font-size: 24px;
-		line-height: 28px;
+		font-size: 32px;
+		line-height: 37px;
 	}
 	.card--medium & {
-		font-size: 20px;
-		line-height: 24px;
+		font-size: 26px;
+		line-height: 32px;
 	}
 	.card--small & {
-		font-size: 16px;
-		line-height: 18px;
+		font-size: 22px;
+		line-height: 24px;
 	 }
 	.card--headline & {
-		font-size: 14px;
-		line-height: 14px;
+		font-size: 16px;
+		line-height: 16px;
 		display: inline;
 
 		&:before {
@@ -92,12 +98,12 @@
 		font-weight: oFontsWeight(light);
 	}
 	.card--large & {
-		font-size: 20px;
-		line-height: 24px;
+		font-size: 26px;
+		line-height: 32px;
 	}
 	.card--medium & {
-		font-size: 16px;
-		line-height: 16px;
+		font-size: 22px;
+		line-height: 22px;
 	}
 }
 .card__image-link,
@@ -107,6 +113,20 @@
 .card__image-link {
 	margin-top: 10px;
 	border-bottom: 0;
+
+	@include oGridRespondTo($until: M) {
+		display: none;
+
+		.card--large & {
+			display: block;
+		}
+	}
+	.card--tall & {
+		position: absolute;
+		bottom: 10px;
+		left: 10px;
+		right: 10px;
+	}
 }
 .card__image {
 	width: 100%;
@@ -118,8 +138,8 @@
 .card__related-item {
 	font-family: $n-type-sans-serif;
 	font-weight: oFontsWeight(light);
-	font-size: 14px;
-	line-height: 14px;
+	font-size: 16px;
+	line-height: 16px;
 	margin-top: 10px;
 }
 .card__related-item__link {

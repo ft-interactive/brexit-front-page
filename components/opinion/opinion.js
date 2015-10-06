@@ -37,7 +37,8 @@ const config = [
 				type: 'small'
 			},
 			{
-				type: 'small'
+				type: 'small',
+				showImage: false
 			}
 		]
 	}
@@ -53,7 +54,7 @@ class Opinion extends Component {
 				return <Card {...props} />;
 			});
 			return (
-				<div className="opinion__column" data-o-grid-colspan={colConfig.colSpan}>
+				<div className="column opinion__column" data-o-grid-colspan={colConfig.colSpan}>
 					{cards}
 				</div>
 			);
