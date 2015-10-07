@@ -16,7 +16,6 @@ const sectionConfig = (props) => {
 				id: 'top-stories',
 				title: 'Top Stories',
 				date: displayDate,
-				columns: ['12 XL2', '12 L10 XL8', 'hide L2'],
 				content: props.content.top.leads.concat(props.content.top.items),
 				contentComponent: TopStories,
 				sidebarContent: props.content.fastFT,
@@ -25,14 +24,12 @@ const sectionConfig = (props) => {
 		{
 				id: 'opinion',
 				title: 'Opinion',
-				columns: ['12 XL2', '12 XL10'],
 				content: props.content.opinion.items,
 				contentComponent: Opinion
 		},
 		{
 				id: 'editors-pics',
 				title: 'Editor\'s Picks',
-				columns: ['12 XL2', '12 XL10'],
 				content: props.content.editorsPicks.items,
 				contentComponent: EditorsPicks
 		},
