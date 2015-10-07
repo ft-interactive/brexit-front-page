@@ -13,7 +13,8 @@ verify:
 	obt verify --esLintPath=./.eslintrc
 
 unit-test:
-	mocha --compilers js:babel/register --recursive --reporter spec test/server/
+	## NEED TESTS!!!!
+	# mocha --compilers js:babel/register --recursive --reporter spec test/server/
 
 smoke:
 	nbt test-urls ${TEST_HOST}
