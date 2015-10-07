@@ -1,3 +1,9 @@
+@import './tag/main';
+@import './title/main';
+@import './standfirst/main';
+@import './image/main';
+@import './related/main';
+
 .card {
 	width: 100%;
 	background-color: getColor('pink');
@@ -14,144 +20,6 @@
 	}
 	&:last-child {
 		flex: 2;
-	}
-}
-.card--tall {
-	display: flex;
-	flex-flow: column;
-}
-.card__tag {
-	font-family: $n-type-sans-serif;
-	font-weight: oFontsWeight(light);
-	color: #4a90e2;
-	border-bottom: 0;
-
-	.card--large &,
-	.card--medium & {
-		font-size: 16px;
-		line-height: 16px;
-	}
-	.card--small & {
-		font-size: 14px;
-		line-height: 14px;
-	}
-	.card--headline & {
-		float: left;
-		font-size: 12px;
-		line-height: 14px;
-	}
-	.card__tag--authors & {
-		color: #fbba2d;
-
-		&:before {
-			content: '“';
-			color: #c3bdb6;
-			font-size: 60px;
-			line-height: 0;
-			vertical-align: bottom;
-			margin-right: 5px;
-		}
-	}
-}
-.card__title-link {
-	border-bottom: 0;
-
-	&:hover {
-		border-bottom: 1px dotted;
-	}
-}
-.card__title {
-	font-family: $n-type-serif;
-	font-weight: oFontsWeight(regular);
-	margin-top: 5px;
-
-	.card--large & {
-		font-size: 24px;
-		line-height: 28px;
-	}
-	.card--medium & {
-		font-size: 20px;
-		line-height: 24px;
-	}
-	.card--small & {
-		font-size: 16px;
-		line-height: 18px;
-	 }
-	.card--headline & {
-		font-size: 14px;
-		line-height: 16px;
-		margin-top: 0;
-
-		&:before {
-			content: '|';
-			margin: 0 5px;
-		}
-	}
-	.card--tall & {
-		flex: 1;
-	}
-}
-.card__standfirst {
-	font-family: $n-type-sans-serif;
-	font-weight: oFontsWeight(light);
-	margin-top: 5px;
-
-	.card__tag--authors & {
-		font-family: $n-type-serif;
-		font-style: italic;
-		font-weight: oFontsWeight(light);
-	}
-	.card--large & {
-		font-size: 20px;
-		line-height: 24px;
-	}
-	.card--medium & {
-		font-size: 16px;
-		line-height: 18px;
-	}
-}
-.card__image-link,
-.card__image {
-	display: block;
-}
-.card__image-link {
-	margin-top: 10px;
-	border-bottom: 0;
-
-	@include oGridRespondTo($until: M) {
-		display: none;
-
-		.card--large & {
-			display: block;
-		}
-	}
-}
-.card__image {
-	width: 100%;
-}
-.card__related-items {
-	padding: 0;
-	list-style-type: none;
-}
-.card__related-item {
-	font-family: $n-type-sans-serif;
-	font-weight: oFontsWeight(light);
-	font-size: 14px;
-	line-height: 14px;
-	margin-top: 10px;
-}
-.card__related-item__link {
-	border-bottom: 0;
-
-	&:hover {
-		border-bottom: 1px dotted;
-	}
-	&:before {
-		content: '>';
-		font-size: 25px;
-		line-height: 0;
-		vertical-align: sub;
-		margin-right: 5px;
 	}
 }
 

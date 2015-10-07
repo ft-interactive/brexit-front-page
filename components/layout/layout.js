@@ -15,9 +15,17 @@ const sectionConfig = (props) => {
 				date: displayDate,
 				columns: ['12 M5', '12 M4', '12 M3'],
 				cards: [
-					[{ type: 'large'}],
-					[{ type: 'medium'}, { type: 'small', showImage: false }],
-					[{ type: 'small'}, { type: 'headline'}, { type: 'headline'}, { type: 'headline'}]
+					[{ tagSize: 'large', titleSize: 'large', standFirst: true, image: true, related: true }],
+					[
+						{ tagSize: 'medium', titleSize: 'medium', standFirst: true, image: true},
+						{ tagSize: 'small', titleSize: 'small', image: false }
+					],
+					[
+						{ tagSize: 'small', titleSize: 'small', image: true},
+						{ tagSize: 'headline', titleSize: 'headline', image: false},
+						{ tagSize: 'headline', titleSize: 'headline', image: false},
+						{ tagSize: 'headline', titleSize: 'headline', image: false}
+					]
 				],
 				content: props.content.top.leads.concat(props.content.top.items),
 				sidebarContent: props.content.fastFT,
@@ -29,10 +37,16 @@ const sectionConfig = (props) => {
 				style: 'opinion',
 				columns: ['12 M3', '12 M3', '12 M4', '12 M2'],
 				cards: [
-					[{ type: 'large' }],
-					[{ type: 'medium' }],
-					[{ type: 'ad' }, { type: 'headline' }],
-					[{ type: 'small' }, { type: 'small', showImage: false }]
+					[{ standFirst: true, tagSize: 'large', titleSize: 'large', standFirst: true, image: true }],
+					[{ standFirst: true, tagSize: 'medium', titleSize: 'medium', standFirst: true, image: true }],
+					[
+						{ ad: true },
+						{ tagSize: 'headline', titleSize: 'headline', image: false }
+					],
+					[
+						{ tagSize: 'small', titleSize: 'small', image: true },
+						{ tagSize: 'small', titleSize: 'small', image: false }
+					]
 				],
 				content: props.content.opinion.items
 		},
@@ -42,12 +56,12 @@ const sectionConfig = (props) => {
 				style: 'editors-pics',
 				columns: ['12 M4 L2', '12 M4 L2', '12 M4 L2', '12 M4 L2', '12 M4 L2', '12 M4 L2'],
 				cards: [
-					[{ type: 'tall' }],
-					[{ type: 'tall' }],
-					[{ type: 'tall' }],
-					[{ type: 'tall' }],
-					[{ type: 'tall' }],
-					[{ type: 'tall' }]
+					[{ tagSize: 'small', titleSize: 'small', image: true }],
+					[{ tagSize: 'small', titleSize: 'small', image: true }],
+					[{ tagSize: 'small', titleSize: 'small', image: true }],
+					[{ tagSize: 'small', titleSize: 'small', image: true }],
+					[{ tagSize: 'small', titleSize: 'small', image: true }],
+					[{ tagSize: 'small', titleSize: 'small', image: true }]
 				],
 				content: props.content.editorsPicks.items
 		}

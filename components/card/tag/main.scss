@@ -1,0 +1,32 @@
+.card__tag {
+	font-family: $n-type-sans-serif;
+	font-weight: oFontsWeight(light);
+	color: #4a90e2;
+	border-bottom: 0;
+}
+.card__tag--large,
+.card__tag--medium {
+	font-size: 16px;
+	line-height: 16px;
+}
+.card__tag--small {
+	font-size: 14px;
+	line-height: 14px;
+}
+.card__tag--headline {
+	float: left;
+	font-size: 12px;
+	line-height: 14px;
+}
+.card__tag--authors {
+	color: #fbba2d;
+
+	&:before {
+		content: '“';
+		color: #c3bdb6;
+		font-size: 60px;
+		line-height: 0;
+		vertical-align: bottom;
+		margin-right: 5px;
+	}
+}

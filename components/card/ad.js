@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-class CardAd extends Component {
+class Ad extends Component {
 	render() {
 		return (
 			<article className="card card--ad" data-trackable="card">
@@ -10,4 +10,4 @@ class CardAd extends Component {
 	}
 }
 
-export default CardAd;
+export default Ad;

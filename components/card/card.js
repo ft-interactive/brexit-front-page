@@ -1,27 +1,34 @@
 import React, {Component} from 'react';
-import CardLarge from './card-large';
-import CardMedium from './card-medium';
-import CardSmall from './card-small';
-import CardHeadline from './card-headline';
-import CardTall from './card-tall';
-import CardAd from './card-ad';
+
+import Tag from './tag/tag'
+import Title from './title/title'
+import Image from './image/image'
+import Standfirst from './standfirst/standfirst'
+import Related from './related/related';
+
+import Ad from './ad';
 
 class Card extends Component {
 	render() {
-		switch(this.props.type) {
-			case 'large':
-				return <CardLarge {...this.props} />;
-			case 'small':
-				return <CardSmall {...this.props} />;
-			case 'headline':
-				return <CardHeadline {...this.props} />;
-			case 'tall':
-				return <CardTall {...this.props} />;
-			case 'ad':
-				return <CardAd />;
-			default:
-				return <CardMedium {...this.props} />;
-		}
+		const article = this.props.article;
+
+		const tagSize = this.props.tagSize;
+		const titleSize = this.props.titleSize;
+		const standFirst = this.props.standFirst;
+		const image = !!this.props.image && article.primaryImage;
+		const related = !!this.props.related && article.relatedContent && article.relatedContent.length > 0;
+
+		if(this.props.ad) return <Ad />;
+
+		return (
+			<article className="card" data-trackable="card">
+				<Tag tag={article.primaryTag} size={tagSize}/>
+				<Title title={article.title} href={'/content/' + article.id} size={titleSize} />
+				{standFirst ? <Standfirst article={article} style={article.primaryTag.taxonomy} size={this.props.tagSize} /> : null}
+				{image ? <Image article={article} size={this.props.type} /> : null}
+				{related ? <Related articles={article.relatedContent} /> : null}
+			</article>
+		);
 	}
 }
 
