@@ -1,17 +1,16 @@
-import graphql from '../lib/graphql';
+import getData from '../libs/get-data';
+import { logger } from 'ft-next-express';
 
 module.exports = function(req, res) {
-	const useElasticSearch = res.locals.flags.elasticSearchItemGet.isSwitchedOn;
-	const mockBackend = res.locals.flags.mockFrontPage;
-
 	const query = req.body;
 
-	graphql(useElasticSearch, mockBackend, { flags: res.locals.flags }).fetch(query)
-	.then(data => {
-		res.json(data);
-	})
-	.catch(errors => {
-		res.status(400);
-		res.json(errors);
-	});
+	getData(query)
+		.then(data => {
+			res.json(data);
+		})
+		.catch(err => {
+			logger.error('Error getting query', err);
+			res.status(400);
+			res.json(err);
+		});
 };
