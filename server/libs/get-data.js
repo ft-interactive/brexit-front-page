@@ -1,12 +1,11 @@
 const getData = query => {
-	return fetch('http://ft-next-graphql-api.herokuapp.com/',
+	return fetch(`https://next-graphql-api.ft.com/apiKey=${process.env.GRAPHQL_API_KEY}`,
 		{
 			method: 'POST',
 			body: JSON.stringify({
 				query: query
 			}),
 			headers: {
-				'FT-Next-Backend-Key': process.env.FT_NEXT_BACKEND_KEY,
 				'Content-Type': 'application/json'
 			}
 		})
