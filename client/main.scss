@@ -26,12 +26,7 @@ $o-grid-start-snappy-mode-at: XXL;
 
 @import "flexipod-layouts";
 
-@import "../components/sections/main";
-@import "../components/section-meta/main";
-@import "../components/fast-ft/main";
-@import "../components/top-stories/main";
-@import "../components/opinion/main";
-@import "../components/card/main";
+@import "../components/layout/main";
 
 html {
 	background-color: oColorsGetColorFor('page', 'background');
