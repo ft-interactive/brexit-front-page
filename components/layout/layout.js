@@ -18,7 +18,7 @@ const sectionConfig = (props) => {
 				[{ tagSize: 'large', titleSize: 'large', standFirst: 'large', image: 'always', related: true }],
 				[
 					{ tagSize: 'large', titleSize: 'medium', standFirst: 'medium', image: 'desktop'},
-					{ tagSize: 'medium', titleSize: 'small' }
+					{ tagSize: 'large', titleSize: 'medium' }
 				],
 				[
 					{ tagSize: 'medium', titleSize: 'small', image: 'desktop'},
