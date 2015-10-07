@@ -11,7 +11,7 @@ class SectionEditorsPicks extends Component {
 						<SectionMeta title="Editor's Picks" showDate={false} />
 					</div>
 					<div data-o-grid-colspan="12 XL10">
-						<EditorsPicks articles={this.props.articles} />
+						<EditorsPicks articles={this.props.content.items} />
 					</div>
 				</div>
 			</section>

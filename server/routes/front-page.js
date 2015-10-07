@@ -3,9 +3,7 @@ import queries from '../config/queries';
 
 import FastFtFeed from '../../components/fastft/fastftfeed';
 import Feed from '../../components/feed/feed';
-import SectionTopStories from '../../components/sections/top-stories';
-import SectionOpinion from '../../components/sections/opinion';
-import SectionEditorsPicks from '../../components/sections/editors-picks';
+import Layout from '../../components/layout/layout';
 
 export function getFrontPageData(region, flags) {
 	const useElasticSearch = flags.elasticSearchItemGet;
@@ -27,9 +25,7 @@ export default (region) => {
 				layout: 'wrapper',
 				FastFtFeed,
 				Feed,
-				SectionTopStories,
-				SectionOpinion,
-				SectionEditorsPicks,
+				Layout,
 				content: contentData,
 				region
 			});

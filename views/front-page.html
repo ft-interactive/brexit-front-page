@@ -1,7 +1,5 @@
 {{#if @root.flags.frontPageLayoutPrototype}}
-	<div id="top-stories">{{{ reactRenderToString SectionTopStories leadArticles=content.top.leads topArticles=content.top.items fastFtArticles=content.fastFT.items}}}</div>
-	<div id="opinion">{{{ reactRenderToString SectionOpinion articles=content.opinion.items}}}</div>
-	<div id="editors-picks">{{{ reactRenderToString SectionEditorsPicks articles=content.editorsPicks.items}}}</div>
+	{{{ reactRenderToString Layout content=content }}}
 {{else}}
 	{{#defineBlock 'head'}}
 		<meta name="dfp_site" content="home" />

@@ -11,7 +11,7 @@ class SectionOpinion extends Component {
 						<SectionMeta title="Opinion" showDate={false} />
 					</div>
 					<div data-o-grid-colspan="12 XL10">
-						<Opinion articles={this.props.articles} />
+						<Opinion articles={this.props.content.items} />
 					</div>
 				</div>
 			</section>

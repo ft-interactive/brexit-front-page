@@ -12,10 +12,10 @@ class SectionTopStories extends Component {
 						<SectionMeta title="Top Stories"/>
 					</div>
 					<div data-o-grid-colspan="12 L10 XL8">
-						<TopStories articles={this.props.leadArticles.concat(this.props.topArticles)} />
+						<TopStories articles={this.props.content.leads.concat(this.props.content.items)} />
 					</div>
 					<aside data-o-grid-colspan="hide L2">
-						<FastFt articles={this.props.fastFtArticles} />
+						<FastFt articles={this.props.sidebarContent.items} />
 					</aside>
 				</div>
 			</section>
