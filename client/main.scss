@@ -5,6 +5,10 @@ $o-grid-layouts: (
 	XL:  1220px,
 	XXL: 1440px
 );
+$o-grid-gutters: (
+	default: 10px,
+	M:       15px
+);
 $o-grid-start-snappy-mode-at: XXL;
 
 

@@ -13,10 +13,10 @@ export default class Section extends Component {
 		return (
 			<section className="section o-grid-container">
 				<div className="o-grid-row">
-					<div data-o-grid-colspan={columns[0]}>
+					<div data-o-grid-colspan={columns[0]} className="section__column">
 						<SectionMeta title={this.props.title} date={this.props.date} />
 					</div>
-					<div data-o-grid-colspan={columns[1]}>
+					<div data-o-grid-colspan={columns[1]} className="section__column">
 						<SectionContent
 							style={this.props.style}
 							columns={this.props.columns}
@@ -26,7 +26,7 @@ export default class Section extends Component {
 					</div>
 					{
 						columns[2] ?
-						<aside data-o-grid-colspan={columns[2]}>
+						<aside data-o-grid-colspan={columns[2]} className="section__column">
 							<this.props.sidebarComponent articles={this.props.sidebarContent.items} />
 						</aside>
 						: null
