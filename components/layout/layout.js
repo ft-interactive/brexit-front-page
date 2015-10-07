@@ -38,13 +38,17 @@ const sectionConfig = (props) => {
 			columns: ['12 M3', '12 M3', '12 M4', '12 M2'],
 			cards: [
 				[{ tagSize: 'large', titleSize: 'large', standFirst: 'large', image: 'always' }],
-				[{ tagSize: 'large', titleSize: 'medium', standFirst: 'medium', image: 'desktop' }],
+				[
+					{ tagSize: 'large', titleSize: 'medium', standFirst: 'medium'},
+					{ tagSize: 'large', titleSize: 'medium', standFirst: 'medium'}
+				],
 				[
 					{ ad: true },
-					{ tagSize: 'small', titleSize: 'tiny' }
+					{ tagSize: 'large', titleSize: 'medium' }
 				],
 				[
 					{ tagSize: 'medium', titleSize: 'small', image: 'desktop' },
+					{ tagSize: 'medium', titleSize: 'small' },
 					{ tagSize: 'medium', titleSize: 'small' }
 				]
 			],
