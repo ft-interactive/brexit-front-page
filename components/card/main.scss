@@ -9,19 +9,30 @@
 	background-color: getColor('pink');
 	margin-top: oGridGutter();
 	padding: 10px;
+	display: flex;
+	flex-direction: column;
 
 	@include oGridRespondTo(M, $until: XL) {
 		margin-top: oGridGutter(M);
 	}
+
+	&.card--inline {
+		display: block;
+	}
+
+	// no top margin on first card
 	&:first-child {
 		@include oGridRespondTo(XL) {
 			margin-top: 0;
 		}
 	}
+
+	// make last card fill the column
 	&:last-child {
 		flex: 2;
 	}
 }
+
 
 .card--ad {
 	padding-left: 0;

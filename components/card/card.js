@@ -8,6 +8,16 @@ import Related from './related/related';
 
 import Ad from './ad';
 
+const className = (classes) => {
+	let result = []
+
+	for(const name in classes) {
+		if(classes[name]) result.push(name)
+	}
+
+	return result.join(' ');
+}
+
 class Card extends Component {
 	render() {
 		const article = this.props.article;
@@ -22,7 +32,7 @@ class Card extends Component {
 		if(this.props.ad) return <Ad />;
 
 		return (
-			<article className="card" data-trackable="card">
+			<article className={className({card: true, 'card--inline': (titleSize === 'tiny')})} data-trackable="card">
 				<Tag tag={article.primaryTag} size={tagSize}/>
 				<Title title={article.title} href={'/content/' + article.id} size={titleSize} />
 				{standFirst ? <Standfirst article={article} style={article.primaryTag.taxonomy} size={standFirst} /> : null}
