@@ -15,7 +15,8 @@ class Card extends Component {
 		const tagSize = this.props.tagSize;
 		const titleSize = this.props.titleSize;
 		const standFirst = this.props.standFirst;
-		const image = !!this.props.image && article.primaryImage;
+		const image = this.props.image;
+		const showImage = !!image && article.primaryImage;
 		const related = !!this.props.related && article.relatedContent && article.relatedContent.length > 0;
 
 		if(this.props.ad) return <Ad />;
@@ -24,8 +25,8 @@ class Card extends Component {
 			<article className="card" data-trackable="card">
 				<Tag tag={article.primaryTag} size={tagSize}/>
 				<Title title={article.title} href={'/content/' + article.id} size={titleSize} />
-				{standFirst ? <Standfirst article={article} style={article.primaryTag.taxonomy} size={this.props.tagSize} /> : null}
-				{image ? <Image article={article} size={this.props.type} /> : null}
+				{standFirst ? <Standfirst article={article} style={article.primaryTag.taxonomy} size={standFirst} /> : null}
+				{showImage ? <Image article={article} display={image} /> : null}
 				{related ? <Related articles={article.relatedContent} /> : null}
 			</article>
 		);
