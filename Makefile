@@ -35,7 +35,7 @@ build:
 	webpack
 
 build-production:
-	NODE_ENV=production webpack --bail
+	export NODE_ENV=production; webpack --bail
 	nbt about
 
 provision:
