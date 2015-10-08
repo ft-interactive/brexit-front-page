@@ -35,6 +35,7 @@
 
 .story-card__taxon {
 	@include nTypeBravoSize(4);
+	display: inline-block;
 	margin-bottom: 5px;
 
 	&.story-card__link,

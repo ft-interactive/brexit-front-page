@@ -25,6 +25,8 @@
 
 .story-card--liveblog {
 	.story-card__content {
+		@include oGridColspan(12);
+
 		.liveblog__badge {
 			@include nTypeBravo(4);
 			display: inline-block;
