@@ -1,4 +1,4 @@
-import queries from '../config/queries';
+import { frontPage as frontPageQuery } from '../config/queries';
 import getData from '../libs/get-data';
 import { logger } from 'ft-next-express';
 
@@ -13,7 +13,7 @@ export default (region) => {
 			'Surrogate-Control': 'max-age=60,stale-while-revalidate=6,stale-if-error=259200'
 		});
 
-		getData(queries.frontPage(region), res.locals.flags)
+		getData(frontPageQuery(region), res.locals.flags)
 			.then(data => {
 				res.render('front-page',
 					{

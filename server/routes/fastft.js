@@ -1,4 +1,4 @@
-import queries from '../config/queries';
+import { fastFt as fastFtQuery } from '../config/queries';
 import getData from '../libs/get-data';
 import { logger } from 'ft-next-express';
 
@@ -7,7 +7,7 @@ module.exports = function(req, res, next) {
 		'Cache-Control': 'max-age=20, public' // 20 seconds
 	});
 
-	return getData(queries.fastFT, res.locals.flags)
+	return getData(fastFtQuery, res.locals.flags)
 		.then(data => {
 			res.json(data.fastFT);
 		})

@@ -6,7 +6,6 @@ import bodyParser from 'body-parser';
 // routes
 import frontPage from './routes/front-page';
 import fastft from './routes/fastft';
-import query from './routes/query';
 
 const app = express({
 	helpers: {
@@ -42,7 +41,6 @@ app.get('/international', frontPage('US'));
 app.get('/uk', frontPage('UK'));
 
 app.get('/home/fastft.json', fastft);
-app.post('/front-page/query.json', query);
 
 const port = process.env.PORT || 3001;
 
