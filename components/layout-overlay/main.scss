@@ -1,0 +1,46 @@
+@import 'next-sass-setup/main';
+
+.layout-overlay {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 30;
+	background-color: black;
+	opacity: 0.8;
+	color: white;
+}
+
+.layout-overlay--expanded .layout-overlay__toggle {
+	@include nextIcon(arrow-right, white, 25);
+}
+
+.layout-overlay--collapsed .layout-overlay__toggle {
+	@include nextIcon(arrow-left, white, 25);
+}
+
+.layout-overlay--expanded .layout-overlay__toggle,
+.layout-overlay--collapsed .layout-overlay__toggle {
+	float: left;
+	width: 30px;
+	height: 100%;
+	background-size: 25px 25px;
+	background-position: center;
+}
+
+.layout-overlay__body {
+	display: none;
+	width: 300px;
+	height: 100%;
+	float: left;
+}
+
+.layout-overlay--expanded .layout-overlay__body {
+	display: inherit;
+}
+
+.layout-overlay__body h2 {
+	@include nTypeAlpha(2);
+	text-align: center;
+	margin: 0.5em;
+}

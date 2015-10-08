@@ -10,6 +10,7 @@ import prompts from 'n-message-prompts';
 
 import fastFT from '../components/fastft/main';
 import Layout from '../components/layout/main';
+import LayoutOverlay from '../components/layout-overlay/main';
 
 import './main.scss';
 
@@ -35,7 +36,11 @@ setup.bootstrap(({flags}) => {
 	scrollDepth.init(flags);
 
 	const layoutContainer = document.getElementById('main-body');
-	const content = JSON.parse(layoutContainer.dataset.mainContent);
+	const content = layoutContainer ? JSON.parse(layoutContainer.dataset.mainContent) : {};
 
 	Layout.init(layoutContainer, content);
+
+	const layoutOverlayContainer = document.getElementById('layout-overlay-container');
+
+	LayoutOverlay.init(layoutOverlayContainer);
 });
