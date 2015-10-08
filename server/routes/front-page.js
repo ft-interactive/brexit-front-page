@@ -13,7 +13,7 @@ export default (region) => {
 			'Surrogate-Control': 'max-age=60,stale-while-revalidate=6,stale-if-error=259200'
 		});
 
-		getData(queries.frontPage(region))
+		getData(queries.frontPage(region), res.locals.flags)
 			.then(data => {
 				res.render('front-page',
 					{

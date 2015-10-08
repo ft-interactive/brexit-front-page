@@ -7,7 +7,7 @@ module.exports = function(req, res, next) {
 		'Cache-Control': 'max-age=20, public' // 20 seconds
 	});
 
-	return getData(queries.fastFT)
+	return getData(queries.fastFT, res.locals.flags)
 		.then(data => {
 			res.json(data.fastFT);
 		})
