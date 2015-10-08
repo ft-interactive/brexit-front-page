@@ -9,6 +9,7 @@ import nVideo from 'n-video';
 import prompts from 'n-message-prompts';
 
 import fastFT from '../components/fastft/main';
+import Layout from '../components/layout/main';
 
 import './main.scss';
 
@@ -32,4 +33,9 @@ setup.bootstrap(({flags}) => {
 	prompts.init();
 	highlightDomPath();
 	scrollDepth.init(flags);
+
+	const layoutContainer = document.getElementById('main-body');
+	const content = JSON.parse(layoutContainer.dataset.mainContent);
+
+	Layout.init(layoutContainer, content);
 });
