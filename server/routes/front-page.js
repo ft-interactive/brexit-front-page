@@ -1,16 +1,10 @@
-import graphql from '../lib/graphql';
-import queries from '../config/queries';
+import { frontPage as frontPageQuery } from '../config/queries';
+import getData from '../libs/get-data';
+import { logger } from 'ft-next-express';
 
 import FastFtFeed from '../../components/fastft/fastftfeed';
 import Feed from '../../components/feed/feed';
 import Layout from '../../components/layout/layout';
-
-export function getFrontPageData(region, flags) {
-	const useElasticSearch = flags.elasticSearchItemGet;
-	const mockBackend = flags.mockFrontPage;
-
-	return graphql(useElasticSearch, mockBackend, { flags }).fetch(queries.frontPage(region));
-}
 
 export default (region) => {
 	return (req, res, next) => {
@@ -19,17 +13,22 @@ export default (region) => {
 			'Surrogate-Control': 'max-age=60,stale-while-revalidate=6,stale-if-error=259200'
 		});
 
-		getFrontPageData(region, res.locals.flags)
-		.then(contentData => {
-			res.render('front-page', {
-				layout: 'wrapper',
-				FastFtFeed,
-				Feed,
-				Layout,
-				content: contentData,
-				region
+		getData(frontPageQuery(region), res.locals.flags)
+			.then(data => {
+				res.render('front-page',
+					{
+						layout: 'wrapper',
+						FastFtFeed,
+						Feed,
+						Layout,
+						content: data,
+						region
+					}
+				);
+			})
+			.catch(err => {
+				logger.error(err);
+				next(err);
 			});
-		})
-		.catch(next);
 	};
 };

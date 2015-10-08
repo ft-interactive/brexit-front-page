@@ -4,9 +4,8 @@ import ReactServer from 'react-dom/server';
 import bodyParser from 'body-parser';
 
 // routes
-import frontPage, { getFrontPageData } from './routes/front-page';
+import frontPage from './routes/front-page';
 import fastft from './routes/fastft';
-import query from './routes/query';
 
 const app = express({
 	helpers: {
@@ -29,18 +28,8 @@ if(process.env.NODE_ENV !== 'production' && process.env.NODE_ENV !== 'branch') {
 
 app.use(bodyParser.text());
 
-app.get('/__gtg', (req, res, next) => {
-	// warm up the data
-	Promise.all([
-			getFrontPageData('UK', Object.assign({}, res.locals.flags, { elasticSearchItemGet: true, mockBackend: false })),
-			getFrontPageData('US', Object.assign({}, res.locals.flags, { elasticSearchItemGet: true, mockBackend: false })),
-			getFrontPageData('UK', Object.assign({}, res.locals.flags, { elasticSearchItemGet: false, mockBackend: false })),
-			getFrontPageData('US', Object.assign({}, res.locals.flags, { elasticSearchItemGet: false, mockBackend: false }))
-		])
-		.then(() => {
-			res.status(200).end();
-		})
-		.catch(next)
+app.get('/__gtg', (req, res) => {
+	res.status(200).end();
 });
 app.get('/', (req, res) => {
 	res.sendStatus(404);
@@ -52,7 +41,6 @@ app.get('/international', frontPage('US'));
 app.get('/uk', frontPage('UK'));
 
 app.get('/home/fastft.json', fastft);
-app.post('/front-page/query.json', query);
 
 const port = process.env.PORT || 3001;
 
