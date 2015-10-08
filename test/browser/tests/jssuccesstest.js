@@ -1,6 +1,5 @@
 /*global console*/
 
-require('es6-promise').polyfill();
 require('isomorphic-fetch');
 const notifySaucelabs = require('notify-saucelabs');
 const TEST_HOST = process.env.TEST_URL;
