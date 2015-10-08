@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
-import dateFormat from 'dateformat';
+import {format as dateFormat} from 'o-date';
 
 import Section from '../section/section';
 import FastFt from '../fast-ft/fast-ft';
 
-const displayDate = dateFormat(new Date, 'dS mmmm yyyy');
+const displayDate = dateFormat(new Date(), 'EEEE MMMM yyyy');
 
 const sectionConfig = (props) => {
 	return [
@@ -15,7 +15,7 @@ const sectionConfig = (props) => {
 			date: displayDate,
 			columns: ['12 M5', '12 M4', '12 M3'],
 			cards: [
-				[{ tagSize: 'large', titleSize: 'large', standFirst: 'large', image: 'always', related: true }],
+				[{ tagSize: 'large', titleSize: 'large', standFirst: 'large', image: 'desktop', related: true }],
 				[
 					{ tagSize: 'large', titleSize: 'medium', standFirst: 'medium', image: 'desktop'},
 					{ tagSize: 'large', titleSize: 'medium' }
