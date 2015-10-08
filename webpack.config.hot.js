@@ -25,7 +25,7 @@ const config = {
 	output: {
 		path: path.join(__dirname, 'public'),
 		filename: 'main.js',
-		publicPath: '/front-page/'
+		publicPath: 'http://localhost:8888/front-page/'
 	},
 	plugins: plugins,
 	module: {
