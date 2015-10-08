@@ -13,19 +13,14 @@ const sectionConfig = (props) => {
 			title: 'Top Stories',
 			style: 'top-stories',
 			date: displayDate,
-			columns: ['12 M5', '12 M4', '12 M3'],
 			cards: [
-				[{ tagSize: 'large', titleSize: 'large', standFirst: 'large', image: 'desktop', related: true }],
-				[
-					{ tagSize: 'large', titleSize: 'medium', standFirst: 'medium', image: 'desktop'},
-					{ tagSize: 'large', titleSize: 'medium' }
-				],
-				[
-					{ tagSize: 'medium', titleSize: 'small', image: 'desktop'},
-					{ tagSize: 'small', titleSize: 'tiny'},
-					{ tagSize: 'small', titleSize: 'tiny'},
-					{ tagSize: 'small', titleSize: 'tiny'}
-				]
+				{ column: 0, width: 5, tagSize: 'large', titleSize: 'large', standFirst: 'large', image: 'desktop', related: true },
+				{ column: 1, width: 4, tagSize: 'large', titleSize: 'medium', standFirst: 'medium', image: 'desktop'},
+				{ column: 1, width: 4, tagSize: 'large', titleSize: 'medium' },
+				{ column: 2, width: 3, tagSize: 'medium', titleSize: 'small', image: 'desktop'},
+				{ column: 2, width: 3, tagSize: 'small', titleSize: 'tiny'},
+				{ column: 2, width: 3, tagSize: 'small', titleSize: 'tiny'},
+				{ column: 2, width: 3, tagSize: 'small', titleSize: 'tiny'}
 			],
 			content: props.content.top.leads.concat(props.content.top.items),
 			sidebarContent: props.content.fastFT,
@@ -35,22 +30,15 @@ const sectionConfig = (props) => {
 			id: 'opinion',
 			title: 'Opinion',
 			style: 'opinion',
-			columns: ['12 M3', '12 M3', '12 M4', '12 M2'],
 			cards: [
-				[{ tagSize: 'large', titleSize: 'large', standFirst: 'large', image: 'always' }],
-				[
-					{ tagSize: 'large', titleSize: 'medium', standFirst: 'medium'},
-					{ tagSize: 'large', titleSize: 'medium', standFirst: 'medium'}
-				],
-				[
-					{ ad: true },
-					{ tagSize: 'large', titleSize: 'medium' }
-				],
-				[
-					{ tagSize: 'medium', titleSize: 'small', image: 'desktop' },
-					{ tagSize: 'medium', titleSize: 'small' },
-					{ tagSize: 'medium', titleSize: 'small' }
-				]
+				{ column: 0, width: 3, tagSize: 'large', titleSize: 'large', standFirst: 'large', image: 'always' },
+				{ column: 1, width: 3, tagSize: 'large', titleSize: 'medium', standFirst: 'medium'},
+				{ column: 1, width: 3, tagSize: 'large', titleSize: 'medium', standFirst: 'medium'},
+				{ column: 2, width: 4, ad: true },
+				{ column: 2, width: 4, tagSize: 'large', titleSize: 'medium' },
+				{ column: 3, width: 2, tagSize: 'medium', titleSize: 'small', image: 'desktop' },
+				{ column: 3, width: 2, tagSize: 'medium', titleSize: 'small' },
+				{ column: 3, width: 2, tagSize: 'medium', titleSize: 'small' }
 			],
 			content: props.content.opinion.items
 		},
@@ -58,14 +46,13 @@ const sectionConfig = (props) => {
 			id: 'editors-pics',
 			title: 'Editor\'s Picks',
 			style: 'editors-pics',
-			columns: ['12 M4 L2', '12 M4 L2', '12 M4 L2', '12 M4 L2', '12 M4 L2', '12 M4 L2'],
 			cards: [
-				[{ tagSize: 'medium', titleSize: 'small', image: 'desktop' }],
-				[{ tagSize: 'medium', titleSize: 'small', image: 'desktop' }],
-				[{ tagSize: 'medium', titleSize: 'small', image: 'desktop' }],
-				[{ tagSize: 'medium', titleSize: 'small', image: 'desktop' }],
-				[{ tagSize: 'medium', titleSize: 'small', image: 'desktop' }],
-				[{ tagSize: 'medium', titleSize: 'small', image: 'desktop' }]
+				{ column: 0, width: 2, tagSize: 'medium', titleSize: 'small', image: 'desktop' },
+				{ column: 1, width: 2, tagSize: 'medium', titleSize: 'small', image: 'desktop' },
+				{ column: 2, width: 2, tagSize: 'medium', titleSize: 'small', image: 'desktop' },
+				{ column: 3, width: 2, tagSize: 'medium', titleSize: 'small', image: 'desktop' },
+				{ column: 4, width: 2, tagSize: 'medium', titleSize: 'small', image: 'desktop' },
+				{ column: 5, width: 2, tagSize: 'medium', titleSize: 'small', image: 'desktop' }
 			],
 			content: props.content.editorsPicks.items
 		}
