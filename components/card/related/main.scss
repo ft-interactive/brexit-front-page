@@ -1,0 +1,25 @@
+.card__related-items {
+	padding: 0;
+	list-style-type: none;
+}
+.card__related-item {
+	font-family: $n-type-sans-serif;
+	font-weight: oFontsWeight(light);
+	font-size: 14px;
+	line-height: 14px;
+	margin-top: 10px;
+}
+.card__related-item__link {
+	border-bottom: 0;
+
+	&:hover {
+		border-bottom: 1px dotted;
+	}
+	&:before {
+		content: '>';
+		font-size: 25px;
+		line-height: 0;
+		vertical-align: sub;
+		margin-right: 5px;
+	}
+}

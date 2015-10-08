@@ -1,0 +1,18 @@
+.card__standfirst {
+	font-family: $n-type-sans-serif;
+	font-weight: oFontsWeight(light);
+	margin-top: 5px;
+}
+.card__standfirst--authors {
+	font-family: $n-type-serif;
+	font-style: italic;
+	font-weight: oFontsWeight(light);
+}
+.card__standfirst--large {
+	font-size: 20px;
+	line-height: 24px;
+}
+.card__standfirst--medium {
+	font-size: 16px;
+	line-height: 18px;
+}

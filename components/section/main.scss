@@ -1,3 +1,6 @@
+@import "./section-meta/main";
+@import "../card/main";
+
 .full-cell {
 	position: absolute;
 	height: 100%;
@@ -12,6 +15,7 @@
 .section {
 	@include oGridRespondTo(M) {
 		margin-top: oGridGutter(M);
+		margin-bottom: oGridGutter(M);
 	}
 }
 .section__meta--mobile {
@@ -19,6 +23,17 @@
 		display: none;
 	}
 }
+.section__column {
+	display: flex;
+	align-items: stretch;
+
+	& > * {
+		width: 100%;
+		padding-bottom: oGridGutter(M);
+		border-bottom: 1px solid oColorsGetPaletteColor('blue-2');
+	}
+}
+
 .column {
 	display: flex;
 	flex-flow: column wrap;
