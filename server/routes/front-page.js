@@ -27,7 +27,7 @@ export default (region) => {
 				);
 			})
 			.catch(err => {
-				logger.error('Error fetching front page data', err);
+				logger.error(err);
 				next(err);
 			});
 	};
