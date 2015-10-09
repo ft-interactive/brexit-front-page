@@ -3,7 +3,7 @@
 .layout-overlay {
 	position: fixed;
 	top: 0;
-	right: 0;
+	left: 0;
 	bottom: 0;
 	z-index: 30;
 	background-color: black;
@@ -12,16 +12,16 @@
 }
 
 .layout-overlay--expanded .layout-overlay__toggle {
-	@include nextIcon(arrow-right, white, 25);
+	@include nextIcon(arrow-left, white, 25);
 }
 
 .layout-overlay--collapsed .layout-overlay__toggle {
-	@include nextIcon(arrow-left, white, 25);
+	@include nextIcon(arrow-right, white, 25);
 }
 
 .layout-overlay--expanded .layout-overlay__toggle,
 .layout-overlay--collapsed .layout-overlay__toggle {
-	float: left;
+	float: right;
 	width: 30px;
 	height: 100%;
 	background-size: 25px 25px;
