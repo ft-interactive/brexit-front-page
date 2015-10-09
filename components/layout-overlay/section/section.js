@@ -15,9 +15,13 @@ export default class Section extends Component {
 	}
 
 	render() {
-		const cardEditors = this.props.cards.map(card => {
+		const cardEditors = this.props.cards.map((card, idx) => {
+			const previousCard = this.props.cards[Math.max(idx - 1)];
+			const previousColumn = previousCard ? previousCard.column : -1;
+			const firstOfColumn = (card.column > previousColumn);
+
 			return (<li>
-				<CardEditor card={card} />
+				<CardEditor card={card} minColumn={previousColumn} maxColumn={previousColumn + 1} showWidth={firstOfColumn} />
 			</li>)
 		})
 

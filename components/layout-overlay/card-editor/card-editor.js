@@ -6,9 +6,14 @@ export default class CardEditor extends Component {
 			<form className="card-editor">
 				<p className="card-editor__overview">
 					<label>Column</label>
-					<input type="number" data-trackable="card-column" value={this.props.card.column} />
-					<label>Width</label>
-					<input type="number" data-trackable="card-width" value={this.props.card.width} />
+					<input
+						type="number"
+						data-trackable="card-column"
+						value={this.props.card.column}
+						min={this.props.minColumn}
+						max={this.props.maxColumn} />
+					{ this.props.showWidth ? <label>Width</label> : null }
+					{ this.props.showWidth ? <input type="number" data-trackable="card-width" value={this.props.card.width || 2} /> : null }
 				</p>
 				<p>
 					<label>Tag size</label>
