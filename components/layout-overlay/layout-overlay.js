@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 
+import Section from './section/section';
+
 export default class LayoutOverlay extends Component {
 	constructor(props) {
 		super(props);
@@ -13,6 +15,14 @@ export default class LayoutOverlay extends Component {
 	}
 
 	render() {
+		const sections = this.props.layout.map(section => {
+			return (
+				<li key={section.id}>
+					<Section title={section.title} cards={section.cards} />
+				</li>
+			)
+		});
+
 		return (
 			<aside className={'layout-overlay layout-overlay--' + (this.state.expanded ? 'expanded' : 'collapsed')}>
 				<a href="#" className="layout-overlay__toggle" onClick={this.toggle.bind(this)} data-trackable="overlay-toggle">
@@ -22,6 +32,9 @@ export default class LayoutOverlay extends Component {
 				</a>
 				<div className="layout-overlay__body">
 					<h2>Layout Configuration</h2>
+					<ul className="layout-overlay__sections">
+						{sections}
+					</ul>
 				</div>
 			</aside>
 		);

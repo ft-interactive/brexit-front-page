@@ -10,7 +10,7 @@ export default [
 		style: 'top-stories',
 		date: date,
 		cards: [
-			{ column: 0, width: 5, tagSize: 'large', titleSize: 'large', standFirst: 'large', image: 'desktop', related: true },
+			{ column: 0, width: 5, tagSize: 'large', titleSize: 'large', standFirst: 'large', image: 'always', related: 3 },
 			{ column: 1, width: 4, tagSize: 'large', titleSize: 'medium', standFirst: 'medium', image: 'desktop'},
 			{ column: 1, width: 4, tagSize: 'large', titleSize: 'medium' },
 			{ column: 2, width: 3, tagSize: 'medium', titleSize: 'small', image: 'desktop'},

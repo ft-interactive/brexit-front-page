@@ -37,7 +37,7 @@ class Card extends Component {
 				<Title title={article.title} href={'/content/' + article.id} size={titleSize} />
 				{standFirst ? <Standfirst article={article} style={article.primaryTag.taxonomy} size={standFirst} /> : null}
 				{showImage ? <Image article={article} display={image} /> : null}
-				{related ? <Related articles={article.relatedContent} /> : null}
+				{related ? <Related articles={article.relatedContent} limit={this.props.related} /> : null}
 			</article>
 		);
 	}

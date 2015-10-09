@@ -4,10 +4,12 @@ import ReactDOM from 'react-dom';
 import LayoutOverlay from './layout-overlay';
 import './main.scss';
 
-function init(el) {
+import initialLayout from '../layout/config';
+
+function init(el, callback) {
 	if (!el) return;
 
-	ReactDOM.render(<LayoutOverlay />, el);
+	ReactDOM.render(<LayoutOverlay layout={initialLayout} onChange={callback} />, el);
 }
 
 export default {
