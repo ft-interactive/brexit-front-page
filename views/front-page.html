@@ -1,6 +1,6 @@
 {{#if @root.flags.frontPageLayoutPrototype}}
 	<div id="layout-overlay-container"></div>
-	<section id="main-body" data-main-content="{{json content}}">{{{ reactRenderToString Layout content=content }}}</section>
+	<section id="main-body" data-main-content="{{json content}}">{{{ reactRenderToString Layout content=content layout=initialLayout }}}</section>
 {{else}}
 	{{#defineBlock 'head'}}
 		<meta name="dfp_site" content="home" />

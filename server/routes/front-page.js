@@ -5,6 +5,7 @@ import { logger } from 'ft-next-express';
 import FastFtFeed from '../../components/fastft/fastftfeed';
 import Feed from '../../components/feed/feed';
 import Layout from '../../components/layout/layout';
+import initialLayout from '../../components/layout/config';
 
 export default (region) => {
 	return (req, res, next) => {
@@ -22,6 +23,7 @@ export default (region) => {
 						Feed,
 						Layout,
 						content: data,
+						initialLayout,
 						region
 					}
 				);

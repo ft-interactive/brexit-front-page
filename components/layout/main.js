@@ -1,14 +1,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import Layout from './Layout';
+import Layout from './layout';
+import initialLayout from './config';
 
-function init(el, content) {
+let element;
+let content;
+
+function init(el, initialContent) {
 	if (!el) return;
+	element = el;
+	content = initialContent;
 
-	ReactDOM.render(<Layout content={content} />, el);
+	render(initialLayout);
+}
+
+function render(layout) {
+	ReactDOM.render(<Layout content={content} layout={layout} />, element);
 }
 
 export default {
-	init: init
+	init: init,
+	render: render
 }

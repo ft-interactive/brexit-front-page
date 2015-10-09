@@ -42,5 +42,7 @@ setup.bootstrap(({flags}) => {
 
 	const layoutOverlayContainer = document.getElementById('layout-overlay-container');
 
-	LayoutOverlay.init(layoutOverlayContainer);
+	LayoutOverlay.init(layoutOverlayContainer, (newLayout) => {
+		Layout.render(newLayout);
+	});
 });
