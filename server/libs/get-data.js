@@ -2,7 +2,7 @@ import { logger } from 'ft-next-express';
 
 const getData = (query, flags) => {
 	const xFlagsHeader = Object.keys(flags).map(flag => `${flag}:${flags[flag] ? 'on' : 'off'}`).join(',');
-	return fetch(`http://next-graphql-api.ft.com/?apiKey=${process.env.GRAPHQL_API_KEY}`,
+	return fetch(`http://ft-next-graphql-api-eu.herokuapp.com/?apiKey=${process.env.GRAPHQL_API_KEY}`,
 		{
 			method: 'POST',
 			body: JSON.stringify({
