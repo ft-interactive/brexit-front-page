@@ -14,6 +14,15 @@ export default class Section extends Component {
 		this.setState({expanded: !this.state.expanded});
 	}
 
+	update(idx) {
+		return (newCard) => {
+			const newCards = this.props.cards.slice();
+			newCards[idx] = newCard;
+
+			this.props.onCardsChange(newCards);
+		};
+	}
+
 	render() {
 		const cardEditors = this.props.cards.map((card, idx) => {
 			const previousCard = this.props.cards[Math.max(idx - 1)];
@@ -21,7 +30,7 @@ export default class Section extends Component {
 			const firstOfColumn = (card.column > previousColumn);
 
 			return (<li>
-				<CardEditor card={card} minColumn={previousColumn} maxColumn={previousColumn + 1} showWidth={firstOfColumn} />
+				<CardEditor card={card} minColumn={previousColumn} maxColumn={previousColumn + 1} showWidth={firstOfColumn} onChange={this.update(idx)}/>
 			</li>)
 		})
 

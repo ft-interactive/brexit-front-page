@@ -6,12 +6,23 @@ import './main.scss';
 
 import initialLayout from '../layout/config';
 
-function init(el, callback) {
+let element;
+let callback;
+
+function init(el, cb) {
 	if (!el) return;
 
-	ReactDOM.render(<LayoutOverlay layout={initialLayout} onChange={callback} />, el);
+	element = el;
+	callback = cb;
+
+	render(initialLayout);
+}
+
+function render(layout) {
+	ReactDOM.render(<LayoutOverlay layout={layout} onChange={callback} />, element);
 }
 
 export default {
-	init: init
+	init: init,
+	render: render
 }
