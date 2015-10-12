@@ -1,7 +1,9 @@
+@import 'next-sass-setup/main';
+
 .card__tag {
 	font-family: $n-type-sans-serif;
 	font-weight: oFontsWeight(light);
-	color: #4a90e2;
+	color: getColor(claret);
 	border-bottom: 0;
 }
 
@@ -20,14 +22,16 @@
 }
 
 .card__tag--authors {
-	color: #fbba2d;
+	color: getColor(claret);
 
 	&:before {
-		content: '“';
-		color: #c3bdb6;
+		@include nTypeDelta(1);
 		font-size: 60px;
+		color: #c3bdb6;
+		content: '“';
+		display: inline-block;
 		line-height: 0;
 		vertical-align: bottom;
-		margin-right: 5px;
+		margin: 0 10px -8px -5px;
 	}
 }
