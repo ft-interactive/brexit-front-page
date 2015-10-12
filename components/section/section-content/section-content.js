@@ -22,6 +22,8 @@ export default class SectionContent extends Component {
 			const cards = columnCards.map(card => {
 				const article = articles.shift();
 
+				if(!article) return null;
+
 				const props = Object.assign({}, card, { article, key: article.id });
 				return <Card {...props} />;
 			});

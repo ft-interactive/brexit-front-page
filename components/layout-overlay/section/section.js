@@ -17,6 +17,21 @@ export default class Section extends Component {
 	update(idx) {
 		return (newCard) => {
 			const newCards = this.props.cards.slice();
+			const widthDiff = +newCards[idx].width - newCard.width;
+
+			if(newCard.width < 2) return;
+
+			// on width change, update a neihgboring column width
+			if(widthDiff !== 0) {
+				const column = +newCards[idx].column;
+				const cardToChange = newCards.find((card) => +card.column > column) || newCards.find((card) => +card.column === column - 1)
+
+				if((+cardToChange.width + widthDiff) < 2) return;
+
+				cardToChange.width = +cardToChange.width + widthDiff;
+				// bail if we're making a card too narrow
+			}
+
 			newCards[idx] = newCard;
 
 			this.props.onCardsChange(newCards);
