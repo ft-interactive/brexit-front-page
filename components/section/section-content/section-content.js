@@ -3,12 +3,12 @@ import Card from '../../card/card';
 
 const buildColumns = (cards) => {
 	return cards.reduce(([columns, currentColumn], card) => {
-		if(card.column === currentColumn) {
+		if(+card.column === currentColumn) {
 			columns[currentColumn].push(card);
 			return [columns, currentColumn];
 		} else {
 			columns.push([card]);
-			return [columns, card.column]
+			return [columns, +card.column]
 		}
 	}, [ [[]], 0 ])[0];
 }
