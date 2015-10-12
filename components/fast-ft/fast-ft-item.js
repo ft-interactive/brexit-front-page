@@ -1,11 +1,10 @@
 import React, {Component} from 'react';
-
-import dateFormat from 'dateformat';
+import {format as dateFormat} from 'o-date';
 
 class FastFtItem extends Component {
 	render() {
 		const article = this.props.article;
-		const time = dateFormat(article.lastPublished, 'H:MMtt');
+		const time = dateFormat(article.lastPublished, 'H:mm a');
 		return (
 			<div className="fast-ft__item">
 				<time className="fast-ft__time" datetime={article.lastPublished}>{time}</time>
