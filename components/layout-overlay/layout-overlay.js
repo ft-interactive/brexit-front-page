@@ -14,10 +14,10 @@ export default class LayoutOverlay extends Component {
 		this.setState({expanded: !this.state.expanded});
 	}
 
-	updateCards(idx) {
+	updateCards(sectionIndex) {
 		return (newCards) => {
 			const newLayout = this.props.layout;
-			newLayout[idx].cards = newCards;
+			newLayout[sectionIndex].cards = newCards;
 
 			this.props.onChange(newLayout);
 		}

@@ -31,18 +31,18 @@ export default class Section extends Component {
 		this.setState({expanded: !this.state.expanded});
 	}
 
-	update(idx) {
+	update(cardIndex) {
 		return (newCard) => {
 			const newCards = this.props.cards.slice();
-			const widthDiff = +newCards[idx].width - newCard.width;
-			const columnDiff = +newCard.column - newCards[idx].column;
+			const widthDiff = +newCards[cardIndex].width - newCard.width;
+			const columnDiff = +newCard.column - newCards[cardIndex].column;
 
 			// bail if we're making a card too narrow
 			if(newCard.width < 2) return;
 
 			// on width change, update a neihgboring column width
 			if(widthDiff !== 0) {
-				const column = +newCards[idx].column;
+				const column = +newCards[cardIndex].column;
 				const cardToChange = newCards.find((card) => +card.column > column) || newCards.find((card) => +card.column === column - 1)
 
 				// bail if we're making a card too narrow
@@ -53,10 +53,10 @@ export default class Section extends Component {
 
 			// on column change, take a width of the target column
 			if(columnDiff !== 0) {
-				newCard.width = newCards[idx + columnDiff].width;
+				newCard.width = newCards[cardIndex + columnDiff].width;
 			}
 
-			newCards[idx] = newCard;
+			newCards[cardIndex] = newCard;
 
 			this.props.onCardsChange(enforceConstraints(newCards));
 		};
