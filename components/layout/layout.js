@@ -4,7 +4,7 @@ import Section from '../section/section';
 
 const sectionContent = (content) => {
 	return [
-		{ body: content.top.leads.concat(content.top.items), sidebar: content.fastFT },
+		{ body: content.top.items, sidebar: content.fastFT },
 		{ body: content.opinion.items },
 		{ body: content.editorsPicks.items }
 	];

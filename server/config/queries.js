@@ -141,6 +141,57 @@ const frontPage = (region) => (`
 	}
 `);
 
+const newFrontPage = (region) => (`
+	${fragments}
+
+	query FrontPage {
+		popularTopics {
+			name
+			url
+		}
+		top(region: ${region}) {
+			items(type: Article) {
+				... Basic
+				... Extended
+				... Related
+			}
+			liveBlogs: items(type: LiveBlog) {
+				... Basic
+				... Extended
+				... on LiveBlog {
+					status
+					updates(limit: 1) {
+						date
+						text
+					}
+				}
+			}
+		}
+		fastFT {
+			items {
+				... Basic
+			}
+		}
+		editorsPicks {
+			title
+			items(limit: 6) {
+				... Basic
+				... ExtendedSmallImage
+				... Related
+			}
+		}
+		opinion {
+			url
+			items {
+				... Basic
+				... Extended
+				... Related
+			}
+		}
+	}
+`);
+
+
 // fastFT query
 const fastFT = `
 	query FastFT {
@@ -156,5 +207,6 @@ const fastFT = `
 
 export default {
 	frontPage,
+	newFrontPage,
 	fastFT
 };
