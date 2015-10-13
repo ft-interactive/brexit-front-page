@@ -1,0 +1,99 @@
+.markets-data-wrapper {
+	background-color: black;
+}
+.markets-data {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	color: #fdf8f2;
+}
+.markets-data__items {
+	float: left;
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+.markets-data__link,
+.markets-data__item__link {
+	color: inherit;
+	border-bottom: 0;
+
+	&:hover {
+		color: inherit;
+	}
+}
+.markets-data__item {
+	display: none;
+	width: (100 / 1) * 1%;
+	float: left;
+}
+.markets-data__item__name,
+.markets-data__item__change {
+	@include nTypeAlpha(4);
+	float: left;
+	margin: 0;
+}
+.markets-data__item__name {
+	margin-right: 5px;
+}
+.markets-data__item__change {
+	border: 1px solid #fdf8f2;
+	border-radius: 3px;
+	margin-top: -2px;
+	padding: 1px 5px;
+}
+.markets-data__item__change--up {
+	color: #9cd321;
+	border-color: #9cd321;
+}
+.markets-data__item__change--down {
+	color: #ee2f01;
+	border-color: #ee2f01;
+}
+.markets-data__link {
+	@include nTypeAlpha(4);
+	float: left;
+	text-align: right;
+}
+
+// set up the markets data columns
+$breakpoints: default S M L XL XXL;
+@for $index from 1 through length($breakpoints) {
+	$breakpoint: nth($breakpoints, $index);
+	$indexPlusOne: $index + 1;
+
+	.markets-data__items {
+		@if $breakpoint == default {
+			width: percentage($index / $indexPlusOne);
+		} @else {
+			@include oGridRespondTo($breakpoint) {
+				width: percentage($index / $indexPlusOne);
+			}
+		}
+	}
+	.markets-data__item {
+		@if $breakpoint == default {
+			width: percentage(1 / $index);
+
+			&:nth-child(#{$index}) {
+				display: block;
+			}
+		} @else {
+			@include oGridRespondTo($breakpoint) {
+				width: percentage(1 / $index);
+
+				&:nth-child(#{$index}) {
+					display: block;
+				}
+			}
+		}
+	}
+	.markets-data__link {
+		@if $breakpoint == default {
+			width: percentage(1 / $indexPlusOne);
+		} @else {
+			@include oGridRespondTo($breakpoint) {
+				width: percentage(1 / $indexPlusOne);
+			}
+		}
+	}
+}

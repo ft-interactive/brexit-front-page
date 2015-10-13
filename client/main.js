@@ -1,6 +1,7 @@
 import headerTabs from './components/header-tabs/main';
 import highlightDomPath from './components/highlight-dom-path/main';
 import scrollDepth from './components/scroll-depth/main';
+import marketsData from './components/markets-data/main';
 
 import layout from 'n-layout';
 import setup from 'next-js-setup';
@@ -34,6 +35,7 @@ setup.bootstrap(({flags}) => {
 	prompts.init();
 	highlightDomPath();
 	scrollDepth.init(flags);
+	marketsData.init(flags);
 
 	const layoutContainer = document.getElementById('main-body');
 	const content = layoutContainer ? JSON.parse(layoutContainer.dataset.mainContent) : {};
