@@ -30,11 +30,11 @@ export default [
 			{ column: 0, width: 3, size: 'large', standFirst: true, image: 'always' },
 			{ column: 1, width: 3, size: 'medium', standFirst: true },
 			{ column: 1, width: 3, size: 'medium', standFirst: true },
-			{ column: 2, width: 4, ad: true },
-			{ column: 2, width: 4, size: 'medium' },
-			{ column: 3, width: 2, size: 'small', image: 'desktop' },
-			{ column: 3, width: 2, size: 'small' },
-			{ column: 3, width: 2, size: 'small' }
+			{ column: 2, width: 2, size: 'small', image: 'desktop' },
+			{ column: 2, width: 2, size: 'small' },
+			{ column: 2, width: 2, size: 'small' },
+			{ column: 3, width: 4, size: 'small' },
+			{ column: 3, width: 4, ad: true }
 		]
 	},
 	{
