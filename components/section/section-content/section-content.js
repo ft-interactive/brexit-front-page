@@ -2,7 +2,9 @@ import React, {Component} from 'react';
 import Card from '../../card/card';
 
 const buildColumns = (cards) => {
-	return cards.reduce(([columns, currentColumn], card) => {
+	return cards.reduce(([columns, currentColumn], card, cardIndex) => {
+		card.order = cardIndex;
+		
 		if(+card.column === currentColumn) {
 			columns[currentColumn].push(card);
 			return [columns, currentColumn];

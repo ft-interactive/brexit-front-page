@@ -29,8 +29,8 @@ const tagSize = (size) => {
 	return sizes[size];
 }
 
-const titleSize = (size, column, showImage) => {
-	if(size === 'large' && +column === 0 && !showImage)
+const titleSize = (size, order, showImage) => {
+	if(size === 'large' && +order === 0 && !showImage)
 		return 'huge';
 
 	return size;
@@ -61,7 +61,7 @@ class Card extends Component {
 		return (
 			<article className={className({card: true, 'card--inline': (size === 'tiny')})} data-trackable="card">
 				<Tag tag={article.primaryTag} size={tagSize(size)} />
-				<Title title={article.title} href={'/content/' + article.id} size={titleSize(size, this.props.column, showImage)} />
+				<Title title={article.title} href={'/content/' + article.id} size={titleSize(size, this.props.order, showImage)} />
 				{standFirst ? <Standfirst article={article} style={article.primaryTag.taxonomy} size={standFirstSize(size)} /> : null}
 				{showImage ? <Image article={article} display={image} /> : null}
 				{related ? <Related articles={article.relatedContent} limit={this.props.related} /> : null}
