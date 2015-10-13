@@ -8,6 +8,8 @@
 	width: 100%;
 	background-color: getColor('pink');
 	margin-top: oGridGutter();
+	border: 1px solid getColor('warm-3');
+	border-width: 0 0 1px;
 	padding: 10px;
 	display: flex;
 	flex-direction: column;
@@ -31,8 +33,11 @@
 	&:last-child {
 		flex: 2;
 	}
-}
 
+	.section--opinion & {
+		border-width: 0 0 0 1px;
+	}
+}
 
 .card--ad {
 	padding-left: 0;
