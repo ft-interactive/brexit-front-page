@@ -8,7 +8,7 @@ export default class CardEditor extends Component {
 			if(newValue === 'none')
 				delete newCard[key];
 			else
-				newCard[key] = newValue;
+				newCard[key] = (newValue === 'yes' ? true : newValue);
 
 			this.props.onChange(newCard);
 		};
@@ -32,30 +32,22 @@ export default class CardEditor extends Component {
 						: null }
 				</p>
 				<p>
-					<label>Tag size</label>
-					<select data-trackable="card-tag-size" value={this.props.card.tagSize} onChange={this.change('tagSize')}>
-						<option value="large">Large</option>
-						<option value="medium">Medium</option>
-						<option value="small">Small</option>
-					</select>
-				</p>
-				<p>
-					<label>Title size</label>
-					<select data-trackable="card-title-size" value={this.props.card.titleSize} onChange={this.change('titleSize')}>
+					<label>Text size</label>
+					<select data-trackable="card-text-size" value={this.props.card.size} onChange={this.change('size')}>
 						<option value="large">Large</option>
 						<option value="medium">Medium</option>
 						<option value="small">Small</option>
 						<option value="tiny">Tiny</option>
 					</select>
 				</p>
+				{ this.props.card.size === 'medium' ?
 				<p>
 					<label>Stand first</label>
 					<select data-trackable="card-stand-first" value={this.props.card.standFirst || 'none'} onChange={this.change('standFirst')}>
-						<option value="large">Large</option>
-						<option value="medium">Medium</option>
+						<option value="yes">Shown</option>
 						<option value="none">Hidden</option>
 					</select>
-				</p>
+				</p> : null }
 				<p>
 					<label>Image</label>
 					<select data-trackable="card-image" value={this.props.card.image || 'none'} onChange={this.change('image')}>

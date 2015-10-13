@@ -10,13 +10,13 @@ export default [
 		style: 'top-stories',
 		date: date,
 		cards: [
-			{ column: 0, width: 5, tagSize: 'large', titleSize: 'large', standFirst: 'large', image: 'always', related: 3 },
-			{ column: 1, width: 4, tagSize: 'large', titleSize: 'medium', standFirst: 'medium', image: 'desktop'},
-			{ column: 1, width: 4, tagSize: 'large', titleSize: 'medium' },
-			{ column: 2, width: 3, tagSize: 'medium', titleSize: 'small', image: 'desktop'},
-			{ column: 2, width: 3, tagSize: 'small', titleSize: 'tiny'},
-			{ column: 2, width: 3, tagSize: 'small', titleSize: 'tiny'},
-			{ column: 2, width: 3, tagSize: 'small', titleSize: 'tiny'}
+			{ column: 0, width: 5, size: 'large', standFirst: true, image: 'always', related: 3 },
+			{ column: 1, width: 4, size: 'medium', standFirst: true, image: 'desktop'},
+			{ column: 1, width: 4, size: 'medium' },
+			{ column: 2, width: 3, size: 'small', image: 'desktop'},
+			{ column: 2, width: 3, size: 'tiny' },
+			{ column: 2, width: 3, size: 'tiny' },
+			{ column: 2, width: 3, size: 'tiny' }
 		],
 		// FIXME sidebarComponent needs more thinking, maybe unifiying with card
 		// styles when we have those
@@ -27,27 +27,27 @@ export default [
 		title: 'Opinion',
 		style: 'opinion',
 		cards: [
-			{ column: 0, width: 3, tagSize: 'large', titleSize: 'large', standFirst: 'large', image: 'always' },
-			{ column: 1, width: 3, tagSize: 'large', titleSize: 'medium', standFirst: 'medium'},
-			{ column: 1, width: 3, tagSize: 'large', titleSize: 'medium', standFirst: 'medium'},
+			{ column: 0, width: 3, size: 'large', standFirst: true, image: 'always' },
+			{ column: 1, width: 3, size: 'medium', standFirst: true },
+			{ column: 1, width: 3, size: 'medium', standFirst: true },
 			{ column: 2, width: 4, ad: true },
-			{ column: 2, width: 4, tagSize: 'large', titleSize: 'medium' },
-			{ column: 3, width: 2, tagSize: 'medium', titleSize: 'small', image: 'desktop' },
-			{ column: 3, width: 2, tagSize: 'medium', titleSize: 'small' },
-			{ column: 3, width: 2, tagSize: 'medium', titleSize: 'small' }
+			{ column: 2, width: 4, size: 'medium' },
+			{ column: 3, width: 2, size: 'small', image: 'desktop' },
+			{ column: 3, width: 2, size: 'small' },
+			{ column: 3, width: 2, size: 'small' }
 		]
 	},
 	{
 		id: 'editors-pics',
 		title: 'Editor\'s Picks',
-		style: 'editors-pics',
+		style: 'editors-picks',
 		cards: [
-			{ column: 0, width: 2, tagSize: 'medium', titleSize: 'small', image: 'desktop' },
-			{ column: 1, width: 2, tagSize: 'medium', titleSize: 'small', image: 'desktop' },
-			{ column: 2, width: 2, tagSize: 'medium', titleSize: 'small', image: 'desktop' },
-			{ column: 3, width: 2, tagSize: 'medium', titleSize: 'small', image: 'desktop' },
-			{ column: 4, width: 2, tagSize: 'medium', titleSize: 'small', image: 'desktop' },
-			{ column: 5, width: 2, tagSize: 'medium', titleSize: 'small', image: 'desktop' }
+			{ column: 0, width: 2, size: 'small', image: 'desktop' },
+			{ column: 1, width: 2, size: 'small', image: 'desktop' },
+			{ column: 2, width: 2, size: 'small', image: 'desktop' },
+			{ column: 3, width: 2, size: 'small', image: 'desktop' },
+			{ column: 4, width: 2, size: 'small', image: 'desktop' },
+			{ column: 5, width: 2, size: 'small', image: 'desktop' }
 		]
 	}
 ];
