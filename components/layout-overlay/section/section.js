@@ -40,6 +40,9 @@ export default class Section extends Component {
 			// bail if we're making a card too narrow
 			if(newCard.width < 2) return;
 
+			// The width and column change contraints are temporary, the layout enging will dictate
+			// this and we won't need to deal with it in the end.
+
 			// on width change, update a neihgboring column width
 			if(widthDiff !== 0) {
 				const column = +newCards[cardIndex].column;

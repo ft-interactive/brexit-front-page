@@ -28,7 +28,13 @@ export default class CardEditor extends Component {
 						onChange={this.change('column')} />
 					{ this.props.showWidth ? <label>Width</label> : null }
 					{ this.props.showWidth ?
-						<input type="number" data-trackable="card-width" value={this.props.card.width || 2} onChange={this.change('width')} />
+						<input
+							type="number"
+							data-trackable="card-width"
+							value={this.props.card.width || 2}
+							min="2"
+							max={this.props.card.column > 0 ? 4 : 6}
+							onChange={this.change('width')} />
 						: null }
 				</p>
 				<p>
