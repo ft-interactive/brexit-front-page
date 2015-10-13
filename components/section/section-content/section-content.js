@@ -4,7 +4,7 @@ import Card from '../../card/card';
 const buildColumns = (cards) => {
 	return cards.reduce(([columns, currentColumn], card, cardIndex) => {
 		card.order = cardIndex;
-		
+
 		if(+card.column === currentColumn) {
 			columns[currentColumn].push(card);
 			return [columns, currentColumn];
@@ -38,7 +38,7 @@ export default class SectionContent extends Component {
 		});
 
 		return (
-			<div className="top-stories o-grid-container o-grid-container--compact">
+			<div className="o-grid-container o-grid-container--compact">
 				<div className="o-grid-row">
 					{columns}
 				</div>
