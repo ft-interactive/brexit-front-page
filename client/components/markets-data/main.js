@@ -32,7 +32,7 @@ const regionalSecurities = {
 		},
 		{
 			name: 'Shanghai',
-			symbol: 'USDGBP'
+			symbol: 'SHI:SHH'
 		},
 		{
 			name: 'FTSE 100',
