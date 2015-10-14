@@ -1,3 +1,6 @@
+.js-success .markets-data-wrapper {
+	min-height: 39px;
+}
 .markets-data-wrapper {
 	background-color: black;
 }
@@ -8,6 +11,7 @@
 }
 .markets-data__items {
 	float: left;
+	min-height: 1px;
 	margin: 0;
 	padding: 0;
 	list-style-type: none;
@@ -23,8 +27,13 @@
 }
 .markets-data__item {
 	display: none;
-	width: (100 / 1) * 1%;
 	float: left;
+	opacity: 1;
+	transition: 1s opacity;
+
+	.markets-data__items--hidden & {
+		opacity: 0;
+	}
 }
 .markets-data__item__name,
 .markets-data__item__change {

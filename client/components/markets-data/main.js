@@ -31,7 +31,10 @@ const render = () => {
 		'<a href="http://markets.ft.com/research/markets/overview" class="markets-data__link" data-trackable="link">Visit Markets Data</a>';
 };
 
-const init = () => {
+const init = (flags) => {
+	if (!flags.get('frontPageHeaderMarketsData')) {
+		return;
+	}
 	const symbols = securities.map(security => security.symbol).join(',');
 	fetch(`https://next-markets-proxy.ft.com/securities/v1/quotes?symbols=${symbols}`)
 		.then(response => {
@@ -44,15 +47,13 @@ const init = () => {
 		.then(marketsData => {
 			render();
 			const itemsEl = document.createElement('ul');
-			itemsEl.className = 'markets-data__items';
-			console.log(marketsData.data.items);
+			itemsEl.className = 'markets-data__items markets-data__items--hidden';
 			itemsEl.innerHTML = marketsData.data.items
 				.filter(marketData => !marketData.partialError && marketData.quote.change1Day)
 				.map(marketData => {
 					const symbol = marketData.basic.symbol;
 					const security = securities.find(security => security.symbol === symbol);
 					const priceChange = marketData.quote.change1Day;
-					console.log(priceChange);
 					const priceChangeDirection = priceChange < 0 ? 'down' : priceChange > 0 ? 'up' : 'no-change';
 					return `
                         <li class="markets-data__item" data-trackable="item">
@@ -69,6 +70,9 @@ const init = () => {
 				})
 				.join('');
 			marketsDataEl.insertBefore(itemsEl, marketsDataEl.querySelector('.markets-data__link'));
+			window.setTimeout(() => {
+				itemsEl.classList.remove('markets-data__items--hidden');
+			}, 10);
 		})
 		.catch(console.log);
 };
