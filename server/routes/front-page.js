@@ -33,7 +33,9 @@ export default (region) => {
 							<div class="markets-data-wrapper">
 								<div class="o-grid-container">
 									<div class="o-grid-row">
-										<div class="markets-data js-markets-data" data-o-grid-colspan="12" data-trackable="header | markets data"></div>
+										<div class="markets-data js-markets-data" data-o-grid-colspan="12" data-trackable="header | markets data">
+											<a href="http://markets.ft.com/data" class="markets-data__link" data-trackable="link">Visit Markets Data</a>
+										</div>
 									</div>
 								</div>
 							</div>

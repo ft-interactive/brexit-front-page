@@ -1,39 +1,70 @@
-const securities = [
-	{
-		name: 'S&P 500',
-		symbol: 'MRKT:NSQ'
-	},
-	{
-		name: '10Yr US Gov',
-		symbol: 'USDJPY'
-	},
-	{
-		name: '$ US - £ GBP',
-		symbol: 'USDGBP'
-	},
-	{
-		name: '$ US - € EUR',
-		symbol: 'USDEUR'
-	},
-	{
-		name: 'Brent Crude',
-		symbol: 'JPYUSD'
-	},
-	{
-		name: 'Gold 100oz',
-		symbol: 'SAB:LSE'
-	}
-];
-const marketsDataEl = document.querySelector('.js-markets-data');
-
-const render = () => {
-	marketsDataEl.innerHTML =
-		'<a href="http://markets.ft.com/research/markets/overview" class="markets-data__link" data-trackable="link">Visit Markets Data</a>';
+const regionalSecurities = {
+	uk: [
+		{
+			name: 'FTSE 100',
+			symbol: 'FTSE:FSI'
+		},
+		{
+			name: 'S&P 500',
+			symbol: 'INX:IOM'
+		},
+		{
+			name: 'Dollar/Euro',
+			symbol: 'EURUSD'
+		},
+		{
+			name: 'Dollar/Pound',
+			symbol: 'GBPUSD'
+		},
+		{
+			name: 'Brent Crude Oil',
+			symbol: 'IB.1:IEU'
+		},
+		{
+			name: '10 Year US Gov',
+			symbol: 'n225:NIK'
+		}
+	],
+	us: [
+		{
+			name: 'S&P 500',
+			symbol: 'INX:IOM'
+		},
+		{
+			name: 'Shanghai',
+			symbol: 'USDGBP'
+		},
+		{
+			name: 'FTSE 100',
+			symbol: 'FTSE:FSI'
+		},
+		{
+			name: 'Dollar/Euro',
+			symbol: 'EURUSD'
+		},
+		{
+			name: 'Brent Crude Oil',
+			symbol: 'IB.1:IEU'
+		},
+		{
+			name: '10 Year US Gov',
+			symbol: 'HSI:HKG'
+		}
+	]
 };
 
 const init = (flags) => {
 	if (!flags.get('frontPageHeaderMarketsData')) {
 		return;
+	}
+	//render();
+	let securities;
+	switch(window.location.pathname.substring(1)) {
+		case 'international':
+			securities = regionalSecurities['us'];
+			break;
+		default:
+			securities = regionalSecurities['uk'];
 	}
 	const symbols = securities.map(security => security.symbol).join(',');
 	fetch(`https://next-markets-proxy.ft.com/securities/v1/quotes?symbols=${symbols}`)
@@ -45,7 +76,6 @@ const init = (flags) => {
 			}
 		})
 		.then(marketsData => {
-			render();
 			const itemsEl = document.createElement('ul');
 			itemsEl.className = 'markets-data__items markets-data__items--hidden';
 			itemsEl.innerHTML = marketsData.data.items
@@ -69,13 +99,16 @@ const init = (flags) => {
 					`;
 				})
 				.join('');
+			const marketsDataEl = document.querySelector('.js-markets-data');
 			marketsDataEl.insertBefore(itemsEl, marketsDataEl.querySelector('.markets-data__link'));
 			window.setTimeout(() => {
 				itemsEl.classList.remove('markets-data__items--hidden');
 			}, 10);
 		})
 		.catch(err => {
-			throw err;
+			window.setTimeout(() => {
+				throw err;
+			});
 		});
 };
 

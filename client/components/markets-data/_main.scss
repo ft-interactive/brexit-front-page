@@ -2,7 +2,7 @@
 	min-height: 39px;
 }
 .markets-data-wrapper {
-	background-color: black;
+	background: url('/assets/backgrounds/header-markets-data.png') black;
 }
 .markets-data {
 	padding-top: 10px;
@@ -60,7 +60,7 @@
 }
 .markets-data__link {
 	@include nTypeAlpha(4);
-	float: left;
+	float: right;
 	text-align: right;
 }
 
