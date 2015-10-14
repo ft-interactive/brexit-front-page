@@ -1,0 +1,115 @@
+$upColour: #9cd321;
+$downColour: #ee2f01;
+
+.js-success .markets-data-wrapper {
+	min-height: 39px;
+}
+.markets-data-wrapper {
+	background: url('/assets/backgrounds/header-markets-data.png') getColor('black');
+}
+.markets-data {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	color: getColor('warm-5');
+}
+.markets-data__items {
+	float: left;
+	min-height: 1px;
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+.markets-data__link,
+.markets-data__item__link {
+	color: inherit;
+	border-bottom: 0;
+
+	&:hover,
+	&:focus {
+		color: inherit;
+	}
+}
+.markets-data__item {
+	display: none;
+	float: left;
+	opacity: 1;
+	transition: 1s opacity;
+
+	.markets-data__items--hidden & {
+		opacity: 0;
+	}
+}
+.markets-data__item__link {
+	display: block;
+}
+.markets-data__item__name,
+.markets-data__item__change {
+	@include nTypeAlpha(4);
+	float: left;
+	margin: 0;
+}
+.markets-data__item__name {
+	margin-right: 5px;
+}
+.markets-data__item__change {
+	border: 1px solid getColor('warm-5');
+	border-radius: 3px;
+	margin-top: -2px;
+	padding: 1px 5px;
+}
+.markets-data__item__change--up {
+	color: $upColour;
+	border-color: $upColour;
+}
+.markets-data__item__change--down {
+	color: $downColour;
+	border-color: $downColour;
+}
+.markets-data__link {
+	@include nTypeAlpha(4);
+	float: right;
+	text-align: right;
+}
+
+// set up the markets data columns
+$breakpoints: default S M L XL XXL;
+@for $index from 1 through length($breakpoints) {
+	$breakpoint: nth($breakpoints, $index);
+	$indexPlusOne: $index + 1;
+
+	.markets-data__items {
+		@if $breakpoint == default {
+			width: percentage($index / $indexPlusOne);
+		} @else {
+			@include oGridRespondTo($breakpoint) {
+				width: percentage($index / $indexPlusOne);
+			}
+		}
+	}
+	.markets-data__item {
+		@if $breakpoint == default {
+			width: percentage(1 / $index);
+
+			&:nth-child(#{$index}) {
+				display: block;
+			}
+		} @else {
+			@include oGridRespondTo($breakpoint) {
+				width: percentage(1 / $index);
+
+				&:nth-child(#{$index}) {
+					display: block;
+				}
+			}
+		}
+	}
+	.markets-data__link {
+		@if $breakpoint == default {
+			width: percentage(1 / $indexPlusOne);
+		} @else {
+			@include oGridRespondTo($breakpoint) {
+				width: percentage(1 / $indexPlusOne);
+			}
+		}
+	}
+}
