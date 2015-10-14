@@ -56,17 +56,17 @@ const init = (flags) => {
 					const priceChange = marketData.quote.change1Day;
 					const priceChangeDirection = priceChange < 0 ? 'down' : priceChange > 0 ? 'up' : 'no-change';
 					return `
-                        <li class="markets-data__item" data-trackable="item">
-                            <a href="http://markets.ft.com/research/Markets/Tearsheets/Summary?s=${symbol}"
-                                class="markets-data__item__link"
-                                data-trackable="link">
-                                <h2 class="markets-data__item__name">${security.name}</h2>
-                                <p class="markets-data__item__change markets-data__item__change--${priceChangeDirection}">
-                                    ${priceChangeDirection === 'up' ? '+' : ''}${priceChange.toFixed(2)}
-                                </p>
-                            </a>
-                        </li>
-                    `;
+						<li class="markets-data__item" data-trackable="item">
+							<a href="http://markets.ft.com/research/Markets/Tearsheets/Summary?s=${symbol}"
+								class="markets-data__item__link"
+								data-trackable="link">
+								<h2 class="markets-data__item__name">${security.name}</h2>
+								<p class="markets-data__item__change markets-data__item__change--${priceChangeDirection}">
+									${priceChangeDirection === 'up' ? '+' : ''}${priceChange.toFixed(2)}
+								</p>
+							</a>
+						</li>
+					`;
 				})
 				.join('');
 			marketsDataEl.insertBefore(itemsEl, marketsDataEl.querySelector('.markets-data__link'));
@@ -74,7 +74,9 @@ const init = (flags) => {
 				itemsEl.classList.remove('markets-data__items--hidden');
 			}, 10);
 		})
-		.catch(console.log);
+		.catch(err => {
+			throw err;
+		});
 };
 
 export default {
