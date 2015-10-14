@@ -22,7 +22,7 @@ const regionalSecurities = {
 		},
 		{
 			name: '10 Year US Gov',
-			symbol: 'n225:NIK'
+			symbol: '11523680'
 		}
 	],
 	us: [
@@ -48,7 +48,7 @@ const regionalSecurities = {
 		},
 		{
 			name: '10 Year US Gov',
-			symbol: 'HSI:HKG'
+			symbol: '11523680'
 		}
 	]
 };
@@ -81,7 +81,7 @@ const init = (flags) => {
 			itemsEl.innerHTML = marketsData.data.items
 				.filter(marketData => !marketData.partialError && marketData.quote.change1Day)
 				.map(marketData => {
-					const symbol = marketData.basic.symbol;
+					const symbol = marketData.symbolInput;
 					const security = securities.find(security => security.symbol === symbol);
 					const priceChange = marketData.quote.change1Day;
 					const priceChangeDirection = priceChange < 0 ? 'down' : priceChange > 0 ? 'up' : 'no-change';

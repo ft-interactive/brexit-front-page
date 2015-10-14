@@ -18,6 +18,19 @@ export default (region) => {
 
 		getData(query, res.locals.flags)
 			.then(data => {
+				const headerParams = {
+					before: `
+						<div class="markets-data-wrapper">
+							<div class="o-grid-container">
+								<div class="o-grid-row">
+									<div class="markets-data js-markets-data" data-o-grid-colspan="12" data-trackable="header | markets data">
+										<a href="http://markets.ft.com/data" class="markets-data__link" data-trackable="link">Visit Markets Data</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					`
+				};
 				const renderParams = {
 					layout: 'wrapper',
 					FastFtFeed,
@@ -28,19 +41,7 @@ export default (region) => {
 					region
 				};
 				if (res.locals.flags.frontPageHeaderMarketsData) {
-					renderParams.header = {
-						before: `
-							<div class="markets-data-wrapper">
-								<div class="o-grid-container">
-									<div class="o-grid-row">
-										<div class="markets-data js-markets-data" data-o-grid-colspan="12" data-trackable="header | markets data">
-											<a href="http://markets.ft.com/data" class="markets-data__link" data-trackable="link">Visit Markets Data</a>
-										</div>
-									</div>
-								</div>
-							</div>
-						`
-					};
+					renderParams.header = headerParams;
 				}
 
 				res.render('front-page',renderParams);

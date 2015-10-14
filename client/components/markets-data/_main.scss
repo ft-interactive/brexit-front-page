@@ -24,7 +24,8 @@ $downColour: #ee2f01;
 	color: inherit;
 	border-bottom: 0;
 
-	&:hover {
+	&:hover,
+	&:focus {
 		color: inherit;
 	}
 }
@@ -37,6 +38,9 @@ $downColour: #ee2f01;
 	.markets-data__items--hidden & {
 		opacity: 0;
 	}
+}
+.markets-data__item__link {
+	display: block;
 }
 .markets-data__item__name,
 .markets-data__item__change {
