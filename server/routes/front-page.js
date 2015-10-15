@@ -32,9 +32,7 @@ export default (region) => {
 					`
 				};
 				const footerParams = {
-					inside: `
-						<p class="markets-data-disclaimer">Markets data delayed by at least 15 minutes</p>
-					`
+					inside: '<p class="markets-data-disclaimer">Markets data delayed by at least 15 minutes</p>'
 				};
 				const renderParams = {
 					layout: 'wrapper',
