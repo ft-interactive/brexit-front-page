@@ -31,6 +31,11 @@ export default (region) => {
 						</div>
 					`
 				};
+				const footerParams = {
+					inside: `
+						<p class="markets-data-disclaimer">Markets data delayed by at least 15 minutes</p>
+					`
+				};
 				const renderParams = {
 					layout: 'wrapper',
 					FastFtFeed,
@@ -42,6 +47,7 @@ export default (region) => {
 				};
 				if (res.locals.flags.frontPageHeaderMarketsData) {
 					renderParams.header = headerParams;
+					renderParams.footer = footerParams;
 				}
 
 				res.render('front-page',renderParams);
