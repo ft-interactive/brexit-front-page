@@ -32,7 +32,6 @@ build:
 
 build-production:
 	export NODE_ENV=production; webpack --bail
-	nbt about
 
 smoke:
 	nbt test-urls ${TEST_APP}
