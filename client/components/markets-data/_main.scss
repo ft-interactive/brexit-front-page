@@ -70,6 +70,11 @@ $downColour: #ee2f01;
 	float: right;
 	text-align: right;
 }
+.markets-data-disclaimer {
+	@include nTypeAlphaSize(4);
+	color: getColor('pink');
+	margin: 10px 0;
+}
 
 // set up the markets data columns
 $breakpoints: default S M L XL XXL;
