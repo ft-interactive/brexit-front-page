@@ -40,5 +40,12 @@
 				</div>
 			{{/slice}}
 		</div>
+		<div class="article-group o-grid-row" role="presentation">
+			{{#slice items limit=3 offset=6}}
+				<div class="article" data-o-grid-colspan="12 M4">
+					{{> story-card }}
+				</div>
+			{{/slice}}
+		</div>
 	</section>
 {{/if}}
