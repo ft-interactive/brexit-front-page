@@ -32,6 +32,7 @@ build:
 
 build-production:
 	export NODE_ENV=production; webpack --bail
+	nbt build --skip-js --skip-sass
 
 smoke:
 	nbt test-urls ${TEST_APP}
