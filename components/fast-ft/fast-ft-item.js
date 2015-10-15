@@ -7,9 +7,10 @@ class FastFtItem extends Component {
 		const time = dateFormat(article.lastPublished, 'H:mm a');
 		return (
 			<div className="fast-ft__item">
-				<time className="fast-ft__time" datetime={article.lastPublished}>{time}</time>
 				<h2 className="fast-ft__item__title">
 					<a className="fast-ft__item__title-link" href={'/content/' + article.id} data-trackable="link">{article.title}</a>
+					<span> – </span>
+					<time className="fast-ft__time" datetime={article.lastPublished}>{time}</time>
 				</h2>
 			</div>
 		);
