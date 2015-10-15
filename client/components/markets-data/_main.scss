@@ -1,11 +1,9 @@
 $upColour: #9cd321;
 $downColour: #ee2f01;
 
-.js-success .markets-data-wrapper {
-	min-height: 39px;
-}
 .markets-data-wrapper {
 	background: url('/assets/backgrounds/header-markets-data.png') getColor('black');
+	min-height: 39px;
 }
 .markets-data {
 	padding-top: 10px;

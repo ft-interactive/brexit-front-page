@@ -22,7 +22,8 @@ const regionalSecurities = {
 		},
 		{
 			name: '10 Year US Gov',
-			symbol: '11523680'
+			symbol: '11523680',
+			url: 'http://markets.ft.com/data'
 		}
 	],
 	us: [
@@ -48,7 +49,8 @@ const regionalSecurities = {
 		},
 		{
 			name: '10 Year US Gov',
-			symbol: '11523680'
+			symbol: '11523680',
+			url: 'http://markets.ft.com/data'
 		}
 	]
 };
@@ -85,9 +87,10 @@ const init = (flags) => {
 					const security = securities.find(security => security.symbol === symbol);
 					const priceChange = marketData.quote.change1Day;
 					const priceChangeDirection = priceChange < 0 ? 'down' : priceChange > 0 ? 'up' : 'no-change';
+					const href = security.url || `http://markets.ft.com/data/equities/tearsheet/summary?s=${symbol}`;
 					return `
 						<li class="markets-data__item" data-trackable="item">
-							<a href="http://markets.ft.com/research/Markets/Tearsheets/Summary?s=${symbol}"
+							<a href="${href}"
 								class="markets-data__item__link"
 								data-trackable="link">
 								<h2 class="markets-data__item__name">${security.name}</h2>
