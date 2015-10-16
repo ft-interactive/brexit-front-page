@@ -19,14 +19,12 @@ if(process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'branch') {
 	plugins = plugins.concat([
 		new webpack.optimize.UglifyJsPlugin({
 			compress: {
-        warnings: false
-    	}
+				warnings: false
+			}
 		}),
 		new webpack.optimize.DedupePlugin()
 	]);
 }
-
-console.log(plugins);
 
 const config = {
 	entry: ['./client/main.js', './client/main.scss'],
