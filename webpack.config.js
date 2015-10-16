@@ -3,7 +3,7 @@ const webpack = require('webpack');
 const BowerWebpackPlugin = require('bower-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
-const plugins = [
+var plugins = [
 	new BowerWebpackPlugin({ includes: [/\.js?$/] }),
 	// Global definitions
 	new webpack.DefinePlugin({
@@ -15,12 +15,18 @@ const plugins = [
 	new webpack.NoErrorsPlugin()
 ];
 
-if(process.env.NODE_ENV === 'production') {
+if(process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'branch') {
 	plugins = plugins.concat([
-		new webpack.optimize.UglifyJsPlugin(),
+		new webpack.optimize.UglifyJsPlugin({
+			compress: {
+        warnings: false
+    	}
+		}),
 		new webpack.optimize.DedupePlugin()
 	]);
 }
+
+console.log(plugins);
 
 const config = {
 	entry: ['./client/main.js', './client/main.scss'],
