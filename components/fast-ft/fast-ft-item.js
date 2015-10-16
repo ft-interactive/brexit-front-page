@@ -4,7 +4,7 @@ import {format as dateFormat} from 'o-date';
 class FastFtItem extends Component {
 	render() {
 		const article = this.props.article;
-		const time = dateFormat(article.lastPublished, 'H:mm a');
+		const time = dateFormat(article.lastPublished, 'H:mm');
 		return (
 			<div className="fast-ft__item">
 				<h2 className="fast-ft__item__title">
