@@ -7,6 +7,11 @@ import Feed from '../../components/feed/feed';
 import Layout from '../../components/layout/layout';
 import initialLayout from '../../components/layout/config';
 
+// bail unless we have at least one top story
+const contentMissing = (data) => {
+	return !data.top || data.top.items.length < 1;
+}
+
 export default (region) => {
 	return (req, res, next) => {
 		const query = (res.locals.flags.frontPageLayoutPrototype ? queries.newFrontPage(region) : queries.frontPage(region));
@@ -18,6 +23,9 @@ export default (region) => {
 
 		getData(query, res.locals.flags)
 			.then(data => {
+				if(contentMissing(data))
+					throw 'Could not fetch content for the front page';
+
 				const headerParams = {
 					before: `
 						<div class="markets-data-wrapper">
