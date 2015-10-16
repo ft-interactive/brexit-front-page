@@ -36,7 +36,7 @@ const config = {
 				test: /\.scss|sass?$/,
 				loader: ExtractTextPlugin.extract(
 					[
-						'css',
+						'css?minimize',
 						'autoprefixer',
 						'sass?includePaths[]=' + (path.resolve(__dirname, './bower_components'))
 					].join('!')
