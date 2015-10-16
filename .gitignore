@@ -11,4 +11,4 @@
 /.idea/
 /bower_components/
 /public/
-/tests/browser/reports/
+/test/browser/reports/
