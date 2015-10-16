@@ -84,7 +84,7 @@ const frontPage = (region) => (`
 			}
 		}
 		fastFT {
-			items {
+			items(limit: 5) {
 				... Basic
 			}
 		}
@@ -196,7 +196,7 @@ const newFrontPage = (region) => (`
 const fastFT = `
 	query FastFT {
 		fastFT {
-			items {
+			items(limit: 5) {
 				id
 				title
 				lastPublished
