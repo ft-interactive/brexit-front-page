@@ -2,53 +2,65 @@ const regionalSecurities = {
 	uk: [
 		{
 			name: 'FTSE 100',
-			symbol: 'FTSE:FSI'
+			symbol: 'FTSE:FSI',
+			type: 'indices'
 		},
 		{
 			name: 'S&P 500',
-			symbol: 'INX:IOM'
+			symbol: 'INX:IOM',
+			type: 'indices'
 		},
 		{
 			name: 'Dollar/Euro',
-			symbol: 'EURUSD'
+			symbol: 'EURUSD',
+			type: 'equities'
 		},
 		{
 			name: 'Dollar/Pound',
-			symbol: 'GBPUSD'
+			symbol: 'GBPUSD',
+			type: 'equities'
 		},
 		{
 			name: 'Brent Crude Oil',
-			symbol: 'IB.1:IEU'
+			symbol: 'IB.1:IEU',
+			type: 'equities'
 		},
 		{
 			name: '10 Year US Gov',
-			symbol: '11523680'
+			symbol: 'JPMUS10YCMY:REU',
+			type: 'indices'
 		}
 	],
 	us: [
 		{
 			name: 'S&P 500',
-			symbol: 'INX:IOM'
+			symbol: 'INX:IOM',
+			type: 'indices'
 		},
 		{
 			name: 'Shanghai',
-			symbol: 'SHI:SHH'
+			symbol: 'SHI:SHH',
+			type: 'indices'
 		},
 		{
 			name: 'FTSE 100',
-			symbol: 'FTSE:FSI'
+			symbol: 'FTSE:FSI',
+			type: 'indices'
 		},
 		{
 			name: 'Dollar/Euro',
-			symbol: 'EURUSD'
+			symbol: 'EURUSD',
+			type: 'equities'
 		},
 		{
 			name: 'Brent Crude Oil',
-			symbol: 'IB.1:IEU'
+			symbol: 'IB.1:IEU',
+			type: 'equities'
 		},
 		{
 			name: '10 Year US Gov',
-			symbol: '11523680'
+			symbol: 'JPMUS10YCMY:REU',
+			type: 'indices'
 		}
 	]
 };
@@ -79,7 +91,7 @@ const init = (flags) => {
 			const itemsEl = document.createElement('ul');
 			itemsEl.className = 'markets-data__items markets-data__items--hidden';
 			itemsEl.innerHTML = marketsData.data.items
-				.filter(marketData => !marketData.partialError && marketData.quote.change1Day)
+				.filter(marketData => !marketData.partialError && 'change1Day' in marketData.quote)
 				.map(marketData => {
 					const symbol = marketData.symbolInput;
 					const security = securities.find(security => security.symbol === symbol);
@@ -87,7 +99,7 @@ const init = (flags) => {
 					const priceChangeDirection = priceChange < 0 ? 'down' : priceChange > 0 ? 'up' : 'no-change';
 					return `
 						<li class="markets-data__item" data-trackable="item">
-							<a href="http://markets.ft.com/research/Markets/Tearsheets/Summary?s=${symbol}"
+							<a href="http://markets.ft.com/data/${security.type}/tearsheet/summary?s=${symbol}"
 								class="markets-data__item__link"
 								data-trackable="link">
 								<h2 class="markets-data__item__name">${security.name}</h2>
