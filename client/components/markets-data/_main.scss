@@ -48,6 +48,11 @@ $downColour: #ee2f01;
 }
 .markets-data__item__name {
 	margin-right: 5px;
+
+	.markets-data__item__link:hover &,
+	.markets-data__item__link:focus & {
+		text-decoration: underline;
+	}
 }
 .markets-data__item__change {
 	border: 1px solid getColor('warm-5');
@@ -58,15 +63,30 @@ $downColour: #ee2f01;
 .markets-data__item__change--up {
 	color: $upColour;
 	border-color: $upColour;
+
+	.markets-data__item__link:hover &,
+	.markets-data__item__link:focus & {
+		background-color: rgba($upColour, 0.4);
+	}
 }
 .markets-data__item__change--down {
 	color: $downColour;
 	border-color: $downColour;
+
+	.markets-data__item__link:hover &,
+	.markets-data__item__link:focus & {
+		background-color: rgba($downColour, 0.4);
+	}
 }
 .markets-data__link {
 	@include nTypeAlpha(4);
 	float: right;
 	text-align: right;
+
+	&:hover,
+	&:focus {
+		text-decoration: underline;
+	}
 }
 .markets-data-disclaimer {
 	@include nTypeAlphaSize(4);
