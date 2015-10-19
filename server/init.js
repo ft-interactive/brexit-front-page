@@ -15,6 +15,20 @@ const app = express({
 		},
 		reactRenderToString: (klass, props) => {
 			return ReactServer.renderToString(React.createElement(klass, props.hash));
+		},
+		responsiveImage: function (options) {
+			const opts = {
+				image: {
+					url: options.hash.img.rawSrc,
+					alt: options.hash.img.alt,
+					class: options.hash.class,
+					srcset: {
+						default: 150
+					}
+				}
+			}
+
+			return options.fn(Object.assign({}, this, opts));
 		}
 	}
 });

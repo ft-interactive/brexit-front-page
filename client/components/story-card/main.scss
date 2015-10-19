@@ -27,6 +27,10 @@
 .story-card__image {
 	display: block;
 	width: 100%;
+
+	img {
+		width: 100%;
+	}
 }
 
 .story-card__content-inner {
