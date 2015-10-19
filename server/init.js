@@ -7,6 +7,14 @@ import bodyParser from 'body-parser';
 import frontPage from './routes/front-page';
 import fastft from './routes/fastft';
 
+const srcsets = {
+	lead: { default: 470, s: 720, m: 630, l: 590, xl: 700 },
+	editors: { default: 240, s: 350, m: 350, l: 240, xl: 240 },
+	top: { default: 370, s: 240, m: 320, l: 250, xl: 350 },
+	opinion: { default: 320, s: 200, m: 200, l: 200, xl: 200 },
+	normal: { default: 470, s: 150, m: 200, l: 200, xl: 250 }
+};
+
 const app = express({
 	helpers: {
 		lowercase: (it) => it && it.toLowerCase(),
@@ -22,9 +30,7 @@ const app = express({
 					url: options.hash.img.rawSrc,
 					alt: options.hash.img.alt,
 					class: options.hash.class,
-					srcset: {
-						default: 150
-					}
+					srcset: (srcsets[options.hash.sizing] || srcsets['normal'])
 				}
 			}
 
