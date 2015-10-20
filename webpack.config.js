@@ -16,14 +16,12 @@ const plugins = [
 ];
 
 if(process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'branch') {
-	plugins = plugins.concat([
-		new webpack.optimize.UglifyJsPlugin({
+	plugins.push(new webpack.optimize.UglifyJsPlugin({
 			compress: {
 				warnings: false
 			}
-		}),
-		new webpack.optimize.DedupePlugin()
-	]);
+		}));
+	plugins.push(new webpack.optimize.DedupePlugin());
 }
 
 const config = {
