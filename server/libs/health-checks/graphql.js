@@ -7,9 +7,20 @@ class GraphQlCheck extends Check {
 
     constructor(options) {
         super(options);
-        this.checkOutput = 'This test has not yet run';
+        this.status = status.PENDING;
         this.pollTime = ms(options.interval);
         this.query = options.query;
+    }
+
+    get checkOutput() {
+        switch (this.status) {
+            case status.PENDING:
+                return 'This check has not yet run';
+            case status.PASSED:
+                return 'GraphQL query returned data successfully';
+            default:
+                return 'GraphQL query did not return data successfully';
+        }
     }
 
     start() {
@@ -24,13 +35,7 @@ class GraphQlCheck extends Check {
     tick() {
         getData(this.query)
             .then(data => {
-                if (Object.keys(data).length) {
-                    this.status = status.PASSED;
-                    this.checkOutput = 'GraphQL query returned data successfully';
-                } else {
-                    this.status = status.FAILED;
-                    this.checkOutput = 'GraphQL query did not return data successfully';
-                }
+                this.status = Object.keys(data).length ? status.PASSED : status.FAILED;
                 this.lastUpdated = new Date();
             });
     }
