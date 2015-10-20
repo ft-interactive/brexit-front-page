@@ -8,12 +8,12 @@ const dateFormat = 'h:mm a';
 const linkHref = (id) => (id ? '/content/' + id.split('/').slice(-1)[0] : '');
 
 class Article extends Component {
-	componentDidMount() {
+	componentDidMount () {
 		const el = ReactDOM.findDOMNode(this);
 		initDate(el);
 	}
 
-	render() {
+	render () {
 		const {id, title, lastPublished} = this.props.article;
 
 		return (

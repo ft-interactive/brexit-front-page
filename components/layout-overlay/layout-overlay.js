@@ -3,18 +3,18 @@ import React, {Component} from 'react';
 import Section from './section/section';
 
 export default class LayoutOverlay extends Component {
-	constructor(props) {
+	constructor (props) {
 		super(props);
 
 		this.state = {expanded: false};
 	}
 
-	toggle(e) {
+	toggle (e) {
 		e.preventDefault();
 		this.setState({expanded: !this.state.expanded});
 	}
 
-	updateCards(sectionIndex) {
+	updateCards (sectionIndex) {
 		return (newCards) => {
 			const newLayout = this.props.layout;
 			newLayout[sectionIndex].cards = newCards;
@@ -23,7 +23,7 @@ export default class LayoutOverlay extends Component {
 		}
 	}
 
-	render() {
+	render () {
 		const sections = this.props.layout.map((section, idx) => {
 			return (
 				<li key={section.id}>

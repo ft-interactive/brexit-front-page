@@ -43,7 +43,7 @@ const standFirstSize = (size) => {
 }
 
 class Card extends Component {
-	render() {
+	render () {
 		const article = this.props.article;
 
 		const size = this.props.size;

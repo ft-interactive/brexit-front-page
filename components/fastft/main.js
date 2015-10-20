@@ -40,7 +40,7 @@ const init = el => {
 		});
 	};
 
-	document.addEventListener('visibilitychange', function() {
+	document.addEventListener('visibilitychange', function () {
 		if(document.visibilityState === 'visible') {
 			if(items && items.length > 1)
 				renderFeed(el, items);

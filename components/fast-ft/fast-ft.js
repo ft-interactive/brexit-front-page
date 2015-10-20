@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import FastFtItem from './fast-ft-item';
 
 class FastFt extends Component {
-	render() {
+	render () {
 		const articleEls = this.props.articles.slice(0, 7).map(article => <li key={article.id}><FastFtItem article={article} /></li>);
 		return (
 			<div className="fast-ft-wrapper">

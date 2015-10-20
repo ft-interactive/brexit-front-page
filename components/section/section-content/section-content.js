@@ -16,7 +16,7 @@ const buildColumns = (cards) => {
 }
 
 export default class SectionContent extends Component {
-	render() {
+	render () {
 		const articles = this.props.articles.slice();
 
 		const columns = buildColumns(this.props.cards).map((columnCards, colIdx) => {

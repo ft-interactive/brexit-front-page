@@ -7,7 +7,7 @@ import initialLayout from './config';
 let element;
 let content;
 
-function init(el, initialContent) {
+function init (el, initialContent) {
 	if (!el) return;
 	element = el;
 	content = initialContent;
@@ -15,7 +15,7 @@ function init(el, initialContent) {
 	render(initialLayout);
 }
 
-function render(layout) {
+function render (layout) {
 	ReactDOM.render(<Layout content={content} layout={layout} />, element);
 }
 

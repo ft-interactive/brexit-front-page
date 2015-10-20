@@ -11,7 +11,7 @@ const sectionContent = (content) => {
 }
 
 export default class Layout extends Component {
-	render() {
+	render () {
 		const content = sectionContent(this.props.content);
 		const sections = this.props.layout.map((section, i) => {
 			return (
