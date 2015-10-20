@@ -95,8 +95,8 @@ const init = (flags) => {
 				.map(marketData => {
 					const symbol = marketData.symbolInput;
 					const security = securities.find(security => security.symbol === symbol);
-					const priceChange = marketData.quote.change1Day;
-					const priceChangeDirection = priceChange < 0 ? 'down' : priceChange > 0 ? 'up' : 'no-change';
+					const percentChange = marketData.quote.change1DayPercent;
+					const priceChangeDirection = percentChange < 0 ? 'down' : percentChange > 0 ? 'up' : 'no-change';
 					return `
 						<li class="markets-data__item" data-trackable="item">
 							<a href="http://markets.ft.com/data/${security.type}/tearsheet/summary?s=${symbol}"
@@ -104,7 +104,7 @@ const init = (flags) => {
 								data-trackable="link">
 								<h2 class="markets-data__item__name">${security.name}</h2>
 								<p class="markets-data__item__change markets-data__item__change--${priceChangeDirection}">
-									${priceChangeDirection === 'up' ? '+' : ''}${priceChange.toFixed(2)}
+									${priceChangeDirection === 'up' ? '+' : ''}${percentChange.toFixed(2)}%
 								</p>
 							</a>
 						</li>
