@@ -5,7 +5,7 @@ import Animation from 'react-addons-css-transition-group';
 import Article from './article';
 
 class Feed extends Component {
-	render() {
+	render () {
 		const articles = this.props.items ? this.props.items.map((it) => <Article article={it} key={it.id} />) : [];
 
 		return (

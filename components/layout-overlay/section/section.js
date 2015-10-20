@@ -20,18 +20,18 @@ const enforceConstraints = (cards) => {
 }
 
 export default class Section extends Component {
-	constructor(props) {
+	constructor (props) {
 		super(props);
 
 		this.state = {expanded: false};
 	}
 
-	toggle(e) {
+	toggle (e) {
 		e.preventDefault();
 		this.setState({expanded: !this.state.expanded});
 	}
 
-	update(cardIndex) {
+	update (cardIndex) {
 		return (newCard) => {
 			const newCards = this.props.cards.slice();
 			const widthDiff = +newCards[cardIndex].width - newCard.width;
@@ -65,7 +65,7 @@ export default class Section extends Component {
 		};
 	}
 
-	render() {
+	render () {
 		const cardEditors = this.props.cards.map((card, idx) => {
 			const previousCard = this.props.cards[Math.max(idx - 1)];
 			const previousColumn = previousCard ? previousCard.column : -1;

@@ -2,7 +2,7 @@ import { fastFT as fastFTQuery } from '../config/queries';
 import getData from '../libs/get-data';
 import { logger } from 'ft-next-express';
 
-module.exports = function(req, res, next) {
+module.exports = function (req, res, next) {
 	res.set({
 		'Cache-Control': 'max-age=20, public' // 20 seconds
 	});

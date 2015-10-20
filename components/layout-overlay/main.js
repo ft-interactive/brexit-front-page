@@ -9,7 +9,7 @@ import initialLayout from '../layout/config';
 let element;
 let callback;
 
-function init(el, cb) {
+function init (el, cb) {
 	if (!el) return;
 
 	element = el;
@@ -18,7 +18,7 @@ function init(el, cb) {
 	render(initialLayout);
 }
 
-function render(layout) {
+function render (layout) {
 	ReactDOM.render(<LayoutOverlay layout={layout} onChange={callback} />, element);
 }
 

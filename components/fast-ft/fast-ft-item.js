@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {format as dateFormat} from 'o-date';
 
 class FastFtItem extends Component {
-	render() {
+	render () {
 		const article = this.props.article;
 		const time = dateFormat(article.lastPublished, 'H:mm');
 		return (

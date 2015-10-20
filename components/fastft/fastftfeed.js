@@ -4,7 +4,7 @@ import React, {Component} from 'react';
 import Feed from '../feed/feed';
 
 class FastFtFeed extends Component {
-	render() {
+	render () {
 		return (
 			<div aria-live='assertive' aria-relevant='additions'>
 				<h1 id='fastft-title' role='presentation'>

@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 
 export default class CardEditor extends Component {
-	change(key) {
+	change (key) {
 		return (e) => {
 			const newValue = e.target.value;
 			let newCard = Object.assign({}, this.props.card);
@@ -14,7 +14,7 @@ export default class CardEditor extends Component {
 		};
 	}
 
-	render() {
+	render () {
 		return (
 			<form className="card-editor">
 				<p className="card-editor__overview">

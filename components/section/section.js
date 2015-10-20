@@ -7,7 +7,7 @@ const columnConfig = (hasSidebar) => {
 }
 
 export default class Section extends Component {
-	render() {
+	render () {
 		const columns = columnConfig(!!this.props.sidebarContent);
 
 		return (

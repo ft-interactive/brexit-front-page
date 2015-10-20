@@ -28,7 +28,7 @@ const init = (el, initialTab) => {
 		}
 
 		if(link.attachEvent) {
-			link.attachEvent('onclick', function(){
+			link.attachEvent('onclick', function (){
 				return clickHandler(links, link)([window.event]);
 			});
 		}

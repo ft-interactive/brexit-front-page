@@ -3,7 +3,7 @@ const webpack = require('webpack');
 const BowerWebpackPlugin = require('bower-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
-var plugins = [
+const plugins = [
 	new BowerWebpackPlugin({ includes: [/\.js?$/] }),
 	// Global definitions
 	new webpack.DefinePlugin({
