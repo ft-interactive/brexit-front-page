@@ -1,7 +1,12 @@
-import express from 'ft-next-express';
 import React from 'react';
 import ReactServer from 'react-dom/server';
 import bodyParser from 'body-parser';
+import path from 'path';
+
+import express from 'ft-next-express';
+import nHealth from 'n-health';
+
+import additionalHealthChecks from './libs/health-checks/index';
 
 // routes
 import frontPage from './routes/front-page';
@@ -14,7 +19,7 @@ const srcsets = {
 	opinion: { default: 320, s: 200, m: 200, l: 200, xl: 200 },
 	normal: { default: 470, s: 150, m: 200, l: 200, xl: 250 }
 };
-
+const healthChecks = nHealth(path.resolve(__dirname, './config/health-checks'), additionalHealthChecks);
 const app = express({
 	helpers: {
 		lowercase: (it) => it && it.toLowerCase(),
@@ -36,7 +41,8 @@ const app = express({
 
 			return options.fn(Object.assign({}, this, opts));
 		}
-	}
+	},
+	healthChecks: healthChecks.asArray()
 });
 const logger = express.logger;
 
