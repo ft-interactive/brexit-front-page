@@ -7,7 +7,6 @@ clean:
 
 install:
 	obt install --verbose
-	obt install --verbose
 
 verify:
 	obt verify --esLintPath=./.eslintrc
