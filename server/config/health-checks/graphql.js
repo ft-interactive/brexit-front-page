@@ -80,7 +80,7 @@ export default {
         },
         {
             name: 'FastFT',
-            severity: 1,
+            severity: 2,
             businessImpact: 'No FastFT section displayed on front page',
             technicalSummary: 'Tries to query GraphQL for top stories',
             panicGuide: 'Check the GrpahQL service health checks (http://next-graphql-api.ft.com/__health)',
@@ -106,7 +106,7 @@ export default {
         },
         {
             name: `Editor\'s Picks`,
-            severity: 1,
+            severity: 2,
             businessImpact: `No 'Editor's Picks' section displayed on front page`,
             technicalSummary: `Tries to query GraphQL for editor's picks`,
             panicGuide: 'Check the GrpahQL service health checks (http://next-graphql-api.ft.com/__health)',
