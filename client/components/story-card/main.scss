@@ -45,6 +45,14 @@
 	&.story-card__link,
 	.story-card__link {
 		@include nLinksTopic();
+		letter-spacing: 0.4px;
+		text-transform: none;
+		font-size: 16px;
+		&:hover,
+		&:focus {
+			border-bottom: 0;
+			color: getColor('grey-tint5');
+		}
 	}
 }
 
