@@ -2,12 +2,9 @@
 	<div class="carousel-card--inner o-grid-row">
 		{{#if primaryImage}}
 			<a href="/content/{{id}}" class="carousel-card__image-link" role="presentation" aria-hidden="true" data-trackable="image-link">
-				{{#with primaryImage}}
-					<img class='carousel-card__image'
-						src="{{src}}"
-						alt=""
-					/>
-				{{/with}}
+				{{#responsiveImage img=primaryImage sizing="editors" class="carousel-card__image"}}
+					{{> n-image/templates/image}}
+				{{/responsiveImage}}
 			</a>
 		{{/if}}
 		<div class="carousel-card__content">

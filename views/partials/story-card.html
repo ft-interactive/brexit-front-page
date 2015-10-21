@@ -2,11 +2,9 @@
 	<div class="story-card--inner o-grid-row">
 		{{#if primaryImage}}
 			<a href="/content/{{id}}" class="story-card__image-link" data-trackable="image" role="presentation" aria-hidden="true">
-				{{#with primaryImage}}
-					<img class='story-card__image'
-					src="{{src}}" alt=""
-					/>
-				{{/with}}
+				{{#responsiveImage img=primaryImage sizing=imageSizing class="story-card__image"}}
+					{{> n-image/templates/image}}
+				{{/responsiveImage}}
 			</a>
 		{{/if}}
 		<div class="story-card__content">
