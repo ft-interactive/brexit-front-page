@@ -71,12 +71,12 @@
 	&:hover,
 	&:active {
 		span {
-			color: oColorsGetPaletteColor('link-2');
+			color: oColorsGetPaletteColor('grey-tint5');
 		}
 
 		.more-icon,
 		[data-alternate-text="More"] {
-			@include nextIcon(go-to-circle, oColorsGetPaletteColor(link-2), 30px);
+			@include nextIcon(go-to-circle, oColorsGetPaletteColor('grey-tint5'), 30px);
 		}
 	}
 }

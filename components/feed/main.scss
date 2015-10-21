@@ -71,5 +71,5 @@
 }
 
 .feed {
-	article { @include nhFeedItem(link-2); }
+	article { @include nhFeedItem('teal-1'); }
 }
