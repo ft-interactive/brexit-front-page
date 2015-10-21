@@ -1,6 +1,6 @@
 import { logger } from 'ft-next-express';
 
-const getData = (query, flags) => {
+const getData = (query, flags = {}) => {
 	const xFlagsHeader = Object.keys(flags).map(flag => `${flag}:${flags[flag] ? 'on' : 'off'}`).join(',');
 	return fetch(`https://next-graphql-api.ft.com/?apiKey=${process.env.GRAPHQL_API_KEY}`,
 		{

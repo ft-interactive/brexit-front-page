@@ -13,6 +13,7 @@
   "resolutions": {
     "o-ft-icons": "next",
     "o-grid": "^4.0.0",
-    "lodash": "3.10.1-npm"
+    "lodash": "3.10.1-npm",
+    "fetch": ">=0.10.0"
   }
 }
