@@ -18,7 +18,6 @@ const fragments = `
 		}
 		primaryImage {
 			rawSrc
-			alt
 		}
 	}
 
@@ -33,7 +32,6 @@ const fragments = `
 		}
 		primaryImage {
 			rawSrc
-			alt
 		}
 	}
 

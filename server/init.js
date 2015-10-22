@@ -33,7 +33,6 @@ const app = express({
 			const opts = {
 				image: {
 					url: options.hash.img.rawSrc,
-					alt: options.hash.img.alt,
 					class: options.hash.class,
 					srcset: (srcsets[options.hash.sizing] || srcsets['normal'])
 				}
