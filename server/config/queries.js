@@ -17,8 +17,8 @@ const fragments = `
 			name
 		}
 		primaryImage {
+			src(width: 400)
 			rawSrc
-			alt
 		}
 	}
 
@@ -32,8 +32,8 @@ const fragments = `
 			name
 		}
 		primaryImage {
+			src(width: 250)
 			rawSrc
-			alt
 		}
 	}
 
