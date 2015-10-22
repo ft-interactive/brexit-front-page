@@ -11,7 +11,7 @@ const plugins = [
 			NODE_ENV: JSON.stringify(process.env.NODE_ENV || 'development')
 		}
 	}),
-	new ExtractTextPlugin('main.css'),
+	new ExtractTextPlugin('[name].css'),
 	new webpack.NoErrorsPlugin()
 ];
 
@@ -25,10 +25,12 @@ if(process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'branch') {
 }
 
 const config = {
-	entry: ['./client/main.js', './client/main.scss'],
+	entry: {
+		main: ['./client/main.js', './client/main.scss']
+	},
 	output: {
 		path: path.join(__dirname, 'public'),
-		filename: 'main.js'
+		filename: '[name].js'
 	},
 	module: {
 		loaders: [
