@@ -24,8 +24,14 @@
 	}
 }
 .section__column {
-	display: flex;
 	align-items: stretch;
+	display: flex;
+
+	&[data-o-grid-colspan="hide L2"] {
+		@include oGridRespondTo($until: L) {
+			display: none;
+		}
+	}
 
 	& > * {
 		width: 100%;
@@ -33,6 +39,7 @@
 		border-bottom: 1px solid oColorsGetPaletteColor('blue-2');
 	}
 }
+
 
 .column {
 	display: flex;

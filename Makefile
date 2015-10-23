@@ -12,8 +12,7 @@ verify:
 	obt verify --esLintPath=./.eslintrc
 
 unit-test:
-	##### NEED TESTS!!!! #####
-	# mocha --compilers js:babel/register --recursive --reporter spec test/server/
+	mocha --compilers js:babel/register --recursive --reporter spec test/components/
 
 test: verify unit-test
 
