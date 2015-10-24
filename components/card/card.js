@@ -49,8 +49,10 @@ class Card extends Component {
 		const article = this.props.article;
 
 		const size = this.props.size;
-		const standFirst = size === 'large' || size === 'medium' && !!this.props.standFirst;
 		const image = this.props.image;
+
+		// FIXME make these responsive
+		const standFirst = size === 'large' || size === 'medium' && !!this.props.standFirst;
 		const showImage = !!image && article.primaryImage;
 		const related = !!this.props.related && article.relatedContent && article.relatedContent.length > 0;
 
@@ -61,7 +63,7 @@ class Card extends Component {
 				<Tag tag={article.primaryTag} size={tagSize(size)} />
 				<Title title={article.title} href={'/content/' + article.id} size={titleSize(size, this.props.order, showImage)} />
 				{standFirst ? <Standfirst article={article} style={article.primaryTag.taxonomy} size={standFirstSize(size)} /> : null}
-				{showImage ? <Image article={article} display={image} /> : null}
+				{showImage ? <Image article={article} show={image} /> : null}
 				{related ? <Related articles={article.relatedContent} limit={this.props.related} /> : null}
 			</article>
 		);

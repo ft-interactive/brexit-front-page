@@ -1,25 +1,33 @@
 .card__image {
+	display: block;
 	width: 100%;
 }
-.card__image,
+
 .card__image-link {
 	display: block;
-}
-.card__image-link {
 	margin-top: 10px;
 	border-bottom: 0;
-
-	@include oGridRespondTo($until: M) {
-		display: none;
-
-		&.card__image-link--always {
-			display: block;
-		}
-	}
 }
-
 .card__image-link:last-child {
 	flex: 2;
-	display: flex;
 	align-items: flex-end;
+}
+
+[data-image-show~="false"] {
+	display: none;
+}
+
+@each $layout-name in $_o-grid-layout-names {
+	@include oGridRespondTo($layout-name) {
+		[data-image-show~="#{$layout-name}true"] {
+			display: block;
+			&:last-child {
+				display: flex;
+			}
+		}
+
+		[data-image-show~="#{$layout-name}false"] {
+			display: none;
+		}
+	}
 }
