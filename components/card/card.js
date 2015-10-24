@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 
+import {responsiveValue} from './helpers';
+
 import Tag from './tag/tag'
 import Title from './title/title'
 import Image from './image/image'
@@ -55,7 +57,7 @@ class Card extends Component {
 		if(this.props.ad) return <Ad />;
 
 		return (
-			<article className={className(size)} data-trackable="card">
+			<article className={className(size)} data-trackable="card" data-card-show={responsiveValue(this.props.show)}>
 				<Tag tag={article.primaryTag} size={tagSize(size)} />
 				<Title title={article.title} href={'/content/' + article.id} size={titleSize(size, this.props.order, showImage)} />
 				{standFirst ? <Standfirst article={article} style={article.primaryTag.taxonomy} size={standFirstSize(size)} /> : null}

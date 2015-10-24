@@ -14,6 +14,22 @@ const cardPropDefaults = {
 	related: 0
 };
 
+// Filters a responsive property for use with media queries
+// e.g. {default: 1, S: 1, M: 2, L: 2, XL: 2} becomes {default: 1, M: 2}
+const mobileFirst = (value) => {
+	const cleanValue = {};
+	const layouts = ['default'].concat(layoutNames).filter(it => value.hasOwnProperty(it));
+
+	layouts.forEach((l, i) => {
+		const previousValue = value[layouts[i - 1]];
+
+		if(value[l] !== previousValue)
+			cleanValue[l] = value[l];
+	});
+
+	return cleanValue;
+}
+
 // Finds the maximum number of cards and columns in all layouts
 const maximumCards = (layouts) => {
 	return layoutNames.concat(['default']).reduce((count, layout) => {
@@ -35,7 +51,7 @@ const colspans = (layouts, storyIndex) => {
 
 		const card = layouts[layout][storyIndex];
 
-		columns[card.column] = (columns[card.column] || {});
+		columns[card.column] = columns[card.column] || {};
 		columns[card.column][layout] = card.width;
 	});
 
@@ -66,24 +82,28 @@ const cardProps = (layout, storyIndex) => {
 
 	cardPropKeys.forEach((prop) => {
 		const defaultValue = (defaultLayout && defaultLayout[prop] ? defaultLayout[prop] : cardPropDefaults[prop]);
-		card[prop] = {default: defaultValue};
+		const fullValue = {default: defaultValue};
 
 		layoutNames.forEach((l) => {
-			if(!layout[l])
-				return;
+			if(!layout[l]) return;
 
 			const value = (layout[l][storyIndex] && layout[l][storyIndex][prop] || cardPropDefaults[prop]);
-
-			// as we're mobile first, there's no need to override something already
-			// set for a lower layout
-			const keys = Object.keys(card[prop]);
-			const previousValue = card[prop][keys[keys.length-1]];
-			if(value !== previousValue)
-				card[prop][l] = value;
+			fullValue[l] = value;
 		});
+
+		card[prop] = mobileFirst(fullValue);
 	});
 
 	return card;
+}
+
+const showFromColspan = (span) => {
+	const show = Object.keys(span).reduce((show, layout) => {
+		show[layout] = (span[layout] !== 'hide');
+		return show;
+	}, {});
+
+	return mobileFirst(show);
 }
 
 // Builds a list of columns containing cards.
@@ -101,21 +121,37 @@ const buildColumns = (layouts, articles) => {
 		const props = cardProps(layouts, storyIndex);
 		const article = articles[storyIndex];
 
-
 		for(const column in spans) {
 			if(spans.hasOwnProperty(column)) {
-				columns[column] = columns[column] || [];
+				columns[column] = columns[column] || {cards: []};
+				const colspan = spans[column];
+				const show = showFromColspan(colspan);
 
-				const cardInstance = Object.assign({}, props, {article: article, colspan: spans[column] });
-				columns[column].push(cardInstance);
+				const cardInstance = Object.assign({}, props, { article, show, colspan });
+				columns[column].cards.push(cardInstance);
 			}
 		};
 	}
+
+	columns.forEach((column, cidx) => {
+		const colspan = column.cards.reduce((span, card) => {
+			Object.keys(card.colspan).forEach((layout) => {
+				if(!span[layout] || span[layout] === 'hide')
+					span[layout] = card.colspan[layout];
+			});
+
+			delete card.colspan;
+			return mobileFirst(span);
+		}, {});
+
+		columns[cidx].colspan = colspan;
+	});
 
 	return columns;
 }
 
 export default {
+	layoutNames,
 	cardPropValues,
 	cardPropDefaults,
 	maximumCards,

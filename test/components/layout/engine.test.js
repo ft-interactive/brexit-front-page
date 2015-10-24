@@ -179,16 +179,19 @@ describe('Layout engine', () => {
 				default: [{}]
 			};
 			const expected = [
-				[
-					{
-						colspan: {default: 12},
-						size: {default: 'medium'},
-						standFirst: {default: false},
-						image: {default: false},
-						related: {default: 0},
-						article: 'first'
-					}
-				]
+				{
+					colspan: {default: 12},
+					cards: [
+						{
+							show: {default: true},
+							size: {default: 'medium'},
+							standFirst: {default: false},
+							image: {default: false},
+							related: {default: 0},
+							article: 'first'
+						}
+					]
+				}
 			];
 
 			expect(Engine.buildColumns(layout, articles)).to.eql(expected);
@@ -201,16 +204,19 @@ describe('Layout engine', () => {
 				M: [{column: 0, width: 5, size: 'medium', related: 2}]
 			};
 			const expected = [
-				[
-					{
-						colspan: {default: 12, M: 5},
-						size: {default: 'large', M: 'medium'},
-						standFirst: {default: false},
-						image: {default: true, M: false},
-						related: {default: 3, M: 2},
-						article: 'first'
-					}
-				]
+				{
+					colspan: {default: 12, M: 5},
+					cards: [
+						{
+							show: {default: true},
+							size: {default: 'large', M: 'medium'},
+							standFirst: {default: false},
+							image: {default: true, M: false},
+							related: {default: 3, M: 2},
+							article: 'first'
+						}
+					]
+				}
 			];
 
 			expect(Engine.buildColumns(layout, articles)).to.eql(expected);
@@ -248,108 +254,117 @@ describe('Layout engine', () => {
 				]
 			};
 			const expected = [
-				[ // column 0
-					{
-						article: 'first',
-						colspan: { default: 12, S: 6, M: 5 },
-						size: { default: 'large' },
-						standFirst: { default: true},
-						image: { default: true },
-						related: { default: 3 }
-					},
-					{
-						article: 'second',
-						colspan: { default: 12, S: 6, M: 'hide' },
-						size: { default: 'medium', S: 'large', M: 'medium' },
-						standFirst: { default: true},
-						image: { default: false, M: true }, // FIXME: M not needed because hide
-						related: { default: 0 }
-					}
-				],
-				[ // column 1
-					{
-						article: 'second',
-						colspan: { default: 'hide', M: 4 },
-						size: { default: 'medium', S: 'large', M: 'medium' },
-						standFirst: { default: true },
-						image: { default: false, M: true },
-						related: { default: 0 }
-					},
-					{
-						article: 'third',
-						colspan: { default: 12, S: 6, M: 4},
-						size: { default: 'medium' },
-						standFirst: { default: false },
-						image: { default: false, S: true, M: false },
-						related: { default: 0 }
-					},
-					{
-						article: 'fourth',
-						colspan: { default: 12, S: 6, M: 'hide'},
-						size: { default: 'small', S: 'medium', M: 'small' },
-						standFirst: { default: false, S: true, M: false},
-						image: { default: false, M: true },
-						related: { default: 0 }
-					},
-					{
-						article: 'fifth',
-						colspan: { default: 12, S: 6, M: 'hide'},
-						size: { default: 'tiny', S: 'small', M: 'tiny' },
-						standFirst: { default: false },
-						image: { default: false },
-						related: { default: 0 }
-					},
-					{
-						article: 'sixth',
-						colspan: { default: 12, S: 6, M: 'hide'},
-						size: { default: 'tiny' },
-						standFirst: { default: false },
-						image: { default: false },
-						related: { default: 0 }
-					},
-					{
-						article: 'seventh',
-						colspan: { default: 12, S: 6, M: 'hide'},
-						size: { default: 'tiny' },
-						standFirst: { default: false },
-						image: { default: false },
-						related: { default: 0 }
-					}
-				],
-				[ // column 2
-					{
-						article: 'fourth',
-						colspan: { default: 'hide', M: 3 },
-						size: { default: 'small', S: 'medium', M: 'small' },
-						standFirst: { default: false, S: true, M: false},
-						image: { default: false, M: true },
-						related: { default: 0 }
-					},
-					{
-						article: 'fifth',
-						colspan: { default: 'hide', M: 3 },
-						size: { default: 'tiny', S: 'small', M: 'tiny' },
-						standFirst: { default: false },
-						image: { default: false },
-						related: { default: 0 }
-					},
-					{
-						article: 'sixth',
-						colspan: { default: 'hide', M: 3 },
-						size: { default: 'tiny' },
-						standFirst: { default: false },
-						image: { default: false },
-						related: { default: 0 }
-					},
-					{
-						article: 'seventh',
-						colspan: { default: 'hide', M: 3 },
-						size: { default: 'tiny' },
-						standFirst: { default: false },
-						image: { default: false },
-						related: { default: 0 }
-					}
-				]
+				{ // column 0
+					colspan: { default: 12, S: 6, M: 5 },
+					cards: [
+						{
+							article: 'first',
+							show: { default: true },
+							size: { default: 'large' },
+							standFirst: { default: true},
+							image: { default: true },
+							related: { default: 3 }
+						},
+						{
+							article: 'second',
+							show: { default: true, M: false },
+							size: { default: 'medium', S: 'large', M: 'medium' },
+							standFirst: { default: true},
+							image: { default: false, M: true }, // FIXME: M not needed because hide
+							related: { default: 0 }
+						}
+					]
+				},
+				{
+					colspan: { default: 12, S: 6, M: 4 },
+					cards: [
+						{
+							article: 'second',
+							show: { default: false, M: true },
+							size: { default: 'medium', S: 'large', M: 'medium'},
+							standFirst: { default: true },
+							image: { default: false, M: true },
+							related: { default: 0 }
+						},
+						{
+							article: 'third',
+							show: { default: true },
+							size: { default: 'medium' },
+							standFirst: { default: false },
+							image: { default: false, S: true, M: false },
+							related: { default: 0 }
+						},
+						{
+							article: 'fourth',
+							show: { default: true, M: false},
+							size: { default: 'small', S: 'medium', M: 'small' },
+							standFirst: { default: false, S: true, M: false},
+							image: { default: false, M: true },
+							related: { default: 0 }
+						},
+						{
+							article: 'fifth',
+							show: { default: true, M: false},
+							size: { default: 'tiny', S: 'small', M: 'tiny' },
+							standFirst: { default: false },
+							image: { default: false },
+							related: { default: 0 }
+						},
+						{
+							article: 'sixth',
+							show: { default: true, M: false},
+							size: { default: 'tiny' },
+							standFirst: { default: false },
+							image: { default: false },
+							related: { default: 0 }
+						},
+						{
+							article: 'seventh',
+							show: { default: true, M: false},
+							size: { default: 'tiny' },
+							standFirst: { default: false },
+							image: { default: false },
+							related: { default: 0 }
+						}
+					]
+				},
+				{
+					colspan: { default: 'hide', M: 3 },
+					cards: [
+						{
+							article: 'fourth',
+							show: { default: false, M: true },
+							size: { default: 'small', S: 'medium', M: 'small' },
+							standFirst: { default: false, S: true, M: false},
+							image: { default: false, M: true },
+							related: { default: 0 }
+						},
+						{
+							article: 'fifth',
+							show: { default: false, M: true },
+							size: { default: 'tiny', S: 'small', M: 'tiny' },
+							standFirst: { default: false },
+							image: { default: false },
+							related: { default: 0 }
+						},
+						{
+							article: 'sixth',
+							show: { default: false, M: true },
+							size: { default: 'tiny' },
+							standFirst: { default: false },
+							image: { default: false },
+							related: { default: 0 }
+						},
+						{
+							article: 'seventh',
+							show: { default: false, M: true },
+							size: { default: 'tiny' },
+							standFirst: { default: false },
+							image: { default: false },
+							related: { default: 0 }
+						}
+					]
+				}
 			];
 
 			expect(Engine.buildColumns(layout, articles)).to.eql(expected);

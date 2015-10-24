@@ -39,6 +39,8 @@
 	}
 }
 
+// ad card
+
 .card--ad {
 	padding-left: 0;
 	padding-right: 0;
@@ -46,4 +48,22 @@
 .ad {
 	display: block;
 	margin: 0 auto;
+}
+
+// responsive show helper
+
+[data-card-show~="false"] {
+	display: none;
+}
+
+@each $layout-name in $_o-grid-layout-names {
+	@include oGridRespondTo($layout-name) {
+		[data-card-show~="#{$layout-name}true"] {
+			display: flex;
+		}
+
+		[data-card-show~="#{$layout-name}false"] {
+			display: none;
+		}
+	}
 }

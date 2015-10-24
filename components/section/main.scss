@@ -42,6 +42,33 @@
 
 
 .column {
-	display: flex;
 	flex-flow: column wrap;
+
+	&:not([data-o-grid-colspan^="hide"]) {
+		display: flex;
+	}
+
+	&[data-o-grid-colspan="Shide"] {
+		@include oGridRespondTo(S) {
+			display: none;
+		}
+	}
+
+	&[data-o-grid-colspan="Mhide"] {
+		@include oGridRespondTo(M) {
+			display: none;
+		}
+	}
+
+	&[data-o-grid-colspan="Lhide"] {
+		@include oGridRespondTo(L) {
+			display: none;
+		}
+	}
+
+	&[data-o-grid-colspan="XLhide"] {
+		@include oGridRespondTo(XL) {
+			display: none;
+		}
+	}
 }

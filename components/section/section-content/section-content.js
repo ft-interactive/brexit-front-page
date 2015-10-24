@@ -1,19 +1,21 @@
 import React, {Component} from 'react';
 
-import buildColumns from '../layout/engine';
+import {buildColumns, layoutNames} from '../../layout/engine';
 import Card from '../../card/card';
+
+const colspanToString = (span) => {
+	return span.default + ' ' + layoutNames.filter(it => span.hasOwnProperty(it)).map(it => it + span[it]).join(' ');
+}
 
 export default class SectionContent extends Component {
 	render () {
 		const articles = this.props.articles.slice();
 
-		console.log('Using layout', this.props.cards);
 		const columnDefs = buildColumns(this.props.cards, articles);
-		console.log('Created column definitions', columnDefs);
+		const columns = columnDefs.map((column, colIdx) => {
+			const colspan = colspanToString(column.colspan);
 
-		const columns = columnDefs.map((columnCards, colIdx) => {
-			const colspan = columnCards[0].colspan;
-			const cards = columnCards.map(props => {
+			const cards = column.cards.map(props => {
 				return <Card {...props} />;
 			});
 
