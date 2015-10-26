@@ -3,7 +3,7 @@ import { logger } from 'ft-next-express';
 
 // bail unless we have at least one top story
 const contentMissing = (data) => {
-	return !data.items || data.items.length < 1;
+	return !(data.fastFT && data.fastFT.items) || data.fastFT.items.length < 1;
 }
 
 module.exports = function (req, res) {
