@@ -14,22 +14,6 @@ const cardPropDefaults = {
 	related: 0
 };
 
-// Filters a responsive property for use with media queries
-// e.g. {default: 1, S: 1, M: 2, L: 2, XL: 2} becomes {default: 1, M: 2}
-const mobileFirst = (value) => {
-	const cleanValue = {};
-	const layouts = ['default'].concat(layoutNames).filter(it => value.hasOwnProperty(it));
-
-	layouts.forEach((l, i) => {
-		const previousValue = value[layouts[i - 1]];
-
-		if(value[l] !== previousValue)
-			cleanValue[l] = value[l];
-	});
-
-	return cleanValue;
-}
-
 // Finds the maximum number of cards and columns in all layouts
 const maximumCards = (layouts) => {
 	return layoutNames.concat(['default']).reduce((count, layout) => {
@@ -91,7 +75,7 @@ const cardProps = (layout, storyIndex) => {
 			fullValue[l] = value;
 		});
 
-		card[prop] = mobileFirst(fullValue);
+		card[prop] = fullValue;
 	});
 
 	return card;
@@ -103,7 +87,7 @@ const showFromColspan = (span) => {
 		return show;
 	}, {});
 
-	return mobileFirst(show);
+	return show;
 }
 
 // Builds a list of columns containing cards.
@@ -127,7 +111,7 @@ const buildColumns = (layouts, articles) => {
 				const colspan = spans[column];
 				const show = showFromColspan(colspan);
 
-				const cardInstance = Object.assign({}, props, { article, show, colspan });
+				const cardInstance = Object.assign({}, props, { article, show, colspan, order: storyIndex });
 				columns[column].cards.push(cardInstance);
 			}
 		};
@@ -141,7 +125,7 @@ const buildColumns = (layouts, articles) => {
 			});
 
 			delete card.colspan;
-			return mobileFirst(span);
+			return span;
 		}, {});
 
 		columns[cidx].colspan = colspan;

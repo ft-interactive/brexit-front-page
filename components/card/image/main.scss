@@ -8,25 +8,24 @@
 	margin-top: 10px;
 	border-bottom: 0;
 }
+
 .card__image-link:last-child {
 	flex: 2;
+	display: flex;
 	align-items: flex-end;
 }
 
-[data-image-show~="false"] {
+.card__image-link[data-image-show~="false"] {
 	display: none;
 }
 
 @each $layout-name in $_o-grid-layout-names {
 	@include oGridRespondTo($layout-name) {
-		[data-image-show~="#{$layout-name}true"] {
-			display: block;
-			&:last-child {
-				display: flex;
-			}
+		.card__image-link[data-image-show~="#{$layout-name}--true"] {
+			display: inherit;
 		}
 
-		[data-image-show~="#{$layout-name}false"] {
+		.card__image-link[data-image-show~="#{$layout-name}--false"] {
 			display: none;
 		}
 	}

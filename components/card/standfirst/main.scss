@@ -17,3 +17,32 @@
 	font-size: 16px;
 	line-height: 18px;
 }
+
+.card__standfirst[data-standfirst-show~="false"] {
+	display: none;
+}
+
+@each $layout-name in $_o-grid-layout-names {
+	@include oGridRespondTo($layout-name) {
+		.card__standfirst[data-standfirst-show~="#{$layout-name}--true"] {
+			display: inherit;
+		}
+
+		.card__standfirst[data-standfirst-show~="#{$layout-name}--false"] {
+			display: none;
+		}
+	}
+}
+
+@each $layout-name in $_o-grid-layout-names {
+	@include oGridRespondTo($layout-name) {
+		.card__standfirst--#{$layout-name}--large {
+			font-size: 20px;
+			line-height: 24px;
+		}
+		.card__standfirst--#{$layout-name}--medium {
+			font-size: 16px;
+			line-height: 18px;
+		}
+	}
+}

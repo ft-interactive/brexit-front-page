@@ -13,6 +13,7 @@
 	padding: 10px;
 	display: flex;
 	flex-direction: column;
+	flex: 1; // make cards grow evently to fill the remaining column whitespace
 
 	@include oGridRespondTo(M) {
 		margin-top: oGridGutter(M);
@@ -27,11 +28,6 @@
 		@include oGridRespondTo(XL) {
 			margin-top: 0;
 		}
-	}
-
-	// make last card fill the column
-	&:last-child {
-		flex: 2;
 	}
 
 	.section--opinion & {
@@ -52,17 +48,17 @@
 
 // responsive show helper
 
-[data-card-show~="false"] {
+.card[data-card-show~="false"] {
 	display: none;
 }
 
 @each $layout-name in $_o-grid-layout-names {
 	@include oGridRespondTo($layout-name) {
-		[data-card-show~="#{$layout-name}true"] {
-			display: flex;
+		.card[data-card-show~="#{$layout-name}--true"] {
+			display: inherit;
 		}
 
-		[data-card-show~="#{$layout-name}false"] {
+		.card[data-card-show~="#{$layout-name}--false"] {
 			display: none;
 		}
 	}

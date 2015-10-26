@@ -68,11 +68,11 @@ describe('Layout engine', () => {
 		it('lays out a cards in different columns in two layouts', () => {
 			const layout = {
 				S: [{column: 0, width: 6}, {column: 0, width: 6}],
-				L: [{column: 0, width: 5}, {column: 1, width: 4}]
+				M: [{column: 0, width: 5}, {column: 1, width: 4}]
 			};
 			const expectedSpan = {
-				0: {default: 12, S: 6, L: 'hide'},
-				1: {default: 'hide', L: 4}
+				0: {default: 12, S: 6, M: 'hide', S: 'hide'},
+				1: {default: 'hide', M: 4, L: 4}
 			};
 
 			expect(Engine.colspans(layout, 1)).to.eql(expectedSpan);
@@ -137,35 +137,10 @@ describe('Layout engine', () => {
 				]
 			};
 			const expectedProps = {
-				size: {default: 'large'},
-				standFirst: {default: true},
+				size: {default: 'large', L: 'large'},
+				standFirst: {default: true, L: true},
 				image: {default: false, L: true},
 				related: {default: 0, L: 1}
-			}
-
-			expect(Engine.cardProps(layout, 1)).to.eql(expectedProps);
-		});
-
-		it('ignores overrides with no effect and uses default values', () => {
-			const layout = {
-				default: [
-					{ size: 'large', standFirst: true, image: true, related: 3 },
-					{ size: 'large', standFirst: true }
-				],
-				M: [
-					{ size: 'large', image: true, related: 1 },
-					{ standFirst: true, image: true, related: 1 },
-				],
-				L: [
-					{ size: 'large', image: true, related: 3 },
-					{ size: 'large', standFirst: true, image: true, related: 3 },
-				]
-			};
-			const expectedProps = {
-				size: {default: 'large', M: 'medium', L: 'large'},
-				standFirst: {default: true },
-				image: {default: false, M: true},
-				related: {default: 0, M: 1, L: 3}
 			}
 
 			expect(Engine.cardProps(layout, 1)).to.eql(expectedProps);
@@ -183,6 +158,7 @@ describe('Layout engine', () => {
 					colspan: {default: 12},
 					cards: [
 						{
+							order: 0,
 							show: {default: true},
 							size: {default: 'medium'},
 							standFirst: {default: false},
@@ -208,9 +184,10 @@ describe('Layout engine', () => {
 					colspan: {default: 12, M: 5},
 					cards: [
 						{
-							show: {default: true},
+							order: 0,
+							show: {default: true, M: true},
 							size: {default: 'large', M: 'medium'},
-							standFirst: {default: false},
+							standFirst: {default: false, M: false},
 							image: {default: true, M: false},
 							related: {default: 3, M: 2},
 							article: 'first'
@@ -258,20 +235,22 @@ describe('Layout engine', () => {
 					colspan: { default: 12, S: 6, M: 5 },
 					cards: [
 						{
+							order: 0,
 							article: 'first',
-							show: { default: true },
-							size: { default: 'large' },
-							standFirst: { default: true},
-							image: { default: true },
-							related: { default: 3 }
+							show: { default: true, S: true, M: true },
+							size: { default: 'large', S: 'large', M: 'large' },
+							standFirst: { default: true, S: true, M: true},
+							image: { default: true, S: true, M: true },
+							related: { default: 3, S: 3, M: 3 }
 						},
 						{
+							order: 1,
 							article: 'second',
-							show: { default: true, M: false },
+							show: { default: true, S: true, M: false },
 							size: { default: 'medium', S: 'large', M: 'medium' },
-							standFirst: { default: true},
-							image: { default: false, M: true }, // FIXME: M not needed because hide
-							related: { default: 0 }
+							standFirst: { default: true, S: true, M: true},
+							image: { default: false, S: true, M: true },
+							related: { default: 0, S: 0, M: 0 }
 						}
 					]
 				},
@@ -279,14 +258,16 @@ describe('Layout engine', () => {
 					colspan: { default: 12, S: 6, M: 4 },
 					cards: [
 						{
+							order: 1,
 							article: 'second',
-							show: { default: false, M: true },
+							show: { default: false, S: false, M: true },
 							size: { default: 'medium', S: 'large', M: 'medium'},
 							standFirst: { default: true },
 							image: { default: false, M: true },
 							related: { default: 0 }
 						},
 						{
+							order: 2,
 							article: 'third',
 							show: { default: true },
 							size: { default: 'medium' },
@@ -295,6 +276,7 @@ describe('Layout engine', () => {
 							related: { default: 0 }
 						},
 						{
+							order: 3,
 							article: 'fourth',
 							show: { default: true, M: false},
 							size: { default: 'small', S: 'medium', M: 'small' },
@@ -303,6 +285,7 @@ describe('Layout engine', () => {
 							related: { default: 0 }
 						},
 						{
+							order: 4,
 							article: 'fifth',
 							show: { default: true, M: false},
 							size: { default: 'tiny', S: 'small', M: 'tiny' },
@@ -311,6 +294,7 @@ describe('Layout engine', () => {
 							related: { default: 0 }
 						},
 						{
+							order: 5,
 							article: 'sixth',
 							show: { default: true, M: false},
 							size: { default: 'tiny' },
@@ -319,6 +303,7 @@ describe('Layout engine', () => {
 							related: { default: 0 }
 						},
 						{
+							order: 6,
 							article: 'seventh',
 							show: { default: true, M: false},
 							size: { default: 'tiny' },
@@ -332,6 +317,7 @@ describe('Layout engine', () => {
 					colspan: { default: 'hide', M: 3 },
 					cards: [
 						{
+							order: 3,
 							article: 'fourth',
 							show: { default: false, M: true },
 							size: { default: 'small', S: 'medium', M: 'small' },
@@ -340,6 +326,7 @@ describe('Layout engine', () => {
 							related: { default: 0 }
 						},
 						{
+							order: 4,
 							article: 'fifth',
 							show: { default: false, M: true },
 							size: { default: 'tiny', S: 'small', M: 'tiny' },
@@ -348,6 +335,7 @@ describe('Layout engine', () => {
 							related: { default: 0 }
 						},
 						{
+							order: 5,
 							article: 'sixth',
 							show: { default: false, M: true },
 							size: { default: 'tiny' },
@@ -356,6 +344,7 @@ describe('Layout engine', () => {
 							related: { default: 0 }
 						},
 						{
+							order: 6,
 							article: 'seventh',
 							show: { default: false, M: true },
 							size: { default: 'tiny' },

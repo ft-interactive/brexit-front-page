@@ -35,3 +35,21 @@
 		margin: 0 10px -8px -5px;
 	}
 }
+
+@each $layout-name in $_o-grid-layout-names {
+	@include oGridRespondTo($layout-name) {
+		.card__tag--#{$layout-name}--large {
+			font-size: 16px;
+			line-height: 16px;
+		}
+		.card__tag--#{$layout-name}--medium {
+			font-size: 14px;
+			line-height: 14px;
+		}
+		.card__tag--#{$layout-name}--small {
+			float: left;
+			font-size: 12px;
+			line-height: 14px;
+		}
+	}
+}
