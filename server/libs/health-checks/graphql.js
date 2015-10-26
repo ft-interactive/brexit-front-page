@@ -1,7 +1,7 @@
 import ms from 'ms';
 import { Check, status } from 'n-health';
 
-import getData from '../get-data';
+import { start as startPolling ,getData } from '../graphql-poller';
 
 class GraphQlCheck extends Check {
 
@@ -9,7 +9,9 @@ class GraphQlCheck extends Check {
         super(options);
         this.status = status.PENDING;
         this.pollTime = ms(options.interval);
+        this.type = options.type;
         this.query = options.query;
+        this.verifyKeys = options.verifyKeys || [];
     }
 
     get checkOutput() {
@@ -24,8 +26,10 @@ class GraphQlCheck extends Check {
     }
 
     start() {
-        this.tick();
-        this.interval = setInterval(this.tick.bind(this), this.pollTime);
+        startPolling().then(() => {
+            this.tick();
+            this.interval = setInterval(this.tick.bind(this), this.pollTime);
+        });
     }
 
     stop() {
@@ -33,11 +37,17 @@ class GraphQlCheck extends Check {
     }
 
     tick() {
-        getData(this.query)
-            .then(data => {
-                this.status = Object.keys(data).length ? status.PASSED : status.FAILED;
-                this.lastUpdated = new Date();
-            });
+        let data = getData(this.query);
+        this.status = data && Object.keys(data).length ? status.PASSED : status.FAILED;
+        this.verifyKeys.forEach((key) => {
+            if(data && data[key]) {
+                this.status = status.PASSED;
+            } else {
+                this.status = status.FAILED;
+                return;
+            }
+        });
+        this.lastUpdated = new Date();
     }
 }
 

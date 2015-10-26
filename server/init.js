@@ -8,6 +8,7 @@ import nHealth from 'n-health';
 
 import additionalHealthChecks from './libs/health-checks/index';
 
+import { start as startPolling } from './libs/graphql-poller';
 // routes
 import frontPage from './routes/front-page';
 import fastft from './routes/fastft';
@@ -70,6 +71,9 @@ app.get('/home/fastft.json', fastft);
 const port = process.env.PORT || 3001;
 
 export default app;
-export let listen = app.listen(port, () => {
-	logger.info('Listening on ' + port);
-});
+export let listen = startPolling().then(() => {
+	return app.listen(port, () => {
+		logger.info('Listening on ' + port);
+	});
+})
+

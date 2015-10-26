@@ -8,6 +8,7 @@
     "body-parser": "^1.13.2",
     "forever": "^0.15.1",
     "ft-next-express": "^15.1.0",
+    "ft-poller": "^2.2.0",
     "ms": "^0.7.1",
     "n-health": "^1.0.2",
     "o-date": "https://github.com/Financial-Times/o-date/archive/1.1.1.tar.gz",
