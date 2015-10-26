@@ -12,7 +12,7 @@ const getData = (query, flags = {}) => {
 				'Content-Type': 'application/json',
 				'X-Flags': xFlagsHeader
 			},
-			timeout: 3000
+			timeout: 4000
 		})
 		.then(response => {
 			if (response.ok) {
