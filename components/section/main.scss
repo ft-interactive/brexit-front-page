@@ -40,9 +40,9 @@
 	}
 }
 
-
 .column {
 	flex-flow: column wrap;
+	display: flex;
 
 	&:not([data-o-grid-colspan^="hide"]) {
 		display: flex;

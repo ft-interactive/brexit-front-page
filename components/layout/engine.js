@@ -28,32 +28,63 @@ const maximumCards = (layouts) => {
 // This may assign one card into multiple columns, rendering it twice
 const colspans = (layouts, storyIndex) => {
 	const columns = {}; // column -> colspan
+	const definedLayouts = Object.keys(layouts);
 
-	// first pass: assign card into requested column(s)
-	layoutNames.forEach((layout) => {
-		if(!layouts[layout] || !layouts[layout][storyIndex]) return;
+	// first pass: assign card into columns as requested
+
+	definedLayouts.forEach((layout) => {
+		if(!layouts[layout][storyIndex]) return;
 
 		const card = layouts[layout][storyIndex];
+		const column = card.column || 0;
+		const width = card.width || 12;
 
-		columns[card.column] = columns[card.column] || {};
-		columns[card.column][layout] = card.width;
+		columns[column] = columns[column] || {};
+		columns[column][layout] = width;
 	});
 
-	// second pass: set defaults and 'hide's for next layout up if present
-	const existingColumns = (Object.keys(columns).length ? Object.keys(columns) : [0]);
+	// second pass: add defaults and 'hide's
+
+	// add 'default' to layouts if it's missing
+	if(definedLayouts[0] !== 'default') definedLayouts.unshift('default');
+
+	// existing columns = columns card is visible in,
+	// first one should be default 12 unless explicitly hidden
+	const requestedColumns = Object.keys(columns);
+
+	if(requestedColumns.length > 1) {
+		const firstColumnLayouts = Object.keys(columns[requestedColumns[0]]);
+		if(firstColumnLayouts.length < 2 && firstColumnLayouts[0] === 'default') {
+			columns[requestedColumns[1]].default = columns[requestedColumns[0]].default;
+			delete columns[requestedColumns[0]];
+		}
+	}
+
+	const existingColumns = Object.keys(columns);
+
+	// if there is an explicit default layout and it doesn't have the card
+	// hide the card in default
+	if(layouts.default && !layouts.default[storyIndex])
+		columns[existingColumns[0]].default = 'hide';
+
 	existingColumns.forEach((column, i) => {
-		columns[column] = columns[column] || {};
-		columns[column].default = (column === existingColumns[0] ? 12 : 'hide');
+		columns[column].default = columns[column].default || (i === 0 ? 12 : 'hide');
+		columns[column].default = columns[column].default === 'hide' ? columns[column].default : 12;
 
-		const nextColumn = existingColumns[i + 1];
-		if(!nextColumn) return;
+		definedLayouts.forEach((layout) => {
+			if(columns[column][layout]) return;
 
-		layoutNames.forEach((layout) => {
-			if(columns[nextColumn][layout]) {
+			if(!layouts[layout][storyIndex])
 				columns[column][layout] = 'hide';
-				return;
-			}
-		});
+
+			// hide in all the layouts defined in any of the other columns
+			existingColumns.forEach((c) => {
+				if(column === c) return;
+
+				if(columns[c][layout] || !layouts[layout][storyIndex])
+					columns[column][layout] = 'hide';
+			});
+		})
 	});
 
 	return columns;

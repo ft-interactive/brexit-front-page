@@ -22,16 +22,30 @@ describe('Layout engine', () => {
 	});
 
 	describe('#colspans', () => {
-		it('sets defaults properly', () => {
+		it('sets defaults', () => {
 			const layout = {
 				default: [{}, {}, {}]
 			};
+			const expectedSpan = {
+				0: {default: 12}
+			};
 
-			// second card should have a span of 12 in column 0
-			expect(Engine.colspans(layout, 1)).to.eql({0: {default: 12}});
+			expect(Engine.colspans(layout, 1)).to.eql(expectedSpan);
 		});
 
-		it('lays out one card in first column', () => {
+		it('sets default to hide on a card visible only on larger layout', () => {
+			const layout = {
+				default: [{}, {}, {}],
+				S: [{}, {}, {}, {}]
+			};
+			const expectedSpan = {
+				0: {default: 'hide', S: 12}
+			};
+
+			expect(Engine.colspans(layout, 3)).to.eql(expectedSpan);
+		});
+
+		it('sets default to 12 on a card that stays in one column', () => {
 			const layout = {
 				S: [{column: 0, width: 5}]
 			};
@@ -42,7 +56,7 @@ describe('Layout engine', () => {
 			expect(Engine.colspans(layout, 0)).to.eql(expectedSpan);
 		});
 
-		it('lays out two cards in two columns', () => {
+		it('sets default to 12 in the first column card appears in', () => {
 			const layout = {
 				S: [{column: 0, width: 5}, {column: 1, width: 7}]
 			};
@@ -53,7 +67,7 @@ describe('Layout engine', () => {
 			expect(Engine.colspans(layout, 1)).to.eql(expectedSpan);
 		});
 
-		it('lays out a card in two columns of different width', () => {
+		it('sets widths for a card that stays in one column', () => {
 			const layout = {
 				S: [{column: 0, width: 6}, {column: 1, width: 6}],
 				L: [{column: 0, width: 5}, {column: 1, width: 4}]
@@ -65,32 +79,76 @@ describe('Layout engine', () => {
 			expect(Engine.colspans(layout, 1)).to.eql(expectedSpan);
 		});
 
-		it('lays out a cards in different columns in two layouts', () => {
+		it('hides and shows card properly when it moves between columns', () => {
 			const layout = {
 				S: [{column: 0, width: 6}, {column: 0, width: 6}],
 				M: [{column: 0, width: 5}, {column: 1, width: 4}]
 			};
 			const expectedSpan = {
-				0: {default: 12, S: 6, M: 'hide', S: 'hide'},
-				1: {default: 'hide', M: 4, L: 4}
+				0: {default: 12, S: 6, M: 'hide' },
+				1: {default: 'hide', S: 'hide', M: 4}
 			};
 
 			expect(Engine.colspans(layout, 1)).to.eql(expectedSpan);
 		});
 
-		it('lays out a card in different columns in three layouts', () => {
+		it('hides and shows card even when it moves between multiple columns', () => {
 			const layout = {
 				S: [{column: 0, width: 6}, {column: 0, width: 6}, {column: 0, width: 6}, {column: 1, width: 6}],
 				M: [{column: 0, width: 7}, {column: 0, width: 7}, {column: 1, width: 5}, {column: 1, width: 5}],
 				L: [{column: 0, width: 5}, {column: 1, width: 4}, {column: 2, width: 3}, {column: 2, width: 3}]
 			};
 			const expectedSpan = {
-				0: {default: 12, S: 6, M: 'hide'},
-				1: {default: 'hide', M: 5, L: 'hide'},
-				2: {default: 'hide', L: 3}
+				0: {default: 12, S: 6, M: 'hide', L: 'hide'},
+				1: {default: 'hide', S: 'hide', M: 5, L: 'hide'},
+				2: {default: 'hide', S: 'hide', M: 'hide', L: 3}
 			};
 
 			expect(Engine.colspans(layout, 2)).to.eql(expectedSpan);
+		});
+
+		it('Only renders cards that are necessary and always defaults to 12', () => {
+			const layout = {
+				default: [{column: 0, width: 6}, {column: 0, width: 6}, {column: 0, width: 6}, {column: 0, width: 6}],
+				S: [{column: 0, width: 7}, {column: 0, width: 7}, {column: 1, width: 5}, {column: 1, width: 5}],
+				M: [{column: 0, width: 5}, {column: 1, width: 4}, {column: 2, width: 3}, {column: 2, width: 3}]
+			};
+			const expectedSpan = {
+				// no 0
+				1: {default: 12, S: 5, M: 'hide'},
+				2: {default: 'hide', S: 'hide', M: 3}
+			};
+
+			expect(Engine.colspans(layout, 3)).to.eql(expectedSpan);
+		});
+
+		if('Renders the default cards in their lowest columns, not the first one', () => {
+			const layout = {
+				default: [{column: 0, width: 6}, {column: 0, width: 6}, {column: 0, width: 6}, {column: 1, width: 6}],
+				S: [{column: 0, width: 7}, {column: 0, width: 7}, {column: 1, width: 5}, {column: 1, width: 5}],
+				M: [{column: 0, width: 5}, {column: 1, width: 4}, {column: 2, width: 3}, {column: 2, width: 3}]
+			};
+			const expectedSpan = {
+				// no 0
+				1: {default: 12, S: 5, M: 'hide'},
+				2: {default: 'hide', S: 'hide', M: 3}
+			};
+
+			expect(Engine.colspans(layout, 2)).to.eql(expectedSpan);
+		});
+
+		it('handles cards only appearing in one specific layout', () => {
+			const layout = {
+				S: [{column: 0, width: 6}, {column: 0, width: 6}, {column: 0, width: 6}, {column: 1, width: 6}],
+				M: [{column: 0, width: 7}, {column: 0, width: 7}, {column: 1, width: 5}, {column: 1, width: 5}, {column: 1, width: 5}, {column: 1, width: 5}],
+				L: [{column: 0, width: 5}, {column: 1, width: 4}, {column: 2, width: 3}, {column: 2, width: 3}]
+			};
+
+			const expectedSpan = {
+				1: {default: 12, S: 'hide', M: 5, L: 'hide'},
+			}
+
+			expect(Engine.colspans(layout, 4)).to.eql(expectedSpan);
 		});
 	});
 
@@ -249,12 +307,12 @@ describe('Layout engine', () => {
 							show: { default: true, S: true, M: false },
 							size: { default: 'medium', S: 'large', M: 'medium' },
 							standFirst: { default: true, S: true, M: true},
-							image: { default: false, S: true, M: true },
+							image: { default: false, S: false, M: true },
 							related: { default: 0, S: 0, M: 0 }
 						}
 					]
 				},
-				{
+				{ // column 1
 					colspan: { default: 12, S: 6, M: 4 },
 					cards: [
 						{
@@ -262,101 +320,103 @@ describe('Layout engine', () => {
 							article: 'second',
 							show: { default: false, S: false, M: true },
 							size: { default: 'medium', S: 'large', M: 'medium'},
-							standFirst: { default: true },
-							image: { default: false, M: true },
-							related: { default: 0 }
+							standFirst: { default: true, S: true, M: true },
+							image: { default: false, S: false, M: true },
+							related: { default: 0, S: 0, M: 0 }
 						},
 						{
 							order: 2,
 							article: 'third',
-							show: { default: true },
-							size: { default: 'medium' },
-							standFirst: { default: false },
+							show: { default: true, S: true, M: true },
+							size: { default: 'medium', S: 'medium', M: 'medium' },
+							standFirst: { default: false, S: false, M: false },
 							image: { default: false, S: true, M: false },
-							related: { default: 0 }
+							related: { default: 0, S: 0, M: 0 }
 						},
 						{
 							order: 3,
 							article: 'fourth',
-							show: { default: true, M: false},
+							show: { default: true, S: true, M: false},
 							size: { default: 'small', S: 'medium', M: 'small' },
 							standFirst: { default: false, S: true, M: false},
-							image: { default: false, M: true },
-							related: { default: 0 }
+							image: { default: false, S: false, M: true },
+							related: { default: 0, S: 0, M: 0 }
 						},
 						{
 							order: 4,
 							article: 'fifth',
-							show: { default: true, M: false},
+							show: { default: true, S: true, M: false},
 							size: { default: 'tiny', S: 'small', M: 'tiny' },
-							standFirst: { default: false },
-							image: { default: false },
-							related: { default: 0 }
+							standFirst: { default: false, S: false, M: false },
+							image: { default: false, S: false, M: false },
+							related: { default: 0, S: 0, M: 0 }
 						},
 						{
 							order: 5,
 							article: 'sixth',
-							show: { default: true, M: false},
-							size: { default: 'tiny' },
-							standFirst: { default: false },
-							image: { default: false },
-							related: { default: 0 }
+							show: { default: true, S: true, M: false},
+							size: { default: 'tiny', S: 'tiny', M: 'tiny' },
+							standFirst: { default: false, S: false, M: false },
+							image: { default: false, S: false, M: false },
+							related: { default: 0, S: 0, M: 0 }
 						},
 						{
 							order: 6,
 							article: 'seventh',
-							show: { default: true, M: false},
-							size: { default: 'tiny' },
-							standFirst: { default: false },
-							image: { default: false },
-							related: { default: 0 }
+							show: { default: true, S: true, M: false},
+							size: { default: 'tiny', S: 'tiny', M: 'tiny' },
+							standFirst: { default: false, S: false, M: false },
+							image: { default: false, S: false, M: false },
+							related: { default: 0, S: 0, M: 0 }
 						}
 					]
 				},
-				{
-					colspan: { default: 'hide', M: 3 },
+				{ // column 2
+					colspan: { default: 'hide', S: 'hide', M: 3 },
 					cards: [
 						{
 							order: 3,
 							article: 'fourth',
-							show: { default: false, M: true },
+							show: { default: false, S: false, M: true },
 							size: { default: 'small', S: 'medium', M: 'small' },
 							standFirst: { default: false, S: true, M: false},
-							image: { default: false, M: true },
-							related: { default: 0 }
+							image: { default: false, S: false, M: true },
+							related: { default: 0, S: 0, M: 0 }
 						},
 						{
 							order: 4,
 							article: 'fifth',
-							show: { default: false, M: true },
+							show: { default: false, S: false, M: true },
 							size: { default: 'tiny', S: 'small', M: 'tiny' },
-							standFirst: { default: false },
-							image: { default: false },
-							related: { default: 0 }
+							standFirst: { default: false, S: false, M: false },
+							image: { default: false, S: false, M: false },
+							related: { default: 0, S: 0, M: 0 }
 						},
 						{
 							order: 5,
 							article: 'sixth',
-							show: { default: false, M: true },
-							size: { default: 'tiny' },
-							standFirst: { default: false },
-							image: { default: false },
-							related: { default: 0 }
+							show: { default: false, S: false, M: true },
+							size: { default: 'tiny', S: 'tiny', M: 'tiny' },
+							standFirst: { default: false, S: false, M: false },
+							image: { default: false, S: false, M: false },
+							related: { default: 0, S: 0, M: 0 }
 						},
 						{
 							order: 6,
 							article: 'seventh',
-							show: { default: false, M: true },
-							size: { default: 'tiny' },
-							standFirst: { default: false },
-							image: { default: false },
-							related: { default: 0 }
+							show: { default: false, S: false, M: true },
+							size: { default: 'tiny', S: 'tiny', M: 'tiny' },
+							standFirst: { default: false, S: false, M: false },
+							image: { default: false, S: false, M: false },
+							related: { default: 0, S: 0, M: 0 }
 						}
 					]
 				}
 			];
 
-			expect(Engine.buildColumns(layout, articles)).to.eql(expected);
+			expect(Engine.buildColumns(layout, articles)[0]).to.eql(expected[0]);
+			expect(Engine.buildColumns(layout, articles)[1]).to.eql(expected[1]);
+			expect(Engine.buildColumns(layout, articles)[2]).to.eql(expected[2]);
 		});
 	})
 })

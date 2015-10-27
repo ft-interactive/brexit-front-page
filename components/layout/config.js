@@ -22,8 +22,9 @@ export default [
 			S: [
 				{ column: 0, width: 6, size: 'large', standFirst: true, image: true, related: 3 },
 				{ column: 0, width: 6, size: 'large', standFirst: true },
-				{ column: 1, width: 6, size: 'medium', image: true },
-				{ column: 1, width: 6, size: 'small', },
+				{ column: 1, width: 6, size: 'medium', image: false },
+				{ column: 1, width: 6, size: 'small' },
+				{ column: 1, width: 6, size: 'small' },
 				{ column: 1, width: 6, size: 'tiny' },
 				{ column: 1, width: 6, size: 'tiny' },
 				{ column: 1, width: 6, size: 'tiny' }
