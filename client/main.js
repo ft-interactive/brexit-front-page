@@ -8,11 +8,11 @@ import setup from 'next-js-setup';
 import oDate from 'o-date';
 import nVideo from 'n-video';
 import prompts from 'n-message-prompts';
+import 'n-image';
 
 import fastFT from '../components/fastft/main';
 import Layout from '../components/layout/main';
 import LayoutOverlay from '../components/layout-overlay/main';
-
 import './main.scss';
 
 setup.bootstrap(({flags}) => {
