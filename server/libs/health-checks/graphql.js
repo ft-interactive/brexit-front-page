@@ -24,7 +24,6 @@ class GraphQlCheck extends Check {
         return getData(this.query)
             .then(data => {
                 this.status = Object.keys(data).length ? status.PASSED : status.FAILED;
-                this.lastUpdated = new Date();
             });
     }
 }
