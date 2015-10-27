@@ -1,4 +1,3 @@
-import ms from 'ms';
 import { Check, status } from 'n-health';
 
 import getData from '../get-data';
@@ -7,8 +6,6 @@ class GraphQlCheck extends Check {
 
     constructor(options) {
         super(options);
-        this.status = status.PENDING;
-        this.pollTime = ms(options.interval);
         this.query = options.query;
     }
 
@@ -23,17 +20,8 @@ class GraphQlCheck extends Check {
         }
     }
 
-    start() {
-        this.tick();
-        this.interval = setInterval(this.tick.bind(this), this.pollTime);
-    }
-
-    stop() {
-        clearInterval(this.interval);
-    }
-
     tick() {
-        getData(this.query)
+        return getData(this.query)
             .then(data => {
                 this.status = Object.keys(data).length ? status.PASSED : status.FAILED;
                 this.lastUpdated = new Date();
