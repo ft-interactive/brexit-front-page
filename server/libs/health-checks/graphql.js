@@ -26,14 +26,14 @@ class GraphQlCheck extends Check {
         }
     }
 
-    start() {
+    start () {
         startPolling().then(() => {
             this.tick();
             this.interval = setInterval(this.tick.bind(this), this.pollTime);
         }).catch(logger.error);
     }
 
-    tick() {
+    tick () {
         let data = getData(this.query);
         let lastFetched = getLastFetchedTime(this.query);
         this.lastUpdated = new Date();

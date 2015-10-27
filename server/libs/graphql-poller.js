@@ -84,7 +84,7 @@ module.exports = {
 	getData: function (type) {
 		return queryResults[type].data;
 	},
-	getLastFetchedTime: function(type) {
+	getLastFetchedTime: function (type) {
 		return queryResults[type].lastUpdated;
 	}
 };

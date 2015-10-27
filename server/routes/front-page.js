@@ -7,7 +7,7 @@ import initialLayout from '../../components/layout/config';
 
 // bail unless we have at least one top story
 const contentMissing = (data) => {
-	return !data.top || data.top.items.length < 1;
+	return !(data && data.top) || data.top.items.length < 1;
 }
 
 export default (region) => {
