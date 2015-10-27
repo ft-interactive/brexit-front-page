@@ -34,7 +34,7 @@ let readyPromise;
 const pollData = (query, name, flags = {}) => {
 	const xFlagsHeader = Object.keys(flags).map(flag => `${flag}:${flags[flag] ? 'on' : 'off'}`).join(',');
 	const poller = new Poller({
-		url: `https://next-graphql-api.ft.com/?apiKey=${process.env.GRAPHQL_API_KEY}`,
+		url: `http://local.ft.com:3003/?apiKey=${process.env.GRAPHQL_API_KEY}`,
 		options: {
 			method: 'POST',
 			body: JSON.stringify({
@@ -56,6 +56,8 @@ const pollData = (query, name, flags = {}) => {
 		refreshInterval: 1000 * 60 * 1
 	});
 
+	poller.on('error', logger.error);
+
 	return poller;
 
 };
@@ -72,7 +74,10 @@ module.exports = {
 				pollData(queries.fastFT, 'fastFT').start({ initialRequest: true}),
 				pollData(queries.frontPage('UK'), 'mockFrontPage', { mockFrontPage: true }).start({ initialRequest: true})
 			])
-			.catch(logger.error);
+			.catch((e) => {
+				logger.error(e);
+				throw e;
+			});
 		}
 		return readyPromise;
 	},
