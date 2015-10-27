@@ -1,4 +1,3 @@
-import ms from 'ms';
 import { Check, status } from 'n-health';
 import { logger } from 'ft-next-express';
 
@@ -6,17 +5,15 @@ import { start as startPolling, getData, getLastFetchedTime } from '../graphql-p
 
 class GraphQlCheck extends Check {
 
-    constructor(options) {
+    constructor (options) {
         super(options);
-        this.status = status.PENDING;
-        this.pollTime = ms(options.interval);
         this.type = options.type;
         this.query = options.query;
         this.verifyKeys = options.verifyKeys || [];
         this.freshnessThreshold = options.freshnessThreshold;
     }
 
-    get checkOutput() {
+    get checkOutput () {
         switch (this.status) {
             case status.PENDING:
                 return 'This check has not yet run';
@@ -34,10 +31,6 @@ class GraphQlCheck extends Check {
             this.tick();
             this.interval = setInterval(this.tick.bind(this), this.pollTime);
         }).catch(logger.error);
-    }
-
-    stop() {
-        clearInterval(this.interval);
     }
 
     tick() {
