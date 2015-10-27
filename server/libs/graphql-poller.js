@@ -34,7 +34,7 @@ let readyPromise;
 const pollData = (query, name, flags = {}) => {
 	const xFlagsHeader = Object.keys(flags).map(flag => `${flag}:${flags[flag] ? 'on' : 'off'}`).join(',');
 	const poller = new Poller({
-		url: `http://local.ft.com:3003/?apiKey=${process.env.GRAPHQL_API_KEY}`,
+		url: `https://next-graphql-api.ft.com/?apiKey=${process.env.GRAPHQL_API_KEY}`,
 		options: {
 			method: 'POST',
 			body: JSON.stringify({

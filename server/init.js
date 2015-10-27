@@ -54,6 +54,8 @@ if(process.env.NODE_ENV !== 'production' && process.env.NODE_ENV !== 'branch') {
 
 app.use(bodyParser.text());
 
+startPolling();
+
 app.get('/__gtg', (req, res) => {
 	res.status(200).end();
 });
@@ -71,14 +73,6 @@ app.get('/home/fastft.json', fastft);
 const port = process.env.PORT || 3001;
 
 export default app;
-export let listen = startPolling().then(() => {
-	return app.listen(port, () => {
-		logger.info('Listening on ' + port);
-	});
-}).catch((err) => {
-	express.logger.error(err);
-	return app.listen(port, () => {
-		logger.info('Listening on ' + port);
-	});
-})
-
+export let listen = app.listen(port, () => {
+	logger.info('Listening on ' + port);
+});
