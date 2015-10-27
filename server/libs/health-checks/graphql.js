@@ -1,7 +1,8 @@
 import ms from 'ms';
 import { Check, status } from 'n-health';
+import { logger } from 'ft-next-express';
 
-import { start as startPolling ,getData } from '../graphql-poller';
+import { start as startPolling, getData, getLastFetchedTime } from '../graphql-poller';
 
 class GraphQlCheck extends Check {
 
@@ -12,6 +13,7 @@ class GraphQlCheck extends Check {
         this.type = options.type;
         this.query = options.query;
         this.verifyKeys = options.verifyKeys || [];
+        this.freshnessThreshold = options.freshnessThreshold;
     }
 
     get checkOutput() {
@@ -20,6 +22,8 @@ class GraphQlCheck extends Check {
                 return 'This check has not yet run';
             case status.PASSED:
                 return 'GraphQL query returned data successfully';
+            case status.STALE:
+                return 'GraphQL query has not updated in the last ${this.freshnessThreshold / 60000} minutes';
             default:
                 return 'GraphQL query did not return data successfully';
         }
@@ -29,7 +33,7 @@ class GraphQlCheck extends Check {
         startPolling().then(() => {
             this.tick();
             this.interval = setInterval(this.tick.bind(this), this.pollTime);
-        });
+        }).catch(logger.error);
     }
 
     stop() {
@@ -38,16 +42,27 @@ class GraphQlCheck extends Check {
 
     tick() {
         let data = getData(this.query);
-        this.status = data && Object.keys(data).length ? status.PASSED : status.FAILED;
-        this.verifyKeys.forEach((key) => {
-            if(data && data[key]) {
-                this.status = status.PASSED;
-            } else {
-                this.status = status.FAILED;
-                return;
-            }
-        });
+        let lastFetched = getLastFetchedTime(this.query);
         this.lastUpdated = new Date();
+        if(data && Object.keys(data).length && lastFetched) {
+            if(this.freshnessThreshold && Date.now() - lastFetched > this.freshnessThreshold) {
+                this.status = status.STALE;
+            } else {
+                this.status = status.PASSED;
+            }
+        } else {
+            this.status = status.FAILED;
+        }
+        if(this.status === status.PASSED) {
+            this.verifyKeys.forEach((key) => {
+                if(data && data[key]) {
+                    this.status = status.PASSED;
+                } else {
+                    this.status = status.FAILED;
+                    return;
+                }
+            });
+        }
     }
 }
 

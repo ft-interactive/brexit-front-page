@@ -2,13 +2,32 @@ import Poller from 'ft-poller';
 import queries from '../config/queries';
 import { logger } from 'ft-next-express';
 
-let data = {
-	frontPageUK: null,
-	frontPageUS: null,
-	newFrontPageUK: null,
-	newFrontPageUS: null,
-	fastFT: null
-}
+let queryResults = {
+	frontPageUK: {
+		data: null,
+		lastUpdated: null
+	},
+	frontPageUS: {
+		data: null,
+		lastUpdated: null
+	},
+	newFrontPageUK: {
+		data: null,
+		lastUpdated: null
+	},
+	newFrontPageUS: {
+		data: null,
+		lastUpdated: null
+	},
+	fastFT: {
+		data: null,
+		lastUpdated: null
+	},
+	mockFrontPage: {
+		data: null,
+		lastUpdated: null
+	}
+};
 
 let readyPromise;
 
@@ -28,17 +47,14 @@ const pollData = (query, name, flags = {}) => {
 		},
 		parseData: function (results) {
 			if(results && Object.keys(results).length) {
-				data[name] = results;
+				queryResults[name].data= results;
+				queryResults[name].lastUpdated = Date.now();
 			} else {
 				logger.info('No results when polling for ', name);
 			}
 		},
-		refreshInterval: 1000 * 60
+		refreshInterval: 1000 * 60 * 1
 	});
-
-	// poller.on('error', (err) => {
-	// 	logger.error(err);
-	// });
 
 	return poller;
 
@@ -53,13 +69,17 @@ module.exports = {
 				pollData(queries.frontPage('US'), 'frontPageUS').start({ initialRequest: true}),
 				pollData(queries.newFrontPage('UK'), 'newFrontPageUK').start({ initialRequest: true}),
 				pollData(queries.newFrontPage('US'), 'newFrontPageUS').start({ initialRequest: true}),
-				pollData(queries.fastFT, 'fastFT').start({ initialRequest: true})
+				pollData(queries.fastFT, 'fastFT').start({ initialRequest: true}),
+				pollData(queries.frontPage('UK'), 'mockFrontPage', { mockFrontPage: true }).start({ initialRequest: true})
 			])
 			.catch(logger.error);
 		}
 		return readyPromise;
 	},
 	getData: function (type) {
-		return data[type];
+		return queryResults[type].data;
+	},
+	getLastFetchedTime: function(type) {
+		return queryResults[type].lastUpdated;
 	}
 };
