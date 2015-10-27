@@ -20,7 +20,7 @@ class GraphQlCheck extends Check {
             case status.PASSED:
                 return 'GraphQL query returned data successfully';
             case status.STALE:
-                return 'GraphQL query has not updated in the last ${this.freshnessThreshold / 60000} minutes';
+                return `GraphQL query has not updated in the last ${this.freshnessThreshold / 60000} minutes`;
             default:
                 return 'GraphQL query did not return data successfully';
         }
