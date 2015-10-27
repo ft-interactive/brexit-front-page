@@ -55,7 +55,7 @@
 @each $layout-name in $_o-grid-layout-names {
 	@include oGridRespondTo($layout-name) {
 		.card[data-card-show~="#{$layout-name}--true"] {
-			display: inherit;
+			display: flex;
 		}
 
 		.card[data-card-show~="#{$layout-name}--false"] {

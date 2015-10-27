@@ -32,6 +32,8 @@ const standFirstSize = (size) => {
 	return objMap(size, (s) => sizes[s]);
 }
 
+// Public: expands Card props to produce props for individual card elements
+// (e.g. Tag, Title, ...)
 const expandProps = (props) => {
 	const expandedProps = {};
 
