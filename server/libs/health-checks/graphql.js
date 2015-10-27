@@ -4,12 +4,12 @@ import getData from '../get-data';
 
 class GraphQlCheck extends Check {
 
-    constructor(options) {
+    constructor (options) {
         super(options);
         this.query = options.query;
     }
 
-    get checkOutput() {
+    get checkOutput () {
         switch (this.status) {
             case status.PENDING:
                 return 'This check has not yet run';
@@ -20,7 +20,7 @@ class GraphQlCheck extends Check {
         }
     }
 
-    tick() {
+    tick () {
         return getData(this.query)
             .then(data => {
                 this.status = Object.keys(data).length ? status.PASSED : status.FAILED;
