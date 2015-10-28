@@ -1,4 +1,5 @@
 @import 'next-sass-setup/main';
+@import './layout-switcher/main';
 @import './section/main';
 @import './card-editor/main';
 
@@ -8,9 +9,13 @@
 	left: 0;
 	bottom: 0;
 	z-index: 30;
-	background-color: black;
-	opacity: 0.8;
+	background-color: rgba(0, 0, 0, 0.8);
 	color: white;
+
+	a:hover,
+	a:focus {
+		color: white;
+	}
 }
 
 .layout-overlay--expanded .layout-overlay__toggle {
@@ -49,6 +54,12 @@
 
 .layout-overlay__body h2 {
 	@include nTypeAlpha(2);
+	text-align: center;
+	margin: 0.5em;
+}
+
+.layout-overlay__body > h3 {
+	@include nTypeAlpha(3);
 	text-align: center;
 	margin: 0.5em;
 }

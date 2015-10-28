@@ -58,6 +58,16 @@ export default [
 				{ size: 'small' },
 				{ ad: true }
 			],
+			S: [
+				{ size: 'large', standFirst: true, image: true },
+				{ size: 'medium', standFirst: true },
+				{ size: 'medium', standFirst: true },
+				{ size: 'small' },
+				{ size: 'small' },
+				{ size: 'small' },
+				{ size: 'small' },
+				{ ad: true }
+			],
 			M: [
 				{ column: 0, width: 3, size: 'large', standFirst: true, image: true },
 				{ column: 1, width: 3, size: 'medium', standFirst: true },
@@ -76,6 +86,14 @@ export default [
 		style: 'editors-picks',
 		cards: {
 			default: [
+				{ size: 'small' },
+				{ size: 'small' },
+				{ size: 'small' },
+				{ size: 'small' },
+				{ size: 'small' },
+				{ size: 'small' }
+			],
+			S: [
 				{ size: 'small' },
 				{ size: 'small' },
 				{ size: 'small' },

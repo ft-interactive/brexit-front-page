@@ -1,12 +1,13 @@
 import React, {Component} from 'react';
 
 import Section from './section/section';
+import LayoutSwitcher from './layout-switcher/layout-switcher';
 
 export default class LayoutOverlay extends Component {
 	constructor (props) {
 		super(props);
 
-		this.state = {expanded: false};
+		this.state = {expanded: false, layout: 'S'};
 	}
 
 	toggle (e) {
@@ -14,10 +15,14 @@ export default class LayoutOverlay extends Component {
 		this.setState({expanded: !this.state.expanded});
 	}
 
+	updateLayout (newLayout) {
+		this.setState({layout: newLayout});
+	}
+
 	updateCards (sectionIndex) {
 		return (newCards) => {
 			const newLayout = this.props.layout;
-			newLayout[sectionIndex].cards = newCards;
+			newLayout[sectionIndex].cards[this.state.layout] = newCards;
 
 			this.props.onChange(newLayout);
 		}
@@ -27,7 +32,7 @@ export default class LayoutOverlay extends Component {
 		const sections = this.props.layout.map((section, idx) => {
 			return (
 				<li key={section.id}>
-					<Section title={section.title} cards={section.cards} onCardsChange={this.updateCards(idx)} />
+					<Section title={section.title} layout={this.state.layout} cards={section.cards[this.state.layout]} onCardsChange={this.updateCards(idx)} />
 				</li>
 			)
 		});
@@ -41,6 +46,8 @@ export default class LayoutOverlay extends Component {
 				</a>
 				<div className="layout-overlay__body">
 					<h2>Layout Configuration</h2>
+					<LayoutSwitcher layout={this.state.layout} updateLayout={this.updateLayout.bind(this)} />
+					<h3>Sections</h3>
 					<ul className="layout-overlay__sections">
 						{sections}
 					</ul>
