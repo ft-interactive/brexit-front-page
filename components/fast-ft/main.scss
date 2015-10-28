@@ -2,6 +2,11 @@
  // it should be solved by some general column container in Section rather than here
 .fast-ft-wrapper {
 	display: flex;
+	padding-top: oGridGutter();
+
+	@include oGridRespondTo(M) {
+		padding-top: oGridGutter(M);
+	}
 }
 .fast-ft {
 	background-color: getColor('pink');

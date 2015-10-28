@@ -12,17 +12,6 @@
 	}
 }
 
-.section {
-	@include oGridRespondTo(M) {
-		margin-top: oGridGutter(M);
-		margin-bottom: oGridGutter(M);
-	}
-}
-.section__meta--mobile {
-	@include oGridRespondTo(XL) {
-		display: none;
-	}
-}
 .section__column {
 	align-items: stretch;
 	display: flex;
@@ -43,6 +32,13 @@
 .column {
 	flex-flow: column wrap;
 	display: flex;
+	padding-top: oGridGutter();
+	margin-top: - oGridGutter();
+
+	@include oGridRespondTo(M) {
+		padding-top: oGridGutter(M);
+		margin-top: - oGridGutter(M);
+	}
 
 	&:not([data-o-grid-colspan^="hide"]) {
 		display: flex;
