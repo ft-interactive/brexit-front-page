@@ -57,9 +57,8 @@ export default class CardEditor extends Component {
 				<p>
 					<label>Image</label>
 					<select data-trackable="card-image" value={this.props.card.image || 'none'} onChange={this.change('image')}>
-						<option value="always">Always</option>
-						<option value="desktop">Desktop only</option>
-						<option value="none">Hidden</option>
+					<option value="yes">Shown</option>
+					<option value="none">Hidden</option>
 					</select>
 				</p>
 				<p>

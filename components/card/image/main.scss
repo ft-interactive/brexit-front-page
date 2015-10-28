@@ -22,7 +22,11 @@
 @each $layout-name in $_o-grid-layout-names {
 	@include oGridRespondTo($layout-name) {
 		.card__image-link[data-image-show~="#{$layout-name}--true"] {
-			display: inherit;
+			display: block;
+		}
+
+		.card__image-link:last-child[data-image-show~="#{$layout-name}--true"] {
+			display: flex;
 		}
 
 		.card__image-link[data-image-show~="#{$layout-name}--false"] {
