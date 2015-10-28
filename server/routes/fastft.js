@@ -1,18 +1,21 @@
-import { fastFT as fastFTQuery } from '../config/queries';
-import getData from '../libs/get-data';
+import { getData } from '../libs/graphql-poller';
 import { logger } from 'ft-next-express';
 
-module.exports = function (req, res, next) {
-	res.set({
-		'Cache-Control': 'max-age=20, public' // 20 seconds
-	});
+// bail unless we have at least one top story
+const contentMissing = (data) => {
+	return !(data && data.fastFT && data.fastFT.items) || data.fastFT.items.length < 1;
+}
 
-	return getData(fastFTQuery, res.locals.flags)
-		.then(data => {
-			res.json(data.fastFT);
-		})
-		.catch(err => {
-			logger.error('Error fetching fastFt data', err);
-			next(err);
+module.exports = function (req, res) {
+	const data = getData('fastFT');
+	if(contentMissing(data)) {
+		logger.error('Could not fetch content for the fastFT feed');
+		res.status(500).send('Could not fetch content for the fastFT feed');
+	} else {
+		res.set({
+			'Surrogate-Control': 'max-age=60,stale-while-revalidate=6,stale-if-error=259200' // 60 seconds
 		});
-};
+		res.json(data);
+	}
+
+}

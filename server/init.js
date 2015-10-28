@@ -8,6 +8,7 @@ import nHealth from 'n-health';
 
 import additionalHealthChecks from './libs/health-checks/index';
 
+import { start as startPolling } from './libs/graphql-poller';
 // routes
 import frontPage from './routes/front-page';
 import fastft from './routes/fastft';
@@ -52,6 +53,8 @@ if(process.env.NODE_ENV !== 'production' && process.env.NODE_ENV !== 'branch') {
 }
 
 app.use(bodyParser.text());
+
+startPolling();
 
 app.get('/__gtg', (req, res) => {
 	res.status(200).end();
