@@ -29,18 +29,28 @@ const standFirstSize = (size) => {
 		small: 'medium'
 	}
 
-	return objMap(size, (s) => sizes[s]);
+	return objMap(size, (s) => sizes[s] || 'medium');
+}
+
+const showRelated = (related) => {
+	const maxRelated = Object.keys(related).reduce((max, layout) => Math.max(max, +related[layout]), 0);
+
+	return (Array.apply(null, {length: maxRelated})).map((it, i) => {
+		return objMap(related, (count) => count > i);
+	});
 }
 
 // Public: expands Card props to produce props for individual card elements
 // (e.g. Tag, Title, ...)
 const expandProps = (props) => {
 	const expandedProps = {};
+	props.article = props.article || {};
 
 	expandedProps.tagSize = tagSize(props.size);
 	expandedProps.titleSize = titleSize(props.size, props.order, props.image, props.article.primaryImage);
 	expandedProps.showStandFirst = showStandFirst(props.size, props.standFirst);
 	expandedProps.standFirstSize = standFirstSize(props.size);
+	expandedProps.showRelated = showRelated(props.related);
 
 	return Object.assign({}, props, expandedProps);
 }
