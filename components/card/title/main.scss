@@ -27,6 +27,7 @@
 	line-height: 18px;
  }
 .card__title--tiny {
+	display: inline;
 	font-size: 14px;
 	line-height: 16px;
 	margin-top: 0;
@@ -77,6 +78,7 @@
 			}
 		}
 		.card__title--#{$layout-name}--tiny {
+			display: inline;
 			font-size: 14px;
 			line-height: 16px;
 			margin-top: 0;
