@@ -11,7 +11,7 @@ export default [
 		date: date,
 		cards: {
 			default: [
-				{ size: 'large', standFirst: true, image: true, related: 3 },
+				{ size: 'large', standFirst: true, image: true, related: 1 },
 				{ size: 'medium', standFirst: true },
 				{ size: 'medium' },
 				{ size: 'small' },
@@ -20,7 +20,7 @@ export default [
 				{ size: 'tiny' }
 			],
 			S: [
-				{ column: 0, width: 6, size: 'large', standFirst: true, image: true, related: 3 },
+				{ column: 0, width: 6, size: 'large', standFirst: true, image: true, related: 2 },
 				{ column: 0, width: 6, size: 'large', standFirst: true },
 				{ column: 1, width: 6, size: 'medium', image: false },
 				{ column: 1, width: 6, size: 'small' },

@@ -19,17 +19,6 @@
 		margin-top: oGridGutter(M);
 	}
 
-	&.card--inline {
-		display: block;
-	}
-
-	// no top margin on first card
-	&:first-child {
-		@include oGridRespondTo(XL) {
-			margin-top: 0;
-		}
-	}
-
 	.section--opinion & {
 		border-width: 0 0 0 1px;
 	}
@@ -46,19 +35,17 @@
 	margin: 0 auto;
 }
 
-// responsive show helper
-
-.card[data-card-show~="false"] {
+[data-card-show~="false"] {
 	display: none;
 }
 
 @each $layout-name in $_o-grid-layout-names {
 	@include oGridRespondTo($layout-name) {
-		.card[data-card-show~="#{$layout-name}--true"] {
+		[data-card-show~="#{$layout-name}--true"] {
 			display: flex;
 		}
 
-		.card[data-card-show~="#{$layout-name}--false"] {
+		[data-card-show~="#{$layout-name}--false"] {
 			display: none;
 		}
 	}

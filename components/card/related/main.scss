@@ -24,3 +24,19 @@
 		margin-right: 5px;
 	}
 }
+
+[data-related-show~="false"] {
+	display: none;
+}
+
+@each $layout-name in $_o-grid-layout-names {
+	@include oGridRespondTo($layout-name) {
+		[data-related-show~="#{$layout-name}--true"] {
+			display: block;
+		}
+
+		[data-related-show~="#{$layout-name}--false"] {
+			display: none;
+		}
+	}
+}

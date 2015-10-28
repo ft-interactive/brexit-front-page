@@ -32,10 +32,11 @@ const standFirstSize = (size) => {
 	return objMap(size, (s) => sizes[s] || 'medium');
 }
 
-const showRelated = (related) => {
+const showRelated = (related, relatedContent) => {
+	const relatedItems = relatedContent || [];
 	const maxRelated = Object.keys(related).reduce((max, layout) => Math.max(max, +related[layout]), 0);
 
-	return (Array.apply(null, {length: maxRelated})).map((it, i) => {
+	return (Array.apply(null, {length: Math.min(relatedItems.length, maxRelated)})).map((it, i) => {
 		return objMap(related, (count) => count > i);
 	});
 }
@@ -44,13 +45,13 @@ const showRelated = (related) => {
 // (e.g. Tag, Title, ...)
 const expandProps = (props) => {
 	const expandedProps = {};
-	props.article = props.article || {};
+	const article = props.article || {};
 
 	expandedProps.tagSize = tagSize(props.size);
-	expandedProps.titleSize = titleSize(props.size, props.order, props.image, props.article.primaryImage);
+	expandedProps.titleSize = titleSize(props.size, props.order, props.image, article.primaryImage);
 	expandedProps.showStandFirst = showStandFirst(props.size, props.standFirst);
 	expandedProps.standFirstSize = standFirstSize(props.size);
-	expandedProps.showRelated = showRelated(props.related);
+	expandedProps.showRelated = showRelated(props.related, article.relatedContent);
 
 	return Object.assign({}, props, expandedProps);
 }

@@ -9,7 +9,8 @@ describe('Card props expansion rules', () => {
 		size: {default: 'tiny', S: 'small', M: 'medium', L: 'large'},
 		image: {default: true, S: true, M: false, L: true},
 		standFirst: {default: true, S: true, M: true, L: false},
-		related: {default: 1, S: 2, M: 3, L: 4}
+		related: {default: 1, S: 2, M: 3, L: 4},
+		article: {relatedContent: ['a', 'b', 'c', 'd']}
 	}
 
 	describe('#expandProps', () => {
@@ -62,5 +63,13 @@ describe('Card props expansion rules', () => {
 
 			expect(expandProps(inProps).showRelated).to.eql(showRelated);
 		});
+
+		it('Limits showRelatedContent to available related articles', () => {
+			const props = Object.assign({}, inProps, {article: {relatedContent: []}});
+			const showRelated = []
+
+			expect(expandProps(props).showRelated).to.eql(showRelated);
+		});
+
 	})
 });

@@ -1,6 +1,7 @@
 @import 'next-sass-setup/main';
 
 .card__tag {
+	display: block;
 	font-family: $n-type-sans-serif;
 	font-weight: oFontsWeight(light);
 	color: getColor(claret);
@@ -16,7 +17,7 @@
 	line-height: 14px;
 }
 .card__tag--small {
-	float: left;
+	display: inline;
 	font-size: 12px;
 	line-height: 14px;
 }
