@@ -9,28 +9,39 @@
 	border-bottom: 0;
 }
 
-.card__image-link:last-child {
+.card__image-link--stick {
 	flex: 2;
 	display: flex;
 	align-items: flex-end;
 }
 
-.card__image-link[data-image-show~="false"] {
+.card__image-link--nostick {
+	display: block;
+}
+
+[data-image-show~="false"] .card__image {
 	display: none;
 }
 
 @each $layout-name in $_o-grid-layout-names {
 	@include oGridRespondTo($layout-name) {
-		.card__image-link[data-image-show~="#{$layout-name}--true"] {
+		[data-image-show~="#{$layout-name}--true"] .card__image {
 			display: block;
 		}
 
-		.card__image-link:last-child[data-image-show~="#{$layout-name}--true"] {
-			display: flex;
+		[data-image-show~="#{$layout-name}--false"] .card__image {
+			display: none;
 		}
 
-		.card__image-link[data-image-show~="#{$layout-name}--false"] {
-			display: none;
+		.card__image-link--#{$layout-name}--stick {
+			flex: 2;
+			display: flex;
+			align-items: flex-end;
+		}
+
+		.card__image-link--#{$layout-name}--nostick {
+			display: block;
+			flex: none;
 		}
 	}
 }

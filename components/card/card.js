@@ -11,6 +11,17 @@ import Related from './related/related';
 
 import Ad from './ad';
 
+const stickToBottom = (showRelated) => {
+	if(showRelated.length < 1) return {default: true}
+
+	console.log('Some related stories...');
+	return showRelated.reduce((noRelated, relatedStory) => {
+		Object.keys(relatedStory).forEach((l) => noRelated[l] = (noRelated[l] || !relatedStory[l]));
+		console.log('noRelated', noRelated);
+		return noRelated;
+	}, {})
+}
+
 class Card extends Component {
 	render () {
 		const article = this.props.article;
@@ -25,7 +36,7 @@ class Card extends Component {
 					<Title title={article.title} href={'/content/' + article.id} size={titleSize} />
 				</div>
 				<Standfirst article={article} style={article.primaryTag.taxonomy} size={standFirstSize} show={showStandFirst} />
-				{!!article.primaryImage ? <Image article={article} show={image} /> : null}
+				{!!article.primaryImage ? <Image article={article} show={image} stickToBottom={stickToBottom(showRelated)}/> : null}
 				{showRelated.length > 0 ? <Related articles={article.relatedContent} show={showRelated} /> : null}
 			</article>
 		);
