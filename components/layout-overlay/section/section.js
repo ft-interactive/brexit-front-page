@@ -73,7 +73,7 @@ export default class Section extends Component {
 			const defaultLayout = this.props.layout === 'default';
 
 			return (<li>
-				<CardEditor card={card} showColumn={!defaultLayout} minColumn={previousColumn} maxColumn={previousColumn + 1} showWidth={firstOfColumn && !defaultLayout} onChange={this.update(idx)}/>
+				<CardEditor card={card} showColumn={!defaultLayout} minColumn={previousColumn} maxColumn={previousColumn + 1} showWidth={firstOfColumn && !defaultLayout} onChange={this.update(idx)}/>
 			</li>)
 		})
 

@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-import {objMap, responsiveValue, responsiveClass} from './helpers';
+import {responsiveValue} from './helpers';
 import expandProps from './expandProps';
 
 import Tag from './tag/tag'
@@ -14,7 +14,7 @@ import Ad from './ad';
 class Card extends Component {
 	render () {
 		const article = this.props.article;
-		const {show, size, tagSize, titleSize, showStandFirst, standFirstSize, image, showRelated} = expandProps(this.props);
+		const {show, tagSize, titleSize, showStandFirst, standFirstSize, image, showRelated} = expandProps(this.props);
 
 		if(this.props.ad) return <Ad />;
 

@@ -41,13 +41,13 @@ describe('Card props expansion rules', () => {
 		});
 
 
-		it('Sets standFirst visibility correctly', () => {
+		it('Sets standFirst visibility correctly', () => {
 			const showStandFirst = {default: false, S: false, M: true, L: true};
 
 			expect(expandProps(inProps).showStandFirst).to.eql(showStandFirst);
 		});
 
-		it('Sets standFirst size correctly', () => {
+		it('Sets standFirst size correctly', () => {
 			const standFirstSize = {default: 'medium', S: 'medium', M: 'medium', L: 'large'};
 
 			expect(expandProps(inProps).standFirstSize).to.eql(standFirstSize);

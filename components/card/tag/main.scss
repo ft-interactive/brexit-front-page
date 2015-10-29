@@ -40,10 +40,12 @@
 @each $layout-name in $_o-grid-layout-names {
 	@include oGridRespondTo($layout-name) {
 		.card__tag--#{$layout-name}--large {
+			display: block;
 			font-size: 16px;
 			line-height: 16px;
 		}
 		.card__tag--#{$layout-name}--medium {
+			display: block;
 			font-size: 14px;
 			line-height: 14px;
 		}
