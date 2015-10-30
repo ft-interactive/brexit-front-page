@@ -149,17 +149,40 @@ const buildColumns = (layouts, articles) => {
 	// derive colspans by taking non-hide values from each layout of every card
 	// (they will be the same)
 	columns.forEach((column, cidx) => {
-		const colspan = column.cards.reduce((span, card) => {
+		const colspan = column.cards.reduce((span, card, i) => {
 			Object.keys(card.colspan).forEach((layout) => {
 				if(!span[layout] || span[layout] === 'hide')
 					span[layout] = card.colspan[layout];
 			});
 
 			delete card.colspan;
+
 			return span;
 		}, {});
 
 		columns[cidx].colspan = colspan;
+	});
+
+	// mark last card in each column on each layout for CSS
+	columns.forEach((column) => {
+		column.cards = column.cards.map((card, i) => {
+			const nextCard = column.cards[i + 1];
+			if(!nextCard) return Object.assign(card, {last: card.show});
+
+			const isLastCard = ['default'].concat(layoutNames).reduce((last, l) => {
+				if(!card.show.hasOwnProperty(l)) return last;
+
+				last[l] = card.show[l] && !nextCard.show[l];
+				return last;
+			}, {});
+
+			// only put the prop if it affects anything.
+			if(Object.keys(isLastCard).some((l) => isLastCard[l])) {
+				card.last = isLastCard;
+			}
+
+			return card;
+		});
 	});
 
 	return columns;

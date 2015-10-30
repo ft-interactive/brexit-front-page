@@ -13,7 +13,7 @@
 	padding: 10px;
 	display: flex;
 	flex-direction: column;
-	flex: 1; // make cards grow evently to fill the remaining column whitespace
+	line-height: 1;
 
 	@include oGridRespondTo(M) {
 		margin-top: oGridGutter(M);
@@ -39,6 +39,14 @@
 	display: none;
 }
 
+.card--stretch {
+	flex: 1;
+}
+
+.card--no-stretch {
+	flex: none;
+}
+
 @each $layout-name in $_o-grid-layout-names {
 	@include oGridRespondTo($layout-name) {
 		[data-card-show~="#{$layout-name}--true"] {
@@ -47,6 +55,14 @@
 
 		[data-card-show~="#{$layout-name}--false"] {
 			display: none;
+		}
+
+		.card--#{$layout-name}--stretch {
+			flex: 1;
+		}
+
+		.card--#{$layout-name}--no-stretch {
+			flex: none;
 		}
 	}
 }

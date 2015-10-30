@@ -52,6 +52,7 @@ const expandProps = (props) => {
 	expandedProps.showStandFirst = showStandFirst(props.size, props.standFirst);
 	expandedProps.standFirstSize = standFirstSize(props.size);
 	expandedProps.showRelated = showRelated(props.related, article.relatedContent);
+	expandedProps.last = props.last;
 
 	return Object.assign({}, props, expandedProps);
 }

@@ -53,20 +53,20 @@ export default [
 				{ size: 'medium', standFirst: true },
 				{ size: 'medium', standFirst: true },
 				{ size: 'small' },
+				// { ad: true },
 				{ size: 'small' },
 				{ size: 'small' },
-				{ size: 'small' },
-				{ ad: true }
+				{ size: 'small' }
 			],
 			S: [
 				{ size: 'large', standFirst: true, image: true },
 				{ size: 'medium', standFirst: true },
 				{ size: 'medium', standFirst: true },
 				{ size: 'small' },
+				// { ad: true },
 				{ size: 'small' },
 				{ size: 'small' },
 				{ size: 'small' },
-				{ ad: true }
 			],
 			M: [
 				{ column: 0, width: 3, size: 'large', standFirst: true, image: true },
@@ -75,8 +75,8 @@ export default [
 				{ column: 2, width: 2, size: 'small', image: true },
 				{ column: 2, width: 2, size: 'small' },
 				{ column: 2, width: 2, size: 'small' },
-				{ column: 3, width: 4, size: 'small' },
-				{ column: 3, width: 4, ad: true }
+				// { column: 3, width: 4, ad: true },
+				{ column: 3, width: 4, size: 'small' }
 			]
 		}
 	},

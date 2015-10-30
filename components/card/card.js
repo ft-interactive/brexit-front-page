@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-import {responsiveValue} from './helpers';
+import {responsiveValue, responsiveClass, objMap} from './helpers';
 import expandProps from './expandProps';
 
 import Tag from './tag/tag'
@@ -14,23 +14,36 @@ import Ad from './ad';
 const stickToBottom = (showRelated) => {
 	if(showRelated.length < 1) return {default: true}
 
-	console.log('Some related stories...');
 	return showRelated.reduce((noRelated, relatedStory) => {
 		Object.keys(relatedStory).forEach((l) => noRelated[l] = (noRelated[l] || !relatedStory[l]));
-		console.log('noRelated', noRelated);
 		return noRelated;
 	}, {})
+}
+
+const lastClass = (last) => {
+	if(!last) return '';
+
+	return ' ' + responsiveClass('card', objMap(last, (l) => l ? 'stretch' : 'no-stretch'))
 }
 
 class Card extends Component {
 	render () {
 		const article = this.props.article;
-		const {show, tagSize, titleSize, showStandFirst, standFirstSize, image, showRelated} = expandProps(this.props);
+		const {
+			show,
+			last,
+			tagSize,
+			titleSize,
+			showStandFirst,
+			standFirstSize,
+			image,
+			showRelated
+		} = expandProps(this.props);
 
-		if(this.props.ad) return <Ad />;
+		// if(this.props.ad) return <Ad />;
 
 		return (
-			<article className="card" data-trackable="card" data-card-show={responsiveValue(show)}>
+			<article className={'card' + lastClass(last) } data-trackable="card" data-card-show={responsiveValue(show)}>
 				<div>
 					<Tag tag={article.primaryTag} size={tagSize} />
 					<Title title={article.title} href={'/content/' + article.id} size={titleSize} />
