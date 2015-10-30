@@ -8,8 +8,8 @@ const enforceConstraints = (cards) => {
 		if(idx < 1) return card;
 
 		// ensure monotonic columns
-		card.column = Math.max(+card.column, +cards[idx - 1].column);
-		card.column = Math.min(+card.column, +cards[idx - 1].column + 1);
+		card.column = Math.max(+card.column || 0, +cards[idx - 1].column);
+		card.column = Math.min(+card.column || 0, +cards[idx - 1].column + 1);
 
 		// ensure constant widths in columns
 		if(+card.column === +cards[idx - 1].column)
@@ -29,6 +29,21 @@ export default class Section extends Component {
 	toggle (e) {
 		e.preventDefault();
 		this.setState({expanded: !this.state.expanded});
+	}
+
+	add (e) {
+		e.preventDefault();
+		const lastCard = Object.assign({}, this.props.cards[this.props.cards.length -1 ]);
+		const newCards = this.props.cards.concat([lastCard]);
+
+		this.props.onCardsChange(enforceConstraints(newCards));
+	}
+
+	remove (e) {
+		e.preventDefault();
+		const newCards = this.props.cards.slice(0, -1);
+
+		this.props.onCardsChange(newCards);
 	}
 
 	update (cardIndex) {
@@ -87,6 +102,10 @@ export default class Section extends Component {
 				<ul className='section-editor__editor'>
 					{cardEditors}
 				</ul>
+				<p className='section-editor__tools'>
+					<a href="" onClick={this.add.bind(this)} className='section-editor__add' data-trackable="add">Add</a>
+					<a href="" onClick={this.remove.bind(this)} className='section-editor__remove' data-trackable="remove">Remove</a>
+				</p>
 			</div>
 		);
 	}

@@ -9,7 +9,7 @@ import Image from './image/image'
 import Standfirst from './standfirst/standfirst'
 import Related from './related/related';
 
-import Ad from './ad';
+// import Ad from './ad';
 
 const stickToBottom = (showRelated) => {
 	if(showRelated.length < 1) return {default: true}

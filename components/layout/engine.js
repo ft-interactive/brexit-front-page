@@ -149,7 +149,7 @@ const buildColumns = (layouts, articles) => {
 	// derive colspans by taking non-hide values from each layout of every card
 	// (they will be the same)
 	columns.forEach((column, cidx) => {
-		const colspan = column.cards.reduce((span, card, i) => {
+		const colspan = column.cards.reduce((span, card) => {
 			Object.keys(card.colspan).forEach((layout) => {
 				if(!span[layout] || span[layout] === 'hide')
 					span[layout] = card.colspan[layout];
