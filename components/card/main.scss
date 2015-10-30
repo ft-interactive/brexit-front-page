@@ -13,31 +13,18 @@
 	padding: 10px;
 	display: flex;
 	flex-direction: column;
+	line-height: 1;
 
 	@include oGridRespondTo(M) {
 		margin-top: oGridGutter(M);
-	}
-
-	&.card--inline {
-		display: block;
-	}
-
-	// no top margin on first card
-	&:first-child {
-		@include oGridRespondTo(XL) {
-			margin-top: 0;
-		}
-	}
-
-	// make last card fill the column
-	&:last-child {
-		flex: 2;
 	}
 
 	.section--opinion & {
 		border-width: 0 0 0 1px;
 	}
 }
+
+// ad card
 
 .card--ad {
 	padding-left: 0;
@@ -46,4 +33,36 @@
 .ad {
 	display: block;
 	margin: 0 auto;
+}
+
+[data-card-show~="false"] {
+	display: none;
+}
+
+.card--stretch {
+	flex: 1;
+}
+
+.card--no-stretch {
+	flex: none;
+}
+
+@each $layout-name in $_o-grid-layout-names {
+	@include oGridRespondTo($layout-name) {
+		[data-card-show~="#{$layout-name}--true"] {
+			display: flex;
+		}
+
+		[data-card-show~="#{$layout-name}--false"] {
+			display: none;
+		}
+
+		.card--#{$layout-name}--stretch {
+			flex: 1;
+		}
+
+		.card--#{$layout-name}--no-stretch {
+			flex: none;
+		}
+	}
 }

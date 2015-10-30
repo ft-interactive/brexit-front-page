@@ -1,37 +1,26 @@
 import React, {Component} from 'react';
+
+import {buildColumns, layoutNames} from '../../layout/engine';
 import Card from '../../card/card';
 
-const buildColumns = (cards) => {
-	return cards.reduce(([columns, currentColumn], card, cardIndex) => {
-		card.order = cardIndex;
-
-		if(+card.column === currentColumn) {
-			columns[currentColumn].push(card);
-			return [columns, currentColumn];
-		} else {
-			columns.push([card]);
-			return [columns, +card.column]
-		}
-	}, [ [[]], 0 ])[0];
+const colspanToString = (span) => {
+	return span.default + ' ' + layoutNames.filter(it => span.hasOwnProperty(it)).map(it => it + span[it]).join(' ');
 }
 
 export default class SectionContent extends Component {
 	render () {
 		const articles = this.props.articles.slice();
 
-		const columns = buildColumns(this.props.cards).map((columnCards, colIdx) => {
-			const columnWidth = columnCards[0].width;
-			const cards = columnCards.map(card => {
-				const article = articles.shift();
+		const columnDefs = buildColumns(this.props.cards, articles);
+		const columns = columnDefs.map((column, colIdx) => {
+			const colspan = colspanToString(column.colspan);
 
-				if(!article) return null;
-
-				const props = Object.assign({}, card, { article, key: article.id });
+			const cards = column.cards.map(props => {
 				return <Card {...props} />;
 			});
 
 			return (
-				<div className={'column ' + this.props.style + '__column'} data-o-grid-colspan={'12 M' + columnWidth} key={colIdx}>
+				<div className={'column ' + this.props.style + '__column'} data-o-grid-colspan={colspan} key={colIdx}>
 					{cards}
 				</div>
 			);

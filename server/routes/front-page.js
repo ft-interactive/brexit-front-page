@@ -13,13 +13,10 @@ const contentMissing = (data) => {
 export default (region) => {
 	return (req, res) => {
 
-		let data;
+		const frontPageData = (res.locals.flags.frontPageLayoutPrototype ? `newFrontPage${region}` : `frontPage${region}`);
+		const dataName = res.locals.flags.mockFrontPage ? 'mockFrontPage' : frontPageData;
 
-		if(res.locals.flags.mockFrontPage) {
-			data = getData('mockFrontPage');
-		} else {
-			data = getData(`frontPage${region}`);
-		}
+		const data = getData(dataName);
 
 		res.set({
 			// needs to be private so we can vary for signed in state, ab tests, etc

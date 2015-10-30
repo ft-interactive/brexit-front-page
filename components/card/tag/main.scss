@@ -1,6 +1,7 @@
 @import 'next-sass-setup/main';
 
 .card__tag {
+	display: block;
 	font-family: $n-type-sans-serif;
 	font-weight: oFontsWeight(light);
 	color: getColor(claret);
@@ -16,7 +17,7 @@
 	line-height: 14px;
 }
 .card__tag--small {
-	float: left;
+	display: inline;
 	font-size: 12px;
 	line-height: 14px;
 }
@@ -33,5 +34,25 @@
 		line-height: 0;
 		vertical-align: bottom;
 		margin: 0 10px -8px -5px;
+	}
+}
+
+@each $layout-name in $_o-grid-layout-names {
+	@include oGridRespondTo($layout-name) {
+		.card__tag--#{$layout-name}--large {
+			display: block;
+			font-size: 16px;
+			line-height: 16px;
+		}
+		.card__tag--#{$layout-name}--medium {
+			display: block;
+			font-size: 14px;
+			line-height: 14px;
+		}
+		.card__tag--#{$layout-name}--small {
+			display: inline;
+			font-size: 12px;
+			line-height: 14px;
+		}
 	}
 }

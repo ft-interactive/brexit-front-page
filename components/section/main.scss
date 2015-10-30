@@ -12,20 +12,15 @@
 	}
 }
 
-.section {
-	@include oGridRespondTo(M) {
-		margin-top: oGridGutter(M);
-		margin-bottom: oGridGutter(M);
-	}
-}
-.section__meta--mobile {
-	@include oGridRespondTo(XL) {
-		display: none;
-	}
-}
 .section__column {
-	display: flex;
 	align-items: stretch;
+	display: flex;
+
+	&[data-o-grid-colspan="hide L2"] {
+		@include oGridRespondTo($until: L) {
+			display: none;
+		}
+	}
 
 	& > * {
 		width: 100%;
@@ -35,6 +30,41 @@
 }
 
 .column {
-	display: flex;
 	flex-flow: column wrap;
+	display: flex;
+	padding-top: oGridGutter();
+	margin-top: - oGridGutter();
+
+	@include oGridRespondTo(M) {
+		padding-top: oGridGutter(M);
+		margin-top: - oGridGutter(M);
+	}
+
+	&:not([data-o-grid-colspan^="hide"]) {
+		display: flex;
+	}
+
+	&[data-o-grid-colspan="Shide"] {
+		@include oGridRespondTo(S) {
+			display: none;
+		}
+	}
+
+	&[data-o-grid-colspan="Mhide"] {
+		@include oGridRespondTo(M) {
+			display: none;
+		}
+	}
+
+	&[data-o-grid-colspan="Lhide"] {
+		@include oGridRespondTo(L) {
+			display: none;
+		}
+	}
+
+	&[data-o-grid-colspan="XLhide"] {
+		@include oGridRespondTo(XL) {
+			display: none;
+		}
+	}
 }

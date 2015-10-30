@@ -1,3 +1,10 @@
+.section-meta {
+	padding-top: oGridGutter();
+	@include oGridRespondTo(M) {
+		padding-top: oGridGutter(M);
+	}
+}
+
 .section-meta__date,
 .section-meta__title {
 	@include nTypeBravo(3);

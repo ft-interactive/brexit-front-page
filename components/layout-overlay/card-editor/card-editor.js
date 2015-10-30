@@ -18,14 +18,14 @@ export default class CardEditor extends Component {
 		return (
 			<form className="card-editor">
 				<p className="card-editor__overview">
-					<label>Column</label>
-					<input
+					{ this.props.showColumn ? <label>Column</label> : null }
+					{ this.props.showColumn ? <input
 						type="number"
 						data-trackable="card-column"
 						value={this.props.card.column}
 						min={this.props.minColumn}
 						max={this.props.maxColumn}
-						onChange={this.change('column')} />
+						onChange={this.change('column')} /> : null }
 					{ this.props.showWidth ? <label>Width</label> : null }
 					{ this.props.showWidth ?
 						<input
@@ -57,9 +57,8 @@ export default class CardEditor extends Component {
 				<p>
 					<label>Image</label>
 					<select data-trackable="card-image" value={this.props.card.image || 'none'} onChange={this.change('image')}>
-						<option value="always">Always</option>
-						<option value="desktop">Desktop only</option>
-						<option value="none">Hidden</option>
+					<option value="yes">Shown</option>
+					<option value="none">Hidden</option>
 					</select>
 				</p>
 				<p>
