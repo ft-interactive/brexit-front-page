@@ -18,7 +18,7 @@ module.exports = {
 			.waitForElementPresent('html.js.js-success', 60000);
 	},
 
-	tearDown: function (callback) {
+	tearDown: function (done) {
 		const sessionId = this.client.sessionId;
 		// NOTE: need to end session here so we can access the sessionId
 		this.client.end();
@@ -30,11 +30,11 @@ module.exports = {
 		})
 			.then(() => {
 				console.info('Finished updating Saucelabs.');
-				callback();
+				done();
 			})
 			.catch(err => {
 				console.error('An error has occurred');
-				callback(err);
+				done(err);
 			});
 	}
 };
