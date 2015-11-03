@@ -11,7 +11,7 @@ export default class Section extends Component {
 		const columns = columnConfig(!!this.props.sidebarContent);
 
 		return (
-			<section className={'section o-grid-container section--' + this.props.style}>
+			<section className={'section o-grid-container section--' + this.props.style} data-trackable={this.props.id}>
 				<div className="o-grid-row">
 					<div data-o-grid-colspan={columns[0]} className="section__column">
 						<SectionMeta title={this.props.title} date={this.props.date} />
