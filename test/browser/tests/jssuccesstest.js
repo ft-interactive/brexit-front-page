@@ -14,7 +14,7 @@ module.exports = {
 			.execute(() => {
 				document.cookie = 'next-flags=ads:off; secure=true';
 			})
-			.url(`${TEST_URL}`)
+			.url(TEST_URL)
 			.waitForElementPresent('html.js.js-success', 60000);
 	},
 
@@ -26,7 +26,7 @@ module.exports = {
 		console.log('Updating Saucelabs...');
 		notifySaucelabs({
 			sessionId,
-			passed: this.results.failed === 0 && this.results.errors === 0,
+			passed: this.results.failed === 0 && this.results.errors === 0
 		})
 			.then(() => {
 				console.info('Finished updating Saucelabs.');
