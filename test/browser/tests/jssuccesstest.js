@@ -2,16 +2,19 @@
 
 require('isomorphic-fetch');
 const notifySaucelabs = require('notify-saucelabs');
-const TEST_HOST = `${process.env.TEST_APP}.herokuapp.com`;
-const TEST_BASE_URL = `https://${TEST_HOST}`;
+const TEST_BASE_URL = `https://${process.env.TEST_APP}.herokuapp.com`;
+const TEST_URL = `${TEST_BASE_URL}/uk`;
 
 module.exports = {
 	'js-success test': browser => {
-		console.log(`Launching ${TEST_BASE_URL}/uk`);
+		console.log(`Launching ${TEST_URL}`);
 		browser
 			.url(`${TEST_BASE_URL}/__gtg`)
-			.setCookie({ name: 'next-flags', domain: TEST_HOST, value: 'ads:off', secure: true })
-			.url(`${TEST_BASE_URL}/uk`)
+			// need to set the cookie with JS for IE
+			.execute(() => {
+				document.cookie = 'next-flags=ads:off; secure=true';
+			})
+			.url(`${TEST_URL}`)
 			.waitForElementPresent('html.js.js-success', 60000);
 	},
 
@@ -23,7 +26,7 @@ module.exports = {
 		console.log('Updating Saucelabs...');
 		notifySaucelabs({
 			sessionId,
-			passed: this.results.failed === 0
+			passed: this.results.failed === 0 && this.results.errors === 0,
 		})
 			.then(() => {
 				console.info('Finished updating Saucelabs.');
