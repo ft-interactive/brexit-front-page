@@ -81,7 +81,7 @@ export default [
 		}
 	},
 	{
-		id: 'editors-pics',
+		id: 'editors-picks',
 		title: 'Editor\'s Picks',
 		style: 'editors-picks',
 		cards: {
