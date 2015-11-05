@@ -8,7 +8,6 @@ import setup from 'next-js-setup';
 import oDate from 'o-date';
 import nVideo from 'n-video';
 import prompts from 'n-message-prompts';
-import 'n-image';
 
 import fastFT from '../components/fastft/main';
 import Layout from '../components/layout/main';
