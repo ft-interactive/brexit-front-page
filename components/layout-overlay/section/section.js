@@ -71,7 +71,19 @@ export default class Section extends Component {
 
 			// on column change, take a width of the target column
 			if(columnDiff !== 0) {
-				newCard.width = newCards[cardIndex + columnDiff].width;
+				// if this is the last card, calculate the remaining width
+				if (cardIndex === newCards.length - 1) {
+					const remainingWidth = newCards.reduce((current, card) => {
+						if (card.column !== current[0]) {
+							current[0] = card.column;
+							current[1] += card.width;
+						}
+						return current;
+					}, [null, 0]);
+					newCard.width = 12 - remainingWidth[1];
+				} else {
+					newCard.width = newCards[cardIndex + columnDiff].width;
+				}
 			}
 
 			newCards[cardIndex] = newCard;
