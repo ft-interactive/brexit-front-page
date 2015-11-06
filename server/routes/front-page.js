@@ -49,7 +49,11 @@ export default (region) => {
 			Layout,
 			content: data,
 			initialLayout,
-			region
+			region,
+			preconnect: [
+				'https://next-video.ft.com',
+				'https://next-markets-proxy.ft.com'
+			]
 		};
 		if (res.locals.flags.frontPageHeaderMarketsData) {
 			renderParams.header = headerParams;
