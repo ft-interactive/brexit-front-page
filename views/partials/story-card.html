@@ -1,11 +1,13 @@
 <article class="story-card article--{{genre}} {{#ifEquals contentType "LiveBlog"}}story-card--liveblog liveblog--{{lowercase status}}{{/ifEquals}} o-grid-container o-grid-container--compact" data-trackable="story" tabindex="0" aria-labelledby="{{id}}-title" role="article">
 	<div class="story-card--inner o-grid-row">
 		{{#if primaryImage}}
-			<a href="/content/{{id}}" class="story-card__image-link" data-trackable="image" role="presentation" aria-hidden="true">
-				{{#responsiveImage img=primaryImage sizing=imageSizing class="story-card__image"}}
-					{{> n-image/templates/image}}
-				{{/responsiveImage}}
-			</a>
+			{{#unless hideImage}}
+				<a href="/content/{{id}}" class="story-card__image-link" data-trackable="image" role="presentation" aria-hidden="true">
+					{{#responsiveImage img=primaryImage sizing=imageSizing class="story-card__image"}}
+						{{> n-image/templates/image}}
+					{{/responsiveImage}}
+				</a>
+			{{/unless}}
 		{{/if}}
 		<div class="story-card__content">
 			<div class="story-card__content-inner">
