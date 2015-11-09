@@ -31,10 +31,14 @@ export default [
 			],
 			M: [
 				{ column: 0, width: 5, size: 'large', standFirst: true, image: true, related: 3 },
-				{ column: 1, width: 4, size: 'medium', standFirst: true, image: true},
-				{ column: 1, width: 4, size: 'medium' },
-				{ column: 2, width: 3, size: 'small', image: true },
+				{ column: 0, width: 5, size: 'medium', standFirst: true },
+				{ column: 1, width: 4, size: 'small' },
+				{ column: 1, width: 4, size: 'small' },
+				{ column: 1, width: 4, size: 'small' },
+				{ column: 1, width: 4, size: 'small', image: true },
 				{ column: 2, width: 3, size: 'tiny' },
+				{ column: 2, width: 3, size: 'tiny' },
+				{ column: 2, width: 3, size: 'tiny', image: true },
 				{ column: 2, width: 3, size: 'tiny' },
 				{ column: 2, width: 3, size: 'tiny' }
 			]
