@@ -9,7 +9,7 @@
 	}
 
 	.fastft__logo__fast {
-		@include nextIcon(brand-fast, oColorsGetPaletteColor(fastft-brand), 40px);
+		@include nextIcon(brand-fast, oColorsGetPaletteColor(fastft-brand), 40);
 		text-indent: -9999px;
 		background-size: contain;
 		background-position: center;
@@ -17,7 +17,7 @@
 	}
 
 	.fastft__logo__ft {
-		@include nextIcon(brand-ft, oColorsGetPaletteColor(warm-4), 40px);
+		@include nextIcon(brand-ft, oColorsGetPaletteColor(warm-4), 40);
 		text-indent: -9999px;
 		background-size: contain;
 		background-position: center;

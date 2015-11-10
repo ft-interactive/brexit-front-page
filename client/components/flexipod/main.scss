@@ -5,6 +5,9 @@
 }
 
 @mixin nhFlexipodLayout($layout-spec) {
+	.article-group {
+		position: relative;
+	}
 	@if type-of($layout-spec) == list {
 		@for $int from 1 through length($layout-spec) {
 			$card-spec: nth($layout-spec, $int);

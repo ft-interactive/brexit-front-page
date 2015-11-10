@@ -1,16 +1,13 @@
 @mixin storyCardFooter {
 	@include nTypeAlpha(5);
 
-	position: absolute;
-	bottom: 0;
-	right: 0;
-	left: 0;
 	width: 100%;
-	border-bottom: 1px oColorsGetColorFor('card', 'border') solid;
+
 	text-transform: uppercase;
 	height: $story-card--footer-height;
 	padding: 0 10px;
 	line-height: $story-card--footer-height;
+	align-self: flex-end;
 
 	.time-icon {
 		margin-top: -3px;
