@@ -12,6 +12,10 @@
 	}
 }
 
+.section-nav {
+	padding-bottom: 0 !important;
+}
+
 .section__column {
 	align-items: stretch;
 	display: flex;
@@ -26,6 +30,34 @@
 		width: 100%;
 		padding-bottom: oGridGutter(M);
 		border-bottom: 1px solid oColorsGetPaletteColor('blue-2');
+	}
+}
+.section__column--meta {
+	// TODO: better way of defining this
+	.section--top-stories & {
+		@include oGridRespondTo($until: L) {
+			display: none;
+		}
+	}
+}
+.section__column--content {
+	#main-body .section--top-stories & {
+		#fast-ft-tab:target ~ & {
+			display: none;
+		}
+		#top-stories-tab:target ~ & {
+			display: block;
+		}
+	}
+}
+.section__column--sidebar {
+	#main-body .section--top-stories & {
+		@include oGridRespondTo($until: L) {
+			display: none;
+		}
+		#fast-ft-tab:target ~ & {
+			display: block;
+		}
 	}
 }
 
