@@ -9,11 +9,13 @@
 
 .story-card {
 	background-color: oColorsGetColorFor('card', 'background');
+	border-bottom: 1px oColorsGetColorFor('card', 'border') solid;
 	margin-bottom: oGridGutter();
-	padding-bottom: $story-card--footer-height;
 	font-size: 18px;
 	width: 100%;
 	min-width: 0 !important;
+	display: flex;
+	flex-direction: column;
 
 	@include oGridRespondTo(M) {
 		margin-bottom: oGridGutter(M);
@@ -98,6 +100,10 @@
 	.story-card__related-link:nth-child(3) > & {
 		padding-right: 10px;
 	}
+}
+
+.story-card--inner {
+	flex-grow: 1;
 }
 
 .story-card__summary {

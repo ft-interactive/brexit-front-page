@@ -52,40 +52,41 @@
 				</div>
 			</div>
 		{{/if}}
-		<div class='story-card__footer'>
-			{{#ifEquals type 'LiveBlog'}}
-				<i class="liveblog__live-indicator"><i class="glow"></i></i>
-				{{#ifEquals status 'InProgress'}}
-					<span>last post&nbsp;</span>
-				{{/ifEquals}}
-				{{#ifEquals status 'Closed'}}
-					<span>liveblog closed&nbsp;</span>
-				{{/ifEquals}}
+	</div>
 
-				{{#ifEquals status 'ComingSoon'}}
-					<span>coming soon</span>
-				{{else}}
-					{{#slice updates limit=1}}
-						<time
-							data-o-component="o-date"
-							class="o-date"
-							datetime="{{#dateformat}}{{date}}{{/dateformat}}">
-									{{#dateformat "dddd, d mmmm, yyyy"}}{{date}}{{/dateformat}}
-						</time>
-					{{/slice}}
-				{{/ifEquals}}
-			{{else}}
-				<span class="n-util-visually-hidden">Published</span>
-				<time
-					data-o-component="o-date"
-					class="o-date"
-					datetime="{{#dateformat}}{{lastPublished}}{{/dateformat}}">
-						{{#dateformat "dddd, d mmmm, yyyy"}}{{lastPublished}}{{/dateformat}}
-				</time>
+	<div class='story-card__footer'>
+		{{#ifEquals type 'LiveBlog'}}
+			<i class="liveblog__live-indicator"><i class="glow"></i></i>
+			{{#ifEquals status 'InProgress'}}
+				<span>last post&nbsp;</span>
 			{{/ifEquals}}
-			{{#unless related}}
-				{{>next-myft-ui/templates/save-for-later contentId=id}}
-			{{/unless}}
-		</div>
+			{{#ifEquals status 'Closed'}}
+				<span>liveblog closed&nbsp;</span>
+			{{/ifEquals}}
+
+			{{#ifEquals status 'ComingSoon'}}
+				<span>coming soon</span>
+			{{else}}
+				{{#slice updates limit=1}}
+					<time
+						data-o-component="o-date"
+						class="o-date"
+						datetime="{{#dateformat}}{{date}}{{/dateformat}}">
+								{{#dateformat "dddd, d mmmm, yyyy"}}{{date}}{{/dateformat}}
+					</time>
+				{{/slice}}
+			{{/ifEquals}}
+		{{else}}
+			<span class="n-util-visually-hidden">Published</span>
+			<time
+				data-o-component="o-date"
+				class="o-date"
+				datetime="{{#dateformat}}{{lastPublished}}{{/dateformat}}">
+					{{#dateformat "dddd, d mmmm, yyyy"}}{{lastPublished}}{{/dateformat}}
+			</time>
+		{{/ifEquals}}
+		{{#unless related}}
+			{{>next-myft-ui/templates/save-for-later contentId=id}}
+		{{/unless}}
 	</div>
 </article>

@@ -38,7 +38,9 @@ html {
 
 	// Prevent navigation menus from creating
 	// extra space on sides of the page
-	overflow-x: hidden;
+	@include oGridRespondTo(S) {
+		overflow-x: hidden;
+	}
 }
 
 * {
@@ -107,9 +109,13 @@ body {
 		}
 	}
 
-	@include oGridRespondTo(L) {
+	.nh-header-tabs__tablist {
+		display: none;
+	}
+
+	@include oGridRespondTo($until: L) {
 		.nh-header-tabs__tablist {
-			display: none;
+			display: block;
 		}
 	}
 }
@@ -133,6 +139,7 @@ body {
 	.flexipod--lead-today {
 		// TODO think about sinking the breakpoints into nhFlexipod
 		@include nhFlexipod(map-get($layout-lead-today, default));
+		position: relative;
 
 		@include oGridRespondTo(XS) {
 			@include nhFlexipod(map-get($layout-lead-today, XS));
@@ -188,10 +195,10 @@ body {
 
 .sidebar {
 	&.sidebar--fastft {
-		display: none;
+		display: block;
 
-		@include oGridRespondTo($from: L) {
-			display: block;
+		@include oGridRespondTo($until: L) {
+			display: none;
 		}
 	}
 
