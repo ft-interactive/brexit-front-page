@@ -22,7 +22,7 @@ export default [
 			S: [
 				{ column: 0, width: 6, size: 'large', standFirst: true, image: true, related: 2 },
 				{ column: 0, width: 6, size: 'large', standFirst: true },
-				{ column: 1, width: 6, size: 'medium', image: false },
+				{ column: 1, width: 6, size: 'medium' },
 				{ column: 1, width: 6, size: 'small' },
 				{ column: 1, width: 6, size: 'small' },
 				{ column: 1, width: 6, size: 'tiny' },
@@ -35,11 +35,11 @@ export default [
 				{ column: 1, width: 4, size: 'small' },
 				{ column: 1, width: 4, size: 'small' },
 				{ column: 1, width: 4, size: 'small' },
-				{ column: 1, width: 4, size: 'small', image: true },
+				{ column: 1, width: 4, size: 'small' },
+				{ column: 1, width: 4, size: 'small' },
 				{ column: 2, width: 3, size: 'tiny' },
 				{ column: 2, width: 3, size: 'tiny' },
 				{ column: 2, width: 3, size: 'tiny', image: true },
-				{ column: 2, width: 3, size: 'tiny' },
 				{ column: 2, width: 3, size: 'tiny' }
 			]
 		},
