@@ -68,7 +68,7 @@ app.get('/front-page', frontPage('UK'));
 app.get('/international', frontPage('US'));
 app.get('/uk', frontPage('UK'));
 
-app.get(/\/(__)?home\/fastft.json/, fastft);
+app.get(/\/(__)?home\/fastft\.json/, fastft);
 
 const port = process.env.PORT || 3001;
 
