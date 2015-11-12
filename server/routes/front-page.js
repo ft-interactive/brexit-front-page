@@ -51,7 +51,6 @@ export default (region) => {
 			initialLayout,
 			region,
 			preconnect: [
-				'https://next-video.ft.com',
 				'https://next-markets-proxy.ft.com'
 			]
 		};
