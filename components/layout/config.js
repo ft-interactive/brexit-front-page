@@ -12,7 +12,7 @@ export default [
 		cards: {
 			default: [
 				{ size: 'large', standFirst: true, image: true, related: 1 },
-				{ size: 'medium', standFirst: true },
+				{ size: 'medium' },
 				{ size: 'medium' },
 				{ size: 'small' },
 				{ size: 'tiny' },
@@ -21,7 +21,7 @@ export default [
 			],
 			S: [
 				{ column: 0, width: 6, size: 'large', standFirst: true, image: true, related: 2 },
-				{ column: 0, width: 6, size: 'large', standFirst: true },
+				{ column: 0, width: 6, size: 'medium' },
 				{ column: 1, width: 6, size: 'medium' },
 				{ column: 1, width: 6, size: 'small' },
 				{ column: 1, width: 6, size: 'small' },
@@ -31,7 +31,7 @@ export default [
 			],
 			M: [
 				{ column: 0, width: 5, size: 'large', standFirst: true, image: true, related: 3 },
-				{ column: 0, width: 5, size: 'medium', standFirst: true },
+				{ column: 0, width: 5, size: 'medium' },
 				{ column: 1, width: 4, size: 'small' },
 				{ column: 1, width: 4, size: 'small' },
 				{ column: 1, width: 4, size: 'small' },
