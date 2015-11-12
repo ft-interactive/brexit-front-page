@@ -20,17 +20,17 @@ export default [
 				{ size: 'tiny' }
 			],
 			S: [
-				{ column: 0, width: 12, size: 'large', standFirst: true, image: true, related: 3 },
-				{ column: 1, width: 12, size: 'medium' },
-				{ column: 2, width: 12, size: 'small' },
-				{ column: 3, width: 12, size: 'small' },
-				{ column: 4, width: 12, size: 'small' },
-				{ column: 5, width: 12, size: 'small' },
-				{ column: 6, width: 12, size: 'small' },
-				{ column: 7, width: 12, size: 'tiny' },
-				{ column: 8, width: 12, size: 'tiny' },
-				{ column: 9, width: 12, size: 'tiny', image: true },
-				{ column: 10, width: 12, size: 'tiny' }
+				{ size: 'large', standFirst: true, image: true, related: 3 },
+				{ size: 'medium' },
+				{ size: 'small' },
+				{ size: 'small' },
+				{ size: 'small' },
+				{ size: 'small' },
+				{ size: 'small' },
+				{ size: 'tiny' },
+				{ size: 'tiny' },
+				{ size: 'tiny', image: true },
+				{ size: 'tiny' }
 			],
 			M: [
 				{ column: 0, width: 5, size: 'large', standFirst: true, image: true, related: 3 },
