@@ -42,6 +42,17 @@ export default (region) => {
 		const footerParams = {
 			inside: '<p class="markets-data-disclaimer">Markets data delayed by at least 15 minutes</p>'
 		};
+		// create video data
+		if (data.videos) {
+			data.videos = data.videos.map(video => {
+				const data = {
+					videoStillURL: video.image.rawSrc,
+					renditions: video.renditions
+				};
+				video.data = JSON.stringify(data);
+				return video;
+			});
+		}
 		const renderParams = {
 			layout: 'wrapper',
 			FastFtFeed,
