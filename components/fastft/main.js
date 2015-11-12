@@ -19,7 +19,7 @@ const init = el => {
 	renderFeed(el, initialItems);
 
 	const poller = () => {
-		fetch('/home/fastft.json', {credentials: 'include'})
+		fetch('/__home/fastft.json', {credentials: 'include'})
 		.then((response) => {
 			if(response.status > 200) {
 				throw new Error('Bad response from server');
