@@ -3,7 +3,7 @@
 	width: 100%;
 
 	@include oGridRespondTo($until: M) {
-		[data-card-is-landscape~="true"] & {
+		.top-stories__column [data-card-is-landscape~="true"] & {
 			margin-top: 0;
 			width: auto;
 			height: 60px;
@@ -21,7 +21,7 @@
 	border-bottom: 0;
 
 	@include oGridRespondTo($until: M) {
-		[data-card-is-landscape~="true"] & {
+		.top-stories__column [data-card-is-landscape~="true"] & {
 			display: inline;
 			margin-top: 0;
 			margin-right: 10px;
@@ -30,13 +30,13 @@
 	}
 
 	@include oGridRespondTo($until: M) {
-		&[data-image-show~="false"] {
+		.top-stories__column &[data-image-show~="false"] {
 			margin-right: 0;
 		}
 	}
 
 	@include oGridRespondTo(S, $until: M) {
-		&[data-image-show~="S--true"] {
+		.top-stories__column &[data-image-show~="S--true"] {
 			margin-right: 10px;
 		}
 	}
@@ -48,7 +48,7 @@
 	align-items: flex-end;
 
 	@include oGridRespondTo($until: M) {
-		[data-card-is-landscape~="true"] & {
+		.top-stories__column [data-card-is-landscape~="true"] & {
 			flex: none;
 		}
 	}

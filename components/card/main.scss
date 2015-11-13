@@ -40,7 +40,7 @@
 }
 
 @include oGridRespondTo($until: M) {
-	[data-card-is-landscape~="true"] {
+	.top-stories__column [data-card-is-landscape~="true"] {
 		flex-direction: row;
 	}
 }
