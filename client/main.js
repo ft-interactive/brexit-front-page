@@ -24,7 +24,6 @@ setup.bootstrap(({flags}) => {
 	headerTabs.init(tabs, '#news-tab');
 
 	nVideo.init({
-		optimumWidth: 710,
 		placeholder: true,
 		classes: ['video'],
 		selector: '.js-video'

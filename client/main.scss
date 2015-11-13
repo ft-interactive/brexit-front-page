@@ -109,14 +109,14 @@ body {
 		}
 	}
 
-	.nh-header-tabs__tablist {
-		display: none;
-	}
-
 	@include oGridRespondTo($until: L) {
 		.nh-header-tabs__tablist {
 			display: block;
 		}
+	}
+
+	.nh-header-tabs__tablist {
+		display: none;
 	}
 }
 

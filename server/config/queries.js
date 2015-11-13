@@ -128,14 +128,16 @@ const frontPage = (region) => (`
 				... Basic
 			}
 		}
-		videos {
+		videos(limit: 5) {
 			id
 			title
-			description
-			lastPublished
 			image {
-				src(width: 320)
-				alt
+				rawSrc
+			}
+			renditions {
+				url
+				frameWidth
+				videoCodec
 			}
 		}
 	}

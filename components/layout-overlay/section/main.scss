@@ -26,8 +26,8 @@
 	border-width: 0 0 1px;
 
 	a {
-		display: inline-block;
 		@include nTypeAlpha(3);
+		display: inline-block;
 		border: 0;
 		border-radius: 4px;
 		background-color: rgba(255, 255, 255, 0.3);

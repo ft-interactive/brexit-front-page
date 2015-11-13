@@ -9,6 +9,8 @@ import nHealth from 'n-health';
 import additionalHealthChecks from './libs/health-checks/index';
 
 import { start as startPolling } from './libs/graphql-poller';
+import videoData from './libs/video-data';
+
 // routes
 import frontPage from './routes/front-page';
 import fastft from './routes/fastft';
@@ -30,7 +32,7 @@ const app = express({
 		reactRenderToString: (klass, props) => {
 			return ReactServer.renderToString(React.createElement(klass, props.hash));
 		},
-		responsiveImage: function (options) {
+		responsiveImage: options => {
 			const opts = {
 				image: {
 					url: options.hash.img.rawSrc,
@@ -40,6 +42,9 @@ const app = express({
 			}
 
 			return options.fn(Object.assign({}, this, opts));
+		},
+		videoData: (video, size) => {
+			return videoData(video, size);
 		}
 	},
 	healthChecks: healthChecks.asArray()
