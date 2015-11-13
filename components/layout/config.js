@@ -13,10 +13,14 @@ export default [
 			default: [
 				{ size: 'large', standFirst: true, image: true, related: 1 },
 				{ size: 'medium' },
-				{ size: 'medium' },
+				{ size: 'small' },
+				{ size: 'small' },
+				{ size: 'small' },
+				{ size: 'small' },
 				{ size: 'small' },
 				{ size: 'tiny' },
 				{ size: 'tiny' },
+				{ size: 'tiny', image: true },
 				{ size: 'tiny' }
 			],
 			S: [
