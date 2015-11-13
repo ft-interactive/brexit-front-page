@@ -24,7 +24,7 @@
     "next-myft-ui": "^5.0.0",
     "next-session-client": "^2.0.0",
     "n-third-party-code": "^1.0.0",
-    "next-sass-setup": "7.0.4",
+    "next-sass-setup": "^7.0.5",
     "next-myft-client": "^5.0.1"
   }
 }
