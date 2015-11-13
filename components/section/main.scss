@@ -42,8 +42,10 @@
 }
 .section__column--content {
 	#main-body .section--top-stories & {
-		#fast-ft-tab:target ~ & {
-			display: none;
+		#fastft-tab:target ~ & {
+			@include oGridRespondTo($until: L) {
+				display: none;
+			}
 		}
 		#top-stories-tab:target ~ & {
 			display: block;
@@ -55,7 +57,7 @@
 		@include oGridRespondTo($until: L) {
 			display: none;
 		}
-		#fast-ft-tab:target ~ & {
+		#fastft-tab:target ~ & {
 			display: block;
 		}
 	}
