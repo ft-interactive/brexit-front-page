@@ -75,10 +75,6 @@ body {
 	@include oGridRespondTo($until: L) {
 		@include nhHeaderTabsActive();
 
-		.nh-header-tabs__tablist {
-			display: block;
-		}
-
 		// initial state
 		.nh-header-tabs__panel {
 			display: block;
@@ -108,15 +104,12 @@ body {
 			display: none;
 		}
 	}
-
-	@include oGridRespondTo($until: L) {
-		.nh-header-tabs__tablist {
-			display: block;
-		}
-	}
-
 	.nh-header-tabs__tablist {
 		display: none;
+
+		@include oGridRespondTo($until: L) {
+			display: block;
+		}
 	}
 }
 

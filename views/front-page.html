@@ -1,13 +1,8 @@
 {{#if @root.flags.frontPageLayoutPrototype}}
 	<div id="layout-overlay-container"></div>
-	<div id="header-tabs" class="section-nav nh-header-tabs__tablist o-grid-container" data-trackable="section-nav">
-		<nav class="o-grid-row">
-			<a href="#news-tab" data-trackable="top-stories" data-o-grid-colspan="6"><span>Top Stories</span></a>
-			<a href="#fast-ft-tab" data-trackable="fast-ft" data-o-grid-colspan="6"><span>fastFT</span></a>
-		</nav>
-	</div>
-	<div id="news-tab" class="nh-header-tabs__marker"></div>
-	<div id="fast-ft-tab" class="nh-header-tabs__marker"></div>
+	{{> header-tabs}}
+	<a id="news-tab" class="nh-header-tabs__marker">Top Stories</a>
+	<a id="fastft-tab" class="nh-header-tabs__marker">fastFT</a>
 	<section id="main-body" data-main-content="{{json content}}">{{{ reactRenderToString Layout content=content layout=initialLayout }}}</section>
 {{else}}
 	{{#defineBlock 'head'}}
