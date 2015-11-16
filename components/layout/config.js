@@ -134,10 +134,10 @@ export default [
 				{ column: 3, width: 12 }
 			],
 			S: [
-				{ column: 0, width: 12 },
-				{ column: 1, width: 12 },
-				{ column: 2, width: 12 },
-				{ column: 3, width: 12 }
+				{ column: 0, width: 6 },
+				{ column: 0, width: 6 },
+				{ column: 1, width: 6 },
+				{ column: 1, width: 6 }
 			],
 			M: [
 				{ column: 0, width: 3 },

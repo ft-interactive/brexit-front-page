@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-import { responsiveClass, responsiveValue, objMap } from './helpers';
+import {responsiveClass, responsiveValue, objMap} from './helpers';
 
 import Tag from './tag/tag'
 import Title from './title/title'
