@@ -27,9 +27,7 @@
 			margin-right: 10px;
 			order: -1;
 		}
-	}
 
-	@include oGridRespondTo($until: M) {
 		.top-stories__column &[data-image-show~="false"] {
 			margin-right: 0;
 		}
