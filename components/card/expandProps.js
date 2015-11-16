@@ -41,6 +41,16 @@ const showRelated = (related, relatedContent) => {
 	});
 }
 
+const isLandscape = size => {
+	const isLandscape = {};
+	Object.keys(size).forEach(breakPoint => {
+		const acceptedBreakPoint = ['S', 'default'].indexOf(breakPoint) > -1;
+		const acceptedSizeBreakPoint = ['tiny', 'small', 'medium'].indexOf(size[breakPoint]) > -1;
+		isLandscape[breakPoint] = (acceptedBreakPoint && acceptedSizeBreakPoint);
+	});
+	return isLandscape;
+}
+
 // Public: expands Card props to produce props for individual card elements
 // (e.g. Tag, Title, ...)
 const expandProps = (props) => {
@@ -53,6 +63,7 @@ const expandProps = (props) => {
 	expandedProps.standFirstSize = standFirstSize(props.size);
 	expandedProps.showRelated = showRelated(props.related, article.relatedContent);
 	expandedProps.last = props.last;
+	expandedProps.isLandscape = isLandscape(props.size);
 
 	return Object.assign({}, props, expandedProps);
 }

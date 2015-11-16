@@ -1,26 +1,59 @@
 .card__image {
 	display: block;
 	width: 100%;
+
+	@include oGridRespondTo($until: M) {
+		.top-stories__column [data-card-is-landscape~="true"] & {
+			margin-top: 0;
+			width: auto;
+			height: 60px;
+		}
+	}
+
+	[data-image-show~="false"] & {
+		display: none;
+	}
 }
 
 .card__image-link {
 	display: block;
 	margin-top: 10px;
 	border-bottom: 0;
+
+	@include oGridRespondTo($until: M) {
+		.top-stories__column [data-card-is-landscape~="true"] & {
+			display: inline;
+			margin-top: 0;
+			margin-right: 10px;
+			order: -1;
+		}
+
+		.top-stories__column &[data-image-show~="false"] {
+			margin-right: 0;
+		}
+	}
+
+	@include oGridRespondTo(S, $until: M) {
+		.top-stories__column &[data-image-show~="S--true"] {
+			margin-right: 10px;
+		}
+	}
 }
 
 .card__image-link--stick {
 	flex: 2;
 	display: flex;
 	align-items: flex-end;
+
+	@include oGridRespondTo($until: M) {
+		.top-stories__column [data-card-is-landscape~="true"] & {
+			flex: none;
+		}
+	}
 }
 
 .card__image-link--nostick {
 	display: block;
-}
-
-[data-image-show~="false"] .card__image {
-	display: none;
 }
 
 @each $layout-name in $_o-grid-layout-names {

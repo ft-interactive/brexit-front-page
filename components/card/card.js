@@ -37,13 +37,14 @@ class Card extends Component {
 			showStandFirst,
 			standFirstSize,
 			image,
-			showRelated
+			showRelated,
+			isLandscape
 		} = expandProps(this.props);
 
 		// if(this.props.ad) return <Ad />;
 
 		return (
-			<article className={'card' + lastClass(last) } data-trackable="card" data-card-show={responsiveValue(show)}>
+			<article className={'card' + lastClass(last)} data-card-is-landscape={responsiveValue(isLandscape)} data-trackable="card" data-card-show={responsiveValue(show)}>
 				<div>
 					<Tag tag={article.primaryTag} size={tagSize} />
 					<Title title={article.title} href={'/content/' + article.id} size={titleSize} />

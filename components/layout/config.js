@@ -13,21 +13,28 @@ export default [
 			default: [
 				{ size: 'large', standFirst: true, image: true, related: 1 },
 				{ size: 'medium' },
-				{ size: 'medium' },
+				{ size: 'small' },
+				{ size: 'small' },
+				{ size: 'small' },
+				{ size: 'small' },
 				{ size: 'small' },
 				{ size: 'tiny' },
 				{ size: 'tiny' },
+				{ size: 'tiny', image: true },
 				{ size: 'tiny' }
 			],
 			S: [
-				{ column: 0, width: 6, size: 'large', standFirst: true, image: true, related: 2 },
-				{ column: 0, width: 6, size: 'medium' },
-				{ column: 1, width: 6, size: 'medium' },
-				{ column: 1, width: 6, size: 'small' },
-				{ column: 1, width: 6, size: 'small' },
-				{ column: 1, width: 6, size: 'tiny' },
-				{ column: 1, width: 6, size: 'tiny' },
-				{ column: 1, width: 6, size: 'tiny' }
+				{ size: 'large', standFirst: true, image: true, related: 3 },
+				{ size: 'medium' },
+				{ size: 'small' },
+				{ size: 'small' },
+				{ size: 'small' },
+				{ size: 'small' },
+				{ size: 'small' },
+				{ size: 'tiny' },
+				{ size: 'tiny' },
+				{ size: 'tiny', image: true },
+				{ size: 'tiny' }
 			],
 			M: [
 				{ column: 0, width: 5, size: 'large', standFirst: true, image: true, related: 3 },
