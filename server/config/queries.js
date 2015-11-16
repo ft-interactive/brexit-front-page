@@ -190,6 +190,18 @@ const newFrontPage = (region) => (`
 				... Related
 			}
 		}
+		videos(limit: 4) {
+			id
+			title
+			image {
+				rawSrc
+			}
+			renditions {
+				url
+				frameWidth
+				videoCodec
+			}
+		}
 	}
 `);
 

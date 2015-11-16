@@ -24,12 +24,18 @@
 	}
 }
 
+.card--video {
+	padding: 0;
+	border-bottom: 0;
+}
+
 // ad card
 
 .card--ad {
 	padding-left: 0;
 	padding-right: 0;
 }
+
 .ad {
 	display: block;
 	margin: 0 auto;

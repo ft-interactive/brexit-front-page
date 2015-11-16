@@ -121,5 +121,30 @@ export default [
 				{ column: 5, width: 2, size: 'small', image: true }
 			]
 		}
+	},
+	{
+		id: 'video',
+		title: 'Video',
+		style: 'video',
+		cards: {
+			default: [
+				{ column: 0, width: 12 },
+				{ column: 1, width: 12 },
+				{ column: 2, width: 12 },
+				{ column: 3, width: 12 }
+			],
+			S: [
+				{ column: 0, width: 12 },
+				{ column: 1, width: 12 },
+				{ column: 2, width: 12 },
+				{ column: 3, width: 12 }
+			],
+			M: [
+				{ column: 0, width: 3 },
+				{ column: 1, width: 3 },
+				{ column: 2, width: 3 },
+				{ column: 3, width: 3 }
+			]
+		}
 	}
 ];

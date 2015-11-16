@@ -123,7 +123,7 @@ const showFromColspan = (span) => {
 // smaller layouts (as they moved to previous column),
 // at the end there may be cards that are hidden on larger layouts
 // (as they moved to next column)
-const buildColumns = (layouts, articles) => {
+const buildColumns = (layouts, items) => {
 	const maxCards = maximumCards(layouts);
 	const columns = [];
 
@@ -131,7 +131,7 @@ const buildColumns = (layouts, articles) => {
 	for(let storyIndex = 0; storyIndex < maxCards; storyIndex++) {
 		const spans = colspans(layouts, storyIndex);
 		const props = cardProps(layouts, storyIndex);
-		const article = articles[storyIndex];
+		const item = items[storyIndex];
 
 		// put the card into each of the columns we need it in
 		for(const column in spans) {
@@ -140,7 +140,7 @@ const buildColumns = (layouts, articles) => {
 				const colspan = spans[column];
 				const show = showFromColspan(colspan);
 
-				const cardInstance = Object.assign({}, props, { article, show, colspan, order: storyIndex });
+				const cardInstance = Object.assign({}, props, { item, show, colspan, order: storyIndex });
 				columns[column].cards.push(cardInstance);
 			}
 		};
