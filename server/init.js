@@ -51,7 +51,7 @@ const app = express({
 });
 const logger = express.logger;
 
-if(process.env.NODE_ENV !== 'production' && process.env.NODE_ENV !== 'branch') {
+if (process.env.HOT_LOAD) {
 	const devProxy = require('./dev/proxy');
 	 // proxies CSS and JS endpoints to the dev server for hot-loading
 	app.use('/front-page/', devProxy(8888))

@@ -16,15 +16,21 @@ unit-test:
 
 test: verify unit-test
 
-watch:
-	rm -f ./public/main.*
-	node server/dev/init
-
 run:
 	nbt run
 
 run-local:
 	nbt run --local
+
+run-hot-load:
+	export HOT_LOAD=1; nbt run
+
+watch:
+	webpack --watch
+
+watch-hot-load:
+	rm -f ./public/main.*
+	node server/dev/init
 
 build:
 	webpack
