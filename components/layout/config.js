@@ -54,8 +54,16 @@ export default [
 		// styles when we have those
 		sidebarComponent: FastFt,
 		cols: {
-			content: '12 L10 XL9',
-			sidebar: '12 L2 XL3'
+			content: {
+				default: 12,
+				L: 8,
+				XL: 9
+			},
+			sidebar: {
+				default: 12,
+				L: 4,
+				XL: 3
+			}
 		}
 	},
 	{
@@ -95,8 +103,14 @@ export default [
 			]
 		},
 		cols: {
-			meta: '12 XL2',
-			content: '12 XL10'
+			meta: {
+				default: 12,
+				XL: 2
+			},
+			content: {
+				default: 12,
+				XL: 10
+			}
 		}
 	},
 	{
@@ -130,8 +144,14 @@ export default [
 			]
 		},
 		cols: {
-			meta: '12 XL2',
-			content: '12 XL10'
+			meta: {
+				default: 12,
+				XL: 2
+			},
+			content: {
+				default: 12,
+				XL: 10
+			}
 		}
 	},
 	{
@@ -159,8 +179,14 @@ export default [
 			]
 		},
 		cols: {
-			meta: '12 XL2',
-			content: '12 XL10'
+			meta: {
+				default: 12,
+				XL: 2
+			},
+			content: {
+				default: 12,
+				XL: 10
+			}
 		}
 	}
 ];
