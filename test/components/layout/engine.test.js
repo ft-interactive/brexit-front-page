@@ -223,7 +223,7 @@ describe('Layout engine', () => {
 							standFirst: {default: false},
 							image: {default: false},
 							related: {default: 0},
-							article: 'first'
+							item: 'first'
 						}
 					]
 				}
@@ -250,7 +250,7 @@ describe('Layout engine', () => {
 							standFirst: {default: false, M: false},
 							image: {default: true, M: false},
 							related: {default: 3, M: 2},
-							article: 'first'
+							item: 'first'
 						}
 					]
 				}
@@ -296,7 +296,7 @@ describe('Layout engine', () => {
 					cards: [
 						{
 							order: 0,
-							article: 'first',
+							item: 'first',
 							show: { default: true, S: true, M: true },
 							last: { default: false, S: false, M: true},
 							size: { default: 'large', S: 'large', M: 'large' },
@@ -306,7 +306,7 @@ describe('Layout engine', () => {
 						},
 						{
 							order: 1,
-							article: 'second',
+							item: 'second',
 							show: { default: true, S: true, M: false },
 							last: { default: true, S: true, M: false},
 							size: { default: 'medium', S: 'large', M: 'medium' },
@@ -321,7 +321,7 @@ describe('Layout engine', () => {
 					cards: [
 						{
 							order: 1,
-							article: 'second',
+							item: 'second',
 							show: { default: false, S: false, M: true },
 							size: { default: 'medium', S: 'large', M: 'medium'},
 							standFirst: { default: true, S: true, M: true },
@@ -330,7 +330,7 @@ describe('Layout engine', () => {
 						},
 						{
 							order: 2,
-							article: 'third',
+							item: 'third',
 							show: { default: true, S: true, M: true },
 							last: { default: false, S: false, M: true},
 							size: { default: 'medium', S: 'medium', M: 'medium' },
@@ -340,7 +340,7 @@ describe('Layout engine', () => {
 						},
 						{
 							order: 3,
-							article: 'fourth',
+							item: 'fourth',
 							show: { default: true, S: true, M: false},
 							size: { default: 'small', S: 'medium', M: 'small' },
 							standFirst: { default: false, S: true, M: false},
@@ -349,7 +349,7 @@ describe('Layout engine', () => {
 						},
 						{
 							order: 4,
-							article: 'fifth',
+							item: 'fifth',
 							show: { default: true, S: true, M: false},
 							size: { default: 'tiny', S: 'small', M: 'tiny' },
 							standFirst: { default: false, S: false, M: false },
@@ -358,7 +358,7 @@ describe('Layout engine', () => {
 						},
 						{
 							order: 5,
-							article: 'sixth',
+							item: 'sixth',
 							show: { default: true, S: true, M: false},
 							size: { default: 'tiny', S: 'tiny', M: 'tiny' },
 							standFirst: { default: false, S: false, M: false },
@@ -367,7 +367,7 @@ describe('Layout engine', () => {
 						},
 						{
 							order: 6,
-							article: 'seventh',
+							item: 'seventh',
 							show: { default: true, S: true, M: false},
 							last: { default: true, S: true, M: false},
 							size: { default: 'tiny', S: 'tiny', M: 'tiny' },
@@ -382,7 +382,7 @@ describe('Layout engine', () => {
 					cards: [
 						{
 							order: 3,
-							article: 'fourth',
+							item: 'fourth',
 							show: { default: false, S: false, M: true },
 							size: { default: 'small', S: 'medium', M: 'small' },
 							standFirst: { default: false, S: true, M: false},
@@ -391,7 +391,7 @@ describe('Layout engine', () => {
 						},
 						{
 							order: 4,
-							article: 'fifth',
+							item: 'fifth',
 							show: { default: false, S: false, M: true },
 							size: { default: 'tiny', S: 'small', M: 'tiny' },
 							standFirst: { default: false, S: false, M: false },
@@ -400,7 +400,7 @@ describe('Layout engine', () => {
 						},
 						{
 							order: 5,
-							article: 'sixth',
+							item: 'sixth',
 							show: { default: false, S: false, M: true },
 							size: { default: 'tiny', S: 'tiny', M: 'tiny' },
 							standFirst: { default: false, S: false, M: false },
@@ -409,7 +409,7 @@ describe('Layout engine', () => {
 						},
 						{
 							order: 6,
-							article: 'seventh',
+							item: 'seventh',
 							show: { default: false, S: false, M: true },
 							last: { default: false, S: false, M: true},
 							size: { default: 'tiny', S: 'tiny', M: 'tiny' },

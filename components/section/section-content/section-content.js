@@ -9,9 +9,9 @@ const colspanToString = (span) => {
 
 export default class SectionContent extends Component {
 	render () {
-		const articles = this.props.articles.slice();
+		const items = this.props.items.slice();
 
-		const columnDefs = buildColumns(this.props.cards, articles);
+		const columnDefs = buildColumns(this.props.cards, items);
 		const columns = columnDefs.map((column, colIdx) => {
 			const colspan = colspanToString(column.colspan);
 

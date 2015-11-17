@@ -21,7 +21,7 @@ export default class Section extends Component {
 							style={this.props.style}
 							columns={this.props.columns}
 							cards={this.props.cards}
-							articles={this.props.content}
+							items={this.props.content}
 						/>
 					</div>
 					{
