@@ -44,10 +44,8 @@
 	display: none;
 }
 
-@include oGridRespondTo($until: M) {
-	.top-stories__column [data-card-is-landscape~="true"] {
-		flex-direction: row;
-	}
+[data-card-landscape~="true"] {
+	flex-direction: row;
 }
 
 .card--stretch {
@@ -74,6 +72,14 @@
 
 		.card--#{$layout-name}--no-stretch {
 			flex: none;
+		}
+
+		[data-card-landscape~="#{$layout-name}--true"] {
+			flex-direction: row;
+		}
+
+		[data-card-landscape~="#{$layout-name}--false"] {
+			flex-direction: column;
 		}
 	}
 }

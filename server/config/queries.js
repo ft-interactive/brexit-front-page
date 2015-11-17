@@ -202,6 +202,27 @@ const newFrontPage = (region) => (`
 				videoCodec
 			}
 		}
+		technology {
+			url
+			items(limit: 2, genres: ["analysis", "comment"]) {
+				... Basic
+				... Extended
+			}
+		}
+		markets {
+			url
+			items(limit: 2, genres: ["analysis", "comment"]) {
+				... Basic
+				... Extended
+			}
+		}
+		lifestyle {
+			url
+			items(limit: 2) {
+				... Basic
+				... Extended
+			}
+		}
 	}
 `);
 
