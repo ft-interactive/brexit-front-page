@@ -52,7 +52,11 @@ export default [
 		},
 		// FIXME sidebarComponent needs more thinking, maybe unifiying with card
 		// styles when we have those
-		sidebarComponent: FastFt
+		sidebarComponent: FastFt,
+		cols: {
+			content: '12 L10 XL9',
+			sidebar: '12 L2 XL3'
+		}
 	},
 	{
 		id: 'opinion',
@@ -89,6 +93,10 @@ export default [
 				// { column: 3, width: 4, ad: true },
 				{ column: 3, width: 4, size: 'small' }
 			]
+		},
+		cols: {
+			meta: '12 XL2',
+			content: '12 XL10'
 		}
 	},
 	{
@@ -120,6 +128,10 @@ export default [
 				{ column: 4, width: 2, size: 'small', image: true },
 				{ column: 5, width: 2, size: 'small', image: true }
 			]
+		},
+		cols: {
+			meta: '12 XL2',
+			content: '12 XL10'
 		}
 	},
 	{
@@ -145,6 +157,10 @@ export default [
 				{ column: 2, width: 3 },
 				{ column: 3, width: 3 }
 			]
+		},
+		cols: {
+			meta: '12 XL2',
+			content: '12 XL10'
 		}
 	}
 ];
