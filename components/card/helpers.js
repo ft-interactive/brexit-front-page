@@ -14,7 +14,7 @@ const mobileFirst = (value) => {
 	});
 
 	return cleanValue;
-}
+};
 
 // Public: maps a function over an object returnin a new object
 // with the same keys and values replaced with the result of the function.
@@ -24,12 +24,12 @@ const objMap = (object, fn) => {
 		result[key] = fn(object[key], key);
 		return result;
 	}, {});
-}
+};
 
 // BEM style helper for responsive classes
 const prefix = (klass, modifier, layout) => {
 	return [klass, layout, modifier].filter(it => (it !== '' && it !== null && typeof it !== 'undefined')).join('--');
-}
+};
 
 // Public: turns a component name (e.g. foo) and an object like {default: 'val', S: 'other-val'}
 // to a string 'foo--val foo--S--other-val'
@@ -38,13 +38,13 @@ const responsiveClass = (component, modifier) => {
 	const mod = mobileFirst(modifier);
 
 	return prefix(component, mod.default) + ' ' + layoutNames.filter(it => mod.hasOwnProperty(it)).map(l => prefix(component, mod[l], l)).join(' ');
-}
+};
 
 // Public: turns an object like {default: 'val', S: 'other-val'}
 // to a string 'val S--other-val'
 const responsiveValue = (value) => {
 	return responsiveClass('', value);
-}
+};
 
 export default {
 	objMap,
