@@ -9,6 +9,11 @@
 	font-family: $n-type-serif;
 	font-weight: oFontsWeight(regular);
 	margin-top: 5px;
+
+	.card--video & {
+		@include oTypographySans(m);
+		margin: 5px 10px 10px;
+	}
 }
 .card__title--huge {
 	font-size: 40px;
