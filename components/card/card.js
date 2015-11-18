@@ -8,7 +8,6 @@ import Video from './video';
 class Card extends Component {
 	render () {
 		const item = this.props.item;
-		console.log(this.props.landscape);
 		const props = expandProps(this.props);
 
 		if (item.type === 'video') {

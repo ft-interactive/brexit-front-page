@@ -183,6 +183,16 @@ export default [
 				{ column: 2, width: 4, size: 'small', image: true, landscape: true },
 				{ column: 2, width: 4, size: 'small' }
 			]
+		},
+		cols: {
+			meta: {
+				default: 12,
+				XL: 2
+			},
+			content: {
+				default: 12,
+				XL: 10
+			}
 		}
 	},
 	{
