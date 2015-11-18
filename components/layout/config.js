@@ -185,12 +185,10 @@ export default [
 		},
 		cols: {
 			meta: {
-				default: 12,
-				XL: 2
+				default: 12
 			},
 			content: {
-				default: 12,
-				XL: 10
+				default: 12
 			}
 		}
 	},
