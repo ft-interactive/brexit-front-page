@@ -89,7 +89,7 @@ export default [
 				// { ad: true },
 				{ size: 'small' },
 				{ size: 'small' },
-				{ size: 'small' },
+				{ size: 'small' }
 			],
 			M: [
 				{ column: 0, width: 4, size: 'large', standFirst: true, image: true },
@@ -201,19 +201,25 @@ export default [
 				{ column: 0, width: 12 },
 				{ column: 1, width: 12 },
 				{ column: 2, width: 12 },
-				{ column: 3, width: 12 }
+				{ column: 3, width: 12 },
+				{ column: 4, width: 12 },
+				{ column: 5, width: 12 }
 			],
 			S: [
 				{ column: 0, width: 6 },
+				{ column: 1, width: 6 },
 				{ column: 0, width: 6 },
 				{ column: 1, width: 6 },
+				{ column: 0, width: 6 },
 				{ column: 1, width: 6 }
 			],
 			M: [
-				{ column: 0, width: 3 },
-				{ column: 1, width: 3 },
-				{ column: 2, width: 3 },
-				{ column: 3, width: 3 }
+				{ column: 0, width: 2 },
+				{ column: 1, width: 2 },
+				{ column: 2, width: 2 },
+				{ column: 3, width: 2 },
+				{ column: 4, width: 2 },
+				{ column: 5, width: 2 }
 			]
 		},
 		cols: {

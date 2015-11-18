@@ -190,7 +190,7 @@ const newFrontPage = (region) => (`
 				... Related
 			}
 		}
-		videos(limit: 4) {
+		videos(limit: 6) {
 			id
 			title
 			image {
