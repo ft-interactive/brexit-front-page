@@ -12,29 +12,29 @@ export default [
 		cards: {
 			default: [
 				{ size: 'large', standFirst: true, image: true, related: 1 },
-				{ size: 'medium' },
-				{ size: 'small' },
-				{ size: 'small' },
-				{ size: 'small' },
-				{ size: 'small' },
-				{ size: 'small' },
-				{ size: 'tiny' },
-				{ size: 'tiny' },
-				{ size: 'tiny', image: true },
-				{ size: 'tiny' }
+				{ size: 'medium', landscape: true },
+				{ size: 'small', landscape: true },
+				{ size: 'small', landscape: true },
+				{ size: 'small', landscape: true },
+				{ size: 'small', landscape: true },
+				{ size: 'small', landscape: true },
+				{ size: 'tiny', landscape: true },
+				{ size: 'tiny', landscape: true },
+				{ size: 'tiny', image: true, landscape: true },
+				{ size: 'tiny', landscape: true }
 			],
 			S: [
 				{ size: 'large', standFirst: true, image: true, related: 3 },
-				{ size: 'medium' },
-				{ size: 'small' },
-				{ size: 'small' },
-				{ size: 'small' },
-				{ size: 'small' },
-				{ size: 'small' },
-				{ size: 'tiny' },
-				{ size: 'tiny' },
-				{ size: 'tiny', image: true },
-				{ size: 'tiny' }
+				{ size: 'medium', landscape: true },
+				{ size: 'small', landscape: true },
+				{ size: 'small', landscape: true },
+				{ size: 'small', landscape: true },
+				{ size: 'small', landscape: true },
+				{ size: 'small', landscape: true },
+				{ size: 'tiny', landscape: true },
+				{ size: 'tiny', landscape: true },
+				{ size: 'tiny', image: true, landscape: true },
+				{ size: 'tiny', landscape: true }
 			],
 			M: [
 				{ column: 0, width: 5, size: 'large', standFirst: true, image: true, related: 3 },
@@ -141,6 +141,47 @@ export default [
 				{ column: 3, width: 2, size: 'small', image: true },
 				{ column: 4, width: 2, size: 'small', image: true },
 				{ column: 5, width: 2, size: 'small', image: true }
+			]
+		},
+		cols: {
+			meta: {
+				default: 12,
+				XL: 2
+			},
+			content: {
+				default: 12,
+				XL: 10
+			}
+		}
+	},
+	{
+		id: 'around-the-ft',
+		title: 'Around the FT',
+		style: 'around-the-ft',
+		cards: {
+			default: [
+				{ size: 'small', image: true, landscape: true },
+				{ size: 'small' },
+				{ size: 'small', image: true, landscape: true },
+				{ size: 'small' },
+				{ size: 'small', image: true, landscape: true },
+				{ size: 'small' }
+			],
+			S: [
+				{ size: 'small', image: true, landscape: true },
+				{ size: 'small' },
+				{ size: 'small', image: true, landscape: true },
+				{ size: 'small' },
+				{ size: 'small', image: true, landscape: true },
+				{ size: 'small' }
+			],
+			M: [
+				{ column: 0, width: 4, size: 'small', image: true, landscape: true },
+				{ column: 0, width: 4, size: 'small' },
+				{ column: 1, width: 4, size: 'small', image: true, landscape: true },
+				{ column: 1, width: 4, size: 'small' },
+				{ column: 2, width: 4, size: 'small', image: true, landscape: true },
+				{ column: 2, width: 4, size: 'small' }
 			]
 		},
 		cols: {

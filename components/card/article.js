@@ -33,7 +33,7 @@ class Article extends Component {
 	render () {
 		const article = this.props.article;
 		return (
-			<article className={'card' + lastClass(this.props.last)} data-card-is-landscape={responsiveValue(this.props.isLandscape)} data-trackable="card" data-card-show={responsiveValue(this.props.show)}>
+			<article className={'card' + lastClass(this.props.last)} data-card-landscape={responsiveValue(this.props.landscape)} data-trackable="card" data-card-show={responsiveValue(this.props.show)}>
 				<div>
 					<Tag tag={article.primaryTag} size={this.props.tagSize} />
 					<Title title={article.title} href={'/content/' + article.id} size={this.props.titleSize} />

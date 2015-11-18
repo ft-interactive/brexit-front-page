@@ -16,6 +16,13 @@ const sectionContent = (content) => {
 		},
 		'video': {
 			body: content.videos.map(video => Object.assign({}, { type: 'video' }, video))
+		},
+		'around-the-ft': {
+			body: [].concat(
+				content.technology.items.slice(0, 2),
+				content.markets.items.slice(0, 2),
+				content.lifestyle.items.slice(0, 2)
+			)
 		}
 	};
 }
