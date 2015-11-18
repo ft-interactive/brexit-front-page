@@ -13,7 +13,7 @@ class Video extends Component {
 						className="js-video video-wrapper"
 						data-n-component="n-video"
 						data-n-video-source="brightcove"
-						data-n-video-opts-optimum-width="355"
+						data-n-video-opts-optimum-width="342"
 						data-n-video-id={video.id} />
 					<h2 className="card__title" data-trackable="title">{video.title}</h2>
 				</div>

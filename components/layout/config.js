@@ -92,24 +92,25 @@ export default [
 				{ size: 'small' },
 			],
 			M: [
-				{ column: 0, width: 3, size: 'large', standFirst: true, image: true },
-				{ column: 1, width: 3, size: 'medium', standFirst: true },
-				{ column: 1, width: 3, size: 'medium', standFirst: true },
-				{ column: 2, width: 2, size: 'small', image: true },
-				{ column: 2, width: 2, size: 'small' },
-				{ column: 2, width: 2, size: 'small' },
+				{ column: 0, width: 4, size: 'large', standFirst: true, image: true },
+				{ column: 1, width: 3, size: 'medium' },
+				{ column: 1, width: 3, size: 'medium', image: true },
+				{ column: 2, width: 3, size: 'small', image: true },
+				{ column: 2, width: 3, size: 'small' },
+				{ column: 2, width: 3, size: 'small' },
 				// { column: 3, width: 4, ad: true },
-				{ column: 3, width: 4, size: 'small' }
+				{ column: 3, width: 2, size: 'tiny' },
+				{ column: 3, width: 2, size: 'tiny' },
+				{ column: 3, width: 2, size: 'tiny', image: true },
+				{ column: 3, width: 2, size: 'tiny' }
 			]
 		},
 		cols: {
 			meta: {
-				default: 12,
-				XL: 2
+				default: 12
 			},
 			content: {
-				default: 12,
-				XL: 10
+				default: 12
 			}
 		}
 	},
@@ -145,12 +146,10 @@ export default [
 		},
 		cols: {
 			meta: {
-				default: 12,
-				XL: 2
+				default: 12
 			},
 			content: {
-				default: 12,
-				XL: 10
+				default: 12
 			}
 		}
 	},
@@ -221,12 +220,10 @@ export default [
 		},
 		cols: {
 			meta: {
-				default: 12,
-				XL: 2
+				default: 12
 			},
 			content: {
-				default: 12,
-				XL: 10
+				default: 12
 			}
 		}
 	}
