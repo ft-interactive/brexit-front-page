@@ -41,7 +41,8 @@
 }
 
 .card__image-link--stick {
-	flex: 2;
+	flex: 1;
+	-ms-flex-preferred-size: auto;
 	display: flex;
 	align-items: flex-end;
 
@@ -67,7 +68,8 @@
 		}
 
 		.card__image-link--#{$layout-name}--stick {
-			flex: 2;
+			flex: 1;
+			-ms-flex-preferred-size: auto;
 			display: flex;
 			align-items: flex-end;
 		}
