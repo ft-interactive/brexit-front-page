@@ -36,13 +36,12 @@ setup.bootstrap(({flags}) => {
 	marketsData.init(flags);
 
 	const layoutContainer = document.getElementById('main-body');
-	if (layoutContainer.dataset.mainContent) {
-		const content = layoutContainer ? JSON.parse(layoutContainer.dataset.mainContent) : {};
-
+	const mainContent = layoutContainer.getAttribute('data-main-content');
+	if (mainContent) {
+		const content = layoutContainer ? JSON.parse(mainContent) : {};
 		Layout.init(layoutContainer, content);
 
 		const layoutOverlayContainer = document.getElementById('layout-overlay-container');
-
 		LayoutOverlay.init(layoutOverlayContainer, (newLayout) => {
 			Layout.render(newLayout);
 			LayoutOverlay.render(newLayout);
