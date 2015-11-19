@@ -65,7 +65,8 @@
 
 	[data-card-landscape~="M--false"] & {
 		@include oGridRespondTo(M) {
-			flex: 2;
+			flex: 1;
+			-ms-flex-preferred-size: auto;
 		}
 	}
 }
