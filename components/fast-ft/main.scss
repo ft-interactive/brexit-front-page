@@ -1,7 +1,6 @@
  // HACK this is for the horizontal rules to align,
  // it should be solved by some general column container in Section rather than here
 .fast-ft-wrapper {
-	display: flex;
 	padding-top: oGridGutter();
 
 	@include oGridRespondTo(M) {

@@ -53,6 +53,8 @@
 	}
 }
 .section__column--sidebar {
+	flex-direction: column;
+
 	#main-body .section--top-stories & {
 		@include oGridRespondTo($until: L) {
 			display: none;

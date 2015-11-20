@@ -1,3 +1,8 @@
+{{#defineBlock 'head'}}
+	<meta name="dfp_site" content="home" />
+	<meta name="dfp_zone" content="{{region}}" />
+{{/defineBlock}}
+
 {{#if @root.flags.frontPageLayoutPrototype}}
 	<div id="layout-overlay-container"></div>
 	{{> header-tabs newsTabTitle="Top Stories"}}
@@ -5,11 +10,6 @@
 		{{{ reactRenderToString Layout content=content layout=initialLayout }}}
 	</section>
 {{else}}
-	{{#defineBlock 'head'}}
-		<meta name="dfp_site" content="home" />
-		<meta name="dfp_zone" content="{{region}}" />
-	{{/defineBlock}}
-
 	{{> header-tabs  newsTabTitle="News"}}
 	<div class="o-grid-container fixed-width-container">
 		<div class="o-grid-row">
