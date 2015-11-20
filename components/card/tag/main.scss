@@ -22,6 +22,10 @@
 	line-height: 16px;
 }
 
+.card__tag__link {
+	border-bottom: 0;
+}
+
 .card__tag--authors {
 	color: getColor(claret);
 
