@@ -21,19 +21,28 @@ const stickToBottom = (showRelated) => {
 	}, {})
 };
 
-const lastClass = (last) => {
+const lastClass = last => {
 	if (!last) {
 		return '';
 	}
-
-	return ' ' + responsiveClass('card', objMap(last, (l) => l ? 'stretch' : 'no-stretch'))
+	return responsiveClass('card', objMap(last, (l) => l ? 'stretch' : 'no-stretch'))
 };
 
 class Article extends Component {
 	render () {
 		const article = this.props.article;
+		const classes = [
+			'card',
+			lastClass(this.props.last),
+			this.props.headshot ? 'card--has-headshot' : ''
+		]
+			.filter(className => className);
 		return (
-			<article className={'card' + lastClass(this.props.last)} data-card-landscape={responsiveValue(this.props.landscape)} data-trackable="card" data-card-show={responsiveValue(this.props.show)}>
+			<article
+					className={classes.join(' ')}
+					data-card-landscape={responsiveValue(this.props.landscape)}
+					data-trackable="card"
+					data-card-show={responsiveValue(this.props.show)}>
 				<div>
 					<Tag tag={article.primaryTag} size={this.props.tagSize} />
 					<Title title={article.title} href={'/content/' + article.id} size={this.props.titleSize} />

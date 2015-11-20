@@ -45,13 +45,14 @@ const showRelated = (related, relatedContent) => {
 // (e.g. Tag, Title, ...)
 const expandProps = (props) => {
 	const expandedProps = {};
-	const article = props.article || {};
+	const item = props.item || {};
 
 	expandedProps.tagSize = tagSize(props.size);
-	expandedProps.titleSize = titleSize(props.size, props.order, props.image, article.primaryImage);
+	expandedProps.titleSize = titleSize(props.size, props.order, props.image, item.primaryImage);
 	expandedProps.showStandFirst = showStandFirst(props.size, props.standFirst);
 	expandedProps.standFirstSize = standFirstSize(props.size);
-	expandedProps.showRelated = showRelated(props.related, article.relatedContent);
+	expandedProps.showRelated = showRelated(props.related, item.relatedContent);
+	expandedProps.headshot = item.branding && item.branding.taxonomy === 'authors' && item.branding.headshot;
 	expandedProps.last = props.last;
 
 	return Object.assign({}, props, expandedProps);
