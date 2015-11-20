@@ -7,7 +7,7 @@ class FastFt extends Component {
 		return (
 			<div className="fast-ft-wrapper">
 				<div className="fast-ft">
-					<h2><span className="fast-ft__logo fast-ft__logo--fast">fast</span><span className="fast-ft__logo fast-ft__logo--ft">FT</span></h2>
+					<h2><a className="fast-ft__link" href="/fastft"><span className="fast-ft__logo fast-ft__logo--fast">fast</span><span className="fast-ft__logo fast-ft__logo--ft">FT</span></a></h2>
 					<ol className="fast-ft__items">
 						{articleEls}
 					</ol>
