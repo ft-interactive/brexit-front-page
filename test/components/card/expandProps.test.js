@@ -10,8 +10,8 @@ describe('Card props expansion rules', () => {
 		image: {default: true, S: true, M: false, L: true},
 		standFirst: {default: true, S: true, M: true, L: false},
 		related: {default: 1, S: 2, M: 3, L: 4},
-		article: {relatedContent: ['a', 'b', 'c', 'd']}
-	}
+		item: {relatedContent: ['a', 'b', 'c', 'd']}
+	};
 
 	describe('#expandProps', () => {
 		it('Sets tag size correctly', () => {
@@ -28,7 +28,7 @@ describe('Card props expansion rules', () => {
 
 		it('Sets title size correctly with image available', () => {
 			const titleSize = {default: 'tiny', S: 'small', M: 'medium', L: 'large'};
-			const props = Object.assign({}, inProps, {article: {primaryImage: true}});
+			const props = Object.assign({}, inProps, {item: {primaryImage: true}});
 
 			expect(expandProps(props).titleSize).to.eql(titleSize);
 		});
@@ -59,14 +59,14 @@ describe('Card props expansion rules', () => {
 				{default: false, S: true, M: true, L: true},
 				{default: false, S: false, M: true, L: true},
 				{default: false, S: false, M: false, L: true}
-			]
+			];
 
 			expect(expandProps(inProps).showRelated).to.eql(showRelated);
 		});
 
 		it('Limits showRelatedContent to available related articles', () => {
-			const props = Object.assign({}, inProps, {article: {relatedContent: []}});
-			const showRelated = []
+			const props = Object.assign({}, inProps, {item: {relatedContent: []}});
+			const showRelated = [];
 
 			expect(expandProps(props).showRelated).to.eql(showRelated);
 		});
