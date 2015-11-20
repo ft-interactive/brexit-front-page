@@ -3,7 +3,7 @@
 	{{> header-tabs}}
 	<a id="news-tab" class="nh-header-tabs__marker">Top Stories</a>
 	<a id="fastft-tab" class="nh-header-tabs__marker">fastFT</a>
-	<section id="main-body" data-main-content="{{json content}}">{{{ reactRenderToString Layout content=content layout=initialLayout }}}</section>
+	<section id="main-body">{{{ reactRenderToString Layout content=content layout=initialLayout }}}</section>
 {{else}}
 	{{#defineBlock 'head'}}
 		<meta name="dfp_site" content="home" />

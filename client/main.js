@@ -36,14 +36,16 @@ setup.bootstrap(({flags}) => {
 	marketsData.init(flags);
 
 	const layoutContainer = document.getElementById('main-body');
-	const content = layoutContainer ? JSON.parse(layoutContainer.dataset.mainContent) : {};
+	if (layoutContainer) {
+		const mainContent = layoutContainer.getAttribute('data-main-content');
+		if (mainContent) {
+			Layout.init(layoutContainer, JSON.parse(mainContent));
 
-	Layout.init(layoutContainer, content);
-
-	const layoutOverlayContainer = document.getElementById('layout-overlay-container');
-
-	LayoutOverlay.init(layoutOverlayContainer, (newLayout) => {
-		Layout.render(newLayout);
-		LayoutOverlay.render(newLayout);
-	});
+			const layoutOverlayContainer = document.getElementById('layout-overlay-container');
+			LayoutOverlay.init(layoutOverlayContainer, (newLayout) => {
+				Layout.render(newLayout);
+				LayoutOverlay.render(newLayout);
+			});
+		}
+	}
 });
