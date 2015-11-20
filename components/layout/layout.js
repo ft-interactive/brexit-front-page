@@ -23,6 +23,9 @@ const sectionContent = (content) => {
 				content.markets.items.slice(0, 2),
 				content.lifestyle.items.slice(0, 2)
 			)
+		},
+		'most-popular': {
+			body: content.popular.items
 		}
 	};
 }
