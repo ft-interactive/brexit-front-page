@@ -154,6 +154,54 @@ export default [
 		}
 	},
 	{
+		id: 'most-popular',
+		title: 'Most Popular',
+		style: 'editors-picks',
+		cards: {
+			default: [
+				{ size: 'large', standFirst: true, image: true },
+				{ size: 'medium', standFirst: true },
+				{ size: 'medium', standFirst: true },
+				{ size: 'small' },
+				{ size: 'small' },
+				{ size: 'small' },
+				{ size: 'small' },
+				{ size: 'tiny' },
+				{ size: 'tiny' }
+			],
+			S: [
+				{ size: 'large', standFirst: true, image: true },
+				{ size: 'medium', standFirst: true },
+				{ size: 'medium', standFirst: true },
+				{ size: 'small' },
+				{ size: 'small' },
+				{ size: 'small' },
+				{ size: 'small' },
+				{ size: 'tiny' },
+				{ size: 'tiny' }
+			],
+			M: [
+				{ column: 0, width: 3, size: 'large', image: true, standFirst: true },
+				{ column: 1, width: 3, size: 'medium', standFirst: true },
+				{ column: 1, width: 3, size: 'medium' },
+				{ column: 2, width: 3, size: 'medium', image: true },
+				{ column: 2, width: 3, size: 'small' },
+				{ column: 3, width: 3, size: 'tiny' },
+				{ column: 3, width: 3, size: 'tiny' },
+				{ column: 3, width: 3, size: 'tiny' },
+				{ column: 3, width: 3, size: 'tiny' }
+			]
+		},
+		cols: {
+			meta: {
+				default: 12
+			},
+			content: {
+				default: 12
+			}
+		}
+	},
+	{
 		id: 'around-the-ft',
 		title: 'Around the FT',
 		style: 'around-the-ft',
