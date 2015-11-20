@@ -6,7 +6,9 @@ export default class Tag extends Component {
 		const tag = this.props.tag;
 		return (
 			<p className={'card__tag card__tag--' + tag.taxonomy + ' ' + responsiveClass('card__tag', this.props.size)}>
-				{tag.name}
+				<a className="card__tag__link" href={tag.url}>
+					{tag.name}
+				</a>
 			</p>
 		);
 	}
