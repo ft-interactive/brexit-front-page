@@ -1,8 +1,6 @@
 {{#if @root.flags.frontPageLayoutPrototype}}
 	<div id="layout-overlay-container"></div>
-	{{> header-tabs}}
-	<a id="news-tab" class="nh-header-tabs__marker">Top Stories</a>
-	<a id="fastft-tab" class="nh-header-tabs__marker">fastFT</a>
+	{{> header-tabs newsTabTitle="Top Stories"}}
 	<section id="main-body">{{{ reactRenderToString Layout content=content layout=initialLayout }}}</section>
 {{else}}
 	{{#defineBlock 'head'}}
@@ -10,9 +8,7 @@
 		<meta name="dfp_zone" content="{{region}}" />
 	{{/defineBlock}}
 
-	{{> header-tabs}}
-	<a id="news-tab" class="nh-header-tabs__marker" >News</a>
-	<a id="fastft-tab" class="nh-header-tabs__marker" >fastFT</a>
+	{{> header-tabs  newsTabTitle="News"}}
 	<div class="o-grid-container fixed-width-container">
 		<div class="o-grid-row">
 			<div class="main-content nh-header-tabs__panel" data-o-grid-colspan="12 L8 XL9">
