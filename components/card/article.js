@@ -35,10 +35,10 @@ class Article extends Component {
 		return (
 			<article className={'card' + lastClass(this.props.last)} data-card-landscape={responsiveValue(this.props.landscape)} data-trackable="card" data-card-show={responsiveValue(this.props.show)}>
 				<div>
-					<Tag tag={article.primaryTag} size={this.props.tagSize} />
+					{article.primaryTag ? <Tag tag={article.primaryTag} size={this.props.tagSize} /> : null}
 					<Title title={article.title} href={'/content/' + article.id} size={this.props.titleSize} />
 				</div>
-				<Standfirst article={article} style={article.primaryTag.taxonomy} size={this.props.standFirstSize} show={this.props.showStandFirst} />
+				<Standfirst article={article} style={article.primaryTag ? article.primaryTag.taxonomy : 'default'} size={this.props.standFirstSize} show={this.props.showStandFirst} />
 				{!!article.primaryImage ? <Image article={article} show={this.props.image} stickToBottom={stickToBottom(this.props.showRelated)}/> : null}
 				{this.props.showRelated.length > 0 ? <Related articles={article.relatedContent} show={this.props.showRelated} /> : null}
 			</article>
