@@ -61,6 +61,8 @@
 	@include oGridRespondTo($layout-name) {
 		[data-card-show~="#{$layout-name}--true"] {
 			display: flex;
+			/* IE8, IE9 */
+			display: block\0;
 		}
 
 		[data-card-show~="#{$layout-name}--false"] {
