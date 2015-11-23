@@ -60,9 +60,8 @@
 @each $layout-name in $_o-grid-layout-names {
 	@include oGridRespondTo($layout-name) {
 		[data-card-show~="#{$layout-name}--true"] {
+			display: block;
 			display: flex;
-			/* IE8, IE9 */
-			display: block\0;
 		}
 
 		[data-card-show~="#{$layout-name}--false"] {
