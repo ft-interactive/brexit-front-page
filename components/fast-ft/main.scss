@@ -14,22 +14,23 @@
 	border-left: 1px solid getColor('warm-3');
 }
 .fast-ft__link {
+	display: inline-block;
 	border-bottom: 0;
 }
-.fast-ft__logo {
-	text-indent: -9999px;
-	background-size: contain;
-	background-position: center;
-}
 .fast-ft__logo--fast {
-	@include nextIcon(brand-fast, getColor('fastft-brand'), 30px);
-	height: 35px;
+	@include nextIcon(brand-fast, getColor('fastft-brand'), 30);
 }
 .fast-ft__logo--ft {
-	@include nextIcon(brand-ft, getColor('warm-4'), 30px);
+	@include nextIcon(brand-ft, getColor('warm-4'), 30);
 }
+ .fast-ft__logo {
+	 height: 100%;
+	 text-indent: -9999px;
+	 background-size: contain;
+	 background-position: 0 100%;
+ }
 .fast-ft__items {
-	margin: 0;
+	margin: 10px 0 0;
 	padding: 0;
 	list-style: none;
 }
