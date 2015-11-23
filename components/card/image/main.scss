@@ -35,17 +35,19 @@
 	flex: 1;
 	-ms-flex-preferred-size: auto;
 	display: flex;
-	align-items: flex-end;
 	justify-content: flex-end;
+	align-items: flex-end;
 
 	[data-card-landscape~="true"] & {
 		flex: none;
+		align-items: flex-start;
 	}
 
 	[data-card-landscape~="M--false"] & {
 		@include oGridRespondTo(M) {
 			flex: 1;
 			-ms-flex-preferred-size: auto;
+			align-items: flex-end;
 		}
 	}
 }
@@ -93,18 +95,6 @@
 
 		[data-image-show~="#{$layout-name}--false"] .card__image {
 			display: none;
-		}
-
-		.card__image-link--#{$layout-name}--stick {
-			flex: 1;
-			-ms-flex-preferred-size: auto;
-			display: flex;
-			align-items: flex-end;
-		}
-
-		.card__image-link--#{$layout-name}--nostick {
-			display: block;
-			flex: none;
 		}
 	}
 }
