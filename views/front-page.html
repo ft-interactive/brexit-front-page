@@ -2,9 +2,7 @@
 	<div id="layout-overlay-container"></div>
 	{{> header-tabs newsTabTitle="Top Stories"}}
 	<section id="main-body" class="o-grid-container">
-		<div class="o-grid-row">
-			{{{ reactRenderToString Layout content=content layout=initialLayout }}}
-		</div>
+		{{{ reactRenderToString Layout content=content layout=initialLayout }}}
 	</section>
 {{else}}
 	{{#defineBlock 'head'}}

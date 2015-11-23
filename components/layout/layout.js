@@ -47,7 +47,7 @@ export default class Layout extends Component {
 		});
 
 		return (
-			<div>
+			<div className="o-grid-row">
 				{sections}
 			</div>
 		);
