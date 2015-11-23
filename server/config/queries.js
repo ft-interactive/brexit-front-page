@@ -188,6 +188,10 @@ const newFrontPage = (region) => (`
 				... Basic
 				... Extended
 				... Related
+				branding {
+					headshot
+					taxonomy
+			    }
 			}
 		}
 		videos(limit: 6) {
