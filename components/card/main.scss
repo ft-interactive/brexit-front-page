@@ -58,6 +58,12 @@
 }
 
 @each $layout-name in $_o-grid-layout-names {
+	[data-card-show~="#{$layout-name}--true"] {
+		display: block;
+	}
+	[data-card-show~="#{$layout-name}--false"] {
+		display: none;
+	}
 	@include oGridRespondTo($layout-name) {
 		[data-card-show~="#{$layout-name}--true"] {
 			display: block;
