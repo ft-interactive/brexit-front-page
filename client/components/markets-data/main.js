@@ -92,13 +92,13 @@ const init = (flags) => {
 			itemsEl.className = 'markets-data__items markets-data__items--hidden';
 			itemsEl.innerHTML = marketsData.data.items
 				.filter(marketData => !marketData.partialError && 'change1Day' in marketData.quote)
-				.map(marketData => {
+				.map((marketData, index) => {
 					const symbol = marketData.symbolInput;
 					const security = securities.find(security => security.symbol === symbol);
 					const percentChange = marketData.quote.change1DayPercent;
 					const priceChangeDirection = percentChange < 0 ? 'down' : percentChange > 0 ? 'up' : 'no-change';
 					return `
-						<li class="markets-data__item" data-trackable="item">
+						<li class="markets-data__item" data-trackable="item | ${index + 1}">
 							<a href="http://markets.ft.com/data/${security.type}/tearsheet/summary?s=${symbol}"
 								class="markets-data__item__link"
 								data-trackable="link">
