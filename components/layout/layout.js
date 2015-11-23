@@ -2,33 +2,37 @@ import React, {Component} from 'react';
 
 import Section from '../section/section';
 
+import colspan from '../../client/utils/colspan';
+
 const sectionContent = (content) => {
 	return {
 		'top-stories': {
 			body: content.top.items,
 			sidebar: content.fastFT
 		},
-		'opinion': {
+		opinion: {
 			body: content.opinion.items
 		},
 		'editors-picks': {
 			body: content.editorsPicks.items
 		},
-		'video': {
+		video: {
 			body: content.videos.map(video => Object.assign({}, { type: 'video' }, video))
 		},
-		'around-the-ft': {
-			body: [].concat(
-				content.technology.items.slice(0, 2),
-				content.markets.items.slice(0, 2),
-				content.lifestyle.items.slice(0, 2)
-			)
+		technology: {
+			body: content.technology.items
+		},
+		markets: {
+			body: content.markets.items
+		},
+		'lifestyle': {
+			body: content.lifestyle.items
 		},
 		'most-popular': {
 			body: content.popular.items
 		}
 	};
-}
+};
 
 export default class Layout extends Component {
 	render () {
@@ -36,8 +40,8 @@ export default class Layout extends Component {
 		const sections = this.props.layout.map(section => {
 			const sectionContent = content[section.id];
 			return (
-				<div id={section.id} key={section.id}>
-					<Section {...section} content={sectionContent.body} sidebarContent={sectionContent.sidebar} />
+				<div id={section.id} key={section.id} data-o-grid-colspan={colspan(section.size)}>
+					<Section {...section} content={sectionContent.body} sidebarContent={sectionContent.sidebar} data-o-grid-colspan="12" />
 				</div>
 			);
 		});

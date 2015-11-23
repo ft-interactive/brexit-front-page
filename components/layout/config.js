@@ -50,6 +50,9 @@ export default [
 				{ column: 2, width: 3, size: 'tiny' }
 			]
 		},
+		size: {
+			default: 12
+		},
 		// FIXME sidebarComponent needs more thinking, maybe unifiying with card
 		// styles when we have those
 		sidebarComponent: FastFt,
@@ -105,6 +108,9 @@ export default [
 				{ column: 3, width: 2, size: 'tiny' }
 			]
 		},
+		size: {
+			default: 12
+		},
 		cols: {
 			meta: {
 				default: 12
@@ -143,6 +149,9 @@ export default [
 				{ column: 4, width: 2, size: 'small', image: true },
 				{ column: 5, width: 2, size: 'small', image: true }
 			]
+		},
+		size: {
+			default: 12
 		},
 		cols: {
 			meta: {
@@ -192,6 +201,9 @@ export default [
 				{ column: 3, width: 3, size: 'tiny' }
 			]
 		},
+		size: {
+			default: 12
+		},
 		cols: {
 			meta: {
 				default: 12
@@ -202,34 +214,119 @@ export default [
 		}
 	},
 	{
-		id: 'around-the-ft',
-		title: 'Around the FT',
-		style: 'around-the-ft',
+		id: 'technology',
+		title: 'Technolgy',
+		style: 'technology',
 		cards: {
 			default: [
-				{ size: 'small', image: true, landscape: true },
-				{ size: 'small' },
-				{ size: 'small', image: true, landscape: true },
-				{ size: 'small' },
 				{ size: 'small', image: true, landscape: true },
 				{ size: 'small' }
 			],
 			S: [
 				{ size: 'small', image: true, landscape: true },
-				{ size: 'small' },
+				{ size: 'small' }
+			],
+			M: [
 				{ size: 'small', image: true, landscape: true },
-				{ size: 'small' },
+				{ size: 'small' }
+			]
+		},
+		size: {
+			default: 12,
+			M: 4
+		},
+		cols: {
+			meta: {
+				default: 12
+			},
+			content: {
+				default: 12
+			}
+		}
+	},
+	{
+		id: 'markets',
+		title: 'Markets',
+		style: 'markets',
+		cards: {
+			default: [
+				{ size: 'small', image: true, landscape: true },
+				{ size: 'small' }
+			],
+			S: [
 				{ size: 'small', image: true, landscape: true },
 				{ size: 'small' }
 			],
 			M: [
-				{ column: 0, width: 4, size: 'small', image: true, landscape: true },
-				{ column: 0, width: 4, size: 'small' },
-				{ column: 1, width: 4, size: 'small', image: true, landscape: true },
-				{ column: 1, width: 4, size: 'small' },
-				{ column: 2, width: 4, size: 'small', image: true, landscape: true },
-				{ column: 2, width: 4, size: 'small' }
+				{ size: 'small', image: true, landscape: true },
+				{ size: 'small' }
 			]
+		},
+		size: {
+			default: 12,
+			M: 4
+		},
+		cols: {
+			meta: {
+				default: 12
+			},
+			content: {
+				default: 12
+			}
+		}
+	},
+	{
+		id: 'markets',
+		title: 'Markets',
+		style: 'markets',
+		cards: {
+			default: [
+				{ size: 'small', image: true, landscape: true },
+				{ size: 'small' }
+			],
+			S: [
+				{ size: 'small', image: true, landscape: true },
+				{ size: 'small' }
+			],
+			M: [
+				{ size: 'small', image: true, landscape: true },
+				{ size: 'small' }
+			]
+		},
+		size: {
+			default: 12,
+			M: 4
+		},
+		cols: {
+			meta: {
+				default: 12
+			},
+			content: {
+				default: 12
+			}
+		}
+	},
+	{
+		id: 'lifestyle',
+		title: 'Life & Style',
+		style: 'lifestyle',
+		cards: {
+			default: [
+				{ size: 'small', image: true, landscape: true },
+				{ size: 'small' }
+			],
+			S: [
+				{ size: 'small', image: true, landscape: true },
+				{ size: 'small' }
+			],
+			M: [
+				{ size: 'small', image: true, landscape: true },
+				{ size: 'small' }
+			]
+		},
+		size: {
+			default: 12,
+			M: 4
 		},
 		cols: {
 			meta: {
@@ -263,6 +360,9 @@ export default [
 				{ column: 2, width: 3 },
 				{ column: 3, width: 3 }
 			]
+		},
+		size: {
+			default: 12
 		},
 		cols: {
 			meta: {

@@ -2,22 +2,13 @@ import React, {Component} from 'react';
 import SectionMeta from './section-meta/section-meta';
 import SectionContent from './section-content/section-content';
 
-// turn { default: 12, XL: 2} into '12 XL2'
-const colspan = config => {
-	return ['default', 'XS', 'S', 'M', 'L', 'XL'].reduce((colspan, breakpoint) => {
-		if (config[breakpoint]) {
-			const colspanPrefix = breakpoint !== 'default' ? breakpoint : '';
-			colspan.push(colspanPrefix + config[breakpoint]);
-		}
-		return colspan;
-	}, []).join(' ');
-};
+import colspan from '../../client/utils/colspan';
 
 export default class Section extends Component {
 	render () {
 		const cols = this.props.cols;
 		return (
-			<section className={'section o-grid-container section--' + this.props.style} data-trackable={this.props.id}>
+			<section className={'section o-grid-container o-grid-container--compact section--' + this.props.style} data-trackable={this.props.id}>
 				<div className="o-grid-row">
 					{
 						cols.meta ?

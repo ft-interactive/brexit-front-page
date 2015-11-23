@@ -1,7 +1,11 @@
 {{#if @root.flags.frontPageLayoutPrototype}}
 	<div id="layout-overlay-container"></div>
 	{{> header-tabs newsTabTitle="Top Stories"}}
-	<section id="main-body">{{{ reactRenderToString Layout content=content layout=initialLayout }}}</section>
+	<section id="main-body" class="o-grid-container">
+		<div class="o-grid-row">
+			{{{ reactRenderToString Layout content=content layout=initialLayout }}}
+		</div>
+	</section>
 {{else}}
 	{{#defineBlock 'head'}}
 		<meta name="dfp_site" content="home" />
