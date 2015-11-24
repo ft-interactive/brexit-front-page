@@ -129,22 +129,30 @@ export default [
 		style: 'editors-picks',
 		cards: {
 			default: [
-				{ size: 'small' },
-				{ size: 'small' },
-				{ size: 'small' },
-				{ size: 'small' },
-				{ size: 'small' },
-				{ size: 'small' }
+				{ size: 'tiny', landscape: true, image: true },
+				{ size: 'tiny', landscape: true, image: true },
+				{ size: 'tiny', landscape: true, image: true },
+				{ size: 'tiny', landscape: true, image: true },
+				{ size: 'tiny', landscape: true, image: true },
+				{ size: 'tiny', landscape: true, image: true }
 			],
 			S: [
-				{ size: 'small' },
-				{ size: 'small' },
-				{ size: 'small' },
-				{ size: 'small' },
-				{ size: 'small' },
-				{ size: 'small' }
+				{ column: 0, width: 6, size: 'small', image: true },
+				{ column: 1, width: 6, size: 'small', image: true },
+				{ column: 0, width: 6, size: 'small', image: true },
+				{ column: 1, width: 6, size: 'small', image: true },
+				{ column: 0, width: 6, size: 'small', image: true },
+				{ column: 1, width: 6, size: 'small', image: true }
 			],
 			M: [
+				{ column: 0, width: 4, size: 'small', image: true },
+				{ column: 1, width: 4, size: 'small', image: true },
+				{ column: 2, width: 4, size: 'small', image: true },
+				{ column: 0, width: 4, size: 'small', image: true },
+				{ column: 1, width: 4, size: 'small', image: true },
+				{ column: 2, width: 4, size: 'small', image: true }
+			],
+			L: [
 				{ column: 0, width: 2, size: 'small', image: true },
 				{ column: 1, width: 2, size: 'small', image: true },
 				{ column: 2, width: 2, size: 'small', image: true },
