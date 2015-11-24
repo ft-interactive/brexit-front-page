@@ -162,7 +162,8 @@ describe('Layout engine', () => {
 				standFirst: {default: false},
 				image: {default: false},
 				related: {default: 0},
-				landscape: {default: false}
+				landscape: {default: false},
+				imageStick: {default: false}
 			}
 
 			expect(Engine.cardProps(layout, 1)).to.eql(expectedProps);
@@ -171,7 +172,7 @@ describe('Layout engine', () => {
 		it('sets defaults to the default value', () => {
 			const layout = {
 				default: [
-					{size: 'large', standFirst: true, image: true, related: 3, landscape: true},
+					{size: 'large', standFirst: true, image: true, related: 3, landscape: true, imageStick: true},
 				]
 			};
 			const expectedProps = {
@@ -179,7 +180,8 @@ describe('Layout engine', () => {
 				standFirst: {default: true},
 				image: {default: true},
 				related: {default: 3},
-				landscape: {default: true}
+				landscape: {default: true},
+				imageStick: {default: true}
 			}
 
 			expect(Engine.cardProps(layout, 0)).to.eql(expectedProps);
@@ -193,7 +195,7 @@ describe('Layout engine', () => {
 				],
 				L: [
 					{size: 'large', standFirst: true, image: true, related: 3, landscape: false},
-					{size: 'large', standFirst: true, image: true, related: 1, landscape: false},
+					{size: 'large', standFirst: true, image: true, related: 1, landscape: false, imageStick: true}
 				]
 			};
 			const expectedProps = {
@@ -201,7 +203,8 @@ describe('Layout engine', () => {
 				standFirst: {default: true, L: true},
 				image: {default: false, L: true},
 				related: {default: 0, L: 1},
-				landscape: {default: true, L: false}
+				landscape: {default: true, L: false},
+				imageStick: {default: false, L: true}
 			}
 
 			expect(Engine.cardProps(layout, 1)).to.eql(expectedProps);
@@ -227,7 +230,8 @@ describe('Layout engine', () => {
 							image: {default: false},
 							related: {default: 0},
 							item: 'first',
-							landscape: {default: false}
+							landscape: {default: false},
+							imageStick: {default: false}
 						}
 					]
 				}
@@ -240,7 +244,7 @@ describe('Layout engine', () => {
 			const articles = ['first'];
 			const layout = {
 				default: [{size: 'large', image: true, related: 3, landscape: false}],
-				M: [{column: 0, width: 5, size: 'medium', related: 2, landscape: true}]
+				M: [{column: 0, width: 5, size: 'medium', related: 2, landscape: true, imageStick: true}]
 			};
 			const expected = [
 				{
@@ -255,7 +259,8 @@ describe('Layout engine', () => {
 							image: {default: true, M: false},
 							related: {default: 3, M: 2},
 							item: 'first',
-							landscape: {default: false, M: true}
+							landscape: {default: false, M: true},
+							imageStick: {default: false, M: true}
 						}
 					]
 				}
@@ -308,7 +313,8 @@ describe('Layout engine', () => {
 							standFirst: { default: true, S: true, M: true},
 							image: { default: true, S: true, M: true },
 							related: { default: 3, S: 3, M: 3 },
-							landscape: {default: false, S: false, M: false}
+							landscape: {default: false, S: false, M: false},
+							imageStick: {default: false, S: false, M: false}
 						},
 						{
 							order: 1,
@@ -319,7 +325,8 @@ describe('Layout engine', () => {
 							standFirst: { default: true, S: true, M: true},
 							image: { default: false, S: false, M: true },
 							related: { default: 0, S: 0, M: 0 },
-							landscape: {default: false, S: false, M: false}
+							landscape: {default: false, S: false, M: false},
+							imageStick: {default: false, S: false, M: false}
 						}
 					]
 				},
@@ -334,7 +341,8 @@ describe('Layout engine', () => {
 							standFirst: { default: true, S: true, M: true },
 							image: { default: false, S: false, M: true },
 							related: { default: 0, S: 0, M: 0 },
-							landscape: {default: false, S: false, M: false}
+							landscape: {default: false, S: false, M: false},
+							imageStick: {default: false, S: false, M: false}
 						},
 						{
 							order: 2,
@@ -345,7 +353,8 @@ describe('Layout engine', () => {
 							standFirst: { default: false, S: false, M: false },
 							image: { default: false, S: true, M: false },
 							related: { default: 0, S: 0, M: 0 },
-							landscape: {default: false, S: false, M: false}
+							landscape: {default: false, S: false, M: false},
+							imageStick: {default: false, S: false, M: false}
 						},
 						{
 							order: 3,
@@ -355,7 +364,8 @@ describe('Layout engine', () => {
 							standFirst: { default: false, S: true, M: false},
 							image: { default: false, S: false, M: true },
 							related: { default: 0, S: 0, M: 0 },
-							landscape: {default: false, S: false, M: false}
+							landscape: {default: false, S: false, M: false},
+							imageStick: {default: false, S: false, M: false}
 						},
 						{
 							order: 4,
@@ -365,7 +375,8 @@ describe('Layout engine', () => {
 							standFirst: { default: false, S: false, M: false },
 							image: { default: false, S: false, M: false },
 							related: { default: 0, S: 0, M: 0 },
-							landscape: {default: false, S: false, M: false}
+							landscape: {default: false, S: false, M: false},
+							imageStick: {default: false, S: false, M: false}
 						},
 						{
 							order: 5,
@@ -375,7 +386,8 @@ describe('Layout engine', () => {
 							standFirst: { default: false, S: false, M: false },
 							image: { default: false, S: false, M: false },
 							related: { default: 0, S: 0, M: 0 },
-							landscape: {default: false, S: false, M: false}
+							landscape: {default: false, S: false, M: false},
+							imageStick: {default: false, S: false, M: false}
 						},
 						{
 							order: 6,
@@ -386,7 +398,8 @@ describe('Layout engine', () => {
 							standFirst: { default: false, S: false, M: false },
 							image: { default: false, S: false, M: false },
 							related: { default: 0, S: 0, M: 0 },
-							landscape: {default: false, S: false, M: false}
+							landscape: {default: false, S: false, M: false},
+							imageStick: {default: false, S: false, M: false}
 						}
 					]
 				},
@@ -401,7 +414,8 @@ describe('Layout engine', () => {
 							standFirst: { default: false, S: true, M: false},
 							image: { default: false, S: false, M: true },
 							related: { default: 0, S: 0, M: 0 },
-							landscape: {default: false, S: false, M: false}
+							landscape: {default: false, S: false, M: false},
+							imageStick: {default: false, S: false, M: false}
 						},
 						{
 							order: 4,
@@ -411,7 +425,8 @@ describe('Layout engine', () => {
 							standFirst: { default: false, S: false, M: false },
 							image: { default: false, S: false, M: false },
 							related: { default: 0, S: 0, M: 0 },
-							landscape: {default: false, S: false, M: false}
+							landscape: {default: false, S: false, M: false},
+							imageStick: {default: false, S: false, M: false}
 						},
 						{
 							order: 5,
@@ -421,7 +436,8 @@ describe('Layout engine', () => {
 							standFirst: { default: false, S: false, M: false },
 							image: { default: false, S: false, M: false },
 							related: { default: 0, S: 0, M: 0 },
-							landscape: {default: false, S: false, M: false}
+							landscape: {default: false, S: false, M: false},
+							imageStick: {default: false, S: false, M: false}
 						},
 						{
 							order: 6,
@@ -432,7 +448,8 @@ describe('Layout engine', () => {
 							standFirst: { default: false, S: false, M: false },
 							image: { default: false, S: false, M: false },
 							related: { default: 0, S: 0, M: 0 },
-							landscape: {default: false, S: false, M: false}
+							landscape: {default: false, S: false, M: false},
+							imageStick: {default: false, S: false, M: false}
 						}
 					]
 				}
