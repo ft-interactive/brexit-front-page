@@ -1,19 +1,21 @@
 const layoutNames = ['S', 'M', 'L', 'XL'];
 
-const cardPropKeys = ['size', 'standFirst', 'image', 'related', 'landscape'];
+const cardPropKeys = ['size', 'standFirst', 'image', 'related', 'landscape', 'imageStick'];
 const cardPropValues = {
 	size: ['large', 'medium', 'small', 'tiny'],
 	standFirst: [false, true],
 	image: [false, true],
 	related: [0, 1, 2, 3, 4, 5],
-	landscape: [false, true]
+	landscape: [false, true],
+	imageStick: [false, true]
 };
 const cardPropDefaults = {
 	size: 'medium',
 	standFirst: false,
 	image: false,
 	related: 0,
-	landscape: false
+	landscape: false,
+	imageStick: false
 };
 
 // Finds the maximum number of cards and columns in all layouts

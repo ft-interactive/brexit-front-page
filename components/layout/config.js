@@ -136,36 +136,36 @@ export default [
 		style: 'editors-picks',
 		cards: {
 			default: [
-				{ size: 'tiny', landscape: true, image: true },
-				{ size: 'tiny', landscape: true, image: true },
-				{ size: 'tiny', landscape: true, image: true },
-				{ size: 'tiny', landscape: true, image: true },
-				{ size: 'tiny', landscape: true, image: true },
-				{ size: 'tiny', landscape: true, image: true }
+				{ size: 'tiny', landscape: true, image: true, imageStick: true },
+				{ size: 'tiny', landscape: true, image: true, imageStick: true },
+				{ size: 'tiny', landscape: true, image: true, imageStick: true },
+				{ size: 'tiny', landscape: true, image: true, imageStick: true },
+				{ size: 'tiny', landscape: true, image: true, imageStick: true },
+				{ size: 'tiny', landscape: true, image: true, imageStick: true }
 			],
 			S: [
-				{ column: 0, width: 6, size: 'small', image: true },
-				{ column: 1, width: 6, size: 'small', image: true },
-				{ column: 0, width: 6, size: 'small', image: true },
-				{ column: 1, width: 6, size: 'small', image: true },
-				{ column: 0, width: 6, size: 'small', image: true },
-				{ column: 1, width: 6, size: 'small', image: true }
+				{ column: 0, width: 6, size: 'small', image: true, imageStick: true },
+				{ column: 1, width: 6, size: 'small', image: true, imageStick: true },
+				{ column: 0, width: 6, size: 'small', image: true, imageStick: true },
+				{ column: 1, width: 6, size: 'small', image: true, imageStick: true },
+				{ column: 0, width: 6, size: 'small', image: true, imageStick: true },
+				{ column: 1, width: 6, size: 'small', image: true, imageStick: true }
 			],
 			M: [
-				{ column: 0, width: 4, size: 'small', image: true },
-				{ column: 1, width: 4, size: 'small', image: true },
-				{ column: 2, width: 4, size: 'small', image: true },
-				{ column: 0, width: 4, size: 'small', image: true },
-				{ column: 1, width: 4, size: 'small', image: true },
-				{ column: 2, width: 4, size: 'small', image: true }
+				{ column: 0, width: 4, size: 'small', image: true, imageStick: true },
+				{ column: 1, width: 4, size: 'small', image: true, imageStick: true },
+				{ column: 2, width: 4, size: 'small', image: true, imageStick: true },
+				{ column: 0, width: 4, size: 'small', image: true, imageStick: true },
+				{ column: 1, width: 4, size: 'small', image: true, imageStick: true },
+				{ column: 2, width: 4, size: 'small', image: true, imageStick: true }
 			],
 			L: [
-				{ column: 0, width: 2, size: 'small', image: true },
-				{ column: 1, width: 2, size: 'small', image: true },
-				{ column: 2, width: 2, size: 'small', image: true },
-				{ column: 3, width: 2, size: 'small', image: true },
-				{ column: 4, width: 2, size: 'small', image: true },
-				{ column: 5, width: 2, size: 'small', image: true }
+				{ column: 0, width: 2, size: 'small', image: true, imageStick: true },
+				{ column: 1, width: 2, size: 'small', image: true, imageStick: true },
+				{ column: 2, width: 2, size: 'small', image: true, imageStick: true },
+				{ column: 3, width: 2, size: 'small', image: true, imageStick: true },
+				{ column: 4, width: 2, size: 'small', image: true, imageStick: true },
+				{ column: 5, width: 2, size: 'small', image: true, imageStick: true }
 			]
 		},
 		size: {
