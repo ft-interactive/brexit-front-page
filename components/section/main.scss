@@ -66,37 +66,32 @@
 .column {
 	flex-flow: column wrap;
 	display: flex;
-	padding-top: oGridGutter();
-	margin-top: - oGridGutter();
 
-	@include oGridRespondTo(M) {
-		padding-top: oGridGutter(M);
-		margin-top: - oGridGutter(M);
-	}
+	&[data-o-grid-colspan~="hide"] {
+		@include oGridRespondTo($until: S) {
+			display: none;
+		}
+	 }
 
-	&:not([data-o-grid-colspan^="hide"]) {
-		display: flex;
-	}
-
-	&[data-o-grid-colspan="Shide"] {
-		@include oGridRespondTo(S) {
+	&[data-o-grid-colspan~="Shide"] {
+		@include oGridRespondTo(S, $until: M) {
 			display: none;
 		}
 	}
 
-	&[data-o-grid-colspan="Mhide"] {
-		@include oGridRespondTo(M) {
+	&[data-o-grid-colspan~="Mhide"] {
+		@include oGridRespondTo(M, $until: L) {
 			display: none;
 		}
 	}
 
-	&[data-o-grid-colspan="Lhide"] {
-		@include oGridRespondTo(L) {
+	&[data-o-grid-colspan~="Lhide"] {
+		@include oGridRespondTo(L, $until: XL) {
 			display: none;
 		}
 	}
 
-	&[data-o-grid-colspan="XLhide"] {
+	&[data-o-grid-colspan~="XLhide"] {
 		@include oGridRespondTo(XL) {
 			display: none;
 		}
