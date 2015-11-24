@@ -224,3 +224,10 @@ body {
 		background-color: oColorsGetColorFor('dark-bg', 'background');
 	}
 }
+
+.main-body {
+	@include oGridRespondTo(S) {
+		padding-left: 30px;
+		padding-right: 30px;
+	}
+}

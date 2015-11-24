@@ -1,7 +1,7 @@
 import qs from 'querystring';
 
 import React, {Component} from 'react';
-import {objMap, responsiveValue, responsiveClass} from '../helpers';
+import {responsiveValue} from '../helpers';
 
 const imageOptions = {
 	source: 'next',
@@ -19,10 +19,9 @@ export default class Image extends Component {
 		const imageSrc = (article.branding && article.branding.taxonomy === 'authors' && article.branding.headshot) ?
 			`${article.branding.headshot}?${qs.stringify(imageOptions)}` :
 			article.primaryImage.src;
-		const stickToBottom = responsiveClass('card__image-link', objMap(this.props.stickToBottom, (it) => it ? 'stick' : 'nostick'));
 
 		return (
-			<a className={'card__image-link ' + stickToBottom} data-image-show={responsiveValue(this.props.show)} href={'/content/' + article.id} data-trackable="image">
+			<a className="card__image-link" data-image-show={responsiveValue(this.props.show)} href={'/content/' + article.id} data-trackable="image">
 				<img className='card__image' src={imageSrc} />
 			</a>
 		);
