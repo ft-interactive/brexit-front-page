@@ -1,7 +1,6 @@
 .DS_Store
-
 /.editorconfig
-/.env
+.env
 /.node-version
 /.sass-cache
 /node*
