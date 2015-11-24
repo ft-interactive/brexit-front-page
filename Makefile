@@ -6,7 +6,7 @@ clean:
 	git clean -fxd
 
 install:
-	npm install -g bower
+	npm install bower@1.6.5
 	obt install --verbose
 
 verify:
