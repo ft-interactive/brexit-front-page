@@ -9,7 +9,8 @@
     "n-message-prompts": "Financial-Times/n-message-prompts#^v1.0.0",
     "n-layout": "^4.0.0",
     "n-image": "^2.0.0",
-    "o-fonts": "^1.8.4"
+    "o-fonts": "^1.8.4",
+    "next-ads-component": "^7.0.0"
   },
   "resolutions": {
     "o-ft-icons": "next",
@@ -25,6 +26,7 @@
     "next-session-client": "^2.0.0",
     "n-third-party-code": "^1.0.0",
     "next-sass-setup": "^7.0.5",
-    "next-myft-client": "^5.0.1"
+    "next-myft-client": "^5.0.1",
+    "next-ads-component": "^7.0.0"
   }
 }

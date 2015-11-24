@@ -53,6 +53,8 @@
 	}
 }
 .section__column--sidebar {
+	flex-direction: column;
+
 	#main-body .section--top-stories & {
 		@include oGridRespondTo($until: L) {
 			display: none;
@@ -60,6 +62,9 @@
 		#fastft-tab:target ~ & {
 			display: block;
 		}
+	}
+	.sidebar__ad-container {
+		flex: 1;
 	}
 }
 

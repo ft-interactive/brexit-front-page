@@ -29,6 +29,7 @@ export default class Section extends Component {
 						cols.sidebar ?
 							<aside data-o-grid-colspan={colspan(cols.sidebar)} className="section__column section__column--sidebar">
 								<this.props.sidebarComponent articles={this.props.sidebarContent.items} />
+								<div className="sidebar__ad-container"></div>
 							</aside>
 							: null
 					}
