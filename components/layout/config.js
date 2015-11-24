@@ -55,7 +55,10 @@ export default [
 		},
 		// FIXME sidebarComponent needs more thinking, maybe unifiying with card
 		// styles when we have those
-		sidebarComponent: FastFt,
+		sidebarComponent: {
+			id: 'fastft',
+			component: FastFt
+		},
 		cols: {
 			content: {
 				default: 12,
