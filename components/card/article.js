@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-import {responsiveClass, responsiveValue, objMap} from './helpers';
+import {responsiveValue} from './helpers';
 
 import Tag from './tag/tag'
 import Title from './title/title'
@@ -21,19 +21,11 @@ const stickToBottom = (showRelated) => {
 	}, {})
 };
 
-const lastClass = last => {
-	if (!last) {
-		return '';
-	}
-	return responsiveClass('card', objMap(last, (l) => l ? 'stretch' : 'no-stretch'))
-};
-
 class Article extends Component {
 	render () {
 		const article = this.props.article;
 		const classes = [
 			'card',
-			lastClass(this.props.last),
 			this.props.headshot ? 'card--has-headshot' : ''
 		]
 			.filter(className => className);

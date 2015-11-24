@@ -7,7 +7,7 @@ $o-grid-layouts: (
 );
 $o-grid-gutters: (
 	default: 10px,
-	S:       30px
+	M:       15px
 );
 $o-grid-start-snappy-mode-at: XXL;
 
@@ -222,5 +222,12 @@ body {
 
 	&.video-hub {
 		background-color: oColorsGetColorFor('dark-bg', 'background');
+	}
+}
+
+.main-body {
+	@include oGridRespondTo(S) {
+		padding-left: 30px;
+		padding-right: 30px;
 	}
 }

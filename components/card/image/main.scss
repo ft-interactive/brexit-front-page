@@ -1,3 +1,32 @@
+.card__image {
+	display: block;
+	width: 100%;
+
+	[data-card-landscape~="true"] & {
+		width: auto;
+		height: 60px;
+	}
+	[data-card-landscape~="S--false"] & {
+		@include oGridRespondTo(S) {
+			width: 100%;
+			height: auto;
+		}
+	}
+	[data-card-landscape~="M--false"] & {
+		@include oGridRespondTo(M) {
+			width: 100%;
+			height: auto;
+		}
+	}
+	[data-image-show~="false"] & {
+		display: none;
+	}
+	.card--has-headshot & {
+		width: 60%;
+		float: right;
+	}
+}
+
 .card__image-link {
 	display: block;
 	margin-top: 10px;
@@ -21,11 +50,18 @@
 		order: -1;
 	}
 
+	[data-card-landscape~="S--false"] & {
+		@include oGridRespondTo(S) {
+			margin-top: 10px;
+			margin-right: 0;
+			order: 0;
+		}
+	}
+
 	[data-card-landscape~="M--false"] & {
 		@include oGridRespondTo(M) {
-			display: block;
 			margin-top: 10px;
-			border-bottom: 0;
+			margin-right: 0;
 			order: 0;
 		}
 	}
@@ -54,31 +90,6 @@
 
 .card__image-link--nostick {
 	display: block;
-}
-
-.card__image {
-	display: block;
-	width: 100%;
-
-	[data-card-landscape~="true"] & {
-		width: auto;
-		height: 60px;
-	}
-
-	[data-card-landscape~="M--false"] & {
-		@include oGridRespondTo(M) {
-			width: 100%;
-			height: auto;
-		}
-	}
-
-	[data-image-show~="false"] & {
-		display: none;
-	}
-	.card--has-headshot & {
-		width: 60%;
-
-	}
 }
 
 @each $layout-name in $_o-grid-layout-names {
