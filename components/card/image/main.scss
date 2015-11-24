@@ -1,34 +1,9 @@
-.card__image {
-	display: block;
-	width: 100%;
-
-	[data-card-landscape~="true"] & {
-		width: auto;
-		height: 60px;
-	}
-	[data-card-landscape~="S--false"] & {
-		@include oGridRespondTo(S) {
-			width: 100%;
-			height: auto;
-		}
-	}
-	[data-card-landscape~="M--false"] & {
-		@include oGridRespondTo(M) {
-			width: 100%;
-			height: auto;
-		}
-	}
-	[data-image-show~="false"] & {
-		display: none;
-	}
-	.card--has-headshot & {
-		width: 60%;
-		float: right;
-	}
-}
-
 .card__image-link {
-	display: block;
+	display: flex;
+	flex: 1;
+	-ms-flex-preferred-size: auto;
+	justify-content: flex-end;
+	align-items: flex-start;
 	margin-top: 10px;
 	border-bottom: 0;
 
@@ -45,6 +20,7 @@
 	}
 
 	[data-card-landscape~="true"] & {
+		flex: none;
 		margin-top: 0;
 		margin-right: 10px;
 		order: -1;
@@ -52,62 +28,102 @@
 
 	[data-card-landscape~="S--false"] & {
 		@include oGridRespondTo(S) {
+			flex: 1;
 			margin-top: 10px;
 			margin-right: 0;
 			order: 0;
 		}
-	}
-
-	[data-card-landscape~="M--false"] & {
-		@include oGridRespondTo(M) {
-			margin-top: 10px;
-			margin-right: 0;
-			order: 0;
-		}
-	}
-}
-
-.card__image-link--stick {
-	flex: 1;
-	-ms-flex-preferred-size: auto;
-	display: flex;
-	justify-content: flex-end;
-	align-items: flex-end;
-
-	[data-card-landscape~="true"] & {
-		flex: none;
-		align-items: flex-start;
 	}
 
 	[data-card-landscape~="M--false"] & {
 		@include oGridRespondTo(M) {
 			flex: 1;
-			-ms-flex-preferred-size: auto;
+			margin-top: 10px;
+			margin-right: 0;
+			order: 0;
+		}
+	}
+	[data-card-landscape~="true"] & {
+		width: 100px;
+	}
+	[data-card-landscape~="S--false"] & {
+		@include oGridRespondTo(S) {
+			width: auto;
+		}
+	}
+	[data-card-landscape~="M--false"] & {
+		@include oGridRespondTo(M) {
+			width: auto;
+		}
+	}
+	&[data-image-show~="false"] {
+		display: none;
+	}
+	@each $layout-name in $_o-grid-layout-names {
+		@media screen\0 {
+			&[data-image-show~="#{$layout-name}--true"] {
+				display: flex;
+			}
+			&[data-image-show~="#{$layout-name}--false"] {
+				display: none;
+			}
+		}
+		@include oGridRespondTo($layout-name) {
+			&[data-image-show~="#{$layout-name}--true"] {
+				display: flex;
+			}
+
+			&[data-image-show~="#{$layout-name}--false"] {
+				display: none;
+			}
+		}
+	}
+}
+
+.card__image-link--stick {
+	align-items: flex-end;
+
+	[data-card-landscape~="true"] & {
+		align-items: flex-start;
+	}
+
+	[data-card-landscape~="S--false"] & {
+		@include oGridRespondTo(S) {
+			align-items: flex-end;
+		}
+	}
+
+	[data-card-landscape~="M--false"] & {
+		@include oGridRespondTo(M) {
 			align-items: flex-end;
 		}
 	}
 }
 
-.card__image-link--nostick {
-	display: block;
+.card__image-link--no-stick {
+	align-items: flex-start;
 }
 
 @each $layout-name in $_o-grid-layout-names {
-	@media screen\0 {
-		[data-image-show~="#{$layout-name}--true"] .card__image {
-			display: block;
-		}
-		[data-image-show~="#{$layout-name}--false"] .card__image {
-			display: none;
-		}
-	}
 	@include oGridRespondTo($layout-name) {
-		[data-image-show~="#{$layout-name}--true"] .card__image {
-			display: block;
+		.card__image-link--stick {
+			align-items: flex-end;
 		}
-
-		[data-image-show~="#{$layout-name}--false"] .card__image {
-			display: none;
+		.card__image-link--no-stick {
+			align-items: flex-start;
 		}
 	}
 }
+
+.card__image {
+	display: block;
+	width: 100%;
+
+	.card--has-headshot & {
+		width: 60%;
+	}
+}
+
+
+
+
