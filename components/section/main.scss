@@ -16,6 +16,14 @@
 .section--markets,
 .section--lifestyle {
 	max-width: 100%;
+
+	@include oGridRespondTo(M) {
+		min-width: 0;
+
+		.o-grid-container {
+			min-width: 0;
+		}
+	}
 }
 
 .section-nav {
