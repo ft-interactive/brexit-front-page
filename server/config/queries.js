@@ -152,7 +152,7 @@ const newFrontPage = (region) => (`
 			url
 		}
 		top(region: ${region}) {
-			items(type: Article) {
+			items {
 				... Basic
 				... Extended
 				... Related
