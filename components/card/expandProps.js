@@ -36,7 +36,6 @@ const expandProps = (props) => {
 	const expandedProps = {};
 	const item = props.item || {};
 
-	//expandedProps.tagSize = tagSize(props.size);
 	expandedProps.tagSize = expandedProps.titleSize = titleSize(props.size, props.order, props.image, item.primaryImage);
 	expandedProps.showStandFirst = showStandFirst(props.size, props.standFirst);
 	expandedProps.standFirstSize = standFirstSize(props.size);
