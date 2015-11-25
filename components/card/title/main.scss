@@ -5,6 +5,7 @@
 		border-bottom: 1px dotted;
 	}
 }
+
 .card__title {
 	font-family: $n-type-serif;
 	font-weight: oFontsWeight(regular);
@@ -15,27 +16,10 @@
 		margin: 5px 10px 10px;
 	}
 }
-.card__title--huge {
-	font-size: 40px;
-	line-height: 38px;
-}
-.card__title--large {
-	font-size: 34px;
-	line-height: 34px;
-}
-.card__title--medium {
-	font-size: 26px;
-	line-height: 28px;
-}
-.card__title--small {
-	font-size: 20px;
-	line-height: 22px;
- }
+
+// NOTE: for the sake of saving on css, assumption is if something's tiny, it stays tiny across all breakpoints
 .card__title--tiny {
 	display: inline;
-	font-size: 16px;
-	line-height: 16px;
-	margin-top: 0;
 
 	&:before {
 		content: '|';
@@ -43,54 +27,60 @@
 	}
 }
 
-@each $layout-name in $_o-grid-layout-names {
-	@include oGridRespondTo($layout-name) {
-		.card__title--#{$layout-name}--huge {
-			font-size: 44px;
-			line-height: 42px;
+$card-title-text-sizes: (
+	default: (
+		tiny: 18 20,
+		small: 20 22,
+		medium: 22 24,
+		large: 26 28,
+		huge: 40 38
+	),
+	S: (
+		tiny: 16 16,
+		small: 20 22,
+		medium: 24 26,
+		large: 28 30,
+		huge: 38 40
+	),
+	M: (
+		tiny: 16 16,
+		small: 20 22,
+		medium: 26 28,
+		large: 30 32,
+		huge: 40  42
+	),
+	L: (
+		tiny: 16 16,
+		small: 20 22,
+		medium: 26 28,
+		large: 34 34,
+		huge: 44 46
+	),
+	XL: (
+		tiny: 16 16,
+		small: 20 22,
+		medium: 26 28,
+		large: 34 34,
+		huge: 44 46
+	)
+);
 
-			&:before {
-				content: none;
-				margin: 0;
+@each $breakpoint, $text-sizes in $card-title-text-sizes {
+	@if $breakpoint == 'default' {
+		@each $text-size, $font-sizes in $text-sizes {
+			.card__title--#{$text-size} {
+				font-size: nth($font-sizes, 1) + 0px;
+				line-height: nth($font-sizes, 2) + 0px;
 			}
 		}
-		.card__title--#{$layout-name}--large {
-			font-size: 34px;
-			line-height: 34px;
-
-			&:before {
-				content: none;
-				margin: 0;
-			}
-		}
-
-		.card__title--#{$layout-name}--medium {
-			font-size: 26px;
-			line-height: 28px;
-
-			&:before {
-				content: none;
-				margin: 0;
-			}
-		}
-		.card__title--#{$layout-name}--small {
-			font-size: 20px;
-			line-height: 22px;
-
-			&:before {
-				content: none;
-				margin: 0;
-			}
-		}
-		.card__title--#{$layout-name}--tiny {
-			display: inline;
-			font-size: 16px;
-			line-height: 16px;
-			margin-top: 0;
-
-			&:before {
-				content: '|';
-				margin: 0 5px;
+	} @else {
+		@include oGridRespondTo($breakpoint) {
+			@each $text-size, $font-sizes in $text-sizes {
+				.card__title--#{$text-size},
+				.card__title--#{$breakpoint}--#{$text-size} {
+					font-size: nth($font-sizes, 1) + 0px;
+					line-height: nth($font-sizes, 2) + 0px;
+				}
 			}
 		}
 	}
