@@ -17,7 +17,8 @@ class Article extends Component {
 					className="card"
 					data-card-landscape={responsiveValue(this.props.landscape)}
 					data-trackable="card"
-					data-card-show={responsiveValue(this.props.show)}>
+					data-card-show={responsiveValue(this.props.show)}
+					data-image-show={responsiveValue(this.props.image)}>
 				<div>
 					{(article.primaryTag && article.primaryTag.taxonomy !== 'authors') ? <Tag tag={article.primaryTag} size={this.props.tagSize} /> : null}
 					<Title title={article.title} href={'/content/' + article.id} size={this.props.titleSize} />

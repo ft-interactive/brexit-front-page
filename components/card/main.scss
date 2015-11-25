@@ -42,7 +42,11 @@
 }
 
 [data-card-landscape~="true"] {
-	flex-direction: row;
+	&[data-image-show~="true"] {
+		position: relative;
+		min-height: 77px;
+		padding-left: 120px;
+	}
 }
 
 .card--stretch {
@@ -81,11 +85,19 @@
 		}
 
 		[data-card-landscape~="#{$layout-name}--true"] {
-			flex-direction: row;
+			&[data-image-show~="true"] {
+				position: relative;
+				min-height: 77px;
+				padding-left: 120px;
+			}
 		}
 
 		[data-card-landscape~="#{$layout-name}--false"] {
-			flex-direction: column;
+			&[data-image-show~="true"] {
+				position: static;
+				min-height: auto;
+				padding-left: 10px;
+			}
 		}
 	}
 }

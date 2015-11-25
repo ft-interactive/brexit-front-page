@@ -1,7 +1,7 @@
 import qs from 'querystring';
 
 import React, {Component} from 'react';
-import {objMap, responsiveValue, responsiveClass} from '../helpers';
+import {objMap, responsiveClass} from '../helpers';
 
 const imageOptions = {
 	source: 'next',
@@ -27,7 +27,7 @@ export default class Image extends Component {
 			.join(' ');
 
 		return (
-			<a className={classes} data-image-show={responsiveValue(this.props.show)} href={'/content/' + article.id} data-trackable="image">
+			<a className={classes} href={'/content/' + article.id} data-trackable="image">
 				<img className='card__image' src={imageSrc} />
 			</a>
 		);
