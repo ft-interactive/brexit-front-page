@@ -22,6 +22,11 @@
 	.nh-header-tabs__tablist {
 		padding: 0 0 0.5em;
 
+		// HACK: horrible way of just targeting the prototype
+		[data-ads-layout='prototype'] & {
+			padding: 0;
+		}
+
 		nav {
 			margin: 0 auto;
 			background-color: #ffffff;

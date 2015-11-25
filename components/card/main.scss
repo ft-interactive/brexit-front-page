@@ -19,10 +19,6 @@
 	@include oGridRespondTo(M) {
 		margin-top: oGridGutter(M);
 	}
-
-	.section--opinion & {
-		border-width: 0 0 0 1px;
-	}
 }
 
 .card--video {

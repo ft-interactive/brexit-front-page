@@ -7,10 +7,13 @@
 }
 
 .card__title {
-	font-family: $n-type-serif;
+	font-family: $o-typography-serif-display;
 	font-weight: oFontsWeight(regular);
 	margin-top: 5px;
 
+	.section--editors-picks & {
+		font-family: $o-typography-sans;
+	}
 	.card--video & {
 		@include oTypographySans(m);
 		margin: 5px 10px 10px;

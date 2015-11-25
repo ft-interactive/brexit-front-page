@@ -113,6 +113,11 @@ body {
 	}
 }
 
+// HACK: horrible way of just targeting the prototype
+[data-ads-layout='prototype'] .next-header {
+	margin-bottom: 0;
+}
+
 .next-header__logo {
 	line-height: 1.3;
 }
