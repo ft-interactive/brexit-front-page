@@ -1,43 +1,35 @@
 @import 'next-sass-setup/main';
 
 .card__tag {
-	display: block;
-	font-family: $n-type-sans-serif;
-	font-weight: oFontsWeight(light);
-	color: getColor(claret);
-	border-bottom: 0;
+	font-family: $o-typography-sans;
+	font-weight: oFontsWeight(bold);
+	font-size: 16px;
+	line-height: 1em;
+	color: getColor('claret');
 }
 
-.card__tag--large {
-	font-size: 16px;
-	line-height: 16px;
-}
-.card__tag--medium {
-	font-size: 16px;
-	line-height: 16px;
-}
 .card__tag--small {
 	display: inline;
-	font-size: 16px;
-	line-height: 16px;
-}
-
-.card__tag__link {
-	border-bottom: 0;
 }
 
 .card__tag--authors {
 	color: getColor(claret);
+}
 
-	&:before {
-		@include nTypeDelta(1);
-		font-size: 60px;
-		color: #c3bdb6;
-		content: '“';
-		display: inline-block;
-		line-height: 0;
-		vertical-align: bottom;
-		margin: 0 10px -8px -5px;
+.card__tag__link {
+	display: inline-block;
+	border-bottom: 0;
+
+	.card__tag--authors & {
+		&:before {
+			@include nextIcon(pullquote, getColor('claret'), 16);
+			content: '';
+			vertical-align: bottom;
+			margin-right: 5px;
+		}
+		&:hover:before {
+			@include nextIcon(pullquote, getColor('cold-1'), 16);
+		}
 	}
 }
 
