@@ -183,7 +183,7 @@ export default [
 	{
 		id: 'most-popular',
 		title: 'Most Popular',
-		style: 'editors-picks',
+		style: 'most-popular',
 		cards: {
 			default: [
 				{ size: 'medium', standFirst: true, image: true, landscape: true },

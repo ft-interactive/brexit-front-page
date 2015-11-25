@@ -7,58 +7,38 @@
 	margin-top: 10px;
 	border-bottom: 0;
 
-	@include oGridRespondTo($until: M) {
-		.top-stories__column &[data-image-show~="false"] {
-			margin-right: 0;
-		}
-	}
-
-	@include oGridRespondTo(S, $until: M) {
-		.top-stories__column &[data-image-show~="S--true"] {
-			margin-right: 10px;
-		}
-	}
-
 	[data-card-landscape~="true"] & {
 		flex: none;
 		margin-top: 0;
 		margin-right: 10px;
 		order: -1;
-	}
-
-	[data-card-landscape~="S--false"] & {
-		@include oGridRespondTo(S) {
-			flex: 1;
-			margin-top: 10px;
-			margin-right: 0;
-			order: 0;
-		}
-	}
-
-	[data-card-landscape~="M--false"] & {
-		@include oGridRespondTo(M) {
-			flex: 1;
-			margin-top: 10px;
-			margin-right: 0;
-			order: 0;
-		}
-	}
-	[data-card-landscape~="true"] & {
 		width: 100px;
 	}
+
 	[data-card-landscape~="S--false"] & {
 		@include oGridRespondTo(S) {
+			flex: 1;
+			margin-top: 10px;
+			margin-right: 0;
+			order: 0;
 			width: auto;
 		}
 	}
+
 	[data-card-landscape~="M--false"] & {
 		@include oGridRespondTo(M) {
+			flex: 1;
+			margin-top: 10px;
+			margin-right: 0;
+			order: 0;
 			width: auto;
 		}
 	}
+
 	&[data-image-show~="false"] {
 		display: none;
 	}
+
 	@each $layout-name in $_o-grid-layout-names {
 		@media screen\0 {
 			&[data-image-show~="#{$layout-name}--true"] {
@@ -80,7 +60,8 @@
 	}
 }
 
-.card__image-link--stick {
+.card__image-link--stick,
+.card__image-link--headshot {
 	align-items: flex-end;
 
 	[data-card-landscape~="true"] & {
@@ -100,10 +81,6 @@
 	}
 }
 
-.card__image-link--no-stick {
-	align-items: flex-start;
-}
-
 @each $layout-name in $_o-grid-layout-names {
 	@include oGridRespondTo($layout-name) {
 		.card__image-link--stick {
@@ -119,7 +96,7 @@
 	display: block;
 	width: 100%;
 
-	.card--has-headshot & {
+	.card__image-link--headshot & {
 		width: 60%;
 	}
 }

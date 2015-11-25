@@ -7,13 +7,27 @@
 }
 
 .card__title {
-	font-family: $n-type-serif;
+	font-family: $o-typography-serif-display;
 	font-weight: oFontsWeight(regular);
 	margin-top: 5px;
 
+	&:first-child {
+		margin-top: 0;
+	}
+	.section--editors-picks & {
+		font-family: $o-typography-sans;
+	}
 	.card--video & {
 		@include oTypographySans(m);
 		margin: 5px 10px 10px;
+	}
+	&:first-child:after {
+		display: none;
+		content: '';
+		width: 1px;
+		height: 10px;
+		margin: 0 5px;
+		background-color: getColor('cold-2');
 	}
 }
 
@@ -56,30 +70,23 @@ $card-title-text-sizes: (
 	)
 );
 
-@each $breakpoint, $text-sizes in $card-title-text-sizes {
-	@if $breakpoint == 'default' {
-		@each $text-size, $font-sizes in $text-sizes {
-			.card__title--#{$text-size} {
-				font-size: nth($font-sizes, 1) + 0px;
-				line-height: nth($font-sizes, 2) + 0px;
-				@if $text-size == 'tiny' {
-					display: inline;
 
-					&:before {
-						content: '|';
-						margin: 0 5px;
-					}
-				} @else {
-					display: block;
+@each $text-size, $font-sizes in map-get($card-title-text-sizes, 'default') {
+	.card__title--#{$text-size} {
+		font-size: nth($font-sizes, 1) + 0px;
+		line-height: nth($font-sizes, 2) + 0px;
+		@if $text-size == 'tiny' {
+			display: inline;
 
-					&:before {
-						content: '';
-						margin: 0;
-					}
-				}
+			&:first-child:after {
+				display: inline-block;
 			}
 		}
-	} @else {
+	}
+}
+
+@each $breakpoint, $text-sizes in $card-title-text-sizes {
+	@if $breakpoint != 'default' {
 		@include oGridRespondTo($breakpoint) {
 			@each $text-size, $font-sizes in $text-sizes {
 				.card__title--#{$text-size},
@@ -91,16 +98,14 @@ $card-title-text-sizes: (
 					@if $text-size == 'tiny' {
 						display: inline;
 
-						&:before {
-							content: '|';
-							margin: 0 5px;
+						&:first-child:after {
+							display: inline-block;
 						}
 					} @else {
 						display: block;
 
-						&:before {
-							content: '';
-							margin: 0;
+						&:first-child:after {
+							display: none;
 						}
 					}
 				}

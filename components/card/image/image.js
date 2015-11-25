@@ -16,15 +16,18 @@ const imageOptions = {
 export default class Image extends Component {
 	render () {
 		const article = this.props.article;
-		const imageSrc = this.props.hasHeadshot ?
-			`${article.branding.headshot}?${qs.stringify(imageOptions)}` :
-			article.primaryImage.src;
-		const stickToBottom = this.props.hasHeadshot ?
-			'card__image-link--stick' :
-			responsiveClass('card__image-link', objMap(this.props.stickToBottom, (it) => it ? 'stick' : 'nostick'));
+		const hasHeadshot = article.branding && article.branding.taxonomy === 'authors' && article.branding.headshot;
+		const imageSrc = hasHeadshot ? `${article.branding.headshot}?${qs.stringify(imageOptions)}` : article.primaryImage.src;
+		const classes = [
+				'card__image-link',
+				hasHeadshot ? 'card__image-link--headshot' : ''
+			]
+			.concat(responsiveClass('card__image-link', objMap(this.props.stickToBottom, (it) => it ? 'stick' : 'nostick')))
+			.filter(className => className)
+			.join(' ');
 
 		return (
-			<a className={'card__image-link ' + stickToBottom} data-image-show={responsiveValue(this.props.show)} href={'/content/' + article.id} data-trackable="image">
+			<a className={classes} data-image-show={responsiveValue(this.props.show)} href={'/content/' + article.id} data-trackable="image">
 				<img className='card__image' src={imageSrc} />
 			</a>
 		);

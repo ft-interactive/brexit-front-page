@@ -15,7 +15,7 @@ describe('Card props expansion rules', () => {
 
 	describe('#expandProps', () => {
 		it('Sets tag size correctly', () => {
-			const tagSize = {default: 'small', S: 'medium', M: 'large', L: 'large'};
+			const tagSize = {default: 'tiny', S: 'small', M: 'medium', L: 'huge'};
 
 			expect(expandProps(inProps).tagSize).to.eql(tagSize);
 		});
