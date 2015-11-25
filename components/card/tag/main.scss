@@ -1,19 +1,49 @@
 @import 'next-sass-setup/main';
 
 .card__tag {
+	display: inline;
 	font-family: $o-typography-sans;
 	font-weight: oFontsWeight(bold);
 	font-size: 16px;
 	line-height: 1em;
 	color: getColor('claret');
-}
+	margin-top: 5px;
 
-.card__tag--small {
-	display: inline;
+	&:first-child {
+		margin-top: 0;
+	}
+	&:first-child:after {
+		display: none;
+		content: '';
+		width: 1px;
+		height: 10px;
+		margin: 0 5px;
+		background-color: getColor('cold-2');
+	}
 }
 
 .card__tag--authors {
 	color: getColor(claret);
+}
+
+.card__tag--tiny:first-child:after {
+	display: inline-block;
+}
+
+@each $layout-name in $_o-grid-layout-names {
+	@include oGridRespondTo($layout-name) {
+		.card__tag--#{$layout-name}--tiny:first-child:after {
+			display: inline-block;
+		}
+		.card__tag--#{$layout-name}--small,
+		.card__tag--#{$layout-name}--medium,
+		.card__tag--#{$layout-name}--large,
+		.card__tag--#{$layout-name}--huge {
+			&:first-child:after {
+				display: none;
+			}
+		}
+	}
 }
 
 .card__tag__link {
@@ -29,26 +59,6 @@
 		}
 		&:hover:before {
 			@include nextIcon(pullquote, getColor('cold-1'), 16);
-		}
-	}
-}
-
-@each $layout-name in $_o-grid-layout-names {
-	@include oGridRespondTo($layout-name) {
-		.card__tag--#{$layout-name}--large {
-			display: block;
-			font-size: 16px;
-			line-height: 16px;
-		}
-		.card__tag--#{$layout-name}--medium {
-			display: block;
-			font-size: 16px;
-			line-height: 16px;
-		}
-		.card__tag--#{$layout-name}--small {
-			display: inline;
-			font-size: 16px;
-			line-height: 16px;
 		}
 	}
 }

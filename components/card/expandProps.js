@@ -1,16 +1,5 @@
 import {objMap} from './helpers';
 
-const tagSize = (size) => {
-	const sizes = {
-		large: 'large',
-		medium: 'large',
-		small: 'medium',
-		tiny: 'small'
-	};
-
-	return objMap(size, (s) => sizes[s]);
-};
-
 const titleSize = (size, order, image, primaryImage) => {
 	if(+order > 0)
 		return size;
@@ -47,12 +36,11 @@ const expandProps = (props) => {
 	const expandedProps = {};
 	const item = props.item || {};
 
-	expandedProps.tagSize = tagSize(props.size);
-	expandedProps.titleSize = titleSize(props.size, props.order, props.image, item.primaryImage);
+	//expandedProps.tagSize = tagSize(props.size);
+	expandedProps.tagSize = expandedProps.titleSize = titleSize(props.size, props.order, props.image, item.primaryImage);
 	expandedProps.showStandFirst = showStandFirst(props.size, props.standFirst);
 	expandedProps.standFirstSize = standFirstSize(props.size);
 	expandedProps.showRelated = showRelated(props.related, item.relatedContent);
-	expandedProps.headshot = item.branding && item.branding.taxonomy === 'authors' && item.branding.headshot;
 	expandedProps.last = props.last;
 
 	return Object.assign({}, props, expandedProps);
