@@ -6,27 +6,17 @@
   "dependencies": {
     "o-date": "^2.0.0",
     "n-video": "^3.0.0",
-    "n-message-prompts": "Financial-Times/n-message-prompts#^v1.0.0",
+    "n-message-prompts": "^1.0.0",
     "n-layout": "^4.0.0",
     "n-image": "^2.0.0",
     "o-fonts": "^1.8.4",
-    "next-ads-component": "^7.0.0"
+    "next-ads-component": "^7.0.0",
+    "o-tabs": "~2.1.0"
   },
   "resolutions": {
     "o-ft-icons": "next",
-    "o-grid": "^4.0.0",
-    "lodash": "3.10.1-npm",
-    "fetch": ">=0.10.0",
-    "o-fonts": "^1.8.4",
-    "next-feature-flags-client": "~8.1.0",
-    "next-js-setup": "^6.0.0",
-    "o-errors": "^3.1.0",
-    "next-welcome": "^3.0.0",
+    "next-ads-component": "^7.0.0",
     "next-myft-ui": "^5.0.0",
-    "next-session-client": "^2.0.0",
-    "n-third-party-code": "^1.0.0",
-    "next-sass-setup": "^7.0.5",
-    "next-myft-client": "^5.0.1",
-    "next-ads-component": "^7.0.0"
+    "next-myft-client": "^5.0.1"
   }
 }
