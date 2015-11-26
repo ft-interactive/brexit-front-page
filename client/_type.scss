@@ -21,6 +21,7 @@
 	h1 {
 		@include podHeading;
 		float: left;
+		margin: 0;
 	}
 
 	&.pod-heading--feed {
