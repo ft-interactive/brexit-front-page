@@ -78,7 +78,7 @@
 		}
 	}
 	.sidebar__ad-container {
-		flex: 1;
+		flex: 1 0 auto;
 		margin-top: oGridGutter();
 
 		@include oGridRespondTo(M) {
