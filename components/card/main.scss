@@ -7,8 +7,7 @@
 .card {
 	background-color: getColor('pink');
 	margin-top: oGridGutter();
-	border: 1px solid getColor('warm-3');
-	border-width: 0 0 1px;
+	border-bottom: 1px solid getColor('warm-3');
 	padding: 10px;
 	display: flex;
 	flex-direction: column;
@@ -35,10 +34,6 @@
 		min-height: 56px;
 		padding-left: 120px;
 	}
-}
-
-.card--stretch {
-	flex: 1 1 auto;
 }
 
 .card--no-stretch {
