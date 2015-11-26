@@ -54,36 +54,33 @@
 		}
 	}
 }
-.section__column--content {
-	#main-body .section--top-stories & {
-		#fastft-tab:target ~ & {
-			@include oGridRespondTo($until: L) {
-				display: none;
-			}
-		}
-		#top-stories-tab:target ~ & {
+
+.section__column--content,
+.section__column--sidebar,
+// for current front page
+.main-content,
+.sidebar--fastft,
+.header-tabs-panel {
+	&[aria-hidden="true"] {
+		display: none;
+
+		@include oGridRespondTo(L) {
 			display: block;
 		}
 	}
 }
+
 .section__column--sidebar {
 	flex-direction: column;
+}
 
-	#main-body .section--top-stories & {
-		@include oGridRespondTo($until: L) {
-			display: none;
-		}
-		#fastft-tab:target ~ & {
-			display: block;
-		}
-	}
-	.sidebar__ad-container {
-		flex: 1 0 auto;
-		margin-top: oGridGutter();
+.sidebar__ad-container {
+	display: none;
+	flex: 1 1 auto;
+	margin-top: oGridGutter(M);
 
-		@include oGridRespondTo(M) {
-			margin-top: oGridGutter(M);
-		}
+	@include oGridRespondTo(L) {
+		display: block;
 	}
 }
 

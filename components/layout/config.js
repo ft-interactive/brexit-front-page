@@ -9,6 +9,7 @@ export default [
 		title: 'Top Stories',
 		style: 'top-stories',
 		date: date,
+		isTab: true,
 		cards: {
 			default: [
 				{ size: 'large', standFirst: true, image: true, related: 1 },
@@ -57,7 +58,8 @@ export default [
 		// styles when we have those
 		sidebarComponent: {
 			id: 'fastft',
-			component: FastFt
+			component: FastFt,
+			isTab: true
 		},
 		cols: {
 			content: {
