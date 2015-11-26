@@ -8,6 +8,7 @@
 
 	[data-card-landscape~="true"] & {
 		position: absolute;
+		justify-content: flex-start;
 		top: 10px;
 		left: 10px;
 		width: 100px;
@@ -30,6 +31,7 @@
 
 			[data-card-landscape~="#{$layout-name}--false"] & {
 				position: static;
+				justify-content: flex-end;
 				top: 0;
 				left: 0;
 				width: auto;
