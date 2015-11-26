@@ -5,7 +5,7 @@
 
 {{#if @root.flags.frontPageLayoutPrototype}}
 	<div id="layout-overlay-container"></div>
-	{{> header-tabs newsTabTitle="Top Stories"}}
+	{{> header-tabs  newsTabTitle="Top Stories"}}
 	<section id="main-body" class="main-body o-grid-container">
 		{{{ reactRenderToString Layout content=content layout=initialLayout }}}
 	</section>
@@ -13,11 +13,11 @@
 	{{> header-tabs  newsTabTitle="News"}}
 	<div class="o-grid-container fixed-width-container">
 		<div class="o-grid-row">
-			<div class="main-content nh-header-tabs__panel" data-o-grid-colspan="12 L8 XL9">
+			<div class="main-content o-tabs__tabpanel" id="top-stories-section-content" data-o-grid-colspan="12 L8 XL9">
 				<h1 class="n-util-visually-hidden" id="lead-pod-title">Top stories</h1>
 				{{> lead-today leads=content.top.leads liveBlogs=content.top.liveBlogs items=content.top.items popularTopics=content.popularTopics }}
 			</div>
-			<aside class="sidebar sidebar--fastft nh-header-tabs__panel" data-trackable="fastft" data-o-grid-colspan="12 L4 XL3" role="presentation">
+			<aside class="sidebar sidebar--fastft o-tabs__tabpanel" id="top-stories-section-aside" data-trackable="fastft" data-o-grid-colspan="12 L4 XL3" role="presentation">
 				<section id="fastft" data-fastft-articles="{{json content.fastFT.items}}">{{{ reactRenderToString FastFtFeed items=content.fastFT.items }}}</section>
 				{{#if @root.flags.frontPageHalfPageAd}}
 					<div class="sidebar__ad-container"></div>
@@ -26,7 +26,7 @@
 		</div>
 	</div>
 	{{#if content.editorsPicks.items}}
-		<div class="bordered-row nh-header-tabs__panel">
+		<div class="bordered-row header-tabs-panel">
 			<div class="o-grid-container">
 				<div class="o-grid-row">
 					<div class="main-content" data-o-grid-colspan="12">
@@ -70,7 +70,7 @@ Good luck!
 
 -->
 
-	<div class="o-grid-container nh-header-tabs__panel">
+	<div class="o-grid-container header-tabs-panel">
 		<div class="o-grid-row">
 			<div class="main-content" data-o-grid-colspan="12 L9">
 				{{> opinion items=content.opinion.items url=content.opinion.url title="Opinion" id="opinion" }}
@@ -91,7 +91,7 @@ Good luck!
 		</div>
 	</div>
 	{{#ifAll flags.frontPageVideo content.videos}}
-		<div class="bordered-row nh-header-tabs__panel video-hub">
+		<div class="bordered-row header-tabs-panel video-hub">
 			<div class="o-grid-container">
 				<div class="o-grid-row">
 					<div class="main-content" data-o-grid-colspan="12">

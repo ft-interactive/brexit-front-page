@@ -1,8 +1,14 @@
-<div id="header-tabs" class="nh-grid-container nh-header-tabs__tablist">
-	<nav class="fixed-width-container" role="tablist">
-		<a href="#news-tab" role="tab" data-trackable="news-tab" aria-controls="site-content editors-picks"><span>{{newsTabTitle}}</span></a>
-		<a href="#fastft-tab" role="tab" data-trackable="fastft-tab" aria-controls="fastft"><span>fastFT</span></a>
-	</nav>
+<div class="header-tabs--outer o-grid-container">
+	<ul data-o-component="o-tabs" class="header-tabs o-grid-row" role="tablist" data-trackable="header-tabs">
+		<li class="header-tab" role="tab" data-o-grid-colspan="6" aria-selected="true">
+			<a class="header-tab__link" href="#top-stories-section-content" data-trackable="news-tab">
+				<span class="header-tab__link__text">{{newsTabTitle}}</span>
+			</a>
+		</li>
+		<li class="header-tab" role="tab" data-o-grid-colspan="6">
+			<a class="header-tab__link" href="#top-stories-section-aside" data-trackable="fastft-tab">
+				<span class="header-tab__link__text">fastFT</span>
+			</a>
+		</li>
+	</ul>
 </div>
-<a id="news-tab" class="nh-header-tabs__marker">{{newsTabTitle}}</a>
-<a id="fastft-tab" class="nh-header-tabs__marker">fastFT</a>
