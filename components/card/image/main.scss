@@ -26,6 +26,13 @@
 			[data-image-show~="#{$layout-name}--false"] & {
 				display: none;
 			}
+			[data-card-landscape~="#{$layout-name}--false"] & {
+				position: static;
+				top: 0;
+				left: 0;
+				width: auto;
+				margin-top: 10px;
+			}
 		}
 		@include oGridRespondTo($layout-name) {
 			[data-image-show~="#{$layout-name}--true"] & {
