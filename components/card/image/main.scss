@@ -7,53 +7,48 @@
 	border-bottom: 0;
 
 	[data-card-landscape~="true"] & {
-		flex: none;
-		margin-top: 0;
-		margin-right: 10px;
-		order: -1;
+		position: absolute;
+		top: 10px;
+		left: 10px;
 		width: 100px;
+		margin-top: 0;
 	}
 
-	[data-card-landscape~="S--false"] & {
-		@include oGridRespondTo(S) {
-			flex: 1 0 auto;
-			margin-top: 10px;
-			margin-right: 0;
-			order: 0;
-			width: auto;
-		}
-	}
-
-	[data-card-landscape~="M--false"] & {
-		@include oGridRespondTo(M) {
-			flex: 1 0 auto;
-			margin-top: 10px;
-			margin-right: 0;
-			order: 0;
-			width: auto;
-		}
-	}
-
-	&[data-image-show~="false"] {
+	[data-image-show~="false"] & {
 		display: none;
 	}
 
 	@each $layout-name in $_o-grid-layout-names {
-		@media screen\0 {
-			&[data-image-show~="#{$layout-name}--true"] {
+		@media \0screen {
+			[data-image-show~="#{$layout-name}--true"] & {
 				display: flex;
 			}
-			&[data-image-show~="#{$layout-name}--false"] {
+			[data-image-show~="#{$layout-name}--false"] & {
 				display: none;
+			}
+			[data-card-landscape~="#{$layout-name}--false"] & {
+				position: static;
+				top: 0;
+				left: 0;
+				width: auto;
+				margin-top: 10px;
 			}
 		}
 		@include oGridRespondTo($layout-name) {
-			&[data-image-show~="#{$layout-name}--true"] {
+			[data-image-show~="#{$layout-name}--true"] & {
 				display: flex;
 			}
 
-			&[data-image-show~="#{$layout-name}--false"] {
+			[data-image-show~="#{$layout-name}--false"] & {
 				display: none;
+			}
+
+			[data-card-landscape~="#{$layout-name}--false"] & {
+				position: static;
+				top: 0;
+				left: 0;
+				width: auto;
+				margin-top: 10px;
 			}
 		}
 	}
