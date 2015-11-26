@@ -25,7 +25,7 @@ const sectionContent = (content) => {
 		markets: {
 			body: content.markets.items
 		},
-		'lifestyle': {
+		'life-and-arts': {
 			body: content.lifestyle.items
 		},
 		'most-popular': {

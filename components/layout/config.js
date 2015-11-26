@@ -243,7 +243,7 @@ export default [
 	},
 	{
 		id: 'technology',
-		title: 'Technolgy',
+		title: 'Technology',
 		style: 'technology',
 		cards: {
 			default: [
@@ -335,9 +335,9 @@ export default [
 		}
 	},
 	{
-		id: 'lifestyle',
-		title: 'Life & Style',
-		style: 'lifestyle',
+		id: 'life-and-arts',
+		title: 'Life & Arts',
+		style: 'life-and-arts',
 		cards: {
 			default: [
 				{ size: 'small', image: true, landscape: true },
