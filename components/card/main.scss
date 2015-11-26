@@ -58,7 +58,7 @@
 }
 
 @each $layout-name in $_o-grid-layout-names {
-	@media screen\0 {
+	@media \0screen {
 		[data-card-show~="#{$layout-name}--true"] {
 			display: block;
 		}
