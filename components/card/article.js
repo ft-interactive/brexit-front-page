@@ -11,6 +11,7 @@ import Related from './related/related';
 class Article extends Component {
 	render () {
 		const article = this.props.article;
+		const hasImg = article.primaryImage ? 'true' : 'false';
 
 		return (
 			<article
@@ -18,6 +19,7 @@ class Article extends Component {
 					data-card-landscape={responsiveValue(this.props.landscape)}
 					data-trackable="card"
 					data-card-show={responsiveValue(this.props.show)}
+					data-card-has-image={hasImg}
 					data-image-show={responsiveValue(this.props.image)}>
 				<div>
 					{(article.primaryTag && article.primaryTag.taxonomy !== 'authors') ? <Tag tag={article.primaryTag} size={this.props.tagSize} /> : null}

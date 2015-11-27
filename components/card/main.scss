@@ -29,7 +29,7 @@
 }
 
 [data-card-landscape~="true"] {
-	&[data-image-show~="true"] {
+	&[data-card-has-image~="true"][data-image-show~="true"] {
 		position: relative;
 		min-height: 56px;
 		padding-left: 120px;
@@ -60,7 +60,7 @@
 		}
 
 		[data-card-landscape~="#{$layout-name}--true"] {
-			&[data-image-show~="true"] {
+			&[data-card-has-image~="true"][data-image-show~="true"] {
 				position: relative;
 				min-height: 56px;
 				padding-left: 120px;
@@ -68,7 +68,7 @@
 		}
 
 		[data-card-landscape~="#{$layout-name}--false"] {
-			&[data-image-show~="true"] {
+			&[data-card-has-image~="true"][data-image-show~="true"] {
 				position: static;
 				min-height: auto;
 				padding-left: 10px;
