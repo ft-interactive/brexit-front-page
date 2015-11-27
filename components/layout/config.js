@@ -80,7 +80,7 @@ export default [
 		style: 'opinion',
 		cards: {
 			default: [
-				{ size: 'medium', standFirst: true, image: true, landscape: true },
+				{ size: 'medium', standFirst: true, image: true },
 				{ size: 'small' },
 				{ size: 'small', image: true, landscape: true },
 				{ size: 'small', image: true, landscape: true },
@@ -90,7 +90,7 @@ export default [
 				{ size: 'tiny' }
 			],
 			S: [
-				{ size: 'medium', standFirst: true, image: true, landscape: true },
+				{ size: 'medium', standFirst: true, image: true },
 				{ size: 'small' },
 				{ size: 'small', image: true, landscape: true },
 				{ size: 'small', image: true, landscape: true },
@@ -188,7 +188,7 @@ export default [
 		style: 'most-popular',
 		cards: {
 			default: [
-				{ size: 'medium', standFirst: true, image: true, landscape: true },
+				{ size: 'medium', standFirst: true, image: true },
 				{ size: 'small' },
 				{ size: 'small', image: true, landscape: true },
 				{ size: 'small', image: true, landscape: true },
@@ -199,7 +199,7 @@ export default [
 				{ size: 'tiny' }
 			],
 			S: [
-				{ size: 'medium', standFirst: true, image: true, landscape: true },
+				{ size: 'medium', standFirst: true, image: true },
 				{ size: 'small' },
 				{ size: 'small', image: true, landscape: true },
 				{ size: 'small', image: true, landscape: true },
