@@ -169,4 +169,8 @@ html {
 		padding-left: 30px;
 		padding-right: 30px;
 	}
+	@include oGridRespondTo(XXL) {
+		padding-left: oGridGutter(M);
+		padding-right: oGridGutter(M);
+	}
 }

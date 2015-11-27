@@ -5,8 +5,13 @@ class FastFtItem extends Component {
 	render () {
 		const article = this.props.article;
 		const time = dateFormat(article.lastPublished, 'H:mm');
+		const classes = ['fast-ft__item'];
+		if (this.props.desktopHide) {
+			classes.push('fast-ft__item--hide-desktop');
+		}
+
 		return (
-			<div className="fast-ft__item">
+			<div className={classes.join(' ')}>
 				<h2 className="fast-ft__item__title">
 					<a className="fast-ft__item__title-link" href={'/content/' + article.id} data-trackable="feed-link">{article.title}</a>
 					<span> – </span>

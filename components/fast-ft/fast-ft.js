@@ -3,7 +3,10 @@ import FastFtItem from './fast-ft-item';
 
 class FastFt extends Component {
 	render () {
-		const articleEls = this.props.articles.slice(0, 7).map(article => <li key={article.id}><FastFtItem article={article} /></li>);
+		const articleEls = this.props.articles.slice(0, 20).map((article, index) => {
+			const desktopHide = index > 6;
+			return <li key={article.id}><FastFtItem article={article} desktopHide={desktopHide} /></li>;
+		});
 		return (
 			<div className="fast-ft-wrapper">
 				<div className="fast-ft">

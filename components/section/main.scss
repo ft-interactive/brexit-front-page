@@ -42,8 +42,12 @@
 
 	& > * {
 		width: 100%;
-		padding-bottom: oGridGutter(M);
+		padding-bottom: oGridGutter();
 		border-bottom: 1px solid oColorsGetPaletteColor('blue-2');
+
+		@include oGridRespondTo(M) {
+			padding-bottom: oGridGutter(M);
+		}
 	}
 }
 .section__column--meta {
@@ -55,8 +59,7 @@
 	}
 }
 
-.section__column--content,
-.section__column--sidebar,
+.section__column,
 // for current front page
 .main-content,
 .sidebar--fastft,

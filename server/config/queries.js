@@ -170,7 +170,7 @@ const newFrontPage = (region) => (`
 			}
 		}
 		fastFT {
-			items {
+			items(limit: 20) {
 				... Basic
 			}
 		}
