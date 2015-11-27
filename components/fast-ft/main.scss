@@ -43,6 +43,11 @@
 		margin-top: 0;
 	}
 }
+.fast-ft__item--hide-desktop {
+	@include oGridRespondTo(L) {
+		display: none;
+	}
+}
 .fast-ft__time {
 	@include nTypeAlpha(4);
 	color: getColor('claret');
