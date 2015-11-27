@@ -8,10 +8,12 @@
 	}
 }
 .fast-ft {
-	width: 100%;
 	background-color: getColor('pink');
 	padding: 10px;
 	border-left: 1px solid getColor('warm-3');
+}
+.fast-ft__logo-outer {
+	margin: 0;
 }
 .fast-ft__link {
 	display: inline-block;
@@ -47,8 +49,10 @@
 }
 .fast-ft__item__title {
 	@include nTypeAlpha(4);
+	margin: 0;
 }
 .fast-ft__item__title-link {
+	color: inherit;
 	border-bottom: 0;
 
 	&:hover {

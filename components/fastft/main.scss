@@ -3,6 +3,8 @@
 @import "../client/colors";
 
 @mixin nhFastFtTitle {
+	margin: 0;
+
 	a {
 		display: block;
 		border-bottom: 0;
@@ -31,4 +33,12 @@
 #fastft {
 	h1 { @include nhFastFtTitle; }
 	article { @include nhFeedItem(fastft-brand); }
+
+	a {
+		color: inherit;
+	}
+
+	h2 {
+		margin: 0;
+	}
 }

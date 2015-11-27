@@ -42,7 +42,7 @@
 .story-card__taxon {
 	@include nTypeBravoSize(4);
 	display: inline-block;
-	margin-bottom: 5px;
+	margin: 0 0 5px;
 
 	&.story-card__link,
 	.story-card__link {
@@ -74,6 +74,10 @@
 	a {
 		@include nLinksHeadline();
 	}
+}
+
+.story-card__title {
+	margin: 0;
 }
 
 .story-card__related-link {
@@ -114,6 +118,7 @@
 
 .story-card__footer {
 	@include storyCardFooter;
+	box-sizing: border-box;
 }
 
 @mixin nhStoryCard($type) {

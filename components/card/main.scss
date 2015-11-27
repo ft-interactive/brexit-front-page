@@ -5,11 +5,9 @@
 @import './related/main';
 
 .card {
-	width: 100%;
 	background-color: getColor('pink');
 	margin-top: oGridGutter();
-	border: 1px solid getColor('warm-3');
-	border-width: 0 0 1px;
+	border-bottom: 1px solid getColor('warm-3');
 	padding: 10px;
 	display: flex;
 	flex-direction: column;
@@ -22,19 +20,8 @@
 }
 
 .card--video {
+	width: 100%;
 	padding: 0;
-}
-
-// ad card
-
-.card--ad {
-	padding-left: 0;
-	padding-right: 0;
-}
-
-.ad {
-	display: block;
-	margin: 0 auto;
 }
 
 [data-card-show~="false"] {
@@ -44,13 +31,9 @@
 [data-card-landscape~="true"] {
 	&[data-image-show~="true"] {
 		position: relative;
-		min-height: 77px;
+		min-height: 56px;
 		padding-left: 120px;
 	}
-}
-
-.card--stretch {
-	flex: 1 1 auto;
 }
 
 .card--no-stretch {
@@ -68,7 +51,7 @@
 		[data-card-landscape~="#{$layout-name}--true"] {
 			&[data-image-show~="true"] {
 				position: relative;
-				min-height: 77px;
+				min-height: 56px;
 				padding-left: 120px;
 			}
 		}
@@ -102,7 +85,7 @@
 		[data-card-landscape~="#{$layout-name}--true"] {
 			&[data-image-show~="true"] {
 				position: relative;
-				min-height: 77px;
+				min-height: 56px;
 				padding-left: 120px;
 			}
 		}
