@@ -1,14 +1,12 @@
 .card__image-link {
 	display: flex;
 	flex: 1 1 auto;
-	justify-content: flex-end;
 	align-items: flex-start;
 	margin-top: 10px;
 	border-bottom: 0;
 
 	[data-card-landscape~="true"] & {
 		position: absolute;
-		justify-content: flex-start;
 		top: 10px;
 		left: 10px;
 		width: 100px;
@@ -31,7 +29,6 @@
 
 			[data-card-landscape~="#{$layout-name}--false"] & {
 				position: static;
-				justify-content: flex-end;
 				top: 0;
 				left: 0;
 				width: auto;
@@ -79,5 +76,8 @@
 
 	.card__image-link--headshot & {
 		width: 60%;
+		@include oGridRespondTo(M) {
+			margin-left: auto;
+		}
 	}
 }
