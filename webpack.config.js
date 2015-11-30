@@ -40,9 +40,9 @@ const config = {
 				test: /\.scss|sass?$/,
 				loader: ExtractTextPlugin.extract(
 					[
-						'css?sourceMap&minimize',
+						'css?sourceMap',
 						'autoprefixer',
-						'sass?sourceMap&includePaths[]=' + (path.resolve(__dirname, './bower_components'))
+						'sass?sourceMap&outputStyle=nested&includePaths[]=' + (path.resolve(__dirname, './bower_components'))
 					].join('!')
 				)
 			}
