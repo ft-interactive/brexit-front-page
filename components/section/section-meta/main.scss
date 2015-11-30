@@ -7,7 +7,7 @@
 	overflow: hidden;
 }
 
-.section-meta__date{
+.section-meta__date {
 	@include nTypeBravo(3);
 
 	&:nth-child(n+2) {
@@ -17,7 +17,7 @@
 
 .section-meta__title {
 	@include oTypographySerifDisplayBold(s);
-	display: inline;
+	display: inline-block;
 	margin: 0 10px 0 0;
 	padding: 10px 0 0;
 	color: getColor('cold-3');
@@ -31,7 +31,8 @@
 		margin-left: 10px;
 		height: 1px;
 		border-bottom: 1px solid getColor('warm-3');
-		top: 24px;
+		top: 50%;
+		margin-top: 3px;
 		width: 100%;
 	}
 }
