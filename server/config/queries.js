@@ -156,10 +156,6 @@ const newFrontPage = (region) => (`
 				... Basic
 				... Extended
 				... Related
-			}
-			liveBlogs: items(type: LiveBlog) {
-				... Basic
-				... Extended
 				... on LiveBlog {
 					status
 					updates(limit: 1) {
