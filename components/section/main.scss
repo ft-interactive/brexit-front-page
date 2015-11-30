@@ -43,7 +43,6 @@
 	& > * {
 		width: 100%;
 		padding-bottom: oGridGutter();
-		border-bottom: 1px solid oColorsGetPaletteColor('blue-2');
 
 		@include oGridRespondTo(M) {
 			padding-bottom: oGridGutter(M);
