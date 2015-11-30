@@ -257,7 +257,7 @@ export default [
 				{ size: 'small' }
 			],
 			M: [
-				{ size: 'small', image: true, landscape: true },
+				{ size: 'small', image: true, landscape: false },
 				{ size: 'small' }
 			]
 		},
@@ -288,38 +288,7 @@ export default [
 				{ size: 'small' }
 			],
 			M: [
-				{ size: 'small', image: true, landscape: true },
-				{ size: 'small' }
-			]
-		},
-		size: {
-			default: 12,
-			M: 4
-		},
-		cols: {
-			meta: {
-				default: 12
-			},
-			content: {
-				default: 12
-			}
-		}
-	},
-	{
-		id: 'markets',
-		title: 'Markets',
-		style: 'markets',
-		cards: {
-			default: [
-				{ size: 'small', image: true, landscape: true },
-				{ size: 'small' }
-			],
-			S: [
-				{ size: 'small', image: true, landscape: true },
-				{ size: 'small' }
-			],
-			M: [
-				{ size: 'small', image: true, landscape: true },
+				{ size: 'small', image: true, landscape: false },
 				{ size: 'small' }
 			]
 		},
@@ -350,7 +319,7 @@ export default [
 				{ size: 'small' }
 			],
 			M: [
-				{ size: 'small', image: true, landscape: true },
+				{ size: 'small', image: true, landscape: false },
 				{ size: 'small' }
 			]
 		},
