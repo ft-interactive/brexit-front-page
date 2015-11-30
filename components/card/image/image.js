@@ -9,8 +9,7 @@ const imageOptions = {
 	width: 265,
 	compression: 'best',
 	format: 'png',
-	quality: 'highest',
-	dpr: 2
+	quality: 'highest'
 };
 
 export default class Image extends Component {
@@ -28,7 +27,7 @@ export default class Image extends Component {
 
 		return (
 			<a className={classes} href={'/content/' + article.id} data-trackable="image">
-				<img className='card__image' src={imageSrc} />
+				<img className="card__image" src={imageSrc} />
 			</a>
 		);
 	}
