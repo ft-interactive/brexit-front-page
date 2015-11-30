@@ -3,10 +3,11 @@
 	@include oGridRespondTo(M) {
 		padding-top: oGridGutter(M);
 	}
+	position: relative;
+	overflow: hidden;
 }
 
-.section-meta__date,
-.section-meta__title {
+.section-meta__date {
 	@include nTypeBravo(3);
 
 	&:nth-child(n+2) {
@@ -15,5 +16,23 @@
 }
 
 .section-meta__title {
-	margin: 0;
+	@include oTypographySerifDisplayBold(s);
+	display: inline-block;
+	margin: 0 10px 0 0;
+	padding: 10px 0 0;
+	color: getColor('cold-3');
+	&--sans-serif {
+		@include oTypographySansDataBold(l);
+		font-size: 20px;
+	}
+	&:after {
+		content: "";
+		position: absolute;
+		margin-left: 10px;
+		height: 1px;
+		border-bottom: 1px solid getColor('warm-3');
+		top: 50%;
+		margin-top: 3px;
+		width: 100%;
+	}
 }
