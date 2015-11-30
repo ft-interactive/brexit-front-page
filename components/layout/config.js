@@ -51,6 +51,26 @@ export default [
 				{ column: 2, width: 3, size: 'tiny' }
 			]
 		},
+		overrides: [
+			//Different layout if top story has related links
+			{
+				condition: (items) => {
+					return items[0] && items[0].relatedContent.length > 0;
+				},
+				cards: {
+					M: [
+						{ column: 0, width: 5, size: 'large', standFirst: true, image: true, related: 3 },
+						{ column: 1, width: 4, size: 'small' },
+						{ column: 1, width: 4, size: 'small' },
+						{ column: 1, width: 4, size: 'small' },
+						{ column: 1, width: 4, size: 'small' },
+						{ column: 2, width: 3, size: 'tiny' },
+						{ column: 2, width: 3, size: 'tiny' },
+						{ column: 2, width: 3, size: 'tiny', image: true },
+					]
+				}
+			}
+		],
 		size: {
 			default: 12
 		},

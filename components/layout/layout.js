@@ -39,6 +39,15 @@ export default class Layout extends Component {
 		const content = sectionContent(this.props.content);
 		const sections = this.props.layout.map(section => {
 			const sectionContent = content[section.id];
+
+			if(section.overrides) {
+				section.overrides.forEach((override) => {
+					if(override.condition(sectionContent.body)) {
+						section.cards = Object.assign(section.cards, override.cards);
+					}
+				});
+			}
+
 			return (
 				<div id={section.id} key={section.id} data-o-grid-colspan={colspan(section.size)}>
 					<Section {...section} content={sectionContent.body} sidebarContent={sectionContent.sidebar} data-o-grid-colspan="12" />
