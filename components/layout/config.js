@@ -55,7 +55,7 @@ export default [
 			//Different layout if top story has related links
 			{
 				condition: (items) => {
-					return items[0] && items[0].relatedContent.length > 0;
+					return items[0] && items[0].relatedContent.length > 2;
 				},
 				cards: {
 					M: [
@@ -279,6 +279,10 @@ export default [
 			M: [
 				{ size: 'small', image: true, landscape: false },
 				{ size: 'small' }
+			],
+			L: [
+				{ size: 'small', image: true, landscape: true },
+				{ size: 'small' }
 			]
 		},
 		size: {
@@ -310,6 +314,10 @@ export default [
 			M: [
 				{ size: 'small', image: true, landscape: false },
 				{ size: 'small' }
+			],
+			L: [
+				{ size: 'small', image: true, landscape: true },
+				{ size: 'small' }
 			]
 		},
 		size: {
@@ -340,6 +348,10 @@ export default [
 			],
 			M: [
 				{ size: 'small', image: true, landscape: false },
+				{ size: 'small' }
+			],
+			L: [
+				{ size: 'small', image: true, landscape: true },
 				{ size: 'small' }
 			]
 		},
