@@ -26,6 +26,12 @@
 	}
 }
 
+.section--video {
+	.no-js & {
+		display: none;
+	}
+}
+
 .section-nav {
 	padding-bottom: 0 !important;
 }
