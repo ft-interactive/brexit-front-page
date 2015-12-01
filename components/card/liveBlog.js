@@ -13,7 +13,6 @@ class LiveBlog extends Component {
 	render () {
 		const article = this.props.liveBlog;
 		const hasImg = article.primaryImage ? 'true' : 'false';
-		console.log(article);
 		return (
 			<article
 					className={"card card--liveblog liveblog--" + article.status.toLowerCase()}
@@ -36,7 +35,7 @@ class LiveBlog extends Component {
 
 					{article.status === 'InProgress' ? <span>last post&nbsp;</span> : null}
 					{article.status === 'Closed' ? <span>liveblog closed&nbsp;</span> : null}
-					{article.status === 'ComingSoon' ? <span>last post&nbsp;</span> : <time
+					{article.status === 'ComingSoon' ? <span>coming soon</span> : <time
 						data-o-component="o-date"
 						className="o-date"
 						dateTime={dateFormat(article.updates[0].date, 'isoUtcDateTime')}>{dateFormat(article.updates[0].date, 'isoUtcDateTime')}

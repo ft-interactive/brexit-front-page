@@ -8,6 +8,8 @@ import LiveBlog from './liveBlog';
 
 class Card extends Component {
 	render () {
+		if(!this.props.item) return null;
+
 		const item = this.props.item;
 		const props = expandProps(this.props);
 

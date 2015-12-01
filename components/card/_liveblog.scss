@@ -21,18 +21,12 @@
 .card--liveblog {
 
 	.liveblog__badge {
-		@include nTypeBravo(4);
+		@include oTypographySansBold(s);
 		display: inline-block;
 		text-transform: uppercase;
 		padding: 0.1em 0.5em 0.3em;
-		margin: 0 0.2em 0 0;
+		margin: 0 0.4em 0 0;
 		color: white;
-	}
-
-	.card__standfirst {
-		@include nTypeEcho(3);
-		font-size: 16px;
-		line-height: 1.2;
 	}
 
 	.card__tag {
@@ -40,8 +34,13 @@
 	}
 
 	.card__footer {
+		@include oTypographySans(xs);
+		text-transform: uppercase;
 		color: oColorsGetColorFor('timestamp', 'text');
-		span { margin: 0 -0.2em 0 0.2em; }
+		margin-top: 10px;
+
+
+		span { margin: 0 0 0 0.2em; }
 
 		.liveblog__live-indicator {
 			display: inline-block;

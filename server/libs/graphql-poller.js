@@ -26,6 +26,10 @@ let queryResults = {
 	mockFrontPage: {
 		data: null,
 		lastUpdated: null
+	},
+	mockFrontPageNew: {
+		data: null,
+		lastUpdated: null
 	}
 };
 
@@ -72,7 +76,8 @@ module.exports = {
 				pollData(queries.newFrontPage('UK'), 'newFrontPageUK').start({ initialRequest: true}),
 				pollData(queries.newFrontPage('US'), 'newFrontPageUS').start({ initialRequest: true}),
 				pollData(queries.fastFT, 'fastFT').start({ initialRequest: true}),
-				pollData(queries.frontPage('UK'), 'mockFrontPage', { mockFrontPage: true }).start({ initialRequest: true})
+				pollData(queries.frontPage('UK'), 'mockFrontPage', { mockFrontPage: true }).start({ initialRequest: true}),
+				pollData(queries.newFrontPage('UK'), 'mockFrontPageNew', { mockFrontPage: true }).start({ initialRequest: true})
 			])
 			.catch((e) => {
 				logger.error(e);
