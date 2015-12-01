@@ -1,0 +1,10 @@
+@mixin displayFlex() {
+	// Prevents autoprefixer from outputting display: -webkit-box;, which is buggy
+	& {
+		/*autoprefixer: off*/
+		display: -webkit-flex;
+		display: -ms-flexbox;
+		display: flex;
+	}
+
+}

@@ -1,5 +1,6 @@
 .card__image-link {
-	display: flex;
+	@include displayFlex;
+
 	flex: 1 1 auto;
 	align-items: flex-start;
 	margin-top: 10px;
@@ -20,7 +21,7 @@
 	@each $layout-name in $_o-grid-layout-names {
 		@include oGridRespondTo($layout-name) {
 			[data-card-has-image~="true"][data-image-show~="#{$layout-name}--true"] & {
-				display: flex;
+				@include displayFlex;
 			}
 
 			[data-image-show~="#{$layout-name}--false"] & {
