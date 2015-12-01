@@ -4,25 +4,27 @@
 	list-style-type: none;
 }
 .card__related-item {
-	font-family: $n-type-sans-serif;
+	position: relative;
+	font-family: $o-typography-sans;
 	font-weight: oFontsWeight(light);
 	font-size: 18px;
 	line-height: 20px;
 	margin-top: 10px;
+	padding-left: 15px;
 }
 .card__related-item__link {
-	border-bottom: 0;
+	border-bottom-width: 0;
 	color: inherit;
 
 	&:hover {
 		border-bottom: 1px dotted;
 	}
 	&:before {
+		position: absolute;
+		top: 0;
+		left: 0;
 		content: '>';
 		font-size: 25px;
-		line-height: 0;
-		vertical-align: sub;
-		margin-right: 5px;
 	}
 }
 
