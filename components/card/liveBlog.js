@@ -12,6 +12,8 @@ import Standfirst from './standfirst/standfirst'
 class LiveBlog extends Component {
 	render () {
 		const article = this.props.liveBlog;
+
+		article.summary = article.updates.length ? article.updates[0].text.split(/\.\s/).slice(0, 1) + '.' : null;
 		const hasImg = article.primaryImage ? 'true' : 'false';
 		return (
 			<article
@@ -27,7 +29,7 @@ class LiveBlog extends Component {
 					<Title title={article.title} href={'/content/' + article.id} size={this.props.titleSize} />
 					{(article.primaryTag && article.primaryTag.taxonomy === 'authors') ? <Tag tag={article.primaryTag} size={this.props.tagSize} /> : null}
 				</div>
-				<Standfirst article={article} size={this.props.standFirstSize} show={this.props.showStandFirst} />
+				<Standfirst article={article} size='medium' show={this.props.showStandFirst} />
 				{article.primaryImage ? <Image article={article} show={this.props.image} stickToBottom={this.props.imageStick}/> : null}
 				{this.props.showRelated.length > 0 ? <Related articles={article.relatedContent} show={this.props.showRelated} /> : null}
 				<div className="card__footer">
