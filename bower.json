@@ -7,9 +7,9 @@
     "o-date": "^2.0.0",
     "n-video": "^3.0.0",
     "n-message-prompts": "^1.0.0",
-    "n-layout": "^4.0.0",
+    "n-layout": "^5.0.0",
     "n-image": "^2.0.0",
-    "o-tabs": "~2.1.0"
+    "o-tabs": "^2.1.0"
   },
   "resolutions": {
     "o-ft-icons": "next",

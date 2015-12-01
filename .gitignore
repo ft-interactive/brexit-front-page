@@ -4,7 +4,7 @@
 /.node-version
 /.sass-cache
 /node*
-/npm-debug.log
+/npm-debug.log*
 
 /.haikro-cache/
 /.idea/
