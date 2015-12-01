@@ -29,7 +29,7 @@ const sectionContent = (content) => {
 			body: content.lifestyle.items
 		},
 		'most-popular': {
-			body: content.popular.items
+			body: content.popularArticles
 		}
 	};
 };

@@ -227,11 +227,9 @@ const newFrontPage = (region) => (`
 				... Extended
 			}
 		}
-		popular {
-			items(limit: 9) {
-				... Basic
-				... Extended
-			}
+		popularArticles(limit: 9) {
+			... Basic
+			... Extended
 		}
 	}
 `);
