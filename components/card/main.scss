@@ -6,11 +6,13 @@
 @import './liveblog';
 
 .card {
+	@include displayFlex;
+
 	background-color: getColor('pink');
 	margin-top: oGridGutter();
 	border-bottom: 1px solid getColor('warm-3');
 	padding: 10px;
-	display: flex;
+
 	flex-direction: column;
 	line-height: 1;
 	flex: 1 1 auto;
@@ -45,7 +47,7 @@
 	@include oGridRespondTo($layout-name) {
 		[data-card-show~="#{$layout-name}--true"] {
 			display: block;
-			display: flex;
+			@include displayFlex;
 		}
 
 		[data-card-show~="#{$layout-name}--false"] {

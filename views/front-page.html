@@ -6,7 +6,7 @@
 {{#if @root.flags.frontPageLayoutPrototype}}
 	<div id="layout-overlay-container"></div>
 	{{> header-tabs  newsTabTitle="Top Stories"}}
-	<section id="main-body" class="main-body o-grid-container">
+	<section id="main-body" class="main-body o-grid-container n-util-clearfix">
 		{{{ reactRenderToString Layout content=content layout=initialLayout }}}
 	</section>
 {{else}}
