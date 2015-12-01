@@ -279,6 +279,10 @@ export default [
 			M: [
 				{ size: 'small', image: true, landscape: false },
 				{ size: 'small' }
+			],
+			L: [
+				{ size: 'small', image: true, landscape: true },
+				{ size: 'small' }
 			]
 		},
 		size: {
@@ -310,6 +314,10 @@ export default [
 			M: [
 				{ size: 'small', image: true, landscape: false },
 				{ size: 'small' }
+			],
+			L: [
+				{ size: 'small', image: true, landscape: true },
+				{ size: 'small' }
 			]
 		},
 		size: {
@@ -340,6 +348,10 @@ export default [
 			],
 			M: [
 				{ size: 'small', image: true, landscape: false },
+				{ size: 'small' }
+			],
+			L: [
+				{ size: 'small', image: true, landscape: true },
 				{ size: 'small' }
 			]
 		},
