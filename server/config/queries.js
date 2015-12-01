@@ -123,8 +123,10 @@ const frontPage = (region) => (`
 				... Extended
 			}
 		}
-		popularArticles(limit: 10) {
-			... Basic
+		popular {
+			items(limit: 10) {
+				... Basic
+			}
 		}
 		videos(limit: 5) {
 			id
