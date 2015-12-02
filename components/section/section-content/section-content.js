@@ -5,7 +5,7 @@ import Card from '../../card/card';
 
 const colspanToString = (span) => {
 	return span.default + ' ' + layoutNames.filter(it => span.hasOwnProperty(it)).map(it => it + span[it]).join(' ');
-}
+};
 
 export default class SectionContent extends Component {
 	render () {
@@ -16,7 +16,7 @@ export default class SectionContent extends Component {
 			const colspan = colspanToString(column.colspan);
 
 			const cards = column.cards.map(props => {
-				return <Card {...props} />;
+				return <Card {...props} key={props.item.id} />;
 			});
 
 			return (

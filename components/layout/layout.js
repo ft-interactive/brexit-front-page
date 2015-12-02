@@ -50,7 +50,11 @@ export default class Layout extends Component {
 
 			return (
 				<div id={section.id} key={section.id} data-o-grid-colspan={colspan(section.size)}>
-					<Section {...section} content={sectionContent.body} sidebarContent={sectionContent.sidebar} data-o-grid-colspan="12" />
+					<Section
+						{...section}
+						content={sectionContent.body}
+						sidebarContent={sectionContent.sidebar}
+						data-o-grid-colspan="12"/>
 				</div>
 			);
 		});
