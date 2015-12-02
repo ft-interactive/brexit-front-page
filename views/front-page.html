@@ -20,7 +20,7 @@
 			<aside class="sidebar sidebar--fastft o-tabs__tabpanel" id="top-stories-section-aside" data-trackable="fastft" data-o-grid-colspan="12 L4 XL3" role="presentation">
 				<section id="fastft" data-fastft-articles="{{json content.fastFT.items}}">{{{ reactRenderToString FastFtFeed items=content.fastFT.items }}}</section>
 				{{#if @root.flags.frontPageHalfPageAd}}
-					<div class="sidebar__ad-container"></div>
+					<div class="sidebar-ad-placeholder"></div>
 				{{/if}}
 			</aside>
 		</div>
