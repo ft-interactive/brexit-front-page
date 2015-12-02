@@ -134,12 +134,6 @@ html {
 	@include oGridRespondTo($from: L) { margin-bottom: 20px; }
 }
 
-.sidebar {
-	.sidebar__ad-container {
-		margin: 1em 0;
-	}
-}
-
 .bordered-spacer {
 	margin: 10px 0;
 	height: 10px;

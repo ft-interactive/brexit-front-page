@@ -82,16 +82,6 @@
 	flex-direction: column;
 }
 
-.sidebar__ad-container {
-	display: none;
-	flex: 1 1 auto;
-	margin-top: oGridGutter(M);
-
-	@include oGridRespondTo(L) {
-		display: block;
-	}
-}
-
 .column {
 	flex-flow: column wrap;
 	display: flex;
