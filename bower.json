@@ -12,8 +12,6 @@
     "o-tabs": "^2.1.0"
   },
   "resolutions": {
-    "o-ft-icons": "next",
-    "next-myft-ui": "^5.0.0",
-    "next-myft-client": "^5.0.1"
+    "o-ft-icons": "next"
   }
 }
