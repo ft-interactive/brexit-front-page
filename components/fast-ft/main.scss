@@ -14,6 +14,7 @@
 }
 .fast-ft__logo-outer {
 	margin: 0;
+	line-height: 17px;
 }
 .fast-ft__link {
 	display: inline-block;
@@ -21,14 +22,15 @@
 }
 .fast-ft__logo--fast {
 	@include nextIcon(brand-fast, getColor('fastft-brand'), 30);
+	background-size: 100% 13px;
 }
 .fast-ft__logo--ft {
 	@include nextIcon(brand-ft, getColor('warm-4'), 30);
+	background-size: 100% 17px;
 }
  .fast-ft__logo {
 	 height: 100%;
 	 text-indent: -9999px;
-	 background-size: contain;
 	 background-position: 0 100%;
  }
 .fast-ft__items {
