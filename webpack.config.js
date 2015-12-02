@@ -34,7 +34,7 @@ const config = {
 	},
 	module: {
 		loaders: [
-			{ test: /\.js?$/, loader: 'babel' },
+			{ test: /\.js$/, exclude: /node_modules/, loader: 'babel' },
 			{ test: /fastclick\.js$/, loader: 'imports?define=>false' }, // force fastclick to load CommonJS
 			{
 				test: /\.scss|sass?$/,
