@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import LayoutOverlay from './layout-overlay';
-import './main.scss';
 
 import initialLayout from '../layout/config';
 
