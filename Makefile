@@ -26,18 +26,17 @@ run-hot-load:
 	export HOT_LOAD=1; nbt run
 
 watch:
-	webpack --watch
+	nbt build --dev --watch
 
 watch-hot-load:
 	rm -f ./public/main.*
 	node server/dev/init
 
 build:
-	webpack
+	nbt build --dev
 
 build-production:
-	export NODE_ENV=production; webpack --bail
-	nbt build --skip-js --skip-sass
+	nbt build
 
 smoke:
 	nbt test-urls ${TEST_APP}

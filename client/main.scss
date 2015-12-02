@@ -21,6 +21,7 @@ $o-grid-ie8-rules: false;
 @import "colors";
 @import "type";
 @import "icons";
+@import "flexipod-layouts";
 
 @import "components/story-card/main";
 @import "components/carousel-card/main";
@@ -30,9 +31,10 @@ $o-grid-ie8-rules: false;
 @import "components/highlight-dom-path/main";
 @import "components/flexipod/main";
 
-@import "flexipod-layouts";
-
+@import "../components/fastft/main";
 @import "../components/layout/main";
+@import "../components/feed/main";
+@import "../components/section/main";
 
 html {
 	// Prevent navigation menus from creating
