@@ -2,6 +2,9 @@ import highlightDomPath from './components/highlight-dom-path/main';
 import scrollDepth from './components/scroll-depth/main';
 import marketsData from './components/markets-data/main';
 
+import myFtClient from 'next-myft-client';
+import * as myFtUi from 'next-myft-ui';
+
 import oDate from 'o-date';
 
 import layout from 'n-layout';
@@ -16,6 +19,14 @@ import LayoutOverlay from '../components/layout-overlay/main';
 import './main.scss';
 
 setup.bootstrap(({flags}) => {
+
+	const clientOpts = [];
+	flags.get('follow') && clientOpts.push({relationship: 'followed', type: 'concept'});
+	flags.get('saveForLater') && clientOpts.push({relationship: 'saved', type: 'content'});
+	myFtClient.init(clientOpts);
+
+	myFtUi.init({anonymous: !(/FTSession=/.test(document.cookie))});
+
 	layout.init(flags);
 
 	const feedContainer = document.getElementById('fastft');
