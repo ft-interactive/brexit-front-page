@@ -28,7 +28,7 @@
 	line-height: 32px;
 	color: inherit;
 
-	&:active {
+	&:focus {
 		outline: none;
 	}
 }
@@ -38,7 +38,7 @@
 	display: inline-block;
 
 	.header-tab__link:hover &,
-	.header-tab:focus &,
+	.header-tab__link:focus &,
 	.header-tab[aria-selected="true"] & {
 		font-weight: oFontsWeight(bold);
 
