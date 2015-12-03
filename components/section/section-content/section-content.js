@@ -16,7 +16,7 @@ export default class SectionContent extends Component {
 			const colspan = colspanToString(column.colspan);
 
 			const cards = column.cards.map(props => {
-				return <Card {...props} key={props.item.id} />;
+				return props.item ? <Card {...props} key={props.item.id} /> : null;
 			});
 
 			return (
