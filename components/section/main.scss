@@ -95,7 +95,7 @@
 
 .column {
 	@include displayFlex;
-	flex-flow: column wrap;
+	flex-direction: column;
 
 	&[data-o-grid-colspan~="hide"] {
 		@include oGridRespondTo($until: S) {
