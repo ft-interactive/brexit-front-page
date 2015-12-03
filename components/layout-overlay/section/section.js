@@ -13,11 +13,11 @@ const enforceConstraints = (cards) => {
 
 		// ensure constant widths in columns
 		if(+card.column === +cards[idx - 1].column)
-			card.width = +cards[idx - 1].width
+			card.width = +cards[idx - 1].width;
 
 		return card;
 	});
-}
+};
 
 export default class Section extends Component {
 	constructor (props) {
@@ -61,7 +61,7 @@ export default class Section extends Component {
 			// on width change, update a neihgboring column width
 			if(widthDiff !== 0) {
 				const column = +newCards[cardIndex].column;
-				const cardToChange = newCards.find((card) => +card.column > column) || newCards.find((card) => +card.column === column - 1)
+				const cardToChange = newCards.find((card) => +card.column > column) || newCards.find((card) => +card.column === column - 1);
 
 				// bail if we're making a card too narrow
 				if((+cardToChange.width + widthDiff) < 2) return;
@@ -99,10 +99,18 @@ export default class Section extends Component {
 			const firstOfColumn = (card.column > previousColumn);
 			const defaultLayout = this.props.layout === 'default';
 
-			return (<li>
-				<CardEditor card={card} showColumn={!defaultLayout} minColumn={previousColumn} maxColumn={previousColumn + 1} showWidth={firstOfColumn && !defaultLayout} onChange={this.update(idx)}/>
-			</li>)
-		})
+			return (
+				<li key={idx}>
+					<CardEditor
+						card={card}
+						showColumn={!defaultLayout}
+						minColumn={previousColumn}
+						maxColumn={previousColumn + 1}
+						showWidth={firstOfColumn && !defaultLayout}
+						onChange={this.update(idx)} />
+				</li>
+			)
+		});
 
 		return (
 			<div className={'section-editor section-editor--' + (this.state.expanded ? 'expanded' : 'collapsed')}>

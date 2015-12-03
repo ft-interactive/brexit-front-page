@@ -6,7 +6,6 @@ clean:
 	git clean -fxd
 
 install:
-	npm install bower@1.6.5
 	obt install --verbose
 
 verify:
@@ -27,18 +26,19 @@ run-hot-load:
 	export HOT_LOAD=1; nbt run
 
 watch:
-	webpack --watch
+	nbt build --dev --watch \
+	    --watch-files-sass "./client/**/*.scss,./components/**/*.scss,./bower_components/**/*.scss" \
+	    --watch-files-js "./client/**/*.js,./components/**/*.js,./bower_components/**/*.js"
 
 watch-hot-load:
 	rm -f ./public/main.*
 	node server/dev/init
 
 build:
-	webpack
+	nbt build --dev
 
 build-production:
-	export NODE_ENV=production; webpack --bail
-	nbt build --skip-js --skip-sass
+	nbt build
 
 smoke:
 	nbt test-urls ${TEST_APP}

@@ -5,10 +5,12 @@
 
 {{#if @root.flags.frontPageLayoutPrototype}}
 	<div id="layout-overlay-container"></div>
-	{{> header-tabs  newsTabTitle="Top Stories"}}
-	<section id="main-body" class="main-body o-grid-container">
-		{{{ reactRenderToString Layout content=content layout=initialLayout }}}
-	</section>
+	{{> header-tabs newsTabTitle="Top Stories"}}
+	<section
+		id="main-body"
+		class="main-body o-grid-container n-util-clearfix"
+		{{#if @root.flags.frontPageLayoutTool}} data-main-content="{{json content}}"{{/if}}
+		>{{{ reactRenderToString Layout content=content layout=initialLayout }}}</section>
 {{else}}
 	{{> header-tabs  newsTabTitle="News"}}
 	<div class="o-grid-container fixed-width-container">
@@ -84,7 +86,7 @@ Good luck!
 						<div class="pod-heading pod-heading--feed">
 							<h1 id="popular-title" aria-hidden="true">Popular</h1>
 						</div>
-						{{{ reactRenderToString Feed items=content.popular.items labelId="popular-title" }}}
+						{{{ reactRenderToString Feed items=content.popularArticles labelId="popular-title" }}}
 					</div>
 				</section>
 			</aside>

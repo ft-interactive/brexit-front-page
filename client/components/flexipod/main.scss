@@ -25,7 +25,7 @@
 		.article-group:nth-child(#{$int}) {
 			.article {
 				@include oGridColspan($width);
-				display: flex;
+				@include displayFlex;
 
 				.story-card {
 					@include nhStoryCard($type);
@@ -41,7 +41,7 @@
 
 				.article:nth-child(#{$card-int}) {
 					@include oGridColspan($width);
-					display: flex;
+					@include displayFlex;
 
 					.story-card {
 						@include nhStoryCard($type);

@@ -37,8 +37,9 @@
 }
 
 .section__column {
+	@include displayFlex;
 	align-items: stretch;
-	display: flex;
+
 
 	&[data-o-grid-colspan="hide L2"] {
 		@include oGridRespondTo($until: L) {
@@ -83,8 +84,8 @@
 }
 
 .column {
+	@include displayFlex;
 	flex-flow: column wrap;
-	display: flex;
 
 	&[data-o-grid-colspan~="hide"] {
 		@include oGridRespondTo($until: S) {

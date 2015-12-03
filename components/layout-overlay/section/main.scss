@@ -1,6 +1,7 @@
 .section-editor h3 {
 	@include nTypeAlpha(3);
 	a {
+		color: inherit;
 		display: block;
 		padding: 0.5em;
 		border: 1px solid oColorsGetPaletteColor('cold-1');

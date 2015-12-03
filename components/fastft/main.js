@@ -4,11 +4,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import FastFtFeed from './fastftfeed';
 
-import './main.scss';
-
 const renderFeed = (el, items) => {
 	ReactDOM.render(<FastFtFeed items={items} />, el);
-}
+};
 
 const init = el => {
 	if(!el) return;

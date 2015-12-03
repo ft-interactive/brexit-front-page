@@ -55,7 +55,7 @@ export default [
 			//Different layout if top story has related links
 			{
 				condition: (items) => {
-					return items[0] && items[0].relatedContent.length > 2;
+					return items[0] && items[0].relatedContent && items[0].relatedContent.length > 2;
 				},
 				cards: {
 					M: [
@@ -67,6 +67,7 @@ export default [
 						{ column: 2, width: 3, size: 'tiny' },
 						{ column: 2, width: 3, size: 'tiny' },
 						{ column: 2, width: 3, size: 'tiny', image: true },
+						{ column: 2, width: 3, size: 'tiny' }
 					]
 				}
 			}
