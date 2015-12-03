@@ -67,6 +67,7 @@ export default [
 						{ column: 2, width: 3, size: 'tiny' },
 						{ column: 2, width: 3, size: 'tiny' },
 						{ column: 2, width: 3, size: 'tiny', image: true },
+						{ column: 2, width: 3, size: 'tiny' }
 					]
 				}
 			}
