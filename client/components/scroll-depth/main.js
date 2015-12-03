@@ -18,7 +18,7 @@ const scrollHandlerFactory = components => {
 };
 
 const init = () => {
-	const components = toArray(document.querySelectorAll('.flexipod'));
+	const components = toArray(document.querySelectorAll('.flexipod, .section'));
 	window.addEventListener('scroll', throttle(scrollHandlerFactory(components), 250));
 };
 
