@@ -16,20 +16,10 @@ import layoutTool from './components/layout-tool/main';
 import fastFT from '../components/fastft/main';
 
 setup.bootstrap(({flags}) => {
-
-	const clientOpts = [];
-	flags.get('follow') && clientOpts.push({relationship: 'followed', type: 'concept'});
-	flags.get('saveForLater') && clientOpts.push({relationship: 'saved', type: 'content'});
-	myFtClient.init(clientOpts);
-
-	myFtUi.init({anonymous: !(/FTSession=/.test(document.cookie))});
-
 	layout.init(flags);
 
 	const feedContainer = document.getElementById('fastft');
 	fastFT.init(feedContainer);
-
-	headerTabs.init();
 
 	nVideo.init({
 		placeholder: true,
@@ -41,6 +31,16 @@ setup.bootstrap(({flags}) => {
 	prompts.init();
 	highlightDomPath();
 	scrollDepth.init(flags);
-	marketsData.init(flags);
 	layoutTool.init(flags);
+
+	// NOTE - these are last as they depend on polyfills from the polyfill service
+	// (which fails in e.g. BB10 - https://github.com/3rd-Eden/useragent/issues/83)
+	const clientOpts = [];
+	flags.get('follow') && clientOpts.push({relationship: 'followed', type: 'concept'});
+	flags.get('saveForLater') && clientOpts.push({relationship: 'saved', type: 'content'});
+	myFtClient.init(clientOpts);
+	myFtUi.init({anonymous: !(/FTSession=/.test(document.cookie))});
+
+	marketsData.init(flags);
+	headerTabs.init();
 });
