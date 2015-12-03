@@ -11,10 +11,9 @@ import highlightDomPath from './components/highlight-dom-path/main';
 import scrollDepth from './components/scroll-depth/main';
 import marketsData from './components/markets-data/main';
 import headerTabs from './components/header-tabs/main';
+import layoutTool from './components/layout-tool/main';
 
 import fastFT from '../components/fastft/main';
-import Layout from '../components/layout/main';
-import LayoutOverlay from '../components/layout-overlay/main';
 
 setup.bootstrap(({flags}) => {
 
@@ -43,18 +42,5 @@ setup.bootstrap(({flags}) => {
 	highlightDomPath();
 	scrollDepth.init(flags);
 	marketsData.init(flags);
-
-	const layoutContainer = document.getElementById('main-body');
-	if (layoutContainer) {
-		const mainContent = layoutContainer.getAttribute('data-main-content');
-		if (mainContent) {
-			Layout.init(layoutContainer, JSON.parse(mainContent));
-
-			const layoutOverlayContainer = document.getElementById('layout-overlay-container');
-			LayoutOverlay.init(layoutOverlayContainer, (newLayout) => {
-				Layout.render(newLayout);
-				LayoutOverlay.render(newLayout);
-			});
-		}
-	}
+	layoutTool.init(flags);
 });

@@ -32,7 +32,11 @@ export default class LayoutOverlay extends Component {
 		const sections = this.props.layout.map((section, idx) => {
 			return (
 				<li key={section.id}>
-					<Section title={section.title} layout={this.state.layout} cards={section.cards[this.state.layout]} onCardsChange={this.updateCards(idx)} />
+					<Section
+						title={section.title}
+						layout={this.state.layout}
+						cards={section.cards[this.state.layout]}
+						onCardsChange={this.updateCards(idx)} />
 				</li>
 			)
 		});

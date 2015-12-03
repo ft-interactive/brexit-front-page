@@ -1,10 +1,10 @@
 .section-meta {
 	padding-top: oGridGutter();
+	position: relative;
+	overflow: hidden;
 	@include oGridRespondTo(M) {
 		padding-top: oGridGutter(M);
 	}
-	position: relative;
-	overflow: hidden;
 }
 
 .section-meta__date {
