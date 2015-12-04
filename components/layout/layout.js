@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import { logger } from 'ft-next-logger';
 
 import Section from '../section/section';
 import colspan from '../../client/utils/colspan';
@@ -41,7 +40,6 @@ export default class Layout extends Component {
 			const sectionContent = content[section.id];
 
 			if (!sectionContent.body || !sectionContent.body.length) {
-				logger.error(`No items for section '${section.id}'`);
 				return null;
 			}
 
