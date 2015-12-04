@@ -80,16 +80,18 @@ Good luck!
 				{{> topic items=content.markets.items url=content.markets.url title="Markets" id="markets" }}
 				{{> topic items=content.technology.items url=content.technology.url title="Technology" id="technology" }}
 			</div>
-			<aside class="sidebar sidebar--feed" role="presentation" data-o-grid-colspan="12 L3">
-				<section class="feed feed--popular" data-trackable="popular">
-					<div>
-						<div class="pod-heading pod-heading--feed">
-							<h1 id="popular-title" aria-hidden="true">Popular</h1>
+			{{#if content.popularArticles}}
+				<aside class="sidebar sidebar--feed" role="presentation" data-o-grid-colspan="12 L3">
+					<section class="feed feed--popular" data-trackable="popular">
+						<div>
+							<div class="pod-heading pod-heading--feed">
+								<h1 id="popular-title" aria-hidden="true">Popular</h1>
+							</div>
+							{{{ reactRenderToString Feed items=content.popularArticles labelId="popular-title" }}}
 						</div>
-						{{{ reactRenderToString Feed items=content.popularArticles labelId="popular-title" }}}
-					</div>
-				</section>
-			</aside>
+					</section>
+				</aside>
+			{{/if}}
 		</div>
 	</div>
 	{{#ifAll flags.frontPageVideo content.videos}}
