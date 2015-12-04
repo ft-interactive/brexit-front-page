@@ -3,6 +3,8 @@ import React, {Component} from 'react';
 import Section from '../section/section';
 import colspan from '../../client/utils/colspan';
 
+import cloneDeep from 'lodash.clonedeep';
+
 const sectionContent = (content) => {
 	return {
 		'top-stories': {
@@ -43,18 +45,18 @@ export default class Layout extends Component {
 				return null;
 			}
 
+			const sectionToRender = cloneDeep(section);
 			if(section.overrides) {
 				section.overrides.forEach((override) => {
 					if(override.condition(sectionContent.body)) {
-						section.cards = Object.assign(section.cards, override.cards);
+						Object.assign(sectionToRender.cards, override.cards);
 					}
 				});
 			}
-
 			return (
 				<div id={section.id} key={section.id} data-o-grid-colspan={colspan(section.size)}>
 					<Section
-						{...section}
+						{...sectionToRender}
 						content={sectionContent.body}
 						sidebarContent={sectionContent.sidebar}
 						data-o-grid-colspan="12"/>
