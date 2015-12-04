@@ -27,10 +27,13 @@ class GraphQlCheck extends Check {
     }
 
     start () {
-        startPolling().then(() => {
+        //Wait until the next tick for next-metrics to instrument
+        setImmediate(() => {
+          startPolling().then(() => {
             this.tick();
             this.interval = setInterval(this.tick.bind(this), this.pollTime);
-        }).catch(logger.error);
+          }).catch(logger.error);
+        });
     }
 
     tick () {
