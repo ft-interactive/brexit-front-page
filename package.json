@@ -9,6 +9,7 @@
     "dateformat": "^1.0.12",
     "forever": "^0.15.1",
     "ft-next-express": "^15.1.0",
+    "ft-next-logger": "^4.2.2",
     "ft-poller": "^2.2.0",
     "n-health": "^1.0.2",
     "o-date": "https://github.com/Financial-Times/o-date/archive/1.1.1.tar.gz",

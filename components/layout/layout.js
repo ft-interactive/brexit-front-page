@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
+import { logger } from 'ft-next-logger';
 
 import Section from '../section/section';
-
 import colspan from '../../client/utils/colspan';
 
 const sectionContent = (content) => {
@@ -39,6 +39,11 @@ export default class Layout extends Component {
 		const content = sectionContent(this.props.content);
 		const sections = this.props.layout.map(section => {
 			const sectionContent = content[section.id];
+
+			if (!sectionContent.body || !sectionContent.body.length) {
+				logger.error(`No items for section '${section.id}'`);
+				return null;
+			}
 
 			if(section.overrides) {
 				section.overrides.forEach((override) => {

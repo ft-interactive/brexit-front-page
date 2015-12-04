@@ -1,10 +1,10 @@
 import { getData } from '../libs/graphql-poller';
-import { logger } from 'ft-next-express';
+import { logger } from 'ft-next-logger';
 
 // bail unless we have at least one top story
 const contentMissing = (data) => {
 	return !(data && data.fastFT && data.fastFT.items) || data.fastFT.items.length < 1;
-}
+};
 
 module.exports = function (req, res) {
 	const data = getData('fastFT');
@@ -18,4 +18,4 @@ module.exports = function (req, res) {
 		res.json(data);
 	}
 
-}
+};

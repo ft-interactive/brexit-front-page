@@ -5,6 +5,7 @@ import path from 'path';
 
 import express from 'ft-next-express';
 import nHealth from 'n-health';
+import { logger } from 'ft-next-logger';
 
 import additionalHealthChecks from './libs/health-checks/index';
 
@@ -49,7 +50,6 @@ const app = express({
 	},
 	healthChecks: healthChecks.asArray()
 });
-const logger = express.logger;
 
 if (process.env.HOT_LOAD) {
 	const devProxy = require('./dev/proxy');
