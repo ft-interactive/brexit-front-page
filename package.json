@@ -11,6 +11,7 @@
     "ft-next-express": "^15.1.0",
     "ft-next-logger": "^4.2.2",
     "ft-poller": "^2.2.0",
+    "lodash.clonedeep": "^3.0.2",
     "n-health": "^1.0.2",
     "o-date": "https://github.com/Financial-Times/o-date/archive/1.1.1.tar.gz",
     "react": "^0.14.0-rc1",
