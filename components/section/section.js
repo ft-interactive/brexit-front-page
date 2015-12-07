@@ -54,7 +54,7 @@ export default class Section extends Component {
 								className={sectionAsideClasses}
 								data-trackable={this.props.sidebarComponent.id}>
 								<this.props.sidebarComponent.component articles={this.props.sidebarContent.items} />
-								<div className="sidebar__ad-container"></div>
+								<div className="sidebar-ad-placeholder ad-placeholder"></div>
 							</aside>
 							: null
 					}
