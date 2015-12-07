@@ -17,7 +17,7 @@
 		<div class="o-grid-row">
 			<div class="main-content o-tabs__tabpanel" id="top-stories-section-content" data-o-grid-colspan="12 L8 XL9">
 				<h1 class="n-util-visually-hidden" id="lead-pod-title">Top stories</h1>
-				{{> lead-today leads=content.top.leads liveBlogs=content.top.liveBlogs items=content.top.items popularTopics=content.popularTopics }}
+				{{> lead-today leads=content.top.leads liveBlogs=content.top.liveBlogs items=content.top.items }}
 			</div>
 			<aside class="sidebar sidebar--fastft o-tabs__tabpanel" id="top-stories-section-aside" data-trackable="fastft" data-o-grid-colspan="12 L4 XL3" role="presentation">
 				<section id="fastft" data-fastft-articles="{{json content.fastFT.items}}">{{{ reactRenderToString FastFtFeed items=content.fastFT.items }}}</section>
