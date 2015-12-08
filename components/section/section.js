@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import SectionMeta from './section-meta/section-meta';
 import SectionContent from './section-content/section-content';
+import SectionSources from './section-sources/section-sources';
+
 
 import colspan from '../../client/utils/colspan';
 
@@ -9,6 +11,11 @@ const classify = classes => classes
 	.join(' ');
 
 export default class Section extends Component {
+
+	loadContent(e) {
+
+		console.log('loading' + e.target.value)
+	}
 	render () {
 		const cols = this.props.cols;
 		const sectionContentClasses = classify([
@@ -31,7 +38,16 @@ export default class Section extends Component {
 							<div
 								data-o-grid-colspan={colspan(cols.meta)}
 								className="section__column section__column--meta">
-								<SectionMeta title={this.props.title} date={this.props.date} />
+								<SectionMeta title={this.props.title} date={this.props.date} altSources={this.props.altSources} />
+							</div>
+							: null
+					}
+					{
+						this.props.altSources ?
+							<div
+								data-o-grid-row={colspan(cols.meta)}
+								className="section__column section__column--sources">
+								<SectionSources altSources={this.props.altSources} onChange={this.loadContent}/>
 							</div>
 							: null
 					}

@@ -12,6 +12,7 @@ import scrollDepth from './components/scroll-depth/main';
 import marketsData from './components/markets-data/main';
 import headerTabs from './components/header-tabs/main';
 import layoutTool from './components/layout-tool/main';
+import section from '../components/section/main';
 
 import fastFT from '../components/fastft/main';
 
@@ -32,6 +33,10 @@ setup.bootstrap(({flags}) => {
 	highlightDomPath();
 	scrollDepth.init(flags);
 	layoutTool.init(flags);
+
+	const mostPopularContainer = document.querySelector('.section--most-popular');
+	section.init(mostPopularContainer);
+
 
 	// NOTE - these are last as they depend on polyfills from the polyfill service
 	// (which fails in e.g. BB10 - https://github.com/3rd-Eden/useragent/issues/83)
