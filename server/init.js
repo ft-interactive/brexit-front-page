@@ -15,6 +15,7 @@ import videoData from './libs/video-data';
 // routes
 import frontPage from './routes/front-page';
 import fastft from './routes/fastft';
+import mostPopular from './routes/most-popular';
 
 const srcsets = {
 	lead: { default: 470, s: 720, m: 630, l: 590, xl: 700 },
@@ -74,6 +75,7 @@ app.get('/international', frontPage('US'));
 app.get('/uk', frontPage('UK'));
 
 app.get(/\/(__)?home\/fastft\.json/, fastft);
+app.get('/__home/most-popular/:facet', mostPopular);
 
 const port = process.env.PORT || 3001;
 

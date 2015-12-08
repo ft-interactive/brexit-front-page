@@ -1,4 +1,4 @@
-const fragments = `
+const basicFragments = `
 	fragment Basic on Content {
 		type: __typename
 		contentType
@@ -21,6 +21,11 @@ const fragments = `
 			rawSrc
 		}
 	}
+`;
+
+const fragments = `
+
+	${basicFragments}
 
 	fragment ExtendedSmallImage on Content {
 		genre
@@ -222,6 +227,18 @@ const newFrontPage = (region) => (`
 `);
 
 
+const mostPopular = (facet, uuid) => (`
+
+	${basicFragments}
+
+	query mostPopular {
+		popularFromHui(${facet}: "${uuid}") {
+			... Basic
+			... Extended
+		}
+	}
+`);
+
 // fastFT query
 const fastFT = `
 	query FastFT {
@@ -238,5 +255,6 @@ const fastFT = `
 export default {
 	frontPage,
 	newFrontPage,
-	fastFT
+	fastFT,
+	mostPopular
 };
