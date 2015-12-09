@@ -3,6 +3,8 @@ import FastFt from '../fast-ft/fast-ft';
 
 const date = dateFormat(new Date(), 'EEEE MMMM yyyy');
 
+import { mostPopular } from '../../config/queries';
+
 export default [
 	{
 		id: 'top-stories',
@@ -207,14 +209,18 @@ export default [
 		id: 'most-popular',
 		title: 'Most Popular',
 		style: 'most-popular',
-		altSources: [
-			{ uuid: '/__home/most-popular/industry?uuid=http://api.ft.com/things/69e2a0db-7971-3741-8865-e31e02400278',
-				title: 'Accountancy & tax advisory'
-			},
-			{ uuid: '/__home/most-popular/industry?uuid=http://api.ft.com/things/0c9eb6d9-b4e0-3486-8fe2-46e60afb8597',
-				title: 'Aerospace & defence'
-			},
-		],
+		dynamicContent: {
+			query: (uuid) => (mostPopular('industry', uuid)),
+			parseResults: (data) => data.popularFromHui,
+			sources: [
+				{ uuid: 'http://api.ft.com/things/69e2a0db-7971-3741-8865-e31e02400278',
+					title: 'Accountancy & tax advisory'
+				},
+				{ uuid: 'http://api.ft.com/things/0c9eb6d9-b4e0-3486-8fe2-46e60afb8597',
+					title: 'Aerospace & defence'
+				}
+			]
+		},
 		cards: {
 			default: [
 				{ size: 'medium', standFirst: true, image: true },

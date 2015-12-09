@@ -19,11 +19,13 @@ export default class Section extends Component {
  	}
 
 	loadContent(e) {
-		const source = e.target.value;
-		fetch(source)
+		const uuid = e.target.value;
+		fetch('https://next-graphql-api.ft.com/data?query=' + encodeURIComponent(this.props.dynamicContent.query(uuid)), {
+			credentials: 'include'
+		})
 		.then(fetchres.json)
 		.then((data) => {
-			this.setState({content: data})
+			this.setState({content: this.props.dynamicContent.parseResults(data)})
 		});
 	}
 
@@ -50,16 +52,16 @@ export default class Section extends Component {
 							<div
 								data-o-grid-colspan={colspan(cols.meta)}
 								className="section__column section__column--meta">
-								<SectionMeta title={this.props.title} date={this.props.date} altSources={this.props.altSources} />
+								<SectionMeta title={this.props.title} date={this.props.date} />
 							</div>
 							: null
 					}
 					{
-						this.props.showMostPopularByIndustry && this.props.altSources ?
+						this.props.showMostPopularByIndustry && this.props.dynamicContent ?
 							<div
 								data-o-grid-row={colspan(cols.meta)}
 								className="section__column section__column--sources">
-								<SectionSources altSources={this.props.altSources} onChange={this.loadContent.bind(this)}/>
+								<SectionSources dynamicContent={this.props.dynamicContent} onChange={this.loadContent.bind(this)}/>
 							</div>
 							: null
 					}
