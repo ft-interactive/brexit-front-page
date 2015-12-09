@@ -213,6 +213,9 @@ export default [
 			query: (uuid) => (mostPopular('industry', uuid)),
 			parseResults: (data) => data.popularFromHui,
 			sources: [
+				{ uuid: 'initial',
+					title: 'All'
+				},
 				{ uuid: 'http://api.ft.com/things/69e2a0db-7971-3741-8865-e31e02400278',
 					title: 'Accountancy & tax advisory'
 				},
