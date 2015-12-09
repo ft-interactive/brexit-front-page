@@ -20,7 +20,6 @@ export default class Section extends Component {
 
 	loadContent(e) {
 		const source = e.target.value;
-		console.log('fetching source', source);
 		fetch(source)
 		.then(fetchres.json)
 		.then((data) => {
@@ -56,7 +55,7 @@ export default class Section extends Component {
 							: null
 					}
 					{
-						this.props.altSources ?
+						this.props.showMostPopularByIndustry && this.props.altSources ?
 							<div
 								data-o-grid-row={colspan(cols.meta)}
 								className="section__column section__column--sources">

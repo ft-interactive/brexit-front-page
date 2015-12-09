@@ -34,8 +34,11 @@ setup.bootstrap(({flags}) => {
 	scrollDepth.init(flags);
 	layoutTool.init(flags);
 
-	const mostPopularContainer = document.getElementById('most-popular');
-	section.init(mostPopularContainer);
+	if(flags.get("mostPopularByIndustry")) {
+		const mostPopularContainer = document.getElementById('most-popular');
+		section.init(mostPopularContainer, true);
+	}
+
 
 
 	// NOTE - these are last as they depend on polyfills from the polyfill service

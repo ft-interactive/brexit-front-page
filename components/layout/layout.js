@@ -55,11 +55,12 @@ export default class Layout extends Component {
 			}
 			return (
 				<div id={section.id} key={section.id} data-o-grid-colspan={colspan(section.size)}
-				data-section-content={  sectionToRender.altSources ? JSON.stringify(sectionContent) : null } >
+				data-section-content={ this.props.showMostPopularByIndustry && sectionToRender.altSources ? JSON.stringify(sectionContent) : null } >
 					<Section
 						{...sectionToRender}
 						content={sectionContent.body}
 						sidebarContent={sectionContent.sidebar}
+						showMostPopularByIndustry={this.props.showMostPopularByIndustry}
 						data-o-grid-colspan="12"/>
 				</div>
 			);

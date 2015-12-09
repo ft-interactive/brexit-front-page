@@ -7,15 +7,16 @@ import initialLayout from '../layout/config';
 let element;
 let content;
 let layout;
+let showMostPopularByIndustry;
 
 
-function init (el) {
+function init (el, mostPopularByIndustry) {
 	if (!el) return;
 	const sectionId = el.id;
 	element = el;
 	layout = initialLayout.find((section) => (section.id === sectionId));
 	content = JSON.parse(el.getAttribute('data-section-content'));
-
+	showMostPopularByIndustry = mostPopularByIndustry;
 	render();
 
 }
@@ -26,6 +27,7 @@ function render () {
 		{...layout}
 		content={content.body}
 		sidebarContent={content.sidebar}
+		showMostPopularByIndustry={showMostPopularByIndustry}
 		data-o-grid-colspan="12"/>,
 	element);
 }
