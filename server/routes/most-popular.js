@@ -30,9 +30,9 @@ module.exports = function (req, res, next) {
 		} else {
 
 			res.set({'Surrogate-Control': 'max-age=120,stale-while-revalidate=6,stale-if-error=259200'});
-			res.json(data);
+			res.json(data.popularFromHui);
 		}
 	})
 	.catch(next);
-	
+
 	};

@@ -3,6 +3,7 @@ import SectionMeta from './section-meta/section-meta';
 import SectionContent from './section-content/section-content';
 import SectionSources from './section-sources/section-sources';
 
+const fetchres = require('fetchres');
 
 import colspan from '../../client/utils/colspan';
 
@@ -12,10 +13,22 @@ const classify = classes => classes
 
 export default class Section extends Component {
 
-	loadContent(e) {
+ 	constructor(props) {
+ 		super(props);
+ 		this.state = { content: props.content };
+ 	}
 
-		console.log('loading' + e.target.value)
+	loadContent(e) {
+		const source = e.target.value;
+		console.log('fetching source', source);
+		fetch(source)
+		.then(fetchres.json)
+		.then((data) => {
+			this.setState({content: data})
+		});
 	}
+
+
 	render () {
 		const cols = this.props.cols;
 		const sectionContentClasses = classify([
@@ -47,7 +60,7 @@ export default class Section extends Component {
 							<div
 								data-o-grid-row={colspan(cols.meta)}
 								className="section__column section__column--sources">
-								<SectionSources altSources={this.props.altSources} onChange={this.loadContent}/>
+								<SectionSources altSources={this.props.altSources} onChange={this.loadContent.bind(this)}/>
 							</div>
 							: null
 					}
@@ -59,7 +72,7 @@ export default class Section extends Component {
 							style={this.props.style}
 							columns={this.props.columns}
 							cards={this.props.cards}
-							items={this.props.content}
+							items={this.state.content}
 						/>
 					</div>
 					{

@@ -54,7 +54,8 @@ export default class Layout extends Component {
 				});
 			}
 			return (
-				<div id={section.id} key={section.id} data-o-grid-colspan={colspan(section.size)}>
+				<div id={section.id} key={section.id} data-o-grid-colspan={colspan(section.size)}
+				data-section-content={  sectionToRender.altSources ? JSON.stringify(sectionContent) : null } >
 					<Section
 						{...sectionToRender}
 						content={sectionContent.body}

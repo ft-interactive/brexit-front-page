@@ -208,10 +208,10 @@ export default [
 		title: 'Most Popular',
 		style: 'most-popular',
 		altSources: [
-			{ uuid: 'http://api.ft.com/things/69e2a0db-7971-3741-8865-e31e02400278',
+			{ uuid: '/__home/most-popular/industry?uuid=http://api.ft.com/things/69e2a0db-7971-3741-8865-e31e02400278',
 				title: 'Accountancy & tax advisory'
 			},
-			{ uuid: 'http://api.ft.com/things/0c9eb6d9-b4e0-3486-8fe2-46e60afb8597',
+			{ uuid: '/__home/most-popular/industry?uuid=http://api.ft.com/things/0c9eb6d9-b4e0-3486-8fe2-46e60afb8597',
 				title: 'Aerospace & defence'
 			},
 		],

@@ -3,11 +3,10 @@ import React, {Component} from 'react';
 class SectionSources extends Component {
 	render () {
 
-		console.log('this.props', this.props);
 		return (
-			<select>
+			<select onChange={this.props.onChange}>
 				{this.props.altSources.map(function(source) {
-            return <option value={source.uuid}>{source.title}</option>;
+            return <option key={source.uuid} value={source.uuid}>{source.title}</option>;
         })}
 			</select>
 		);

@@ -34,7 +34,7 @@ setup.bootstrap(({flags}) => {
 	scrollDepth.init(flags);
 	layoutTool.init(flags);
 
-	const mostPopularContainer = document.querySelector('.section--most-popular');
+	const mostPopularContainer = document.getElementById('most-popular');
 	section.init(mostPopularContainer);
 
 
