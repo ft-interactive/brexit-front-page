@@ -27,7 +27,7 @@ const init = () => {
 	scrollHandler();
 };
 
-module.exports = {
+export default {
 	init
 };
 
