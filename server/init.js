@@ -78,8 +78,11 @@ app.get('/uk', frontPage('UK'));
 app.get(/\/(__)?home\/fastft\.json/, fastft);
 
 const port = process.env.PORT || 3001;
-
-export default app;
-export let listen = app.listen(port, () => {
-	logger.info('Listening on ' + port);
+const listen = app.listen(port, () => {
+	logger.info(`Listening on ${port}`);
 });
+
+export default {
+	app,
+	listen
+};

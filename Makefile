@@ -12,7 +12,7 @@ verify:
 	nbt verify --skip-layout-checks
 
 unit-test:
-	mocha --compilers js:babel/register --recursive --reporter spec test/components/
+	mocha --compilers js:babel/register --recursive --reporter spec test/components test/server
 
 test: verify unit-test
 

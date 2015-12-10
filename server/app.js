@@ -10,4 +10,4 @@ require('babel/register')({
 		'strict'
 	]
 });
-require('./init.js');
+module.exports = require('./init');
