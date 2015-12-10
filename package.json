@@ -39,6 +39,7 @@
     "mocha": "^2.2.5",
     "next-build-tools": "^5.12.0",
     "nightwatch": "^0.8.5",
+    "nock": "^3.4.0",
     "node-sass": "^3.2.0",
     "nodemon": "^1.3.2",
     "notify-saucelabs": "^1.0.1",
