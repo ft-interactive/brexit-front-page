@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 
 import LayoutOverlay from './layout-overlay';
 
-import initialLayout from '../layout/config';
+import initialLayout from '../../config/layout';
 
 let element;
 let callback;
