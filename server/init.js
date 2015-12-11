@@ -32,7 +32,7 @@ const app = express({
 			return it.split(/\.\s/).slice(0, sentences).join('. ') + '.';
 		},
 		reactRenderToString: (klass, props) => {
-			const propsToRender = {}; props.hash;
+			const propsToRender = props.hash;
 			if(props.hash.spread) {
 				Object.keys(props.hash.spread).forEach(key => {
 					propsToRender[key] = props.hash.spread[key];

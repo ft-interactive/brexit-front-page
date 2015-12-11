@@ -12,9 +12,8 @@
 		{{#if @root.flags.frontPageLayoutTool}} data-main-content="{{json content}}"{{/if}}>
 
 		{{#each sections}}
-			<div id="{{id}}" data-o-grid-colspan="{{colspan size}}">
-				{{{ reactRenderToString ../Section spread=@this content=content.body sidebarContent=content.sidebar showMostPopularByIndustry=@root.flags.mostPopularByIndustry }}}
-			</div>
+			<div id="{{id}}" data-o-grid-colspan="{{colspan size}}" {{#ifAll @root.flags.mostPopularByIndustry dynamicContent}}data-section-content="{{json fullContent}}"{{/ifAll}}
+				>{{{ reactRenderToString ../Section spread=@this content=content.body sidebarContent=content.sidebar showMostPopularByIndustry=@root.flags.mostPopularByIndustry }}}</div>
 
 		{{/each}}
 	</section>

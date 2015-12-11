@@ -46,6 +46,7 @@ export default (region) => {
 
 		initialLayout.forEach(section => {
 			const sectionContent = section.getContent(data);
+			section.fullContent = sectionContent;
 			section.content = sectionContent.body;
 			section.sidebarContent = sectionContent.sidebar;
 		});
