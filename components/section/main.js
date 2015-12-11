@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 
 import Section from './section';
 import initialLayout from '../layout/config';
+import cloneDeep from 'lodash.clonedeep';
 
 let showMostPopularByIndustry;
 
@@ -18,9 +19,18 @@ function init (el, mostPopularByIndustry) {
 function render (el, layout) {
 
 	let content = JSON.parse(el.getAttribute('data-section-content'));
-	let sectionLayout = layoutForSection(layout, el.id);
+	const sectionLayout = layoutForSection(layout, el.id);
+	let layoutWithOverrides = cloneDeep(layoutForSection(layout, el.id));
+
+	if(sectionLayout.overrides) {
+		sectionLayout.overrides.forEach((override) => {
+			if(override.condition(content.body)) {
+				Object.assign(layoutWithOverrides.cards, override.cards);
+			}
+		});
+	}
 	ReactDOM.render(<Section
-		{...sectionLayout}
+		{...layoutWithOverrides}
 		content={content.body}
 		sidebarContent={content.sidebar}
 		showMostPopularByIndustry={showMostPopularByIndustry}
