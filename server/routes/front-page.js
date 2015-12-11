@@ -2,7 +2,7 @@ import { getData } from '../libs/graphql-poller';
 
 import FastFtFeed from '../../components/fastft/fastftfeed';
 import Feed from '../../components/feed/feed';
-import Layout from '../../components/layout/layout';
+import Section from '../../components/section/section';
 import initialLayout from '../../components/layout/config';
 
 // bail unless we have at least one top story
@@ -43,13 +43,20 @@ export default (region) => {
 		const footerParams = {
 			inside: '<p class="markets-data-disclaimer">Markets data delayed by at least 15 minutes</p>'
 		};
+
+		initialLayout.forEach(section => {
+			const sectionContent = section.getContent(data);
+			section.content = sectionContent.body;
+			section.sidebarContent = sectionContent.sidebar;
+		});
+
 		const renderParams = {
 			layout: 'wrapper',
 			FastFtFeed,
 			Feed,
-			Layout,
-			content: data,
-			initialLayout,
+			Section,
+			content: data.body,
+			sections: initialLayout,
 			region,
 			preconnect: [
 				'https://next-markets-proxy.ft.com'

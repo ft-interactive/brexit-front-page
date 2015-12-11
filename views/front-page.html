@@ -9,8 +9,15 @@
 	<section
 		id="main-body"
 		class="main-body o-grid-container n-util-clearfix"
-		{{#if @root.flags.frontPageLayoutTool}} data-main-content="{{json content}}"{{/if}}
-		>{{{ reactRenderToString Layout content=content layout=initialLayout showMostPopularByIndustry=@root.flags.mostPopularByIndustry }}}</section>
+		{{#if @root.flags.frontPageLayoutTool}} data-main-content="{{json content}}"{{/if}}>
+
+		{{#each sections}}
+			<div id="{{id}}" data-o-grid-colspan="{{colspan size}}">
+				{{{ reactRenderToString ../Section spread=@this content=content.body sidebarContent=content.sidebar showMostPopularByIndustry=@root.flags.mostPopularByIndustry }}}
+			</div>
+
+		{{/each}}
+	</section>
 {{else}}
 	{{> header-tabs  newsTabTitle="News"}}
 	<div class="o-grid-container fixed-width-container">

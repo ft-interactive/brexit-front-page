@@ -12,6 +12,10 @@ export default [
 		style: 'top-stories',
 		date: date,
 		isTab: true,
+		getContent: (content) => ({
+			body: content.top.items,
+			sidebar: content.fastFT
+		}),
 		cards: {
 			default: [
 				{ size: 'large', standFirst: true, image: true, related: 1 },
@@ -101,6 +105,9 @@ export default [
 		id: 'opinion',
 		title: 'Opinion',
 		style: 'opinion',
+		getContent: (content) => ({
+			body: content.opinion.items
+		}),
 		cards: {
 			default: [
 				{ size: 'medium', standFirst: true, image: true },
@@ -159,6 +166,9 @@ export default [
 		id: 'editors-picks',
 		title: 'Editor\'s Picks',
 		style: 'editors-picks',
+		getContent: (content) => ({
+			body: content.editorsPicks.items
+		}),
 		cards: {
 			default: [
 				{ size: 'tiny', landscape: true, image: true, imageStick: true },
@@ -209,6 +219,9 @@ export default [
 		id: 'most-popular',
 		title: 'Most Popular',
 		style: 'most-popular',
+		getContent: (content) => ({
+			body: content.popularArticles
+		}),
 		dynamicContent: {
 			query: (uuid) => (mostPopular('industry', uuid)),
 			parseResults: (data) => data.popularFromHui,
@@ -288,6 +301,9 @@ export default [
 		id: 'technology',
 		title: 'Technology',
 		style: 'technology',
+		getContent: (content) => ({
+			body: content.technology.items
+		}),
 		cards: {
 			default: [
 				{ size: 'small', image: true, landscape: true },
@@ -323,6 +339,9 @@ export default [
 		id: 'markets',
 		title: 'Markets',
 		style: 'markets',
+		getContent: (content) => ({
+			body: content.markets.items
+		}),
 		cards: {
 			default: [
 				{ size: 'small', image: true, landscape: true },
@@ -358,6 +377,9 @@ export default [
 		id: 'life-and-arts',
 		title: 'Life & Arts',
 		style: 'life-and-arts',
+		getContent: (content) => ({
+			body: content.lifestyle.items
+		}),
 		cards: {
 			default: [
 				{ size: 'small', image: true, landscape: true },
@@ -393,6 +415,9 @@ export default [
 		id: 'video',
 		title: 'Video',
 		style: 'video',
+		getContent: (content) => ({
+			body: content.videos.map(video => Object.assign({}, { type: 'video' }, video))
+		}),
 		cards: {
 			default: [
 				{ column: 0, width: 12 },

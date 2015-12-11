@@ -39,8 +39,6 @@ setup.bootstrap(({flags}) => {
 		section.init(mostPopularContainer, true);
 	}
 
-
-
 	// NOTE - these are last as they depend on polyfills from the polyfill service
 	// (which fails in e.g. BB10 - https://github.com/3rd-Eden/useragent/issues/83)
 	const clientOpts = [];
