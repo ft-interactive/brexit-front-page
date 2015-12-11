@@ -8,6 +8,7 @@ import nHealth from 'n-health';
 import { logger } from 'ft-next-logger';
 
 import additionalHealthChecks from './libs/health-checks/index';
+import prefs from './middleware/prefs';
 
 import { start as startPolling } from './libs/graphql-poller';
 import videoData from './libs/video-data';
@@ -40,8 +41,7 @@ const app = express({
 					class: options.hash.class,
 					srcset: (srcsets[options.hash.sizing] || srcsets['normal'])
 				}
-			}
-
+			};
 			return options.fn(Object.assign({}, this, opts));
 		},
 		videoData: (video, size) => {
@@ -68,6 +68,8 @@ app.get('/', (req, res) => {
 	res.sendStatus(404);
 });
 
+app.use(prefs);
+
 // app routes
 app.get('/front-page', frontPage('UK'));
 app.get('/international', frontPage('US'));
@@ -76,8 +78,11 @@ app.get('/uk', frontPage('UK'));
 app.get(/\/(__)?home\/fastft\.json/, fastft);
 
 const port = process.env.PORT || 3001;
-
-export default app;
-export let listen = app.listen(port, () => {
-	logger.info('Listening on ' + port);
+const listen = app.listen(port, () => {
+	logger.info(`Listening on ${port}`);
 });
+
+export default {
+	app,
+	listen
+};

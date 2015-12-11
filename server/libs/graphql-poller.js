@@ -54,7 +54,7 @@ const pollData = (query, name, flags = {}) => {
 				queryResults[name].data= results;
 				queryResults[name].lastUpdated = Date.now();
 			} else {
-				logger.info('No results when polling for ', name);
+				logger.info(`No results when polling for ${name}`);
 			}
 		},
 		refreshInterval: 1000 * 60 * 1
