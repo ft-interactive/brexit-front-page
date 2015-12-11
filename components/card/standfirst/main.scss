@@ -35,14 +35,6 @@
 }
 
 @each $layout-name in $_o-grid-layout-names {
-	.card__standfirst--#{$layout-name}--large {
-		font-size: 22px;
-		line-height: 24px;
-	}
-	.card__standfirst--#{$layout-name}--medium {
-		font-size: 18px;
-		line-height: 20px;
-	}
 	@include oGridRespondTo($layout-name) {
 		.card__standfirst--#{$layout-name}--large {
 			font-size: 22px;
