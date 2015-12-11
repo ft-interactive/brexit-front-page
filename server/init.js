@@ -38,7 +38,7 @@ const app = express({
 					propsToRender[key] = props.hash.spread[key];
 				});
 			}
-			if(propsToRender.dynamicContent) {
+			if(props.data.root.flags.mostPopularByIndustry && propsToRender.dynamicContent) {
 				return ReactServer.renderToString(React.createElement(klass, propsToRender));
 			} else {
 				return ReactServer.renderToStaticMarkup(React.createElement(klass, propsToRender));
