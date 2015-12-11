@@ -64,7 +64,7 @@ export default class Section extends Component {
 					{
 						this.props.showMostPopularByIndustry && this.props.dynamicContent ?
 							<div
-								data-o-grid-row={colspan(cols.meta)}
+								data-o-grid-colspan="12 S6 M4 XL3"
 								className="section__column section__column--sources">
 								<SectionSources dynamicContent={this.props.dynamicContent} onChange={this.loadContent.bind(this)}/>
 							</div>

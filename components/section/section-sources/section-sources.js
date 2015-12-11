@@ -4,7 +4,7 @@ class SectionSources extends Component {
 	render () {
 
 		return (
-			<select onChange={this.props.onChange}>
+			<select className="n-util-hide-no-js" onChange={this.props.onChange}>
 				{this.props.dynamicContent.sources.map(function(source) {
             return <option key={source.title} value={source.uuid}>{source.title}</option>;
         })}
