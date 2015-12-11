@@ -8,7 +8,7 @@ const init = flags => {
 
         if (sections && sections.length) {
             sections = Array.from(sections);
-            sections.forEach(section => Section.init(section, true));
+            sections.forEach(section => Section.init(section, flags.mostPopularByIndustry));
             const layoutOverlayContainer = document.getElementById('layout-overlay-container');
             LayoutOverlay.init(layoutOverlayContainer, (newLayout) => {
                 sections.forEach(section => Section.render(section, newLayout));

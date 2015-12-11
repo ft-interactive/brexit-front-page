@@ -56,7 +56,7 @@ export default (region) => {
 			FastFtFeed,
 			Feed,
 			Section,
-			content: data.body,
+			content: data,
 			sections: initialLayout,
 			region,
 			preconnect: [
