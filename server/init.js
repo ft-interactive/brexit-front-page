@@ -38,7 +38,12 @@ const app = express({
 					propsToRender[key] = props.hash.spread[key];
 				});
 			}
-			return ReactServer.renderToString(React.createElement(klass, propsToRender));
+			if(propsToRender.dynamicContent) {
+				return ReactServer.renderToString(React.createElement(klass, propsToRender));
+			} else {
+				return ReactServer.renderToStaticMarkup(React.createElement(klass, propsToRender));
+			}
+
 		},
 		colspan,
 		responsiveImage: options => {
