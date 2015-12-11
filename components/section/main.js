@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import Section from './section';
-import initialLayout from '../layout/config';
+import initialLayout from '../../config/layout';
 import cloneDeep from 'lodash.clonedeep';
 
 let showMostPopularByIndustry;

@@ -1,9 +1,9 @@
 import {format as dateFormat} from 'o-date';
-import FastFt from '../fast-ft/fast-ft';
+import FastFt from '../components/fast-ft/fast-ft';
 
 const date = dateFormat(new Date(), 'EEEE MMMM yyyy');
 
-import { mostPopular } from '../../config/queries';
+import { mostPopular } from './queries';
 
 export default [
 	{

@@ -3,7 +3,7 @@ import { getData } from '../libs/graphql-poller';
 import FastFtFeed from '../../components/fastft/fastftfeed';
 import Feed from '../../components/feed/feed';
 import Section from '../../components/section/section';
-import initialLayout from '../../components/layout/config';
+import initialLayout from '../../config/layout';
 
 // bail unless we have at least one top story
 const contentMissing = (data) => {
