@@ -42,7 +42,7 @@ build-production:
 
 smoke:
 	nbt test-urls ${TEST_APP}
-	export TEST_APP=${TEST_APP}; nbt nightwatch test/browser/tests/* -e ie9,firefox39,chrome45,iphone6_plus
+	export TEST_APP=${TEST_APP}; nbt nightwatch test/browser/tests/* -e ie9,firefox,chrome,iphone6_plus
 
 provision:
 	nbt deploy-hashed-assets
