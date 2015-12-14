@@ -223,6 +223,7 @@ export default [
 			body: content.popularArticles
 		}),
 		dynamicContent: {
+			description: 'Most read by professionals in industry:',
 			query: (uuid) => (mostPopular('industry', uuid)),
 			parseResults: (data) => data.popularFromHui,
 			sources: [

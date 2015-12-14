@@ -1,5 +1,6 @@
 @import "./section-meta/main";
 @import "../card/main";
+@import "o-forms/main";
 
 .full-cell {
 	position: absolute;
@@ -81,6 +82,18 @@
 
 .section__column--sidebar {
 	flex-direction: column;
+}
+
+.section-sources__label {
+	font-family: $n-type-sans-serif;
+	font-weight: oFontsWeight(light);
+	padding-right: 8px;
+}
+
+.section-sources__select {
+	@include oFormsCommonField();
+	@include oFormsSelect();
+	width: auto;
 }
 
 .column {

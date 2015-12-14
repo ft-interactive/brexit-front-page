@@ -4,11 +4,15 @@ class SectionSources extends Component {
 	render () {
 
 		return (
-			<select className="n-util-hide-no-js" onChange={this.props.onChange}>
-				{this.props.dynamicContent.sources.map(function(source) {
-            return <option key={source.title} value={source.uuid}>{source.title}</option>;
-        })}
-			</select>
+			<div className="section-sources">
+				<label className="section-sources__label">{this.props.dynamicContent.description}</label>
+				<select className="section-sources__select n-util-hide-no-js" onChange={this.props.onChange}>
+					{this.props.dynamicContent.sources.map(function(source) {
+							return <option key={source.title} value={source.uuid}>{source.title}</option>;
+					})}
+				</select>
+			</div>
+
 		);
 	}
 }

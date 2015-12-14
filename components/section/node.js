@@ -3,36 +3,22 @@ import SectionMeta from './section-meta/section-meta';
 import SectionContent from './section-content/section-content';
 import SectionSources from './section-sources/section-sources';
 
-const fetchres = require('fetchres');
-
 import colspan from '../../client/utils/colspan';
 
 const classify = classes => classes
 	.filter(className => className)
 	.join(' ');
 
-export default class Section extends Component {
+export default class SectionNode extends Component {
 
  	constructor(props) {
  		super(props);
  		this.state = { content: props.content };
  	}
 
-	loadContent(e) {
-		const uuid = e.target.value;
-		if(uuid === 'initial') {
-			this.setState({content: this.props.content})
-		} else {
-			fetch('https://next-graphql-api.ft.com/data?query=' + encodeURIComponent(this.props.dynamicContent.query(uuid)), {
-				credentials: 'include'
-			})
-			.then(fetchres.json)
-			.then((data) => {
-				this.setState({content: this.props.dynamicContent.parseResults(data)})
-			});
-		}
-
-	}
+	loadContent() {
+		// do nothing on server
+	};
 
 
 	render () {
@@ -64,7 +50,7 @@ export default class Section extends Component {
 					{
 						this.props.showMostPopularByIndustry && this.props.dynamicContent ?
 							<div
-								data-o-grid-colspan="12 S6 M4 XL3"
+								data-o-grid-colspan="12"
 								className="section__column section__column--sources">
 								<SectionSources dynamicContent={this.props.dynamicContent} onChange={this.loadContent.bind(this)}/>
 							</div>

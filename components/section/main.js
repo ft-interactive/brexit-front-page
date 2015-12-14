@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import Section from './section';
+import Section from '.';
 import initialLayout from '../../config/layout';
 import cloneDeep from 'lodash.clonedeep';
 
