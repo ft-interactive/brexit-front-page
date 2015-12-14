@@ -1,7 +1,7 @@
 import SectionNode from './node';
 import nJsonpFetch from 'n-jsonp-fetch';
 import Superstore from 'superstore';
-const fetchres = require('fetchres');
+import {json as fetchJson} from 'fetchres';
 
 export default class SectionBrowser extends SectionNode {
 
@@ -39,7 +39,7 @@ export default class SectionBrowser extends SectionNode {
 			fetchFn('https://next-graphql-api.ft.com/data?query=' + encodeURIComponent(this.props.dynamicContent.query(uuid)), {
 				credentials: 'include'
 			})
-			.then(fetchres.json)
+			.then(fetchJson)
 			.then((data) => {
 				this.setState({content: this.props.dynamicContent.parseResults(data)})
 			});
