@@ -11,7 +11,8 @@
     "n-image": "^2.0.0",
     "o-tabs": "^2.1.0",
     "n-jsonp-fetch": "~1.0.3",
-    "o-forms": "~2.0.0"
+    "o-forms": "~2.0.0",
+    "superstore": "~2.0.1"
   },
   "resolutions": {
     "o-ft-icons": "next"

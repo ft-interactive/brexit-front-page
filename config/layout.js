@@ -223,12 +223,14 @@ export default [
 			body: content.popularArticles
 		}),
 		dynamicContent: {
+			id: 'most-popular-by-industry',
 			description: 'Most read by professionals in industry:',
 			query: (uuid) => (mostPopular('industry', uuid)),
 			parseResults: (data) => data.popularFromHui,
+			rememberSource: true,
 			sources: [
 				{ uuid: 'initial',
-					title: 'All'
+					title: 'All Industries'
 				},
 				{
 					"uuid": "http://api.ft.com/things/69e2a0db-7971-3741-8865-e31e02400278",

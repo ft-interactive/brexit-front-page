@@ -13,8 +13,9 @@ export default class SectionNode extends Component {
 
  	constructor(props) {
  		super(props);
- 		this.state = { content: props.content };
+ 		this.state = { content: props.content, selectedSource: 'initial' };
  	}
+
 
 	loadContent() {
 		// do nothing on server
@@ -52,7 +53,7 @@ export default class SectionNode extends Component {
 							<div
 								data-o-grid-colspan="12"
 								className="section__column section__column--sources">
-								<SectionSources dynamicContent={this.props.dynamicContent} onChange={this.loadContent.bind(this)}/>
+								<SectionSources dynamicContent={this.props.dynamicContent} onChange={this.loadContent.bind(this)} selectedSource={this.state.selectedSource}/>
 							</div>
 							: null
 					}
