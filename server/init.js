@@ -8,8 +8,6 @@ import nHealth from 'n-health';
 import { logger } from 'ft-next-logger';
 
 import additionalHealthChecks from './libs/health-checks/index';
-import prefs from './middleware/prefs';
-
 import { start as startPolling } from './libs/graphql-poller';
 import videoData from './libs/video-data';
 
@@ -67,8 +65,6 @@ app.get('/__gtg', (req, res) => {
 app.get('/', (req, res) => {
 	res.sendStatus(404);
 });
-
-app.use(prefs);
 
 // app routes
 app.get('/front-page', frontPage('UK'));
