@@ -217,20 +217,20 @@ export default [
 	},
 	{
 		id: 'most-popular',
-		title: 'Most Popular',
+		title: 'Most Read',
 		style: 'most-popular',
 		getContent: (content) => ({
 			body: content.popularArticles
 		}),
 		dynamicContent: {
 			id: 'most-popular-by-industry',
-			description: 'Most read by professionals in industry:',
+			description: 'Most read by professionals in',
 			query: (uuid) => (mostPopular('industry', uuid)),
 			parseResults: (data) => data.popularFromHui,
 			rememberSource: true,
 			sources: [
 				{ uuid: 'initial',
-					title: 'All Industries'
+					title: 'All Sectors'
 				},
 				{
 					"uuid": "http://api.ft.com/things/69e2a0db-7971-3741-8865-e31e02400278",
@@ -289,10 +289,6 @@ export default [
 					"title": "Health & pharmaceuticals"
 				},
 				{
-					"uuid": "http://api.ft.com/things/751462e7-6446-3ef6-975a-59e41f13c2ed",
-					"title": "IT/Tech/Telecoms"
-				},
-				{
 					"uuid": "http://api.ft.com/things/ba3daeed-8da7-36ea-bd97-e871900588aa",
 					"title": "IT/computing"
 				},
@@ -303,10 +299,6 @@ export default [
 				{
 					"uuid": "http://api.ft.com/things/904a96fa-4f8f-39c7-9ab6-e358dcdd04d8",
 					"title": "Insurance"
-				},
-				{
-					"uuid": "http://api.ft.com/things/e06b5804-ea84-37c5-9241-d2037cca4d68",
-					"title": "Oil/gas/mining"
 				},
 				{
 					"uuid": "http://api.ft.com/things/4726c6b7-c97f-3f6c-8237-c9e373b6c072",
@@ -323,10 +315,6 @@ export default [
 				{
 					"uuid": "http://api.ft.com/things/046d89d7-95f1-30bc-a283-1a5ecd0c0007",
 					"title": "Telecommunications"
-				},
-				{
-					"uuid": "http://api.ft.com/things/c4526d45-79ef-35ff-844c-df94690a157b",
-					"title": "Trade/import/export"
 				},
 				{
 					"uuid": "http://api.ft.com/things/a53abf79-982e-3fa3-b46b-3dd5db56bb8d",
