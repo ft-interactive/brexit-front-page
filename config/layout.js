@@ -230,7 +230,7 @@ export default [
 			rememberSource: true,
 			sources: [
 				{ uuid: 'initial',
-					title: 'All Sectors'
+					title: 'All sectors'
 				},
 				{
 					"uuid": "http://api.ft.com/things/69e2a0db-7971-3741-8865-e31e02400278",
