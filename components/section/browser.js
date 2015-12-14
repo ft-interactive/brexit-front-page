@@ -1,6 +1,6 @@
 import SectionNode from './node';
 import nJsonpFetch from 'n-jsonp-fetch';
-import Superstore from 'SuperStore';
+import Superstore from 'superstore';
 const fetchres = require('fetchres');
 
 export default class SectionBrowser extends SectionNode {
