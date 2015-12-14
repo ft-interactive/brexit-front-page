@@ -30,6 +30,7 @@ export default class SectionBrowser extends SectionNode {
 
 	loadContent(e) {
 		const uuid = e.target.value;
+		const title = e.target.textContent;
 		this.setState({selectedSource: uuid});
 
 		if(uuid === 'initial') {
@@ -48,7 +49,7 @@ export default class SectionBrowser extends SectionNode {
 			});
 		}
 		if(e.type) { //only fire tracking for actual events
-			fireTracking('oTracking.event', { category: 'change', action: 'cta', value: uuid, domPath: getDomPath(e.target, []) });
+			fireTracking('oTracking.event', { category: 'cta', action: 'change', value: uuid, title: title, domPath: getDomPath(e.target, []) });
 		}
 
 	};
