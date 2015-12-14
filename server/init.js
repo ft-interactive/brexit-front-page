@@ -12,6 +12,7 @@ import prefs from './middleware/prefs';
 
 import { start as startPolling } from './libs/graphql-poller';
 import videoData from './libs/video-data';
+import colspan from '../client/utils/colspan';
 
 // routes
 import frontPage from './routes/front-page';
@@ -32,8 +33,20 @@ const app = express({
 			return it.split(/\.\s/).slice(0, sentences).join('. ') + '.';
 		},
 		reactRenderToString: (klass, props) => {
-			return ReactServer.renderToString(React.createElement(klass, props.hash));
+			const propsToRender = props.hash;
+			if(props.hash.spread) {
+				Object.keys(props.hash.spread).forEach(key => {
+					propsToRender[key] = props.hash.spread[key];
+				});
+			}
+			if(props.data.root.flags.mostPopularByIndustry && propsToRender.dynamicContent) {
+				return ReactServer.renderToString(React.createElement(klass, propsToRender));
+			} else {
+				return ReactServer.renderToStaticMarkup(React.createElement(klass, propsToRender));
+			}
+
 		},
+		colspan,
 		responsiveImage: options => {
 			const opts = {
 				image: {

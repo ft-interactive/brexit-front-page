@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import SectionMeta from './section-meta/section-meta';
 import SectionContent from './section-content/section-content';
+import SectionSources from './section-sources/section-sources';
 
 import colspan from '../../client/utils/colspan';
 
@@ -8,7 +9,19 @@ const classify = classes => classes
 	.filter(className => className)
 	.join(' ');
 
-export default class Section extends Component {
+export default class SectionNode extends Component {
+
+ 	constructor(props) {
+ 		super(props);
+ 		this.state = { content: props.content, selectedSource: 'initial' };
+ 	}
+
+
+	loadContent() {
+		// do nothing on server
+	};
+
+
 	render () {
 		const cols = this.props.cols;
 		const sectionContentClasses = classify([
@@ -35,6 +48,15 @@ export default class Section extends Component {
 							</div>
 							: null
 					}
+					{
+						this.props.showMostPopularByIndustry && this.props.dynamicContent ?
+							<div
+								data-o-grid-colspan="12"
+								className="section__column section__column--sources">
+								<SectionSources dynamicContent={this.props.dynamicContent} onChange={this.loadContent.bind(this)} selectedSource={this.state.selectedSource}/>
+							</div>
+							: null
+					}
 					<div
 						id={this.props.id + '-section-content'}
 						data-o-grid-colspan={colspan(cols.content)}
@@ -43,7 +65,7 @@ export default class Section extends Component {
 							style={this.props.style}
 							columns={this.props.columns}
 							cards={this.props.cards}
-							items={this.props.content}
+							items={this.state.content}
 						/>
 					</div>
 					{

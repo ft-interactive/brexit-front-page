@@ -1,5 +1,5 @@
 import Poller from 'ft-poller';
-import queries from '../config/queries';
+import queries from '../../config/queries';
 import { logger } from 'ft-next-logger';
 
 let queryResults = {
