@@ -13,8 +13,7 @@ export default class SectionBrowser extends SectionNode {
  	componentWillMount() {
  		//If there is a source stored in localStorage, fetch that
  		if(this.props.dynamicContent && this.props.dynamicContent.rememberSource) {
- 			let key = this.props.dynamicContent.rememberSource;
-			this.defaultSourceStore.get(key).then(pref => {
+			this.defaultSourceStore.get(this.props.dynamicContent.rememberSource).then(pref => {
 				if(pref && pref !== this.state.selectedSource) {
 					this.loadContent({
 						target: {
