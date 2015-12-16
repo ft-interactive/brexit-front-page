@@ -2,6 +2,9 @@ import SectionNode from './node';
 import nJsonpFetch from 'n-jsonp-fetch';
 import Superstore from 'superstore';
 import {json as fetchJson} from 'fetchres';
+import fireTracking from '../../client/utils/fire-tracking';
+import getDomPath from 'n-instrumentation/src/utils/getDomPath';
+
 
 export default class SectionBrowser extends SectionNode {
 
@@ -27,7 +30,9 @@ export default class SectionBrowser extends SectionNode {
 
 	loadContent(e) {
 		const uuid = e.target.value;
-		this.setState({selectedSource: uuid})
+		const title = e.target.textContent;
+		this.setState({selectedSource: uuid});
+
 		if(uuid === 'initial') {
 			this.setState({content: this.props.content})
 		} else {
@@ -43,6 +48,10 @@ export default class SectionBrowser extends SectionNode {
 				this.setState({content: this.props.dynamicContent.parseResults(data)})
 			});
 		}
+		if(e.type) { //only fire tracking for actual events
+			fireTracking('oTracking.event', { category: 'cta', action: 'change', value: uuid, title: title, domPath: getDomPath(e.target, []) });
+		}
+
 	};
 
 }
