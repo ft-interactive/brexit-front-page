@@ -1,11 +1,9 @@
 @mixin storyCardFooter {
 	@include nTypeAlpha(5);
-
+	position: relative;
 	width: 100%;
-
 	text-transform: uppercase;
 	height: $story-card--footer-height;
-	padding: 0 10px;
 	line-height: $story-card--footer-height;
 	align-self: flex-end;
 
@@ -13,12 +11,19 @@
 		margin-top: -3px;
 	}
 
+	// NOTE - absolute positioning (rather than line-height) needed for BB7
+	time,
+	.n-myft-ui--save {
+		position: absolute;
+		top: 0;
+	}
+
 	time {
 		color: oColorsGetColorFor('timestamp', 'text');
+		left: 10px;
 	}
 
 	.n-myft-ui--save {
-		display: inline-block;
-		float: right;
+		right: 10px;
 	}
 }
