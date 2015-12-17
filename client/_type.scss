@@ -1,6 +1,6 @@
 @mixin podHeading {
 	@include nTypeAlpha(2);
-	padding: 10px 0;
+	line-height: 30px;
 	color: oColorsGetPaletteColor('warm-4');
 }
 
@@ -17,6 +17,7 @@
 	border: solid oColorsGetPaletteColor('warm-3');
 	border-width: 0 0 1px;
 	margin-bottom: 10px;
+	padding: 10px 0;
 
 	h1 {
 		@include podHeading;
@@ -57,27 +58,25 @@
 
 .pod-heading--link {
 	@include nTypeAlpha(3);
-	display: block;
-	padding-right: 10px;
+	margin-left: 10px;
+	line-height: 30px;
+	float: right;
 	border-bottom: 0;
+	color: oColorsGetPaletteColor('link-1');
 
-	span {
-		line-height: 40px;
-		float: right;
-		margin-right: 10px;
-		display: inline-block;
-		color: oColorsGetPaletteColor('link-1');
+	&:after {
+		@include nextIcon(go-to-circle, oColorsGetPaletteColor('link-1'), 30px);
+		content: '';
+		margin-left: 10px;
+		vertical-align: bottom;
 	}
 
 	&:hover,
 	&:active {
-		span {
-			color: oColorsGetPaletteColor('grey-tint5');
-		}
+		color: oColorsGetPaletteColor('grey-tint5');
 
-		.more-icon,
-		[data-alternate-text="More"] {
-			@include nextIcon(go-to-circle, oColorsGetPaletteColor('grey-tint5'), 30px);
+		&:after {
+			@include nextIcon(go-to-circle, oColorsGetPaletteColor('grey-tint5'), 30px, $icon-only: true);
 		}
 	}
 }
