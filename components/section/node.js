@@ -24,6 +24,7 @@ export default class SectionNode extends Component {
 
 	render () {
 		const cols = this.props.cols;
+		const trackable = this.props.trackable || this.props.id;
 		const sectionContentClasses = classify([
 			'section__column',
 			'section__column--content',
@@ -37,7 +38,7 @@ export default class SectionNode extends Component {
 		return (
 			<section
 				className={'section o-grid-container o-grid-container--compact section--' + this.props.style}
-				data-trackable={this.props.id + (this.state.selectedSource === 'initial' ? '' : ' | alternate-source')}>
+				data-trackable={trackable + (this.state.selectedSource === 'initial' ? '' : ' | alternate-source')}>
 				<div className="o-grid-row">
 					{
 						cols.meta ?

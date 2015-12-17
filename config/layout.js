@@ -501,7 +501,8 @@ export default [
 		}
 	},
 	{
-		id: 'video',
+		id: 'videos', // Note: calling this "video" breaks BB10
+		trackable: 'video',
 		title: 'Video',
 		style: 'video',
 		getContent: (content) => ({
