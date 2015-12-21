@@ -5,6 +5,7 @@ import Section from '.';
 import initialLayout from '../../config/layout';
 
 let showMostPopularByIndustry;
+const layoutForSection = (layout, sectionId) => layout.find((section) => (section.id === sectionId));
 
 function init (el, mostPopularByIndustry) {
 	if (!el) return;
@@ -17,7 +18,7 @@ function render (el, layout) {
 	let content = JSON.parse(el.getAttribute('data-section-content'));
 
 	ReactDOM.render(<Section
-		{...layout}
+		{...layoutForSection(layout, el.id)}
 		content={content.body}
 		sidebarContent={content.sidebar}
 		showMostPopularByIndustry={showMostPopularByIndustry}
