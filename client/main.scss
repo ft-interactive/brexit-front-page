@@ -10,7 +10,6 @@ $o-grid-gutters: (
 	M:       15px
 );
 $o-grid-start-snappy-mode-at: XXL;
-$o-grid-ie8-rules: false;
 
 @import "flexbox-prefixed";
 @import "n-layout/main";
