@@ -48,9 +48,8 @@ export default class SectionNode extends Component {
 		]);
 		return (
 			<section
-				className={'section o-grid-container o-grid-container--compact section--' + this.props.style}
+				className={'o-grid-row section section--' + this.props.style}
 				data-trackable={trackable + (this.state.selectedSource === 'initial' ? '' : ' | alternate-source')}>
-				<div className="o-grid-row">
 					{
 						cols.meta ?
 							<div
@@ -92,7 +91,6 @@ export default class SectionNode extends Component {
 							</aside>
 							: null
 					}
-				</div>
 			</section>
 		);
 	}

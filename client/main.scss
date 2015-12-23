@@ -40,7 +40,8 @@ $o-grid-start-snappy-mode-at: XXL;
 html {
 	// Prevent navigation menus from creating
 	// extra space on sides of the page
-	@include oGridRespondTo(S) {
+	overflow-x: auto;
+	@include oGridTargetModernBrowsers {
 		overflow-x: hidden;
 	}
 }

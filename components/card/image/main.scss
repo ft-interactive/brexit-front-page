@@ -19,7 +19,7 @@
 	}
 
 	@each $layout-name in $_o-grid-layout-names {
-		@media \0screen {
+		@include oGridTargetIE8 {
 			[data-image-show~="#{$layout-name}--true"] & {
 				display: flex;
 			}
