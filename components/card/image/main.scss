@@ -19,6 +19,25 @@
 	}
 
 	@each $layout-name in $_o-grid-layout-names {
+		@include oGridTargetIE8 {
+			[data-image-show~="#{$layout-name}--true"] & {
+				display: flex;
+			}
+			[data-image-show~="#{$layout-name}--false"] & {
+				display: none;
+			}
+			[data-card-landscape~="#{$layout-name}--false"] & {
+				position: static;
+				top: 0;
+				left: 0;
+				width: auto;
+				margin-top: 10px;
+			}
+
+			[data-card-landscape~="#{$layout-name}--true"] & {
+				position: static;
+			}
+		}
 		@include oGridRespondTo($layout-name) {
 			[data-card-has-image~="true"][data-image-show~="#{$layout-name}--true"] & {
 				@include displayFlex;

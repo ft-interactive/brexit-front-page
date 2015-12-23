@@ -10,7 +10,6 @@ $o-grid-gutters: (
 	M:       15px
 );
 $o-grid-start-snappy-mode-at: XXL;
-$o-grid-ie8-rules: false;
 
 @import "flexbox-prefixed";
 @import "n-layout/main";
@@ -41,7 +40,8 @@ $o-grid-ie8-rules: false;
 html {
 	// Prevent navigation menus from creating
 	// extra space on sides of the page
-	@include oGridRespondTo(S) {
+	overflow-x: auto;
+	@include oGridTargetModernBrowsers {
 		overflow-x: hidden;
 	}
 }
