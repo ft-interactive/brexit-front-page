@@ -1,4 +1,7 @@
 {{#defineBlock 'head'}}
+	<!--[if lte IE 8]>
+		<link rel="stylesheet" href="{{#hashedAsset}}ie8.css{{/hashedAsset}}" />
+	<![endif]-->
 	<meta name="dfp_site" content="home" />
 	<meta name="dfp_zone" content="{{region}}" />
 {{/defineBlock}}

@@ -27,7 +27,7 @@ export default class SectionContent extends Component {
 		});
 
 		return (
-			<div className="o-grid-container o-grid-container--compact">
+			<div className="o-grid-container--compact">
 				<div className="o-grid-row">
 					{columns}
 				</div>

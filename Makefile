@@ -35,9 +35,12 @@ watch-hot-load:
 	node server/dev/init
 
 build:
+	nbt build --main-sass ie8.scss --skip-js --skip-about --skip-haikro --skip-hash --dev
 	nbt build --dev
 
+
 build-production:
+	nbt build --main-sass ie8.scss --skip-js --skip-about --skip-haikro --skip-hash
 	nbt build
 
 smoke:
