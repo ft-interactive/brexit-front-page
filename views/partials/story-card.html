@@ -1,4 +1,4 @@
-<article class="story-card article--{{genre}} {{#ifEquals contentType "LiveBlog"}}story-card--liveblog liveblog--{{lowercase status}}{{/ifEquals}} o-grid-container--compact" data-trackable="story" tabindex="0" aria-labelledby="{{id}}-title" role="article">
+<article class="story-card article--{{genre}} {{#ifEquals contentType "LiveBlog"}}story-card--liveblog liveblog--{{lowercase status}}{{/ifEquals}}" data-trackable="story" tabindex="0" aria-labelledby="{{id}}-title" role="article">
 	<div class="story-card--inner o-grid-row">
 		{{#if primaryImage}}
 			{{#unless hideImage}}
@@ -37,7 +37,7 @@
 		</div>
 		{{#if relatedContent}}
 			<div class="story-card__related--wrapper" data-o-grid-colspan="12">
-				<div class="story-card__related o-grid-container--compact" data-trackable="related-links" tabindex="0" role="group" aria-label="Related links">
+				<div class="story-card__related" data-trackable="related-links" tabindex="0" role="group" aria-label="Related links">
 					<div class="story-card__related--inline o-grid-row">
 						{{#slice relatedContent limit=3}}
 							<article class="story-card__related-link" aria-labelledby="{{id}}-title" tabindex="0" role="article" data-o-grid-colspan="12 M4">
