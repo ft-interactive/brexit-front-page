@@ -18,30 +18,30 @@ export default [
 		}),
 		cards: {
 			default: [
-				{ size: 'large', standFirst: true, image: true, related: 1 },
-				{ size: 'medium', landscape: true },
-				{ size: 'small', landscape: true },
-				{ size: 'small', landscape: true },
-				{ size: 'small', landscape: true },
-				{ size: 'small', landscape: true },
-				{ size: 'small', landscape: true },
-				{ size: 'tiny', landscape: true },
-				{ size: 'tiny', landscape: true },
-				{ size: 'tiny', image: true, landscape: true },
-				{ size: 'tiny', landscape: true }
+				{ column: 0, size: 'large', standFirst: true, image: true, related: 1 },
+				{ column: 0, size: 'medium', landscape: true },
+				{ column: 1, size: 'small', landscape: true },
+				{ column: 1, size: 'small', landscape: true },
+				{ column: 1, size: 'small', landscape: true },
+				{ column: 1, size: 'small', landscape: true },
+				{ column: 1, size: 'small', landscape: true },
+				{ column: 2, size: 'tiny', landscape: true },
+				{ column: 2, size: 'tiny', landscape: true },
+				{ column: 2, size: 'tiny', image: true, landscape: true },
+				{ column: 2, size: 'tiny', landscape: true }
 			],
 			S: [
-				{ size: 'large', standFirst: true, image: true, related: 3 },
-				{ size: 'medium', landscape: true },
-				{ size: 'small', landscape: true },
-				{ size: 'small', landscape: true },
-				{ size: 'small', landscape: true },
-				{ size: 'small', landscape: true },
-				{ size: 'small', landscape: true },
-				{ size: 'tiny', landscape: true },
-				{ size: 'tiny', landscape: true },
-				{ size: 'tiny', image: true, landscape: true },
-				{ size: 'tiny', landscape: true }
+				{ column: 0, size: 'large', standFirst: true, image: true, related: 3 },
+				{ column: 0, size: 'medium', landscape: true },
+				{ column: 1, size: 'small', landscape: true },
+				{ column: 1, size: 'small', landscape: true },
+				{ column: 1, size: 'small', landscape: true },
+				{ column: 1, size: 'small', landscape: true },
+				{ column: 1, size: 'small', landscape: true },
+				{ column: 2, size: 'tiny', landscape: true },
+				{ column: 2, size: 'tiny', landscape: true },
+				{ column: 2, size: 'tiny', image: true, landscape: true },
+				{ column: 2, size: 'tiny', landscape: true }
 			],
 			M: [
 				{ column: 0, width: 5, size: 'large', standFirst: true, image: true, related: 3 },
@@ -110,24 +110,24 @@ export default [
 		}),
 		cards: {
 			default: [
-				{ size: 'medium', standFirst: true, image: true },
-				{ size: 'small' },
-				{ size: 'small', image: true, landscape: true },
-				{ size: 'small', image: true, landscape: true },
-				{ size: 'small' },
-				{ size: 'tiny' },
-				{ size: 'tiny', image: true, landscape: true },
-				{ size: 'tiny' }
+				{ column: 0, size: 'medium', standFirst: true, image: true },
+				{ column: 1, size: 'small' },
+				{ column: 1, size: 'small', image: true, landscape: true },
+				{ column: 2, size: 'small', image: true, landscape: true },
+				{ column: 2, size: 'small' },
+				{ column: 3, size: 'tiny' },
+				{ column: 3, size: 'tiny', image: true, landscape: true },
+				{ column: 3, size: 'tiny' }
 			],
 			S: [
-				{ size: 'medium', standFirst: true, image: true },
-				{ size: 'small' },
-				{ size: 'small', image: true, landscape: true },
-				{ size: 'small', image: true, landscape: true },
-				{ size: 'small' },
-				{ size: 'tiny' },
-				{ size: 'tiny', image: true, landscape: true },
-				{ size: 'tiny' }
+				{ column: 0, size: 'medium', standFirst: true, image: true },
+				{ column: 1, size: 'small' },
+				{ column: 1, size: 'small', image: true, landscape: true },
+				{ column: 2, size: 'small', image: true, landscape: true },
+				{ column: 2, size: 'small' },
+				{ column: 3, size: 'tiny' },
+				{ column: 3, size: 'tiny', image: true, landscape: true },
+				{ column: 3, size: 'tiny' }
 			],
 			M: [
 				{ column: 0, width: 3, size: 'medium', standFirst: true, image: true },
@@ -171,28 +171,28 @@ export default [
 		}),
 		cards: {
 			default: [
-				{ size: 'tiny', landscape: true, image: true, imageStick: true },
-				{ size: 'tiny', landscape: true, image: true, imageStick: true },
-				{ size: 'tiny', landscape: true, image: true, imageStick: true },
-				{ size: 'tiny', landscape: true, image: true, imageStick: true },
-				{ size: 'tiny', landscape: true, image: true, imageStick: true },
-				{ size: 'tiny', landscape: true, image: true, imageStick: true }
+				{ column: 0, size: 'tiny', landscape: true, image: true, imageStick: true },
+				{ column: 1, size: 'tiny', landscape: true, image: true, imageStick: true },
+				{ column: 2, size: 'tiny', landscape: true, image: true, imageStick: true },
+				{ column: 3, size: 'tiny', landscape: true, image: true, imageStick: true },
+				{ column: 4, size: 'tiny', landscape: true, image: true, imageStick: true },
+				{ column: 5, size: 'tiny', landscape: true, image: true, imageStick: true }
 			],
 			S: [
 				{ column: 0, width: 6, size: 'small', image: true, imageStick: true },
 				{ column: 1, width: 6, size: 'small', image: true, imageStick: true },
-				{ column: 0, width: 6, size: 'small', image: true, imageStick: true },
-				{ column: 1, width: 6, size: 'small', image: true, imageStick: true },
-				{ column: 0, width: 6, size: 'small', image: true, imageStick: true },
-				{ column: 1, width: 6, size: 'small', image: true, imageStick: true }
+				{ column: 2, width: 6, size: 'small', image: true, imageStick: true },
+				{ column: 3, width: 6, size: 'small', image: true, imageStick: true },
+				{ column: 4, width: 6, size: 'small', image: true, imageStick: true },
+				{ column: 5, width: 6, size: 'small', image: true, imageStick: true }
 			],
 			M: [
 				{ column: 0, width: 4, size: 'small', image: true, imageStick: true },
 				{ column: 1, width: 4, size: 'small', image: true, imageStick: true },
 				{ column: 2, width: 4, size: 'small', image: true, imageStick: true },
-				{ column: 0, width: 4, size: 'small', image: true, imageStick: true },
-				{ column: 1, width: 4, size: 'small', image: true, imageStick: true },
-				{ column: 2, width: 4, size: 'small', image: true, imageStick: true }
+				{ column: 3, width: 4, size: 'small', image: true, imageStick: true },
+				{ column: 4, width: 4, size: 'small', image: true, imageStick: true },
+				{ column: 5, width: 4, size: 'small', image: true, imageStick: true }
 			],
 			L: [
 				{ column: 0, width: 2, size: 'small', image: true, imageStick: true },
@@ -328,26 +328,26 @@ export default [
 		},
 		cards: {
 			default: [
-				{ size: 'medium', standFirst: true, image: true },
-				{ size: 'small' },
-				{ size: 'small', image: true, landscape: true },
-				{ size: 'small', image: true, landscape: true },
-				{ size: 'small' },
-				{ size: 'tiny' },
-				{ size: 'tiny' },
-				{ size: 'tiny' },
-				{ size: 'tiny' }
+				{ column: 0, size: 'medium', standFirst: true, image: true },
+				{ column: 1, size: 'small' },
+				{ column: 1, size: 'small', image: true, landscape: true },
+				{ column: 2, size: 'small', image: true, landscape: true },
+				{ column: 2, size: 'small' },
+				{ column: 3, size: 'tiny' },
+				{ column: 3, size: 'tiny' },
+				{ column: 3, size: 'tiny' },
+				{ column: 3, size: 'tiny' }
 			],
 			S: [
-				{ size: 'medium', standFirst: true, image: true },
-				{ size: 'small' },
-				{ size: 'small', image: true, landscape: true },
-				{ size: 'small', image: true, landscape: true },
-				{ size: 'small' },
-				{ size: 'tiny' },
-				{ size: 'tiny' },
-				{ size: 'tiny' },
-				{ size: 'tiny' }
+				{ column: 0, size: 'medium', standFirst: true, image: true },
+				{ column: 1, size: 'small' },
+				{ column: 1, size: 'small', image: true, landscape: true },
+				{ column: 2, size: 'small', image: true, landscape: true },
+				{ column: 2, size: 'small' },
+				{ column: 3, size: 'tiny' },
+				{ column: 3, size: 'tiny' },
+				{ column: 3, size: 'tiny' },
+				{ column: 3, size: 'tiny' }
 			],
 			M: [
 				{ column: 0, width: 3, size: 'medium', standFirst: true, image: true },
@@ -518,8 +518,8 @@ export default [
 			S: [
 				{ column: 0, width: 6 },
 				{ column: 1, width: 6 },
-				{ column: 0, width: 6 },
-				{ column: 1, width: 6 }
+				{ column: 2, width: 6 },
+				{ column: 3, width: 6 }
 			],
 			M: [
 				{ column: 0, width: 3 },

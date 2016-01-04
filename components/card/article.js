@@ -12,6 +12,7 @@ class Article extends Component {
 	render () {
 		const article = this.props.article;
 		const hasImg = article.primaryImage ? 'true' : 'false';
+		const showStandFirst = responsiveValue(this.props.showStandFirst);
 		const showImg = responsiveValue(this.props.image);
 
 		return (
@@ -27,7 +28,7 @@ class Article extends Component {
 					<Title title={article.title} href={'/content/' + article.id} size={this.props.titleSize} />
 					{(article.primaryTag && article.primaryTag.taxonomy === 'authors') ? <Tag tag={article.primaryTag} size={this.props.tagSize} /> : null}
 				</div>
-				<Standfirst article={article} size={this.props.standFirstSize} show={this.props.showStandFirst} />
+				{showStandFirst.includes('true') ? <Standfirst article={article} size={this.props.standFirstSize} show={showStandFirst} /> : null}
 				{article.primaryImage && (showImg.includes('true')) ? <Image article={article} stickToBottom={this.props.imageStick}/> : null}
 				{this.props.showRelated.length > 0 ? <Related articles={article.relatedContent} show={this.props.showRelated} /> : null}
 			</article>

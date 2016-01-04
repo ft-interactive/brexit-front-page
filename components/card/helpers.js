@@ -37,7 +37,12 @@ const responsiveClass = (component, modifier) => {
 	// this is a crucial step in order not to output ridiculous classes
 	const mod = mobileFirst(modifier);
 
-	return prefix(component, mod.default) + ' ' + layoutNames.filter(it => mod.hasOwnProperty(it)).map(l => prefix(component, mod[l], l)).join(' ');
+	return [
+		prefix(component, mod.default),
+		...layoutNames
+			.filter(it => mod.hasOwnProperty(it))
+			.map(l => prefix(component, mod[l], l))
+	].join(' ');
 };
 
 // Public: turns an object like {default: 'val', S: 'other-val'}
