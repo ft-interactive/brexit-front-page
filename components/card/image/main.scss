@@ -20,7 +20,7 @@
 
 	@each $layout-name in $_o-grid-layout-names {
 		@include oGridRespondTo($layout-name) {
-			.card[data-has-image~="true"][data-image-show~="#{$layout-name}--true"] & {
+			.card[data-image-show~="#{$layout-name}--true"] & {
 				@include displayFlex;
 			}
 

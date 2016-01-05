@@ -23,8 +23,8 @@ class Article extends Component {
 		if (showCard.includes('false')) {
 			Object.assign(attrs, { 'data-show': showCard });
 		}
-		if (showImg.includes('true')) {
-			Object.assign(attrs, { 'data-has-image': hasImg, 'data-image-show': showImg });
+		if (showImg.includes('true') && hasImg) {
+			Object.assign(attrs, { 'data-image-show': showImg });
 
 			// landscape only applicable if there's an image
 			if (isLandscape.includes('true')) {
@@ -40,7 +40,7 @@ class Article extends Component {
 					{(article.primaryTag && article.primaryTag.taxonomy === 'authors') ? <Tag tag={article.primaryTag} size={this.props.tagSize} /> : null}
 				</div>
 				{showStandFirst.includes('true') ? <Standfirst article={article} size={this.props.standFirstSize} show={showStandFirst} /> : null}
-				{article.primaryImage && (showImg.includes('true')) ? <Image article={article} stickToBottom={this.props.imageStick}/> : null}
+				{(article.primaryImage && showImg.includes('true')) ? <Image article={article} stickToBottom={this.props.imageStick}/> : null}
 				{this.props.showRelated.length > 0 ? <Related articles={article.relatedContent} show={this.props.showRelated} /> : null}
 			</article>
 		);
