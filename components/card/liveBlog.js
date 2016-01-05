@@ -12,7 +12,6 @@ import Standfirst from './standfirst/standfirst'
 class LiveBlog extends Component {
 	render () {
 		const article = this.props.liveBlog;
-		const hasImg = article.primaryImage ? 'true' : 'false';
 		const showCard = responsiveValue(this.props.show);
 		const showStandFirst = responsiveValue(this.props.showStandFirst);
 		const showImg = responsiveValue(this.props.image);
@@ -24,8 +23,8 @@ class LiveBlog extends Component {
 		if (showCard.includes('false')) {
 			Object.assign(attrs, { 'data-show': showCard });
 		}
-		if (showImg.includes('true')) {
-			Object.assign(attrs, { 'data-has-image': hasImg, 'data-image-show': showImg });
+		if (article.primaryImage && showImg.includes('true')) {
+			Object.assign(attrs, { 'data-image-show': showImg });
 
 			// landscape only applicable if there's an image
 			if (isLandscape.includes('true')) {
@@ -42,7 +41,7 @@ class LiveBlog extends Component {
 					<Title title={article.title} href={'/content/' + article.id} size={this.props.titleSize} />
 					{(article.primaryTag && article.primaryTag.taxonomy === 'authors') ? <Tag tag={article.primaryTag} size={this.props.tagSize} /> : null}
 				</div>
-				{showStandFirst.includes('true') ? <Standfirst article={article} size='medium' show={this.props.showStandFirst} /> : null}
+				{(article.summary && showStandFirst.includes('true')) ? <Standfirst article={article} size="medium" show={this.props.showStandFirst} /> : null}
 				{(article.primaryImage && showImg.includes('true')) ? <Image article={article} stickToBottom={this.props.imageStick}/> : null}
 				{this.props.showRelated.length > 0 ? <Related articles={article.relatedContent} show={this.props.showRelated} /> : null}
 				<div className="card__footer">

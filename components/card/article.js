@@ -11,7 +11,6 @@ import Related from './related/related';
 class Article extends Component {
 	render () {
 		const article = this.props.article;
-		const hasImg = article.primaryImage ? 'true' : 'false';
 		const showCard = responsiveValue(this.props.show);
 		const showStandFirst = responsiveValue(this.props.showStandFirst);
 		const showImg = responsiveValue(this.props.image);
@@ -23,7 +22,7 @@ class Article extends Component {
 		if (showCard.includes('false')) {
 			Object.assign(attrs, { 'data-show': showCard });
 		}
-		if (showImg.includes('true') && hasImg) {
+		if (article.primaryImage && showImg.includes('true')) {
 			Object.assign(attrs, { 'data-image-show': showImg });
 
 			// landscape only applicable if there's an image
@@ -39,7 +38,7 @@ class Article extends Component {
 					<Title title={article.title} href={'/content/' + article.id} size={this.props.titleSize} />
 					{(article.primaryTag && article.primaryTag.taxonomy === 'authors') ? <Tag tag={article.primaryTag} size={this.props.tagSize} /> : null}
 				</div>
-				{showStandFirst.includes('true') ? <Standfirst article={article} size={this.props.standFirstSize} show={showStandFirst} /> : null}
+				{(article.summary && showStandFirst.includes('true')) ? <Standfirst article={article} size={this.props.standFirstSize} show={this.props.showStandFirst} /> : null}
 				{(article.primaryImage && showImg.includes('true')) ? <Image article={article} stickToBottom={this.props.imageStick}/> : null}
 				{this.props.showRelated.length > 0 ? <Related articles={article.relatedContent} show={this.props.showRelated} /> : null}
 			</article>

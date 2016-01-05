@@ -68,17 +68,6 @@
 	}
 }
 
-@each $layout-name in $_o-grid-layout-names {
-	@include oGridRespondTo($layout-name) {
-		.card__image-link--stick {
-			align-items: flex-end;
-		}
-		.card__image-link--no-stick {
-			align-items: flex-start;
-		}
-	}
-}
-
 .card__image {
 	display: block;
 	width: 100%;
