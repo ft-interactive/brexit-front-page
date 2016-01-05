@@ -1,0 +1,31 @@
+$o-grid-layouts: (
+	S:   490px,
+	M:   740px,
+	L:   980px,
+	XL:  1220px,
+	XXL: 1440px
+);
+$o-grid-gutters: (
+	default: 10px,
+	M:       15px
+);
+
+$o-grid-ie8-rules: 'only';
+
+@import "o-grid/main";
+// Mixins to ease the transition to o-grid v4
+@if not mixin-exists(oGridColumn) {
+	@mixin oGridColumn($args...) {
+		@warn "oGridColumn is deprecated. Please use oGridColspan instead.";
+		@include oGridColspan($args...);
+	}
+}
+
+
+// Surface current layout (for the JS helper)
+@include oGridSurfaceCurrentLayout;
+
+// Generate grid helper classes and data- attributes
+@include oGridGenerate;
+
+@import "../components/card/ie8";

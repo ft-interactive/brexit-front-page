@@ -1,0 +1,27 @@
+@import './image/ie8';
+
+@each $layout-name in $_o-grid-layout-names {
+	@include oGridTargetIE8 {
+		[data-card-show~="#{$layout-name}--true"] {
+			display: block;
+		}
+		[data-card-show~="#{$layout-name}--false"] {
+			display: none;
+		}
+		[data-card-landscape~="#{$layout-name}--true"] {
+			&[data-image-show~="true"] {
+				position: relative;
+				min-height: 56px;
+				padding-left: 120px;
+			}
+		}
+
+		[data-card-landscape~="#{$layout-name}--false"] {
+			&[data-card-has-image~="true"][data-image-show~="true"] {
+				position: static;
+				min-height: auto;
+				padding-left: 10px;
+			}
+		}
+	}
+}
