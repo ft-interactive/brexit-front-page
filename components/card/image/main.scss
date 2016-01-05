@@ -6,7 +6,7 @@
 	margin-top: 10px;
 	border-bottom: 0;
 
-	[data-card-landscape~="true"] & {
+	.card[data-landscape~="true"] & {
 		position: absolute;
 		top: 10px;
 		left: 10px;
@@ -14,22 +14,21 @@
 		margin-top: 0;
 	}
 
-	[data-image-show~="false"] & {
+	.card[data-image-show~="false"] & {
 		display: none;
 	}
 
 	@each $layout-name in $_o-grid-layout-names {
-
 		@include oGridRespondTo($layout-name) {
-			[data-card-has-image~="true"][data-image-show~="#{$layout-name}--true"] & {
+			.card[data-has-image~="true"][data-image-show~="#{$layout-name}--true"] & {
 				@include displayFlex;
 			}
 
-			[data-image-show~="#{$layout-name}--false"] & {
+			.card[data-image-show~="#{$layout-name}--false"] & {
 				display: none;
 			}
 
-			[data-card-landscape~="#{$layout-name}--false"] & {
+			.card[data-landscape~="#{$layout-name}--false"] & {
 				position: static;
 				top: 0;
 				left: 0;
@@ -37,7 +36,7 @@
 				margin-top: 10px;
 			}
 
-			[data-card-landscape~="#{$layout-name}--true"] & {
+			.card[data-landscape~="#{$layout-name}--true"] & {
 				position: absolute;
 				top: 10px;
 				left: 10px;
@@ -52,17 +51,17 @@
 .card__image-link--headshot {
 	align-items: flex-end;
 
-	[data-card-landscape~="true"] & {
+	.card[data-landscape~="true"] & {
 		align-items: flex-start;
 	}
 
-	[data-card-landscape~="S--false"] & {
+	.card[data-landscape~="S--false"] & {
 		@include oGridRespondTo(S) {
 			align-items: flex-end;
 		}
 	}
 
-	[data-card-landscape~="M--false"] & {
+	.card[data-landscape~="M--false"] & {
 		@include oGridRespondTo(M) {
 			align-items: flex-end;
 		}

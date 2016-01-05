@@ -25,7 +25,7 @@
 	color: getColor(claret);
 }
 
-.card__tag--tiny {
+.card__tag[data-size~="tiny"] {
 	display: inline;
 
 	&:first-child {
@@ -40,7 +40,7 @@
 
 @each $layout-name in $_o-grid-layout-names {
 	@include oGridRespondTo($layout-name) {
-		.card__tag--#{$layout-name}--tiny {
+		.card__tag[data-size~="#{$layout-name}--tiny"] {
 			display: inline;
 
 			&:first-child {
@@ -52,10 +52,10 @@
 				}
 			}
 		}
-		.card__tag--#{$layout-name}--small,
-		.card__tag--#{$layout-name}--medium,
-		.card__tag--#{$layout-name}--large,
-		.card__tag--#{$layout-name}--huge {
+		.card__tag[data-size~="#{$layout-name}--small"],
+		.card__tag[data-size~="#{$layout-name}--medium"],
+		.card__tag[data-size~="#{$layout-name}--large"],
+		.card__tag[data-size~="#{$layout-name}--huge"] {
 			display: block;
 
 			&:first-child {

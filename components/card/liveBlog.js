@@ -18,10 +18,10 @@ class LiveBlog extends Component {
 		return (
 			<article
 					className={"card card--liveblog liveblog--" + article.status.toLowerCase()}
-					data-card-landscape={responsiveValue(this.props.landscape)}
+					data-landscape={responsiveValue(this.props.landscape)}
 					data-trackable="card"
-					data-card-show={responsiveValue(this.props.show)}
-					data-card-has-image={hasImg}
+					data-show={responsiveValue(this.props.show)}
+					data-has-image={hasImg}
 					data-image-show={responsiveValue(this.props.image)}>
 				<div>
 					<span className="liveblog__badge">live</span>

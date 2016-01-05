@@ -6,7 +6,7 @@ class Video extends Component {
 	render () {
 		const video = this.props.item;
 		return (
-			<article className="card card--stretch card--video" data-card-show={responsiveValue(this.props.show)}>
+			<article className="card card--stretch card--video" data-show={responsiveValue(this.props.show)}>
 				{/* wrapper needed for firefox */}
 				<div>
 					<div

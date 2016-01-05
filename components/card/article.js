@@ -21,22 +21,24 @@ class Article extends Component {
 			'data-trackable': 'card'
 		};
 		if (showCard.includes('false')) {
-			Object.assign(attrs, { 'data-card-show': showCard });
+			Object.assign(attrs, { 'data-show': showCard });
 		}
 		if (showImg.includes('true')) {
-			Object.assign(attrs, { 'data-card-has-image': hasImg, 'data-image-show': showImg });
+			Object.assign(attrs, { 'data-has-image': hasImg, 'data-image-show': showImg });
 
 			// landscape only applicable if there's an image
 			if (isLandscape.includes('true')) {
-				Object.assign(attrs, { 'data-card-landscape': isLandscape });
+				Object.assign(attrs, { 'data-landscape': isLandscape });
 			}
 		}
 
 		return (
 			<article {...attrs}>
-				{(article.primaryTag && article.primaryTag.taxonomy !== 'authors') ? <Tag tag={article.primaryTag} size={this.props.tagSize} /> : null}
-				<Title title={article.title} href={'/content/' + article.id} size={this.props.titleSize} />
-				{(article.primaryTag && article.primaryTag.taxonomy === 'authors') ? <Tag tag={article.primaryTag} size={this.props.tagSize} /> : null}
+				<div>
+					{(article.primaryTag && article.primaryTag.taxonomy !== 'authors') ? <Tag tag={article.primaryTag} size={this.props.tagSize} /> : null}
+					<Title title={article.title} href={'/content/' + article.id} size={this.props.titleSize} />
+					{(article.primaryTag && article.primaryTag.taxonomy === 'authors') ? <Tag tag={article.primaryTag} size={this.props.tagSize} /> : null}
+				</div>
 				{showStandFirst.includes('true') ? <Standfirst article={article} size={this.props.standFirstSize} show={showStandFirst} /> : null}
 				{article.primaryImage && (showImg.includes('true')) ? <Image article={article} stickToBottom={this.props.imageStick}/> : null}
 				{this.props.showRelated.length > 0 ? <Related articles={article.relatedContent} show={this.props.showRelated} /> : null}
