@@ -20,7 +20,7 @@ class Article extends Component {
 			className: 'card',
 			'data-trackable': 'card'
 		};
-		if (showCard !== 'true') {
+		if (showCard.includes('false')) {
 			Object.assign(attrs, { 'data-card-show': showCard });
 		}
 		if (showImg.includes('true')) {

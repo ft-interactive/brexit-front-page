@@ -33,9 +33,9 @@ const prefix = (klass, modifier, layout) => {
 
 // Public: turns a component name (e.g. foo) and an object like {default: 'val', S: 'other-val'}
 // to a string 'foo--val foo--S--other-val'
-const responsiveClass = (component, modifier) => {
+const responsiveClass = (component, modifier, allModifiers = false) => {
 	// this is a crucial step in order not to output ridiculous classes
-	const mod = mobileFirst(modifier);
+	const mod = allModifiers ? modifier : mobileFirst(modifier);
 
 	return [
 		prefix(component, mod.default),
@@ -47,8 +47,8 @@ const responsiveClass = (component, modifier) => {
 
 // Public: turns an object like {default: 'val', S: 'other-val'}
 // to a string 'val S--other-val'
-const responsiveValue = (value) => {
-	return responsiveClass('', value);
+const responsiveValue = (value, allValues = false) => {
+	return responsiveClass('', value, allValues);
 };
 
 export default {

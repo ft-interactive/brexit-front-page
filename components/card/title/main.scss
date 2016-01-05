@@ -61,7 +61,6 @@ $card-title-text-sizes: (
 		huge: 44 46
 	)
 );
-$breakpoints: map-keys($card-title-text-sizes);
 
 @mixin card-title($text-size, $font-size, $line-height) {
 	font-size: $font-size + 0px;
@@ -91,34 +90,18 @@ $breakpoints: map-keys($card-title-text-sizes);
 	}
 }
 
-@each $breakpoint in $breakpoints {
+@each $breakpoint, $text-sizes in $card-title-text-sizes {
 	@if ($breakpoint == 'default') {
-		@each $cardBreakpoint, $text-sizes in $card-title-text-sizes {
-			@if ($cardBreakpoint == 'default') {
-				@each $text-size, $font-sizes in $text-sizes {
-					.card__title--#{$text-size} {
-						@include card-title($text-size, nth($font-sizes, 1), nth($font-sizes, 2));
-					}
-				}
-			} @else {
-				@include oGridRespondTo($cardBreakpoint) {
-					@each $text-size, $font-sizes in $text-sizes {
-						.card__title--#{$text-size} {
-							@include card-title($text-size, nth($font-sizes, 1), nth($font-sizes, 2));
-						}
-					}
-				}
+		@each $text-size, $font-sizes in $text-sizes {
+			.card__title[data-size~="#{$text-size}"] {
+				@include card-title($text-size, nth($font-sizes, 1), nth($font-sizes, 2));
 			}
 		}
 	} @else {
-		@each $cardBreakpoint, $text-sizes in $card-title-text-sizes {
-			@if (index($breakpoints, $cardBreakpoint) >= index($breakpoints, $breakpoint)) {
-				@include oGridRespondTo($cardBreakpoint) {
-					@each $text-size, $font-sizes in $text-sizes {
-						.card__title--#{$breakpoint}--#{$text-size} {
-							@include card-title($text-size, nth($font-sizes, 1), nth($font-sizes, 2));
-						}
-					}
+		@include oGridRespondTo($breakpoint) {
+			@each $text-size, $font-sizes in $text-sizes {
+				.card__title[data-size~="#{$breakpoint}--#{$text-size}"] {
+					@include card-title($text-size, nth($font-sizes, 1), nth($font-sizes, 2));
 				}
 			}
 		}
