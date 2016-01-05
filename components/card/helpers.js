@@ -16,7 +16,7 @@ const mobileFirst = (value) => {
 	return cleanValue;
 };
 
-// Public: maps a function over an object returnin a new object
+// Public: maps a function over an object returning a new object
 // with the same keys and values replaced with the result of the function.
 // The callback has a signature '(value, key) => value'
 const objMap = (object, fn) => {

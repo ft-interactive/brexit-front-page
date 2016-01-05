@@ -5,8 +5,15 @@ import {responsiveValue} from './helpers';
 class Video extends Component {
 	render () {
 		const video = this.props.item;
+		const showCard = responsiveValue(this.props.show);
+		const attrs = {
+			className: 'card card--stretch card--video'
+		};
+		if (showCard.includes('false')) {
+			Object.assign(attrs, { 'data-show': showCard });
+		}
 		return (
-			<article className="card card--stretch card--video" data-show={responsiveValue(this.props.show)}>
+			<article {...attrs}>
 				{/* wrapper needed for firefox */}
 				<div>
 					<div
