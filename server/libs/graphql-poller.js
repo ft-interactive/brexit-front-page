@@ -2,34 +2,42 @@ import Poller from 'ft-poller';
 import queries from '../../config/queries';
 import { logger } from 'ft-next-logger';
 
+
 let queryResults = {
 	frontPageUK: {
 		data: null,
-		lastUpdated: null
+		lastUpdated: null,
+		isValid: (data) => data && data.top && data.top.items && data.top.items.length
 	},
 	frontPageUS: {
 		data: null,
-		lastUpdated: null
+		lastUpdated: null,
+		isValid: (data) => data && data.top && data.top.items && data.top.items.length
 	},
 	newFrontPageUK: {
 		data: null,
-		lastUpdated: null
+		lastUpdated: null,
+		isValid: (data) => data && data.top && data.top.items && data.top.items.length
 	},
 	newFrontPageUS: {
 		data: null,
-		lastUpdated: null
+		lastUpdated: null,
+		isValid: (data) => data && data.top && data.top.items && data.top.items.length
 	},
 	fastFT: {
 		data: null,
-		lastUpdated: null
+		lastUpdated: null,
+		isValid: (data) => data && data.fastFT && data.fastFT.items && data.fastFT.items.length
 	},
 	mockFrontPage: {
 		data: null,
-		lastUpdated: null
+		lastUpdated: null,
+		isValid: (data) => data && data.top && data.top.items && data.top.items.length
 	},
 	mockFrontPageNew: {
 		data: null,
-		lastUpdated: null
+		lastUpdated: null,
+		isValid: (data) => data && data.top && data.top.items && data.top.items.length
 	}
 };
 
@@ -50,7 +58,7 @@ const pollData = (query, name, flags = {}) => {
 			}
 		},
 		parseData: function (results) {
-			if(results && Object.keys(results).length) {
+			if(queryResults[name].isValid(results)) {
 				queryResults[name].data= results;
 				queryResults[name].lastUpdated = Date.now();
 			} else {
