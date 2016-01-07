@@ -9,9 +9,13 @@
 }
 .fast-ft {
 	background-color: getColor('pink');
-	padding: 10px;
 	border-left: 1px solid getColor('warm-3');
 }
+
+.fast-ft__content {
+	padding: 10px;
+}
+
 .fast-ft__logo-outer {
 	margin: 0;
 	line-height: 17px;
