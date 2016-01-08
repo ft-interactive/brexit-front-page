@@ -18,14 +18,15 @@ export default class SectionContent extends Component {
 		const columns = layout.map((column, colIdx) => {
 			const colspan = colspanToString(column.colspan);
 
-			const cards = column.cards.map((props) => {
+			const cards = column.cards.map((props, index) => {
 				let item;
 				let key;
 				if(props.type === 'content') {
-					item = items[storyIndex++];
+					item = items[ props.itemIndex || storyIndex++];
 					key = item ? item.id : null;
 				} else {
 					//TODO: set key for non-content items
+					key = this.props.id + props.type + index;
 				}
 				return (
 					 key ? <Card {...props} item={item} key={key} /> : null

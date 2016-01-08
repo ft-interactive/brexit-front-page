@@ -64,6 +64,7 @@ export default class SectionNode extends Component {
 						data-o-grid-colspan={colspan(cols.content)}
 						className={sectionContentClasses}>
 						<SectionContent
+							id={this.props.id}
 							style={this.props.style}
 							layout={this.state.layout}
 							items={this.state.content}
