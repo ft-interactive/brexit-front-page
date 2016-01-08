@@ -18,7 +18,6 @@ class Article extends Component {
 		const showStandFirst = responsiveValue(this.props.standFirst);
 		const showImg = responsiveValue(this.props.image);
 
-		const showRelated = responsiveValue(this.props.showRelated);
 		const isLandscape = responsiveValue(this.props.landscape);
 		const attrs = {
 			className: 'card',
@@ -47,7 +46,7 @@ class Article extends Component {
 				</div>
 				{(article.summary && showStandFirst.includes('true')) ? <Standfirst article={article} size={this.props.standFirstSize} show={this.props.showStandFirst} /> : null}
 				{(article.primaryImage && showImg.includes('true')) ? <Image article={article} stickToBottom={this.props.imageStick}/> : null}
-				{article.relatedContent && showRelated.includes('true') ? <Related articles={article.relatedContent} show={this.props.showRelated} /> : null}
+				{this.props.showRelated.length > 0 ? <Related articles={article.relatedContent} show={this.props.showRelated} /> : null}
 			</article>
 		);
 	}

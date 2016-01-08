@@ -35,7 +35,6 @@ const prefix = (klass, modifier, layout) => {
 // to a string 'foo--val foo--S--other-val'
 const responsiveClass = (component, modifier, allModifiers = false) => {
 	// this is a crucial step in order not to output ridiculous classes
-	if(!modifier) { return false };
 
 	const mod = allModifiers ? modifier : mobileFirst(modifier);
 

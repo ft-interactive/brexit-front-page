@@ -12,19 +12,23 @@ const colspanToString = (span) => {
 export default class SectionContent extends Component {
 	render () {
 		const items = this.props.items.slice();
-
+		const layout = this.props.layout(items);
 		let storyIndex = 0;
 
-		const columns = this.props.layout.map((column, colIdx) => {
+		const columns = layout.map((column, colIdx) => {
 			const colspan = colspanToString(column.colspan);
 
 			const cards = column.cards.map((props) => {
 				let item;
+				let key;
 				if(props.type === 'content') {
 					item = items[storyIndex++];
+					key = item ? item.id : null;
+				} else {
+					//TODO: set key for non-content items
 				}
 				return (
-					 <Card {...props} item={item} key={item.id} />
+					 key ? <Card {...props} item={item} key={key} /> : null
 				)
 			});
 
