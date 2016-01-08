@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import SectionMeta from './section-meta/section-meta';
 import SectionContent from './section-content/section-content';
 import SectionSources from './section-sources/section-sources';
-import cloneDeep from 'lodash.clonedeep';
 
 import colspan from '../../client/utils/colspan';
 
@@ -15,16 +14,8 @@ export default class SectionNode extends Component {
  	constructor(props) {
  		super(props);
 
- 		let cards = cloneDeep(this.props.cards);
- 		if(props.overrides) {
-			props.overrides.forEach((override) => {
-				if(override.condition(props.content)) {
-					Object.assign(cards, override.cards);
-				}
-			});
-		}
 
- 		this.state = { cards: cards, content: props.content, selectedSource: 'initial' };
+ 		this.state = { layout: props.layout, content: props.content, selectedSource: 'initial' };
  	}
 
 
@@ -74,8 +65,7 @@ export default class SectionNode extends Component {
 						className={sectionContentClasses}>
 						<SectionContent
 							style={this.props.style}
-							columns={this.props.columns}
-							cards={this.state.cards}
+							layout={this.state.layout}
 							items={this.state.content}
 						/>
 					</div>

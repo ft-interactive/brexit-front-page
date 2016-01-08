@@ -12,6 +12,9 @@ import Standfirst from './standfirst/standfirst'
 class LiveBlog extends Component {
 	render () {
 		const article = this.props.liveBlog;
+		if(!article) {
+			return null;
+		}
 		const showCard = responsiveValue(this.props.show);
 		const showStandFirst = responsiveValue(this.props.showStandFirst);
 		const showImg = responsiveValue(this.props.image);

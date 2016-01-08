@@ -6,12 +6,14 @@ import Article from './article';
 import Video from './video';
 import LiveBlog from './liveBlog';
 
+
+
 class Card extends Component {
 	render () {
-		if(!this.props.item) return null;
-
 		const item = this.props.item;
-		const props = expandProps(this.props);
+
+		const props = expandProps(Object.assign({}, this.props));
+
 
 		if (item.type === 'video') {
 			const videoProps = Object.assign({}, props, { video: item });

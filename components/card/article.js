@@ -10,18 +10,21 @@ import Related from './related/related';
 
 class Article extends Component {
 	render () {
+		if(!this.props.article) {
+			return null;
+		}
 		const article = this.props.article;
 		const showCard = responsiveValue(this.props.show);
-		const showStandFirst = responsiveValue(this.props.showStandFirst);
+		const showStandFirst = responsiveValue(this.props.standFirst);
 		const showImg = responsiveValue(this.props.image);
+
+		const showRelated = responsiveValue(this.props.showRelated);
 		const isLandscape = responsiveValue(this.props.landscape);
 		const attrs = {
 			className: 'card',
 			'data-trackable': 'card'
 		};
-		if (showCard.includes('false')) {
-			Object.assign(attrs, { 'data-show': showCard });
-		}
+
 		if (article.primaryImage && showImg.includes('true')) {
 			Object.assign(attrs, { 'data-image-show': showImg });
 
@@ -29,6 +32,10 @@ class Article extends Component {
 			if (isLandscape.includes('true')) {
 				Object.assign(attrs, { 'data-landscape': isLandscape });
 			}
+		}
+
+		if (showCard.includes('false')) {
+			Object.assign(attrs, { 'data-show': showCard });
 		}
 
 		return (
@@ -40,7 +47,7 @@ class Article extends Component {
 				</div>
 				{(article.summary && showStandFirst.includes('true')) ? <Standfirst article={article} size={this.props.standFirstSize} show={this.props.showStandFirst} /> : null}
 				{(article.primaryImage && showImg.includes('true')) ? <Image article={article} stickToBottom={this.props.imageStick}/> : null}
-				{this.props.showRelated.length > 0 ? <Related articles={article.relatedContent} show={this.props.showRelated} /> : null}
+				{article.relatedContent && showRelated.includes('true') ? <Related articles={article.relatedContent} show={this.props.showRelated} /> : null}
 			</article>
 		);
 	}

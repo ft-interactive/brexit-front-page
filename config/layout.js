@@ -16,73 +16,83 @@ export default [
 			body: content.top.items,
 			sidebar: content.fastFT
 		}),
-		cards: {
-			default: [
-				{ column: 0, size: 'large', standFirst: true, image: true, related: 1 },
-				{ column: 0, size: 'medium', landscape: true },
-				{ column: 1, size: 'small', landscape: true },
-				{ column: 1, size: 'small', landscape: true },
-				{ column: 1, size: 'small', landscape: true },
-				{ column: 1, size: 'small', landscape: true },
-				{ column: 1, size: 'small', landscape: true },
-				{ column: 2, size: 'tiny', landscape: true },
-				{ column: 2, size: 'tiny', landscape: true },
-				{ column: 2, size: 'tiny', image: true, landscape: true },
-				{ column: 2, size: 'tiny', landscape: true }
-			],
-			S: [
-				{ column: 0, size: 'large', standFirst: true, image: true, related: 3 },
-				{ column: 0, size: 'medium', landscape: true },
-				{ column: 1, size: 'small', landscape: true },
-				{ column: 1, size: 'small', landscape: true },
-				{ column: 1, size: 'small', landscape: true },
-				{ column: 1, size: 'small', landscape: true },
-				{ column: 1, size: 'small', landscape: true },
-				{ column: 2, size: 'tiny', landscape: true },
-				{ column: 2, size: 'tiny', landscape: true },
-				{ column: 2, size: 'tiny', image: true, landscape: true },
-				{ column: 2, size: 'tiny', landscape: true }
-			],
-			M: [
-				{ column: 0, width: 5, size: 'large', standFirst: true, image: true, related: 3 },
-				{ column: 0, width: 5, size: 'medium' },
-				{ column: 1, width: 4, size: 'small' },
-				{ column: 1, width: 4, size: 'small' },
-				{ column: 1, width: 4, size: 'small' },
-				{ column: 1, width: 4, size: 'small' },
-				{ column: 1, width: 4, size: 'small' },
-				{ column: 2, width: 3, size: 'tiny' },
-				{ column: 2, width: 3, size: 'tiny' },
-				{ column: 2, width: 3, size: 'tiny', image: true },
-				{ column: 2, width: 3, size: 'tiny' }
-			]
-		},
-		overrides: [
-			//Different layout if top story has related links
+		layout: [
+			//Column 0
 			{
-				condition: (items) => {
-					return items[0] && items[0].relatedContent && items[0].relatedContent.length > 2;
-				},
-				cards: {
-					M: [
-						{ column: 0, width: 5, size: 'large', standFirst: true, image: true, related: 3 },
-						{ column: 1, width: 4, size: 'small' },
-						{ column: 1, width: 4, size: 'small' },
-						{ column: 1, width: 4, size: 'small' },
-						{ column: 1, width: 4, size: 'small' },
-						{ column: 2, width: 3, size: 'tiny' },
-						{ column: 2, width: 3, size: 'tiny' },
-						{ column: 2, width: 3, size: 'tiny', image: true },
-						{ column: 2, width: 3, size: 'tiny' }
-					]
-				}
+				type: 'column',
+				colspan: { default: 12, M: 5 },
+				cards:
+				[
+					{ type: 'content',
+						size: { default: 'large' },
+						related: { default: 1, M: 3},
+						standFirst: { default: true },
+						image: { default: true }
+					},
+					{ type: 'content',
+						size: { default: 'medium' },
+						landscape: { default: 'true' },
+					}
+				]
+			},
+			//Column 1
+			{
+				colspan: { default: 12, M: 4 },
+				cards: [
+					{ type: 'content',
+						size: { default: 'small' },
+						landscape: { default: 'true' }
+					},
+					{ type: 'content',
+						size: { default: 'small' },
+						landscape: { default: 'true' }
+					},
+					{ type: 'content',
+						size: { default: 'small' },
+						landscape: { default: 'true' }
+					},
+					{ type: 'content',
+						size: { default: 'small' },
+						landscape: { default: 'true' }
+					},
+					{ type: 'content',
+						size: { default: 'small' },
+						landscape: { default: 'true' }
+					}
+				],
+			},
+			//Column 2
+			{
+				colspan: { default: 12, M: 3 },
+				cards: [
+					{
+						type: 'content',
+						size: { default : 'tiny' },
+						landscape: { default: 'true' }
+					},
+					{
+						type: 'content',
+						size: { default : 'tiny' },
+						landscape: { default: 'true' }
+					},
+					{
+						type: 'content',
+						size: { default : 'tiny' },
+						landscape: { default: 'true', M: false },
+						image: { default: 'true' }
+					},
+					{
+						type: 'content',
+						size: { default : 'tiny' },
+						landscape: { default: 'true' }
+					}
+				],
 			}
+
 		],
 		size: {
 			default: 12
 		},
-		// FIXME sidebarComponent needs more thinking, maybe unifiying with card
-		// styles when we have those
 		sidebarComponent: {
 			id: 'fastft',
 			component: FastFt,
@@ -108,48 +118,76 @@ export default [
 		getContent: (content) => ({
 			body: content.opinion.items
 		}),
-		cards: {
-			default: [
-				{ column: 0, size: 'medium', standFirst: true, image: true },
-				{ column: 1, size: 'small' },
-				{ column: 1, size: 'small', image: true, landscape: true },
-				{ column: 2, size: 'small', image: true, landscape: true },
-				{ column: 2, size: 'small' },
-				{ column: 3, size: 'tiny' },
-				{ column: 3, size: 'tiny', image: true, landscape: true },
-				{ column: 3, size: 'tiny' }
-			],
-			S: [
-				{ column: 0, size: 'medium', standFirst: true, image: true },
-				{ column: 1, size: 'small' },
-				{ column: 1, size: 'small', image: true, landscape: true },
-				{ column: 2, size: 'small', image: true, landscape: true },
-				{ column: 2, size: 'small' },
-				{ column: 3, size: 'tiny' },
-				{ column: 3, size: 'tiny', image: true, landscape: true },
-				{ column: 3, size: 'tiny' }
-			],
-			M: [
-				{ column: 0, width: 3, size: 'medium', standFirst: true, image: true },
-				{ column: 1, width: 3, size: 'small' },
-				{ column: 1, width: 3, size: 'small', image: true },
-				{ column: 2, width: 3, size: 'small', image: true },
-				{ column: 2, width: 3, size: 'small' },
-				{ column: 3, width: 3, size: 'tiny' },
-				{ column: 3, width: 3, size: 'tiny', image: true },
-				{ column: 3, width: 3, size: 'tiny' }
-			],
-			L: [
-				{ column: 0, width: 3, size: 'large', standFirst: true, image: true },
-				{ column: 1, width: 3, size: 'medium' },
-				{ column: 1, width: 3, size: 'small', image: true },
-				{ column: 2, width: 3, size: 'small', image: true },
-				{ column: 2, width: 3, size: 'small' },
-				{ column: 3, width: 3, size: 'tiny' },
-				{ column: 3, width: 3, size: 'tiny', image: true },
-				{ column: 3, width: 3, size: 'tiny' }
-			]
-		},
+		layout: [
+			//Column 0
+			{
+				colspan: { default: 12, M: 3 },
+				cards:
+				[
+					{ type: 'content',
+						size: { default: 'medium' },
+						standFirst: { default: true },
+						image: { default: true }
+					}
+				]
+			},
+			//Column 1
+			{
+				colspan: { default: 12, M: 3 },
+				cards:
+				[
+					{
+						type: 'content',
+						size: { default: 'small' },
+					},
+					{
+						type: 'content',
+						size: { default: 'small' },
+						image: { default: true },
+						landscape: { default: true, M: false }
+					},
+
+				]
+			},
+			//Column 2
+			{
+				colspan: { default: 12, M: 3 },
+				cards:
+				[
+				{
+						type: 'content',
+						size: { default: 'small' },
+						image: { default: true },
+						landscape: { default: true, M: false, }
+					},
+					{
+						type: 'content',
+						size: { default: 'small' },
+					}
+				]
+			},
+			//Column 3
+			{
+				colspan: { default: 12, M: 3 },
+				cards:
+				[
+					{
+						type: 'content',
+						size: { default: 'tiny' },
+					},
+					{
+						type: 'content',
+						size: { default: 'tiny' },
+						image: { default: true },
+						landscape: { default: true, M: false }
+					},
+					{
+						type: 'content',
+						size: { default: 'tiny' },
+					}
+				]
+			},
+		],
 		size: {
 			default: 12
 		},
@@ -169,40 +207,86 @@ export default [
 		getContent: (content) => ({
 			body: content.editorsPicks.items
 		}),
-		cards: {
-			default: [
-				{ column: 0, size: 'tiny', landscape: true, image: true, imageStick: true },
-				{ column: 1, size: 'tiny', landscape: true, image: true, imageStick: true },
-				{ column: 2, size: 'tiny', landscape: true, image: true, imageStick: true },
-				{ column: 3, size: 'tiny', landscape: true, image: true, imageStick: true },
-				{ column: 4, size: 'tiny', landscape: true, image: true, imageStick: true },
-				{ column: 5, size: 'tiny', landscape: true, image: true, imageStick: true }
-			],
-			S: [
-				{ column: 0, width: 6, size: 'small', image: true, imageStick: true },
-				{ column: 1, width: 6, size: 'small', image: true, imageStick: true },
-				{ column: 2, width: 6, size: 'small', image: true, imageStick: true },
-				{ column: 3, width: 6, size: 'small', image: true, imageStick: true },
-				{ column: 4, width: 6, size: 'small', image: true, imageStick: true },
-				{ column: 5, width: 6, size: 'small', image: true, imageStick: true }
-			],
-			M: [
-				{ column: 0, width: 4, size: 'small', image: true, imageStick: true },
-				{ column: 1, width: 4, size: 'small', image: true, imageStick: true },
-				{ column: 2, width: 4, size: 'small', image: true, imageStick: true },
-				{ column: 3, width: 4, size: 'small', image: true, imageStick: true },
-				{ column: 4, width: 4, size: 'small', image: true, imageStick: true },
-				{ column: 5, width: 4, size: 'small', image: true, imageStick: true }
-			],
-			L: [
-				{ column: 0, width: 2, size: 'small', image: true, imageStick: true },
-				{ column: 1, width: 2, size: 'small', image: true, imageStick: true },
-				{ column: 2, width: 2, size: 'small', image: true, imageStick: true },
-				{ column: 3, width: 2, size: 'small', image: true, imageStick: true },
-				{ column: 4, width: 2, size: 'small', image: true, imageStick: true },
-				{ column: 5, width: 2, size: 'small', image: true, imageStick: true }
-			]
-		},
+		layout: [
+			//Column 0
+			{
+				colspan: { default: 12, S: 6, M: 4, L: 2 },
+				cards:
+				[
+					{ type: 'content',
+						size: { default: 'tiny', S: 'small' },
+						landscape: { default: true, S: false },
+						image: { default: true },
+						imageStick: { default: true}
+					}
+				]
+			},
+			//Column 1
+			{
+				colspan: { default: 12, S: 6, M: 4, L: 2 },
+				cards:
+				[
+					{ type: 'content',
+						size: { default: 'tiny', S: 'small' },
+						landscape: { default: true, S: false },
+						image: { default: true },
+						imageStick: { default: true}
+					}
+				]
+			},
+			//Column 2
+			{
+				colspan: { default: 12, S: 6, M: 4, L: 2 },
+				cards:
+				[
+					{ type: 'content',
+						size: { default: 'tiny', S: 'small' },
+						landscape: { default: true, S: false },
+						image: { default: true },
+						imageStick: { default: true}
+					}
+				]
+			},
+			//Column 3
+			{
+				colspan: { default: 12, S: 6, M: 4, L: 2 },
+				cards:
+				[
+					{ type: 'content',
+						size: { default: 'tiny', S: 'small' },
+						landscape: { default: true, S: false },
+						image: { default: true },
+						imageStick: { default: true}
+					}
+				]
+			},
+			//Column 4
+			{
+				colspan: { default: 12, S: 6, M: 4, L: 2 },
+				cards:
+				[
+					{ type: 'content',
+						size: { default: 'tiny', S: 'small' },
+						landscape: { default: true, S: false },
+						image: { default: true },
+						imageStick: { default: true}
+					}
+				]
+			},
+			//Column 5
+			{
+				colspan: { default: 12, S: 6, M: 4, L: 2 },
+				cards:
+				[
+					{ type: 'content',
+						size: { default: 'tiny', S: 'small' },
+						landscape: { default: true, S: false },
+						image: { default: true },
+						imageStick: { default: true}
+					}
+				]
+			},
+		],
 		size: {
 			default: 12
 		},
@@ -326,51 +410,66 @@ export default [
 				}
 			]
 		},
-		cards: {
-			default: [
-				{ column: 0, size: 'medium', standFirst: true, image: true },
-				{ column: 1, size: 'small' },
-				{ column: 1, size: 'small', image: true, landscape: true },
-				{ column: 2, size: 'small', image: true, landscape: true },
-				{ column: 2, size: 'small' },
-				{ column: 3, size: 'tiny' },
-				{ column: 3, size: 'tiny' },
-				{ column: 3, size: 'tiny' },
-				{ column: 3, size: 'tiny' }
-			],
-			S: [
-				{ column: 0, size: 'medium', standFirst: true, image: true },
-				{ column: 1, size: 'small' },
-				{ column: 1, size: 'small', image: true, landscape: true },
-				{ column: 2, size: 'small', image: true, landscape: true },
-				{ column: 2, size: 'small' },
-				{ column: 3, size: 'tiny' },
-				{ column: 3, size: 'tiny' },
-				{ column: 3, size: 'tiny' },
-				{ column: 3, size: 'tiny' }
-			],
-			M: [
-				{ column: 0, width: 3, size: 'medium', standFirst: true, image: true },
-				{ column: 1, width: 3, size: 'small' },
-				{ column: 1, width: 3, size: 'small', image: true },
-				{ column: 2, width: 3, size: 'small', image: true },
-				{ column: 2, width: 3, size: 'small' },
-				{ column: 3, width: 3, size: 'tiny' },
-				{ column: 3, width: 3, size: 'tiny' },
-				{ column: 3, width: 3, size: 'tiny' }
-			],
-			L: [
-				{ column: 0, width: 3, size: 'large', standFirst: true, image: true },
-				{ column: 1, width: 3, size: 'medium' },
-				{ column: 1, width: 3, size: 'small', image: true },
-				{ column: 2, width: 3, size: 'small', image: true },
-				{ column: 2, width: 3, size: 'small' },
-				{ column: 3, width: 3, size: 'tiny' },
-				{ column: 3, width: 3, size: 'tiny' },
-				{ column: 3, width: 3, size: 'tiny' },
-				{ column: 3, width: 3, size: 'tiny' }
-			]
-		},
+		layout: [
+			{
+				colspan: { default: 12, M: 3},
+				cards: [
+					{ type: 'content',
+						size: { default: 'medium' },
+						standFirst: { default: true },
+						image: { default: true }
+					}
+				],
+			},
+			{
+				colspan: { default: 12, M: 3},
+				cards: [
+					{ type: 'content',
+						size: { default: 'small' },
+					},
+					{ type: 'content',
+						size: { default: 'small' },
+						image: { default: true },
+						landscape: { default: true, M: false }
+					}
+				]
+			},
+			{
+				colspan: { default: 12, M: 3},
+				cards: [
+					{ type: 'content',
+						size: { default: 'small' },
+						image: { default: true },
+						landscape: { default: true, M: false }
+					},
+					{
+						type: 'content',
+						size: { default: 'small' },
+					}
+				]
+			},
+			{
+				colspan: { default: 12, M: 3},
+				cards: [
+					{
+						type: 'content',
+						size: { default: 'tiny' },
+					},
+					{
+						type: 'content',
+						size: { default: 'tiny' },
+					},
+					{
+						type: 'content',
+						size: { default: 'tiny' },
+					},
+					{
+						type: 'content',
+						size: { default: 'tiny' }
+					}
+				]
+			}
+		],
 		size: {
 			default: 12
 		},
@@ -393,24 +492,23 @@ export default [
 		getContent: (content) => ({
 			body: content.technology.items
 		}),
-		cards: {
-			default: [
-				{ size: 'small', image: true, landscape: true },
-				{ size: 'small' }
-			],
-			S: [
-				{ size: 'small', image: true, landscape: true },
-				{ size: 'small' }
-			],
-			M: [
-				{ size: 'small', image: true, landscape: false },
-				{ size: 'small' }
-			],
-			L: [
-				{ size: 'small', image: true, landscape: true },
-				{ size: 'small' }
-			]
-		},
+		layout: [
+			{
+				colspan: { default: 12 },
+				cards: [
+					{
+						type: 'content',
+						size: { default: 'small' },
+						image: { default: true },
+						landscape: { default: true, M: false, L: true }
+					},
+					{
+						type: 'content',
+						size: { default: 'small' }
+					}
+				]
+			}
+		],
 		size: {
 			default: 12,
 			M: 4
@@ -424,31 +522,30 @@ export default [
 			}
 		}
 	},
-	{
+{
 		id: 'markets',
 		title: 'Markets',
 		style: 'markets',
 		getContent: (content) => ({
 			body: content.markets.items
 		}),
-		cards: {
-			default: [
-				{ size: 'small', image: true, landscape: true },
-				{ size: 'small' }
-			],
-			S: [
-				{ size: 'small', image: true, landscape: true },
-				{ size: 'small' }
-			],
-			M: [
-				{ size: 'small', image: true, landscape: false },
-				{ size: 'small' }
-			],
-			L: [
-				{ size: 'small', image: true, landscape: true },
-				{ size: 'small' }
-			]
-		},
+		layout: [
+			{
+				colspan: { default: 12 },
+				cards: [
+					{
+						type: 'content',
+						size: { default: 'small' },
+						image: { default: true },
+						landscape: { default: true, M: false, L: true }
+					},
+					{
+						type: 'content',
+						size: { default: 'small' }
+					}
+				]
+			}
+		],
 		size: {
 			default: 12,
 			M: 4
@@ -469,24 +566,23 @@ export default [
 		getContent: (content) => ({
 			body: content.lifestyle.items
 		}),
-		cards: {
-			default: [
-				{ size: 'small', image: true, landscape: true },
-				{ size: 'small' }
-			],
-			S: [
-				{ size: 'small', image: true, landscape: true },
-				{ size: 'small' }
-			],
-			M: [
-				{ size: 'small', image: true, landscape: false },
-				{ size: 'small' }
-			],
-			L: [
-				{ size: 'small', image: true, landscape: true },
-				{ size: 'small' }
-			]
-		},
+		layout: [
+			{
+				colspan: { default: 12 },
+				cards: [
+					{
+						type: 'content',
+						size: { default: 'small' },
+						image: { default: true },
+						landscape: { default: true, M: false, L: true }
+					},
+					{
+						type: 'content',
+						size: { default: 'small' }
+					}
+				]
+			}
+		],
 		size: {
 			default: 12,
 			M: 4
@@ -508,26 +604,44 @@ export default [
 		getContent: (content) => ({
 			body: content.videos.map(video => Object.assign({}, { type: 'video' }, video))
 		}),
-		cards: {
-			default: [
-				{ column: 0, width: 12 },
-				{ column: 1, width: 12 },
-				{ column: 2, width: 12 },
-				{ column: 3, width: 12 }
-			],
-			S: [
-				{ column: 0, width: 6 },
-				{ column: 1, width: 6 },
-				{ column: 2, width: 6 },
-				{ column: 3, width: 6 }
-			],
-			M: [
-				{ column: 0, width: 3 },
-				{ column: 1, width: 3 },
-				{ column: 2, width: 3 },
-				{ column: 3, width: 3 }
-			]
-		},
+		layout: [
+			{
+				colspan: { default: 12, S: 6, M: 3 },
+				cards: [
+					{
+						//TODO: this isn't really content
+						type: 'content'
+					}
+				]
+			},
+			{
+				colspan: { default: 12, S: 6, M: 3 },
+				cards: [
+					{
+						//TODO: this isn't really content
+						type: 'content'
+					}
+				]
+			},
+			{
+				colspan: { default: 12, S: 6, M: 3 },
+				cards: [
+					{
+						//TODO: this isn't really content
+						type: 'content'
+					}
+				]
+			},
+			{
+				colspan: { default: 12, S: 6, M: 3 },
+				cards: [
+					{
+						//TODO: this isn't really content
+						type: 'content'
+					}
+				]
+			}
+		],
 		size: {
 			default: 12
 		},

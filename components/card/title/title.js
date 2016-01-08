@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {responsiveValue} from '../helpers';
-import { layoutNames } from '../../layout/engine';
+const layoutNames = ['S', 'M', 'L', 'XL'];
 
 export default class Title extends Component {
 	render () {
