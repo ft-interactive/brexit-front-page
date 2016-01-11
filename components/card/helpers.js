@@ -16,7 +16,7 @@ const mobileFirst = (value) => {
 	return cleanValue;
 };
 
-// Public: maps a function over an object returnin a new object
+// Public: maps a function over an object returning a new object
 // with the same keys and values replaced with the result of the function.
 // The callback has a signature '(value, key) => value'
 const objMap = (object, fn) => {
@@ -33,17 +33,22 @@ const prefix = (klass, modifier, layout) => {
 
 // Public: turns a component name (e.g. foo) and an object like {default: 'val', S: 'other-val'}
 // to a string 'foo--val foo--S--other-val'
-const responsiveClass = (component, modifier) => {
+const responsiveClass = (component, modifier, allModifiers = false) => {
 	// this is a crucial step in order not to output ridiculous classes
-	const mod = mobileFirst(modifier);
+	const mod = allModifiers ? modifier : mobileFirst(modifier);
 
-	return prefix(component, mod.default) + ' ' + layoutNames.filter(it => mod.hasOwnProperty(it)).map(l => prefix(component, mod[l], l)).join(' ');
+	return [
+		prefix(component, mod.default),
+		...layoutNames
+			.filter(it => mod.hasOwnProperty(it))
+			.map(l => prefix(component, mod[l], l))
+	].join(' ');
 };
 
 // Public: turns an object like {default: 'val', S: 'other-val'}
 // to a string 'val S--other-val'
-const responsiveValue = (value) => {
-	return responsiveClass('', value);
+const responsiveValue = (value, allValues = false) => {
+	return responsiveClass('', value, allValues);
 };
 
 export default {
