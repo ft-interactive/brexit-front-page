@@ -5,7 +5,7 @@ export default [
 		cards:
 		[
 			{ type: 'content',
-				size: { default: 'medium' },
+				size: { default: 'medium', L: 'large' },
 				standFirst: { default: true },
 				image: { default: true }
 			}
@@ -18,7 +18,7 @@ export default [
 		[
 			{
 				type: 'content',
-				size: { default: 'small' },
+				size: { default: 'medium' },
 			},
 			{
 				type: 'content',

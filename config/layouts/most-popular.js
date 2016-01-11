@@ -3,7 +3,7 @@ export default [
 		colspan: { default: 12, M: 3},
 		cards: [
 			{ type: 'content',
-				size: { default: 'medium' },
+				size: { default: 'medium', L: 'large' },
 				standFirst: { default: true },
 				image: { default: true }
 			}
@@ -13,7 +13,7 @@ export default [
 		colspan: { default: 12, M: 3},
 		cards: [
 			{ type: 'content',
-				size: { default: 'small' },
+				size: { default: 'medium' },
 			},
 			{ type: 'content',
 				size: { default: 'small' },

@@ -21,7 +21,9 @@ class LiveBlog extends Component {
 		const isLandscape = responsiveValue(this.props.landscape);
 		const attrs = {
 			className: 'card card--liveblog liveblog--' + article.status.toLowerCase(),
-			'data-trackable': 'card'
+			'data-trackable': 'card',
+			'data-size': responsiveValue(this.props.size, true)
+
 		};
 		if (showCard.includes('false')) {
 			Object.assign(attrs, { 'data-show': showCard });

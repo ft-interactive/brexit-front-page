@@ -19,9 +19,11 @@ class Article extends Component {
 		const showImg = responsiveValue(this.props.image);
 
 		const isLandscape = responsiveValue(this.props.landscape);
+
 		const attrs = {
 			className: 'card',
-			'data-trackable': 'card'
+			'data-trackable': 'card',
+			'data-size': responsiveValue(this.props.size, true)
 		};
 
 		if (article.primaryImage && showImg.includes('true')) {

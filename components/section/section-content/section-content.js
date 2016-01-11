@@ -22,7 +22,9 @@ export default class SectionContent extends Component {
 				let item;
 				let key;
 				if(props.type === 'content') {
-					item = items[ props.itemIndex || storyIndex++];
+					props.itemIndex = props.itemIndex || storyIndex++;
+					item = items[ props.itemIndex ];
+					props.cardIndex = index;
 					key = item ? item.id : null;
 				} else {
 					//TODO: set key for non-content items
