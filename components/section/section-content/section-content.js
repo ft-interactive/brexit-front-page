@@ -21,7 +21,7 @@ export default class SectionContent extends Component {
 			const cards = column.cards.map((props, index) => {
 				let item;
 				let key;
-				if(props.type === 'content') {
+				if(['content', 'concept'].includes(props.type)) {
 					props.itemIndex = props.itemIndex || storyIndex++;
 					item = items[ props.itemIndex ];
 					props.cardIndex = index;

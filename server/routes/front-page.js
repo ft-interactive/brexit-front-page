@@ -3,12 +3,12 @@ import { getData } from '../libs/graphql-poller';
 import FastFtFeed from '../../components/fastft/fastftfeed';
 import Feed from '../../components/feed/feed';
 import Section from '../../components/section';
-import initialLayout from '../../config/layout';
+import getSections from '../../config/layout';
 
 // bail unless we have at least one top story
 const contentMissing = (data) => {
 	return !(data && data.top) || data.top.items.length < 1;
-}
+};
 
 export default (region) => {
 	return (req, res) => {
@@ -17,14 +17,17 @@ export default (region) => {
 		if(res.locals.flags.mockFrontPage) {
 			frontPageData = (res.locals.flags.frontPageLayoutPrototype ? `mockFrontPageNew` : `mockFrontPage`);
 		}
-		const data = getData(frontPageData);
+		const data = {
+			frontPage: getData(frontPageData),
+			popularTopics: getData('popularTopics')
+		};
 
 		res.set({
 			// needs to be private so we can vary for signed in state, ab tests, etc
 			'Surrogate-Control': 'max-age=60,stale-while-revalidate=6,stale-if-error=259200'
 		});
 
-		if(contentMissing(data))
+		if(contentMissing(data.frontPage))
 			throw 'Could not fetch content for the front page';
 
 		const headerParams = {
@@ -44,20 +47,13 @@ export default (region) => {
 			inside: '<p class="markets-data-disclaimer">Markets data delayed by at least 15 minutes</p>'
 		};
 
-		initialLayout.forEach(section => {
-			const sectionContent = section.getContent(data);
-			section.fullContent = sectionContent;
-			section.content = sectionContent.body;
-			section.sidebarContent = sectionContent.sidebar;
-		});
-
 		const renderParams = {
 			layout: 'wrapper',
 			FastFtFeed,
 			Feed,
 			Section,
 			content: data,
-			sections: initialLayout,
+			sections: getSections(data),
 			region,
 			preconnect: [
 				'https://next-markets-proxy.ft.com'
