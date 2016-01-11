@@ -24,24 +24,16 @@ const expandToAllLayouts = (property) => {
 	return prop;
 }
 
-const titleSize = (size, cardIndex, image, primaryImage) => {
+const cardSize = (size, cardIndex, image, primaryImage) => {
 	if(+cardIndex > 0)
 		return size;
+
 	return objMap(size, (it, l) => (it === 'large' && (!image[l] || !primaryImage) ? 'huge' : it));
 };
 
-const standFirstSize = (size) => {
-	const sizes = {
-		large: 'large',
-		medium: 'medium',
-		small: 'medium'
-	};
-
-	return objMap(size, (s) => sizes[s] || 'medium');
-};
-
 const showStandFirst = (size, standFirst) => {
-	return objMap(size, (size, layout) => (size === 'large' || size === 'medium' && !!standFirst[layout]));
+	standFirst = expandToAllLayouts(standFirst);
+	return objMap(size, (size, layout) => (['huge', 'large', 'medium'].includes(size) && !!standFirst[layout]));
 };
 
 const showRelated = (related, relatedContent) => {
@@ -66,10 +58,9 @@ const expandProps = (props) => {
 
 	//TODO: seems a bit odd to have this here, move elsewhere
 	//Set card size to huge if first item has no image
-	titleSize(expandedProps.size, props.cardIndex, expandedProps.image, item.primaryImage);
+	expandedProps.size = cardSize(expandedProps.size, props.cardIndex, expandedProps.image, item.primaryImage);
 
 	expandedProps.showStandFirst = showStandFirst(props.size, props.standFirst);
-	expandedProps.standFirstSize = standFirstSize(props.size);
 	expandedProps.showRelated = showRelated(props.related, item.relatedContent);
 	expandedProps.last = props.last;
 
