@@ -42,11 +42,11 @@ class Article extends Component {
 		return (
 			<article {...attrs}>
 				<div>
-					{(article.primaryTag && article.primaryTag.taxonomy !== 'authors') ? <Tag tag={article.primaryTag} size={this.props.tagSize} /> : null}
-					<Title title={article.title} href={'/content/' + article.id} size={this.props.titleSize} />
-					{(article.primaryTag && article.primaryTag.taxonomy === 'authors') ? <Tag tag={article.primaryTag} size={this.props.tagSize} /> : null}
+					{(article.primaryTag && article.primaryTag.taxonomy !== 'authors') ? <Tag tag={article.primaryTag}/> : null}
+					<Title title={article.title} href={'/content/' + article.id}/>
+					{(article.primaryTag && article.primaryTag.taxonomy === 'authors') ? <Tag tag={article.primaryTag} /> : null}
 				</div>
-				{(article.summary && showStandFirst.includes('true')) ? <Standfirst article={article} size={this.props.standFirstSize} show={this.props.showStandFirst} /> : null}
+				{(article.summary && showStandFirst.includes('true')) ? <Standfirst article={article} show={this.props.showStandFirst} /> : null}
 				{(article.primaryImage && showImg.includes('true')) ? <Image article={article} stickToBottom={this.props.imageStick}/> : null}
 				{this.props.showRelated.length > 0 ? <Related articles={article.relatedContent} show={this.props.showRelated} /> : null}
 			</article>

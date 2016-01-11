@@ -42,9 +42,9 @@ class LiveBlog extends Component {
 			<article {...attrs}>
 				<div>
 					<span className="liveblog__badge">live</span>
-					{(article.primaryTag && article.primaryTag.taxonomy !== 'authors') ? <Tag tag={article.primaryTag} size={this.props.tagSize} /> : null}
-					<Title title={article.title} href={'/content/' + article.id} size={this.props.titleSize} />
-					{(article.primaryTag && article.primaryTag.taxonomy === 'authors') ? <Tag tag={article.primaryTag} size={this.props.tagSize} /> : null}
+					{(article.primaryTag && article.primaryTag.taxonomy !== 'authors') ? <Tag tag={article.primaryTag} /> : null}
+					<Title title={article.title} href={'/content/' + article.id} />
+					{(article.primaryTag && article.primaryTag.taxonomy === 'authors') ? <Tag tag={article.primaryTag} /> : null}
 				</div>
 				{(article.summary && showStandFirst.includes('true')) ? <Standfirst article={article} size="medium" show={this.props.showStandFirst} /> : null}
 				{(article.primaryImage && showImg.includes('true')) ? <Image article={article} stickToBottom={this.props.imageStick}/> : null}
