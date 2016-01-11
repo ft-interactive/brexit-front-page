@@ -7,7 +7,6 @@ export default class Standfirst extends Component {
 
 		return (
 			<p className="card__standfirst"
-				data-size={responsiveValue(this.props.size)}
 				data-show={responsiveValue(this.props.show)}>
 				{article.summary}
 			</p>
