@@ -12,13 +12,18 @@ import Standfirst from './standfirst/standfirst'
 class LiveBlog extends Component {
 	render () {
 		const article = this.props.liveBlog;
+		if(!article) {
+			return null;
+		}
 		const showCard = responsiveValue(this.props.show);
 		const showStandFirst = responsiveValue(this.props.showStandFirst);
 		const showImg = responsiveValue(this.props.image);
 		const isLandscape = responsiveValue(this.props.landscape);
 		const attrs = {
 			className: 'card card--liveblog liveblog--' + article.status.toLowerCase(),
-			'data-trackable': 'card'
+			'data-trackable': 'card',
+			'data-size': responsiveValue(this.props.size, true)
+
 		};
 		if (showCard.includes('false')) {
 			Object.assign(attrs, { 'data-show': showCard });
@@ -37,9 +42,9 @@ class LiveBlog extends Component {
 			<article {...attrs}>
 				<div>
 					<span className="liveblog__badge">live</span>
-					{(article.primaryTag && article.primaryTag.taxonomy !== 'authors') ? <Tag tag={article.primaryTag} size={this.props.tagSize} /> : null}
-					<Title title={article.title} href={'/content/' + article.id} size={this.props.titleSize} />
-					{(article.primaryTag && article.primaryTag.taxonomy === 'authors') ? <Tag tag={article.primaryTag} size={this.props.tagSize} /> : null}
+					{(article.primaryTag && article.primaryTag.taxonomy !== 'authors') ? <Tag tag={article.primaryTag} /> : null}
+					<Title title={article.title} href={'/content/' + article.id} />
+					{(article.primaryTag && article.primaryTag.taxonomy === 'authors') ? <Tag tag={article.primaryTag} /> : null}
 				</div>
 				{(article.summary && showStandFirst.includes('true')) ? <Standfirst article={article} size="medium" show={this.props.showStandFirst} /> : null}
 				{(article.primaryImage && showImg.includes('true')) ? <Image article={article} stickToBottom={this.props.imageStick}/> : null}

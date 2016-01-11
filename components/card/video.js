@@ -5,6 +5,9 @@ import {responsiveValue} from './helpers';
 class Video extends Component {
 	render () {
 		const video = this.props.item;
+		if(!video) {
+			return null;
+		}
 		const showCard = responsiveValue(this.props.show);
 		const attrs = {
 			className: 'card card--stretch card--video'

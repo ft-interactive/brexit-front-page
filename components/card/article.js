@@ -10,18 +10,22 @@ import Related from './related/related';
 
 class Article extends Component {
 	render () {
+		if(!this.props.article) {
+			return null;
+		}
 		const article = this.props.article;
 		const showCard = responsiveValue(this.props.show);
-		const showStandFirst = responsiveValue(this.props.showStandFirst);
+		const showStandFirst = responsiveValue(this.props.standFirst);
 		const showImg = responsiveValue(this.props.image);
+
 		const isLandscape = responsiveValue(this.props.landscape);
+
 		const attrs = {
 			className: 'card',
-			'data-trackable': 'card'
+			'data-trackable': 'card',
+			'data-size': responsiveValue(this.props.size, true)
 		};
-		if (showCard.includes('false')) {
-			Object.assign(attrs, { 'data-show': showCard });
-		}
+
 		if (article.primaryImage && showImg.includes('true')) {
 			Object.assign(attrs, { 'data-image-show': showImg });
 
@@ -31,14 +35,18 @@ class Article extends Component {
 			}
 		}
 
+		if (showCard.includes('false')) {
+			Object.assign(attrs, { 'data-show': showCard });
+		}
+
 		return (
 			<article {...attrs}>
 				<div>
-					{(article.primaryTag && article.primaryTag.taxonomy !== 'authors') ? <Tag tag={article.primaryTag} size={this.props.tagSize} /> : null}
-					<Title title={article.title} href={'/content/' + article.id} size={this.props.titleSize} />
-					{(article.primaryTag && article.primaryTag.taxonomy === 'authors') ? <Tag tag={article.primaryTag} size={this.props.tagSize} /> : null}
+					{(article.primaryTag && article.primaryTag.taxonomy !== 'authors') ? <Tag tag={article.primaryTag}/> : null}
+					<Title title={article.title} href={'/content/' + article.id}/>
+					{(article.primaryTag && article.primaryTag.taxonomy === 'authors') ? <Tag tag={article.primaryTag} /> : null}
 				</div>
-				{(article.summary && showStandFirst.includes('true')) ? <Standfirst article={article} size={this.props.standFirstSize} show={this.props.showStandFirst} /> : null}
+				{(article.summary && showStandFirst.includes('true')) ? <Standfirst article={article} show={this.props.showStandFirst} /> : null}
 				{(article.primaryImage && showImg.includes('true')) ? <Image article={article} stickToBottom={this.props.imageStick}/> : null}
 				{this.props.showRelated.length > 0 ? <Related articles={article.relatedContent} show={this.props.showRelated} /> : null}
 			</article>

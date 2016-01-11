@@ -1,4 +1,4 @@
-import {layoutNames} from '../layout/engine';
+const layoutNames = ['S', 'M', 'L', 'XL'];
 
 // Public: Filters a responsive property for use with media queries
 // e.g. {default: 1, S: 1, M: 2, L: 2, XL: 2} becomes {default: 1, M: 2}
@@ -35,6 +35,7 @@ const prefix = (klass, modifier, layout) => {
 // to a string 'foo--val foo--S--other-val'
 const responsiveClass = (component, modifier, allModifiers = false) => {
 	// this is a crucial step in order not to output ridiculous classes
+
 	const mod = allModifiers ? modifier : mobileFirst(modifier);
 
 	return [
