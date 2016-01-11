@@ -7,9 +7,11 @@ export default class Related extends Component {
 		const relatedEls = this.props.show.map((show, i) => {
 			const related = articles[i];
 
-			return (<li className="card__related-item" key={related.id} data-related-show={responsiveValue(show)}>
-				<a href={'/content/' + related.id} className="card__related-item__link" data-trackable="related">{related.title}</a>
-			</li>)
+			return (
+				<li className="card__related-item" key={related.id} data-show={responsiveValue(show)}>
+					<a href={'/content/' + related.id} className="card__related-item__link" data-trackable="related">{related.title}</a>
+				</li>
+			);
 		});
 
 		return (

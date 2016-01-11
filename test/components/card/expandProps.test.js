@@ -5,39 +5,34 @@ import expandProps from '../../../components/card/expandProps';
 
 describe('Card props expansion rules', () => {
 	const inProps = {
-		order: 0,
+		cardIndex: 0,
 		size: {default: 'tiny', S: 'small', M: 'medium', L: 'large'},
 		image: {default: true, S: true, M: false, L: true},
-		standFirst: {default: true, S: true, M: true, L: false},
 		related: {default: 1, S: 2, M: 3, L: 4},
+		standFirst: {default: true, S: true, M: true, L: false},
 		item: {relatedContent: ['a', 'b', 'c', 'd']}
 	};
 
 	describe('#expandProps', () => {
-		it('Sets tag size correctly', () => {
-			const tagSize = {default: 'tiny', S: 'small', M: 'medium', L: 'huge'};
 
-			expect(expandProps(inProps).tagSize).to.eql(tagSize);
+		it('Sets card size correctly with image unavailable', () => {
+			const titleSize = {default: 'tiny', S: 'small', M: 'medium', L: 'huge', XL: 'huge'};
+
+			expect(expandProps(inProps).size).to.eql(titleSize);
 		});
 
-		it('Sets title size correctly with image unavailable', () => {
-			const titleSize = {default: 'tiny', S: 'small', M: 'medium', L: 'huge'};
-
-			expect(expandProps(inProps).titleSize).to.eql(titleSize);
-		});
-
-		it('Sets title size correctly with image available', () => {
-			const titleSize = {default: 'tiny', S: 'small', M: 'medium', L: 'large'};
+		it('Sets card size correctly with image available', () => {
+			const titleSize = {default: 'tiny', S: 'small', M: 'medium', L: 'large', XL: 'large'};
 			const props = Object.assign({}, inProps, {item: {primaryImage: true}});
 
-			expect(expandProps(props).titleSize).to.eql(titleSize);
+			expect(expandProps(props).size).to.eql(titleSize);
 		});
 
-		it('Sets title size for 2nd card correctly with image unavailable', () => {
-			const titleSize = {default: 'tiny', S: 'small', M: 'medium', L: 'large'};
-			const props = Object.assign({}, inProps, {order: 1});
+		it('Sets card size for 2nd card correctly with image unavailable', () => {
+			const titleSize = {default: 'tiny', S: 'small', M: 'medium', L: 'large', XL: 'large'};
+			const props = Object.assign({}, inProps, {cardIndex: 1});
 
-			expect(expandProps(props).titleSize).to.eql(titleSize);
+			expect(expandProps(props).size).to.eql(titleSize);
 		});
 
 
@@ -45,12 +40,6 @@ describe('Card props expansion rules', () => {
 			const showStandFirst = {default: false, S: false, M: true, L: true};
 
 			expect(expandProps(inProps).showStandFirst).to.eql(showStandFirst);
-		});
-
-		it('Sets standFirst size correctly', () => {
-			const standFirstSize = {default: 'medium', S: 'medium', M: 'medium', L: 'large'};
-
-			expect(expandProps(inProps).standFirstSize).to.eql(standFirstSize);
 		});
 
 		it('Sets showRelatedContent correctly', () => {

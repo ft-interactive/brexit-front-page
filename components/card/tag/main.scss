@@ -25,51 +25,6 @@
 	color: getColor(claret);
 }
 
-.card__tag--tiny {
-	display: inline;
-
-	&:first-child {
-		&:after {
-			display: inline-block;
-		}
-		.card__tag__link {
-			padding-right: 11px;
-		}
-	}
-}
-
-@each $layout-name in $_o-grid-layout-names {
-	@include oGridRespondTo($layout-name) {
-		.card__tag--#{$layout-name}--tiny {
-			display: inline;
-
-			&:first-child {
-				&:after {
-					display: inline-block;
-				}
-				.card__tag__link {
-					padding-right: 11px;
-				}
-			}
-		}
-		.card__tag--#{$layout-name}--small,
-		.card__tag--#{$layout-name}--medium,
-		.card__tag--#{$layout-name}--large,
-		.card__tag--#{$layout-name}--huge {
-			display: block;
-
-			&:first-child {
-				&:after {
-					display: none;
-				}
-				.card__tag__link {
-					padding-right: 0;
-				}
-			}
-		}
-	}
-}
-
 .card__tag__link {
 	color: inherit;
 	border-bottom: 0;

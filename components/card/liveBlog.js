@@ -12,25 +12,42 @@ import Standfirst from './standfirst/standfirst'
 class LiveBlog extends Component {
 	render () {
 		const article = this.props.liveBlog;
+		if(!article) {
+			return null;
+		}
+		const showCard = responsiveValue(this.props.show);
+		const showStandFirst = responsiveValue(this.props.showStandFirst);
+		const showImg = responsiveValue(this.props.image);
+		const isLandscape = responsiveValue(this.props.landscape);
+		const attrs = {
+			className: 'card card--liveblog liveblog--' + article.status.toLowerCase(),
+			'data-trackable': 'card',
+			'data-size': responsiveValue(this.props.size, true)
+
+		};
+		if (showCard.includes('false')) {
+			Object.assign(attrs, { 'data-show': showCard });
+		}
+		if (article.primaryImage && showImg.includes('true')) {
+			Object.assign(attrs, { 'data-image-show': showImg });
+
+			// landscape only applicable if there's an image
+			if (isLandscape.includes('true')) {
+				Object.assign(attrs, { 'data-landscape': isLandscape });
+			}
+		}
 
 		article.summary = article.updates.length ? article.updates[0].text.split(/\.\s/).slice(0, 1) + '.' : null;
-		const hasImg = article.primaryImage ? 'true' : 'false';
 		return (
-			<article
-					className={"card card--liveblog liveblog--" + article.status.toLowerCase()}
-					data-card-landscape={responsiveValue(this.props.landscape)}
-					data-trackable="card"
-					data-card-show={responsiveValue(this.props.show)}
-					data-card-has-image={hasImg}
-					data-image-show={responsiveValue(this.props.image)}>
+			<article {...attrs}>
 				<div>
 					<span className="liveblog__badge">live</span>
-					{(article.primaryTag && article.primaryTag.taxonomy !== 'authors') ? <Tag tag={article.primaryTag} size={this.props.tagSize} /> : null}
-					<Title title={article.title} href={'/content/' + article.id} size={this.props.titleSize} />
-					{(article.primaryTag && article.primaryTag.taxonomy === 'authors') ? <Tag tag={article.primaryTag} size={this.props.tagSize} /> : null}
+					{(article.primaryTag && article.primaryTag.taxonomy !== 'authors') ? <Tag tag={article.primaryTag} /> : null}
+					<Title title={article.title} href={'/content/' + article.id} />
+					{(article.primaryTag && article.primaryTag.taxonomy === 'authors') ? <Tag tag={article.primaryTag} /> : null}
 				</div>
-				<Standfirst article={article} size='medium' show={this.props.showStandFirst} />
-				{article.primaryImage ? <Image article={article} show={this.props.image} stickToBottom={this.props.imageStick}/> : null}
+				{(article.summary && showStandFirst.includes('true')) ? <Standfirst article={article} size="medium" show={this.props.showStandFirst} /> : null}
+				{(article.primaryImage && showImg.includes('true')) ? <Image article={article} stickToBottom={this.props.imageStick}/> : null}
 				{this.props.showRelated.length > 0 ? <Related articles={article.relatedContent} show={this.props.showRelated} /> : null}
 				<div className="card__footer">
 					<i className="liveblog__live-indicator"><i className="glow"></i></i>

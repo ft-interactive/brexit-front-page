@@ -3,6 +3,7 @@
 	padding: 0;
 	list-style-type: none;
 }
+
 .card__related-item {
 	position: relative;
 	font-family: $o-typography-sans;
@@ -12,6 +13,23 @@
 	margin-top: 10px;
 	padding-left: 15px;
 }
+
+.card__related-item[data-show~="false"] {
+	display: none;
+}
+
+@each $layout-name in $_o-grid-layout-names {
+	@include oGridRespondTo($layout-name) {
+		.card__related-item[data-show~="#{$layout-name}--true"] {
+			display: block;
+		}
+
+		.card__related-item[data-show~="#{$layout-name}--false"] {
+			display: none;
+		}
+	}
+}
+
 .card__related-item__link {
 	border-bottom-width: 0;
 	color: inherit;
@@ -25,21 +43,5 @@
 		left: 0;
 		content: '>';
 		font-size: 25px;
-	}
-}
-
-[data-related-show~="false"] {
-	display: none;
-}
-
-@each $layout-name in $_o-grid-layout-names {
-	@include oGridRespondTo($layout-name) {
-		[data-related-show~="#{$layout-name}--true"] {
-			display: block;
-		}
-
-		[data-related-show~="#{$layout-name}--false"] {
-			display: none;
-		}
 	}
 }

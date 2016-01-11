@@ -27,16 +27,14 @@
 	padding: 0;
 }
 
-[data-card-show~="false"] {
+.card[data-show~="false"] {
 	display: none;
 }
 
-[data-card-landscape~="true"] {
-	&[data-card-has-image~="true"][data-image-show~="true"] {
-		position: relative;
-		min-height: 56px;
-		padding-left: 120px;
-	}
+.card[data-landscape~="true"] {
+	position: relative;
+	min-height: 56px;
+	padding-left: 120px;
 }
 
 .card--no-stretch {
@@ -45,12 +43,12 @@
 
 @each $layout-name in $_o-grid-layout-names {
 	@include oGridRespondTo($layout-name) {
-		[data-card-show~="#{$layout-name}--true"] {
+		.card[data-show~="#{$layout-name}--true"] {
 			display: block;
 			@include displayFlex;
 		}
 
-		[data-card-show~="#{$layout-name}--false"] {
+		.card[data-show~="#{$layout-name}--false"] {
 			display: none;
 		}
 
@@ -62,20 +60,16 @@
 			flex: none;
 		}
 
-		[data-card-landscape~="#{$layout-name}--true"] {
-			&[data-card-has-image~="true"][data-image-show~="true"] {
-				position: relative;
-				min-height: 56px;
-				padding-left: 120px;
-			}
+		.card[data-landscape~="#{$layout-name}--true"] {
+			position: relative;
+			min-height: 56px;
+			padding-left: 120px;
 		}
 
-		[data-card-landscape~="#{$layout-name}--false"] {
-			&[data-card-has-image~="true"][data-image-show~="true"] {
-				position: static;
-				min-height: auto;
-				padding-left: 10px;
-			}
+		.card[data-landscape~="#{$layout-name}--false"] {
+			position: static;
+			min-height: auto;
+			padding-left: 10px;
 		}
 	}
 }

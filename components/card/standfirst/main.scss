@@ -3,54 +3,43 @@
 	font-weight: oFontsWeight(light);
 	margin: 5px 0 0;
 }
-.card__standfirst--large {
-	font-size: 22px;
-	line-height: 24px;
-}
-.card__standfirst--medium {
+
+.card[data-size~="medium"] .card__standfirst {
 	font-size: 18px;
 	line-height: 20px;
 }
 
-.card__standfirst[data-standfirst-show~="false"] {
+.card[data-size~="large"] .card__standfirst {
+	font-size: 22px;
+	line-height: 24px;
+}
+
+.card__standfirst[data-show~="false"] {
 	display: none;
 }
 
 @each $layout-name in $_o-grid-layout-names {
-	.card__standfirst[data-standfirst-show~="#{$layout-name}--true"] {
-		display: inherit;
-	}
-	.card__standfirst[data-standfirst-show~="#{$layout-name}--false"] {
-		display: none;
-	}
 	@include oGridRespondTo($layout-name) {
-		.card__standfirst[data-standfirst-show~="#{$layout-name}--true"] {
-			display: inherit;
+		.card__standfirst[data-show~="#{$layout-name}--false"] {
+			display: none;
 		}
 
-		.card__standfirst[data-standfirst-show~="#{$layout-name}--false"] {
-			display: none;
+		.card__standfirst[data-show~="#{$layout-name}--true"] {
+			display: inherit;
 		}
 	}
 }
 
 @each $layout-name in $_o-grid-layout-names {
-	.card__standfirst--#{$layout-name}--large {
-		font-size: 22px;
-		line-height: 24px;
-	}
-	.card__standfirst--#{$layout-name}--medium {
-		font-size: 18px;
-		line-height: 20px;
-	}
 	@include oGridRespondTo($layout-name) {
-		.card__standfirst--#{$layout-name}--large {
-			font-size: 22px;
-			line-height: 24px;
-		}
-		.card__standfirst--#{$layout-name}--medium {
+		.card[data-size~="#{$layout-name}--medium"] .card__standfirst {
 			font-size: 18px;
 			line-height: 20px;
+		}
+
+		.card[data-size~="#{$layout-name}--large"] .card__standfirst {
+			font-size: 22px;
+			line-height: 24px;
 		}
 	}
 }
