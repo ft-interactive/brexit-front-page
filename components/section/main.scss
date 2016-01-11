@@ -27,9 +27,32 @@
 	@include displayFlex;
 	align-items: stretch;
 
+	&[data-o-grid-colspan~="hide"] {
+		@include oGridRespondTo($until: S) {
+			display: none;
+		}
+	 }
 
-	&[data-o-grid-colspan="hide L2"] {
-		@include oGridRespondTo($until: L) {
+	&[data-o-grid-colspan~="Shide"] {
+		@include oGridRespondTo(S, $until: M) {
+			display: none;
+		}
+	}
+
+	&[data-o-grid-colspan~="Mhide"] {
+		@include oGridRespondTo(M, $until: L) {
+			display: none;
+		}
+	}
+
+	&[data-o-grid-colspan~="Lhide"] {
+		@include oGridRespondTo(L, $until: XL) {
+			display: none;
+		}
+	}
+
+	&[data-o-grid-colspan~="XLhide"] {
+		@include oGridRespondTo(XL) {
 			display: none;
 		}
 	}
@@ -113,6 +136,13 @@
 	&[data-o-grid-colspan~="XLhide"] {
 		@include oGridRespondTo(XL) {
 			display: none;
+		}
+	}
+
+	//Try and match the editors picks cards with the ad height
+	&.editors-picks__column .card {
+		@include oGridRespondTo(L) {
+			min-height: 282px;
 		}
 	}
 }

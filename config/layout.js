@@ -6,7 +6,7 @@ const date = dateFormat(new Date(), 'EEEE MMMM yyyy');
 //TODO - give these more semantic names e.g. four-card-row or dense-grid
 import topStoriesLayout from './layouts/top-stories';
 import topStoriesWithRelatedLayout from './layouts/top-stories-with-related';
-import mostPopularLayout from './layouts/most-popular';
+import mostPopularLayout from './layouts/most-popular-ads';
 import opinionLayout from './layouts/opinion';
 import editorsPicksLayout from './layouts/editors-picks';
 import featuredSectionLayout from './layouts/featured-section';
@@ -32,18 +32,19 @@ export default [
 		sidebarComponent: {
 			id: 'fastft',
 			component: FastFt,
-			isTab: true
+			isTab: true,
+			adClasses: 'sidebar-ad-placeholder sidebar-ad-placeholder--top-stories'
 		},
 		cols: {
 			content: {
 				default: 12,
 				L: 8,
-				XL: 9
+				XXL: 9
 			},
 			sidebar: {
 				default: 12,
 				L: 4,
-				XL: 3
+				XXL: 3
 			}
 		}
 	},
@@ -78,12 +79,25 @@ export default [
 		size: {
 			default: 12
 		},
+		sidebarComponent: {
+			id: 'editors-picks-ad',
+			adClasses: 'sidebar-ad-placeholder sidebar-ad-placeholder--editors-picks card card--ad',
+			component: null,
+			isTab: false
+		},
 		cols: {
 			meta: {
 				default: 12
 			},
 			content: {
-				default: 12
+				default: 12,
+				L: 8,
+				XXL: 9
+			},
+			sidebar: {
+				default: 'hide',
+				L: 4,
+				XXL: 3
 			}
 		}
 	},
