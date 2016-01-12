@@ -16,8 +16,17 @@ export default class Image extends Component {
  	render () {
 		const article = this.props.article;
 		const hasHeadshot = article.branding && article.branding.taxonomy === 'authors' && article.branding.headshot;
+		const picClass = "card__picture";
 		const imgClass = "card__image";
-		const srcset = this.props.srcSet;
+
+		const srcset = Object.assign({}, this.props.srcSet);
+		if(hasHeadshot) {
+			for(var key in srcset) {
+				if(srcset.hasOwnProperty(key)) {
+					srcset[key] = Math.ceil((srcset[key] / 100) * 60);
+				}
+			}
+		}
 
 		const url =	hasHeadshot
 					?	`${article.branding.headshot}?${qs.stringify(imageOptions)}&width=`
@@ -35,7 +44,7 @@ export default class Image extends Component {
 
 		return (
 			<a className={classes} href={'/content/' + article.id} data-trackable="image">
-				<NImage imgClass={imgClass} srcset={srcset} url={url}/>
+				<NImage picClass={picClass} imgClass={imgClass} srcset={srcset} url={url}/>
 			</a>
 		);
 	}
