@@ -9,7 +9,8 @@ export default [
 				size: 'large',
 				standFirst: { default: true },
 				image: { default: true },
-				itemIndex: 0
+				itemIndex: 0,
+				srcSet: { default: 449, s: 659, m: 199, l: 259, xl: 322 }
 			},
 			{
 			 	type: Content,
@@ -63,7 +64,8 @@ export default [
 			{ type: Content,
 				size: 'small',
 				itemIndex: 3,
-				show: { default: false, M: true, L: false, XL: true}
+				show: { default: false, M: true, L: false, XL: true},
+				srcSet: { default: 100, s: 100, m: 199, l: 259, xl: 322 }
 			},
 			{
 				type: Content,

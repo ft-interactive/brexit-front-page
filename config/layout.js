@@ -27,7 +27,7 @@ export default (sectionContents, flags = {}) => {
 			style: 'top-stories',
 			date: date,
 			isTab: true,
-			layout: (items) => ((items[0] && items[0].relatedContent && items[0].relatedContent.length > 2) ? topStoriesWithRelatedLayout : topStoriesLayout),
+			getLayout: (items) => ((items[0] && items[0].relatedContent && items[0].relatedContent.length > 2) ? topStoriesWithRelatedLayout : topStoriesLayout),
 			size: {
 				default: 12
 			},
@@ -53,7 +53,7 @@ export default (sectionContents, flags = {}) => {
 			id: 'opinion',
 			title: 'Opinion',
 			style: 'opinion',
-			layout: () => opinionLayout,
+			getLayout: () => opinionLayout,
 			size: {
 				default: 12
 			},
@@ -70,7 +70,7 @@ export default (sectionContents, flags = {}) => {
 			id: 'myft',
 			title: 'myFT',
 			style: 'myft',
-			layout: () => myftLayout,
+			getLayout: () => myftLayout,
 			size: {
 				default: 12
 			},
@@ -89,7 +89,7 @@ export default (sectionContents, flags = {}) => {
 			id: 'editors-picks',
 			title: 'Editor\'s Picks',
 			style: 'editors-picks',
-			layout: () => flags.frontPageMoreAds ? editorsPicksAdsLayout : editorsPicksLayout,
+			getLayout: () => flags.frontPageMoreAds ? editorsPicksAdsLayout : editorsPicksLayout,
 			size: {
 				default: 12
 			},
@@ -223,7 +223,7 @@ export default (sectionContents, flags = {}) => {
 					}
 				]
 			} : null,
-			layout: () => flags.frontPageMoreAds ? mostPopularAdsLayout : mostPopularLayout,
+			getLayout: () => flags.frontPageMoreAds ? mostPopularAdsLayout : mostPopularLayout,
 			size: {
 				default: 12
 			},
@@ -243,7 +243,7 @@ export default (sectionContents, flags = {}) => {
 			id: 'technology',
 			title: 'Technology',
 			style: 'technology',
-			layout: () => featuredSectionLayout,
+			getLayout: () => featuredSectionLayout,
 			size: {
 				default: 12,
 				M: 4
@@ -261,7 +261,7 @@ export default (sectionContents, flags = {}) => {
 			id: 'markets',
 			title: 'Markets',
 			style: 'markets',
-			layout: () => featuredSectionLayout,
+			getLayout: () => featuredSectionLayout,
 			size: {
 				default: 12,
 				M: 4
@@ -279,7 +279,7 @@ export default (sectionContents, flags = {}) => {
 			id: 'life-and-arts',
 			title: 'Life & Arts',
 			style: 'life-and-arts',
-			layout: () => featuredSectionLayout,
+			getLayout: () => featuredSectionLayout,
 			size: {
 				default: 12,
 				M: 4
@@ -298,7 +298,7 @@ export default (sectionContents, flags = {}) => {
 			trackable: 'video',
 			title: 'Video',
 			style: 'video',
-			layout: () => videoLayout,
+			getLayout: () => videoLayout,
 			size: {
 				default: 12
 			},

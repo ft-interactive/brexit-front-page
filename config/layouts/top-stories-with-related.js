@@ -11,7 +11,8 @@ export default [
 				size: 'large-top-story',
 				related: { default: 1, M: 3},
 				standFirst: { default: true },
-				image: { default: true }
+				image: { default: true },
+				srcSet: { default: 449, s: 659, m: 355, l: 292, xl: 411 }
 			}
 		]
 	},
@@ -59,7 +60,8 @@ export default [
 				type: Content,
 				size: 'tiny',
 				landscape: { default: 'true', M: false },
-				image: { default: 'true' }
+				image: { default: 'true' },
+				srcSet: { default: 100, s: 100, m: 199, l: 161, xl: 233 }
 			},
 			{
 				type: Content,
