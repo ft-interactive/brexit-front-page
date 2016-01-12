@@ -7,17 +7,24 @@ class Ad extends Component {
 			className: 'card card--ad',
 			'data-trackable': 'card | ad'
 		};
+		let adClassName = 'ad-placeholder';
 
-		const showCard = responsiveValue(this.props.show);
+		if(this.props.show) {
+			const showCard = responsiveValue(this.props.show);
 
-		if (showCard.includes('false')) {
-			Object.assign(attrs, { 'data-show': showCard });
+			if (showCard.includes('false')) {
+				Object.assign(attrs, { 'data-show': showCard });
+			}
+		}
+
+
+		if(this.props.adClasses) {
+			adClassName += ' ' + this.props.adClasses;
 		}
 
 		return (
-			<article className="card card--ad" data-trackable="card | ad" data-show={showCard}>
-				<div className="content-ad-placeholder ad-placeholder"></div>
-
+			<article {...attrs} >
+				<div className={adClassName}></div>
 			</article>
 		);
 	}

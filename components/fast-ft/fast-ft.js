@@ -21,7 +21,7 @@ class FastFt extends Component {
 						</ol>
 					</div>
 
-					<div className="sidebar-ad-placeholder ad-placeholder"></div>
+					<div className="ad-placeholder ad-placeholder--fast-ft"></div>
 
 				</div>
 			</div>

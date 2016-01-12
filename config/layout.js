@@ -1,5 +1,6 @@
 import {format as dateFormat} from 'o-date';
 import FastFt from '../components/fast-ft/fast-ft';
+import Ad from '../components/card/ad';
 
 const date = dateFormat(new Date(), 'EEEE MMMM yyyy');
 
@@ -32,8 +33,7 @@ export default [
 		sidebarComponent: {
 			id: 'fastft',
 			component: FastFt,
-			isTab: true,
-			adClasses: 'sidebar-ad-placeholder sidebar-ad-placeholder--top-stories'
+			isTab: true
 		},
 		cols: {
 			content: {
@@ -81,9 +81,9 @@ export default [
 		},
 		sidebarComponent: {
 			id: 'editors-picks-ad',
-			adClasses: 'sidebar-ad-placeholder sidebar-ad-placeholder--editors-picks card card--ad',
-			component: null,
-			isTab: false
+			component: Ad,
+			isTab: false,
+			adClasses: 'ad-placeholder--editors-picks'
 		},
 		cols: {
 			meta: {

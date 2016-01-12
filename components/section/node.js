@@ -14,7 +14,6 @@ export default class SectionNode extends Component {
  	constructor(props) {
  		super(props);
 
-
  		this.state = { layout: props.layout, content: props.content, selectedSource: 'initial' };
  	}
 
@@ -38,11 +37,6 @@ export default class SectionNode extends Component {
 			'section__column--sidebar',
 			this.props.sidebarComponent && this.props.sidebarComponent.isTab ? 'o-tabs__tabpanel' : '',
 			this.props.sidebarComponent && this.props.sidebarComponent.className ? this.props.sidebarComponent.className : ''
-		]);
-
-		const sidebarAdClasses = classify([
-			'ad-placeholder',
-			this.props.sidebarComponent && this.props.sidebarComponent.adClasses ? this.props.sidebarComponent.adClasses : ''
 		]);
 
 		return (
@@ -85,11 +79,15 @@ export default class SectionNode extends Component {
 								data-o-grid-colspan={colspan(cols.sidebar)}
 								className={sectionAsideClasses}
 								data-trackable={this.props.sidebarComponent.id}>
-								{ this.props.sidebarComponent.component ?
-									<this.props.sidebarComponent.component articles={this.props.sidebarContent.items} /> : null }
-								<div className={sidebarAdClasses}></div>
+									<div>
+										<this.props.sidebarComponent.component articles={
+										this.props.sidebarContent ? this.props.sidebarContent.items : null}
+										adClasses={
+										this.props.sidebarComponent.adClasses} />
+									</div>
 							</aside>
 							: null
+
 					}
 			</section>
 		);
