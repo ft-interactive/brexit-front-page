@@ -10,16 +10,14 @@ class FastFt extends Component {
 		return (
 			<div className="fast-ft-wrapper">
 				<div className="fast-ft">
-					<div className="fast-ft__content">
-						<h2 className="fast-ft__logo-outer">
-							<a className="fast-ft__link" href="/fastft" data-trackable="go-to-link">
-								<span className="fast-ft__logo fast-ft__logo--fast">fast</span><span className="fast-ft__logo fast-ft__logo--ft">FT</span>
-							</a>
-						</h2>
-						<ol className="fast-ft__items">
-							{articleEls}
-						</ol>
-					</div>
+					<h2 className="fast-ft__logo-outer">
+						<a className="fast-ft__link" href="/fastft" data-trackable="go-to-link">
+							<span className="fast-ft__logo fast-ft__logo--fast">fast</span><span className="fast-ft__logo fast-ft__logo--ft">FT</span>
+						</a>
+					</h2>
+					<ol className="fast-ft__items">
+						{articleEls}
+					</ol>
 
 					<div className="ad-placeholder ad-placeholder--fast-ft"></div>
 

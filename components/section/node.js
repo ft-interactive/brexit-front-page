@@ -35,8 +35,7 @@ export default class SectionNode extends Component {
 		const sectionAsideClasses = classify([
 			'section__column',
 			'section__column--sidebar',
-			this.props.sidebarComponent && this.props.sidebarComponent.isTab ? 'o-tabs__tabpanel' : '',
-			this.props.sidebarComponent && this.props.sidebarComponent.className ? this.props.sidebarComponent.className : ''
+			this.props.sidebarComponent && this.props.sidebarComponent.isTab ? 'o-tabs__tabpanel' : ''
 		]);
 
 		return (
