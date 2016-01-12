@@ -1,6 +1,6 @@
 export default [
 	{
-		colspan: { default: 12, M: 4, XL:3},
+		colspan: { default: 12, M: 4},
 		cards: [
 			{ type: 'content',
 				size: { default: 'medium', XL: 'large' },
@@ -17,7 +17,7 @@ export default [
 		]
 	},
 	{
-		colspan: { default: 12, M: 4, XL: 3},
+		colspan: { default: 12, M: 4 },
 		cards: [
 			{ type: 'content',
 				size: { default: 'medium' },
@@ -48,7 +48,7 @@ export default [
 		]
 	},
 	{
-		colspan: { default: 12, M: 4, XL: 3},
+		colspan: { default: 12, M: 4, XL: 2},
 		cards: [
 			{ type: 'content',
 				size: { default: 'small' },
@@ -97,7 +97,7 @@ export default [
 		]
 	},
 	{
-		colspan: { default: 12, M: 'hide', L: 'hide', XL: 3},
+		colspan: { default: 12, M: 'hide', L: 'hide', XL: 2},
 		cards: [
 			{
 				type: 'content',
