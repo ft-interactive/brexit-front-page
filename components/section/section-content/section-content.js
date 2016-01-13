@@ -2,8 +2,6 @@ import React, {Component} from 'react';
 
 import Card from '../../card/card';
 
-const layoutNames = ['S', 'M', 'L', 'XL', 'XXL'];
-
 import colspanToString from '../../../client/utils/colspan';
 
 
