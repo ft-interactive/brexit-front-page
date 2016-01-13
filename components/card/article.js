@@ -10,10 +10,10 @@ import Related from './related/related';
 
 class Article extends Component {
 	render () {
-		if(!this.props.article) {
+		if(!this.props.item) {
 			return null;
 		}
-		const article = this.props.article;
+		const article = this.props.item;
 		const showCard = responsiveValue(this.props.show);
 		const showStandFirst = responsiveValue(this.props.standFirst);
 		const showImg = responsiveValue(this.props.image);

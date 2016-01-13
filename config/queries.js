@@ -254,9 +254,17 @@ const fastFT = `
 
 const popularTopics = `
 	query PopularTopics {
-		popularTopics(limit: 4) {
+		popularTopics(limit: 3) {
 			id
 			name
+			url
+			items(limit: 2) {
+				id
+				title
+				primaryImage {
+					rawSrc
+				}
+			}
 		}
 	}
 `;
