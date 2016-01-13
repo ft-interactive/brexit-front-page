@@ -23,13 +23,13 @@ export default [
 				size: { default: 'medium' },
 				itemIndex: 1,
 				show: { default: false, M: true, L: false, XL: true },
-				image: { default: true, M: false, XL: false, XXL: false },
-				landscape: { default: true, M: false, L: false },
-				itemIndex: 2
+				image: { default: true, L: false},
+				landscape: { default: true, M: false, L: false }
 			},
 			{ type: 'content',
 				size: { default: 'small' },
 				show: { default: true, XL: false },
+				itemIndex: 2
 			},
 			{ type: 'content',
 				size: { default: 'small' },
