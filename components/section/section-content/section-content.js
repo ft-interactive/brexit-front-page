@@ -2,11 +2,9 @@ import React, {Component} from 'react';
 
 import Card from '../../card/card';
 
-const layoutNames = ['S', 'M', 'L', 'XL'];
+const layoutNames = ['S', 'M', 'L', 'XL', 'XXL'];
 
-const colspanToString = (span) => {
-	return span.default + ' ' + layoutNames.filter(it => span.hasOwnProperty(it)).map(it => it + span[it]).join(' ');
-};
+import colspanToString from '../../../client/utils/colspan';
 
 
 export default class SectionContent extends Component {

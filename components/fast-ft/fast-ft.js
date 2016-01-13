@@ -18,10 +18,9 @@ class FastFt extends Component {
 					<ol className="fast-ft__items">
 						{articleEls}
 					</ol>
-
-					<div className="ad-placeholder ad-placeholder--fast-ft"></div>
-
 				</div>
+				<div className="ad-placeholder ad-placeholder--fast-ft"></div>
+
 			</div>
 		);
 	}
