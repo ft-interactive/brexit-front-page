@@ -106,41 +106,23 @@ $card-title-text-sizes: (
 	}
 }
 
-
-@each $breakpoint in $breakpoints {
+@each $breakpoint, $text-sizes in $card-title-text-sizes {
 	@if ($breakpoint == 'default') {
-		@each $cardBreakpoint, $text-sizes in $card-title-text-sizes {
-			@if ($cardBreakpoint == 'default') {
-				@each $text-size, $font-sizes in $text-sizes {
-					.card[data-size~="#{$text-size}"] .card__title {
-						@include card-title($text-size, nth($font-sizes, 1), nth($font-sizes, 2));
-					}
-				}
-			} @else {
-				@include oGridRespondTo($cardBreakpoint) {
-					@each $text-size, $font-sizes in $text-sizes {
-						.card[data-size~="#{$breakpoint}--#{$text-size}"] .card__title {
-							@include card-title($text-size, nth($font-sizes, 1), nth($font-sizes, 2));
-						}
-					}
-				}
+		@each $text-size, $font-sizes in $text-sizes {
+			.card[data-size~="#{$text-size}"] .card__title {
+				@include card-title($text-size, nth($font-sizes, 1), nth($font-sizes, 2));
 			}
 		}
 	} @else {
-		@each $cardBreakpoint, $text-sizes in $card-title-text-sizes {
-			@if (index($breakpoints, $cardBreakpoint) >= index($breakpoints, $breakpoint)) {
-				@include oGridRespondTo($cardBreakpoint) {
-					@each $text-size, $font-sizes in $text-sizes {
-						.card[data-size~="#{$breakpoint}--#{$text-size}"] .card__title {
-							@include card-title($text-size, nth($font-sizes, 1), nth($font-sizes, 2));
-						}
-					}
+		@include oGridRespondTo($breakpoint) {
+			@each $text-size, $font-sizes in $text-sizes {
+				.card[data-size~="#{$breakpoint}--#{$text-size}"] .card__title {
+					@include card-title($text-size, nth($font-sizes, 1), nth($font-sizes, 2));
 				}
 			}
 		}
 	}
 }
-
 
 .card__title-link {
 	color: inherit;
