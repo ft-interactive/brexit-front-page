@@ -39,12 +39,12 @@ export default [
 			content: {
 				default: 12,
 				L: 8,
-				adbreak: 9
+				XL: 9
 			},
 			sidebar: {
 				default: 12,
 				L: 4,
-				adbreak: 3
+				XL: 3
 			}
 		}
 	},
