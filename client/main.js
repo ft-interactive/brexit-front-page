@@ -36,7 +36,12 @@ setup.bootstrap(({flags}) => {
 
 	if(flags.get("mostPopularByIndustry")) {
 		const mostPopularContainer = document.getElementById('most-popular');
-		section.init(mostPopularContainer, true);
+		const mostPopularContent = JSON.parse(mostPopularContainer.getAttribute('data-section-content'));
+		section.init(mostPopularContainer, mostPopularContent, { mostPopularByIndustry: true });
+	}
+	if (flags.get('frontPageMyftSection')) {
+		const myftContainer = document.getElementById('myft');
+		section.init(myftContainer, { main: [] });
 	}
 
 	// NOTE - these are last as they depend on polyfills from the polyfill service
