@@ -53,7 +53,7 @@ export default (region) => {
 			Feed,
 			Section,
 			content: data,
-			sections: getSections(data),
+			sections: getSections(data, res.locals.flags),
 			region,
 			preconnect: [
 				'https://next-markets-proxy.ft.com'

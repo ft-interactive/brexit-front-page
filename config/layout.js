@@ -15,7 +15,7 @@ import myftLayout from './layouts/myft';
 
 import { mostPopular } from './queries';
 
-export default data => {
+export default (data, flags = {}) => {
 	return [
 		{
 			id: 'top-stories',
@@ -81,7 +81,8 @@ export default data => {
 				content: {
 					default: 12
 				}
-			}
+			},
+			hide: !flags.frontPageMyftSection
 		},
 		{
 			id: 'editors-picks',
