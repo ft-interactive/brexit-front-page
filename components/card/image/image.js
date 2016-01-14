@@ -2,7 +2,7 @@ import qs from 'querystring';
 
 import React, {Component} from 'react';
 import {objMap, responsiveClass} from '../helpers';
-import NImage from '../../../bower_components/n-image/templates/image'
+import { Image as NImage } from 'n-image';
 
 const imageOptions = {
 	source: 'next',
