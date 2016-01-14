@@ -53,7 +53,7 @@ export default (region) => {
 			FastFtFeed,
 			Feed,
 			Section,
-			content: data,
+			content: data.frontPage,
 			sections: getSections(sectionContent(data), res.locals.flags),
 			region,
 			preconnect: [
