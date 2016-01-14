@@ -1,10 +1,12 @@
+import Content from '../../components/card/content';
+
 export default [
 	//Column 0
 	{
 		colspan: { default: 12, S: 6, M: 3},
 		cards:
 		[
-			{ type: 'content',
+			{ type: Content,
 				size: { default: 'tiny', S: 'small' },
 				landscape: { default: true, S: false },
 				image: { default: true },
@@ -17,7 +19,7 @@ export default [
 		colspan: { default: 12, S: 6, M: 3},
 		cards:
 		[
-			{ type: 'content',
+			{ type: Content,
 				size: { default: 'tiny', S: 'small' },
 				landscape: { default: true, S: false },
 				image: { default: true },
@@ -30,7 +32,7 @@ export default [
 		colspan: { default: 12, S: 6, M: 3 },
 		cards:
 		[
-			{ type: 'content',
+			{ type: Content,
 				size: { default: 'tiny', S: 'small' },
 				landscape: { default: true, S: false },
 				image: { default: true },
@@ -43,7 +45,7 @@ export default [
 		colspan: { default: 12, S: 6, M: 3 },
 		cards:
 		[
-			{ type: 'content',
+			{ type: Content,
 				size: { default: 'tiny', S: 'small' },
 				landscape: { default: true, S: false },
 				image: { default: true },

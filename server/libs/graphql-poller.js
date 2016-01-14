@@ -29,6 +29,11 @@ let queryResults = {
 		lastUpdated: null,
 		isValid: (data) => data && data.fastFT && data.fastFT.items && data.fastFT.items.length
 	},
+	popularTopics: {
+		data: null,
+		lastUpdated: null,
+		isValid: (data) => data && data.popularTopics && data.popularTopics.length
+	},
 	mockFrontPage: {
 		data: null,
 		lastUpdated: null,
@@ -84,6 +89,7 @@ module.exports = {
 				pollData(queries.newFrontPage('UK'), 'newFrontPageUK').start({ initialRequest: true}),
 				pollData(queries.newFrontPage('US'), 'newFrontPageUS').start({ initialRequest: true}),
 				pollData(queries.fastFT, 'fastFT').start({ initialRequest: true}),
+				pollData(queries.popularTopics, 'popularTopics').start({ initialRequest: true}),
 				pollData(queries.frontPage('UK'), 'mockFrontPage', { mockFrontPage: true }).start({ initialRequest: true}),
 				pollData(queries.newFrontPage('UK'), 'mockFrontPageNew', { mockFrontPage: true }).start({ initialRequest: true})
 			])

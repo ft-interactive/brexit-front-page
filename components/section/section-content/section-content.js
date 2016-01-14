@@ -1,6 +1,9 @@
 import React, {Component} from 'react';
 
 import Card from '../../card/card';
+import Content from '../../card/content';
+import Concept from '../../card/concept';
+import Video from '../../card/video';
 
 import colspanToString from '../../../client/utils/colspan';
 
@@ -17,7 +20,7 @@ export default class SectionContent extends Component {
 			const cards = column.cards.map((props, index) => {
 				let item;
 				let key;
-				if(props.type === 'content') {
+				if([Content, Concept, Video].some(type => type === props.type)) {
 					props.itemIndex = props.itemIndex || storyIndex++;
 					item = items[ props.itemIndex ];
 					props.cardIndex = index;

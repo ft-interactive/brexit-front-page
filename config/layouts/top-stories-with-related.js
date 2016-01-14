@@ -1,3 +1,5 @@
+import Content from '../../components/card/content';
+
 export default [
 	//Column 0
 	{
@@ -5,7 +7,7 @@ export default [
 		colspan: { default: 12, M: 5 },
 		cards:
 		[
-			{ type: 'content',
+			{ type: Content,
 				size: { default: 'large' },
 				related: { default: 1, M: 3},
 				standFirst: { default: true },
@@ -17,23 +19,23 @@ export default [
 	{
 		colspan: { default: 12, M: 4 },
 		cards: [
-			{ type: 'content',
+			{ type: Content,
 				size: { default: 'small' },
 				landscape: { default: 'true' }
 			},
-			{ type: 'content',
+			{ type: Content,
 				size: { default: 'small' },
 				landscape: { default: 'true' }
 			},
-			{ type: 'content',
+			{ type: Content,
 				size: { default: 'small' },
 				landscape: { default: 'true' }
 			},
-			{ type: 'content',
+			{ type: Content,
 				size: { default: 'small' },
 				landscape: { default: 'true' }
 			},
-			{ type: 'content',
+			{ type: Content,
 				size: { default: 'small' },
 				landscape: { default: 'true' }
 			}
@@ -44,23 +46,23 @@ export default [
 		colspan: { default: 12, M: 3 },
 		cards: [
 			{
-				type: 'content',
+				type: Content,
 				size: { default : 'tiny' },
 				landscape: { default: 'true' }
 			},
 			{
-				type: 'content',
+				type: Content,
 				size: { default : 'tiny' },
 				landscape: { default: 'true' }
 			},
 			{
-				type: 'content',
+				type: Content,
 				size: { default : 'tiny' },
 				landscape: { default: 'true', M: false },
 				image: { default: 'true' }
 			},
 			{
-				type: 'content',
+				type: Content,
 				size: { default : 'tiny' },
 				landscape: { default: 'true' }
 			}
