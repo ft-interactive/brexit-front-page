@@ -109,9 +109,9 @@
 	}
 
 	//Try and match the editors picks cards with the ad height
-	&.editors-picks__column .card {
+	&.editors-picks__column {
 		@include oGridRespondTo(L) {
-			min-height: 250px;
+			min-height: 264px;
 		}
 	}
 }

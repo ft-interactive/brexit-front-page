@@ -1,0 +1,11 @@
+.ad-placeholder--most-popular,
+.ad-placeholder--editors-picks {
+	margin-top: oGridGutter();
+	@include oGridRespondTo(M) {
+		margin-top: oGridGutter(M);
+	}
+}
+
+.o-ads__inner > div > iframe {
+	background: red;
+}

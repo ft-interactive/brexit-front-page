@@ -4,6 +4,7 @@
 @import './image/main';
 @import './related/main';
 @import './liveblog';
+@import './ad';
 
 .card {
 	@include displayFlex;

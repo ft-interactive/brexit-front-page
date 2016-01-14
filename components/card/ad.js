@@ -4,8 +4,7 @@ import {responsiveValue} from './helpers';
 class Ad extends Component {
 	render () {
 		const attrs = {
-			className: 'card card--ad',
-			'data-trackable': 'card | ad'
+			'data-trackable': ' ad'
 		};
 		let adClassName = 'ad-placeholder';
 
@@ -23,9 +22,7 @@ class Ad extends Component {
 		}
 
 		return (
-			<article {...attrs} >
-				<div className={adClassName}></div>
-			</article>
+				<div {...attrs} className={adClassName} data-trackable="ad"></div>
 		);
 	}
 }

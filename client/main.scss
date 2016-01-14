@@ -3,14 +3,14 @@ $o-grid-layouts: (
 	M:   740px,
 	L:   980px,
 	XL:  1220px,
-	adbreak: 1310px,
+	adbreak: 1300px,
 	XXL: 1440px
 );
 $o-grid-gutters: (
 	default: 10px,
 	M:       15px
 );
-$o-grid-start-snappy-mode-at: XXL;
+$o-grid-start-snappy-mode-at: XL;
 //Turn off IE8 rules here and output them in an IE specific css file
 $o-grid-ie8-rules: false;
 

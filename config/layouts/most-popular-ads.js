@@ -1,6 +1,6 @@
 export default [
 	{
-		colspan: { default: 12, M: 3, L: 4, adbreak: 3},
+		colspan: { default: 12, M: 3, L: 4, XXL: 3},
 		cards: [
 			{ type: 'content',
 				size: { default: 'medium', L: 'large' },
@@ -95,7 +95,7 @@ export default [
 		]
 	},
 	{
-		colspan: { default: 12, M: 3, L: 'hide', XL: 2, adbreak: 3, XXL: 3},
+		colspan: { default: 12, M: 3, L: 'hide', XL: 2, XXL: 3},
 		cards: [
 			{
 				type: 'content',

@@ -92,12 +92,12 @@ export default [
 			content: {
 				default: 12,
 				L: 8,
-				XXL: 9
+				XL: 9
 			},
 			sidebar: {
 				default: 'hide',
 				L: 4,
-				XXL: 3
+				XL: 3
 			}
 		}
 	},
