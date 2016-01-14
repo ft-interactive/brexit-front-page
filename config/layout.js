@@ -7,8 +7,10 @@ const date = dateFormat(new Date(), 'EEEE MMMM yyyy');
 import topStoriesLayout from './layouts/top-stories';
 import topStoriesWithRelatedLayout from './layouts/top-stories-with-related';
 import mostPopularLayout from './layouts/most-popular';
+import mostPopularAdsLayout from './layouts/most-popular-ads';
 import opinionLayout from './layouts/opinion';
 import editorsPicksLayout from './layouts/editors-picks';
+import editorsPicksAdsLayout from './layouts/editors-picks-ads';
 import featuredSectionLayout from './layouts/featured-section';
 import videoLayout from './layouts/video';
 import myftLayout from './layouts/myft';
@@ -17,7 +19,7 @@ import Ad from '../components/card/ad';
 
 import { mostPopular } from './queries';
 
-export default (data, flags = {}) => {
+export default (sectionContents, flags = {}) => {
 	return [
 		{
 			id: 'top-stories',
@@ -25,8 +27,6 @@ export default (data, flags = {}) => {
 			style: 'top-stories',
 			date: date,
 			isTab: true,
-			content: data.frontPage.top.items,
-			sidebarContent: data.frontPage.fastFT,
 			layout: (items) => ((items[0] && items[0].relatedContent && items[0].relatedContent.length > 2) ? topStoriesWithRelatedLayout : topStoriesLayout),
 			size: {
 				default: 12
@@ -53,7 +53,6 @@ export default (data, flags = {}) => {
 			id: 'opinion',
 			title: 'Opinion',
 			style: 'opinion',
-			content: data.frontPage.opinion.items,
 			layout: () => opinionLayout,
 			size: {
 				default: 12
@@ -71,7 +70,6 @@ export default (data, flags = {}) => {
 			id: 'myft',
 			title: 'myFT',
 			style: 'myft',
-			content: data.popularTopics.popularTopics,
 			layout: () => myftLayout,
 			size: {
 				default: 12
@@ -90,8 +88,7 @@ export default (data, flags = {}) => {
 			id: 'editors-picks',
 			title: 'Editor\'s Picks',
 			style: 'editors-picks',
-			content: data.frontPage.editorsPicks.items,
-			layout: () => editorsPicksLayout,
+			layout: () => flags.frontPageMoreAds ? editorsPicksAdsLayout : editorsPicksLayout,
 			size: {
 				default: 12
 			},
@@ -107,26 +104,25 @@ export default (data, flags = {}) => {
 				},
 				content: {
 					default: 12,
-					L: 8,
-					XL: 9
+					L: flags.frontPageMoreAds ? 8 : null,
+					XL: flags.frontPageMoreAds ? 9 : null
 				},
-				sidebar: {
+				sidebar: flags.frontPageMoreAds ? {
 					default: 'hide',
 					L: 4,
 					XL: 3
-				}
+				} : null
 			}
 		},
 		{
 			id: 'most-popular',
 			title: 'Most Read',
 			style: 'most-popular',
-			content: data.frontPage.popularArticles,
 			dynamicContent: {
 				id: 'most-popular-by-industry',
 				description: 'Most read by professionals in',
 				query: (uuid) => (mostPopular('industry', uuid)),
-				parseResults: (data) => data.popularFromHui,
+				parseResults: (data) => ({ main: data.popularFromHui }),
 				rememberSource: true,
 				sources: [
 					{ uuid: 'initial',
@@ -226,7 +222,7 @@ export default (data, flags = {}) => {
 					}
 				]
 			},
-			layout: () => mostPopularLayout,
+			layout: () => flags.frontPageMoreAds ? mostPopularAdsLayout : mostPopularLayout,
 			size: {
 				default: 12
 			},
@@ -246,7 +242,6 @@ export default (data, flags = {}) => {
 			id: 'technology',
 			title: 'Technology',
 			style: 'technology',
-			content: data.frontPage.technology.items,
 			layout: () => featuredSectionLayout,
 			size: {
 				default: 12,
@@ -265,7 +260,6 @@ export default (data, flags = {}) => {
 			id: 'markets',
 			title: 'Markets',
 			style: 'markets',
-			content: data.frontPage.markets.items,
 			layout: () => featuredSectionLayout,
 			size: {
 				default: 12,
@@ -284,7 +278,6 @@ export default (data, flags = {}) => {
 			id: 'life-and-arts',
 			title: 'Life & Arts',
 			style: 'life-and-arts',
-			content: data.frontPage.lifestyle.items,
 			layout: () => featuredSectionLayout,
 			size: {
 				default: 12,
@@ -304,7 +297,6 @@ export default (data, flags = {}) => {
 			trackable: 'video',
 			title: 'Video',
 			style: 'video',
-			content: data.frontPage.videos.map(video => Object.assign({}, { type: 'video' }, video)),
 			layout: () => videoLayout,
 			size: {
 				default: 12
@@ -318,5 +310,7 @@ export default (data, flags = {}) => {
 				}
 			}
 		}
-	];
+	]
+		// add the content to each section
+		.map(section => Object.assign({}, section, { content: sectionContents[section.id] }));
 };

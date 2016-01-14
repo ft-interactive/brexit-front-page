@@ -13,15 +13,12 @@ export default class SectionNode extends Component {
 
  	constructor(props) {
  		super(props);
-
  		this.state = { layout: props.layout, content: props.content, selectedSource: 'initial' };
  	}
 
-
 	loadContent() {
 		// do nothing on server
-	};
-
+	}
 
 	render () {
 		const cols = this.props.cols;
@@ -68,7 +65,7 @@ export default class SectionNode extends Component {
 							id={this.props.id}
 							style={this.props.style}
 							layout={this.state.layout}
-							items={this.state.content}
+							items={this.state.content.main}
 						/>
 					</div>
 					{
@@ -80,7 +77,7 @@ export default class SectionNode extends Component {
 								data-trackable={this.props.sidebarComponent.id}>
 									<div>
 										<this.props.sidebarComponent.component articles={
-										this.props.sidebarContent ? this.props.sidebarContent.items : null}
+										this.state.content.sidebar ? this.state.content.sidebar : null}
 										adClasses={
 										this.props.sidebarComponent.adClasses} />
 									</div>

@@ -1,4 +1,5 @@
 import { getData } from '../libs/graphql-poller';
+import sectionContent from '../libs/section-content';
 
 import FastFtFeed from '../../components/fastft/fastftfeed';
 import Feed from '../../components/feed/feed';
@@ -53,7 +54,7 @@ export default (region) => {
 			Feed,
 			Section,
 			content: data,
-			sections: getSections(data, res.locals.flags),
+			sections: getSections(sectionContent(data), res.locals.flags),
 			region,
 			preconnect: [
 				'https://next-markets-proxy.ft.com'
