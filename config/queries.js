@@ -252,9 +252,27 @@ const fastFT = `
 	}
 `;
 
+const popularTopics = `
+	query PopularTopics {
+		popularTopics(limit: 3) {
+			id
+			name
+			url
+			items(limit: 2) {
+				id
+				title
+				primaryImage {
+					rawSrc
+				}
+			}
+		}
+	}
+`;
+
 export default {
 	frontPage,
 	newFrontPage,
 	fastFT,
-	mostPopular
+	mostPopular,
+	popularTopics
 };

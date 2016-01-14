@@ -13,16 +13,12 @@ export default class SectionNode extends Component {
 
  	constructor(props) {
  		super(props);
-
-
  		this.state = { layout: props.layout, content: props.content, selectedSource: 'initial' };
  	}
 
-
 	loadContent() {
 		// do nothing on server
-	};
-
+	}
 
 	render () {
 		const cols = this.props.cols;
@@ -67,7 +63,7 @@ export default class SectionNode extends Component {
 							id={this.props.id}
 							style={this.props.style}
 							layout={this.state.layout}
-							items={this.state.content}
+							items={this.state.content.main}
 						/>
 					</div>
 					{
@@ -77,7 +73,7 @@ export default class SectionNode extends Component {
 								data-o-grid-colspan={colspan(cols.sidebar)}
 								className={sectionAsideClasses}
 								data-trackable={this.props.sidebarComponent.id}>
-								<this.props.sidebarComponent.component articles={this.props.sidebarContent.items} />
+								<this.props.sidebarComponent.component articles={this.state.content.sidebar} />
 								<div className="sidebar-ad-placeholder ad-placeholder"></div>
 							</aside>
 							: null

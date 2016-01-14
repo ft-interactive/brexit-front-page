@@ -11,7 +11,7 @@ import Standfirst from './standfirst/standfirst'
 
 class LiveBlog extends Component {
 	render () {
-		const article = this.props.liveBlog;
+		const article = this.props.item;
 		if(!article) {
 			return null;
 		}
