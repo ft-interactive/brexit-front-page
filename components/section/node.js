@@ -28,11 +28,13 @@ export default class SectionNode extends Component {
 			'section__column--content',
 			this.props.isTab ? 'o-tabs__tabpanel' : ''
 		]);
+
 		const sectionAsideClasses = classify([
 			'section__column',
 			'section__column--sidebar',
 			this.props.sidebarComponent && this.props.sidebarComponent.isTab ? 'o-tabs__tabpanel' : ''
 		]);
+
 		return (
 			<section
 				className={'o-grid-row section section--' + this.props.style}
@@ -73,10 +75,15 @@ export default class SectionNode extends Component {
 								data-o-grid-colspan={colspan(cols.sidebar)}
 								className={sectionAsideClasses}
 								data-trackable={this.props.sidebarComponent.id}>
-								<this.props.sidebarComponent.component articles={this.state.content.sidebar} />
-								<div className="sidebar-ad-placeholder ad-placeholder"></div>
+									<div>
+										<this.props.sidebarComponent.component articles={
+										this.state.content.sidebar ? this.state.content.sidebar : null}
+										adClasses={
+										this.props.sidebarComponent.adClasses} />
+									</div>
 							</aside>
 							: null
+
 					}
 			</section>
 		);

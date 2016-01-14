@@ -30,6 +30,10 @@
 	}
 }
 
+.sidebar--fastft {
+	margin-bottom: 10px;
+}
+
 #fastft {
 	h1 { @include nhFastFtTitle; }
 	article { @include nhFeedItem(fastft-brand); }

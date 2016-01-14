@@ -7,11 +7,15 @@ const date = dateFormat(new Date(), 'EEEE MMMM yyyy');
 import topStoriesLayout from './layouts/top-stories';
 import topStoriesWithRelatedLayout from './layouts/top-stories-with-related';
 import mostPopularLayout from './layouts/most-popular';
+import mostPopularAdsLayout from './layouts/most-popular-ads';
 import opinionLayout from './layouts/opinion';
 import editorsPicksLayout from './layouts/editors-picks';
+import editorsPicksAdsLayout from './layouts/editors-picks-ads';
 import featuredSectionLayout from './layouts/featured-section';
 import videoLayout from './layouts/video';
 import myftLayout from './layouts/myft';
+
+import Ad from '../components/card/ad';
 
 import { mostPopular } from './queries';
 
@@ -84,17 +88,30 @@ export default (sectionContents, flags = {}) => {
 			id: 'editors-picks',
 			title: 'Editor\'s Picks',
 			style: 'editors-picks',
-			layout: () => editorsPicksLayout,
+			layout: () => flags.frontPageMoreAds ? editorsPicksAdsLayout : editorsPicksLayout,
 			size: {
 				default: 12
+			},
+			sidebarComponent: {
+				id: 'editors-picks-ad',
+				component: Ad,
+				isTab: false,
+				adClasses: 'ad-placeholder--editors-picks'
 			},
 			cols: {
 				meta: {
 					default: 12
 				},
 				content: {
-					default: 12
-				}
+					default: 12,
+					L: flags.frontPageMoreAds ? 8 : null,
+					XL: flags.frontPageMoreAds ? 9 : null
+				},
+				sidebar: flags.frontPageMoreAds ? {
+					default: 'hide',
+					L: 4,
+					XL: 3
+				} : null
 			}
 		},
 		{
@@ -205,7 +222,7 @@ export default (sectionContents, flags = {}) => {
 					}
 				]
 			},
-			layout: () => mostPopularLayout,
+			layout: () => flags.frontPageMoreAds ? mostPopularAdsLayout : mostPopularLayout,
 			size: {
 				default: 12
 			},

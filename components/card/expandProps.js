@@ -1,6 +1,6 @@
 import {objMap} from './helpers';
 
-const layoutNames = ['S', 'M', 'L', 'XL'];
+const layoutNames = ['S', 'M', 'L', 'XL', 'adbreak', 'XXL'];
 
 const cardPropDefaults = {
 	size: { default: 'medium' },
@@ -15,7 +15,7 @@ const cardPropDefaults = {
 const expandToAllLayouts = (property) => {
 	const prop = Object.assign({}, property);
 	layoutNames.reduce((largestValue, layoutName) => {
-		if (!prop[layoutName]) {
+		if (typeof prop[layoutName] === 'undefined') {
 			return prop[layoutName] = largestValue;
 		} else {
 			return prop[layoutName];

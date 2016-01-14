@@ -5,11 +5,7 @@ import Content from '../../card/content';
 import Concept from '../../card/concept';
 import Video from '../../card/video';
 
-const layoutNames = ['S', 'M', 'L', 'XL'];
-
-const colspanToString = (span) => {
-	return span.default + ' ' + layoutNames.filter(it => span.hasOwnProperty(it)).map(it => it + span[it]).join(' ');
-};
+import colspanToString from '../../../client/utils/colspan';
 
 
 export default class SectionContent extends Component {
