@@ -7,9 +7,7 @@ import NImage from '../../../bower_components/n-image/templates/image'
 const imageOptions = {
 	source: 'next',
 	fit: 'scale-down',
-	compression: 'best',
-	format: 'png',
-	quality: 'highest'
+	compression: 'best'
 };
 
 export default class Image extends Component {
