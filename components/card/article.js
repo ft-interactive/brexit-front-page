@@ -17,7 +17,6 @@ class Article extends Component {
 		const showCard = responsiveValue(this.props.show);
 		const showStandFirst = responsiveValue(this.props.standFirst);
 		const showImg = responsiveValue(this.props.image);
-		console.log('showImg', this.props.image, showImg);
 
 		const isLandscape = responsiveValue(this.props.landscape);
 

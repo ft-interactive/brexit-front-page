@@ -55,8 +55,6 @@ const expandProps = (props) => {
 
 	expandedProps.size = expandToAllLayouts(props.size);
 	expandedProps.image = expandToAllLayouts(props.image);
-	console.log('props.image', props.image);
-	console.log('expandedProps.image', expandedProps.image);
 
 	//TODO: seems a bit odd to have this here, move elsewhere
 	//Set card size to huge if first item has no image
