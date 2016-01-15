@@ -12,8 +12,8 @@ import scrollDepth from './components/scroll-depth/main';
 import marketsData from './components/markets-data/main';
 import headerTabs from './components/header-tabs/main';
 import layoutTool from './components/layout-tool/main';
+import myft from './components/myft/main';
 import section from '../components/section/main';
-
 import fastFT from '../components/fastft/main';
 
 setup.bootstrap(({flags}) => {
@@ -36,8 +36,10 @@ setup.bootstrap(({flags}) => {
 
 	if(flags.get("mostPopularByIndustry")) {
 		const mostPopularContainer = document.getElementById('most-popular');
-		section.init(mostPopularContainer, true);
+		const mostPopularContent = JSON.parse(mostPopularContainer.getAttribute('data-section-content'));
+		section.init(mostPopularContainer, mostPopularContent, { mostPopularByIndustry: true });
 	}
+	myft.loadSection(flags);
 
 	// NOTE - these are last as they depend on polyfills from the polyfill service
 	// (which fails in e.g. BB10 - https://github.com/3rd-Eden/useragent/issues/83)

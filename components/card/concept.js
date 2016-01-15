@@ -8,7 +8,7 @@ class Concept extends Component {
 			<img className="topic-card__image" src={'//next-geebee.ft.com/image/v1/images/raw/' + articlesWithImage[0].primaryImage.rawSrc + '?source=next&fit=scale-down&width=400'} /> :
 			null;
 		const articles = concept.items.slice(0, 2).map(article => (
-			<li className="topic-card__article">
+			<li className="topic-card__article" key={article.id}>
 				<a className="topic-card__article-link" href={'/content/' + article.id} data-trackable="article">{article.title}</a>
 			</li>
 		));

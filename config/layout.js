@@ -19,7 +19,7 @@ import Ad from '../components/card/ad';
 
 import { mostPopular } from './queries';
 
-export default (sectionContents, flags = {}) => {
+export default sectionContents => {
 	return [
 		{
 			id: 'top-stories',
@@ -82,7 +82,8 @@ export default (sectionContents, flags = {}) => {
 					default: 12
 				}
 			},
-			hide: !flags.frontPageMyftSection
+			// only the client should render this section (not the server)
+			isClient: true
 		},
 		{
 			id: 'editors-picks',
