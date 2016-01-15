@@ -42,7 +42,7 @@ $downColour: #ee2f01;
 }
 .markets-data__item__name,
 .markets-data__item__change {
-	@include nTypeAlpha(4);
+	@include oTypographySans(s);
 	float: left;
 	margin: 0;
 }
@@ -79,7 +79,7 @@ $downColour: #ee2f01;
 	}
 }
 .markets-data__link {
-	@include nTypeAlpha(4);
+	@include oTypographySans(s);
 	float: right;
 	text-align: right;
 
@@ -89,7 +89,7 @@ $downColour: #ee2f01;
 	}
 }
 .markets-data-disclaimer {
-	@include nTypeAlphaSize(4);
+	@include oTypographySansSize(s);
 	color: getColor('pink');
 	margin: 10px 0;
 }

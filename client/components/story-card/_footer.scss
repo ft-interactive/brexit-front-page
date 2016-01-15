@@ -1,5 +1,5 @@
 @mixin storyCardFooter {
-	@include nTypeAlpha(5);
+	@include oTypographySans(xs);
 	position: relative;
 	width: 100%;
 	text-transform: uppercase;

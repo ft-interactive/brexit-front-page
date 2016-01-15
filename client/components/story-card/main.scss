@@ -40,7 +40,7 @@
 }
 
 .story-card__taxon {
-	@include nTypeBravoSize(4);
+	@include oTypographySansBoldSize(s);
 	display: inline-block;
 	margin: 0 0 5px;
 
@@ -69,7 +69,7 @@
 
 .story-card__title,
 .story-card__related-link {
-	@include nTypeFoxtrot(3);
+	@include oTypographySerifDisplay(m);
 
 	a {
 		@include nLinksHeadline();
@@ -81,7 +81,7 @@
 }
 
 .story-card__related-link {
-	@include nTypeFoxtrotSize(4);
+	@include oTypographySerifDisplaySize(s);
 	margin-top: oGridGutter();
 	font-size: 16px;
 
@@ -111,7 +111,7 @@
 }
 
 .story-card__summary {
-	@include nTypeDelta(3);
+	@include oTypographySerifDisplayItalic(m);
 	line-height: 1;
 	font-size: 18px;
 }
@@ -153,7 +153,7 @@
 		}
 	}
 	.story-card__title {
-		@include nTypeFoxtrotSize(2);
+		@include oTypographySerifDisplaySize(l);
 	}
 	.story-card__summary {
 		@include oGridRespondTo($from: L) {
