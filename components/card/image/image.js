@@ -1,19 +1,13 @@
-import qs from 'querystring';
-
 import React, {Component} from 'react';
 import {objMap, responsiveClass} from '../helpers';
 import { Image as NImage } from 'n-image';
-
-const imageOptions = {
-	source: 'next',
-	fit: 'scale-down',
-	compression: 'best'
-};
 
 export default class Image extends Component {
 	render () {
 		const article = this.props.article;
 		const hasHeadshot = article.branding && article.branding.taxonomy === 'authors' && article.branding.headshot;
+		const url = hasHeadshot ? article.branding.headshot : article.primaryImage.rawSrc;
+		const isImgServiceUrl = hasHeadshot ? true : false;
 
 		const srcset = Object.assign({}, this.props.imageSrcSet);
 		if(hasHeadshot) {
@@ -23,12 +17,6 @@ export default class Image extends Component {
 				}
 			}
 		}
-
-		const url = hasHeadshot ?
-			`${article.branding.headshot}?${qs.stringify(imageOptions)}&width=` :
-			`https:\/\/next-geebee.ft.com/image/v1/images/raw/` +
-				`${encodeURIComponent(article.primaryImage.rawSrc)}` +
-				`?${qs.stringify(imageOptions)}&width=`;
 
 		const classes = [
 			'card__image-link',
@@ -40,7 +28,12 @@ export default class Image extends Component {
 
 		return (
 			<a className={classes} href={'/content/' + article.id} data-trackable="image">
-				<NImage picClass={"card__picture"} imgClass={"card__image"} srcset={srcset} url={url}/>
+				<NImage
+					picClass={"card__picture"}
+					imgClass={"card__image"}
+					srcset={srcset}
+					url={url}
+					isImgServiceUrl={isImgServiceUrl}/>
 			</a>
 		);
 	}
