@@ -62,6 +62,8 @@
 	flex-direction: column;
 }
 
+
+
 .section-sources__label {
 	font-family: $o-typography-sans;
 	font-weight: oFontsWeight(light);
@@ -113,5 +115,14 @@
 		@include oGridRespondTo(L) {
 			min-height: 264px;
 		}
+	}
+
+}
+
+//The ad gets too wide at this width, so change the column widths
+@media screen and (min-width: 1275px) {
+	.most-popular__column-with-ad,
+	.most-popular__column-after-ad {
+		@include oGridColspan(3);
 	}
 }

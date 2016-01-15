@@ -1,6 +1,6 @@
 import {objMap} from './helpers';
 
-const layoutNames = ['S', 'M', 'L', 'XL', 'adbreak', 'XXL'];
+const layoutNames = ['S', 'M', 'L', 'XL', 'XXL'];
 
 const cardPropDefaults = {
 	size: { default: 'medium' },
