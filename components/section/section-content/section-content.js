@@ -17,7 +17,7 @@ export default class SectionContent extends Component {
 		const columns = layout.map((column, colIdx) => {
 			const colspan = colspanToString(column.colspan);
 
-			let className =  `column ${this.props.style}__column`;
+			let className = `column ${this.props.style}__column`;
 
 			if(column.className) {
 				className += ` ${column.className}`;
