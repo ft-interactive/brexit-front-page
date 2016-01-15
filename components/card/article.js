@@ -14,7 +14,7 @@ class Article extends Component {
 			return null;
 		}
 		const article = this.props.item;
-		const srcSet = this.props.srcSet;
+		const imageSrcSet = this.props.imageSrcSet;
 		const showCard = responsiveValue(this.props.show);
 		const showStandFirst = responsiveValue(this.props.standFirst);
 		const showImg = responsiveValue(this.props.image);
@@ -48,7 +48,7 @@ class Article extends Component {
 					{(article.primaryTag && article.primaryTag.taxonomy === 'authors') ? <Tag tag={article.primaryTag} /> : null}
 				</div>
 				{(article.summary && showStandFirst.includes('true')) ? <Standfirst article={article} show={this.props.showStandFirst} /> : null}
-				{(article.primaryImage && showImg.includes('true')) ? <Image article={article} srcSet={srcSet} stickToBottom={this.props.imageStick}/> : null}
+				{(article.primaryImage && showImg.includes('true')) ? <Image article={article} imageSrcSet={imageSrcSet} stickToBottom={this.props.imageStick}/> : null}
 				{this.props.showRelated.length > 0 ? <Related articles={article.relatedContent} show={this.props.showRelated} /> : null}
 			</article>
 		);

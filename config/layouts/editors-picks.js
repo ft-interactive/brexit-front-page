@@ -11,7 +11,7 @@ export default [
 				landscape: { default: true, S: false },
 				image: { default: true },
 				imageStick: { default: true},
-				srcSet: { default: 100, s: 315, m: 277, l: 161, xl: 203 }
+				imageSrcSet: { default: 100, s: 315, m: 277, l: 161, xl: 203 }
 			}
 		]
 	},
@@ -25,7 +25,7 @@ export default [
 				landscape: { default: true, S: false },
 				image: { default: true },
 				imageStick: { default: true},
-				srcSet: { default: 100, s: 315, m: 277, l: 161, xl: 203 }
+				imageSrcSet: { default: 100, s: 315, m: 277, l: 161, xl: 203 }
 			}
 		]
 	},
@@ -39,7 +39,7 @@ export default [
 				landscape: { default: true, S: false },
 				image: { default: true },
 				imageStick: { default: true},
-				srcSet: { default: 100, s: 315, m: 277, l: 161, xl: 203 }
+				imageSrcSet: { default: 100, s: 315, m: 277, l: 161, xl: 203 }
 			}
 		]
 	},
@@ -53,7 +53,7 @@ export default [
 				landscape: { default: true, S: false },
 				image: { default: true },
 				imageStick: { default: true},
-				srcSet: { default: 100, s: 315, m: 277, l: 161, xl: 203 }
+				imageSrcSet: { default: 100, s: 315, m: 277, l: 161, xl: 203 }
 			}
 		]
 	},
@@ -67,7 +67,7 @@ export default [
 				landscape: { default: true, S: false },
 				image: { default: true },
 				imageStick: { default: true},
-				srcSet: { default: 100, s: 315, m: 277, l: 161, xl: 203 }
+				imageSrcSet: { default: 100, s: 315, m: 277, l: 161, xl: 203 }
 			}
 		]
 	},
@@ -81,7 +81,7 @@ export default [
 				landscape: { default: true, S: false },
 				image: { default: true },
 				imageStick: { default: true},
-				srcSet: { default: 100, s: 315, m: 277, l: 161, xl: 203 }
+				imageSrcSet: { default: 100, s: 315, m: 277, l: 161, xl: 203 }
 			}
 		]
 	},

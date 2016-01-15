@@ -9,7 +9,7 @@ export default [
 				size: 'small',
 				image: { default: true },
 				landscape: { default: true, M: false, L: true },
-				srcSet: { default: 100, s: 100, m: 277, l: 100, xl: 100 }
+				imageSrcSet: { default: 100, s: 100, m: 277, l: 100, xl: 100 }
 			},
 			{
 				type: Content,
