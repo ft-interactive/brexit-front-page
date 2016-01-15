@@ -15,14 +15,14 @@
 
 		<div class="o-grid-row">
 		{{#each sections}}
-			{{#unless hide}}
-				<div
-					id="{{id}}"
-					data-o-grid-colspan="{{colspan size}}"
-					{{#if @root.flags.frontPageLayoutTool}}data-section-content="{{json content}}"{{else}}{{#ifAll @root.flags.mostPopularByIndustry dynamicContent}}data-section-content="{{json content}}"{{/ifAll}}{{/if}}>
+			<div
+				id="{{id}}"
+				data-o-grid-colspan="{{colspan size}}"
+				{{#if @root.flags.frontPageLayoutTool}}data-section-content="{{json content}}"{{else}}{{#ifAll @root.flags.mostPopularByIndustry dynamicContent}}data-section-content="{{json content}}"{{/ifAll}}{{/if}}>
+				{{#unless isClient}}
 					{{{reactRenderToString ../Section spread=@this showMostPopularByIndustry=@root.flags.mostPopularByIndustry}}}
-				</div>
-			{{/unless}}
+				{{/unless}}
+			</div>
 		{{/each}}
 		</div>
 	</section>
