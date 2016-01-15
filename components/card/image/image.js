@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {objMap, responsiveClass} from '../helpers';
-import { Image as NImage } from 'n-image';
+import NImage from 'n-image';
 
 export default class Image extends Component {
 	render () {
