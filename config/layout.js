@@ -19,7 +19,7 @@ import Ad from '../components/card/ad';
 
 import { mostPopular } from './queries';
 
-export default sectionContents => {
+export default (sectionContents, flags = {}) => {
 	return [
 		{
 			id: 'top-stories',
