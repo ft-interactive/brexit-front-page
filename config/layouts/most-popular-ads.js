@@ -20,7 +20,8 @@ export default [
 		]
 	},
 	{
-		colspan: { default: 12, M: 3, L: 4, adbreak: 3 },
+		className: 'most-popular__column-with-ad',
+		colspan: { default: 12, M: 3, L: 4 },
 		cards: [
 			{ type: Content,
 				size: { default: 'medium' },
@@ -51,7 +52,8 @@ export default [
 		]
 	},
 	{
-		colspan: { default: 12, M: 3, L: 4, XL: 2, adbreak: 3},
+		className: 'most-popular__column-after-ad',
+		colspan: { default: 12, M: 3, L: 4, XL: 2},
 		cards: [
 			{ type: Content,
 				size: { default: 'small' },

@@ -17,6 +17,12 @@ export default class SectionContent extends Component {
 		const columns = layout.map((column, colIdx) => {
 			const colspan = colspanToString(column.colspan);
 
+			let className = `column ${this.props.style}__column`;
+
+			if(column.className) {
+				className += ` ${column.className}`;
+			}
+
 			const cards = column.cards.map((props, index) => {
 				let item;
 				let key;
@@ -35,7 +41,7 @@ export default class SectionContent extends Component {
 			});
 
 			return (
-				<div className={'column ' + this.props.style + '__column'} data-o-grid-colspan={colspan} key={colIdx}>
+				<div className={className} data-o-grid-colspan={colspan} key={colIdx}>
 					{cards}
 				</div>
 			);
