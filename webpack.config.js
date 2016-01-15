@@ -24,5 +24,10 @@ module.exports = {
 		new BowerWebpackPlugin({
 			includes: /\.js$/
 		})
-	]
+	],
+	resolve: {
+		root: [
+			path.join(__dirname, 'bower_components')
+		]
+	}
 };
