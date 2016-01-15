@@ -78,6 +78,7 @@ export default sectionContents => {
 					default: 12
 				}
 			},
+			// only the client should render this section (not the server)
 			isClient: true
 		},
 		{
