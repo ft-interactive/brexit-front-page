@@ -52,8 +52,6 @@ const expandProps = (props) => {
 		expandedProps.size = props.size;
 	}
 
-	console.log('expandedProps.size', expandedProps.size);
-
 	return Object.assign({}, props, expandedProps);
 };
 
