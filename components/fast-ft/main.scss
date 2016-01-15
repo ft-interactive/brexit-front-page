@@ -53,11 +53,11 @@
 	}
 }
 .fast-ft__time {
-	@include nTypeAlpha(4);
+	@include oTypographySans(s);
 	color: getColor('claret');
 }
 .fast-ft__item__title {
-	@include nTypeAlpha(4);
+	@include oTypographySans(s);
 	margin: 0;
 }
 .fast-ft__item__title-link {

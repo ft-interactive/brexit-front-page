@@ -3,7 +3,7 @@
 	border-bottom: 1px #dddddd solid;
 
 	h2 {
-		@include nTypeCharlie(4);
+		@include oTypographySerifItalic(s);
 		font-size: 18px;
 		font-style: normal;
 	}
@@ -11,7 +11,7 @@
 	p { display: none; }
 
 	time {
-		@include nTypeAlpha(5);
+		@include oTypographySans(xs);
 		text-transform: uppercase;
 		height: 42px; // TODO Footer height variable
 	}

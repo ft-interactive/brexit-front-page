@@ -8,7 +8,7 @@
 }
 
 .section-meta__date {
-	@include nTypeBravo(3);
+	@include oTypographySansBold(m);
 
 	&:nth-child(n+2) {
 		margin-top: 10px;

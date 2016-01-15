@@ -14,7 +14,7 @@
 }
 
 .video-item--title {
-	@include nTypeAlpha(2);
+	@include oTypographySans(l);
 	text-align: center;
 }
 

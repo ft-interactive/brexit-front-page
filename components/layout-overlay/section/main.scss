@@ -1,5 +1,5 @@
 .section-editor h3 {
-	@include nTypeAlpha(3);
+	@include oTypographySans(m);
 	a {
 		color: inherit;
 		display: block;
@@ -27,7 +27,7 @@
 	border-width: 0 0 1px;
 
 	a {
-		@include nTypeAlpha(3);
+		@include oTypographySans(m);
 		display: inline-block;
 		border: 0;
 		border-radius: 4px;

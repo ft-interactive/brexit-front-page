@@ -85,13 +85,13 @@ $breakpoint: M;
 }
 
 .layout-overlay__body h2 {
-	@include nTypeAlpha(2);
+	@include oTypographySans(l);
 	text-align: center;
 	margin: 0.5em;
 }
 
 .layout-overlay__body > h3 {
-	@include nTypeAlpha(3);
+	@include oTypographySans(m);
 	text-align: center;
 	margin: 0.5em;
 }

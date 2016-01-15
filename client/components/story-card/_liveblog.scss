@@ -28,7 +28,7 @@
 		@include oGridColspan(12);
 
 		.liveblog__badge {
-			@include nTypeBravo(4);
+			@include oTypographySansBold(s);
 			display: inline-block;
 			text-transform: uppercase;
 			padding: 0.1em 0.5em 0.3em;
@@ -37,7 +37,7 @@
 		}
 
 		.story-card__summary {
-			@include nTypeEcho(3);
+			@include oTypographySans(m);
 			font-size: 16px;
 			line-height: 1.2;
 		}
