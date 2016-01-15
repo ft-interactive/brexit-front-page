@@ -3,7 +3,7 @@ import {objMap} from './helpers';
 const layoutNames = ['S', 'M', 'L', 'XL', 'XXL'];
 
 const cardPropDefaults = {
-	size: { default: 'medium' },
+	size: 'medium',
 	standFirst: { default: false },
 	image:  { default: false },
 	related:  { default: 0 },
@@ -24,18 +24,6 @@ const expandToAllLayouts = (property) => {
 	return prop;
 }
 
-const cardSize = (size, cardIndex, image, primaryImage) => {
-	if(+cardIndex > 0)
-		return size;
-
-	return objMap(size, (it, l) => (it === 'large' && (!image[l] || !primaryImage) ? 'huge' : it));
-};
-
-const showStandFirst = (size, standFirst) => {
-	standFirst = expandToAllLayouts(standFirst);
-	return objMap(size, (size, layout) => (['huge', 'large', 'medium'].includes(size) && !!standFirst[layout]));
-};
-
 const showRelated = (related, relatedContent) => {
 	const relatedItems = relatedContent || [];
 	const maxRelated = Object.keys(related).reduce((max, layout) => Math.max(max, +related[layout]), 0);
@@ -53,16 +41,18 @@ const expandProps = (props) => {
 	const item = props.item || {};
 	props = Object.assign({}, cardPropDefaults, props);
 
-	expandedProps.size = expandToAllLayouts(props.size);
 	expandedProps.image = expandToAllLayouts(props.image);
-
-	//TODO: seems a bit odd to have this here, move elsewhere
-	//Set card size to huge if first item has no image
-	expandedProps.size = cardSize(expandedProps.size, props.cardIndex, expandedProps.image, item.primaryImage);
-
-	expandedProps.showStandFirst = showStandFirst(props.size, props.standFirst);
+	expandedProps.showStandFirst = expandToAllLayouts(props.standfirst);
 	expandedProps.showRelated = showRelated(props.related, item.relatedContent);
 	expandedProps.last = props.last;
+
+	if(['large', 'huge'].includes(props.size) && !item.primaryImage) {
+		expandedProps.size = 'large-no-image';
+	} else {
+		expandedProps.size = props.size;
+	}
+
+	console.log('expandedProps.size', expandedProps.size);
 
 	return Object.assign({}, props, expandedProps);
 };

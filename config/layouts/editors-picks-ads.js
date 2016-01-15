@@ -7,7 +7,7 @@ export default [
 		cards:
 		[
 			{ type: Content,
-				size: { default: 'tiny', S: 'small' },
+				size: 'small',
 				landscape: { default: true, S: false },
 				image: { default: true },
 				imageStick: { default: true}
@@ -20,7 +20,7 @@ export default [
 		cards:
 		[
 			{ type: Content,
-				size: { default: 'tiny', S: 'small' },
+				size: 'small',
 				landscape: { default: true, S: false },
 				image: { default: true },
 				imageStick: { default: true}
@@ -33,7 +33,7 @@ export default [
 		cards:
 		[
 			{ type: Content,
-				size: { default: 'tiny', S: 'small' },
+				size: 'small',
 				landscape: { default: true, S: false },
 				image: { default: true },
 				imageStick: { default: true}
@@ -46,7 +46,7 @@ export default [
 		cards:
 		[
 			{ type: Content,
-				size: { default: 'tiny', S: 'small' },
+				size: 'small',
 				landscape: { default: true, S: false },
 				image: { default: true },
 				imageStick: { default: true}

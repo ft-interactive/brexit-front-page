@@ -1,17 +1,17 @@
 .card__standfirst {
 	font-family: $n-type-sans-serif;
 	font-weight: oFontsWeight(light);
+	font-size: 22px;
+	line-height: 24px;
 	margin: 5px 0 0;
 }
 
-.card[data-size~="medium"] .card__standfirst {
-	font-size: 18px;
-	line-height: 20px;
-}
-
-.card[data-size~="large"] .card__standfirst {
-	font-size: 22px;
-	line-height: 24px;
+@include oGridRespondTo($until: L) {
+	
+	.card[data-size="large"] .card__standfirst { 
+		font-size: 18px;
+		line-height: 20px;
+	}
 }
 
 .card__standfirst[data-show~="false"] {
@@ -30,16 +30,3 @@
 	}
 }
 
-@each $layout-name in $_o-grid-layout-names {
-	@include oGridRespondTo($layout-name) {
-		.card[data-size~="#{$layout-name}--medium"] .card__standfirst {
-			font-size: 18px;
-			line-height: 20px;
-		}
-
-		.card[data-size~="#{$layout-name}--large"] .card__standfirst {
-			font-size: 22px;
-			line-height: 24px;
-		}
-	}
-}

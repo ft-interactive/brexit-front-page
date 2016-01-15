@@ -25,7 +25,7 @@
 		margin: 0 5px 0 -6px;
 		background-color: getColor('cold-2');
 	}
-	.card[data-size~=tiny] & {
+	.card[data-size=tiny] & {
 		display: inline;
 
 		&:first-child {
@@ -45,36 +45,33 @@ $card-title-text-sizes: (
 		tiny: 18 20,
 		small: 20 22,
 		medium: 22 24,
-		large: 26 28,
-		huge: 40 38
+		large: 22 24,
+		large-top-story: 26 28,
+		large-no-image: 40 38
 	),
 	S: (
 		tiny: 16 16,
 		small: 20 22,
 		medium: 24 26,
-		large: 28 30,
-		huge: 38 40
+		large: 24 26,
+		large-top-story: 28 30,
+		large-no-image: 38 40
 	),
 	M: (
 		tiny: 16 18,
 		small: 18 20,
 		medium: 22 24,
-		large: 30 32,
-		huge: 40 42
+		large: 22 24,
+		large--story: 30 32,
+		large-no-image: 40 42
 	),
 	L: (
 		tiny: 16 16,
 		small: 20 22,
 		medium: 26 28,
 		large: 34 34,
-		huge: 44 46
-	),
-	XL: (
-		tiny: 16 16,
-		small: 20 22,
-		medium: 26 28,
-		large: 34 34,
-		huge: 44 46
+		large-top-story: 34 34,
+		large-no-image: 44 46
 	)
 );
 
@@ -109,18 +106,18 @@ $card-title-text-sizes: (
 @each $breakpoint, $text-sizes in $card-title-text-sizes {
 	@if ($breakpoint == 'default') {
 		@each $text-size, $font-sizes in $text-sizes {
-			.card[data-size~="#{$text-size}"] .card__title {
+			.card[data-size="#{$text-size}"] .card__title {
 				@include card-title($text-size, nth($font-sizes, 1), nth($font-sizes, 2));
 			}
 		}
 	} @else {
-		@include oGridRespondTo($breakpoint) {
-			@each $text-size, $font-sizes in $text-sizes {
-				.card[data-size~="#{$breakpoint}--#{$text-size}"] .card__title {
-					@include card-title($text-size, nth($font-sizes, 1), nth($font-sizes, 2));
+			@include oGridRespondTo($breakpoint) {
+				@each $text-size, $font-sizes in $text-sizes {
+					.card[data-size="#{$text-size}"] .card__title {
+						@include card-title($text-size, nth($font-sizes, 1), nth($font-sizes, 2));
+					}
 				}
 			}
-		}
 	}
 }
 
