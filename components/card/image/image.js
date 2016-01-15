@@ -11,7 +11,7 @@ const imageOptions = {
 };
 
 export default class Image extends Component {
- 	render () {
+	render () {
 		const article = this.props.article;
 		const hasHeadshot = article.branding && article.branding.taxonomy === 'authors' && article.branding.headshot;
 		const picClass = "card__picture";
