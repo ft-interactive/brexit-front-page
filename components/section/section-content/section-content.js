@@ -33,7 +33,7 @@ export default class SectionContent extends Component {
 					key = item ? item.id : null;
 				} else {
 					//TODO: set key for non-content items
-					key = this.props.id + props.type + index;
+					key = this.props.id + index;
 				}
 				return (
 					 key ? <Card {...props} item={item} key={key} /> : null

@@ -31,7 +31,7 @@ const loadSection = flags => {
         })
             .then(fetchJson)
             .then(data => {
-                section.init(document.getElementById('myft'), { main: data.user.viewed });
+                section.init(document.getElementById('myft'), { main: data.user.viewed }, flags.getAll());
             })
             .catch(() => { });
     }
