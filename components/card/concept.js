@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import Follow from 'next-myft-ui/templates/follow';
+
 class Concept extends Component {
 	render () {
 		const concept = this.props.item;
@@ -18,6 +20,7 @@ class Concept extends Component {
 				<h2 className="topic-card__title">
 					<a className="topic-card__title-link" href={concept.url} data-trackable="title">{concept.name}</a>
 				</h2>
+				<Follow conceptId={concept.id} name={concept.name} taxonomy={concept.taxonomy} />
 				{image}
 				<ol className="topic-card__articles" data-trackable="articles">
 					{articles}
