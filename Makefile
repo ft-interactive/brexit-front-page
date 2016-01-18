@@ -26,7 +26,7 @@ run-hot-load:
 	export HOT_LOAD=1; nbt run
 
 watch:
-	webpack client/main.js public/main.js
+	webpack --watch
 
 watch-hot-load:
 	rm -f ./public/main.*
