@@ -45,7 +45,7 @@
 }
 
 
-.card[data-size~="tiny"] .card__tag {
+.card[data-size="tiny"] .card__tag {
 	display: inline;
 	&:first-child {
 		&:after {
@@ -57,34 +57,3 @@
 	}
 }
 
-@each $layout-name in $_o-grid-layout-names {
-	@include oGridRespondTo($layout-name) {
-		.card[data-size~="#{$layout-name}--tiny"] .card__tag {
-			display: inline;
-
-			&:first-child {
-				&:after {
-					display: inline-block;
-				}
-				.card__tag__link {
-					padding-right: 11px;
-				}
-			}
-		}
-		.card[data-size~="#{$layout-name}--small"] .card__tag,
-		.card[data-size~="#{$layout-name}--medium"] .card__tag,
-		.card[data-size~="#{$layout-name}--large"] .card__tag,
-		.card[data-size~="#{$layout-name}--huge"] .card__tag {
-			display: block;
-
-			&:first-child {
-				&:after {
-					display: none;
-				}
-				.card__tag__link {
-					padding-right: 0;
-				}
-			}
-		}
-	}
-}

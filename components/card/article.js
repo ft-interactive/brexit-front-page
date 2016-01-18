@@ -23,12 +23,12 @@ class Article extends Component {
 		const attrs = {
 			className: 'card',
 			'data-trackable': 'card',
-			'data-size': responsiveValue(this.props.size, true)
+			'data-size': this.props.size 
 		};
 
 		if (article.primaryImage && showImg.includes('true')) {
-			Object.assign(attrs, { 'data-image-show': showImg });
 
+			Object.assign(attrs, { 'data-image-show': showImg });
 			// landscape only applicable if there's an image
 			if (isLandscape.includes('true')) {
 				Object.assign(attrs, { 'data-landscape': isLandscape });

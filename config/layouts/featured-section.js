@@ -6,13 +6,13 @@ export default [
 		cards: [
 			{
 				type: Content,
-				size: { default: 'small' },
+				size: 'small',
 				image: { default: true },
 				landscape: { default: true, M: false, L: true }
 			},
 			{
 				type: Content,
-				size: { default: 'small' }
+				size: 'small'
 			}
 		]
 	}

@@ -8,13 +8,13 @@ export default [
 		cards:
 		[
 			{ type: Content,
-				size: { default: 'large' },
+				size: 'large-top-story',
 				related: { default: 1, M: 3},
 				standFirst: { default: true },
 				image: { default: true }
 			},
 			{ type: Content,
-				size: { default: 'medium' },
+				size: 'medium',
 				landscape: { default: 'true' },
 			}
 		]
@@ -24,23 +24,23 @@ export default [
 		colspan: { default: 12, M: 4 },
 		cards: [
 			{ type: Content,
-				size: { default: 'small' },
+				size: 'small',
 				landscape: { default: 'true' }
 			},
 			{ type: Content,
-				size: { default: 'small' },
+				size: 'small',
 				landscape: { default: 'true' }
 			},
 			{ type: Content,
-				size: { default: 'small' },
+				size: 'small',
 				landscape: { default: 'true' }
 			},
 			{ type: Content,
-				size: { default: 'small' },
+				size: 'small',
 				landscape: { default: 'true' }
 			},
 			{ type: Content,
-				size: { default: 'small' },
+				size: 'small',
 				landscape: { default: 'true' }
 			}
 		],
@@ -51,23 +51,23 @@ export default [
 		cards: [
 			{
 				type: Content,
-				size: { default : 'tiny' },
+				size: 'tiny',
 				landscape: { default: 'true' }
 			},
 			{
 				type: Content,
-				size: { default : 'tiny' },
+				size: 'tiny',
 				landscape: { default: 'true' }
 			},
 			{
 				type: Content,
-				size: { default : 'tiny' },
+				size: 'tiny',
 				landscape: { default: 'true', M: false },
 				image: { default: 'true' }
 			},
 			{
 				type: Content,
-				size: { default : 'tiny' },
+				size: 'tiny',
 				landscape: { default: 'true' }
 			}
 		],

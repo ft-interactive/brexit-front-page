@@ -5,7 +5,7 @@ export default [
 		colspan: { default: 12, M: 3},
 		cards: [
 			{ type: Content,
-				size: { default: 'medium', L: 'large' },
+				size: 'large',
 				standFirst: { default: true },
 				image: { default: true }
 			}
@@ -15,10 +15,10 @@ export default [
 		colspan: { default: 12, M: 3},
 		cards: [
 			{ type: Content,
-				size: { default: 'medium' },
+				size: 'medium',
 			},
 			{ type: Content,
-				size: { default: 'small' },
+				size: 'small',
 				image: { default: true },
 				landscape: { default: true, M: false }
 			}
@@ -28,13 +28,13 @@ export default [
 		colspan: { default: 12, M: 3},
 		cards: [
 			{ type: Content,
-				size: { default: 'small' },
+				size: 'small',
 				image: { default: true },
 				landscape: { default: true, M: false }
 			},
 			{
 				type: Content,
-				size: { default: 'small' },
+				size: 'small',
 			}
 		]
 	},
@@ -43,19 +43,19 @@ export default [
 		cards: [
 			{
 				type: Content,
-				size: { default: 'tiny' },
+				size: 'tiny',
 			},
 			{
 				type: Content,
-				size: { default: 'tiny' },
+				size: 'tiny',
 			},
 			{
 				type: Content,
-				size: { default: 'tiny' },
+				size: 'tiny',
 			},
 			{
 				type: Content,
-				size: { default: 'tiny' }
+				size: 'tiny'
 			}
 		]
 	}
