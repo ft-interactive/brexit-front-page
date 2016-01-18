@@ -14,7 +14,7 @@ const query = `
                 name
                 url
                 taxonomy
-                items(limit: 2) {
+                items(limit: 3) {
                     id
                     title
                     primaryImage {
