@@ -6,14 +6,12 @@ import getSections from '../../config/layout';
 
 const layoutForSection = (layout, sectionId) => layout.find((section) => (section.id === sectionId));
 
-function init (el, content, opts = {}) {
+function init (el, content, flags) {
 	if (!el) return;
 
-	const { mostPopularByIndustry } = opts;
 	ReactDOM.render(
 		<Section
-			{...layoutForSection(getSections({ [el.id]: content }), el.id)}
-			showMostPopularByIndustry={mostPopularByIndustry}
+			{...layoutForSection(getSections({ [el.id]: content }, flags), el.id)}
 			data-o-grid-colspan="12" />,
 		el
 	);

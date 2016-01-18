@@ -37,7 +37,7 @@ setup.bootstrap(({flags}) => {
 	if(flags.get("mostPopularByIndustry")) {
 		const mostPopularContainer = document.getElementById('most-popular');
 		const mostPopularContent = JSON.parse(mostPopularContainer.getAttribute('data-section-content'));
-		section.init(mostPopularContainer, mostPopularContent, { mostPopularByIndustry: true });
+		section.init(mostPopularContainer, mostPopularContent, flags.getAll());
 	}
 	myft.loadSection(flags);
 
