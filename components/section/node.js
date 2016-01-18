@@ -11,10 +11,10 @@ const classify = classes => classes
 
 export default class SectionNode extends Component {
 
- 	constructor(props) {
- 		super(props);
- 		this.state = { layout: props.layout, content: props.content, selectedSource: 'initial' };
- 	}
+	constructor(props) {
+		super(props);
+		this.state = { layout: props.getLayout, content: props.content, selectedSource: 'initial' };
+	}
 
 	loadContent() {
 		// do nothing on server

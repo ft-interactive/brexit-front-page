@@ -1,33 +1,39 @@
-import qs from 'querystring';
-
 import React, {Component} from 'react';
 import {objMap, responsiveClass} from '../helpers';
-
-const imageOptions = {
-	source: 'next',
-	fit: 'scale-down',
-	width: 265,
-	compression: 'best',
-	format: 'png',
-	quality: 'highest'
-};
+import NImage from 'n-image';
 
 export default class Image extends Component {
 	render () {
 		const article = this.props.article;
 		const hasHeadshot = article.branding && article.branding.taxonomy === 'authors' && article.branding.headshot;
-		const imageSrc = hasHeadshot ? `${article.branding.headshot}?${qs.stringify(imageOptions)}` : article.primaryImage.src;
+		const url = hasHeadshot ? article.branding.headshot : article.primaryImage.rawSrc;
+		const isImgServiceUrl = hasHeadshot ? true : false;
+
+		const srcset = Object.assign({}, this.props.imageSrcSet);
+		if(hasHeadshot) {
+			for(let key in srcset) {
+				if(srcset.hasOwnProperty(key)) {
+					srcset[key] = Math.ceil((srcset[key] / 100) * 60);
+				}
+			}
+		}
+
 		const classes = [
-				'card__image-link',
-				hasHeadshot ? 'card__image-link--headshot' : ''
-			]
-			.concat(responsiveClass('card__image-link', objMap(this.props.stickToBottom, (it) => it ? 'stick' : 'nostick')))
-			.filter(className => className)
-			.join(' ');
+			'card__image-link',
+			hasHeadshot ? 'card__image-link--headshot' : ''
+		]
+		.concat(responsiveClass('card__image-link', objMap(this.props.stickToBottom, (it) => it ? 'stick' : 'nostick')))
+		.filter(className => className)
+		.join(' ');
 
 		return (
 			<a className={classes} href={'/content/' + article.id} data-trackable="image">
-				<img className="card__image" src={imageSrc} />
+				<NImage
+					picClass={"card__picture"}
+					imgClass={"card__image"}
+					srcset={srcset}
+					url={url}
+					isImgServiceUrl={isImgServiceUrl}/>
 			</a>
 		);
 	}

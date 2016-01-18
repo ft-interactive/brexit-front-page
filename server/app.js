@@ -8,6 +8,13 @@ require('babel/register')({
 
 		'react',
 		'strict'
-	]
+	],
+	ignore: function(filename) {
+		if (filename.includes('/node_modules/') && !filename.includes('/node_modules/n-image')) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 });
 module.exports = require('./init');
