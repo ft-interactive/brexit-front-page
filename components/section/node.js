@@ -9,6 +9,8 @@ const classify = classes => classes
 	.filter(className => className)
 	.join(' ');
 
+const getAlternateSourceTrackable = (sources, uuid) => sources.find(s => s.uuid === uuid).title;
+
 export default class SectionNode extends Component {
 
 	constructor(props) {
@@ -38,7 +40,7 @@ export default class SectionNode extends Component {
 		return (
 			<section
 				className={'o-grid-row section section--' + this.props.style}
-				data-trackable={trackable + (this.state.selectedSource === 'initial' ? '' : ' | alternate-source')}>
+				data-trackable={trackable + (this.state.selectedSource === 'initial' ? '' : ' | alternate-source | ' + getAlternateSourceTrackable(this.props.dynamicContent.sources,this.state.selectedSource))}>
 					{
 						cols.meta ?
 							<div

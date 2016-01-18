@@ -7,7 +7,6 @@
 {{/defineBlock}}
 
 {{#if @root.flags.frontPageLayoutPrototype}}
-	<div id="layout-overlay-container"></div>
 	{{> header-tabs newsTabTitle="Top Stories"}}
 	<section
 		id="main-body"
@@ -18,7 +17,7 @@
 			<div
 				id="{{id}}"
 				data-o-grid-colspan="{{colspan size}}"
-				{{#if @root.flags.frontPageLayoutTool}}data-section-content="{{json content}}"{{else}}{{#ifAll @root.flags.mostPopularByIndustry dynamicContent}}data-section-content="{{json content}}"{{/ifAll}}{{/if}}>{{#unless isClient}}{{{reactRenderToString ../Section spread=@this showMostPopularByIndustry=@root.flags.mostPopularByIndustry}}}{{/unless}}</div>
+				{{#if dynamicContent}}data-section-content="{{json content}}"{{/if}}>{{#unless isClient}}{{{reactRenderToString ../Section spread=@this}}}{{/unless}}</div>
 		{{/each}}
 		</div>
 	</section>
