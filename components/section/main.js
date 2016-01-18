@@ -12,7 +12,6 @@ function init (el, content, flags) {
 	ReactDOM.render(
 		<Section
 			{...layoutForSection(getSections({ [el.id]: content }, flags), el.id)}
-			showMostPopularByIndustry={flags.mostPopularByIndustry}
 			data-o-grid-colspan="12" />,
 		el
 	);

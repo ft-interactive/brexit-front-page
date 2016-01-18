@@ -49,7 +49,7 @@ export default class SectionNode extends Component {
 							: null
 					}
 					{
-						this.props.showMostPopularByIndustry && this.props.dynamicContent ?
+						this.props.dynamicContent ?
 							<div
 								data-o-grid-colspan="12"
 								className="section__column section__column--sources">

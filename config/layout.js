@@ -119,7 +119,7 @@ export default (sectionContents, flags = {}) => {
 			id: 'most-popular',
 			title: 'Most Read',
 			style: 'most-popular',
-			dynamicContent: {
+			dynamicContent: flags.mostPopularByIndustry ? {
 				id: 'most-popular-by-industry',
 				description: 'Most read by professionals in',
 				query: (uuid) => (mostPopular('industry', uuid)),
@@ -222,7 +222,7 @@ export default (sectionContents, flags = {}) => {
 						"title": "Travel & leisure"
 					}
 				]
-			},
+			} : null,
 			layout: () => flags.frontPageMoreAds ? mostPopularAdsLayout : mostPopularLayout,
 			size: {
 				default: 12
