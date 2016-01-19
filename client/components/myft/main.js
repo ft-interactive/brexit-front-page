@@ -1,6 +1,8 @@
-import nJsonpFetch from 'n-jsonp-fetch';
 import { json as fetchJson } from 'fetchres';
+
+import nJsonpFetch from 'n-jsonp-fetch';
 import sessionClient from 'next-session-client';
+import * as myFtUi from 'next-myft-ui';
 
 import section from '../../../components/section/main';
 
@@ -11,7 +13,8 @@ const query = `
                 id
                 name
                 url
-                items(limit: 2) {
+                taxonomy
+                items(limit: 3) {
                     id
                     title
                     primaryImage {
@@ -32,6 +35,7 @@ const loadSection = flags => {
             .then(fetchJson)
             .then(data => {
                 section.init(document.getElementById('myft'), { main: data.user.viewed }, flags.getAll());
+                myFtUi.updateUi();
             })
             .catch(() => { });
     }
