@@ -57,10 +57,10 @@
   "config": {
     "pre-git": {
       "commit-msg": [],
-      "pre-commit": [],
-      "pre-push": [
+      "pre-commit": [
         "make verify"
       ],
+      "pre-push": [],
       "post-commit": [],
       "post-merge": []
     }
