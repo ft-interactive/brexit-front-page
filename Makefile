@@ -22,15 +22,8 @@ run:
 run-local:
 	nbt run --local
 
-run-hot-load:
-	export HOT_LOAD=1; nbt run
-
 watch:
 	webpack --watch
-
-watch-hot-load:
-	rm -f ./public/main.*
-	node server/dev/init
 
 build:
 	nbt build --main-sass ie8.scss --skip-js --skip-about --skip-haikro --skip-hash --dev

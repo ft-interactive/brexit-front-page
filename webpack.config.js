@@ -6,7 +6,8 @@ module.exports = {
 	context: path.join(__dirname, 'client'),
 	entry: {
 		'main.js': './main.js',
-		'main.css': './main.scss'
+		'main.css': './main.scss',
+		'ie8.css': './ie8.scss'
 	},
 	output: {
 		path: './public',
@@ -18,7 +19,8 @@ module.exports = {
 				test: /\.js$/,
 				loader: 'babel',
 				query: {
-					presets: ['react', 'es2015']
+					presets: ['react', 'es2015'],
+					plugins: ['add-module-exports']
 				}
 			},
 			// force fastclick to load CommonJS

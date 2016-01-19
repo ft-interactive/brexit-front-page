@@ -64,5 +64,8 @@
       "post-commit": [],
       "post-merge": []
     }
+  },
+  "scripts": {
+    "commit": "commit-wizard"
   }
 }
