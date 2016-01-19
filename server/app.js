@@ -1,3 +1,6 @@
+// modules that need to be compiled by babel
+const es6Modules = ['next-myft-ui', 'n-image'];
+
 require('babel/register')({
 	whitelist: [
 		'es6.arrowFunctions',
@@ -9,12 +12,7 @@ require('babel/register')({
 		'react',
 		'strict'
 	],
-	ignore: function(filename) {
-		if (filename.includes('/node_modules/') && !filename.includes('/node_modules/n-image')) {
-			return true;
-		} else {
-			return false;
-		}
-	}
+	ignore: filename =>
+		filename.includes('/node_modules/') && !es6Modules.some(module => filename.includes(`/node_modules/${module}`))
 });
 module.exports = require('./init');

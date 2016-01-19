@@ -13,7 +13,8 @@
     "n-jsonp-fetch": "^1.0.3",
     "o-forms": "^2.0.0",
     "superstore": "^2.0.1",
-    "next-session-client": "^2.0.0"
+    "next-session-client": "^2.0.0",
+    "next-myft-ui": "^6.10.2"
   },
   "resolutions": {
     "o-ft-icons": "next"
