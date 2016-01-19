@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+import Image from 'n-image';
 import Follow from 'next-myft-ui/templates/follow';
 
 class Concept extends Component {
@@ -7,7 +8,10 @@ class Concept extends Component {
 		const concept = this.props.item;
 		const articlesWithImage = concept.items.filter(article => article.primaryImage);
 		const image = articlesWithImage.length ?
-			<img className="card__topic-image" src={'//next-geebee.ft.com/image/v1/images/raw/' + articlesWithImage[0].primaryImage.rawSrc + '?source=next&fit=scale-down&width=400'} /> :
+			<Image
+				imgClass="card__topic-image"
+				srcset={{default: 449, s: 659, m: 199, l: 259, xl: 322}}
+				url={articlesWithImage[0].primaryImage.rawSrc} /> :
 			null;
 		const articles = concept.items.slice(0, 3).map(article => (
 			<li className="card__topic-article" key={article.id}>
