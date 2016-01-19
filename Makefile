@@ -12,7 +12,7 @@ verify:
 	nbt verify --skip-layout-checks
 
 unit-test:
-	export NODE_ENV=test; mocha --compilers js:babel/register --recursive --reporter spec test/components
+	export NODE_ENV=test; mocha  --require test/setup --recursive --reporter spec test/components
 
 test: verify unit-test
 
