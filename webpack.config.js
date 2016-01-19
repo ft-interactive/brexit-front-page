@@ -21,6 +21,11 @@ module.exports = {
 					presets: ['react', 'es2015']
 				}
 			},
+			// force fastclick to load CommonJS
+			{
+				test: /fastclick\.js$/,
+				loader: 'imports?define=>false'
+			},
 			{
                 test: /\.scss$/,
                 loader: ExtractTextPlugin.extract('css!autoprefixer!sass?includePaths[]=' + (path.resolve(__dirname, './bower_components')))
