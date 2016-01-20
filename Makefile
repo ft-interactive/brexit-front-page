@@ -12,7 +12,7 @@ verify:
 	nbt verify --skip-layout-checks
 
 unit-test:
-	export NODE_ENV=test; mocha --compilers js:babel/register --recursive --reporter spec test/components
+	export NODE_ENV=test; mocha  --require test/setup --recursive --reporter spec test/components
 
 test: verify unit-test
 
@@ -22,17 +22,8 @@ run:
 run-local:
 	nbt run --local
 
-run-hot-load:
-	export HOT_LOAD=1; nbt run
-
 watch:
-	nbt build --dev --watch \
-	    --watch-files-sass "./client/**/*.scss,./components/**/*.scss,./bower_components/**/*.scss" \
-	    --watch-files-js "./client/**/*.js,./components/**/*.js,./bower_components/**/*.js"
-
-watch-hot-load:
-	rm -f ./public/main.*
-	node server/dev/init
+	webpack --watch
 
 build:
 	nbt build --main-sass ie8.scss --skip-js --skip-about --skip-haikro --skip-hash --dev
