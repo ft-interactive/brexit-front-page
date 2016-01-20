@@ -7,7 +7,6 @@ clean:
 
 install:
 	obt install --verbose
-	bower install
 
 verify:
 	nbt verify --skip-layout-checks
