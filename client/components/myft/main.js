@@ -57,7 +57,7 @@ const handleResponse = (flags, response) => {
     myFtUi.updateUi();
 };
 
-const noop = (err) => { console.log(err); throw err; };
+const noop = () => { };
 
 const loadSection = flags => {
     if (flags.get('frontPageMyftSection') && sessionClient.cookie()) {
