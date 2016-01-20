@@ -23,6 +23,9 @@ run-local:
 	nbt run --local
 
 watch:
+	# NOTE: until https://phabricator.babeljs.io/T7010 is addressed, we use an older version of babel-helper-define-map
+	# i.e. the one we define in package.json
+	rm -rf node_modules/babel-preset-es2015/node_modules/babel-plugin-transform-es2015-classes/node_modules/babel-helper-define-map
 	webpack --watch
 
 build:
