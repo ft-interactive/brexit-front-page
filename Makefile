@@ -6,8 +6,8 @@ clean:
 	git clean -fxd
 
 install:
-	npm install Financial-Times/origami-build-tools#babelcore
 	obt install --verbose
+	bower install
 
 verify:
 	nbt verify --skip-layout-checks

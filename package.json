@@ -47,7 +47,7 @@
     "node-sass": "^3.4.2",
     "nodemon": "^1.3.2",
     "notify-saucelabs": "^1.0.1",
-    "origami-build-tools": "Financial-Times/origami-build-tools#babelcore",
+    "origami-build-tools": "Financial-Times/origami-build-tools#261128aa04646e4696d8e18d4ed5dfe283cdf652",
     "pre-git": "^3.3.0",
     "sass-loader": "^3.0.0",
     "sinon": "^1.16.1",
