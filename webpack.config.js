@@ -29,9 +29,9 @@ module.exports = {
 				loader: 'imports?define=>false'
 			},
 			{
-                test: /\.scss$/,
-                loader: ExtractTextPlugin.extract('css!autoprefixer!sass?includePaths[]=' + (path.resolve(__dirname, './bower_components')))
-            }
+				test: /\.scss$/,
+				loader: ExtractTextPlugin.extract('css!autoprefixer!sass?includePaths[]=' + (path.resolve(__dirname, './bower_components')))
+			}
 		]
 	},
 	plugins: [
@@ -39,8 +39,8 @@ module.exports = {
 			excludes: /\.scss$/
 		}),
 		new ExtractTextPlugin('[name]', {
-            allChunks: true
-        })
+			allChunks: true
+		})
 	],
 	resolve: {
 		root: [
