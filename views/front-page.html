@@ -6,117 +6,17 @@
 	<meta name="dfp_zone" content="{{region}}" />
 {{/defineBlock}}
 
-{{#if @root.flags.frontPageLayoutPrototype}}
-	{{> header-tabs newsTabTitle="Top Stories"}}
-	<section
-		id="main-body"
-		class="main-body o-grid-container n-util-clearfix">
+{{> header-tabs newsTabTitle="Top Stories"}}
+<section
+	id="main-body"
+	class="main-body o-grid-container n-util-clearfix">
 
-		<div class="o-grid-row">
-		{{#each sections}}
-			<div
-				id="{{id}}"
-				data-o-grid-colspan="{{colspan size}}"
-				{{#if dynamicContent}}data-section-content="{{json content}}"{{/if}}>{{#unless isClient}}{{{reactRenderToString ../Section spread=@this}}}{{/unless}}</div>
-		{{/each}}
-		</div>
-	</section>
-{{else}}
-	{{> header-tabs  newsTabTitle="News"}}
-	<div class="o-grid-container fixed-width-container">
-		<div class="o-grid-row">
-			<div class="main-content o-tabs__tabpanel" id="top-stories-section-content" data-o-grid-colspan="12 L8 XL9">
-				<h1 class="n-util-visually-hidden" id="lead-pod-title">Top stories</h1>
-				{{> lead-today leads=content.top.leads liveBlogs=content.top.liveBlogs items=content.top.items }}
-			</div>
-			<aside class="sidebar sidebar--fastft o-tabs__tabpanel" id="top-stories-section-aside" data-trackable="fastft" data-o-grid-colspan="12 L4 XL3" role="presentation">
-				<section id="fastft" data-fastft-articles="{{json content.fastFT.items}}">{{{ reactRenderToString FastFtFeed items=content.fastFT.items }}}</section>
-				{{#if @root.flags.frontPageHalfPageAd}}
-					<div class="sidebar-ad-placeholder ad-placeholder"></div>
-				{{/if}}
-			</aside>
-		</div>
+	<div class="o-grid-row">
+	{{#each sections}}
+		<div
+			id="{{id}}"
+			data-o-grid-colspan="{{colspan size}}"
+			{{#if dynamicContent}}data-section-content="{{json content}}"{{/if}}>{{#unless isClient}}{{{reactRenderToString ../Section spread=@this}}}{{/unless}}</div>
+	{{/each}}
 	</div>
-	{{#if content.editorsPicks.items}}
-		<div class="bordered-row header-tabs-panel">
-			<div class="o-grid-container">
-				<div class="o-grid-row">
-					<div class="main-content" data-o-grid-colspan="12">
-						<div class="flexipod flexipod--editors o-grid-container o-grid-container--compact" data-trackable="editors-picks" id="editors-picks">
-							<h1 class='carousel-heading' id="editors-picks-title" aria-hidden="true">{{content.editorsPicks.title}}</h1>
-							{{> editors items=content.editorsPicks.items id="editors-picks"}}
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	{{/if}}
-
-<!--!
-
- FFFFFFFFFFFFFFFFFFFFFFTTTTTTTTTTTTTTTTTTTTTTT
- F::::::::::::::::::::FT:::::::::::::::::::::T
- F::::::::::::::::::::FT:::::::::::::::::::::T
- FF::::::FFFFFFFFF::::FT:::::TT:::::::TT:::::T
-   F:::::F       FFFFFFTTTTTT  T:::::T  TTTTTT
-   F:::::F                     T:::::T
-   F::::::FFFFFFFFFF           T:::::T
-   F:::::::::::::::F           T:::::T
-   F:::::::::::::::F           T:::::T
-   F::::::FFFFFFFFFF           T:::::T
-   F:::::F                     T:::::T
-   F:::::F                     T:::::T
- FF:::::::FF                 TT:::::::TT
- F::::::::FF                 T:::::::::T
- F::::::::FF                 T:::::::::T
- FFFFFFFFFFF                 TTTTTTTTTTT
-
-Graduate? Hello! You've been inquisitive enough to find a link to our
-graduate scheme application.
-
-Here's the form ... http://goo.gl/forms/JWW62YdD6Z
-
-Here's the promo code ... IFOUNDIT!
-
-Good luck!
-
--->
-
-	<div class="o-grid-container header-tabs-panel">
-		<div class="o-grid-row">
-			<div class="main-content" data-o-grid-colspan="12 L9">
-				{{> opinion items=content.opinion.items url=content.opinion.url title="Opinion" id="opinion" }}
-				{{> topic items=content.lifestyle.items url=content.lifestyle.url title="Life & Arts" id="life-arts" }}
-				{{> topic items=content.markets.items url=content.markets.url title="Markets" id="markets" }}
-				{{> topic items=content.technology.items url=content.technology.url title="Technology" id="technology" }}
-			</div>
-			{{#if content.popularArticles}}
-				<aside class="sidebar sidebar--feed" role="presentation" data-o-grid-colspan="12 L3">
-					<section class="feed feed--popular" data-trackable="popular">
-						<div>
-							<div class="pod-heading pod-heading--feed">
-								<h1 id="popular-title" aria-hidden="true">Popular</h1>
-							</div>
-							{{{ reactRenderToString Feed items=content.popularArticles labelId="popular-title" }}}
-						</div>
-					</section>
-				</aside>
-			{{/if}}
-		</div>
-	</div>
-	{{#ifAll flags.frontPageVideo content.videos}}
-		<div class="bordered-row header-tabs-panel video-hub">
-			<div class="o-grid-container">
-				<div class="o-grid-row">
-					<div class="main-content" data-o-grid-colspan="12">
-						<div class="flexipod flexipod--video" data-trackable="video-picks" id="video-picks">
-							<h1 class='carousel-heading' id="editors-picks-title" aria-hidden="true">Video</h1>
-							<p class="video-hub--subtitle">Over 80 videos per week bring the news agenda to life</p>
-							{{> videos items=content.videos }}
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	{{/ifAll}}
-{{/if}}
+</section>

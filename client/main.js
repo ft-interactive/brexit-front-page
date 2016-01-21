@@ -13,7 +13,6 @@ import marketsData from './components/markets-data/main';
 import headerTabs from './components/header-tabs/main';
 import myft from './components/myft/main';
 import section from '../components/section/main';
-import fastFT from '../components/fastft/main';
 
 setup.bootstrap(({flags}) => {
 	// NOTE: make sure we init myft client *before* n-layout
@@ -23,9 +22,6 @@ setup.bootstrap(({flags}) => {
 	myFtClient.init(clientOpts);
 
 	layout.init(flags);
-
-	const feedContainer = document.getElementById('fastft');
-	fastFT.init(feedContainer);
 
 	nVideo.init({
 		placeholder: true,

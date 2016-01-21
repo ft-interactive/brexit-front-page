@@ -29,7 +29,8 @@ export default [
 				itemIndex: 1,
 				show: { default: false, M: true, L: false, XL: true },
 				image: { default: true, L: false },
-				landscape: { default: true, M: false, L: false }
+				landscape: { default: true, M: false, L: false },
+				imageSrcSet: { default: 449, s: 659, m: 199, l: 259, xl: 322 }
 			},
 			{ type: Content,
 				size: 'medium',
@@ -64,20 +65,19 @@ export default [
 			{ type: Content,
 				size: 'small',
 				itemIndex: 3,
-				show: { default: false, M: true, L: false, XL: true},
-				imageSrcSet: { default: 100, s: 100, m: 199, l: 259, xl: 322 }
+				show: { default: false, M: true, L: false, XL: true}
 			},
 			{
 				type: Content,
 				size: 'small',
 				image: { default: true },
+				imageSrcSet: { default: 449, s: 659, m: 199, l: 259, xl: 322 },
 				landscape: { default: true, M: false, L: true, XL: false },
 				show: { default: false, M: true},
 				itemIndex: 4
 			},
 			{ type: Content,
 				size: 'small',
-				image: { default: false },
 				show: { default: true, M: false, L: true, XL: false},
 				itemIndex: 5
 			},

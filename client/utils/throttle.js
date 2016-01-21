@@ -1,3 +1,4 @@
+
 const requestAnimationFrame = (fn, args) => {
 	if (window.requestAnimationFrame) {
 		window.requestAnimationFrame(() => fn.apply(null, args));
