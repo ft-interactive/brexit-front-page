@@ -46,13 +46,17 @@ const createFetch = url => {
     });
 };
 
+const filterDuplicateConcepts = (concept, index, allConcepts) =>
+    allConcepts.findIndex(allConcept => concept.id === allConcept.id) === index;
+
 const handleResponse = (flags, response) => {
     const { popularTopics, user: { viewed, followed } } = response;
     // add flag to followed topics
     followed.forEach(concept => concept.isFollowing = true);
-    // displayed topics are most viewed by this user followed by general popular topics
-    const topics = followed.concat(viewed, popularTopics);
-    section.init(document.getElementById('myft'), { main: topics }, flags.getAll());
+    // displayed topics are followed topics - most viewed by this user - general popular topics
+    const concepts = followed.concat(viewed, popularTopics)
+        .filter(filterDuplicateConcepts);
+    section.init(document.getElementById('myft'), { main: concepts }, flags.getAll());
     myFtUi.updateUi();
 };
 
