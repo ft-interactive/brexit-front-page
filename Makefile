@@ -7,6 +7,7 @@ clean:
 
 install:
 	obt install --verbose
+	bower install --config.registry.search=http://registry.origami.ft.com --config.registry.search=https://bower.herokuapp.com
 
 verify:
 	nbt verify --skip-layout-checks
