@@ -1,7 +1,6 @@
 import { getData } from '../libs/graphql-poller';
 import sectionContent from '../libs/section-content';
 
-import FastFtFeed from '../../components/fastft/fastftfeed';
 import Feed from '../../components/feed/feed';
 import Section from '../../components/section';
 import getSections from '../../config/layout';
@@ -14,10 +13,8 @@ const contentMissing = (data) => {
 export default (region) => {
 	return (req, res) => {
 
-		let frontPageData = (res.locals.flags.frontPageLayoutPrototype ? `newFrontPage${region}` : `frontPage${region}`);
-		if(res.locals.flags.mockFrontPage) {
-			frontPageData = (res.locals.flags.frontPageLayoutPrototype ? `mockFrontPageNew` : `mockFrontPage`);
-		}
+		let frontPageData = res.locals.flags.mockFrontPage ? 'mockFrontPage' : `frontPage${region}`;
+
 		const data = {
 			frontPage: getData(frontPageData),
 			popularTopics: getData('popularTopics')
@@ -50,7 +47,6 @@ export default (region) => {
 
 		const renderParams = {
 			layout: 'wrapper',
-			FastFtFeed,
 			Feed,
 			Section,
 			content: data.frontPage,
@@ -60,7 +56,7 @@ export default (region) => {
 				'https://next-markets-proxy.ft.com'
 			],
 			minifyHtml: res.locals.flags.frontPageMinifyHtml,
-			adsLayout: res.locals.flags.frontPageLayoutPrototype ? 'prototype': null
+			adsLayout: 'prototype'
 		};
 		if (res.locals.flags.frontPageHeaderMarketsData) {
 			renderParams.header = headerParams;

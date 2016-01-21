@@ -21,19 +21,12 @@ $o-grid-ie8-rules: false;
 @import "n-message-prompts/main";
 
 @import "colors";
-@import "type";
-@import "icons";
-@import "flexipod-layouts";
 
-@import "components/story-card/main";
-@import "components/carousel-card/main";
 @import "components/header-tabs/main";
 @import "components/video/main";
 @import "components/markets-data/main";
 @import "components/highlight-dom-path/main";
-@import "components/flexipod/main";
 
-@import "../components/fastft/main";
 @import "../components/section/main";
 @import "../components/fast-ft/main";
 @import "../components/feed/main";
@@ -56,9 +49,11 @@ html {
 	width: auto;
 }
 
-// HACK: horrible way of just targeting the prototype
-[data-ads-layout='prototype'] .next-header {
+.next-header {
 	margin-bottom: 0;
+	@include oGridRespondTo($from: L) {
+		margin-bottom: 20px;
+	}
 }
 
 .next-header__logo {
@@ -83,86 +78,6 @@ html {
 		padding-top: 0;
 	}
 
-	.flexipod--lead-today {
-		// TODO think about sinking the breakpoints into nhFlexipod
-		@include nhFlexipod(map-get($layout-lead-today, default));
-		position: relative;
-
-		@include oGridRespondTo(XS) {
-			@include nhFlexipod(map-get($layout-lead-today, XS));
-		}
-
-		@include oGridRespondTo(S) {
-			@include nhFlexipod(map-get($layout-lead-today, S));
-		}
-
-		@include oGridRespondTo(M) {
-			@include nhFlexipod(map-get($layout-lead-today, M));
-		}
-
-		@include oGridRespondTo(L) {
-			@include nhFlexipod(map-get($layout-lead-today, L), 9);
-		}
-	}
-
-	.flexipod--opinion {
-		// TODO think about sinking the breakpoints into nhFlexipod
-		@include nhFlexipod(map-get($layout-opinion, default));
-
-		@include oGridRespondTo(XS) {
-			@include nhFlexipod(map-get($layout-opinion, XS));
-		}
-
-		@include oGridRespondTo(S) {
-			@include nhFlexipod(map-get($layout-opinion, S));
-		}
-
-		@include oGridRespondTo(M) {
-			@include nhFlexipod(map-get($layout-opinion, M), 9);
-		}
-	}
-
-	.flexipod--topic {
-		// TODO think about sinking the breakpoints into nhFlexipod
-		@include nhFlexipod(map-get($layout-topic, default));
-
-		@include oGridRespondTo(S) {
-			@include nhFlexipod(map-get($layout-topic, S));
-		}
-
-		@include oGridRespondTo(M) {
-			@include nhFlexipod(map-get($layout-topic, S), 9);
-		}
-	}
-}
-
-.next-header {
-	@include oGridRespondTo($from: L) { margin-bottom: 20px; }
-}
-
-.bordered-spacer {
-	margin: 10px 0;
-	height: 10px;
-}
-
-.bordered-row {
-	overflow: hidden;
-	clear: both;
-	position: relative;
-	background-color: oColorsGetPaletteColor('warm-carousel');
-	padding: 10px 0;
-	margin: 0 0 20px;
-	&::before,
-	&::after {
-		@include dots;
-		position: absolute;
-	}
-	&::before { top: 0; }
-	&::after { bottom: 0; }
-
-	&.video-hub {
-		background-color: oColorsGetColorFor('dark-bg', 'background');
-	}
 }
 
 .main-body {
