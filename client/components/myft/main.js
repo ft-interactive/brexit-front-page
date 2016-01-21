@@ -7,33 +7,30 @@ import * as myFtUi from 'next-myft-ui';
 import section from '../../../components/section/main';
 
 const query = `
+    fragment Basic on Concept {
+        id
+        name
+        url
+        taxonomy
+        items(limit: 2) {
+            id
+            title
+            primaryImage {
+                rawSrc
+            }
+        }
+	}
+
 	query MyFT {
         popularTopics(limit: 3) {
-            id
-            name
-            url
-            taxonomy
-            items(limit: 3) {
-                id
-                title
-                primaryImage {
-                    rawSrc
-                }
-            }
+            ... Basic
         }
         user {
             viewed(limit: 3) {
-                id
-                name
-                url
-                taxonomy
-                items(limit: 3) {
-                    id
-                    title
-                    primaryImage {
-                        rawSrc
-                    }
-                }
+                ... Basic
+            }
+            followed(limit: 3) {
+                ... Basic
             }
         }
 	}
@@ -50,9 +47,11 @@ const createFetch = url => {
 };
 
 const handleResponse = (flags, response) => {
-    const { popularTopics, user: { viewed} } = response;
+    const { popularTopics, user: { viewed, followed } } = response;
+    // add flag to followed topics
+    followed.forEach(concept => concept.isFollowing = true);
     // displayed topics are most viewed by this user followed by general popular topics
-    const topics = viewed.concat(popularTopics);
+    const topics = followed.concat(viewed, popularTopics);
     section.init(document.getElementById('myft'), { main: topics }, flags.getAll());
     myFtUi.updateUi();
 };
