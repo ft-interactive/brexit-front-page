@@ -75,9 +75,6 @@ export default (sectionContents, flags = {}) => {
 				default: 12
 			},
 			cols: {
-				meta: {
-					default: 12
-				},
 				content: {
 					default: 12
 				}

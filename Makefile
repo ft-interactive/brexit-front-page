@@ -7,12 +7,13 @@ clean:
 
 install:
 	obt install --verbose
+	bower install --config.registry.search=http://registry.origami.ft.com --config.registry.search=https://bower.herokuapp.com
 
 verify:
 	nbt verify --skip-layout-checks
 
 unit-test:
-	export NODE_ENV=test; mocha --compilers js:babel/register --recursive --reporter spec test/components
+	export NODE_ENV=test; mocha  --require test/setup --recursive --reporter spec test/components
 
 test: verify unit-test
 
@@ -22,17 +23,11 @@ run:
 run-local:
 	nbt run --local
 
-run-hot-load:
-	export HOT_LOAD=1; nbt run
-
 watch:
-	nbt build --dev --watch \
-	    --watch-files-sass "./client/**/*.scss,./components/**/*.scss,./bower_components/**/*.scss" \
-	    --watch-files-js "./client/**/*.js,./components/**/*.js,./bower_components/**/*.js"
-
-watch-hot-load:
-	rm -f ./public/main.*
-	node server/dev/init
+	# NOTE: until https://phabricator.babeljs.io/T7010 is addressed, we use an older version of babel-helper-define-map
+	# i.e. the one we define in package.json
+	rm -rf node_modules/babel-preset-es2015/node_modules/babel-plugin-transform-es2015-classes/node_modules/babel-helper-define-map
+	webpack --watch
 
 build:
 	nbt build --main-sass ie8.scss --skip-js --skip-about --skip-haikro --skip-hash --dev

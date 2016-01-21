@@ -1,20 +1,19 @@
-require('babel/register')({
-	whitelist: [
-		'es6.arrowFunctions',
-		'es6.destructuring',
-		'es6.modules',
-		'es6.parameters',
-		'es6.spread',
+// modules that need to be compiled by babel
+const es6Modules = ['next-myft-ui', 'n-image'];
 
-		'react',
-		'strict'
+require('babel-register')({
+	plugins: [
+		'add-module-exports',
+		'array-includes',
+		'transform-es2015-destructuring',
+		'transform-es2015-modules-commonjs',
+		'transform-es2015-parameters',
+		'transform-es2015-spread'
 	],
-	ignore: function(filename) {
-		if (filename.includes('/node_modules/') && !filename.includes('/node_modules/n-image')) {
-			return true;
-		} else {
-			return false;
-		}
-	}
+	presets: [
+		'react'
+	],
+	ignore: filename =>
+		filename.includes('/node_modules/') && !es6Modules.some(module => filename.includes(`/node_modules/${module}`))
 });
 module.exports = require('./init');

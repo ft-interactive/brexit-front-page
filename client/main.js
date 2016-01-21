@@ -16,6 +16,12 @@ import section from '../components/section/main';
 import fastFT from '../components/fastft/main';
 
 setup.bootstrap(({flags}) => {
+	// NOTE: make sure we init myft client *before* n-layout
+	const clientOpts = [];
+	flags.get('follow') && clientOpts.push({relationship: 'followed', type: 'concept'});
+	flags.get('saveForLater') && clientOpts.push({relationship: 'saved', type: 'content'});
+	myFtClient.init(clientOpts);
+
 	layout.init(flags);
 
 	const feedContainer = document.getElementById('fastft');
@@ -34,17 +40,16 @@ setup.bootstrap(({flags}) => {
 
 	if(flags.get("mostPopularByIndustry")) {
 		const mostPopularContainer = document.getElementById('most-popular');
-		const mostPopularContent = JSON.parse(mostPopularContainer.getAttribute('data-section-content'));
-		section.init(mostPopularContainer, mostPopularContent, flags.getAll());
+
+		if(mostPopularContainer) {
+			const mostPopularContent = JSON.parse(mostPopularContainer.getAttribute('data-section-content'));
+			section.init(mostPopularContainer, mostPopularContent, flags.getAll());
+		}
 	}
 	myft.loadSection(flags);
 
 	// NOTE - these are last as they depend on polyfills from the polyfill service
 	// (which fails in e.g. BB10 - https://github.com/3rd-Eden/useragent/issues/83)
-	const clientOpts = [];
-	flags.get('follow') && clientOpts.push({relationship: 'followed', type: 'concept'});
-	flags.get('saveForLater') && clientOpts.push({relationship: 'saved', type: 'content'});
-	myFtClient.init(clientOpts);
 	myFtUi.init({anonymous: !(/FTSession=/.test(document.cookie))});
 
 	marketsData.init(flags);
