@@ -46,7 +46,7 @@ const expandProps = (props) => {
 	expandedProps.showRelated = showRelated(props.related, item.relatedContent);
 	expandedProps.last = props.last;
 
-	if(['large', 'huge'].includes(props.size) && !item.primaryImage) {
+	if(['large', 'huge'].indexOf(props.size) >= 0 && !item.primaryImage) {
 		expandedProps.size = 'large-no-image';
 	} else {
 		expandedProps.size = props.size;
