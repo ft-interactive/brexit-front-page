@@ -10,7 +10,8 @@ export default [
 				size: 'small',
 				landscape: { default: true, S: false },
 				image: { default: true },
-				imageStick: { default: true}
+				imageStick: { default: true},
+				imageSrcSet: { default: 100, s: 315, m: 277, l: 161, xl: 203 }
 			}
 		]
 	},
@@ -23,7 +24,9 @@ export default [
 				size: 'small',
 				landscape: { default: true, S: false },
 				image: { default: true },
-				imageStick: { default: true}
+				imageStick: { default: true},
+				imageSrcSet: { default: 100, s: 315, m: 277, l: 161, xl: 203 }
+
 			}
 		]
 	},
@@ -36,7 +39,8 @@ export default [
 				size: 'small',
 				landscape: { default: true, S: false },
 				image: { default: true },
-				imageStick: { default: true}
+				imageStick: { default: true},
+				imageSrcSet: { default: 100, s: 315, m: 277, l: 161, xl: 203 }
 			}
 		]
 	},
@@ -49,7 +53,8 @@ export default [
 				size: 'small',
 				landscape: { default: true, S: false },
 				image: { default: true },
-				imageStick: { default: true}
+				imageStick: { default: true},
+				imageSrcSet: { default: 100, s: 315, m: 277, l: 161, xl: 203 }
 			}
 		]
 	}
