@@ -35,6 +35,7 @@ export default class SectionBrowser extends SectionNode {
 
 		if(uuid === 'initial') {
 			this.setState({content: this.props.content})
+			this.defaultSourceStore.unset(this.props.dynamicContent.rememberSource);
 		} else {
 			//Save choice to local storage
 			this.defaultSourceStore.set(this.props.dynamicContent.rememberSource, uuid);
