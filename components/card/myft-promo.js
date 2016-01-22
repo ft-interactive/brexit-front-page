@@ -14,7 +14,7 @@ class Concept extends Component {
 					<p className="myft-promo__description">Save time by following topics to create your own news feed.</p>
 					<p className="myft-promo__description myft-promo__description--large">You choose the topics, we deliver the news.</p>
 					<p className="myft-promo__link-wrapper">
-						<a href="/myft/product-tour" className="myft-promo__link" data-trackable="link">Take a tour of myFT</a>
+						<a href="/myft/product-tour" className="myft-promo__link" data-trackable="link">Take a tour of <em>my</em>FT</a>
 					</p>
 				</div>
 			</div>

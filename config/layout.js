@@ -68,7 +68,7 @@ export default (sectionContents, flags = {}) => {
 		},
 		{
 			id: 'myft',
-			title: 'myFT',
+			title: '<span class="section-meta__myft-icon">myFT</span>',
 			style: 'myft',
 			getLayout: () => myftLayout,
 			size: {
