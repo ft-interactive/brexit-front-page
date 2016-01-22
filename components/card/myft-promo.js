@@ -1,11 +1,22 @@
 import React, { Component } from 'react';
 
+import Image from 'n-image';
+
 class Concept extends Component {
 	render () {
 		return (
-			<div className="myft-promo" data-trackable="myft-promo">
-				<h2 className="myft-promo__title"><span className="myft-promo__logo"><span className="myft-promo__logo-prefix">my</span>FT</span> recommend you follow:</h2>
-				<p className="myft-promo__description">You choose the topics, we deliver the news</p>
+			<div className="card card--myft-promo" data-trackable="myft-promo">
+				<div className="myft-promo">
+					<Image
+						url="https://next-geebee.ft.com/assets/myft-tour/devices-dot.png"
+						imgClass="myft-promo__image"
+						srcset={{ default: 177, m: 110, l: 143, xl: 177}} />
+					<p className="myft-promo__description">Save time by following topics to create your own news feed.</p>
+					<p className="myft-promo__description myft-promo__description--large">You choose the topics, we deliver the news.</p>
+					<p className="myft-promo__link-wrapper">
+						<a href="/myft/product-tour" className="myft-promo__link" data-trackable="link">Take a tour of myFT</a>
+					</p>
+				</div>
 			</div>
 		);
 	}

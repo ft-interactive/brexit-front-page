@@ -7,37 +7,78 @@ import * as myFtUi from 'next-myft-ui';
 import section from '../../../components/section/main';
 
 const query = `
-	query User {
+    fragment Basic on Concept {
+        id
+        name
+        url
+        taxonomy
+        items(limit: 6) {
+            id
+            title
+            primaryImage {
+                rawSrc
+            }
+        }
+	}
+
+	query MyFT {
+        popularTopics(limit: 3) {
+            ... Basic
+        }
         user {
             viewed(limit: 3) {
-                id
-                name
-                url
-                taxonomy
-                items(limit: 3) {
-                    id
-                    title
-                    primaryImage {
-                        rawSrc
-                    }
-                }
+                ... Basic
+            }
+            followed(limit: 3) {
+                ... Basic
             }
         }
 	}
 `;
 
+// condense multiple spaces to one
+const slimQuery = query => encodeURIComponent(query.replace(/\s+/g, ' '));
+
+const createFetch = url => {
+    const fetchFn = ('XDomainRequest' in window) ? nJsonpFetch : fetch;
+    return fetchFn(url, {
+        credentials: 'include'
+    });
+};
+
+const filterDuplicateConcepts = (concept, index, allConcepts) =>
+    allConcepts.findIndex(allConcept => concept.id === allConcept.id) === index;
+
+const filterDuplicateArticles = (articles, concept) => {
+    concept.items = concept.items
+        .filter(item =>
+            !articles.find(article => article.id === item.id)
+        )
+        .slice(0, 2);
+    return articles.concat(concept.items);
+};
+
+const handleResponse = (flags, response) => {
+    const { popularTopics, user: { viewed, followed } } = response;
+    // flag up followed concepts
+    followed.forEach(concept => concept.isFollowing = true);
+    // displayed concepts are: followed concepts -> most viewed by this user -> general popular concepts
+    const concepts = followed.concat(viewed, popularTopics)
+        .filter(filterDuplicateConcepts)
+        .slice(0, 3);
+    concepts.reduce(filterDuplicateArticles, []);
+    section.init(document.getElementById('myft'), { main: concepts }, flags.getAll());
+    myFtUi.updateUi();
+};
+
+const noop = () => { };
+
 const loadSection = flags => {
     if (flags.get('frontPageMyftSection') && sessionClient.cookie()) {
-        const fetchFn = ('XDomainRequest' in window) ? nJsonpFetch : fetch;
-        fetchFn('https://next-graphql-api.ft.com/data?query=' + encodeURIComponent(query.replace(/\s+/g, ' ')), {
-            credentials: 'include'
-        })
+        createFetch(`https://next-graphql-api.ft.com/data?query=${slimQuery(query)}`)
             .then(fetchJson)
-            .then(data => {
-                section.init(document.getElementById('myft'), { main: data.user.viewed }, flags.getAll());
-                myFtUi.updateUi();
-            })
-            .catch(() => { });
+            .then(handleResponse.bind(undefined, flags))
+            .catch(noop);
     }
 };
 
