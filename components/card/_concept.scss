@@ -137,25 +137,53 @@
 }
 
 // myFt promo
-.myft-promo__title {
-    @include oTypographySansBold(m);
-    margin: 0;
-}
-
-.myft-promo__logo {
-    @include oTypographySansBold(l);
-}
-
-.myft-promo__logo-prefix {
-    @include oTypographySerifItalic(m);
-}
-
 .myft-promo__image {
-    margin-top: 10px;
-    max-width: 100%;
+    max-width: 55%;
+    display: block;
+    margin: 0 auto;
+}
+
+.myft-promo__description,
+.myft-promo__link-wrapper {
+    text-align: center;
+    margin: 10px 0 0;
 }
 
 .myft-promo__description {
     @include oTypographySans(m);
     color: getColor('cold-1');
+
+    @include oGridRespondTo(M) {
+        font-size: 16px;
+        line-height: 18px;
+    }
+    @include oGridRespondTo(XL) {
+        @include oTypographySansSize(m);
+    }
+}
+
+.myft-promo__description--large {
+    @include oTypographySansSize(l);
+
+    @include oGridRespondTo(M) {
+        @include oTypographySansSize(m);
+    }
+    @include oGridRespondTo(XL) {
+        @include oTypographySansSize(l);
+    }
+}
+
+.myft-promo__link {
+    position: relative;
+    display: inline-block;
+    border-bottom-style: solid;
+
+    &:after {
+        display: inline-block;
+        position: absolute;
+        right: -13px;
+        top: -2px;
+        font-size: 1.3em;
+        content: '>';
+    }
 }
