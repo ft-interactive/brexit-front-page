@@ -19,7 +19,7 @@ setup.bootstrap(({flags}) => {
 	const clientOpts = [];
 	flags.get('follow') && clientOpts.push({relationship: 'followed', type: 'concept'});
 	flags.get('saveForLater') && clientOpts.push({relationship: 'saved', type: 'content'});
-	myFtClient.init(clientOpts);
+	const myftClient = myFtClient.init(clientOpts);
 
 	layout.init(flags);
 
@@ -42,7 +42,7 @@ setup.bootstrap(({flags}) => {
 			section.init(mostPopularContainer, mostPopularContent, flags.getAll());
 		}
 	}
-	myft.loadSection(flags);
+	myft.loadSection(myftClient, flags);
 
 	// NOTE - these are last as they depend on polyfills from the polyfill service
 	// (which fails in e.g. BB10 - https://github.com/3rd-Eden/useragent/issues/83)

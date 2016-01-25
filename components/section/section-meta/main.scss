@@ -7,6 +7,10 @@
 	}
 }
 
+.section-meta__link--myft-logo {
+	border-bottom: 0;
+}
+
 .section-meta__date {
 	@include oTypographySansBold(m);
 
@@ -38,7 +42,7 @@
 }
 
 .section-meta__myft-icon {
-	@include nextIcon('myft-bolder', getColor('balck'), 60);
+	@include nextIcon('myft-bolder', getColor('black'), 60);
 	height: 28px;
 	text-indent: -100px;
 }

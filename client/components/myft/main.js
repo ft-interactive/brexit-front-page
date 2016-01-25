@@ -58,7 +58,7 @@ const filterDuplicateArticles = (articles, concept) => {
     return articles.concat(concept.items);
 };
 
-const handleResponse = (flags, response) => {
+const handleResponse = (myftClient, flags, response) => {
     const { popularTopics, user: { viewed, followed } } = response;
     // flag up followed concepts
     followed.forEach(concept => concept.isFollowing = true);
@@ -68,16 +68,19 @@ const handleResponse = (flags, response) => {
         .slice(0, 3);
     concepts.reduce(filterDuplicateArticles, []);
     section.init(document.getElementById('myft'), { main: concepts }, flags.getAll());
-    myFtUi.updateUi();
+    // only update ui after we've got a response from myft
+    myftClient
+        .then(() => myFtUi.updateUi())
+        .catch(noop);
 };
 
 const noop = () => { };
 
-const loadSection = flags => {
-    if (flags.get('frontPageMyftSection') && sessionClient.cookie()) {
+const loadSection = (myftClient, flags) => {
+    if (flags.get('frontPageMyftSection') && flags.get('myFtApi') && sessionClient.cookie()) {
         createFetch(`https://next-graphql-api.ft.com/data?query=${slimQuery(query)}`)
             .then(fetchJson)
-            .then(handleResponse.bind(undefined, flags))
+            .then(handleResponse.bind(undefined, myftClient, flags))
             .catch(noop);
     }
 };
