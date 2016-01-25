@@ -69,7 +69,6 @@ const init = (flags) => {
 	if (!flags.get('frontPageHeaderMarketsData')) {
 		return;
 	}
-	//render();
 	let securities;
 	switch(window.location.pathname.substring(1)) {
 		case 'international':

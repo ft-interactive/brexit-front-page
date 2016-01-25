@@ -46,6 +46,12 @@ const createFetch = url => {
     });
 };
 
+const errorHandler = err => {
+    window.setTimeout(() => {
+        throw err;
+    });
+};
+
 const filterDuplicateConcepts = (concept, index, allConcepts) =>
     allConcepts.findIndex(allConcept => concept.id === allConcept.id) === index;
 
@@ -71,17 +77,15 @@ const handleResponse = (myftClient, flags, response) => {
     // only update ui after we've got a response from myft
     myftClient
         .then(() => myFtUi.updateUi())
-        .catch(noop);
+        .catch(errorHandler);
 };
-
-const noop = () => { };
 
 const loadSection = (myftClient, flags) => {
     if (flags.get('frontPageMyftSection') && flags.get('myFtApi') && sessionClient.cookie()) {
         createFetch(`https://next-graphql-api.ft.com/data?query=${slimQuery(query)}`)
             .then(fetchJson)
             .then(handleResponse.bind(undefined, myftClient, flags))
-            .catch(noop);
+            .catch(errorHandler);
     }
 };
 
