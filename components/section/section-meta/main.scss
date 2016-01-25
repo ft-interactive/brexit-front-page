@@ -7,6 +7,10 @@
 	}
 }
 
+.section-meta__link--myft-logo {
+	border-bottom: 0;
+}
+
 .section-meta__date {
 	@include oTypographySansBold(m);
 
