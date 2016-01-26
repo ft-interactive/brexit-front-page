@@ -51,8 +51,8 @@
     }
 
     .card--followed-concept & {
-        font-size: 18px;
-        line-height: 20px;
+        font-size: 16px;
+        line-height: 1em;
         color: getColor('claret');
         padding: 10px 100px 0 0;
         min-height: 26px;
@@ -77,6 +77,11 @@
         top: 10px;
         right: 0;
     }
+}
+
+.card--non-followed-concept .n-myft-ui__button {
+    color: #48e6eb;
+    border-color: #48e6eb;
 }
 
 .card__concept-image {
@@ -154,20 +159,8 @@
 }
 
 .myft-promo__description {
-    @include oTypographySans(m);
-    color: getColor('cold-1');
-
-    @include oGridRespondTo(M) {
-        font-size: 16px;
-        line-height: 18px;
-    }
-    @include oGridRespondTo(XL) {
-        @include oTypographySansSize(m);
-    }
-}
-
-.myft-promo__description--large {
     @include oTypographySansSize(l);
+    color: getColor('cold-1');
 
     @include oGridRespondTo(M) {
         @include oTypographySansSize(m);

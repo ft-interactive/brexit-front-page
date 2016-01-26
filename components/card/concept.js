@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 import Image from 'n-image';
 import Follow from 'next-myft-ui/templates/follow';
 
+import { responsiveValue } from './helpers';
+
 // generic images for this concept
 const taxonomyImages = {
 	authors: 'http://com.ft.imagepublish.prod.s3.amazonaws.com/cca52406-bda0-11e5-9fdb-87b8d15baec2',
@@ -64,6 +66,14 @@ class Concept extends Component {
 		} else {
 			classes.push('card--non-followed-concept');
 		}
+		const attrs = {
+			className: classes.join(' '),
+			'data-trackable': 'concept'
+		};
+		const showCard = responsiveValue(this.props.show);
+		if (showCard.includes('false')) {
+			attrs['data-show'] = showCard;
+		}
 		const title = concept.isFollowing ?
 			<a
 				className="card__concept-title__link"
@@ -80,7 +90,7 @@ class Concept extends Component {
 		));
 
 		return (
-			<section className={classes.join(' ')} data-trackable="concept">
+			<section {...attrs}>
 				<div className="card__concept-container">
 					<Image {...createImageComponentAttrs(concept)} />
 					<div className="card__concept-container__text">
