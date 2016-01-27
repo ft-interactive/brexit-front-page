@@ -80,11 +80,12 @@ const handleResponse = (myftClient, flags, response) => {
     const section = getSection('myft', { main: concepts }, flags.getAll());
     // if there are already followed topics, update the promo
     if (followed.length) {
-        section.layout.forEach(col => col.cards.forEach(card => {
-            if (card.type === MyftPromo) {
-                card.isMyftUser = true;
-            }
-        }));
+        section.layout.forEach(col =>
+            col.cards
+                .filter(card => card.type === MyftPromo)
+                .map(card => Object.assign(card, { isMyftUser: true })
+            )
+        );
     }
     ReactDOM.render(<Section {...section} />, document.getElementById('myft'));
     myftClient
