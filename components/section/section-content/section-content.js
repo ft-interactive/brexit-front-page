@@ -14,44 +14,30 @@ export default class SectionContent extends Component {
 		const layout = this.props.layout(items);
 		let storyIndex = 0;
 
-		const columns = layout.map((column, colIdx) => {
-			const colspan = colspanToString(column.colspan);
-
-			let className = `column ${this.props.style}__column`;
-
-			if(column.className) {
-				className += ` ${column.className}`;
-			}
-
-			const output = column.items.map((props, index) => {
-				let item;
-				let key;
-				if([Content, Concept, Video].some(type => type === props.type)) {
-					props.itemIndex = props.itemIndex || storyIndex++;
-					item = items[ props.itemIndex ];
-					props.cardIndex = index;
-					key = item ? item.id : null;
-				} else {
-					//TODO: set key for non-content items
-					key = this.props.id + index;
-				}
-				return (
-					 key ? <Card {...props} item={item} key={key} /> : null
-				)
-			});
-
-			return (
-				<div className={className} data-o-grid-colspan={colspan} key={colIdx}>
-					{output}
-				</div>
-			);
+		const renderComponents = (components) => components.map((component, index) => {
+			return <component.type {...component} key={this.props.key + 'child_' + index} />
 		});
+
+		//Assign content to cards
+
+		const assignContent = (components) => components.map((component) => {
+			console.log('component', component);
+			if([Content, Concept, Video].some(type => type === component.cardType)) {
+				console.log('setting stuff for component', component);
+				component.itemIndex = component.itemIndex || storyIndex++;
+				component.item = items[component.itemIndex];
+				console.log('setting component item', component.item);
+			} else if (component.components && component.components.length) {
+				//If this is a row or column, keep adding items to their children
+				assignContent(component.components);
+			}
+		});
+
+		assignContent(layout);
 
 		return (
 			<div>
-				<div className="o-grid-row">
-					{columns}
-				</div>
+				{renderComponents(layout)}
 			</div>
 		)
 	}
