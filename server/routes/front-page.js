@@ -2,7 +2,7 @@ import { getData } from '../libs/graphql-poller';
 import sectionContent from '../libs/section-content';
 
 import Section from '../../components/section';
-import getPage from '../../config/pages';
+import getPages from '../../config/pages';
 
 // bail unless we have at least one top story
 const contentMissing = (data) => {
@@ -44,7 +44,7 @@ export default (region) => {
 			inside: '<p class="markets-data-disclaimer">Markets data delayed by at least 15 minutes</p>'
 		};
 
-		const sections = getPage('front-page', sectionContent(data), res.locals.flags);
+		const sections = getPages('front-page', sectionContent(data), res.locals.flags);
 
 		const renderParams = {
 			layout: 'wrapper',

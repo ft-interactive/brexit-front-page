@@ -1,4 +1,4 @@
-import getSection from './pages';
+import getSection from './sections';
 
 const pages = {
 	// ordered list of sections for the front page
@@ -15,6 +15,5 @@ const pages = {
 	]
 };
 
-export default (pageId, sectionsContent, flags) => {
-	return pages[pageId].map(sectionId => getSection(sectionId, sectionsContent[sectionId], flags));
-}
+export default (pageId, sectionsContent, flags) =>
+	pages[pageId].map(sectionId => getSection(sectionId, sectionsContent[sectionId], flags));
