@@ -23,7 +23,7 @@ export default class SectionContent extends Component {
 				className += ` ${column.className}`;
 			}
 
-			const cards = column.cards.map((props, index) => {
+			const output = column.items.map((props, index) => {
 				let item;
 				let key;
 				if([Content, Concept, Video].some(type => type === props.type)) {
@@ -42,7 +42,7 @@ export default class SectionContent extends Component {
 
 			return (
 				<div className={className} data-o-grid-colspan={colspan} key={colIdx}>
-					{cards}
+					{output}
 				</div>
 			);
 		});

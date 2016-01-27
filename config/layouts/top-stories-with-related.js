@@ -5,7 +5,7 @@ export default [
 	{
 		type: 'column',
 		colspan: { default: 12, M: 5 },
-		cards:
+		items:
 		[
 			{ type: Content,
 				size: 'large-top-story',
@@ -19,7 +19,7 @@ export default [
 	//Column 1
 	{
 		colspan: { default: 12, M: 4 },
-		cards: [
+		items: [
 			{ type: Content,
 				size: 'small',
 				landscape: { default: 'true' }
@@ -45,7 +45,7 @@ export default [
 	//Column 2
 	{
 		colspan: { default: 12, M: 3 },
-		cards: [
+		items: [
 			{
 				type: Content,
 				size: 'tiny',

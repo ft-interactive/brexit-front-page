@@ -4,7 +4,7 @@ import Ad from '../../components/card/ad';
 export default [
 	{
 		colspan: { default: 12, M: 3, L: 4, XXL: 3},
-		cards: [
+		items: [
 			{ type: Content,
 				size: 'large',
 				standFirst: { default: true },
@@ -23,7 +23,7 @@ export default [
 	{
 		className: 'most-popular__column-with-ad',
 		colspan: { default: 12, M: 3, L: 4 },
-		cards: [
+		items: [
 			{ type: Content,
 				size: 'medium',
 				itemIndex: 1,
@@ -56,7 +56,7 @@ export default [
 	{
 		className: 'most-popular__column-after-ad',
 		colspan: { default: 12, M: 3, L: 4, XL: 2},
-		cards: [
+		items: [
 			{ type: Content,
 				size: 'small',
 				show: { default: false, XL: true },
@@ -103,7 +103,7 @@ export default [
 	},
 	{
 		colspan: { default: 12, M: 3, L: 'hide', XL: 2, XXL: 3},
-		cards: [
+		items: [
 			{
 				type: Content,
 				size: 'tiny',

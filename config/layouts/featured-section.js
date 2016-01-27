@@ -3,7 +3,7 @@ import Content from '../../components/card/content';
 export default [
 	{
 		colspan: { default: 12 },
-		cards: [
+		items: [
 			{
 				type: Content,
 				size: 'small',

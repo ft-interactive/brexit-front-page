@@ -3,7 +3,7 @@ import Content from '../../components/card/content';
 export default [
 	{
 		colspan: { default: 12, M: 3},
-		cards: [
+		items: [
 			{ type: Content,
 				size: 'large',
 				standFirst: { default: true },
@@ -14,7 +14,7 @@ export default [
 	},
 	{
 		colspan: { default: 12, M: 3},
-		cards: [
+		items: [
 			{ type: Content,
 				size: 'medium',
 			},
@@ -28,7 +28,7 @@ export default [
 	},
 	{
 		colspan: { default: 12, M: 3},
-		cards: [
+		items: [
 			{ type: Content,
 				size: 'small',
 				image: { default: true },
@@ -43,7 +43,7 @@ export default [
 	},
 	{
 		colspan: { default: 12, M: 3},
-		cards: [
+		items: [
 			{
 				type: Content,
 				size: 'tiny',

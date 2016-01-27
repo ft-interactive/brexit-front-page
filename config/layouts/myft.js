@@ -6,7 +6,7 @@ export default [
     {
         type: 'column',
         colspan: { default: 12, M: 3 },
-        cards: [
+        items: [
             {
                 type: MyftPromo
             }
@@ -15,7 +15,7 @@ export default [
     //Column 1
     {
         colspan: { default: 12, M: 3 },
-        cards: [
+        items: [
             {
                 type: Concept
             }
@@ -24,7 +24,7 @@ export default [
     //Column 2
     {
         colspan: { default: 12, M: 3 },
-        cards: [
+        items: [
             {
                 type: Concept
             }
@@ -33,7 +33,7 @@ export default [
     //Column 3
     {
         colspan: { default: 12, M: 3 },
-        cards: [
+        items: [
             {
                 type: Concept
             }

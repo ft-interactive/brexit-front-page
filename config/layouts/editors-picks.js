@@ -4,7 +4,7 @@ export default [
 	//Column 0
 	{
 		colspan: { default: 12, S: 6, M: 4, L: 2 },
-		cards:
+		items:
 		[
 			{ type: Content,
 				size: 'small',
@@ -18,7 +18,7 @@ export default [
 	//Column 1
 	{
 		colspan: { default: 12, S: 6, M: 4, L: 2 },
-		cards:
+		items:
 		[
 			{ type: Content,
 				size: 'small',
@@ -32,7 +32,7 @@ export default [
 	//Column 2
 	{
 		colspan: { default: 12, S: 6, M: 4, L: 2 },
-		cards:
+		items:
 		[
 			{ type: Content,
 				size: 'small',
@@ -46,7 +46,7 @@ export default [
 	//Column 3
 	{
 		colspan: { default: 12, S: 6, M: 4, L: 2 },
-		cards:
+		items:
 		[
 			{ type: Content,
 				size: 'small',
@@ -60,7 +60,7 @@ export default [
 	//Column 4
 	{
 		colspan: { default: 12, S: 6, M: 4, L: 2 },
-		cards:
+		items:
 		[
 			{ type: Content,
 				size: 'small',
@@ -74,7 +74,7 @@ export default [
 	//Column 5
 	{
 		colspan: { default: 12, S: 6, M: 4, L: 2 },
-		cards:
+		items:
 		[
 			{ type: Content,
 				size: 'small',
