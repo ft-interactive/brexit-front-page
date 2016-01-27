@@ -2,20 +2,16 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import Section from '.';
-import getSections from '../../config/layout';
+import getSection from '../../config/sections/index';
 
-const layoutForSection = (layout, sectionId) => layout.find((section) => (section.id === sectionId));
+const init = (el, content, flags) => {
+	if (!el) {
+		return;
+	}
+	const section = getSection(el.id, content, flags);
 
-function init (el, content, flags) {
-	if (!el) return;
-
-	ReactDOM.render(
-		<Section
-			{...layoutForSection(getSections({ [el.id]: content }, flags), el.id)}
-			data-o-grid-colspan="12" />,
-		el
-	);
-}
+	ReactDOM.render(<Section {...section} />, el);
+};
 
 export default {
 	init

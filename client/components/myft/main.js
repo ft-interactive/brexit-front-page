@@ -6,6 +6,8 @@ import * as myFtUi from 'next-myft-ui';
 
 import section from '../../../components/section/main';
 
+import { getSection } from '../../../config/pages';
+
 const query = `
     fragment Basic on Concept {
         id
@@ -73,7 +75,6 @@ const handleResponse = (myftClient, flags, response) => {
         .slice(0, 3);
     concepts.reduce(filterDuplicateArticles, []);
     section.init(document.getElementById('myft'), { main: concepts }, flags.getAll());
-    // only update ui after we've got a response from myft
     myftClient
         .then(() => myFtUi.updateUi())
         .catch(errorHandler);
