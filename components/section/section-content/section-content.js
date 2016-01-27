@@ -11,7 +11,7 @@ import colspanToString from '../../../client/utils/colspan';
 export default class SectionContent extends Component {
 	render () {
 		const items = this.props.items.slice();
-		const layout = this.props.layout(items);
+		const layout = this.props.layout;
 		let storyIndex = 0;
 
 		const columns = layout.map((column, colIdx) => {
