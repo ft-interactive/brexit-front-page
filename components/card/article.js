@@ -21,8 +21,14 @@ class Article extends Component {
 		const hideTag = this.props.hideTag;
 		const isLandscape = responsiveValue(this.props.landscape);
 
+		let className = 'card';
+
+		if(hideTag) {
+			className += ' hide-tag';
+		}
+
 		const attrs = {
-			className: 'card',
+			className,
 			'data-trackable': 'card',
 			'data-size': this.props.size 
 		};

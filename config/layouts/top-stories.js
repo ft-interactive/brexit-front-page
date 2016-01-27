@@ -39,6 +39,7 @@ export default [
 	},
 	//Column 2
 	{
+		className: 'condensed-list',
 		colspan: { default: 12, M: 2 },
 		cards: [
 			{
