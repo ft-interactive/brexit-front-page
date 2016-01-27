@@ -1,12 +1,8 @@
 import React, {Component} from 'react';
 
-import Card from '../../card/card';
 import Content from '../../card/content';
 import Concept from '../../card/concept';
 import Video from '../../card/video';
-
-import colspanToString from '../../../client/utils/colspan';
-
 
 export default class SectionContent extends Component {
 	render () {

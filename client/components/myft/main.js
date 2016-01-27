@@ -53,19 +53,18 @@ const errorHandler = err => {
 };
 
 const filterDuplicateConcepts = (concept, index, allConcepts) =>
-    allConcepts.findIndex(allConcept => concept.id === allConcept.id) === index;
+    // ideally use findIndex, but not polyfilled for BB - https://github.com/Financial-Times/polyfill-service/pull/582
+    allConcepts.map(allConcept => allConcept.id).indexOf(concept.id) === index;
 
 const filterDuplicateArticles = (articles, concept) => {
     concept.items = concept.items
-        .filter(item =>
-            !articles.find(article => article.id === item.id)
-        )
+        .filter(item => !articles.find(article => article.id === item.id))
         .slice(0, 2);
     return articles.concat(concept.items);
 };
 
 const handleResponse = (myftClient, flags, response) => {
-    const { popularTopics, user: { viewed, followed } } = response;
+    const { popularTopics, user: { viewed, followed }} = response;
     // flag up followed concepts
     followed.forEach(concept => concept.isFollowing = true);
     // displayed concepts are: followed concepts -> most viewed by this user -> general popular concepts

@@ -12,17 +12,18 @@ export default [
             //Column 0
             {
                 type: Column,
-                colspan: { default: 12, M: 3 },
+                colspan: { default: 12, M: 4, L: 3 },
                 components: [
                     {
-                        type: MyftPromo
+                        type: MyftPromo,
+                        isMyftUser: false
                     }
                 ]
             },
             //Column 1
             {
                 type: Column,
-                colspan: { default: 12, M: 3 },
+                colspan: { default: 12, M: 4, L: 3 },
                 components: [
                     {
                         type: Card,
@@ -33,7 +34,7 @@ export default [
             //Column 2
             {
                 type: Column,
-                colspan: { default: 12, M: 3 },
+                colspan: { default: 12, M: 4, L: 3 },
                 components: [
                     {
                         type: Card,
@@ -44,11 +45,12 @@ export default [
             //Column 3
             {
                 type: Column,
-                colspan: { default: 12, M: 3 },
+                colspan: { default: 12, M: 4, L: 3 },
                 components: [
                     {
                         type: Card,
-                        cardType: Concept
+                        cardType: Concept,
+                        show: { default: true, M: false, L: true }
                     }
                 ]
             }
