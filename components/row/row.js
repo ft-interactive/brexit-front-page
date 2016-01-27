@@ -4,7 +4,7 @@ class Row extends Component {
 
 	render () {
 
-		const renderComponents = (components) => components.map((component, index) => <component.type {...component} key={this.props.key + 'child_' + index} />);
+		const renderComponents = (components) => components.map((component, index) => <component.type {...component} key={'row-child_' + index} />);
 
 		return (
 			<div className="o-grid-row">

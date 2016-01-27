@@ -1,77 +1,98 @@
 import Content from '../../components/card/content';
+import Column from '../../components/column/column';
+import Row from '../../components/row/row';
+import Card from '../../components/card/card';
+
 
 export default [
-	//Column 0
 	{
-		colspan: { default: 12, M: 3 },
-		items:
-		[
-			{ type: Content,
-				size: 'large',
-				standFirst: { default: true },
-				image: { default: true },
-				imageSrcSet: { default: 449, s: 659, m: 199, l: 259, xl: 322 }
-			}
-		]
-	},
-	//Column 1
-	{
-		colspan: { default: 12, M: 3 },
-		items:
-		[
+		type: Row,
+		components: [
+			//Column 0
 			{
-				type: Content,
-				size: 'medium',
+				type: Column,
+				colspan: { default: 12, M: 3 },
+				components:
+				[
+					{ type: Card,
+						cardType: Content,
+						size: 'large',
+						standFirst: { default: true },
+						image: { default: true },
+						imageSrcSet: { default: 449, s: 659, m: 199, l: 259, xl: 322 }
+					}
+				]
 			},
+			//Column 1
 			{
-				type: Content,
-				size: 'small',
-				image: { default: true },
-				landscape: { default: true, M: false },
-				imageSrcSet: { default: 100, s: 100, m: 199, l: 259, xl: 322 }
-			},
+				type: Column,
+				colspan: { default: 12, M: 3 },
+				components:
+				[
+					{
+						type: Card,
+						cardType: Content,
+						size: 'medium',
+					},
+					{
+						type: Card,
+						cardType: Content,
+						size: 'small',
+						image: { default: true },
+						landscape: { default: true, M: false },
+						imageSrcSet: { default: 100, s: 100, m: 199, l: 259, xl: 322 }
+					},
 
-		]
-	},
-	//Column 2
-	{
-		colspan: { default: 12, M: 3 },
-		items:
-		[
-		{
-				type: Content,
-				size: 'small',
-				image: { default: true },
-				landscape: { default: true, M: false },
-				imageSrcSet: { default: 100, s: 100, m: 199, l: 259, xl: 322 }
+				]
 			},
+			//Column 2
 			{
-				type: Content,
-				size: 'small',
+				type: Column,
+				colspan: { default: 12, M: 3 },
+				components:
+				[
+				{
+						type: Card,
+						cardType: Content,
+						size: 'small',
+						image: { default: true },
+						landscape: { default: true, M: false },
+						imageSrcSet: { default: 100, s: 100, m: 199, l: 259, xl: 322 }
+					},
+					{
+						type: Card,
+						cardType: Content,
+						size: 'small',
+					}
+				]
+			},
+			//Column 3
+			{
+				type: Column,
+				colspan: { default: 12, M: 3 },
+				components:
+				[
+					{
+						type: Card,
+						cardType: Content,
+						size: 'tiny',
+					},
+					{
+						type: Card,
+						cardType: Content,
+						size: 'tiny',
+						image: { default: true },
+						landscape: { default: true, M: false },
+						imageSrcSet: { default: 100, s: 100, m: 199, l: 259, xl: 322 }
+
+					},
+					{
+						type: Card,
+						cardType: Content,
+						size: 'tiny'
+					}
+				]
 			}
 		]
-	},
-	//Column 3
-	{
-		colspan: { default: 12, M: 3 },
-		items:
-		[
-			{
-				type: Content,
-				size: 'tiny',
-			},
-			{
-				type: Content,
-				size: 'tiny',
-				image: { default: true },
-				landscape: { default: true, M: false },
-				imageSrcSet: { default: 100, s: 100, m: 199, l: 259, xl: 322 }
-				
-			},
-			{
-				type: Content,
-				size: 'tiny',
-			}
-		]
-	},
+	}
 ];

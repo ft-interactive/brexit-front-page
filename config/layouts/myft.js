@@ -1,41 +1,56 @@
 import Concept from '../../components/card/concept';
 import MyftPromo from '../../components/card/myft-promo';
+import Column from '../../components/column/column';
+import Row from '../../components/row/row';
+import Card from '../../components/card/card';
+
 
 export default [
-    //Column 0
     {
-        type: 'column',
-        colspan: { default: 12, M: 3 },
-        items: [
+        type: Row,
+        components: [
+            //Column 0
             {
-                type: MyftPromo
-            }
-        ]
-    },
-    //Column 1
-    {
-        colspan: { default: 12, M: 3 },
-        items: [
+                type: Column,
+                colspan: { default: 12, M: 3 },
+                components: [
+                    {
+                        type: MyftPromo
+                    }
+                ]
+            },
+            //Column 1
             {
-                type: Concept
-            }
-        ]
-    },
-    //Column 2
-    {
-        colspan: { default: 12, M: 3 },
-        items: [
+                type: Column,
+                colspan: { default: 12, M: 3 },
+                components: [
+                    {
+                        type: Card,
+                        cardType: Concept
+                    }
+                ]
+            },
+            //Column 2
             {
-                type: Concept
-            }
-        ]
-    },
-    //Column 3
-    {
-        colspan: { default: 12, M: 3 },
-        items: [
+                type: Column,
+                colspan: { default: 12, M: 3 },
+                components: [
+                    {
+                        type: Card,
+                        cardType: Concept
+                    }
+                ]
+            },
+            //Column 3
             {
-                type: Concept
+                type: Column,
+                colspan: { default: 12, M: 3 },
+                components: [
+                    {
+                        type: Card,
+                        cardType: Concept
+                    }
+                ]
             }
         ]
     }

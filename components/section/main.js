@@ -9,6 +9,7 @@ const layoutForSection = (layout, sectionId) => layout.find((section) => (sectio
 function init (el, content, flags) {
 	if (!el) return;
 
+	console.log(layoutForSection(getSections({ [el.id]: content }, flags))
 	ReactDOM.render(
 		<Section
 			{...layoutForSection(getSections({ [el.id]: content }, flags), el.id)}
