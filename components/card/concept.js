@@ -91,16 +91,18 @@ class Concept extends Component {
 
 		return (
 			<section {...attrs}>
-				<div className="card__concept-container">
-					<Image {...createImageComponentAttrs(concept)} />
-					<div className="card__concept-container__text">
-						<h2 className="card__concept-title">{title}</h2>
-						<Follow {...createFollowComponentAttrs(concept)} />
+				<div>
+					<div className="card__concept-container">
+						<Image {...createImageComponentAttrs(concept)} />
+						<div className="card__concept-container__text">
+							<h2 className="card__concept-title">{title}</h2>
+							<Follow {...createFollowComponentAttrs(concept)} />
+						</div>
 					</div>
+					<ol className="card__concept-articles" data-trackable="articles">
+						{articles}
+					</ol>
 				</div>
-				<ol className="card__concept-articles" data-trackable="articles">
-					{articles}
-				</ol>
 			</section>
 		);
 	}

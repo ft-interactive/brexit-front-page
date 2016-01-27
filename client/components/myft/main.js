@@ -1,8 +1,11 @@
 import { json as fetchJson } from 'fetchres';
+import React from 'react';
+import ReactDOM from 'react-dom';
 
 import nJsonpFetch from 'n-jsonp-fetch';
 import sessionClient from 'next-session-client';
 import * as myFtUi from 'next-myft-ui';
+import MyFtPromo from '../../../components/card/myft-promo';
 
 import section from '../../../components/section/main';
 
@@ -58,15 +61,13 @@ const filterDuplicateConcepts = (concept, index, allConcepts) =>
 
 const filterDuplicateArticles = (articles, concept) => {
     concept.items = concept.items
-        .filter(item =>
-            !articles.find(article => article.id === item.id)
-        )
+        .filter(item => !articles.find(article => article.id === item.id))
         .slice(0, 2);
     return articles.concat(concept.items);
 };
 
 const handleResponse = (myftClient, flags, response) => {
-    const { popularTopics, user: { viewed, followed } } = response;
+    const { popularTopics, user: { viewed, followed }} = response;
     // flag up followed concepts
     followed.forEach(concept => concept.isFollowing = true);
     // displayed concepts are: followed concepts -> most viewed by this user -> general popular concepts
@@ -75,6 +76,10 @@ const handleResponse = (myftClient, flags, response) => {
         .slice(0, 3);
     concepts.reduce(filterDuplicateArticles, []);
     section.init(document.getElementById('myft'), { main: concepts }, flags.getAll());
+    // update the promo, if this is a mft user
+    //if (followed.length) {
+    //    ReactDOM.render(<MyFtPromo isMyftUser={true} />, document.querySelector('#myft .myft__column'));
+    //}
     // only update ui after we've got a response from myft
     myftClient
         .then(() => myFtUi.updateUi())
