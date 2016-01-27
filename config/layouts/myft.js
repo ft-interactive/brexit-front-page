@@ -5,16 +5,17 @@ export default [
     //Column 0
     {
         type: 'column',
-        colspan: { default: 12, M: 3 },
+        colspan: { default: 12, M: 4, L: 3 },
         cards: [
             {
-                type: MyftPromo
+                type: MyftPromo,
+                isMyftUser: false
             }
         ]
     },
     //Column 1
     {
-        colspan: { default: 12, M: 3 },
+        colspan: { default: 12, M: 4, L: 3 },
         cards: [
             {
                 type: Concept
@@ -23,7 +24,7 @@ export default [
     },
     //Column 2
     {
-        colspan: { default: 12, M: 3 },
+        colspan: { default: 12, M: 4, L: 3 },
         cards: [
             {
                 type: Concept
@@ -32,10 +33,11 @@ export default [
     },
     //Column 3
     {
-        colspan: { default: 12, M: 3 },
+        colspan: { default: 12, M: 4, L: 3 },
         cards: [
             {
-                type: Concept
+                type: Concept,
+                show: { default: true, M: false, L: true }
             }
         ]
     }
