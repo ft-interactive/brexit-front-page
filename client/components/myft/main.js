@@ -1,11 +1,8 @@
 import { json as fetchJson } from 'fetchres';
-import React from 'react';
-import ReactDOM from 'react-dom';
 
 import nJsonpFetch from 'n-jsonp-fetch';
 import sessionClient from 'next-session-client';
 import * as myFtUi from 'next-myft-ui';
-import MyFtPromo from '../../../components/card/myft-promo';
 
 import section from '../../../components/section/main';
 
@@ -76,10 +73,6 @@ const handleResponse = (myftClient, flags, response) => {
         .slice(0, 3);
     concepts.reduce(filterDuplicateArticles, []);
     section.init(document.getElementById('myft'), { main: concepts }, flags.getAll());
-    // update the promo, if this is a mft user
-    //if (followed.length) {
-    //    ReactDOM.render(<MyFtPromo isMyftUser={true} />, document.querySelector('#myft .myft__column'));
-    //}
     // only update ui after we've got a response from myft
     myftClient
         .then(() => myFtUi.updateUi())
