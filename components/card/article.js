@@ -18,7 +18,7 @@ class Article extends Component {
 		const showCard = responsiveValue(this.props.show);
 		const showStandFirst = responsiveValue(this.props.standFirst);
 		const showImg = responsiveValue(this.props.image);
-
+		const hideTag = this.props.hideTag;
 		const isLandscape = responsiveValue(this.props.landscape);
 
 		const attrs = {
@@ -43,9 +43,9 @@ class Article extends Component {
 		return (
 			<article {...attrs}>
 				<div>
-					{(article.primaryTag && article.primaryTag.taxonomy !== 'authors') ? <Tag tag={article.primaryTag}/> : null}
+					{(article.primaryTag && article.primaryTag.taxonomy !== 'authors' && !hideTag) ? <Tag tag={article.primaryTag}/> : null}
 					<Title title={article.title} href={'/content/' + article.id}/>
-					{(article.primaryTag && article.primaryTag.taxonomy === 'authors') ? <Tag tag={article.primaryTag} /> : null}
+					{(article.primaryTag && article.primaryTag.taxonomy === 'authors' && !hideTag) ? <Tag tag={article.primaryTag} /> : null}
 				</div>
 				{(article.summary && showStandFirst.includes('true')) ? <Standfirst article={article} show={this.props.showStandFirst} /> : null}
 				{(article.primaryImage && showImg.includes('true')) ? <Image article={article} imageSrcSet={imageSrcSet} stickToBottom={this.props.imageStick}/> : null}

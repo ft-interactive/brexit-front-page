@@ -13,63 +13,56 @@ export default [
 				standFirst: { default: true },
 				image: { default: true },
 				imageSrcSet: { default: 449, s: 659, m: 355, l: 292, xl: 411 }
-			},
-			{ type: Content,
-				size: 'medium',
-				landscape: { default: 'true' },
 			}
 		]
 	},
 	//Column 1
 	{
-		colspan: { default: 12, M: 4 },
+		colspan: { default: 12, M: 5 },
 		cards: [
 			{ type: Content,
-				size: 'small',
+				size: 'large',
+				standFirst: { default: true },
 				landscape: { default: 'true' }
 			},
 			{ type: Content,
-				size: 'small',
+				size: 'medium',
 				landscape: { default: 'true' }
 			},
 			{ type: Content,
-				size: 'small',
-				landscape: { default: 'true' }
-			},
-			{ type: Content,
-				size: 'small',
-				landscape: { default: 'true' }
-			},
-			{ type: Content,
-				size: 'small',
+				size: 'medium',
+				image: { default: true },
+				imageSrcSet: { default: 449, s: 659, m: 355, l: 292, xl: 411 },
 				landscape: { default: 'true' }
 			}
 		],
 	},
 	//Column 2
 	{
-		colspan: { default: 12, M: 3 },
+		colspan: { default: 12, M: 2 },
 		cards: [
 			{
 				type: Content,
-				size: 'tiny',
+				size: 'small',
+				hideTag: true,
 				landscape: { default: 'true' }
 			},
 			{
 				type: Content,
-				size: 'tiny',
+				size: 'small',
+				hideTag: true,
 				landscape: { default: 'true' }
 			},
 			{
 				type: Content,
-				size: 'tiny',
-				landscape: { default: 'true', M: false },
-				image: { default: 'true' },
-				imageSrcSet: { default: 100, s: 100, m: 199, l: 161, xl: 233 }
+				size: 'small',
+				hideTag: true,
+				landscape: { default: 'true', M: false }
 			},
 			{
 				type: Content,
-				size: 'tiny',
+				size: 'small',
+				hideTag: true,
 				landscape: { default: 'true' }
 			}
 		],
