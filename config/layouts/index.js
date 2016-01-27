@@ -15,9 +15,9 @@ export default {
     'featured-section': featuredSectionLayout,
     'most-popular': mostPopularLayout,
     'most-popular-ads': mostPopularAdsLayout,
-    myft: myftLayout,
+    'myft': myftLayout,
     'opinion': opinionLayout,
     'top-stories': topStoriesLayout,
     'top-stories-with-related': topStoriesWithRelatedLayout,
-    video: VideoLayout
+    'video': VideoLayout
 }

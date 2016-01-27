@@ -29,7 +29,6 @@
     "next-myft-ui": "^6.10.2",
     "o-date": "https://github.com/Financial-Times/o-date/archive/1.1.1.tar.gz",
     "react": "^0.14.0-rc1",
-    "react-addons-css-transition-group": "^0.14.0-rc1",
     "react-dom": "^0.14.0-rc1"
   },
   "devDependencies": {
