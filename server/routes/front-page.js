@@ -1,9 +1,8 @@
 import { getData } from '../libs/graphql-poller';
 import sectionContent from '../libs/section-content';
 
-import Feed from '../../components/feed/feed';
 import Section from '../../components/section';
-import getSections from '../../config/layout';
+import getPage from '../../config/pages';
 
 // bail unless we have at least one top story
 const contentMissing = (data) => {
@@ -45,12 +44,12 @@ export default (region) => {
 			inside: '<p class="markets-data-disclaimer">Markets data delayed by at least 15 minutes</p>'
 		};
 
+		const sections = getPage('front-page', sectionContent(data), res.locals.flags);
+
 		const renderParams = {
 			layout: 'wrapper',
-			Feed,
 			Section,
-			content: data.frontPage,
-			sections: getSections(sectionContent(data), res.locals.flags),
+			sections,
 			region,
 			preconnect: [
 				'https://next-markets-proxy.ft.com'

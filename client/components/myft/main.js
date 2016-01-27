@@ -1,10 +1,14 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
 import { json as fetchJson } from 'fetchres';
 
 import nJsonpFetch from 'n-jsonp-fetch';
 import sessionClient from 'next-session-client';
 import * as myFtUi from 'next-myft-ui';
 
-import section from '../../../components/section/main';
+import Section from '../../../components/section';
+import MyftPromo from '../../../components/card/myft-promo';
+import getSection from '../../../config/sections/index';
 
 const query = `
     fragment Basic on Concept {
@@ -72,8 +76,19 @@ const handleResponse = (myftClient, flags, response) => {
         .filter(filterDuplicateConcepts)
         .slice(0, 3);
     concepts.reduce(filterDuplicateArticles, []);
-    section.init(document.getElementById('myft'), { main: concepts }, flags.getAll());
-    // only update ui after we've got a response from myft
+    // get the section
+    const section = getSection('myft', { main: concepts }, flags.getAll());
+    // if there are already followed topics, update the promo
+    if (followed.length) {
+        section.layout.forEach(col =>
+            col.components
+                .reduce((prev, column) => prev.concat(column.components), [])
+                .filter(card => card.type === MyftPromo)
+                .map(card => Object.assign(card, { isMyftUser: true })
+            )
+        );
+    }
+    ReactDOM.render(<Section {...section} />, document.getElementById('myft'));
     myftClient
         .then(() => myFtUi.updateUi())
         .catch(errorHandler);

@@ -7,7 +7,7 @@ import Video from '../../card/video';
 export default class SectionContent extends Component {
 	render () {
 		const items = this.props.items.slice();
-		const layout = this.props.layout(items);
+		const layout = this.props.layout;
 		let storyIndex = 0;
 
 		const renderComponents = (components) => components.map((component, index) => {
