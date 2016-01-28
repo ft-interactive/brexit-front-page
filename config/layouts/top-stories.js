@@ -27,7 +27,7 @@ export default [
 			},
 			{ type: Content,
 				size: 'medium',
-				landscape: { default: 'true' },
+				landscape: { default: 'true' }
 			},
 			{ type: Content,
 				size: 'medium',
