@@ -21,7 +21,7 @@ export default [
 		colspan: { default: 12, M: 5 },
 		cards: [
 			{ type: Content,
-				size: 'large',
+				size: 'medium',
 				standFirst: { default: true },
 				landscape: { default: 'true' }
 			},
