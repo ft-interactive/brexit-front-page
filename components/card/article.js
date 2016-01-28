@@ -47,7 +47,7 @@ class Article extends Component {
 		}
 
 		if (this.props.colspan) {
-			Object.assign(attrs, { 'data-o-grid-colspan': colspanToString(this.props.colspan) });
+			attrs['data-o-grid-colspan'] = colspanToString(this.props.colspan);
 		}
 
 		return (

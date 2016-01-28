@@ -47,19 +47,19 @@
 .section__column--content {
 	margin-top: oGridGutter();
 
-	.card:not(:first-child) {
+	.card:nth-child(n+2) {
 		margin-top: oGridGutter();
 	}
 
 	@include oGridRespondTo(M) {
 		margin-top: oGridGutter(M);
 
-		.card:not(:first-child) {
+		.card:nth-child(n+2) {
 			margin-top: oGridGutter(M);
 		}
 
 		.condensed-list {
-			.card:not(:first-child) {
+			.card:nth-child(n+2) {
 				margin-top: 0;
 			}
 		}
@@ -67,20 +67,17 @@
 }
 
 .condensed-list {
+	.card:nth-child(n+2) {
+		margin-top: 0;
+	}
+
 	.card {
 		border-bottom: 0;
 
 		@include oGridRespondTo(XL) {
 			justify-content: center;
 		}
-	}
 
-	.card:not(:first-child) {
-		margin-top: 0;
-	}
-
-	.column:not(:last-child) .card,
-	.card:not(:last-child) {
 		position: relative;
 
 		&:after {
@@ -96,6 +93,12 @@
 		}
 	}
 
+	.column:last-child .card:last-child {
+		&:after {
+			display: none;
+		}
+	}
+
 	@include oGridRespondTo($until: XL) {
 		margin-top: oGridGutter();
 	}
@@ -104,22 +107,25 @@
 
 		margin-top: oGridGutter(M);
 
-		.column:not(:last-child) .card,
-		.card:not(:last-child) {
+		.card {
 			&:after {
 				left: auto;
 				width: auto;
-				border-bottom: 0;
+				border-bottom-width: 0;
 				top: 10%;
 				right: 0;
 				height: 80%;
 				border-right: 1px solid getColor('warm-3');
 			}
 		}
+
+		.column:last-child .card:last-child {
+			&:after {
+				display: none;
+			}
+		}
 	}
 }
-
-
 
 .section__column,
 // for current front page

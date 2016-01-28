@@ -15,7 +15,7 @@ const getLayoutId = (content, flags) => {
 
     return content && content.main && articleHasRelatedContent(content.main, 0, 3) ?
         `${prefix}-with-related` :
-        `${prefix}`;
+        prefix;
 }
 
 export default ({ content, flags }) => ({
