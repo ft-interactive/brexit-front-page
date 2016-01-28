@@ -11,3 +11,5 @@
 /bower_components/
 /public/
 /test/browser/reports/
+
+!/nodemon.json
