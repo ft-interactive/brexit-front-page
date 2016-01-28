@@ -43,6 +43,10 @@ export default [
 						imageSrcSet: { default: 449, s: 659, m: 355, l: 292, xl: 411 },
 						landscape: { default: true },
 						imgYCentre: true
+					},
+					{ type: Card,
+						cardType: Content,
+						size: 'medium'
 					}
 				]
 			},

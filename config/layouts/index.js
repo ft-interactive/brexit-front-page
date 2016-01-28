@@ -8,6 +8,7 @@ import opinionLayout from './opinion';
 import topStoriesLayout from './top-stories';
 import topStoriesWithRelatedLayout from './top-stories-with-related';
 import topStoriesRevisedLayout from './top-stories-revised';
+import topStoriesRevisedWithRelatedLayout from './top-stories-revised-with-related';
 import VideoLayout from './video';
 
 export default {
@@ -21,5 +22,6 @@ export default {
     'top-stories': topStoriesLayout,
     'top-stories-with-related': topStoriesWithRelatedLayout,
     'top-stories-revised': topStoriesRevisedLayout,
+    'top-stories-revised-with-related': topStoriesRevisedWithRelatedLayout,
     'video': VideoLayout
 }

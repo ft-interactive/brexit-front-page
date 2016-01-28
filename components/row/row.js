@@ -8,10 +8,16 @@ class Row extends Component {
 			return null;
 		}
 
+		const classes = [
+			'o-grid-row',
+			this.props.isCompact ? 'o-grid-row--compact' : ''
+		];
+
+
 		const renderComponents = (components) => components.map((component, index) => <component.type {...component} key={'row-child_' + index} />);
 
 		return (
-			<div className="o-grid-row">
+			<div className={classes.join(' ')}>
 				{renderComponents(this.props.components)}
 			</div>
 		);

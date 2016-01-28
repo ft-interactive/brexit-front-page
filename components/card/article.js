@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 
 import {responsiveValue} from './helpers';
+import colspanToString from '../../client/utils/colspan';
 
 import Tag from './tag/tag'
 import Title from './title/title'
@@ -43,6 +44,10 @@ class Article extends Component {
 
 		if (showCard.includes('false')) {
 			Object.assign(attrs, { 'data-show': showCard });
+		}
+
+		if (this.props.colspan) {
+			Object.assign(attrs, { 'data-o-grid-colspan': colspanToString(this.props.colspan) });
 		}
 
 		return (
