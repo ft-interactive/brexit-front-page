@@ -21,14 +21,13 @@ class Article extends Component {
 		const hideTag = this.props.hideTag;
 		const isLandscape = responsiveValue(this.props.landscape);
 
-		let className = 'card';
-
-		if(hideTag) {
-			className += ' hide-tag';
-		}
+		const classes = [
+			'card',
+			hideTag ? 'hide-tag' : ''
+		]
 
 		const attrs = {
-			className,
+			className: classes.join(' '),
 			'data-trackable': 'card',
 			'data-size': this.props.size 
 		};
@@ -54,7 +53,13 @@ class Article extends Component {
 					{(article.primaryTag && article.primaryTag.taxonomy === 'authors' && !hideTag) ? <Tag tag={article.primaryTag} /> : null}
 				</div>
 				{(article.summary && showStandFirst.includes('true')) ? <Standfirst article={article} show={this.props.showStandFirst} /> : null}
-				{(article.primaryImage && showImg.includes('true')) ? <Image article={article} imageSrcSet={imageSrcSet} stickToBottom={this.props.imageStick}/> : null}
+				{(article.primaryImage && showImg.includes('true')) ?
+					<Image 	article={article}
+							imageSrcSet={imageSrcSet}
+							stickToBottom={this.props.imageStick}
+							yCentre={this.props.imgYCentre}/> :
+					null
+				}
 				{this.props.showRelated.length > 0 ? <Related articles={article.relatedContent} show={this.props.showRelated} /> : null}
 			</article>
 		);

@@ -27,13 +27,14 @@ export default [
 			},
 			{ type: Content,
 				size: 'medium',
-				landscape: { default: 'true' }
+				landscape: { default: 'true' },
 			},
 			{ type: Content,
 				size: 'medium',
 				image: { default: true },
 				imageSrcSet: { default: 449, s: 659, m: 355, l: 292, xl: 411 },
-				landscape: { default: 'true' }
+				landscape: { default: 'true' },
+				imgYCentre: true
 			}
 		],
 	},

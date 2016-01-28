@@ -12,6 +12,11 @@
 		left: 10px;
 		width: 100px;
 		margin-top: 0;
+
+		&.card__image-link--y-centre {
+			top: 50%;
+			transform: translateY(-50%);
+		}
 	}
 
 	.card[data-image-show~="false"] & {
