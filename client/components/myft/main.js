@@ -81,7 +81,8 @@ const handleResponse = (myftClient, flags, response) => {
     // if there are already followed topics, update the promo
     if (followed.length) {
         section.layout.forEach(col =>
-            col.cards
+            col.components
+                .reduce((prev, column) => prev.concat(column.components), [])
                 .filter(card => card.type === MyftPromo)
                 .map(card => Object.assign(card, { isMyftUser: true })
             )

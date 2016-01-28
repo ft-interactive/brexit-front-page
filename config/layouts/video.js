@@ -1,36 +1,53 @@
 import Video from '../../components/card/video';
+import Column from '../../components/column/column';
+import Row from '../../components/row/row';
+import Card from '../../components/card/card';
+
 
 export default [
 	{
-		colspan: { default: 12, S: 6, M: 3 },
-		cards: [
+		type: Row,
+		components: [
 			{
-				type: Video
-			}
-		]
-	},
-	{
-		colspan: { default: 12, S: 6, M: 3 },
-		cards: [
+				type: Column,
+				colspan: { default: 12, S: 6, M: 3 },
+				components: [
+					{
+						type: Card,
+						cardType: Video
+					}
+				]
+			},
 			{
-				type: Video
-			}
-		]
-	},
-	{
-		colspan: { default: 12, S: 6, M: 3 },
-		cards: [
+				type: Column,
+				colspan: { default: 12, S: 6, M: 3 },
+				components: [
+					{
+						type: Card,
+						cardType: Video
+					}
+				]
+			},
 			{
-				type: Video
-			}
-		]
-	},
-	{
-		colspan: { default: 12, S: 6, M: 3 },
-		cards: [
+				type: Column,
+				colspan: { default: 12, S: 6, M: 3 },
+				components: [
+					{
+						type: Card,
+						cardType: Video
+					}
+				]
+			},
 			{
-				type: Video
+				type: Column,
+				colspan: { default: 12, S: 6, M: 3 },
+				components: [
+					{
+						type: Card,
+						cardType: Video
+					}
+				]
 			}
 		]
 	}
-]
+];
