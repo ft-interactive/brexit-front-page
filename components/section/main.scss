@@ -55,6 +55,7 @@
 	& .condensed-list {
 		article {
 			border-bottom: 0;
+			justify-content: center;
 		}
 
 		article:not(:first-child) {
