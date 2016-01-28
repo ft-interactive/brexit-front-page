@@ -3,8 +3,6 @@ const autoprefixer = require('autoprefixer');
 const BowerWebpackPlugin = require('bower-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
-const textrequireifyLoaderPath = path.join(__dirname, './server/plugins/textrequireify-loader.js');
-
 module.exports = {
 	context: path.join(__dirname, 'client'),
 	entry: {
@@ -20,19 +18,36 @@ module.exports = {
 		loaders: [
 			{
 				test: /\.js$/,
-				loader: `${textrequireifyLoaderPath}?cwd=${process.cwd()}!babel?presets[]=react&presets[]=es2015-loose&plugins[]=add-module-exports`,
-				exclude: /node_modules/
+				loader: 'babel',
+				exclude: /node_modules/,
+				query: {
+					cacheDirectory: true,
+					presets: ['react', 'es2015'],
+					plugins: [
+						'add-module-exports',
+						['transform-es2015-classes', { loose: true }]
+					]
+				}
 			},
 			// force fastclick to load CommonJS
 			{
 				test: /fastclick\.js$/,
 				loader: 'imports?define=>false'
 			},
+			// don't use requireText plugin (use the 'raw' plugin)
+			{
+				test: /follow-email\.js$/,
+				loader: 'imports?requireText=>require'
+			},
 			{
 				test: /\.scss$/,
 				loader: ExtractTextPlugin.extract(
 					`css!postcss-loader!sass?includePaths[]=${path.resolve(__dirname, './bower_components')}`
 				)
+			},
+			{
+				test: /\.html$/,
+				loader: 'raw'
 			}
 		]
 	},
@@ -41,7 +56,7 @@ module.exports = {
 	},
 	plugins: [
 		new BowerWebpackPlugin({
-			excludes: /\.scss$/
+			includes: /\.js$/
 		}),
 		new ExtractTextPlugin('[name]', {
 			allChunks: true
