@@ -28,7 +28,7 @@ export default [
 			{
 				type: Column,
 				colspan: { default: 12, M: 4 },
-				items: [
+				components: [
 					{ type: Card,
 						cardType: Content,
 						size: 'small',
@@ -60,7 +60,7 @@ export default [
 			{
 				type: Column,
 				colspan: { default: 12, M: 3 },
-				items: [
+				components: [
 					{
 						type: Card,
 						cardType: Content,

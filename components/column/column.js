@@ -6,6 +6,9 @@ class Column extends Component {
 
 
 	render () {
+		if(!this.props.components) {
+			return null;
+		}
 		const renderComponents = (components) => components.map((component, index) => <component.type {...component} key={'column-child_' + index} />);
 
 		return (
