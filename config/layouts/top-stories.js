@@ -58,7 +58,7 @@ export default [
 				type: Content,
 				size: 'small',
 				hideTag: true,
-				landscape: { default: 'true', M: false }
+				landscape: { default: 'true' }
 			},
 			{
 				type: Content,
