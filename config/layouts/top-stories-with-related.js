@@ -54,7 +54,7 @@ export default [
 						size: 'small',
 						landscape: { default: 'true' }
 					}
-				],
+				]
 			},
 			//Column 2
 			{
@@ -87,9 +87,8 @@ export default [
 						size: 'tiny',
 						landscape: { default: 'true' }
 					}
-				],
+				]
 			}
-
 		]
 	}
 ];

@@ -10,14 +10,23 @@ const articleHasRelatedContent = (articles, articleIndex, relatedContentLength =
     articles[articleIndex].relatedContent &&
     articles[articleIndex].relatedContent.length >= relatedContentLength;
 
-export default ({ content }) => ({
+const getLayoutId = (content, flags) => {
+    if(flags.frontPageTopStoriesRevised) {
+        return 'top-stories-revised';
+    } else {
+        return content && content.main && articleHasRelatedContent(content.main, 0, 3) ?
+            'top-stories-with-related' :
+            'top-stories';
+    }
+}
+
+export default ({ content, flags }) => ({
     id: 'top-stories',
     title: 'Top Stories',
     style: 'top-stories',
     date: date,
     isTab: true,
-    layoutId: content && content.main && articleHasRelatedContent(content.main, 0, 3) ?
-        'top-stories-with-related' : 'top-stories',
+    layoutId: getLayoutId(content, flags),
     size: {
         default: 12
     },

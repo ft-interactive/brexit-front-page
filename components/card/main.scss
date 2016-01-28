@@ -10,17 +10,12 @@
 	@include displayFlex;
 
 	background-color: getColor('pink');
-	margin-top: oGridGutter();
 	border-bottom: 1px solid getColor('warm-3');
 	padding: 10px;
 
 	flex-direction: column;
 	line-height: 1;
 	flex: 1 1 auto;
-
-	@include oGridRespondTo(M) {
-		margin-top: oGridGutter(M);
-	}
 }
 
 .card--video {

@@ -20,7 +20,8 @@ export default class Image extends Component {
 
 		const classes = [
 			'card__image-link',
-			hasHeadshot ? 'card__image-link--headshot' : ''
+			hasHeadshot ? 'card__image-link--headshot' : '',
+			this.props.yCentre ? 'card__image-link--y-centre' : ''
 		]
 		.concat(responsiveClass('card__image-link', objMap(this.props.stickToBottom, (it) => it ? 'stick' : 'nostick')))
 		.filter(className => className)

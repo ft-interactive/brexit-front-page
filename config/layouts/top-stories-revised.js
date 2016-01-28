@@ -20,76 +20,61 @@ export default [
 						standFirst: { default: true },
 						image: { default: true },
 						imageSrcSet: { default: 449, s: 659, m: 355, l: 292, xl: 411 }
-					},
-					{ type: Card,
-						cardType: Content,
-						size: 'medium',
-						landscape: { default: 'true' },
 					}
 				]
 			},
 			//Column 1
 			{
 				type: Column,
-				colspan: { default: 12, M: 4 },
+				colspan: { default: 12, M: 5 },
 				components: [
 					{ type: Card,
 						cardType: Content,
-						size: 'small',
-						landscape: { default: 'true' }
+						size: 'medium'
 					},
 					{ type: Card,
 						cardType: Content,
-						size: 'small',
-						landscape: { default: 'true' }
+						size: 'medium'
 					},
 					{ type: Card,
 						cardType: Content,
-						size: 'small',
-						landscape: { default: 'true' }
-					},
-					{ type: Card,
-						cardType: Content,
-						size: 'small',
-						landscape: { default: 'true' }
-					},
-					{ type: Card,
-						cardType: Content,
-						size: 'small',
-						landscape: { default: 'true' }
+						size: 'medium',
+						image: { default: true },
+						imageSrcSet: { default: 449, s: 659, m: 355, l: 292, xl: 411 },
+						landscape: { default: true },
+						imgYCentre: true
 					}
 				]
 			},
 			//Column 2
 			{
 				type: Column,
-				colspan: { default: 12, M: 3 },
+				className: 'condensed-list',
+				colspan: { default: 12, M: 2 },
 				components: [
 					{
 						type: Card,
 						cardType: Content,
-						size: 'tiny',
-						landscape: { default: 'true' }
+						size: 'small',
+						hideTag: true
 					},
 					{
 						type: Card,
 						cardType: Content,
-						size: 'tiny',
-						landscape: { default: 'true' }
+						size: 'small',
+						hideTag: true
 					},
 					{
 						type: Card,
 						cardType: Content,
-						size: 'tiny',
-						landscape: { default: 'true', M: false },
-						image: { default: 'true' },
-						imageSrcSet: { default: 100, s: 100, m: 199, l: 161, xl: 233 }
+						size: 'small',
+						hideTag: true
 					},
 					{
 						type: Card,
 						cardType: Content,
-						size: 'tiny',
-						landscape: { default: 'true' }
+						size: 'small',
+						hideTag: true
 					}
 				]
 			}
