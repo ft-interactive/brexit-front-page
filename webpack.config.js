@@ -3,6 +3,8 @@ const autoprefixer = require('autoprefixer');
 const BowerWebpackPlugin = require('bower-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
+const textrequireifyLoaderPath = path.join(__dirname, './server/plugins/textrequireify-loader.js');
+
 module.exports = {
 	context: path.join(__dirname, 'client'),
 	entry: {
@@ -18,15 +20,8 @@ module.exports = {
 		loaders: [
 			{
 				test: /\.js$/,
-				loader: 'babel',
-				exclude: /node_modules/,
-				query: {
-					presets: ['react', 'es2015'],
-					plugins: [
-						'add-module-exports',
-						['transform-es2015-classes', { loose: true }]
-					]
-				}
+				loader: `${textrequireifyLoaderPath}?cwd=${process.cwd()}!babel?presets[]=react&presets[]=es2015-loose&plugins[]=add-module-exports`,
+				exclude: /node_modules/
 			},
 			// force fastclick to load CommonJS
 			{
