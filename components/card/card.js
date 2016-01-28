@@ -5,10 +5,10 @@ import {responsiveValue} from './helpers';
 
 class Card extends Component {
 	render () {
+
 		const props = expandProps(Object.assign({}, this.props));
 		props.showCard = responsiveValue(props.show);
-
-		return <props.type {...props} />;
+		return <props.cardType {...props} />;
 	}
 }
 

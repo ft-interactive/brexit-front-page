@@ -3,82 +3,78 @@ import Column from '../../components/column/column';
 import Row from '../../components/row/row';
 import Card from '../../components/card/card';
 
-
 export default [
 	{
 		type: Row,
 		components: [
+			//Column 0
 			{
 				type: Column,
-				colspan: { default: 12, M: 3},
+				colspan: { default: 12, M: 5 },
+				components:
+				[
+					{ type: Card,
+						cardType: Content,
+						size: 'large-top-story',
+						related: { default: 1, M: 3},
+						standFirst: { default: true },
+						image: { default: true },
+						imageSrcSet: { default: 449, s: 659, m: 355, l: 292, xl: 411 }
+					}
+				]
+			},
+			//Column 1
+			{
+				type: Column,
+				colspan: { default: 12, M: 5 },
 				components: [
 					{ type: Card,
 						cardType: Content,
-						size: 'large',
-						standFirst: { default: true },
-						image: { default: true },
-						imageSrcSet: { default: 449, s: 659, m: 199, l: 259, xl: 322 }
-					}
-				],
-			},
-			{
-				type: Column,
-				colspan: { default: 12, M: 3},
-				components: [
+						size: 'medium'
+					},
+					{ type: Card,
+						cardType: Content,
+						size: 'medium'
+					},
 					{ type: Card,
 						cardType: Content,
 						size: 'medium',
-					},
-					{ type: Card,
-						cardType: Content,
-						size: 'small',
 						image: { default: true },
-						landscape: { default: true, M: false },
-						imageSrcSet: { default: 100, s: 100, m: 199, l: 259, xl: 322 }
+						imageSrcSet: { default: 449, s: 659, m: 355, l: 292, xl: 411 },
+						landscape: { default: true },
+						imgYCentre: true
 					}
 				]
 			},
+			//Column 2
 			{
 				type: Column,
-				colspan: { default: 12, M: 3},
-				components: [
-					{ type: Card,
-						cardType: Content,
-						size: 'small',
-						image: { default: true },
-						landscape: { default: true, M: false },
-						imageSrcSet: { default: 100, s: 100, m: 199, l: 259, xl: 322 }
-					},
-					{
-						type: Card,
-						cardType: Content,
-						size: 'small',
-					}
-				]
-			},
-			{
-				type: Column,
-				colspan: { default: 12, M: 3},
+				className: 'condensed-list',
+				colspan: { default: 12, M: 2 },
 				components: [
 					{
 						type: Card,
 						cardType: Content,
-						size: 'tiny',
+						size: 'small',
+						hideTag: true
 					},
 					{
 						type: Card,
 						cardType: Content,
-						size: 'tiny',
+						size: 'small',
+						hideTag: true
 					},
 					{
 						type: Card,
 						cardType: Content,
-						size: 'tiny',
+						size: 'small',
+						hideTag: true
 					},
 					{
 						type: Card,
 						cardType: Content,
-						size: 'tiny'
+						size: 'small',
+						hideTag: true
 					}
 				]
 			}
