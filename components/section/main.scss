@@ -48,7 +48,7 @@
 .section__column--content {
 	margin-top: oGridGutter();
 
-	article:not(:first-child) {
+	.card:not(:first-child) {
 		margin-top: oGridGutter();
 	}
 
@@ -58,11 +58,11 @@
 			justify-content: center;
 		}
 
-		article:not(:first-child) {
+		.card:not(:first-child) {
 			margin-top: 0;
 		}
 
-		article:not(:last-child) {
+		.card:not(:last-child) {
 			position: relative;
 
 			&:after {
@@ -79,12 +79,12 @@
 	@include oGridRespondTo(M) {
 		margin-top: oGridGutter(M);
 
-		article:not(:first-child) {
+		.card:not(:first-child) {
 			margin-top: oGridGutter(M);
 		}
 
 		& .condensed-list {
-			article:not(:first-child) {
+			.card:not(:first-child) {
 				margin-top: 0;
 			}
 		}
