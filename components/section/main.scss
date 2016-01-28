@@ -69,7 +69,10 @@
 .condensed-list {
 	.card {
 		border-bottom: 0;
-		justify-content: center;
+
+		@include oGridRespondTo(XL) {
+			justify-content: center;
+		}
 	}
 
 	.card:not(:first-child) {
