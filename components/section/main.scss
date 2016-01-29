@@ -72,10 +72,8 @@
 		}
 	}
 
-	.column:last-child .card {
-		&:after {
-			display: none;
-		}
+	.column:last-child .card:after {
+		display: none;
 	}
 
 	@include oGridRespondTo($until: XL) {
@@ -89,22 +87,18 @@
 	@include oGridRespondTo($from: M, $until: XL) {
 		margin-top: oGridGutter(M);
 
-		.card {
-			&:after {
-				left: auto;
-				width: auto;
-				border-bottom-width: 0;
-				top: 10%;
-				right: 0;
-				height: 80%;
-				border-right: 1px solid getColor('warm-3');
-			}
+		.card:after {
+			left: auto;
+			width: auto;
+			border-bottom-width: 0;
+			top: 10%;
+			right: 0;
+			height: 80%;
+			border-right: 1px solid getColor('warm-3');
 		}
 
-		.column:last-child .card {
-			&:after {
-				display: none;
-			}
+		.column:last-child .card:after {
+			display: none;
 		}
 	}
 }
