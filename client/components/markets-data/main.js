@@ -1,3 +1,7 @@
+import nJsonpFetch from 'n-jsonp-fetch';
+
+const getFetch = (...args) => ('XDomainRequest' in window) ? nJsonpFetch(...args) : fetch(...args);
+
 const regionalSecurities = {
 	uk: [
 		{
@@ -78,7 +82,7 @@ const init = (flags) => {
 			securities = regionalSecurities['uk'];
 	}
 	const symbols = securities.map(security => security.symbol).join(',');
-	fetch(`https://next-markets-proxy.ft.com/securities/v1/quotes?symbols=${symbols}`)
+	getFetch(`https://next-markets-proxy.ft.com/securities/v1/quotes?symbols=${symbols}`)
 		.then(response => {
 			if (response.ok) {
 				return response.json();
