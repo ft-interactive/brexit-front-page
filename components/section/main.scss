@@ -1,5 +1,4 @@
 @import "./section-meta/main";
-@import "../card/main";
 @import "o-forms/main";
 
 .full-cell {
@@ -45,47 +44,66 @@
 	}
 }
 
-.section__column--content {
-	margin-top: oGridGutter();
-
-	.card:not(:first-child) {
-		margin-top: oGridGutter();
+.condensed-list {
+	@include oGridRespondTo(M) {
+		.column:nth-child(n+2) .card {
+			margin-top: 0;
+		}
 	}
 
-	& .condensed-list {
-		article {
-			border-bottom: 0;
+	.card {
+		border-bottom: 0;
+		position: relative;
+
+		@include oGridRespondTo(XL) {
 			justify-content: center;
 		}
 
-		.card:not(:first-child) {
-			margin-top: 0;
-		}
-
-		.card:not(:last-child) {
-			position: relative;
-
-			&:after {
-			  content: "";
-			  position: absolute;
-			  left: 5%;
-			  bottom: 0;
-			  width: 90%;
-			  border-bottom: 1px solid getColor('warm-3');
+		&:after {
+			content: "";
+			position: absolute;
+			left: 5%;
+			bottom: 0;
+			width: 90%;
+			border-bottom: 1px solid getColor('warm-3');
+			@include oGridRespondTo($until: M) {
+				opacity: 0.5;
 			}
 		}
 	}
 
-	@include oGridRespondTo(M) {
+	.column:last-child .card {
+		&:after {
+			display: none;
+		}
+	}
+
+	@include oGridRespondTo($until: XL) {
+		margin-top: oGridGutter();
+
+		.card {
+			margin-top: 0;
+		}
+	}
+
+	@include oGridRespondTo($from: M, $until: XL) {
 		margin-top: oGridGutter(M);
 
-		.card:not(:first-child) {
-			margin-top: oGridGutter(M);
+		.card {
+			&:after {
+				left: auto;
+				width: auto;
+				border-bottom-width: 0;
+				top: 10%;
+				right: 0;
+				height: 80%;
+				border-right: 1px solid getColor('warm-3');
+			}
 		}
 
-		& .condensed-list {
-			.card:not(:first-child) {
-				margin-top: 0;
+		.column:last-child .card {
+			&:after {
+				display: none;
 			}
 		}
 	}
@@ -119,49 +137,6 @@
 	@include oFormsCommonField();
 	@include oFormsSelect();
 	width: auto;
-}
-
-.column {
-	@include displayFlex;
-	flex-direction: column;
-
-	&[data-o-grid-colspan~="hide"] {
-		@include oGridRespondTo($until: S) {
-			display: none;
-		}
-	 }
-
-	&[data-o-grid-colspan~="Shide"] {
-		@include oGridRespondTo(S, $until: M) {
-			display: none;
-		}
-	}
-
-	&[data-o-grid-colspan~="Mhide"] {
-		@include oGridRespondTo(M, $until: L) {
-			display: none;
-		}
-	}
-
-	&[data-o-grid-colspan~="Lhide"] {
-		@include oGridRespondTo(L, $until: XL) {
-			display: none;
-		}
-	}
-
-	&[data-o-grid-colspan~="XLhide"] {
-		@include oGridRespondTo(XL) {
-			display: none;
-		}
-	}
-
-	//Try and match the editors picks cards with the ad height
-	&.editors-picks__column {
-		@include oGridRespondTo(L) {
-			min-height: 264px;
-		}
-	}
-
 }
 
 //The ad gets too wide at this width, so change the column widths

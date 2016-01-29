@@ -11,13 +11,11 @@ const articleHasRelatedContent = (articles, articleIndex, relatedContentLength =
     articles[articleIndex].relatedContent.length >= relatedContentLength;
 
 const getLayoutId = (content, flags) => {
-    if(flags.frontPageTopStoriesRevised) {
-        return 'top-stories-revised';
-    } else {
-        return content && content.main && articleHasRelatedContent(content.main, 0, 3) ?
-            'top-stories-with-related' :
-            'top-stories';
-    }
+    const prefix = flags.frontPageTopStoriesRevised ? 'top-stories-revised' : 'top-stories';
+
+    return content && content.main && articleHasRelatedContent(content.main, 0, 3) ?
+        `${prefix}-with-related` :
+        prefix;
 }
 
 export default ({ content, flags }) => ({
