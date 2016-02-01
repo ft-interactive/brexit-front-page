@@ -99,6 +99,9 @@ const init = (flags) => {
 					const symbol = marketData.symbolInput;
 					const security = securities.find(security => security.symbol === symbol);
 					const percentChange = marketData.quote.change1DayPercent;
+					if (!percentChange) {
+						return '';
+					}
 					const priceChangeDirection = percentChange < 0 ? 'down' : percentChange > 0 ? 'up' : 'no-change';
 					return `
 						<li class="markets-data__item" data-trackable="item | ${index + 1}">
