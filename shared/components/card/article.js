@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { responsiveValue } from './helpers';
+import { responsiveValue } from './../../libs/helpers';
 import Tag from './tag/tag'
 import Title from './title/title'
 import Standfirst from './standfirst/standfirst'

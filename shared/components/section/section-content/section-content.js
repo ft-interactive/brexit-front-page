@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import Content from '../../card/content';
+import Content from '../../content/content';
 
 // assign an incremental id to the Content components
 const assignContentId = (contentIndex, component) => {

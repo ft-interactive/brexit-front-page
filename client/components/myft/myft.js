@@ -6,8 +6,8 @@ import nJsonpFetch from 'n-jsonp-fetch';
 import sessionClient from 'next-session-client';
 import * as myFtUi from 'next-myft-ui';
 
-import Section from '../../../components/section';
-import MyftPromo from '../../../components/card/myft-promo';
+import Section from '../../../shared/components/section';
+import MyftPromo from '../../../shared/components/myft-promo/myft-promo';
 import getSection from '../../../config/sections/index';
 
 const query = `

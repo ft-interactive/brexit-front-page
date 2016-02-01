@@ -1,4 +1,4 @@
-import Ad from '../../components/card/ad';
+import Ad from '../../shared/components/ad/ad';
 
 export default ({ flags }) => ({
     id: 'editors-picks',

@@ -2,7 +2,7 @@ import SectionNode from './node';
 import nJsonpFetch from 'n-jsonp-fetch';
 import Superstore from 'superstore';
 import {json as fetchJson} from 'fetchres';
-import fireTracking from '../../client/utils/fire-tracking';
+import fireTracking from '../../../client/utils/fire-tracking';
 import getDomPath from 'n-instrumentation/src/utils/getDomPath';
 
 

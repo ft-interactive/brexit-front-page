@@ -1,10 +1,11 @@
-@import './tag/main';
-@import './title/main';
-@import './standfirst/main';
-@import './image/main';
-@import './related/main';
-@import './liveblog';
-@import './ad';
+@import 'article';
+@import 'concept';
+@import 'video';
+@import 'tag/tag';
+@import 'title/title';
+@import 'standfirst/standfirst';
+@import 'image/image';
+@import 'related/related';
 
 .card {
 	@include displayFlex;
@@ -21,11 +22,6 @@
 	@include oGridRespondTo(M) {
 		margin-top: oGridGutter(M);
 	}
-}
-
-.card--video {
-	width: 100%;
-	padding: 0;
 }
 
 .card[data-show~="false"] {
@@ -74,5 +70,3 @@
 		}
 	}
 }
-
-@import './concept';

@@ -3,7 +3,7 @@ import SectionMeta from './section-meta/section-meta';
 import SectionContent from './section-content/section-content';
 import SectionSources from './section-sources/section-sources';
 
-import colspan from '../../client/utils/colspan';
+import colspan from '../../../client/utils/colspan';
 
 const classify = classes => classes
 	.filter(className => className)

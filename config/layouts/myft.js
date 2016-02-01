@@ -1,7 +1,7 @@
-import Column from '../../components/column/column';
-import Row from '../../components/row/row';
-import Content from '../../components/card/content';
-import MyftPromo from '../../components/card/myft-promo';
+import Column from '../../shared/components/column/column';
+import Row from '../../shared/components/row/row';
+import Content from '../../shared/components/content/content';
+import MyftPromo from '../../shared/components/myft-promo/myft-promo';
 
 export default [
     {

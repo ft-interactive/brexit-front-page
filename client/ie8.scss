@@ -28,4 +28,4 @@ $o-grid-ie8-rules: 'only';
 // Generate grid helper classes and data- attributes
 @include oGridGenerate;
 
-@import "../components/card/ie8";
+@import "../shared/components/card/card-ie8";

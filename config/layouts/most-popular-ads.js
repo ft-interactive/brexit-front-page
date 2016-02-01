@@ -1,7 +1,7 @@
-import Row from '../../components/row/row';
-import Column from '../../components/column/column';
-import Content from '../../components/card/content';
-import Ad from '../../components/card/ad';
+import Row from '../../shared/components/row/row';
+import Column from '../../shared/components/column/column';
+import Content from '../../shared/components/content/content';
+import Ad from '../../shared/components/ad/ad';
 
 export default [
 	{

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {responsiveValue} from './helpers';
+import {responsiveValue} from './../../libs/helpers';
 
 class Ad extends Component {
 	render () {

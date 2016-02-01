@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import Image from 'n-image';
 import Follow from 'next-myft-ui/templates/follow';
 
-import { responsiveValue } from './helpers';
+import { responsiveValue } from './../../libs/helpers';
 
 // generic images for this concept
 const taxonomyImages = {

@@ -1,6 +1,6 @@
-import Row from '../../components/row/row';
-import Column from '../../components/column/column';
-import Content from '../../components/card/content';
+import Row from '../../shared/components/row/row';
+import Column from '../../shared/components/column/column';
+import Content from '../../shared/components/content/content';
 
 export default [
 	{

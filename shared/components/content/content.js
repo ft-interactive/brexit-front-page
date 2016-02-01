@@ -1,8 +1,8 @@
 import React, { Component} from 'react';
 
-import VideoCard from './video';
-import ConceptCard from './concept';
-import ArticleCard from './card';
+import ArticleCard from '../card/article';
+import ConceptCard from '../card/concept';
+import VideoCard from '../card/video';
 
 const getImageData = item => {
     if (item.branding && item.branding.taxonomy === 'authors' && item.branding.headshot) {
@@ -19,13 +19,14 @@ const getData = (item, opts) => {
         show: opts.show
     };
 
+    // if renditions, assume it's a video
     if (item.renditions) {
         Object.assign(data, {
             type: 'video',
             id: item.id,
             title: item.title
         });
-    } else if (item.taxonomy) {
+    } else if (item.taxonomy) { // assume it's a concept
         Object.assign(data, {
             type: 'concept',
             name: item.name,

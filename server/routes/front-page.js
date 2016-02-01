@@ -1,7 +1,7 @@
 import { getData } from '../libs/graphql-poller';
 import sectionContent from '../libs/section-content';
 
-import Section from '../../components/section';
+import Section from '../../shared/components/section';
 import getPage from '../../config/pages';
 
 // bail unless we have at least one top story

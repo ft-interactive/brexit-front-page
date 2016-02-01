@@ -22,15 +22,11 @@ $o-grid-ie8-rules: false;
 
 @import "colors";
 
-@import "components/header-tabs/main";
-@import "components/video/main";
-@import "components/markets-data/main";
-@import "components/highlight-dom-path/main";
-
-@import "../components/section/main";
-@import "../components/column/main";
-@import "../components/card/main";
-@import "../components/fast-ft/main";
+@import "components/header-tabs/header-tabs";
+@import "components/video/video";
+@import "components/markets-data/markets-data";
+@import "components/highlight-dom-path/highlight-dom-path";
+@import "../shared/components/section/section";
 
 html {
 	// Prevent navigation menus from creating

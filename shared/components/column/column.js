@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import colspanToString from '../../client/utils/colspan';
+import colspanToString from '../../../client/utils/colspan';
 
 const nonEmpty = item => item;
 
