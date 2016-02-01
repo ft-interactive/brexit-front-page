@@ -1,15 +1,12 @@
-import React, {Component} from 'react';
-import {responsiveValue} from '../helpers';
+import React, { Component } from 'react';
 
+/**
+ * @param {string} standfirst
+ */
 export default class Standfirst extends Component {
 	render () {
-		const article = this.props.article;
-
 		return (
-			<p className="card__standfirst"
-				data-show={responsiveValue(this.props.show)}>
-				{article.summary}
-			</p>
+			<p className="card__standfirst">{this.props.standfirst}</p>
 		);
 	}
 }

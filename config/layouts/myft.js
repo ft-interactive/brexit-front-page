@@ -1,9 +1,7 @@
-import Concept from '../../components/card/concept';
-import MyftPromo from '../../components/card/myft-promo';
 import Column from '../../components/column/column';
 import Row from '../../components/row/row';
-import Card from '../../components/card/card';
-
+import Concept from '../../components/card/concept';
+import MyftPromo from '../../components/card/myft-promo';
 
 export default [
     {
@@ -26,8 +24,7 @@ export default [
                 colspan: { default: 12, M: 4, L: 3 },
                 components: [
                     {
-                        type: Card,
-                        cardType: Concept
+                        type: Concept
                     }
                 ]
             },
@@ -37,8 +34,7 @@ export default [
                 colspan: { default: 12, M: 4, L: 3 },
                 components: [
                     {
-                        type: Card,
-                        cardType: Concept
+                        type: Concept
                     }
                 ]
             },
@@ -48,8 +44,7 @@ export default [
                 colspan: { default: 12, M: 4, L: 3 },
                 components: [
                     {
-                        type: Card,
-                        cardType: Concept,
+                        type: Concept,
                         show: { default: true, M: false, L: true }
                     }
                 ]

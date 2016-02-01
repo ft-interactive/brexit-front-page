@@ -1,17 +1,19 @@
 import React, {Component} from 'react';
 
+/**
+ * @param {Object[]) items
+ * @param {string) items[].id
+ * @param {string) items[].title
+ */
 export default class Related extends Component {
 	render () {
-		const articles = this.props.articles;
-		const relatedEls = this.props.show.map((show, i) => {
-			const related = articles[i];
-
-			return (
-				<li className="card__related-item" key={related.id}>
-					<a href={'/content/' + related.id} className="card__related-item__link" data-trackable="related">{related.title}</a>
-				</li>
-			);
-		});
+		const relatedEls = this.props.items.map(item =>
+			<li className="card__related-item" key={item.id}>
+				<a href={`/content/${item.id}`} className="card__related-item__link" data-trackable="related">
+					{item.title}
+				</a>
+			</li>
+		);
 
 		return (
 			<ol className="card__related-items">

@@ -1,12 +1,16 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 
+/**
+ * @param {string} name
+ * @param {string} url
+ * @param {string} taxonomy
+ */
 export default class Tag extends Component {
 	render () {
-		const tag = this.props.tag;
 		return (
-			<p className={'card__tag card__tag--' + tag.taxonomy}>
-				<a className="card__tag__link" href={tag.url} data-trackable="primary-tag">
-					{tag.name}
+			<p className={`card__tag card__tag--${this.props.tag.taxonomy}`}>
+				<a className="card__tag__link" href={this.props.tag.url} data-trackable="primary-tag">
+					{this.props.tag.name}
 				</a>
 			</p>
 		);

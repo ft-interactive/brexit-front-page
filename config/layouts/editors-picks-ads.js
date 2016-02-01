@@ -1,7 +1,6 @@
-import Content from '../../components/card/content';
-import Column from '../../components/column/column';
 import Row from '../../components/row/row';
-import Card from '../../components/card/card';
+import Column from '../../components/column/column';
+import Content from '../../components/card/content';
 
 export default [
 	{
@@ -9,33 +8,31 @@ export default [
 		components: [
 			{
 				type: Column,
-				colspan: { default: 12, S: 6, M: 3},
-				components:
-				[
+				colspan: { default: 12, S: 6, M: 3 },
+				components: [
 					{
-						type: Card,
-						cardType: Content,
+						type: Content,
 						size: 'small',
-						landscape: { default: true, S: false },
-						image: { default: true },
-						imageStick: { default: true},
-						imageSrcSet: { default: 100, s: 315, m: 277, l: 161, xl: 203 }
+						image: {
+							stick: true,
+							position: { default: 'left', S: 'top' },
+							srcSet: { default: 100, s: 315, m: 277, l: 161, xl: 203 }
+						}
 					}
 				]
 			},
 			{
 				type: Column,
-				colspan: { default: 12, S: 6, M: 3},
-				components:
-				[
+				colspan: { default: 12, S: 6, M: 3 },
+				components: [
 					{
-						type: Card,
-						cardType: Content,
+						type: Content,
 						size: 'small',
-						landscape: { default: true, S: false },
-						image: { default: true },
-						imageStick: { default: true},
-						imageSrcSet: { default: 100, s: 315, m: 277, l: 161, xl: 203 }
+						image: {
+							stick: true,
+							position: { default: 'left', S: 'top' },
+							srcSet: { default: 100, s: 315, m: 277, l: 161, xl: 203 }
+						}
 
 					}
 				]
@@ -43,30 +40,30 @@ export default [
 			{
 				type: Column,
 				colspan: { default: 12, S: 6, M: 3 },
-				components:
-				[
-					{ type: Card,
-						cardType: Content,
+				components: [
+					{
+						type: Content,
 						size: 'small',
-						landscape: { default: true, S: false },
-						image: { default: true },
-						imageStick: { default: true},
-						imageSrcSet: { default: 100, s: 315, m: 277, l: 161, xl: 203 }
+						image: {
+							stick: true,
+							position: { default: 'left', S: 'top' },
+							srcSet: { default: 100, s: 315, m: 277, l: 161, xl: 203 }
+						}
 					}
 				]
 			},
 			{
 				type: Column,
 				colspan: { default: 12, S: 6, M: 3 },
-				components:
-				[
-					{ type: Card,
-						cardType: Content,
+				components: [
+					{
+						type: Content,
 						size: 'small',
-						landscape: { default: true, S: false },
-						image: { default: true },
-						imageStick: { default: true},
-						imageSrcSet: { default: 100, s: 315, m: 277, l: 161, xl: 203 }
+						image: {
+							stick: true,
+							position: { default: 'left', S: 'top' },
+							srcSet: { default: 100, s: 315, m: 277, l: 161, xl: 203 }
+						}
 					}
 				]
 			}

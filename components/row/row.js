@@ -3,8 +3,7 @@ import React, {Component} from 'react';
 class Row extends Component {
 
 	render () {
-
-		if(!this.props.components) {
+		if (!this.props.components) {
 			return null;
 		}
 
@@ -13,7 +12,9 @@ class Row extends Component {
 			this.props.isCompact ? 'o-grid-row--compact' : ''
 		].filter(className => className);
 
-		const renderComponents = (components) => components.map((component, index) => <component.type {...component} key={'row-child_' + index} />);
+		const renderComponents = (components) => components.map((component, index) =>
+			<component.type {...component} key={'row-child_' + index} />
+		);
 
 		return (
 			<div className={classes.join(' ')}>

@@ -1,36 +1,34 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 
 import Content from '../../card/content';
-import Concept from '../../card/concept';
-import Video from '../../card/video';
+
+// assign an incremental id to the Content components
+const assignContentId = (contentIndex, component) => {
+	if (component.type === Content) {
+		component.id = contentIndex;
+	} else if (component.components && component.components.length) {
+		component.components.reduce(assignContentId, contentIndex);
+	}
+
+	return ++contentIndex;
+};
+
+
+const renderComponents = (id, components, items) => components.map((component, index) =>
+	<component.type {...component} items={items} key={`${id}_child${index}`} />
+);
 
 export default class SectionContent extends Component {
 	render () {
 		const items = this.props.items.slice();
-		const layout = this.props.layout;
-		let storyIndex = 0;
+		console.log(items);
+		const components = this.props.layout;
 
-		const renderComponents = (components) => components.map((component, index) => {
-			return <component.type {...component} key={this.props.id + '_child' + index} />
-		});
-
-		//Assign content to cards
-
-		const assignContent = (components) => components.map((component) => {
-			if([Content, Concept, Video].some(type => type === component.cardType)) {
-				component.itemIndex = component.itemIndex || storyIndex++;
-				component.item = items[component.itemIndex];
-			} else if (component.components && component.components.length) {
-				//If this is a row or column, keep adding items to their children
-				assignContent(component.components);
-			}
-		});
-
-		assignContent(layout);
+		components.reduce(assignContentId, 0);
 
 		return (
 			<div>
-				{renderComponents(layout)}
+				{renderComponents(this.props.id, components, items)}
 			</div>
 		)
 	}
