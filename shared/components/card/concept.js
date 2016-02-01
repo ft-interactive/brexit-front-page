@@ -57,7 +57,19 @@ const createFollowComponentAttrs = (id, name, taxonomy, isFollowing) => {
 	return attrs;
 };
 
-class Concept extends Component {
+/**
+ * @param {string} id
+ * @param {string} name
+ * @param {string} taxonomy
+ * @param {string} url
+ * @param {bolean} [isFollowing=false]
+ * @param {Object[]} items
+ * @param {string} items.id
+ * @param {string} items.title
+ * @param {Object} [items.primaryImage]
+ * @param {string} items.primaryImage.rawSrc
+ */
+export default class extends Component {
 	render () {
 		const classes = ['card', 'card--concept'];
 		if (this.props.isFollowing) {
@@ -114,5 +126,3 @@ class Concept extends Component {
 		);
 	}
 }
-
-export default Concept;

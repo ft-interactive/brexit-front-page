@@ -29,6 +29,7 @@ const getData = (item, opts) => {
     } else if (item.taxonomy) { // assume it's a concept
         Object.assign(data, {
             type: 'concept',
+            id: item.id,
             name: item.name,
             items: item.items,
             taxonomy: item.taxonomy,

@@ -15,15 +15,19 @@ import LiveBlogGlow from './live-blog-glow/live-blog-glow';
  * @param {string} [standfirst]
  * @param {string} [tag]
  * @param {Object[]} [related]
- * @param {string} [related[].title]
- * @param {string} [related[].id]
- * @param {Object[]} [image]
- * @param {string} image[].url
- * @param {string} [image[].show]
- * @param {string} [image[].position]
- * @param {string} image[].srcSet
+ * @param {string} related[].title
+ * @param {string} related[].id
+ * @param {Object} [image]
+ * @param {string} image.url
+ * @param {string} image.srcSet
+ * @param {string} [image.show]
+ * @param {string} [image.position]
+ * @param {Object} [liveBlog]
+ * @param {string} liveBlog.status
+ * @param {Object} liveBlog.latestUpdate
+ * @param {string} liveBlog.latestUpdate.date
  */
-class Card extends Component {
+export default class extends Component {
 	render () {
 		const attrs = {
 			className: 'card',
@@ -60,5 +64,3 @@ class Card extends Component {
 		);
 	}
 }
-
-export default Card;

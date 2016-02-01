@@ -1,8 +1,12 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 
-import {responsiveValue} from './../../libs/helpers';
+import { responsiveValue } from './../../libs/helpers';
 
-class Video extends Component {
+/**
+ * @param {string} title
+ * @param {string} id
+ */
+export default class extends Component {
 	render () {
 		const attrs = {
 			className: 'card card--video'
@@ -27,5 +31,3 @@ class Video extends Component {
 		);
 	}
 }
-
-export default Video;
