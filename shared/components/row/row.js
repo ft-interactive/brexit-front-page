@@ -13,7 +13,7 @@ class Row extends Component {
 		].filter(className => className);
 
 		const renderComponents = (components) => components.map((component, index) =>
-			<component.type {...component} key={'row-child_' + index} />
+			<component.type {...component} items={this.props.items} key={'row-child_' + index} />
 		);
 
 		return (
