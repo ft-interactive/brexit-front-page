@@ -14,7 +14,7 @@ export default [
 						type: Content,
 						size: 'small',
 						image: {
-							position: { default: 'left', M: 'top', L: 'left' },
+							position: { default: 'left', M: 'bottom', L: 'left' },
 							srcSet: { default: 100, s: 100, m: 277, l: 100, xl: 100 }
 						}
 					},

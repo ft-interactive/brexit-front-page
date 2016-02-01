@@ -5,7 +5,7 @@ import React, {Component} from 'react';
  * @param {string) items[].id
  * @param {string) items[].title
  */
-export default class Related extends Component {
+export default class extends Component {
 	render () {
 		const relatedEls = this.props.items.map(item =>
 			<li className="card__related-item" key={item.id}>

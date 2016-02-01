@@ -32,7 +32,7 @@
 	display: none;
 }
 
-.card[data-landscape~="true"] {
+.card[data-image-position~="left"] {
 	position: relative;
 	min-height: 56px;
 	padding-left: 120px;
@@ -61,13 +61,13 @@
 			flex: none;
 		}
 
-		.card[data-landscape~="#{$layout-name}--true"] {
+		.card[data-image-position~="#{$layout-name}--left"] {
 			position: relative;
 			min-height: 56px;
 			padding-left: 120px;
 		}
 
-		.card[data-landscape~="#{$layout-name}--false"] {
+		.card[data-image-position~="#{$layout-name}--bottom"] {
 			position: static;
 			min-height: auto;
 			padding-left: 10px;

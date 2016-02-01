@@ -53,6 +53,13 @@ const getData = (item, opts) => {
         if (opts.showRelated) {
             data.related = item.relatedContent;
         }
+
+        if (item.contentType === 'LiveBlog') {
+            data.liveBlog = {
+                status: item.status,
+                latestUpdate: item.updates[0]
+            };
+        }
     }
 
     return data;
@@ -61,6 +68,9 @@ const getData = (item, opts) => {
 class Content extends Component {
     render () {
         const item = this.props.items[this.props.itemIndex || this.props.id];
+        if (!item) {
+            return null;
+        }
         const data = getData(item, this.props);
 
         switch (data.type) {

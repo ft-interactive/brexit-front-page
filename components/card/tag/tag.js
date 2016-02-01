@@ -5,7 +5,7 @@ import React, { Component } from 'react';
  * @param {string} url
  * @param {string} taxonomy
  */
-export default class Tag extends Component {
+export default class extends Component {
 	render () {
 		return (
 			<p className={`card__tag card__tag--${this.props.tag.taxonomy}`}>

@@ -40,7 +40,7 @@ export default [
 						show: { default: false, M: true, L: false, XL: true },
 						image: {
 							show: { default: true, L: false },
-							position: { default: 'left', M: 'top' },
+							position: { default: 'left', M: 'bottom' },
 							srcSet: { default: 449, s: 659, m: 199, l: 259, xl: 322 }
 						}
 					},
@@ -91,7 +91,7 @@ export default [
 						size: 'small',
 						image: {
 							srcSet: { default: 449, s: 659, m: 199, l: 259, xl: 322 },
-							position: {default: 'left', M: 'top', L: 'left', XL: 'top' }
+							position: {default: 'left', M: 'bottom', L: 'left', XL: 'bottom' }
 						},
 						show: { default: false, M: true },
 						itemIndex: 4

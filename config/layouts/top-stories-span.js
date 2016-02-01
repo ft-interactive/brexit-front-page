@@ -16,7 +16,7 @@ export default [
 						size: 'wide',
 						showStandfirst: true,
 						image: {
-							position: 'right',
+							position: { default: 'right' },
 							srcSet: { default: 449, s: 659, m: 355, l: 292, xl: 411 }
 						}
 					}
@@ -44,7 +44,7 @@ export default [
 						type: Content,
 						size: 'medium',
 						image: {
-							position: 'right',
+							position: { default: 'right' },
 							srcSet: { default: 449, s: 659, m: 355, l: 292, xl: 411 }
 						}
 					}

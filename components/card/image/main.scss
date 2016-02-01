@@ -6,7 +6,7 @@
 	margin-top: 10px;
 	border-bottom: 0;
 
-	.card[data-landscape~="true"] & {
+	.card[data-image-position~="left"] & {
 		position: absolute;
 		top: 10px;
 		left: 10px;
@@ -33,7 +33,7 @@
 				display: none;
 			}
 
-			.card[data-landscape~="#{$layout-name}--false"] & {
+			.card[data-image-position~="#{$layout-name}--bottom"] & {
 				position: static;
 				top: 0;
 				left: 0;
@@ -41,7 +41,7 @@
 				margin-top: 10px;
 			}
 
-			.card[data-landscape~="#{$layout-name}--true"] & {
+			.card[data-image-position~="#{$layout-name}--left"] & {
 				position: absolute;
 				top: 10px;
 				left: 10px;
@@ -56,17 +56,17 @@
 .card__image-link--headshot {
 	align-items: flex-end;
 
-	.card[data-landscape~="true"] & {
+	.card[data-image-position~="left"] & {
 		align-items: flex-start;
 	}
 
-	.card[data-landscape~="S--false"] & {
+	.card[data-image-position~="S--bottom"] & {
 		@include oGridRespondTo(S) {
 			align-items: flex-end;
 		}
 	}
 
-	.card[data-landscape~="M--false"] & {
+	.card[data-image-position~="M--bottom"] & {
 		@include oGridRespondTo(M) {
 			align-items: flex-end;
 		}

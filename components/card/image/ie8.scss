@@ -8,7 +8,7 @@
 			.card[data-image-show~="#{$layout-name}--false"] & {
 				display: none;
 			}
-			.card[data-landscape~="#{$layout-name}--false"] & {
+			.card[data-image-position~="#{$layout-name}--bottom"] & {
 				position: static;
 				top: 0;
 				left: 0;
@@ -16,7 +16,7 @@
 				margin-top: 10px;
 			}
 
-			.card[data-landscape~="#{$layout-name}--true"] & {
+			.card[data-image-position~="#{$layout-name}--left"] & {
 				position: static;
 			}
 		}

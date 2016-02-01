@@ -6,6 +6,7 @@ import Title from './title/title'
 import Standfirst from './standfirst/standfirst'
 import Image from './image/image'
 import Related from './related/related';
+import LiveBlogGlow from './live-blog-glow/live-blog-glow';
 
 /**
  * @param {string} title
@@ -32,19 +33,29 @@ class Card extends Component {
 		if (this.props.show) {
 			attrs['data-show'] = responsiveValue(this.props.show);
 		}
-		if (this.props.image && this.props.image.show) {
-			attrs['data-image-show'] = responsiveValue(this.props.image.show);
+		if (this.props.image) {
+			if (this.props.image.show) {
+				attrs['data-image-show'] = responsiveValue(this.props.image.show);
+			}
+			if (this.props.image.position) {
+				attrs['data-image-position'] = responsiveValue(this.props.image.position);
+			}
+		}
+		if (this.props.liveBlog) {
+			attrs.className += ` card--liveblog liveblog--${this.props.liveBlog.status.toLowerCase()}`;
 		}
 
 		return (
 			<article {...attrs}>
 				<div>
+					{this.props.liveBlog ? <span className="liveblog__badge">live</span> : null}
 					{this.props.tag ? <Tag tag={this.props.tag}/> : null}
 					<Title title={this.props.title} url={`/content/${this.props.id}`} />
 				</div>
 				{this.props.standfirst ? <Standfirst standfirst={this.props.standfirst} /> : null}
 				{this.props.image ? <Image {...this.props.image} contentId={this.props.id} /> : null}
 				{this.props.related ? <Related items={this.props.related} /> : null}
+				{this.props.liveBlog ? <LiveBlogGlow {...this.props.liveBlog} /> : null}
 			</article>
 		);
 	}

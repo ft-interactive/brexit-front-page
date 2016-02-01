@@ -7,7 +7,7 @@ import NImage from 'n-image';
  * @param {string} contentId
  * @param {boolean} [stick=false]
  */
-export default class Image extends Component {
+export default class extends Component {
 	render () {
 		const attrs = {
 			href: `/content/${this.props.contentId}`,

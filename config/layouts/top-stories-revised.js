@@ -40,7 +40,7 @@ export default [
 						size: 'medium',
 						image: {
 							srcSet: { default: 449, s: 659, m: 355, l: 292, xl: 411 },
-							position: 'left',
+							position: { default: 'left' },
 							yCentre: true
 						}
 					}

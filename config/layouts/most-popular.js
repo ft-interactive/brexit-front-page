@@ -32,7 +32,7 @@ export default [
 						type: Content,
 						size: 'small',
 						image: {
-							position: { default: 'left', M: 'top' },
+							position: { default: 'left', M: 'bottom' },
 							srcSet: { default: 100, s: 100, m: 199, l: 259, xl: 322 }
 						}
 					}
@@ -46,7 +46,7 @@ export default [
 						type: Content,
 						size: 'small',
 						image: {
-							position: { default: 'left', M: 'top' },
+							position: { default: 'left', M: 'bottom' },
 							srcSet: { default: 100, s: 100, m: 199, l: 259, xl: 322 }
 						}
 					},
