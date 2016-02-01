@@ -5,12 +5,12 @@ import Content from '../../card/content';
 // assign an incremental id to the Content components
 const assignContentId = (contentIndex, component) => {
 	if (component.type === Content) {
-		component.id = contentIndex;
+		component.id = contentIndex++;
 	} else if (component.components && component.components.length) {
-		component.components.reduce(assignContentId, contentIndex);
+		contentIndex = component.components.reduce(assignContentId, contentIndex);
 	}
 
-	return ++contentIndex;
+	return contentIndex;
 };
 
 
@@ -21,9 +21,7 @@ const renderComponents = (id, components, items) => components.map((component, i
 export default class SectionContent extends Component {
 	render () {
 		const items = this.props.items.slice();
-		console.log(items);
 		const components = this.props.layout;
-
 		components.reduce(assignContentId, 0);
 
 		return (

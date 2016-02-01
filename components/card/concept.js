@@ -17,8 +17,8 @@ const taxonomyImages = {
 	'default': 'http://com.ft.imagepublish.prod.s3.amazonaws.com/cca52406-bda0-11e5-9fdb-87b8d15baec2'
 };
 
-const getConceptImage = concept => {
-	const conceptImage = concept.items
+const getConceptImage = (taxonomy, items) => {
+	const conceptImage = items
 		.reduce((images, item) => {
 			if (item.primaryImage) {
 				images.push(item.primaryImage.rawSrc);
@@ -27,30 +27,30 @@ const getConceptImage = concept => {
 		}, [])
 		.shift();
 
-	return conceptImage || taxonomyImages[concept.taxonomy] || taxonomyImages.default;
+	return conceptImage || taxonomyImages[taxonomy] || taxonomyImages.default;
 };
 
-const createImageComponentAttrs = concept => {
+const createImageComponentAttrs = (taxonomy, items, isFollowing) => {
 	const attrs = {
-		url: getConceptImage(concept),
+		url: getConceptImage(taxonomy, items),
 		imgClass: 'card__concept-image',
 		srcset: { default: 449, s: 659, m: 199, l: 259, xl: 322 }
 	};
-	if (!concept.isFollowing) {
+	if (!isFollowing) {
 		attrs.imageServiceParams = { tint: 'FFF1E0' };
 	}
 
 	return attrs;
 };
 
-const createFollowComponentAttrs = concept => {
+const createFollowComponentAttrs = (id, name, taxonomy, isFollowing) => {
 	const attrs = {
-		conceptId: concept.id,
-		name: concept.name,
-		taxonomy: concept.taxonomy,
+		conceptId: id,
+		name: name,
+		taxonomy: taxonomy,
 		classes: 'card__concept-follow'
 	};
-	if (!concept.isFollowing) {
+	if (!isFollowing) {
 		Object.assign(attrs, { variant: 'inverse', size: 'big' })
 	}
 
@@ -59,9 +59,8 @@ const createFollowComponentAttrs = concept => {
 
 class Concept extends Component {
 	render () {
-		const concept = this.props.item;
 		const classes = ['card', 'card--concept'];
-		if (concept.isFollowing) {
+		if (this.props.isFollowing) {
 			classes.push('card--followed-concept');
 		} else {
 			classes.push('card--non-followed-concept');
@@ -70,21 +69,20 @@ class Concept extends Component {
 			className: classes.join(' '),
 			'data-trackable': 'concept'
 		};
-		const showCard = responsiveValue(this.props.show);
-		if (showCard.includes('false')) {
-			attrs['data-show'] = showCard;
+		if (this.props.show) {
+			attrs['data-show'] = responsiveValue(this.props.show);
 		}
-		const title = concept.isFollowing ?
+		const title = this.props.isFollowing ?
 			<a
 				className="card__concept-title__link"
-				href={concept.url}
-				data-trackable="concept-link">{concept.name}</a> :
-			concept.name;
-		const articles = concept.items.slice(0, 2).map(article => (
+				href={this.props.url}
+				data-trackable="concept-link">{this.props.name}</a> :
+			this.props.name;
+		const articles = this.props.items.slice(0, 2).map(article => (
 			<li className="card__concept-article" key={article.id}>
 				<a
 					className="card__concept-article__link"
-					href={`/content/${article.id}` + (!concept.isFollowing ? `?tagToFollow=${concept.id}` : '')}
+					href={`/content/${article.id}` + (!this.props.isFollowing ? `?tagToFollow=${this.props.id}` : '')}
 					data-trackable="article">{article.title}</a>
 			</li>
 		));
@@ -93,10 +91,19 @@ class Concept extends Component {
 			<section {...attrs}>
 				<div>
 					<div className="card__concept-container">
-						<Image {...createImageComponentAttrs(concept)} />
+						<Image {...createImageComponentAttrs(
+							this.props.taxonomy,
+							this.props.items,
+							this.props.isFollowing
+						)} />
 						<div className="card__concept-container__text">
 							<h2 className="card__concept-title">{title}</h2>
-							<Follow {...createFollowComponentAttrs(concept)} />
+							<Follow {...createFollowComponentAttrs(
+								this.props.id,
+								this.props.name,
+								this.props.taxonomy,
+								this.props.isFollowing
+							)} />
 						</div>
 					</div>
 					<ol className="card__concept-articles" data-trackable="articles">
