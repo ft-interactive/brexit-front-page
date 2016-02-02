@@ -65,7 +65,7 @@ export default [
 								components: [
 									{
 										type: Content,
-										size: 'small',
+										size: 'tiny',
 										hideTag: true
 									}
 								]
@@ -76,7 +76,7 @@ export default [
 								components: [
 									{
 										type: Content,
-										size: 'small',
+										size: 'tiny',
 										hideTag: true
 									}
 								]
@@ -87,7 +87,7 @@ export default [
 								components: [
 									{
 										type: Content,
-										size: 'small',
+										size: 'tiny',
 										hideTag: true
 									}
 								]
@@ -98,7 +98,7 @@ export default [
 								components: [
 									{
 										type: Content,
-										size: 'small',
+										size: 'tiny',
 										hideTag: true
 									}
 								]
