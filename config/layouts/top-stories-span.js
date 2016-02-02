@@ -6,13 +6,14 @@ export default [
 	{
 		type: Row,
 		components: [
+			//Column 0
 			{
 				type: Column,
 				colspan: { default: 12 },
 				components: [
 					{
 						type: Content,
-						size: 'large',
+						size: 'wide',
 						showStandfirst: true,
 						image: {
 							position: { default: 'right' },
@@ -26,17 +27,7 @@ export default [
 	{
 		type: Row,
 		components: [
-			{
-				type: Column,
-				colspan: { default: 12, M: 5 },
-				components: [
-					{
-						type: Content,
-						size: 'large',
-						showStandfirst: true
-					}
-				]
-			},
+			//Column 0
 			{
 				type: Column,
 				colspan: { default: 12, M: 5 },
@@ -47,11 +38,43 @@ export default [
 					},
 					{
 						type: Content,
+						size: 'medium'
+					},
+					{
+						type: Content,
 						size: 'medium',
 						image: {
-							position: { default: 'left' },
+							position: { default: 'right' },
 							srcSet: { default: 449, s: 659, m: 355, l: 292, xl: 411 }
 						}
+					}
+				]
+			},
+			//Column 1
+			{
+				type: Column,
+				className: 'condensed-list',
+				colspan: { default: 12, M: 2 },
+				components: [
+					{
+						type: Content,
+						size: 'small',
+						hideTag: true
+					},
+					{
+						type: Content,
+						size: 'small',
+						hideTag: true
+					},
+					{
+						type: Content,
+						size: 'small',
+						hideTag: true
+					},
+					{
+						type: Content,
+						size: 'small',
+						hideTag: true
 					}
 				]
 			}

@@ -16,8 +16,9 @@ export default [
 						type: Content,
 						size: 'large-top-story',
 						showStandfirst: true,
+						showRelated: true,
 						image: {
-							srcSet: { default: 449, s: 659, m: 355, l: 292, xl: 411 }
+							srcSet: { default: 449, s: 659, m: 432, l: 292, xl: 411 }
 						}
 					}
 				]
@@ -29,19 +30,17 @@ export default [
 				components: [
 					{
 						type: Content,
-						size: 'medium'
-					},
-					{
-						type: Content,
-						size: 'medium'
+						size: 'medium',
+						showStandfirst: true,
+						image: {
+							srcSet: { default: 100 },
+							position: { default: 'left' }
+						}
 					},
 					{
 						type: Content,
 						size: 'medium',
-						image: {
-							srcSet: { default: 449, s: 659, m: 355, l: 292, xl: 411} ,
-							position: { default: 'left' }
-						}
+						showStandfirst: true,
 					},
 					{
 						type: Content,
