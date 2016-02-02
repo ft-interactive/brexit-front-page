@@ -49,65 +49,6 @@
 	}
 }
 
-.condensed-list {
-	@include oGridRespondTo(M) {
-		.column:nth-child(n+2) .card {
-			margin-top: 0;
-		}
-	}
-
-	.card {
-		border-bottom: 0;
-		position: relative;
-
-		@include oGridRespondTo(XL) {
-			justify-content: center;
-		}
-
-		&:after {
-			content: "";
-			position: absolute;
-			left: 5%;
-			bottom: 0;
-			width: 90%;
-			border-bottom: 1px solid getColor('warm-3');
-			@include oGridRespondTo($until: M) {
-				opacity: 0.5;
-			}
-		}
-	}
-
-	.column:last-child .card:after {
-		display: none;
-	}
-
-	@include oGridRespondTo($until: XL) {
-		margin-top: oGridGutter();
-
-		.card {
-			margin-top: 0;
-		}
-	}
-
-	@include oGridRespondTo($from: M, $until: XL) {
-		margin-top: oGridGutter(M);
-
-		.card:after {
-			left: auto;
-			width: auto;
-			border-bottom-width: 0;
-			top: 10%;
-			right: 0;
-			height: 80%;
-			border-right: 1px solid getColor('warm-3');
-		}
-
-		.column:last-child .card:after {
-			display: none;
-		}
-	}
-}
-
 .section__column,
 // for current front page
 .main-content,
