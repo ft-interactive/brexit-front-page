@@ -68,7 +68,7 @@ export default [
 						size: 'tiny',
 						image: {
 							position: { default: 'left', M: 'bottom' },
-							srcSet: { default: 100, s: 100, m: 199, l: 161, xl: 233 }
+							srcSet: { default: 100, m: 199, l: 161, xl: 233 }
 						}
 					},
 					{

@@ -1,13 +1,14 @@
 .card__image-link {
-
 	@each $layout-name in $_o-grid-layout-names {
 		@include oGridTargetIE8 {
 			.card[data-image-show~="#{$layout-name}--true"] & {
 				display: flex;
 			}
+
 			.card[data-image-show~="#{$layout-name}--false"] & {
 				display: none;
 			}
+
 			.card[data-image-position~="#{$layout-name}--bottom"] & {
 				position: static;
 				top: 0;
@@ -17,7 +18,15 @@
 			}
 
 			.card[data-image-position~="#{$layout-name}--left"] & {
-				position: static;
+				position: absolute;
+				top: 31px;
+				left: 10px;
+				width: 100px;
+				margin-top: 0;
+			}
+
+			.card[data-size="tiny"][data-image-position~="#{$layout-name}--left"] & {
+				top: 10px;
 			}
 		}
 	}

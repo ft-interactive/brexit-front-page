@@ -7,26 +7,9 @@
 }
 
 @include oGridRespondTo($until: L) {
-	
-	.card[data-size="large"] .card__standfirst { 
+	.card[data-size="large"] .card__standfirst {
 		font-size: 18px;
 		line-height: 20px;
-	}
-}
-
-.card__standfirst[data-show~="false"] {
-	display: none;
-}
-
-@each $layout-name in $_o-grid-layout-names {
-	@include oGridRespondTo($layout-name) {
-		.card__standfirst[data-show~="#{$layout-name}--false"] {
-			display: none;
-		}
-
-		.card__standfirst[data-show~="#{$layout-name}--true"] {
-			display: inherit;
-		}
 	}
 }
 

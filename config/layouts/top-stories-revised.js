@@ -39,7 +39,7 @@ export default [
 					{
 						type: Content,
 						size: 'medium',
-						showStandfirst: true,
+						showStandfirst: true
 					},
 					{
 						type: Content,
