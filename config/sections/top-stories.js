@@ -4,29 +4,13 @@ import FastFt from '../../shared/components/fast-ft/fast-ft';
 
 const date = dateFormat(new Date(), 'EEEE MMMM yyyy');
 
-const articleHasRelatedContent = (articles, articleIndex, relatedContentLength = 1) =>
-    articles &&
-    articles[articleIndex] &&
-    articles[articleIndex].relatedContent &&
-    articles[articleIndex].relatedContent.length >= relatedContentLength;
-
-const getLayoutId = (content, flags) => {
-    if (flags.frontPageTopStoriesRevised) {
-        return 'top-stories-revised';
-    } else if (content && content.main && articleHasRelatedContent(content.main, 0, 3)) {
-        return 'top-stories-with-related';
-    } else {
-        return 'top-stories';
-    }
-}
-
-export default ({ content, flags }) => ({
+export default () => ({
     id: 'top-stories',
     title: 'Top Stories',
     style: 'top-stories',
     date: date,
     isTab: true,
-    layoutId: getLayoutId(content, flags),
+    layoutId: 'top-stories',
     size: {
         default: 12
     },
