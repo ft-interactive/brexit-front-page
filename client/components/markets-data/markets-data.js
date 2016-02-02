@@ -15,12 +15,12 @@ const regionalSecurities = {
 			type: 'indices'
 		},
 		{
-			name: 'Dollar/Euro',
+			name: 'Euro/Dollar',
 			symbol: 'EURUSD',
 			type: 'equities'
 		},
 		{
-			name: 'Dollar/Pound',
+			name: 'Pound/Dollar',
 			symbol: 'GBPUSD',
 			type: 'equities'
 		},
@@ -52,7 +52,7 @@ const regionalSecurities = {
 			type: 'indices'
 		},
 		{
-			name: 'Dollar/Euro',
+			name: 'Euro/Dollar',
 			symbol: 'EURUSD',
 			type: 'equities'
 		},
