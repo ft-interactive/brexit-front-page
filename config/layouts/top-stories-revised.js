@@ -101,6 +101,17 @@ export default [
 										hideTag: true
 									}
 								]
+							},
+							{
+								type: Column,
+								colspan: { default: 12, M: 3, XL: 12 },
+								components: [
+									{
+										type: Content,
+										size: 'tiny',
+										hideTag: true
+									}
+								]
 							}
 						]
 					}
