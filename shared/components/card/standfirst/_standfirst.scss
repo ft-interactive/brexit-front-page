@@ -1,9 +1,14 @@
 .card__standfirst {
 	font-family: $o-typography-sans;
 	font-weight: oFontsWeight(light);
-	font-size: 22px;
-	line-height: 24px;
+	font-size: 18px;
+	line-height: 20px;
 	margin: 5px 0 0;
+
+	.card[data-size~="large"] & {
+		font-size: 22px;
+		line-height: 24px;
+	}
 }
 
 @include oGridRespondTo($until: L) {
