@@ -52,8 +52,7 @@ export default [
 				type: Column,
 				className: 'condensed-list',
 				colspan: { default: 12, XL: 2 },
-				components:
-				[
+				components: [
 					{
 						type: Row,
 						isCompact: true,

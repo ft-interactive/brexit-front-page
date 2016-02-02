@@ -53,7 +53,7 @@ const getData = (item, opts) => {
             data.tag = item.primaryTag;
         }
         if (opts.showRelated) {
-            data.related = item.relatedContent;
+            data.related = item.relatedContent.concat((item.primaryTag && item.primaryTag.items) || []);
         }
 
         if (item.contentType === 'LiveBlog') {

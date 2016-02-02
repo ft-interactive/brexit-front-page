@@ -62,6 +62,34 @@ const frontPage = (region) => (`
 	${fragments}
 
 	query FrontPage {
+		topStory: top(region: ${region}){
+			items(limit: 1) {
+				... Basic
+				... Related
+				... on LiveBlog {
+					status
+					updates(limit: 1) {
+						date
+						text
+					}
+				}
+				genre
+				summary
+				primaryTag {
+					id
+					url
+					taxonomy
+					name
+					items(limit: 3) {
+						id
+						title
+					}
+				}
+				primaryImage {
+					rawSrc
+				}
+			}
+		}
 		top(region: ${region}) {
 			items {
 				... Basic

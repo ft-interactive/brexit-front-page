@@ -7,7 +7,6 @@ import myftLayout from './myft';
 import opinionLayout from './opinion';
 import topStoriesLayout from './top-stories';
 import topStoriesRevisedLayout from './top-stories-revised';
-import topStoriesRevisedWithRelatedLayout from './top-stories-revised-with-related';
 import topStoriesSpanLayout from './top-stories-span';
 import topStoriesWithRelatedLayout from './top-stories-with-related';
 import VideoLayout from './video';
@@ -22,7 +21,6 @@ export default {
     'opinion': opinionLayout,
     'top-stories': topStoriesLayout,
     'top-stories-revised': topStoriesRevisedLayout,
-    'top-stories-revised-with-related': topStoriesRevisedWithRelatedLayout,
     'top-stories-span': topStoriesSpanLayout,
     'top-stories-with-related': topStoriesWithRelatedLayout,
     'video': VideoLayout
