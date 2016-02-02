@@ -66,8 +66,8 @@
 		border: 0;
 	}
 
-	@include oGridRespondTo($until: XL) {
-		.column--condensed .column:nth-child(n+4) &:after {
+	.column--condensed .column:nth-child(n+4) &:after {
+		@include oGridRespondTo($until: XL) {
 			border: 0;
 		}
 	}
