@@ -109,7 +109,8 @@ export default [
 									{
 										type: Content,
 										size: 'tiny',
-										hideTag: true
+										hideTag: true,
+										show: { default: false, XL: true }
 									}
 								]
 							}
