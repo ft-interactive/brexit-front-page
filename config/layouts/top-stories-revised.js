@@ -1,7 +1,6 @@
-import Content from '../../components/card/content';
-import Column from '../../components/column/column';
-import Row from '../../components/row/row';
-import Card from '../../components/card/card';
+import Row from '../../shared/components/row/row';
+import Column from '../../shared/components/column/column';
+import Content from '../../shared/components/content/content';
 
 export default [
 	{
@@ -11,15 +10,15 @@ export default [
 			{
 				type: Column,
 				colspan: { default: 12, M: 6, XL: 5 },
-				components:
-				[
-					{ type: Card,
-						cardType: Content,
+				components: [
+					{
+						type: Content,
 						size: 'large-top-story',
-						related: { default: 1, M: 3},
-						standFirst: { default: true },
-						image: { default: true },
-						imageSrcSet: { default: 449, s: 659, m: 355, l: 292, xl: 411 }
+						showRelated: true,
+						showStandfirst: true,
+						image: {
+							srcSet: { default: 449, s: 659, m: 355, l: 292, xl: 411 }
+						}
 					}
 				]
 			},
@@ -28,21 +27,22 @@ export default [
 				type: Column,
 				colspan: { default: 12, M: 6, XL: 5 },
 				components: [
-					{ type: Card,
-						cardType: Content,
+					{
+						type: Content,
 						size: 'medium'
 					},
-					{ type: Card,
-						cardType: Content,
+					{
+						type: Content,
 						size: 'medium'
 					},
-					{ type: Card,
-						cardType: Content,
+					{
+						type: Content,
 						size: 'medium',
-						image: { default: true },
-						imageSrcSet: { default: 449, s: 659, m: 355, l: 292, xl: 411 },
-						landscape: { default: true },
-						imgYCentre: true
+						image: {
+							srcSet: { default: 449, s: 659, m: 355, l: 292, xl: 411 },
+							position: { default: 'left' },
+							yCentre: true
+						}
 					}
 				]
 			},
@@ -63,8 +63,7 @@ export default [
 								colspan: { default: 12, M: 3, XL: 12 },
 								components: [
 									{
-										type: Card,
-										cardType: Content,
+										type: Content,
 										size: 'small',
 										hideTag: true
 									}
@@ -75,8 +74,7 @@ export default [
 								colspan: { default: 12, M: 3, XL: 12 },
 								components: [
 									{
-										type: Card,
-										cardType: Content,
+										type: Content,
 										size: 'small',
 										hideTag: true
 									}
@@ -87,8 +85,7 @@ export default [
 								colspan: { default: 12, M: 3, XL: 12 },
 								components: [
 									{
-										type: Card,
-										cardType: Content,
+										type: Content,
 										size: 'small',
 										hideTag: true
 									}
@@ -99,8 +96,7 @@ export default [
 								colspan: { default: 12, M: 3, XL: 12 },
 								components: [
 									{
-										type: Card,
-										cardType: Content,
+										type: Content,
 										size: 'small',
 										hideTag: true
 									}

@@ -1,7 +1,7 @@
 import chai from 'chai';
 const expect = chai.expect;
 
-import Helpers from '../../../components/card/helpers';
+import Helpers from '../../../shared/libs/helpers';
 
 describe('Card helpers', () => {
 	describe('#objMap', () => {

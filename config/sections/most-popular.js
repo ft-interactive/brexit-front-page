@@ -11,7 +11,8 @@ export default ({ flags }) => ({
         parseResults: (data) => ({ main: data.popularFromHui }),
         rememberSource: true,
         sources: [
-            { uuid: 'initial',
+            {
+                uuid: 'initial',
                 title: 'All sectors'
             },
             {

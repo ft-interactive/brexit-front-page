@@ -1,0 +1,24 @@
+.card__image-link {
+
+	@each $layout-name in $_o-grid-layout-names {
+		@include oGridTargetIE8 {
+			.card[data-image-show~="#{$layout-name}--true"] & {
+				display: flex;
+			}
+			.card[data-image-show~="#{$layout-name}--false"] & {
+				display: none;
+			}
+			.card[data-image-position~="#{$layout-name}--bottom"] & {
+				position: static;
+				top: 0;
+				left: 0;
+				width: auto;
+				margin-top: 10px;
+			}
+
+			.card[data-image-position~="#{$layout-name}--left"] & {
+				position: static;
+			}
+		}
+	}
+}

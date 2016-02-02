@@ -1,6 +1,6 @@
 import { format as dateFormat } from 'o-date';
 
-import FastFt from '../../components/fast-ft/fast-ft';
+import FastFt from '../../shared/components/fast-ft/fast-ft';
 
 const date = dateFormat(new Date(), 'EEEE MMMM yyyy');
 

@@ -1,8 +1,6 @@
-import Video from '../../components/card/video';
-import Column from '../../components/column/column';
-import Row from '../../components/row/row';
-import Card from '../../components/card/card';
-
+import Row from '../../shared/components/row/row';
+import Column from '../../shared/components/column/column';
+import Content from '../../shared/components/content/content';
 
 export default [
 	{
@@ -13,8 +11,7 @@ export default [
 				colspan: { default: 12, S: 6, M: 3 },
 				components: [
 					{
-						type: Card,
-						cardType: Video
+						type: Content
 					}
 				]
 			},
@@ -23,8 +20,7 @@ export default [
 				colspan: { default: 12, S: 6, M: 3 },
 				components: [
 					{
-						type: Card,
-						cardType: Video
+						type: Content
 					}
 				]
 			},
@@ -33,8 +29,7 @@ export default [
 				colspan: { default: 12, S: 6, M: 3 },
 				components: [
 					{
-						type: Card,
-						cardType: Video
+						type: Content
 					}
 				]
 			},
@@ -43,8 +38,7 @@ export default [
 				colspan: { default: 12, S: 6, M: 3 },
 				components: [
 					{
-						type: Card,
-						cardType: Video
+						type: Content
 					}
 				]
 			}

@@ -1,8 +1,6 @@
-import Content from '../../components/card/content';
-import Column from '../../components/column/column';
-import Row from '../../components/row/row';
-import Card from '../../components/card/card';
-
+import Row from '../../shared/components/row/row';
+import Column from '../../shared/components/column/column';
+import Content from '../../shared/components/content/content';
 
 export default [
 	{
@@ -10,74 +8,72 @@ export default [
 		components: [
 			{
 				type: Column,
-				colspan: { default: 12, M: 3},
+				colspan: { default: 12, M: 3 },
 				components: [
-					{ type: Card,
-						cardType: Content,
+					{
+						type: Content,
 						size: 'large',
-						standFirst: { default: true },
-						image: { default: true },
-						imageSrcSet: { default: 449, s: 659, m: 199, l: 259, xl: 322 }
-					}
-				],
-			},
-			{
-				type: Column,
-				colspan: { default: 12, M: 3},
-				components: [
-					{ type: Card,
-						cardType: Content,
-						size: 'medium',
-					},
-					{ type: Card,
-						cardType: Content,
-						size: 'small',
-						image: { default: true },
-						landscape: { default: true, M: false },
-						imageSrcSet: { default: 100, s: 100, m: 199, l: 259, xl: 322 }
+						showStandFirst: true,
+						image: {
+							srcSet: { default: 449, s: 659, m: 199, l: 259, xl: 322 }
+						}
 					}
 				]
 			},
 			{
 				type: Column,
-				colspan: { default: 12, M: 3},
+				colspan: { default: 12, M: 3 },
 				components: [
-					{ type: Card,
-						cardType: Content,
-						size: 'small',
-						image: { default: true },
-						landscape: { default: true, M: false },
-						imageSrcSet: { default: 100, s: 100, m: 199, l: 259, xl: 322 }
+					{
+						type: Content,
+						size: 'medium'
 					},
 					{
-						type: Card,
-						cardType: Content,
+						type: Content,
 						size: 'small',
+						image: {
+							position: { default: 'left', M: 'bottom' },
+							srcSet: { default: 100, s: 100, m: 199, l: 259, xl: 322 }
+						}
 					}
 				]
 			},
 			{
 				type: Column,
-				colspan: { default: 12, M: 3},
+				colspan: { default: 12, M: 3 },
 				components: [
 					{
-						type: Card,
-						cardType: Content,
-						size: 'tiny',
+						type: Content,
+						size: 'small',
+						image: {
+							position: { default: 'left', M: 'bottom' },
+							srcSet: { default: 100, s: 100, m: 199, l: 259, xl: 322 }
+						}
 					},
 					{
-						type: Card,
-						cardType: Content,
-						size: 'tiny',
+						type: Content,
+						size: 'small'
+					}
+				]
+			},
+			{
+				type: Column,
+				colspan: { default: 12, M: 3 },
+				components: [
+					{
+						type: Content,
+						size: 'tiny'
 					},
 					{
-						type: Card,
-						cardType: Content,
-						size: 'tiny',
+						type: Content,
+						size: 'tiny'
 					},
 					{
-						type: Card,
-						cardType: Content,
+						type: Content,
+						size: 'tiny'
+					},
+					{
+						type: Content,
 						size: 'tiny'
 					}
 				]

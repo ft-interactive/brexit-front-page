@@ -1,8 +1,6 @@
-import Content from '../../components/card/content';
-import Column from '../../components/column/column';
-import Row from '../../components/row/row';
-import Card from '../../components/card/card';
-
+import Row from '../../shared/components/row/row';
+import Column from '../../shared/components/column/column';
+import Content from '../../shared/components/content/content';
 
 export default [
 	{
@@ -14,13 +12,14 @@ export default [
 				colspan: { default: 12, M: 5 },
 				components:
 				[
-					{ type: Card,
-						cardType: Content,
+					{
+						type: Content,
 						size: 'large-top-story',
-						related: { default: 1, M: 3},
-						standFirst: { default: true },
-						image: { default: true },
-						imageSrcSet: { default: 449, s: 659, m: 355, l: 292, xl: 411 }
+						showRelated: true,
+						showStandfirst: true,
+						image: {
+							srcSet: { default: 449, s: 659, m: 355, l: 292, xl: 411 }
+						}
 					}
 				]
 			},
@@ -29,28 +28,28 @@ export default [
 				type: Column,
 				colspan: { default: 12, M: 4 },
 				components: [
-					{ type: Card,
-						cardType: Content,
+					{
+						type: Content,
 						size: 'small',
 						landscape: { default: 'true' }
 					},
-					{ type: Card,
-						cardType: Content,
+					{
+						type: Content,
 						size: 'small',
 						landscape: { default: 'true' }
 					},
-					{ type: Card,
-						cardType: Content,
+					{
+						type: Content,
 						size: 'small',
 						landscape: { default: 'true' }
 					},
-					{ type: Card,
-						cardType: Content,
+					{
+						type: Content,
 						size: 'small',
 						landscape: { default: 'true' }
 					},
-					{ type: Card,
-						cardType: Content,
+					{
+						type: Content,
 						size: 'small',
 						landscape: { default: 'true' }
 					}
@@ -62,28 +61,25 @@ export default [
 				colspan: { default: 12, M: 3 },
 				components: [
 					{
-						type: Card,
-						cardType: Content,
+						type: Content,
 						size: 'tiny',
 						landscape: { default: 'true' }
 					},
 					{
-						type: Card,
-						cardType: Content,
+						type: Content,
 						size: 'tiny',
 						landscape: { default: 'true' }
 					},
 					{
-						type: Card,
-						cardType: Content,
+						type: Content,
 						size: 'tiny',
 						landscape: { default: 'true', M: false },
-						image: { default: 'true' },
-						imageSrcSet: { default: 100, s: 100, m: 199, l: 161, xl: 233 }
+						image: {
+							srcSet: { default: 100, s: 100, m: 199, l: 161, xl: 233 }
+						}
 					},
 					{
-						type: Card,
-						cardType: Content,
+						type: Content,
 						size: 'tiny',
 						landscape: { default: 'true' }
 					}

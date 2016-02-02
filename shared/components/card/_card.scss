@@ -1,0 +1,73 @@
+.card {
+	@include displayFlex;
+
+	background-color: getColor('pink');
+	margin-top: oGridGutter();
+	border-bottom: 1px solid getColor('warm-3');
+	padding: 10px;
+
+	flex-direction: column;
+	line-height: 1;
+	flex: 1 1 auto;
+
+	@include oGridRespondTo(M) {
+		margin-top: oGridGutter(M);
+	}
+}
+
+.card[data-show~="false"] {
+	display: none;
+}
+
+.card[data-image-position~="left"] {
+	position: relative;
+	min-height: 56px;
+	padding-left: 120px;
+}
+
+.card--no-stretch {
+	flex: none;
+}
+
+@each $layout-name in $_o-grid-layout-names {
+	@include oGridRespondTo($layout-name) {
+		.card[data-show~="#{$layout-name}--true"] {
+			display: block;
+			@include displayFlex;
+		}
+
+		.card[data-show~="#{$layout-name}--false"] {
+			display: none;
+		}
+
+		.card--#{$layout-name}--stretch {
+			flex: 1 1 auto;
+		}
+
+		.card--#{$layout-name}--no-stretch {
+			flex: none;
+		}
+
+		.card[data-image-position~="#{$layout-name}--left"] {
+			position: relative;
+			min-height: 56px;
+			padding-left: 120px;
+		}
+
+		.card[data-image-position~="#{$layout-name}--bottom"] {
+			position: static;
+			min-height: auto;
+			padding-left: 10px;
+		}
+	}
+}
+
+@import 'article';
+@import 'concept';
+@import 'video';
+
+@import 'image/image';
+@import 'related/related';
+@import 'standfirst/standfirst';
+@import 'tag/tag';
+@import 'title/title';

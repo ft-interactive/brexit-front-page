@@ -1,0 +1,147 @@
+@import "o-forms/main";
+@import "./section-meta/section-meta";
+@import "../ad/ad";
+@import "../card/card";
+@import "../myft-promo/myft-promo";
+@import "../fast-ft/fast-ft";
+@import "../column/column";
+
+.full-cell {
+	position: absolute;
+	height: 100%;
+	right: 0;
+	left: oGridGutter();
+
+	@include oGridRespondTo(M) {
+		left: oGridGutter(M);
+	}
+}
+
+.section--video {
+	.no-js & {
+		display: none;
+	}
+}
+
+.section-nav {
+	padding-bottom: 0 !important;
+}
+
+.section__column {
+	align-items: stretch;
+
+	& > * {
+		width: 100%;
+		padding-bottom: oGridGutter();
+
+		@include oGridRespondTo(M) {
+			padding-bottom: oGridGutter(M);
+		}
+	}
+}
+
+.section__column--meta {
+	// TODO: better way of defining this
+	.section--top-stories & {
+		@include oGridRespondTo($until: L) {
+			display: none;
+		}
+	}
+}
+
+.condensed-list {
+	@include oGridRespondTo(M) {
+		.column:nth-child(n+2) .card {
+			margin-top: 0;
+		}
+	}
+
+	.card {
+		border-bottom: 0;
+		position: relative;
+
+		@include oGridRespondTo(XL) {
+			justify-content: center;
+		}
+
+		&:after {
+			content: "";
+			position: absolute;
+			left: 5%;
+			bottom: 0;
+			width: 90%;
+			border-bottom: 1px solid getColor('warm-3');
+			@include oGridRespondTo($until: M) {
+				opacity: 0.5;
+			}
+		}
+	}
+
+	.column:last-child .card:after {
+		display: none;
+	}
+
+	@include oGridRespondTo($until: XL) {
+		margin-top: oGridGutter();
+
+		.card {
+			margin-top: 0;
+		}
+	}
+
+	@include oGridRespondTo($from: M, $until: XL) {
+		margin-top: oGridGutter(M);
+
+		.card:after {
+			left: auto;
+			width: auto;
+			border-bottom-width: 0;
+			top: 10%;
+			right: 0;
+			height: 80%;
+			border-right: 1px solid getColor('warm-3');
+		}
+
+		.column:last-child .card:after {
+			display: none;
+		}
+	}
+}
+
+.section__column,
+// for current front page
+.main-content,
+.sidebar--fastft,
+.header-tabs-panel {
+	&[aria-hidden="true"] {
+		display: none;
+
+		@include oGridRespondTo(L) {
+			display: block;
+		}
+	}
+}
+
+.section__column--sidebar {
+	flex-direction: column;
+}
+
+.section-sources__label {
+	font-family: $o-typography-sans;
+	font-weight: oFontsWeight(light);
+	padding-right: 8px;
+}
+
+.section-sources__select {
+	@include oFormsCommonField();
+	@include oFormsSelect();
+	width: auto;
+}
+
+//The ad gets too wide at this width, so change the column widths
+@media screen and (min-width: 1275px) {
+	.most-popular__column-with-ad,
+	.most-popular__column-after-ad {
+		@include oGridColspan(3);
+	}
+}

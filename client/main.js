@@ -7,12 +7,12 @@ import prompts from 'n-message-prompts';
 import myFtClient from 'next-myft-client';
 import * as myFtUi from 'next-myft-ui';
 
-import highlightDomPath from './components/highlight-dom-path/main';
-import scrollDepth from './components/scroll-depth/main';
-import marketsData from './components/markets-data/main';
-import headerTabs from './components/header-tabs/main';
-import myft from './components/myft/main';
-import section from '../components/section/main';
+import highlightDomPath from './components/highlight-dom-path/highlight-dom-path';
+import scrollDepth from './components/scroll-depth/scroll-depth';
+import marketsData from './components/markets-data/markets-data';
+import headerTabs from './components/header-tabs/header-tabs';
+import myft from './components/myft/myft';
+import section from '../shared/components/section/section';
 
 setup.bootstrap(({flags}) => {
 	// NOTE: make sure we init myft client *before* n-layout
