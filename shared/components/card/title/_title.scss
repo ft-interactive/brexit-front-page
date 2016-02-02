@@ -7,11 +7,40 @@
 	.section--editors-picks & {
 		font-family: $o-typography-sans;
 	}
+
 	.card--video & {
 		@include oTypographySans(m);
 		margin: 0 10px 10px;
 	}
 
+	.card[data-image-position~="left"] & {
+		min-height: 56px;
+		margin-left: 110px;
+	}
+
+	.card[data-size="tiny"][data-image-position~="left"] & {
+		min-height: 0;
+		margin-left: 0;
+	}
+
+	@each $layout-name in $_o-grid-layout-names {
+		@include oGridRespondTo($layout-name) {
+			.card[data-image-position~="#{$layout-name}--bottom"] & {
+				min-height: 0;
+				margin-left: 0;
+			}
+
+			.card[data-image-position~="#{$layout-name}--left"] & {
+				min-height: 56px;
+				margin-left: 110px;
+			}
+
+			.card[data-size="tiny"][data-image-position~="#{$layout-name}--left"] & {
+				min-height: 0;
+				margin-left: 0;
+			}
+		}
+	}
 }
 
 // font-size/line-height pairs
