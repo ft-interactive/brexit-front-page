@@ -52,8 +52,7 @@ export default [
 				type: Column,
 				className: 'condensed-list',
 				colspan: { default: 12, XL: 2 },
-				components:
-				[
+				components: [
 					{
 						type: Row,
 						isCompact: true,
@@ -100,6 +99,18 @@ export default [
 										type: Content,
 										size: 'tiny',
 										hideTag: true
+									}
+								]
+							},
+							{
+								type: Column,
+								colspan: { default: 12, M: 3, XL: 12 },
+								components: [
+									{
+										type: Content,
+										size: 'tiny',
+										hideTag: true,
+										show: { default: false, XL: true }
 									}
 								]
 							}

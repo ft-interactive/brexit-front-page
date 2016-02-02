@@ -3,7 +3,7 @@
  */
 export default data => ({
 	['top-stories']: {
-		main: data.frontPage.top.items,
+		main: data.frontPage.topStory.items.concat(data.frontPage.top.items.slice(1)),
 		sidebar: data.frontPage.fastFT.items
 	},
 	opinion: {
