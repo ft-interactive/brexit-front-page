@@ -14,13 +14,6 @@
 	padding-left: 15px;
 }
 
-@include oGridRespondTo($until: M) {
-	.card__related-item:nth-child(n+2) {
-		display: none;
-	}
-}
-
-
 .card__related-item__link {
 	border-bottom-width: 0;
 	color: inherit;
