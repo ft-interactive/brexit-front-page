@@ -46,13 +46,6 @@ html {
 	width: auto;
 }
 
-.next-header {
-	margin-bottom: 0;
-	@include oGridRespondTo($from: L) {
-		margin-bottom: 20px;
-	}
-}
-
 .next-header__logo {
 	line-height: 1.3;
 }
