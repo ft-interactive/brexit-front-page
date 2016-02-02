@@ -44,6 +44,10 @@ export default [
 					{
 						type: Content,
 						size: 'medium'
+					},
+					{
+						type: Content,
+						size: 'medium'
 					}
 				]
 			},
