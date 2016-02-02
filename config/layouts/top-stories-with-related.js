@@ -30,28 +30,23 @@ export default [
 				components: [
 					{
 						type: Content,
-						size: 'small',
-						landscape: { default: 'true' }
+						size: 'small'
 					},
 					{
 						type: Content,
-						size: 'small',
-						landscape: { default: 'true' }
+						size: 'small'
 					},
 					{
 						type: Content,
-						size: 'small',
-						landscape: { default: 'true' }
+						size: 'small'
 					},
 					{
 						type: Content,
-						size: 'small',
-						landscape: { default: 'true' }
+						size: 'small'
 					},
 					{
 						type: Content,
-						size: 'small',
-						landscape: { default: 'true' }
+						size: 'small'
 					}
 				]
 			},
@@ -62,26 +57,23 @@ export default [
 				components: [
 					{
 						type: Content,
-						size: 'tiny',
-						landscape: { default: 'true' }
+						size: 'tiny'
+					},
+					{
+						type: Content,
+						size: 'tiny'
 					},
 					{
 						type: Content,
 						size: 'tiny',
-						landscape: { default: 'true' }
-					},
-					{
-						type: Content,
-						size: 'tiny',
-						landscape: { default: 'true', M: false },
 						image: {
+							position: { default: 'left', M: 'bottom' },
 							srcSet: { default: 100, s: 100, m: 199, l: 161, xl: 233 }
 						}
 					},
 					{
 						type: Content,
-						size: 'tiny',
-						landscape: { default: 'true' }
+						size: 'tiny'
 					}
 				]
 			}

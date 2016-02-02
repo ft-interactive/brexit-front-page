@@ -14,6 +14,10 @@
 		margin-top: 0;
 	}
 
+	.card[data-size="tiny"][data-image-position~="left"] & {
+		top: 10px;
+	}
+
 	.card[data-image-show~="false"] & {
 		display: none;
 	}
@@ -42,6 +46,10 @@
 				left: 10px;
 				width: 100px;
 				margin-top: 0;
+			}
+
+			.card[data-size="tiny"][data-image-position~="#{$layout-name}--left"] & {
+				top: 10px;
 			}
 		}
 	}

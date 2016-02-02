@@ -12,14 +12,15 @@
 	@include oGridRespondTo(M) {
 		margin-top: oGridGutter(M);
 	}
-}
 
-.card[data-show~="false"] {
-	display: none;
-}
+	&[data-show~="false"] {
+		display: none;
+	}
 
-.card--no-stretch {
-	flex: none;
+	&[data-size="tiny"][data-image-position~="left"] {
+		padding-left: 120px;
+		min-height: 56px;
+	}
 }
 
 @each $layout-name in $_o-grid-layout-names {
@@ -33,12 +34,14 @@
 			display: none;
 		}
 
-		.card--#{$layout-name}--stretch {
-			flex: 1 1 auto;
+		.card[data-size="tiny"][data-image-position~="#{$layout-name}--left"] {
+			padding-left: 120px;
+			min-height: 56px;
 		}
 
-		.card--#{$layout-name}--no-stretch {
-			flex: none;
+		.card[data-size="tiny"][data-image-position~="#{$layout-name}--bottom"] {
+			padding-left: 0;
+			min-height: 0;
 		}
 	}
 }
