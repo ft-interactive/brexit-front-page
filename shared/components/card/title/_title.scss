@@ -6,17 +6,21 @@
 
 	&:first-child {
 		margin-top: 0;
+
 		.card__title-link {
 			padding-right: 0;
 		}
 	}
+
 	.section--editors-picks & {
 		font-family: $o-typography-sans;
 	}
+
 	.card--video & {
 		@include oTypographySans(m);
 		margin: 0 10px 10px;
 	}
+
 	&:first-child:after {
 		display: none;
 		content: '';
@@ -25,6 +29,7 @@
 		margin: 0 5px 0 -6px;
 		background-color: getColor('cold-2');
 	}
+
 	.card[data-size=tiny] & {
 		display: inline;
 
@@ -32,8 +37,38 @@
 			&:after {
 				display: inline-block;
 			}
+
 			.card__title-link {
 				padding-right: 11px;
+			}
+		}
+	}
+
+	.card[data-image-position~="left"] & {
+		min-height: 56px;
+		margin-left: 110px;
+	}
+
+	.card[data-size="tiny"][data-image-position~="left"] & {
+		min-height: 0;
+		margin-left: 0;
+	}
+
+	@each $layout-name in $_o-grid-layout-names {
+		@include oGridRespondTo($layout-name) {
+			.card[data-image-position~="#{$layout-name}--bottom"] & {
+				min-height: 0;
+				margin-left: 0;
+			}
+
+			.card[data-image-position~="#{$layout-name}--left"] & {
+				min-height: 56px;
+				margin-left: 110px;
+			}
+
+			.card[data-size="tiny"][data-image-position~="#{$layout-name}--left"] & {
+				min-height: 0;
+				margin-left: 0;
 			}
 		}
 	}

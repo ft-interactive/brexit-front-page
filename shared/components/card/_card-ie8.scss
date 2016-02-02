@@ -5,19 +5,19 @@
 		.card[data-show~="#{$layout-name}--true"] {
 			display: block;
 		}
+
 		.card[data-show~="#{$layout-name}--false"] {
 			display: none;
 		}
-		.card[data-image-position~="#{$layout-name}--left"] {
-			position: relative;
-			min-height: 56px;
+
+		.card[data-size="tiny"][data-image-position~="#{$layout-name}--left"] {
 			padding-left: 120px;
+			min-height: 56px;
 		}
 
-		.card[data-image-positione~="#{$layout-name}--bottom"] {
-			position: static;
-			min-height: auto;
-			padding-left: 10px;
+		.card[data-size="tiny"][data-image-position~="#{$layout-name}--bottom"] {
+			padding-left: 0;
+			min-height: 0;
 		}
 	}
 }
