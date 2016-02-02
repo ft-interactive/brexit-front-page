@@ -11,6 +11,7 @@ const articleHasRelatedContent = (articles, articleIndex, relatedContentLength =
     articles[articleIndex].relatedContent.length >= relatedContentLength;
 
 const getLayoutId = (content, flags) => {
+    return 'top-stories-span';
     const prefix = flags.frontPageTopStoriesRevised ? 'top-stories-revised' : 'top-stories';
 
     return content && content.main && articleHasRelatedContent(content.main, 0, 3) ?

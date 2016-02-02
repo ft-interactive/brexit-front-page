@@ -1,11 +1,10 @@
 .card {
 	@include displayFlex;
-
+	position: relative;
 	background-color: getColor('pink');
 	margin-top: oGridGutter();
 	border-bottom: 1px solid getColor('warm-3');
 	padding: 10px;
-
 	flex-direction: column;
 	line-height: 1;
 	flex: 1 1 auto;
@@ -17,12 +16,6 @@
 
 .card[data-show~="false"] {
 	display: none;
-}
-
-.card[data-image-position~="left"] {
-	position: relative;
-	min-height: 56px;
-	padding-left: 120px;
 }
 
 .card--no-stretch {
@@ -46,18 +39,6 @@
 
 		.card--#{$layout-name}--no-stretch {
 			flex: none;
-		}
-
-		.card[data-image-position~="#{$layout-name}--left"] {
-			position: relative;
-			min-height: 56px;
-			padding-left: 120px;
-		}
-
-		.card[data-image-position~="#{$layout-name}--bottom"] {
-			position: static;
-			min-height: auto;
-			padding-left: 10px;
 		}
 	}
 }

@@ -8,15 +8,10 @@
 
 	.card[data-image-position~="left"] & {
 		position: absolute;
-		top: 10px;
+		top: 31px;
 		left: 10px;
 		width: 100px;
 		margin-top: 0;
-
-		&.card__image-link--y-centre {
-			top: 50%;
-			transform: translateY(-50%);
-		}
 	}
 
 	.card[data-image-show~="false"] & {
@@ -43,7 +38,7 @@
 
 			.card[data-image-position~="#{$layout-name}--left"] & {
 				position: absolute;
-				top: 10px;
+				top: 31px;
 				left: 10px;
 				width: 100px;
 				margin-top: 0;
@@ -81,6 +76,7 @@
 
 .card__image-link--headshot .card__picture {
 	width: 56.25%;
+
 	@include oGridRespondTo(M) {
 		margin-left: auto;
 	}
