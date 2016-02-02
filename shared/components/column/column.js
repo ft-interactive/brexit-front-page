@@ -11,7 +11,7 @@ class Column extends Component {
 		}
 		const classes = [
 			'column',
-			this.props.className ? this.props.className : ''
+			this.props.condensed ? 'column--condensed' : ''
 		].filter(nonEmpty);
 
 		const renderComponents = (components) => components.map((component, index) =>

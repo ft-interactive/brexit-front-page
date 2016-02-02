@@ -50,7 +50,7 @@ export default [
 			//Column 2
 			{
 				type: Column,
-				className: 'condensed-list',
+				condensed: true,
 				colspan: { default: 12, XL: 2 },
 				components: [
 					{
