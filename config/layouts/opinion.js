@@ -16,7 +16,7 @@ export default [
 						size: 'large',
 						showStandfirst: true,
 						image: {
-							srcSet: { default: 449, s: 659, m: 199, l: 259, xl: 322 }
+							srcSet: { default: 449, s: 659, m: 199, l: 357, xl: 430 }
 						}
 					}
 				]
