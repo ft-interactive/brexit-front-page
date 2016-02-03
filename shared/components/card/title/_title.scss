@@ -120,7 +120,6 @@ $card-title-text-sizes: (
 	border-bottom: 0;
 
 	&:hover {
-		text-decoration: underline;
-		text-decoration-style: dotted;
+		border-bottom: 1px dotted;
 	}
 }
