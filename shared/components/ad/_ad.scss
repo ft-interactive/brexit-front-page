@@ -5,3 +5,9 @@
 		margin-top: oGridGutter(M);
 	}
 }
+
+//Workaround for Chrome 48 jumping boxes bug https://code.google.com/p/chromium/issues/detail?id=546034#c6
+.ad-placeholder {
+	min-width: 0;
+	min-height: 0;
+}

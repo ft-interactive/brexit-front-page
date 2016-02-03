@@ -9,6 +9,10 @@
 	line-height: 1;
 	flex: 1 1 auto;
 
+//Workaround for Chrome 48 jumping boxes bug https://code.google.com/p/chromium/issues/detail?id=546034#c6
+	min-height: 0;
+	min-width: 0;
+
 	@include oGridRespondTo(M) {
 		margin-top: oGridGutter(M);
 	}
@@ -96,6 +100,7 @@
 		}
 	}
 }
+
 
 @import 'article';
 @import 'concept';
