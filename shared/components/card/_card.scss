@@ -21,6 +21,56 @@
 		padding-left: 120px;
 		min-height: 56px;
 	}
+
+	.column--condensed & {
+		margin-top: 0;
+		border-bottom: 0;
+		position: relative;
+
+		@include oGridRespondTo(XL) {
+			justify-content: center;
+		}
+
+		&:after {
+			content: '';
+			position: absolute;
+			left: 5%;
+			bottom: 0;
+			width: 90%;
+			border: 0 solid getColor('warm-3');
+			border-bottom-width: 1px;
+			opacity: 0.5;
+
+			@include oGridRespondTo(M) {
+				left: auto;
+				width: auto;
+				top: 10%;
+				right: 0;
+				height: 80%;
+				border-bottom-width: 0;
+				border-right-width: 1px;
+			}
+
+			@include oGridRespondTo(XL) {
+				left: 5%;
+				top: auto;
+				bottom: 0;
+				width: 90%;
+				border-right-width: 0;
+				border-bottom-width: 1px;
+			}
+		}
+	}
+
+	.column--condensed .column:last-child &:after {
+		border: 0;
+	}
+
+	.column--condensed .column:nth-child(n+4) &:after {
+		@include oGridRespondTo($until: XL) {
+			border: 0;
+		}
+	}
 }
 
 @each $layout-name in $_o-grid-layout-names {
