@@ -1,4 +1,5 @@
 @import 'image/image-ie8';
+@import 'title/title-ie8';
 
 @each $layout-name in $_o-grid-layout-names {
 	@include oGridTargetIE8 {
