@@ -14,13 +14,16 @@ const getImageData = item => {
 };
 
 // turn a 16:9 srcSet into squares
-/*
-const squareifyImage = srcSet =>
-	Object.keys(srcSet).reduce((srcSet, breakpoint) => {
+const squareifyImage = srcSet => {
+	console.log('##### SQUAREIFYING #####');
+	console.log(srcSet);
+	return Object.keys(srcSet).reduce((srcSet, breakpoint) => {
+		console.log(`Before: ${srcSet[breakpoint]}`);
+		console.log(`After: ${Math.ceil(srcSet[breakpoint] * .5625)}`);
 		srcSet[breakpoint] = Math.ceil(srcSet[breakpoint] * .5625);
 		return srcSet;
 	}, srcSet);
-*/
+}
 
 const getData = (item, opts) => {
 	const data = {
@@ -57,7 +60,7 @@ const getData = (item, opts) => {
 			if (data.image.isHeadshot && data.image.srcSet) {
 				// headshot images are squares
 				// TODO: fix in prod
-				//data.image.srcSet = squareifyImage(data.image.srcSet);
+				data.image.srcSet = squareifyImage(data.image.srcSet);
 			}
 		}
 		if (opts.showStandfirst) {
