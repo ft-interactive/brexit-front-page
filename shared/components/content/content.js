@@ -47,7 +47,8 @@ const getData = (item, opts) => {
 		Object.assign(data, {
 			type: 'article',
 			id: item.id,
-			title: item.title
+			title: item.title,
+			lastPublished: item.lastPublished
 		});
 		const imageData = getImageData(item);
 		if (opts.image && imageData) {
