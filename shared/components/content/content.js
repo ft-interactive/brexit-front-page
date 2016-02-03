@@ -54,7 +54,8 @@ const getData = (item, opts) => {
 			data.image = Object.assign({}, opts.image, imageData);
 			if (data.image.isHeadshot && data.image.srcSet) {
 				// headshot images are squares
-				data.image.srcSet = squareifyImage(data.image.srcSet);
+				// TODO: fix in prod
+				//data.image.srcSet = squareifyImage(data.image.srcSet);
 			}
 		}
 		if (opts.showStandfirst) {
