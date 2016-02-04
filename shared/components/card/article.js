@@ -58,11 +58,11 @@ export default class extends Component {
 		}
 
 		const imageZoneElements = [
-			this.props.image ? <Image {...this.props.image} contentId={this.props.id}/> : null,
-			this.props.tag && this.props.size === 'tiny' ? <Tag {...this.props.tag}/> : null,
-			<Title title={this.props.title} url={`/content/${this.props.id}`} />,
-			this.props.standfirst ? <Standfirst standfirst={this.props.standfirst}/> : null,
-			this.props.lastPublished ? <Timestamp date={this.props.lastPublished}/> : null
+			this.props.image ? <Image {...this.props.image} contentId={this.props.id} key={this.props.image.url} /> : null,
+			this.props.tag && this.props.size === 'tiny' ? <Tag {...this.props.tag} key={this.props.tag.id} /> : null,
+			<Title title={this.props.title} url={`/content/${this.props.id}`} key={`${this.props.id}:title`} />,
+			this.props.standfirst ? <Standfirst standfirst={this.props.standfirst} key={`${this.props.id}:standfirst`} /> : null,
+			this.props.lastPublished ? <Timestamp date={this.props.lastPublished} key={this.props.lastPublished} /> : null
 		];
 
 		return (
