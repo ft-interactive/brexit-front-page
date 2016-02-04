@@ -10,7 +10,7 @@ export default data => ({
 		main: data.frontPage.opinion.items
 	},
 	myft: {
-		main: data.popularTopics.popularTopics
+		main: data.popularTopics && data.popularTopics.popularTopics
 	},
 	['editors-picks']: {
 		main: data.frontPage.editorsPicks.items

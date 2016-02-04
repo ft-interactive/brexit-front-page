@@ -7,6 +7,7 @@ import Standfirst from './standfirst/standfirst'
 import Image from './image/image'
 import Related from './related/related';
 import LiveBlogGlow from './live-blog-glow/live-blog-glow';
+import Timestamp from './timestamp/timestamp';
 
 /**
  * @param {string} title
@@ -57,6 +58,7 @@ export default class extends Component {
 					<Title title={this.props.title} url={`/content/${this.props.id}`} />
 				</div>
 				{this.props.standfirst ? <Standfirst standfirst={this.props.standfirst} /> : null}
+				{this.props.lastPublished ? <Timestamp date={this.props.lastPublished} /> : null}
 				{this.props.image ? <Image {...this.props.image} contentId={this.props.id} /> : null}
 				{this.props.related ? <Related items={this.props.related} /> : null}
 				{this.props.liveBlog ? <LiveBlogGlow {...this.props.liveBlog} /> : null}
