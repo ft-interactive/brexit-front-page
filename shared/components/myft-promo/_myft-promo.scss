@@ -1,39 +1,39 @@
 // myFt promo
 .myft-promo__image {
-    max-width: 55%;
-    display: block;
-    margin: 0 auto;
+	max-width: 55%;
+	display: block;
+	margin: 0 auto;
 }
 
 .myft-promo__description,
 .myft-promo__link-wrapper {
-    text-align: center;
-    margin: 10px 0 0;
+	text-align: center;
+	margin: 10px 0 0;
 }
 
 .myft-promo__description {
-    @include oTypographySansSize(l);
-    color: getColor('cold-1');
+	@include oTypographySansSize(l);
+	color: getColor('cold-1');
 
-    @include oGridRespondTo(M) {
-        @include oTypographySansSize(m);
-    }
-    @include oGridRespondTo(XL) {
-        @include oTypographySansSize(l);
-    }
+	@include oGridRespondTo(M) {
+		@include oTypographySansSize(m);
+	}
+	@include oGridRespondTo(XL) {
+		@include oTypographySansSize(l);
+	}
 }
 
 .myft-promo__link {
-    position: relative;
-    display: inline-block;
-    border-bottom-style: solid;
+	position: relative;
+	display: inline-block;
+	border-bottom-style: solid;
 
-    &:after {
-        display: inline-block;
-        position: absolute;
-        right: -13px;
-        top: -2px;
-        font-size: 1.3em;
-        content: '>';
-    }
+	&:after {
+		display: inline-block;
+		position: absolute;
+		right: -13px;
+		top: -2px;
+		font-size: 1.3em;
+		content: '>';
+	}
 }

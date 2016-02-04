@@ -1,146 +1,146 @@
 .card__concept-container {
-    position: relative;
+	position: relative;
 
-    .card--non-followed-concept & {
-        padding-top: 56.25%;
-        background-color: getColor('black');
-    }
+	.card--non-followed-concept & {
+		padding-top: 56.25%;
+		background-color: getColor('black');
+	}
 }
 
 .card__concept-container__text {
-    position: relative;
+	position: relative;
 
-    .card--non-followed-concept & {
-        padding-bottom: 10px;
-        margin-top: -56.25%;
-    }
+	.card--non-followed-concept & {
+		padding-bottom: 10px;
+		margin-top: -56.25%;
+	}
 }
 
 .card__concept-title,
 .card__concept-follow {
-    position: relative;
-    z-index: 1;
+	position: relative;
+	z-index: 1;
 }
 
 .card__concept-title {
-    margin: 0;
-    font-family: $o-typography-sans;
-    font-weight: oFontsWeight(semibold);
+	margin: 0;
+	font-family: $o-typography-sans;
+	font-weight: oFontsWeight(semibold);
 
-    .card--non-followed-concept & {
-        font-size: 28px;
-        line-height: 30px;
-        color: getColor('white');
-        text-align: center;
-        margin: 0;
-        padding: 20px 10px 0;
-        min-height: 2em;
+	.card--non-followed-concept & {
+		font-size: 28px;
+		line-height: 30px;
+		color: getColor('white');
+		text-align: center;
+		margin: 0;
+		padding: 20px 10px 0;
+		min-height: 2em;
 
-        @include oGridRespondTo(M) {
-            font-size: 16px;
-            line-height: 16px;
-        }
-        @include oGridRespondTo(L) {
-            font-size: 18px;
-            line-height: 20px;
-        }
-        @include oGridRespondTo(XL) {
-            font-size: 28px;
-            line-height: 30px;
-        }
-    }
+		@include oGridRespondTo(M) {
+			font-size: 16px;
+			line-height: 16px;
+		}
+		@include oGridRespondTo(L) {
+			font-size: 18px;
+			line-height: 20px;
+		}
+		@include oGridRespondTo(XL) {
+			font-size: 28px;
+			line-height: 30px;
+		}
+	}
 
-    .card--followed-concept & {
-        font-size: 16px;
-        line-height: 1em;
-        color: getColor('claret');
-        padding: 10px 100px 0 0;
-        min-height: 26px;
-    }
+	.card--followed-concept & {
+		font-size: 16px;
+		line-height: 1em;
+		color: getColor('claret');
+		padding: 10px 100px 0 0;
+		min-height: 26px;
+	}
 }
 
 .card__concept-title__link {
-    color: inherit;
-    border-bottom: 0;
+	color: inherit;
+	border-bottom: 0;
 }
 
 .card__concept-follow {
-    .card--non-followed-concept & {
-        margin-top: 10px;
-        left: 50%;
-        transform: translateX(-50%);
-        box-shadow: getColor('black') 1px 1px 3px;
-    }
+	.card--non-followed-concept & {
+		margin-top: 10px;
+		left: 50%;
+		transform: translateX(-50%);
+		box-shadow: getColor('black') 1px 1px 3px;
+	}
 
-    .card--followed-concept & {
-        position: absolute;
-        top: 10px;
-        right: 0;
-    }
+	.card--followed-concept & {
+		position: absolute;
+		top: 10px;
+		right: 0;
+	}
 }
 
 .card--non-followed-concept .n-myft-ui__button {
-    color: #48e6eb;
-    border-color: #48e6eb;
+	color: #48e6eb;
+	border-color: #48e6eb;
 }
 
 .card__concept-image {
-    position: absolute;
-    display: block;
-    top: 0;
-    width: 100%;
-    opacity: 0.5;
+	position: absolute;
+	display: block;
+	top: 0;
+	width: 100%;
+	opacity: 0.5;
 
-    .card--followed-concept & {
-        position: relative;
-        opacity: 1;
-    }
+	.card--followed-concept & {
+		position: relative;
+		opacity: 1;
+	}
 }
 
 .card__concept-articles {
-    margin: 0;
-    padding: 0;
-    list-style: none;
+	margin: 0;
+	padding: 0;
+	list-style: none;
 
-    .card--followed-concept & {
-        margin-top: 15px;
-    }
+	.card--followed-concept & {
+		margin-top: 15px;
+	}
 }
 
 .card__concept-article {
-    position: relative;
-    margin: 8px 0 0;
-    padding-left: 15px;
+	position: relative;
+	margin: 8px 0 0;
+	padding-left: 15px;
 }
 
 .card__concept-article__link {
-    font-family: $o-typography-serif-display;
-    font-weight: oFontsWeight(light);
-    font-size: 18px;
-    line-height: 20px;
-    color: getColor('cold-1');
-    border-bottom-width: 0;
-    margin-top: 8px;
+	font-family: $o-typography-serif-display;
+	font-weight: oFontsWeight(light);
+	font-size: 18px;
+	line-height: 20px;
+	color: getColor('cold-1');
+	border-bottom-width: 0;
+	margin-top: 8px;
 
-    @include oGridRespondTo(M) {
-        font-size: 16px;
-        line-height: 16px;
-    }
-    @include oGridRespondTo(L) {
-        font-size: 18px;
-        line-height: 20px;
-    }
+	@include oGridRespondTo(M) {
+		font-size: 16px;
+		line-height: 16px;
+	}
+	@include oGridRespondTo(L) {
+		font-size: 18px;
+		line-height: 20px;
+	}
 
-    &:hover {
-        border-bottom-width: 1px;
-        border-bottom-color: inherit;
-    }
+	&:hover {
+		border-bottom-width: 1px;
+		border-bottom-color: inherit;
+	}
 
-    &:before {
-        position: absolute;
-        top: 0;
-        left: 0;
-        content: '>';
-        font-size: 25px;
-    }
+	&:before {
+		position: absolute;
+		top: 0;
+		left: 0;
+		content: '>';
+		font-size: 25px;
+	}
 }

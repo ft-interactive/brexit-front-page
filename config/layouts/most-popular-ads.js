@@ -21,7 +21,7 @@ export default [
 						}
 					},
 					{
-					 	type: Content,
+						type: Content,
 						size: 'medium',
 						itemIndex: 1,
 						show: { default: true, M: false, L: true, XL: false }

@@ -64,7 +64,7 @@ const app = express({
 
 if (process.env.HOT_LOAD) {
 	const devProxy = require('./dev/proxy');
-	 // proxies CSS and JS endpoints to the dev server for hot-loading
+	// proxies CSS and JS endpoints to the dev server for hot-loading
 	app.use('/front-page/', devProxy(8888))
 }
 

@@ -9,13 +9,13 @@ import topStoriesLayout from './top-stories';
 import VideoLayout from './video';
 
 export default {
-    'editors-picks': editorsPicksLayout,
-    'editors-picks-ads': editorsPicksAdsLayout,
-    'featured-section': featuredSectionLayout,
-    'most-popular': mostPopularLayout,
-    'most-popular-ads': mostPopularAdsLayout,
-    'myft': myftLayout,
-    'opinion': opinionLayout,
-    'top-stories': topStoriesLayout,
-    'video': VideoLayout
+	'editors-picks': editorsPicksLayout,
+	'editors-picks-ads': editorsPicksAdsLayout,
+	'featured-section': featuredSectionLayout,
+	'most-popular': mostPopularLayout,
+	'most-popular-ads': mostPopularAdsLayout,
+	'myft': myftLayout,
+	'opinion': opinionLayout,
+	'top-stories': topStoriesLayout,
+	'video': VideoLayout
 }

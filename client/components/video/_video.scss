@@ -23,7 +23,7 @@
 	@include oGridRespondTo($from: XS) {
 		border-bottom: 1px solid oColorsGetPaletteColor('video-border');
 		padding-bottom: 30px;
-	  margin-bottom: 20px;
+		margin-bottom: 20px;
 	}
 
 	.video-item {
