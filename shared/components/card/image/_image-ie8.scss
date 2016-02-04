@@ -10,23 +10,15 @@
 			}
 
 			.card[data-image-position~="#{$layout-name}--bottom"] & {
-				position: static;
-				top: 0;
-				left: 0;
+				position: absolute;
 				width: auto;
-				margin-top: 10px;
+				margin: 0;
 			}
 
 			.card[data-image-position~="#{$layout-name}--left"] & {
-				position: absolute;
-				top: 31px;
-				left: 10px;
+				position: static;
 				width: 100px;
-				margin-top: 0;
-			}
-
-			.card[data-size="tiny"][data-image-position~="#{$layout-name}--left"] & {
-				top: 10px;
+				margin: 5px 10px 5px 0;
 			}
 		}
 	}

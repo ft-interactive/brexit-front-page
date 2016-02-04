@@ -48,33 +48,37 @@ export default class extends Component {
 				attrs['data-image-position'] = responsiveValue(this.props.image.position);
 			}
 		}
+
 		if (this.props.liveBlog) {
 			attrs.className += ` card--liveblog liveblog--${this.props.liveBlog.status.toLowerCase()}`;
-		}
-
-		const imageZoneAttrs = {};
-		if (this.props.image) {
-			imageZoneAttrs.className = 'card__image-zone';
-			if (this.props.image.stick || this.props.image.isHeadshot) {
-				imageZoneAttrs.className += ' card__image-zone--grow';
-			}
 		}
 
 		if (this.props.tag && this.props.size === 'tiny') {
 			this.props.tag.isInline = true;
 		}
 
+		const imageZoneElements = [
+			this.props.image ? <Image {...this.props.image} contentId={this.props.id}/> : null,
+			this.props.tag && this.props.size === 'tiny' ? <Tag {...this.props.tag}/> : null,
+			<Title title={this.props.title} url={`/content/${this.props.id}`} />,
+			this.props.standfirst ? <Standfirst standfirst={this.props.standfirst}/> : null,
+			this.props.lastPublished ? <Timestamp date={this.props.lastPublished}/> : null
+		];
+
 		return (
 			<article {...attrs}>
 				{this.props.liveBlog ? <span className="liveblog__badge">live</span> : null}
 				{this.props.tag && this.props.size !== 'tiny' ? <Tag {...this.props.tag}/> : null}
-				<div {...imageZoneAttrs}>
-					{this.props.image ? <Image {...this.props.image} contentId={this.props.id} /> : null}
-					{this.props.tag && this.props.size === 'tiny' ? <Tag {...this.props.tag}/> : null}
-					<Title title={this.props.title} url={`/content/${this.props.id}`} />
-					{this.props.standfirst ? <Standfirst standfirst={this.props.standfirst} /> : null}
-					{this.props.lastPublished ? <Timestamp date={this.props.lastPublished} /> : null}
-				</div>
+				{this.props.image ?
+					<div className={`card__image-zone${(this.props.image.stick || this.props.image.isHeadshot) ? ' card__image-zone--grow' : ''}`}>
+						<div className="card__image-zone__inner">
+							{imageZoneElements}
+						</div>
+					</div> :
+					<div>
+						{imageZoneElements}
+					</div>
+				}
 				{this.props.related ? <Related items={this.props.related} /> : null}
 				{this.props.liveBlog ? <LiveBlogGlow {...this.props.liveBlog} /> : null}
 			</article>

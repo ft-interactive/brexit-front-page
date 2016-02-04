@@ -1,4 +1,6 @@
 @mixin displayFlex() {
+	display: block;
+
 	// Prevents autoprefixer from outputting display: -webkit-box;, which is buggy
 	& {
 		/*autoprefixer: off*/

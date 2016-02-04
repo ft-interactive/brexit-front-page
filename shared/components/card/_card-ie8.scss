@@ -10,15 +10,18 @@
 		.card[data-show~="#{$layout-name}--false"] {
 			display: none;
 		}
+	}
 
-		.card[data-size="tiny"][data-image-position~="#{$layout-name}--left"] {
-			padding-left: 120px;
-			min-height: 56px;
+	.card__image-zone__inner {
+		.card[data-image-position~="#{$layout-name}--bottom"] & {
+			padding-bottom: 56.25%;
+			padding-bottom: calc(56.25% + 10px);
 		}
 
-		.card[data-size="tiny"][data-image-position~="#{$layout-name}--bottom"] {
-			padding-left: 0;
-			min-height: 0;
+		.card[data-image-position~="#{$layout-name}--left"] &,
+		.card[data-image-position~="#{$layout-name}--right"] & {
+			padding-bottom: 0;
 		}
 	}
 }
+

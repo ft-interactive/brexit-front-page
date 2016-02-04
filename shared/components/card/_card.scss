@@ -87,6 +87,13 @@
 
 .card__image-zone {
 	position: relative;
+}
+
+.card__image-zone--grow {
+	flex-grow: 1;
+}
+
+.card__image-zone__inner {
 	padding-bottom: 56.25%;
 	padding-bottom: calc(56.25% + 10px);
 
