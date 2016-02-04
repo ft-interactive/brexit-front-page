@@ -10,17 +10,16 @@
 		.card[data-show~="#{$layout-name}--false"] {
 			display: none;
 		}
-	}
 
-	.card__image-zone__inner {
-		.card[data-image-position~="#{$layout-name}--bottom"] & {
-			padding-bottom: 56.25%;
-			padding-bottom: calc(56.25% + 10px);
-		}
+		.card__image-zone__inner {
+			.card[data-image-position~="#{$layout-name}--bottom"] & {
+				padding-bottom: 56.25%;
+			}
 
-		.card[data-image-position~="#{$layout-name}--left"] &,
-		.card[data-image-position~="#{$layout-name}--right"] & {
-			padding-bottom: 0;
+			.card[data-image-position~="#{$layout-name}--left"] &,
+			.card[data-image-position~="#{$layout-name}--right"] & {
+				padding-bottom: 0;
+			}
 		}
 	}
 }
