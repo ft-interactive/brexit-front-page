@@ -17,7 +17,7 @@ export default [
 						showStandfirst: true,
 						itemIndex: 0,
 						image: {
-							srcSet: { default: 449, s: 659, m: 199, l: 357, xl: 430 }
+							sizes: { default: 449, s: 659, m: 199, l: 357, xl: 430 }
 						}
 					},
 					{
@@ -41,7 +41,7 @@ export default [
 						image: {
 							show: { default: true, L: false },
 							position: { default: 'left', M: 'bottom' },
-							srcSet: { default: 449, s: 659, m: 199, l: 259, xl: 322 }
+							sizes: { default: 449, s: 659, m: 199, l: 259, xl: 322 }
 						}
 					},
 					{
@@ -90,7 +90,7 @@ export default [
 						type: Content,
 						size: 'small',
 						image: {
-							srcSet: { default: 449, s: 659, m: 199, l: 259, xl: 322 },
+							sizes: { default: 449, s: 659, m: 199, l: 259, xl: 322 },
 							position: {default: 'left', M: 'bottom', L: 'left', XL: 'bottom' }
 						},
 						show: { default: false, M: true },

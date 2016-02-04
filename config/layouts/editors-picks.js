@@ -17,7 +17,7 @@ export default [
 						image: {
 							stick: true,
 							position: { default: 'left', S: 'bottom' },
-							srcSet: { default: 100, s: 315, m: 277, l: 161, xl: 203 }
+							sizes: { default: 100, s: 315, m: 277, l: 161, xl: 203 }
 						}
 					}
 				]
@@ -33,7 +33,7 @@ export default [
 						image: {
 							stick: true,
 							position: { default: 'left', S: 'bottom' },
-							srcSet: { default: 100, s: 315, m: 277, l: 161, xl: 203 }
+							sizes: { default: 100, s: 315, m: 277, l: 161, xl: 203 }
 						}
 					}
 				]
@@ -49,7 +49,7 @@ export default [
 						image: {
 							stick: true,
 							position: { default: 'left', S: 'bottom' },
-							srcSet: { default: 100, s: 315, m: 277, l: 161, xl: 203 }
+							sizes: { default: 100, s: 315, m: 277, l: 161, xl: 203 }
 						}
 					}
 				]
@@ -65,7 +65,7 @@ export default [
 						image: {
 							stick: true,
 							position: { default: 'left', S: 'bottom' },
-							srcSet: { default: 100, s: 315, m: 277, l: 161, xl: 203 }
+							sizes: { default: 100, s: 315, m: 277, l: 161, xl: 203 }
 						}
 					}
 				]
@@ -81,7 +81,7 @@ export default [
 						image: {
 							stick: true,
 							position: { default: 'left', S: 'bottom' },
-							srcSet: { default: 100, s: 315, m: 277, l: 161, xl: 203 }
+							sizes: { default: 100, s: 315, m: 277, l: 161, xl: 203 }
 						}
 					}
 				]
@@ -97,7 +97,7 @@ export default [
 						image: {
 							stick: true,
 							position: { default: 'left', S: 'bottom' },
-							srcSet: { default: 100, s: 315, m: 277, l: 161, xl: 203 }
+							sizes: { default: 100, s: 315, m: 277, l: 161, xl: 203 }
 						}
 					}
 				]

@@ -8,8 +8,7 @@
 	flex-direction: column;
 	line-height: 1;
 	flex: 1 1 auto;
-
-//Workaround for Chrome 48 jumping boxes bug https://code.google.com/p/chromium/issues/detail?id=546034#c6
+	// Workaround for Chrome 48 jumping boxes bug https://code.google.com/p/chromium/issues/detail?id=546034#c6
 	min-height: 0;
 	min-width: 0;
 
@@ -102,8 +101,16 @@
 		flex-grow: 1;
 	}
 
+	.card[data-image-position~="top"] & {
+		// scss-lint:disable DuplicateProperty
+		padding-top: 56.25%;
+		padding-top: calc(56.25% + 10px);
+		padding-bottom: 0;
+	}
+
 	.card[data-image-position~="left"] &,
 	.card[data-image-position~="right"] & {
+		padding-top: 0;
 		padding-bottom: 0;
 	}
 
@@ -111,12 +118,21 @@
 		@include oGridRespondTo($layout-name) {
 			.card[data-image-position~="#{$layout-name}--bottom"] & {
 				// scss-lint:disable DuplicateProperty
+				padding-top: 0;
 				padding-bottom: 56.25%;
 				padding-bottom: calc(56.25% + 10px);
 			}
 
+			.card[data-image-position~="#{$layout-name}--top"] & {
+				// scss-lint:disable DuplicateProperty
+				padding-top: 56.25%;
+				padding-top: calc(56.25% + 10px);
+				padding-bottom: 0;
+			}
+
 			.card[data-image-position~="#{$layout-name}--left"] &,
 			.card[data-image-position~="#{$layout-name}--right"] & {
+				padding-top: 0;
 				padding-bottom: 0;
 			}
 		}

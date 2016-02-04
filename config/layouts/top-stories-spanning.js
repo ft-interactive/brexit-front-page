@@ -16,7 +16,7 @@ export default [
 						size: 'large',
 						showStandfirst: true,
 						image: {
-							srcSet: { default: 449, s: 659, m: 432, l: 357, xl: 411 },
+							sizes: { default: 449, s: 659, m: 432, l: 357, xl: 411 },
 							position: { default: 'right' }
 						}
 					}
@@ -35,7 +35,11 @@ export default [
 					{
 						type: Content,
 						size: 'large',
-						showStandfirst: true
+						showStandfirst: true,
+						image: {
+							sizes: { default: 449, s: 659, m: 432, l: 357, xl: 411 },
+							position: { default: 'top' }
+						}
 					}
 				]
 			},
@@ -52,7 +56,7 @@ export default [
 						type: Content,
 						size: 'medium',
 						image: {
-							srcSet: { default: 100 },
+							sizes: { default: 100 },
 							position: { default: 'left' }
 						}
 					}

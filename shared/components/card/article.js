@@ -20,7 +20,7 @@ import Timestamp from './timestamp/timestamp';
  * @param {string} related[].id
  * @param {Object} [image]
  * @param {string} image.url
- * @param {string} image.srcSet
+ * @param {string} image.sizes
  * @param {string} [image.show]
  * @param {string} [image.position]
  * @param {Object} [liveBlog]

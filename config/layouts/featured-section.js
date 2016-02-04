@@ -15,7 +15,7 @@ export default [
 						size: 'small',
 						image: {
 							position: { default: 'left', M: 'bottom', L: 'left' },
-							srcSet: { default: 100, m: 277, l: 100 }
+							sizes: { default: 100, m: 277, l: 100 }
 						}
 					},
 					{
