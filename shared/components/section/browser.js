@@ -46,7 +46,9 @@ export default class SectionBrowser extends SectionNode {
 			})
 			.then(fetchJson)
 			.then((data) => {
-				this.setState({content: this.props.dynamicContent.parseResults(data)})
+				if(data && data.length) {
+					this.setState({content: this.props.dynamicContent.parseResults(data)})
+				}
 			});
 		}
 		if(e.type) { //only fire tracking for actual events
