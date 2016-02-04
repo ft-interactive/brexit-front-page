@@ -5,7 +5,6 @@ import NImage from 'n-image';
  * @param {string} url
  * @param {Object} srcSet
  * @param {string} contentId
- * @param {boolean} [stick=false]
  */
 export default class extends Component {
 	render () {

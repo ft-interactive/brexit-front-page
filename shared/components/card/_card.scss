@@ -21,11 +21,6 @@
 		display: none;
 	}
 
-	&[data-size="tiny"][data-image-position~="left"] {
-		padding-left: 120px;
-		min-height: 56px;
-	}
-
 	.column--condensed & {
 		margin-top: 0;
 		border-bottom: 0;
@@ -81,22 +76,40 @@
 @each $layout-name in $_o-grid-layout-names {
 	@include oGridRespondTo($layout-name) {
 		.card[data-show~="#{$layout-name}--true"] {
-			display: block;
 			@include displayFlex;
 		}
 
 		.card[data-show~="#{$layout-name}--false"] {
 			display: none;
 		}
+	}
+}
 
-		.card[data-size="tiny"][data-image-position~="#{$layout-name}--left"] {
-			padding-left: 120px;
-			min-height: 56px;
-		}
+.card__image-zone {
+	position: relative;
+	padding-bottom: 56.25%;
+	padding-bottom: calc(56.25% + 10px);
 
-		.card[data-size="tiny"][data-image-position~="#{$layout-name}--bottom"] {
-			padding-left: 10px;
-			min-height: 0;
+	&.card__image-zone--grow {
+		flex-grow: 1;
+	}
+
+	.card[data-image-position~="left"] &,
+	.card[data-image-position~="right"] & {
+		padding-bottom: 0;
+	}
+
+	@each $layout-name in $_o-grid-layout-names {
+		@include oGridRespondTo($layout-name) {
+			.card[data-image-position~="#{$layout-name}--bottom"] & {
+				padding-bottom: 56.25%;
+				padding-bottom: calc(56.25% + 10px);
+			}
+
+			.card[data-image-position~="#{$layout-name}--left"] &,
+			.card[data-image-position~="#{$layout-name}--right"] & {
+				padding-bottom: 0;
+			}
 		}
 	}
 }
