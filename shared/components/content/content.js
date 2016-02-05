@@ -67,6 +67,7 @@ const getData = (item, opts) => {
 		if (opts.showRelated) {
 			data.related = item.relatedContent
 				.concat((item.primaryTag && item.primaryTag.items) || [])
+				.filter(relatedItem => relatedItem.id !== item.id)
 				.slice(0, 3);
 		}
 

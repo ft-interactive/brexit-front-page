@@ -80,7 +80,7 @@ const frontPage = (region) => (`
 					url
 					taxonomy
 					name
-					items(limit: 3) {
+					items(limit: 4) {
 						id
 						title
 					}
