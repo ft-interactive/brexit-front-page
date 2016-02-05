@@ -8,17 +8,17 @@ import frontPage from '../../../server/routes/front-page';
 
 const expect = chai.expect;
 
-describe.only('Front Page Controller', () => {
+describe('Front Page Controller', () => {
 
 	let request;
 	let response;
 	let next;
-	let result;
 
 
 	let flags = {
 
 	};
+
 	function createInstance(params, flags) {
 		next = sinon.stub();
 		request = httpMocks.createRequest(params);
@@ -26,10 +26,6 @@ describe.only('Front Page Controller', () => {
 		response.locals = { flags: flags || {} };
 		return frontPage('uk')(request, response, next);
 	}
-
-	beforeEach(() => {
-		result = null;
-	});
 
 	afterEach(() => {
 		poller.getData.restore();
@@ -98,7 +94,7 @@ describe.only('Front Page Controller', () => {
 	it('throws an error if all top stories is missing', () => {
 		sinon.stub(poller, 'getData', () => ({
 			top: null,
-			topStory: {  },
+			topStory: { },
 			fastFT: { items: ['a'] },
 			opinion: { items: ['a'] },
 			editorsPicks: { items: ['a'] },
