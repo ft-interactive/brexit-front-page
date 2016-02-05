@@ -77,7 +77,6 @@
     }
   },
   "scripts": {
-    "commit": "commit-wizard",
-    "verify": "lintspaces -ntd tabs ./client/**/*.* ./config/**/*.* ./shared/**/*.* ./server/**/*.* ./test/**/*.*"
+    "commit": "commit-wizard"
   }
 }

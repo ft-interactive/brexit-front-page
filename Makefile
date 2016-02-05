@@ -6,11 +6,11 @@ clean:
 	git clean -fxd
 
 install:
-	obt install --verbose
+	npm install
 	bower install --config.registry.search=http://registry.origami.ft.com --config.registry.search=https://bower.herokuapp.com
 
 verify:
-	nbt verify --skip-layout-checks
+	lintspaces -ntd tabs -i js-comments,html-comments ./client/**/*.* ./config/**/*.* ./shared/**/*.* ./server/**/*.* ./views/**/*.html
 
 unit-test:
 	export NODE_ENV=test; mocha  --require test/setup --recursive --reporter spec test/server
