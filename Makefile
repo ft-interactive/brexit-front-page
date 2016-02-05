@@ -10,7 +10,8 @@ install:
 	bower install --config.registry.search=http://registry.origami.ft.com --config.registry.search=https://bower.herokuapp.com
 
 verify:
-	lintspaces -ntd tabs -i js-comments,html-comments ./client/**/*.* ./config/**/*.* ./shared/**/*.* ./server/**/*.* ./views/**/*.html
+	lintspaces -ntd tabs -i js-comments,html-comments ./client/**/*.* ./config/**/*.* ./shared/**/*.* ./server/**/*.* ./views/**/*.* &\
+	eslint -c ./node_modules/next-build-tools/config/eslint.json ./client ./config ./shared ./server
 
 unit-test:
 	export NODE_ENV=test; mocha  --require test/setup --recursive --reporter spec test/server

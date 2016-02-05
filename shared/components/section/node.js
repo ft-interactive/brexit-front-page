@@ -13,12 +13,12 @@ const getAlternateSourceTrackable = (sources, uuid) => sources.find(s => s.uuid 
 
 export default class SectionNode extends Component {
 
-	constructor(props) {
+	constructor (props) {
 		super(props);
 		this.state = { layout: props.layout, content: props.content, selectedSource: 'initial' };
 	}
 
-	loadContent() {
+	loadContent () {
 		// do nothing on server
 	}
 

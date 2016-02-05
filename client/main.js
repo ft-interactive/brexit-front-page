@@ -34,7 +34,7 @@ setup.bootstrap(({flags}) => {
 	highlightDomPath();
 	scrollDepth.init(flags);
 
-	if(flags.get("mostPopularByIndustry")) {
+	if (flags.get('mostPopularByIndustry')) {
 		const mostPopularContainer = document.getElementById('most-popular');
 
 		if(mostPopularContainer) {
