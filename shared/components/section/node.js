@@ -23,6 +23,10 @@ export default class SectionNode extends Component {
 	}
 
 	render () {
+		//if no content, don't render the section
+		if(!(this.state.content && this.state.content.main && this.state.content.main.length)) {
+			return null;
+		}
 		const cols = this.props.cols;
 		const trackable = this.props.trackable || this.props.id;
 		const sectionContentClasses = classify([

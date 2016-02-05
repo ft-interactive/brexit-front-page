@@ -1,3 +1,6 @@
+// modules that need to be compiled by babel
+const es6Modules = ['next-myft-ui', 'n-image'];
+
 require('babel-register')({
     plugins: [
         'add-module-exports',
@@ -9,5 +12,7 @@ require('babel-register')({
     ],
     presets: [
         'react'
-    ]
+    ],
+    ignore: filename =>
+        filename.includes('/node_modules/') && !es6Modules.some(module => filename.includes(`/node_modules/${module}`))
 });
