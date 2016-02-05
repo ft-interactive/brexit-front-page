@@ -9,7 +9,7 @@
 		display: none;
 	}
 
-	.card__image-zone__inner {
+	.card__content--has-image .card__content__inner {
 		.card[data-image-position~="#{$layout-name}--bottom"] & {
 			padding-bottom: 56.25%;
 		}

@@ -1,5 +1,6 @@
 .card {
 	@include displayFlex;
+	overflow: hidden;
 	position: relative;
 	background-color: getColor('pink');
 	margin-top: oGridGutter();

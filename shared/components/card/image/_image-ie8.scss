@@ -10,14 +10,36 @@
 
 		.card[data-image-position~="#{$layout-name}--bottom"] & {
 			position: absolute;
+			top: auto;
+			bottom: 0;
+			width: auto;
+			margin: 0;
+		}
+
+		.card[data-image-position~="#{$layout-name}--top"] & {
+			position: absolute;
+			top: 0;
+			bottom: auto;
 			width: auto;
 			margin: 0;
 		}
 
 		.card[data-image-position~="#{$layout-name}--left"] & {
 			position: static;
+			float: left;
 			width: 100px;
-			margin: 5px 10px 5px 0;
+			margin: 0 10px 5px 0;
+
+			&:nth-child(2) {
+				margin-top: 5px;
+			}
+		}
+
+		.card[data-image-position~="#{$layout-name}--right"] & {
+			position: static;
+			float: right;
+			width: 50%;
+			margin: -16px 0 0 10px;
 		}
 	}
 }
