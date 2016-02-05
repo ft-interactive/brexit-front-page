@@ -10,7 +10,7 @@
 	}
 
 	.card[data-image-position~="top"] & {
-		top: 10px;
+		top: 0;
 		bottom: auto;
 	}
 
@@ -19,13 +19,17 @@
 		float: left;
 		width: 100px;
 		margin: 0 10px 5px 0;
+
+		&:nth-child(2) {
+			margin-top: 5px;
+		}
 	}
 
 	.card[data-image-position~="right"] & {
 		position: static;
 		float: right;
 		width: 50%;
-		margin: -21px 0 0 10px;
+		margin: -16px 0 0 10px;
 	}
 
 	@each $layout-name in $_o-grid-layout-names {
@@ -48,7 +52,7 @@
 
 			.card[data-image-position~="#{$layout-name}--top"] & {
 				position: absolute;
-				top: 10px;
+				top: 0;
 				bottom: auto;
 				width: auto;
 				margin: 0;
@@ -59,13 +63,17 @@
 				float: left;
 				width: 100px;
 				margin: 0 10px 5px 0;
+
+				&:nth-child(2) {
+					margin-top: 5px;
+				}
 			}
 
 			.card[data-image-position~="#{$layout-name}--right"] & {
 				position: static;
 				float: right;
 				width: 50%;
-				margin: -21px 0 0 10px;
+				margin: -16px 0 0 10px;
 			}
 		}
 	}

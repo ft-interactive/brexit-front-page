@@ -84,22 +84,18 @@
 	}
 }
 
-.card__image-zone {
+.card__content {
 	position: relative;
 }
 
-.card__image-zone--grow {
+.card__content--grow {
 	flex-grow: 1;
 }
 
-.card__image-zone__inner {
+.card__content--has-image .card__content__inner {
 	// scss-lint:disable DuplicateProperty
 	padding-bottom: 56.25%;
 	padding-bottom: calc(56.25% + 10px);
-
-	&.card__image-zone--grow {
-		flex-grow: 1;
-	}
 
 	.card[data-image-position~="top"] & {
 		// scss-lint:disable DuplicateProperty

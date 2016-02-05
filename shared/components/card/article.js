@@ -57,28 +57,29 @@ export default class extends Component {
 			this.props.tag.isInline = true;
 		}
 
-		const imageZoneElements = [
-			this.props.image ? <Image {...this.props.image} contentId={this.props.id} key={this.props.image.url} /> : null,
-			this.props.tag && this.props.size === 'tiny' ? <Tag {...this.props.tag} key={this.props.tag.id} /> : null,
-			<Title title={this.props.title} url={`/content/${this.props.id}`} key={`${this.props.id}:title`} />,
-			this.props.standfirst ? <Standfirst standfirst={this.props.standfirst} key={`${this.props.id}:standfirst`} /> : null,
-			this.props.lastPublished ? <Timestamp date={this.props.lastPublished} key={this.props.lastPublished} /> : null
+		const articleContentClasses = [
+			'card__content'
 		];
+		if (this.props.image) {
+			articleContentClasses.push('card__content--has-image');
+			if (this.props.image.stick || this.props.image.isHeadshot) {
+				articleContentClasses.push('card__content--grow');
+			}
+		}
 
 		return (
 			<article {...attrs}>
-				{this.props.liveBlog ? <span className="liveblog__badge">live</span> : null}
-				{this.props.tag && this.props.size !== 'tiny' ? <Tag {...this.props.tag}/> : null}
-				{this.props.image ?
-					<div className={`card__image-zone${(this.props.image.stick || this.props.image.isHeadshot) ? ' card__image-zone--grow' : ''}`}>
-						<div className="card__image-zone__inner">
-							{imageZoneElements}
-						</div>
-					</div> :
-					<div>
-						{imageZoneElements}
+				<div className={articleContentClasses.join(' ')}>
+					<div className="card__content__inner">
+						{this.props.liveBlog ? <span className="liveblog__badge">live</span> : null}
+						{this.props.tag && this.props.size !== 'tiny' ? <Tag {...this.props.tag}/> : null}
+						{this.props.image ? <Image {...this.props.image} contentId={this.props.id} /> : null}
+						{this.props.tag && this.props.size === 'tiny' ? <Tag {...this.props.tag} /> : null}
+						<Title title={this.props.title} url={`/content/${this.props.id}`} />
+						{this.props.standfirst ? <Standfirst standfirst={this.props.standfirst} /> : null}
+						{this.props.lastPublished ? <Timestamp date={this.props.lastPublished} /> : null}
 					</div>
-				}
+				</div>
 				{this.props.related ? <Related items={this.props.related} /> : null}
 				{this.props.liveBlog ? <LiveBlogGlow {...this.props.liveBlog} /> : null}
 			</article>

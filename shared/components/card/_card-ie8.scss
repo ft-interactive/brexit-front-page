@@ -1,25 +1,22 @@
 @import 'image/image-ie8';
-@import 'title/title-ie8';
 
 @each $layout-name in $_o-grid-layout-names {
-	@include oGridTargetIE8 {
-		.card[data-show~="#{$layout-name}--true"] {
-			display: block;
+	.card[data-show~="#{$layout-name}--true"] {
+		display: block;
+	}
+
+	.card[data-show~="#{$layout-name}--false"] {
+		display: none;
+	}
+
+	.card__image-zone__inner {
+		.card[data-image-position~="#{$layout-name}--bottom"] & {
+			padding-bottom: 56.25%;
 		}
 
-		.card[data-show~="#{$layout-name}--false"] {
-			display: none;
-		}
-
-		.card__image-zone__inner {
-			.card[data-image-position~="#{$layout-name}--bottom"] & {
-				padding-bottom: 56.25%;
-			}
-
-			.card[data-image-position~="#{$layout-name}--left"] &,
-			.card[data-image-position~="#{$layout-name}--right"] & {
-				padding-bottom: 0;
-			}
+		.card[data-image-position~="#{$layout-name}--left"] &,
+		.card[data-image-position~="#{$layout-name}--right"] & {
+			padding-bottom: 0;
 		}
 	}
 }

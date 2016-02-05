@@ -1,7 +1,11 @@
 .card__title {
 	font-family: $o-typography-serif-display;
 	font-weight: oFontsWeight(regular);
-	margin: 5px 0 0;
+	margin: 0;
+
+	.card__tag ~ & {
+		margin-top: 5px;
+	}
 
 	.section--editors-picks & {
 		font-family: $o-typography-sans;
