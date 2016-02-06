@@ -7,15 +7,16 @@ clean:
 
 install:
 	npm install
-	bower install --config.registry.search=http://registry.origami.ft.com --config.registry.search=https://bower.herokuapp.com
+	bower install
+	gem install scss_lint
 
 verify:
-	find ./client ./config ./shared ./server ./views  -type f | xargs lintspaces -ntd tabs -i js-comments,html-comments &\
-	eslint -c ./node_modules/next-build-tools/config/eslint.json ./client ./config ./shared ./server &\
-	sass-lint -c ./.sass-lint.yml -v ./client/**/*.scss ./shared/**/*.scss
+	find ./client ./config ./shared ./server ./views -type f | xargs lintspaces -e .editorconfig -i js-comments,html-comments &\
+	eslint -c ./.eslintrc.json ./client ./config ./shared ./server &\
+	find ./client ./shared -type f -name "*.scss" -exec scss-lint -c ./.scss-lint.yml {} + ; if [ $$? -ne 0 -a $$? -ne 1 ] ; then exit 1 ; fi
 
 unit-test:
-	export NODE_ENV=test; mocha  --require test/setup --recursive --reporter spec test/server
+	export NODE_ENV=test; mocha --require test/setup --recursive --reporter spec test/server
 
 test: verify unit-test
 
