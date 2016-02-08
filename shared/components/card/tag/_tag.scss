@@ -46,15 +46,3 @@
 		}
 	}
 }
-
-.card[data-size="tiny"] .card__tag {
-	display: inline;
-	&:first-child {
-		&:after {
-			display: inline-block;
-		}
-		.card__tag__link {
-			padding-right: 11px;
-		}
-	}
-}

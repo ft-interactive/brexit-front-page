@@ -65,11 +65,11 @@ $text-sizes: (
 	.card[data-size="#{$size}"] .card__title {
 		@each $breakpoint, $text-sizes in $breakpoints {
 			@if ($breakpoint == 'default') {
-				font-size: nth($text-sizes, 1)  + 0px;
+				font-size: nth($text-sizes, 1) + 0px;
 				line-height: nth($text-sizes, 2) + 0px;
 			} @else {
 				@include oGridRespondTo($breakpoint) {
-					font-size: nth($text-sizes, 1)  + 0px;
+					font-size: nth($text-sizes, 1) + 0px;
 					line-height: nth($text-sizes, 2) + 0px;
 				}
 			}

@@ -3,7 +3,7 @@
 
 	// Prevents autoprefixer from outputting display: -webkit-box;, which is buggy
 	& {
-		// scss-lint:disable VendorPrefixes
+		// scss-lint:disable VendorPrefix
 		/*autoprefixer: off*/
 		display: -webkit-flex;
 		display: -ms-flexbox;
