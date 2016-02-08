@@ -5,7 +5,7 @@ import React, { Component } from 'react';
  * @param {string} date - iso8601
  */
 export default class extends Component {
-	constructor(props) {
+	constructor (props) {
 		super(props);
 		this.state = {
 			dateText: ODate.format(props.date, 'date'),
@@ -14,7 +14,7 @@ export default class extends Component {
 	}
 
 	// not called on the initial render, e.g. client only code
-	componentWillReceiveProps(props) {
+	componentWillReceiveProps (props) {
 		this.setState({
 			dateText: ODate.ftTime(new Date(props.date))
 		});

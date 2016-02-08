@@ -8,14 +8,14 @@ import getDomPath from 'n-instrumentation/src/utils/getDomPath';
 
 export default class SectionBrowser extends SectionNode {
 
-	constructor(props) {
+	constructor (props) {
 		super(props);
 		this.defaultSourceStore = new Superstore('local', 'next-frontpage');
 	}
 
- 	componentWillMount() {
- 		//If there is a source stored in localStorage, fetch that
- 		if(this.props.dynamicContent && this.props.dynamicContent.rememberSource) {
+	componentWillMount () {
+		//If there is a source stored in localStorage, fetch that
+		if(this.props.dynamicContent && this.props.dynamicContent.rememberSource) {
 			this.defaultSourceStore.get(this.props.dynamicContent.rememberSource).then(pref => {
 				if(pref && pref !== this.state.selectedSource) {
 					this.loadContent({
@@ -25,16 +25,16 @@ export default class SectionBrowser extends SectionNode {
 					});
 				}
 			});
- 		}
- 	}
+		}
+	}
 
-	loadContent(e) {
+	loadContent (e) {
 		const uuid = e.target.value;
 		const title = e.target.textContent;
 		this.setState({selectedSource: uuid});
 
 		if(uuid === 'initial') {
-			this.setState({content: this.props.content})
+			this.setState({content: this.props.content});
 			this.defaultSourceStore.unset(this.props.dynamicContent.rememberSource);
 		} else {
 			//Save choice to local storage

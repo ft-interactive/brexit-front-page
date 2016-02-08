@@ -1,92 +1,92 @@
 @mixin liveBlogStateColor($color) {
 
-    .liveblog__badge {
-        background-color: oColorsGetPaletteColor($color);
-    }
+	.liveblog__badge {
+		background-color: oColorsGetPaletteColor($color);
+	}
 
-    .card__footer {
-        border-color: oColorsGetPaletteColor($color);
-    }
+	.card__footer {
+		border-color: oColorsGetPaletteColor($color);
+	}
 
-    .liveblog__live-indicator {
-        background-color: oColorsGetPaletteColor($color);
+	.liveblog__live-indicator {
+		background-color: oColorsGetPaletteColor($color);
 
-        .glow {
-            background-color: oColorsGetPaletteColor($color);
-        }
-    }
+		.glow {
+			background-color: oColorsGetPaletteColor($color);
+		}
+	}
 }
 
 .card--liveblog {
 
-    .liveblog__badge {
-        @include oTypographySansBold(s);
-        display: inline-block;
-        text-transform: uppercase;
-        padding: 0.1em 0.5em 0.3em;
-        margin: 0 0.4em 0 0;
-        color: white;
-    }
+	.liveblog__badge {
+		@include oTypographySansBold(s);
+		display: inline-block;
+		text-transform: uppercase;
+		padding: 0.1em 0.5em 0.3em;
+		margin: 0 0.4em 0 0;
+		color: white;
+	}
 
-    .card__tag {
-        display: inline-block;
-    }
+	.card__tag {
+		display: inline-block;
+	}
 
-    .card__footer {
-        @include oTypographySans(xs);
-        text-transform: uppercase;
-        color: oColorsGetColorFor('timestamp', 'text');
-        margin-top: 10px;
+	.card__footer {
+		@include oTypographySans(xs);
+		text-transform: uppercase;
+		color: oColorsGetColorFor('timestamp', 'text');
+		margin-top: 10px;
 
 
-        span { margin: 0 0 0 0.2em; }
+		span { margin: 0 0 0 0.2em; }
 
-        .liveblog__live-indicator {
-            display: inline-block;
-            width: 8px;
-            height: 8px;
-            border-radius: 4px;
-            margin: 0 6px 0 4px;
+		.liveblog__live-indicator {
+			display: inline-block;
+			width: 8px;
+			height: 8px;
+			border-radius: 4px;
+			margin: 0 6px 0 4px;
 
-            .glow {
-                display: block;
-                width: 8px;
-                height: 8px;
-                border-radius: 4px;
-                opacity: 0.2;
-                transform-origin: center;
-                transform: scale(2.5, 2.5);
-            }
-        }
-    }
+			.glow {
+				display: block;
+				width: 8px;
+				height: 8px;
+				border-radius: 4px;
+				opacity: 0.2;
+				transform-origin: center;
+				transform: scale(2.5, 2.5);
+			}
+		}
+	}
 
-    &.liveblog--comingsoon {
-        @include liveBlogStateColor('liveblog-amber');
-    }
+	&.liveblog--comingsoon {
+		@include liveBlogStateColor('liveblog-amber');
+	}
 
-    &.liveblog--inprogress {
-        @include liveBlogStateColor('red');
-    }
+	&.liveblog--inprogress {
+		@include liveBlogStateColor('red');
+	}
 
-    &.liveblog--closed {
-        @include liveBlogStateColor('grey-tint4');
-    }
+	&.liveblog--closed {
+		@include liveBlogStateColor('grey-tint4');
+	}
 
-    &.liveblog--inprogress {
-        .liveblog__live-indicator .glow {
-            animation: pulse 1.7s ease infinite;
-        }
-    }
+	&.liveblog--inprogress {
+		.liveblog__live-indicator .glow {
+			animation: pulse 1.7s ease infinite;
+		}
+	}
 }
 
 @keyframes pulse {
-    0% {
-        transform: scale(2.5, 2.5);
-    }
-    50% {
-        transform: scale(1, 1);
-    }
-    100% {
-        transform: scale(2.5, 2.5);
-    }
+	0% {
+		transform: scale(2.5, 2.5);
+	}
+	50% {
+		transform: scale(1, 1);
+	}
+	100% {
+		transform: scale(2.5, 2.5);
+	}
 }

@@ -1,48 +1,48 @@
 .column {
-    @include displayFlex;
-    flex-direction: column;
+	@include displayFlex;
+	flex-direction: column;
 
-    .o-grid-row {
+	.o-grid-row {
 		flex: 1;
 		-ms-flex-preferred-size: auto;
-    }
+	}
 
-    &[data-o-grid-colspan~="hide"] {
-        @include oGridRespondTo($until: S) {
-            display: none;
-        }
-    }
+	&[data-o-grid-colspan~="hide"] {
+		@include oGridRespondTo($until: S) {
+			display: none;
+		}
+	}
 
-    &[data-o-grid-colspan~="Shide"] {
-        @include oGridRespondTo(S, $until: M) {
-            display: none;
-        }
-    }
+	&[data-o-grid-colspan~="Shide"] {
+		@include oGridRespondTo(S, $until: M) {
+			display: none;
+		}
+	}
 
-    &[data-o-grid-colspan~="Mhide"] {
-        @include oGridRespondTo(M, $until: L) {
-            display: none;
-        }
-    }
+	&[data-o-grid-colspan~="Mhide"] {
+		@include oGridRespondTo(M, $until: L) {
+			display: none;
+		}
+	}
 
-    &[data-o-grid-colspan~="Lhide"] {
-        @include oGridRespondTo(L, $until: XL) {
-            display: none;
-        }
-    }
+	&[data-o-grid-colspan~="Lhide"] {
+		@include oGridRespondTo(L, $until: XL) {
+			display: none;
+		}
+	}
 
-    &[data-o-grid-colspan~="XLhide"] {
-        @include oGridRespondTo(XL) {
-            display: none;
-        }
-    }
+	&[data-o-grid-colspan~="XLhide"] {
+		@include oGridRespondTo(XL) {
+			display: none;
+		}
+	}
 
-    //Try and match the editors picks cards with the ad height
-    &.editors-picks__column {
-        @include oGridRespondTo(L) {
-            min-height: 264px;
-        }
-    }
+	//Try and match the editors picks cards with the ad height
+	&.editors-picks__column {
+		@include oGridRespondTo(L) {
+			min-height: 264px;
+		}
+	}
 }
 
 .column--condensed {

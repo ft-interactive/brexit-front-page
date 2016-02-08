@@ -11,19 +11,19 @@ import videosSection from './videos';
 import layouts from '../layouts';
 
 const sections = {
-    'editors-picks': editorsPicksSection,
-    'life-and-arts': lifeAndArtsSection,
-    markets: marketsSection,
-    'most-popular': mostPopularSection,
-    myft: myftSection,
-    opinion: opinionSection,
-    technology: technologySection,
-    'top-stories': topStoriesSection,
-    videos: videosSection
+	'editors-picks': editorsPicksSection,
+	'life-and-arts': lifeAndArtsSection,
+	markets: marketsSection,
+	'most-popular': mostPopularSection,
+	myft: myftSection,
+	opinion: opinionSection,
+	technology: technologySection,
+	'top-stories': topStoriesSection,
+	videos: videosSection
 };
 
 export default (sectionId, content, flags) => {
-    const section = sections[sectionId]({ content, flags });
-    const layout = layouts[section.layoutId];
-    return Object.assign({}, section, { content, layout });
+	const section = sections[sectionId]({ content, flags });
+	const layout = layouts[section.layoutId];
+	return Object.assign({}, section, { content, layout });
 }

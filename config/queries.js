@@ -126,7 +126,7 @@ const frontPage = (region) => (`
 				branding {
 					headshot
 					taxonomy
-			    }
+				}
 			}
 		}
 		videos(limit: 6) {

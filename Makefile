@@ -6,14 +6,17 @@ clean:
 	git clean -fxd
 
 install:
-	obt install --verbose
-	bower install --config.registry.search=http://registry.origami.ft.com --config.registry.search=https://bower.herokuapp.com
+	npm install
+	bower install
+	gem install scss_lint
 
 verify:
-	nbt verify --skip-layout-checks
+	find ./client ./config ./shared ./server ./views -type f | xargs lintspaces -e .editorconfig -i js-comments,html-comments &\
+	eslint -c ./.eslintrc.json ./client ./config ./shared ./server &\
+	find ./client ./shared -type f -name "*.scss" -exec scss-lint -c ./.scss-lint.yml {} + ; if [ $$? -ne 0 -a $$? -ne 1 ] ; then exit 1 ; fi
 
 unit-test:
-	export NODE_ENV=test; mocha  --require test/setup --recursive --reporter spec test/server
+	export NODE_ENV=test; mocha --require test/setup --recursive --reporter spec test/server
 
 test: verify unit-test
 
