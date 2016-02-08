@@ -17,7 +17,7 @@ export default [
 						showRelated: true,
 						showStandfirst: true,
 						image: {
-							srcSet: { default: 449, s: 659, m: 432, l: 357, xl: 411 }
+							sizes: { default: 449, s: 659, m: 432, l: 357, xl: 411 }
 						}
 					}
 				]
@@ -32,7 +32,7 @@ export default [
 						size: 'medium',
 						showStandfirst: true,
 						image: {
-							srcSet: { default: 100 },
+							sizes: { default: 100 },
 							position: { default: 'left' }
 						}
 					},

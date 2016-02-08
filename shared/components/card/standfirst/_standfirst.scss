@@ -5,15 +5,16 @@
 	line-height: 20px;
 	margin: 5px 0 0;
 
-	.card[data-size^="large"] & {
+	.card[data-size="large-top-story"] &,
+	.card[data-size="large-no-image"] & {
 		font-size: 22px;
 		line-height: 24px;
 	}
-}
 
-@include oGridRespondTo($until: L) {
-	.card[data-size="large"] .card__standfirst {
-		font-size: 18px;
-		line-height: 20px;
+	.card[data-size="large"] & {
+		@include oGridRespondTo(L) {	
+			font-size: 22px;
+			line-height: 24px;
+		}
 	}
 }

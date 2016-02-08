@@ -3,9 +3,8 @@ import NImage from 'n-image';
 
 /**
  * @param {string} url
- * @param {Object} srcSet
+ * @param {Object} sizes
  * @param {string} contentId
- * @param {boolean} [stick=false]
  */
 export default class extends Component {
 	render () {
@@ -25,7 +24,7 @@ export default class extends Component {
 		const nImageAttrs = {
 			picClass: 'card__picture',
 			imgClass: 'card__image',
-			srcset: this.props.srcSet
+			srcset: this.props.sizes
 		};
 		if (this.props.imageServiceUrl) {
 			Object.assign(nImageAttrs, { url: this.props.imageServiceUrl, isImgServiceUrl: true });

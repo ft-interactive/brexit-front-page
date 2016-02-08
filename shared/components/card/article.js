@@ -20,7 +20,7 @@ import Timestamp from './timestamp/timestamp';
  * @param {string} related[].id
  * @param {Object} [image]
  * @param {string} image.url
- * @param {string} image.srcSet
+ * @param {string} image.sizes
  * @param {string} [image.show]
  * @param {string} [image.position]
  * @param {Object} [liveBlog]
@@ -35,9 +35,11 @@ export default class extends Component {
 			'data-trackable': 'card',
 			'data-size': this.props.size
 		};
+
 		if (this.props.show) {
 			attrs['data-show'] = responsiveValue(this.props.show);
 		}
+
 		if (this.props.image) {
 			if (this.props.image.show) {
 				attrs['data-image-show'] = responsiveValue(this.props.image.show);
@@ -46,20 +48,38 @@ export default class extends Component {
 				attrs['data-image-position'] = responsiveValue(this.props.image.position);
 			}
 		}
+
 		if (this.props.liveBlog) {
 			attrs.className += ` card--liveblog liveblog--${this.props.liveBlog.status.toLowerCase()}`;
 		}
 
+		if (this.props.tag && this.props.size === 'tiny') {
+			this.props.tag.isInline = true;
+		}
+
+		const articleContentClasses = [
+			'card__content'
+		];
+		if (this.props.image) {
+			articleContentClasses.push('card__content--has-image');
+			if (this.props.image.stick || this.props.image.isHeadshot) {
+				articleContentClasses.push('card__content--grow');
+			}
+		}
+
 		return (
 			<article {...attrs}>
-				<div>
-					{this.props.liveBlog ? <span className="liveblog__badge">live</span> : null}
-					{this.props.tag ? <Tag tag={this.props.tag}/> : null}
-					<Title title={this.props.title} url={`/content/${this.props.id}`} />
+				<div className={articleContentClasses.join(' ')}>
+					<div className="card__content__inner">
+						{this.props.liveBlog ? <span className="liveblog__badge">live</span> : null}
+						{this.props.tag && this.props.size !== 'tiny' ? <Tag {...this.props.tag}/> : null}
+						{this.props.image ? <Image {...this.props.image} contentId={this.props.id} /> : null}
+						{this.props.tag && this.props.size === 'tiny' ? <Tag {...this.props.tag} /> : null}
+						<Title title={this.props.title} url={`/content/${this.props.id}`} />
+						{this.props.standfirst ? <Standfirst standfirst={this.props.standfirst} /> : null}
+						{this.props.lastPublished ? <Timestamp date={this.props.lastPublished} /> : null}
+					</div>
 				</div>
-				{this.props.standfirst ? <Standfirst standfirst={this.props.standfirst} /> : null}
-				{this.props.lastPublished ? <Timestamp date={this.props.lastPublished} /> : null}
-				{this.props.image ? <Image {...this.props.image} contentId={this.props.id} /> : null}
 				{this.props.related ? <Related items={this.props.related} /> : null}
 				{this.props.liveBlog ? <LiveBlogGlow {...this.props.liveBlog} /> : null}
 			</article>

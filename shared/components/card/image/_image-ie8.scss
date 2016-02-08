@@ -1,33 +1,45 @@
-.card__image-link {
-	@each $layout-name in $_o-grid-layout-names {
-		@include oGridTargetIE8 {
-			.card[data-image-show~="#{$layout-name}--true"] & {
-				display: flex;
-			}
+@each $layout-name in $_o-grid-layout-names {
+	.card__image-link {
+		.card[data-image-show~="#{$layout-name}--true"] & {
+			display: flex;
+		}
 
-			.card[data-image-show~="#{$layout-name}--false"] & {
-				display: none;
-			}
+		.card[data-image-show~="#{$layout-name}--false"] & {
+			display: none;
+		}
 
-			.card[data-image-position~="#{$layout-name}--bottom"] & {
-				position: static;
-				top: 0;
-				left: 0;
-				width: auto;
-				margin-top: 10px;
-			}
+		.card[data-image-position~="#{$layout-name}--bottom"] & {
+			position: absolute;
+			top: auto;
+			bottom: 0;
+			width: auto;
+			margin: 0;
+		}
 
-			.card[data-image-position~="#{$layout-name}--left"] & {
-				position: absolute;
-				top: 31px;
-				left: 10px;
-				width: 100px;
-				margin-top: 0;
-			}
+		.card[data-image-position~="#{$layout-name}--top"] & {
+			position: absolute;
+			top: 0;
+			bottom: auto;
+			width: auto;
+			margin: 0;
+		}
 
-			.card[data-size="tiny"][data-image-position~="#{$layout-name}--left"] & {
-				top: 10px;
+		.card[data-image-position~="#{$layout-name}--left"] & {
+			position: static;
+			float: left;
+			width: 100px;
+			margin: 0 10px 5px 0;
+
+			&:nth-child(2) {
+				margin-top: 5px;
 			}
+		}
+
+		.card[data-image-position~="#{$layout-name}--right"] & {
+			position: static;
+			float: right;
+			width: 50%;
+			margin: -16px 0 0 10px;
 		}
 	}
 }

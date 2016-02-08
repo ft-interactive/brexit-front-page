@@ -6,6 +6,7 @@ import mostPopularAdsLayout from './most-popular-ads';
 import myftLayout from './myft';
 import opinionLayout from './opinion';
 import topStoriesLayout from './top-stories';
+import topStoriesLandscapeLayout from './top-stories-landscape';
 import VideoLayout from './video';
 
 export default {
@@ -17,5 +18,6 @@ export default {
 	'myft': myftLayout,
 	'opinion': opinionLayout,
 	'top-stories': topStoriesLayout,
+	'top-stories-landscape': topStoriesLandscapeLayout,
 	'video': VideoLayout
 }

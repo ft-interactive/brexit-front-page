@@ -1,8 +1,11 @@
 .card__title {
-	display: block;
 	font-family: $o-typography-serif-display;
 	font-weight: oFontsWeight(regular);
-	margin: 5px 0 0;
+	margin: 0;
+
+	.card__tag ~ & {
+		margin-top: 5px;
+	}
 
 	.section--editors-picks & {
 		font-family: $o-typography-sans;
@@ -13,105 +16,64 @@
 		margin: 0 10px 10px;
 	}
 
-	.card[data-image-position~="left"] & {
-		min-height: 56px;
-		margin-left: 110px;
-	}
-
-	.card[data-size="tiny"][data-image-position~="left"] & {
-		min-height: 0;
-		margin-left: 0;
-	}
-
-	@each $layout-name in $_o-grid-layout-names {
-		@include oGridRespondTo($layout-name) {
-			.card[data-image-position~="#{$layout-name}--bottom"] & {
-				min-height: 0;
-				margin-left: 0;
-			}
-
-			.card[data-image-position~="#{$layout-name}--left"] & {
-				min-height: 56px;
-				margin-left: 110px;
-			}
-
-			.card[data-size="tiny"][data-image-position~="#{$layout-name}--left"] & {
-				min-height: 0;
-				margin-left: 0;
-			}
-		}
+	.card[data-size="tiny"] & {
+		display: inline;
 	}
 }
 
 // font-size/line-height pairs
-$card-title-text-sizes: (
-	default: (
-		tiny: 18 20,
-		small: 20 22,
-		medium: 22 24,
-		large: 22 24,
-		large-top-story: 26 28,
-		large-no-image: 40 38
+$text-sizes: (
+	tiny: (
+		default: 18 20,
+		S: 16 16,
+		M: 16 18
 	),
-	S: (
-		tiny: 16 16,
-		small: 20 22,
-		medium: 24 26,
-		large: 24 26,
-		large-top-story: 28 30,
-		large-no-image: 38 40
+	small: (
+		default: 20 22,
+		M: 18 20,
+		L: 20 22,
 	),
-	M: (
-		tiny: 16 18,
-		small: 18 20,
-		medium: 22 24,
-		large: 22 24,
-		large--story: 30 32,
-		large-no-image: 40 42
+	medium: (
+		default: 22 24,
+		S: 24 26,
+		M: 22 24,
+		L: 23 24,
+		XL: 25 27
 	),
-	L: (
-		tiny: 16 18,
-		small: 20 22,
-		medium: 23 24,
-		large: 36 38,
-		large-top-story: 36 38,
-		large-no-image: 44 46
+	large: (
+		default: 22 24,
+		S: 24 26,
+		M: 22 24,
+		L: 36 38
 	),
-	XL: (
-		tiny: 16 18,
-		small: 20 22,
-		medium: 25 27,
-		large: 36 38,
-		large-top-story: 36 38,
-		large-no-image: 44 46
+	large-top-story: (
+		default: 26 28,
+		S: 28 30,
+		M: 30 32,
+		L: 36 38
+	),
+	large-no-image: (
+		default: 40 38,
+		S: 38 40,
+		M: 40 42,
+		L: 44 46
 	)
+
 );
 
-@mixin card-title($text-size, $font-size, $line-height) {
-	font-size: $font-size + 0px;
-	line-height: $line-height + 0px;
-	@if $text-size == 'tiny' {
-		display: inline;
-	} @else {
-		display: block;
-	}
-}
-
-@each $breakpoint, $text-sizes in $card-title-text-sizes {
-	@if ($breakpoint == 'default') {
-		@each $text-size, $font-sizes in $text-sizes {
-			.card[data-size="#{$text-size}"] .card__title {
-				@include card-title($text-size, nth($font-sizes, 1), nth($font-sizes, 2));
-			}
-		}
-	} @else {
-			@include oGridRespondTo($breakpoint) {
-				@each $text-size, $font-sizes in $text-sizes {
-					.card[data-size="#{$text-size}"] .card__title {
-						@include card-title($text-size, nth($font-sizes, 1), nth($font-sizes, 2));
-					}
+@each $size, $breakpoints in $text-sizes {
+	.card[data-size="#{$size}"] .card__title {
+		@each $breakpoint, $text-sizes in $breakpoints {
+			@if ($breakpoint == 'default') {
+				font-size: nth($text-sizes, 1) + 0px;
+				line-height: nth($text-sizes, 2) + 0px;
+			} @else {
+				@include oGridRespondTo($breakpoint) {
+					font-size: nth($text-sizes, 1) + 0px;
+					line-height: nth($text-sizes, 2) + 0px;
 				}
 			}
+		}
 	}
 }
 

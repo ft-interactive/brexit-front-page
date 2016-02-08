@@ -1,24 +1,35 @@
 .card__image-link {
-	@include displayFlex;
-	flex: 0 1 auto;
-	align-items: flex-start;
-	margin-top: 10px;
 	border-bottom: 0;
-
-	.card[data-image-position~="left"] & {
-		position: absolute;
-		top: 31px;
-		left: 10px;
-		width: 100px;
-		margin-top: 0;
-	}
-
-	.card[data-size="tiny"][data-image-position~="left"] & {
-		top: 10px;
-	}
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	left: 0;
 
 	.card[data-image-show~="false"] & {
 		display: none;
+	}
+
+	.card[data-image-position~="top"] & {
+		top: 0;
+		bottom: auto;
+	}
+
+	.card[data-image-position~="left"] & {
+		position: static;
+		float: left;
+		width: 100px;
+		margin: 0 10px 5px 0;
+
+		&:nth-child(2) {
+			margin-top: 5px;
+		}
+	}
+
+	.card[data-image-position~="right"] & {
+		position: static;
+		float: right;
+		width: 50%;
+		margin: -16px 0 0 10px;
 	}
 
 	@each $layout-name in $_o-grid-layout-names {
@@ -32,46 +43,38 @@
 			}
 
 			.card[data-image-position~="#{$layout-name}--bottom"] & {
-				position: static;
-				top: 0;
-				left: 0;
+				position: absolute;
+				top: auto;
+				bottom: 0;
 				width: auto;
-				margin-top: 10px;
+				margin: 0;
+			}
+
+			.card[data-image-position~="#{$layout-name}--top"] & {
+				position: absolute;
+				top: 0;
+				bottom: auto;
+				width: auto;
+				margin: 0;
 			}
 
 			.card[data-image-position~="#{$layout-name}--left"] & {
-				position: absolute;
-				top: 31px;
-				left: 10px;
+				position: static;
+				float: left;
 				width: 100px;
-				margin-top: 0;
+				margin: 0 10px 5px 0;
+
+				&:nth-child(2) {
+					margin-top: 5px;
+				}
 			}
 
-			.card[data-size="tiny"][data-image-position~="#{$layout-name}--left"] & {
-				top: 10px;
+			.card[data-image-position~="#{$layout-name}--right"] & {
+				position: static;
+				float: right;
+				width: 50%;
+				margin: -16px 0 0 10px;
 			}
-		}
-	}
-}
-
-.card__image-link--stick,
-.card__image-link--headshot {
-	flex-grow: 1;
-	align-items: flex-end;
-
-	.card[data-image-position~="left"] & {
-		align-items: flex-start;
-	}
-
-	.card[data-image-position~="S--bottom"] & {
-		@include oGridRespondTo(S) {
-			align-items: flex-end;
-		}
-	}
-
-	.card[data-image-position~="M--bottom"] & {
-		@include oGridRespondTo(M) {
-			align-items: flex-end;
 		}
 	}
 }
@@ -79,18 +82,18 @@
 .card__picture {
 	display: block;
 	max-width: 100%;
+
+	.card__image-link--headshot & {
+		width: 56.25%;
+
+		@include oGridRespondTo(M) {
+			margin-left: auto;
+		}
+	}
 }
 
 .card__image {
 	display: block;
 	width: 100%;
 	flex: 0 0 auto;
-}
-
-.card__image-link--headshot .card__picture {
-	width: 56.25%;
-
-	@include oGridRespondTo(M) {
-		margin-left: auto;
-	}
 }
