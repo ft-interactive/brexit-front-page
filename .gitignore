@@ -1,5 +1,4 @@
 .DS_Store
-/.editorconfig
 .env
 /.node-version
 /.sass-cache
