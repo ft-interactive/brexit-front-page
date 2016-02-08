@@ -14,23 +14,23 @@ const SectionNode = proxyquire('../../../../shared/components/section/node', {
 
 describe('SectionNode', () => {
 
-	const cols = {
-		content: { },
-		sidebar: { }
-	}
-
-	const sidebarComponent = {
-		id: 'sidebarComponentId',
-		component: stub
+	const props = {
+		cols: {
+			content: { },
+			sidebar: { }
+		},
+		id: 'sectionNodeId',
+		sidebarComponent: {
+			id: 'sidebarComponentId',
+			component: stub
+		}
 	}
 
 	it('should render section component with "section" class if correct data provided', () => {
 		const section = TestUtils.renderIntoDocument(
 			<SectionNode
 			content={ { main: [''] } }
-			cols={cols}
-			id='sectionNodeId'
-			sidebarComponent={sidebarComponent} />
+			{...props} />
 		);
 		(() => TestUtils.findRenderedDOMComponentWithClass(section, 'section')).should.not.throw();
 	});
@@ -39,9 +39,7 @@ describe('SectionNode', () => {
 		const section = TestUtils.renderIntoDocument(
 			<SectionNode
 			content={ null }
-			cols={cols}
-			id='sectionNodeId'
-			sidebarComponent={sidebarComponent} />
+			{...props} />
 		);
 		(() => TestUtils.findRenderedDOMComponentWithClass(section, 'section')).should.throw();
 	});
@@ -50,9 +48,7 @@ describe('SectionNode', () => {
 		const section = TestUtils.renderIntoDocument(
 			<SectionNode
 			content={ { main: null } }
-			cols={cols}
-			id='sectionNodeId'
-			sidebarComponent={sidebarComponent} />
+			{...props} />
 		);
 		(() => TestUtils.findRenderedDOMComponentWithClass(section, 'section')).should.throw();
 	});
@@ -61,9 +57,7 @@ describe('SectionNode', () => {
 		const section = TestUtils.renderIntoDocument(
 			<SectionNode
 			content={ { main: [] } }
-			cols={cols}
-			id='sectionNodeId'
-			sidebarComponent={sidebarComponent} />
+			{...props} />
 		);
 		(() => TestUtils.findRenderedDOMComponentWithClass(section, 'section')).should.throw();
 	});
