@@ -77,6 +77,9 @@ export default class extends Component {
 		} else {
 			classes.push('card--non-followed-concept');
 		}
+		if (this.props.isTransparent) {
+			classes.push('card--transparent');
+		}
 		const attrs = {
 			className: classes.join(' '),
 			'data-trackable': 'concept'

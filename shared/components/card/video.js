@@ -15,6 +15,10 @@ export default class extends Component {
 			attrs['data-show'] = responsiveValue(this.props.show);
 		}
 
+		if (this.props.isTransparent) {
+			attrs.className += ` card--transparent`;
+		}
+
 		return (
 			<article {...attrs}>
 				{/* wrapper needed for firefox */}

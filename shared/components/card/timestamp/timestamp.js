@@ -8,7 +8,7 @@ export default class extends Component {
 	constructor (props) {
 		super(props);
 		this.state = {
-			dateText: ODate.format(props.date, 'date'),
+			dateText: ODate.format(props.date, 'datetime'),
 			title: ODate.format(props.date, 'datetime')
 		};
 	}
