@@ -19,7 +19,7 @@ describe('Front Page Controller', () => {
 
 	};
 
-	function createInstance(params, flags) {
+	function createInstance (params, flags) {
 		next = sinon.stub();
 		request = httpMocks.createRequest(params);
 		response = httpMocks.createResponse();

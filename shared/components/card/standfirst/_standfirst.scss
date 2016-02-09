@@ -13,7 +13,7 @@
 	}
 
 	.card[data-size="large"] & {
-		@include oGridRespondTo(L) {	
+		@include oGridRespondTo(L) {
 			font-size: 22px;
 			line-height: 24px;
 		}
