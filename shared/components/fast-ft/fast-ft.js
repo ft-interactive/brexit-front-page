@@ -12,10 +12,10 @@ class FastFt extends Component {
 			const cardProps = {
 				items: items,
 				hideTag: true,
-				size: (index === 0 ? 'medium' : 'small'),
+				size: (index === 0 ? 'small' : 'tiny'),
 				itemIndex: index,
 				isTransparent: true,
-				show: { default: true, L: index > 4 ? false : true, XL: index > 2 ? false : true },
+				show: { default: true, L: index > 6 ? false : true, XL: index > 3 ? false : true },
 				isNew: (now - new Date(article.lastPublished).getTime()) < 1000 * 60 * 10
 			}
 			return <li key={article.id}><Content {...cardProps}/></li>;
