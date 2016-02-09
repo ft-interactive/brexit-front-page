@@ -6,4 +6,7 @@
 	color: getColor('warm-6');
 	text-transform: uppercase;
 
+	.fast-ft & {
+		color: getColor('fastft-brand');
+	}
 }

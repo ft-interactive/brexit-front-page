@@ -21,6 +21,10 @@
 		display: none;
 	}
 
+	.fast-ft & {
+		margin-top: 0;
+	}
+
 	.column--condensed & {
 		margin-top: 0;
 		border-bottom: 0;
@@ -71,6 +75,20 @@
 			border: 0;
 		}
 	}
+}
+
+.card--transparent {
+	background-color: transparent;
+}
+
+@keyframes highlight {
+	100% {
+		background: getColor('fastft-highlight');
+	}
+}
+
+.card--new {
+	animation: highlight 1s 0.5s ease-in-out forwards;
 }
 
 @each $layout-name in $_o-grid-layout-names {

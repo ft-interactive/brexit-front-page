@@ -1,11 +1,24 @@
 import React, {Component} from 'react';
-import FastFtItem from './fast-ft-item';
+import Content from '../content/content';
 
 class FastFt extends Component {
 	render () {
-		const articleEls = this.props.articles.slice(0, 20).map((article, index) => {
-			const desktopHide = index > 6;
-			return <li key={article.id}><FastFtItem article={article} desktopHide={desktopHide} /></li>;
+
+		const items = this.props.articles.filter(article => !!article.title).slice(0, 20)
+
+		const now = new Date().getTime();
+
+		const articleEls = items.map((article, index) => {
+			const cardProps = {
+				items: items,
+				hideTag: true,
+				size: (index === 0 ? 'small' : 'tiny'),
+				itemIndex: index,
+				isTransparent: true,
+				show: { default: true, L: index > 6 ? false : true, XL: index > 3 ? false : true },
+				isNew: (now - new Date(article.lastPublished).getTime()) < 1000 * 60 * 10
+			}
+			return <li key={article.id}><Content {...cardProps}/></li>;
 		});
 		return (
 			<div className="fast-ft-wrapper">

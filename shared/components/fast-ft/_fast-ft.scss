@@ -8,15 +8,14 @@
 	}
 }
 .fast-ft {
-	background-color: getColor('pink');
-	border-left: 1px solid getColor('warm-3');
-	padding: 10px;
 	margin-bottom: 10px;
 }
 
 .fast-ft__logo-outer {
 	margin: 0;
 	line-height: 17px;
+	padding: 10px;
+	background-color: getColor('fastft-highlight');
 }
 .fast-ft__link {
 	display: inline-block;
@@ -36,35 +35,7 @@
 	background-position: 0 100%;
 }
 .fast-ft__items {
-	margin: 10px 0;
+	margin: 0 0 10px;
 	padding: 0;
 	list-style: none;
-}
-.fast-ft__item {
-	margin-top: 10px;
-
-	*:first-child > & {
-		margin-top: 0;
-	}
-}
-.fast-ft__item--hide-desktop {
-	@include oGridRespondTo(L) {
-		display: none;
-	}
-}
-.fast-ft__time {
-	@include oTypographySans(s);
-	color: getColor('claret');
-}
-.fast-ft__item__title {
-	@include oTypographySans(s);
-	margin: 0;
-}
-.fast-ft__item__title-link {
-	color: inherit;
-	border-bottom: 0;
-
-	&:hover {
-		border-bottom: 1px dotted;
-	}
 }

@@ -23,7 +23,9 @@ const squareifyImage = srcSet =>
 const getData = (item, opts) => {
 	const data = {
 		size: opts.size,
-		show: opts.show
+		show: opts.show,
+		isTransparent: opts.isTransparent,
+		isNew: opts.isNew
 	};
 
 	// if renditions, assume it's a video
@@ -84,12 +86,11 @@ const getData = (item, opts) => {
 
 class Content extends Component {
 	render () {
-		const item = this.props.items[this.props.itemIndex || this.props.id];
+		const item = this.props.items[typeof this.props.itemIndex !== 'undefined' ? this.props.itemIndex : this.props.id];
 		if (!item) {
 			return null;
 		}
 		const data = getData(item, this.props);
-
 		switch (data.type) {
 			case 'video':
 				return <VideoCard {...data} />;
