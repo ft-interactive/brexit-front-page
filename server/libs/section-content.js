@@ -1,11 +1,29 @@
 /**
  * take data from graphql and massage it into a format needed by the sections
  */
-export default data => ({
-	['top-stories']: {
-		main: data.frontPage.topStory.items.concat(data.frontPage.top.items.slice(1)),
+
+const getTopStoriesData = (data, flags) => {
+	let main = data.frontPage.topStory.items.concat(data.frontPage.top.items.slice(1));
+	const layoutHint = data.frontPage.topStoriesList.layoutHint;
+	if(flags.frontPageMultipleLayouts && layoutHint === 'standaloneimage') {
+		if(data.frontPage.topStoriesList && data.frontPage.topStoriesList.items && data.frontPage.topStoriesList.items.length) {
+			//Picture stories don't come through the page API, so if we have one, take it from the list and put it in the second positio
+			main.splice(1, 0, data.frontPage.topStoriesList.items[0]);
+		} else {
+			//No picture story available, so default to normal layout
+			layoutHint = 'standard';
+		}
+	}
+	return {
+		layoutHint,
+		main,
 		sidebar: data.frontPage.fastFT.items
-	},
+	}
+
+};
+
+export default (data, flags) => ({
+	['top-stories']: getTopStoriesData(data, flags),
 	opinion: {
 		main: data.frontPage.opinion.items
 	},

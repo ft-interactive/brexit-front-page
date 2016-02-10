@@ -44,7 +44,7 @@ export default (region) => {
 			inside: '<p class="markets-data-disclaimer">Markets data delayed by at least 15 minutes</p>'
 		};
 
-		const sections = getPage('front-page', sectionContent(data), res.locals.flags);
+		const sections = getPage('front-page', sectionContent(data, res.locals.flags), res.locals.flags);
 
 		const renderParams = {
 			layout: 'wrapper',

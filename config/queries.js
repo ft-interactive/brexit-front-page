@@ -104,6 +104,22 @@ const frontPage = (region) => (`
 				}
 			}
 		}
+		topStoriesList(region: ${region}) {
+			layoutHint
+			items {
+				... Basic
+				... Extended
+				... Related
+				... on LiveBlog {
+					status
+					updates(limit: 1) {
+						date
+						text
+					}
+				}
+			}
+		}
+		
 		fastFT {
 			items(limit: 20) {
 				... Basic
