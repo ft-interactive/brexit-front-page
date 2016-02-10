@@ -71,10 +71,6 @@ export default class extends Component {
 			attrs.className += ` card--transparent`;
 		}
 
-		if (this.props.isNew) {
-			attrs.className += ` card--new`;
-		}
-
 		return (
 			<article {...attrs}>
 				<div className={articleContentClasses.join(' ')}>
