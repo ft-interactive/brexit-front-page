@@ -119,7 +119,7 @@ const frontPage = (region) => (`
 				}
 			}
 		}
-		
+
 		fastFT {
 			items(limit: 20) {
 				... Basic
