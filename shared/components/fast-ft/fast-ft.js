@@ -4,9 +4,7 @@ import Content from '../content/content';
 class FastFt extends Component {
 	render () {
 
-		const items = this.props.articles.filter(article => !!article.title).slice(0, 20)
-
-		const now = new Date().getTime();
+		const items = this.props.articles.filter(article => !!article.title).slice(0, 20);
 
 		const articleEls = items.map((article, index) => {
 			const cardProps = {
@@ -15,8 +13,8 @@ class FastFt extends Component {
 				size: (index === 0 ? 'small' : 'tiny'),
 				itemIndex: index,
 				isTransparent: true,
-				show: { default: true, L: index > 6 ? false : true, XL: index > 3 ? false : true }
-			}
+				show: { default: true, L: index <= 6, XL: index <= 3 }
+			};
 			return <li key={article.id}><Content {...cardProps}/></li>;
 		});
 		return (
