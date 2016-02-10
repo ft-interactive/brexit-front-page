@@ -14,6 +14,10 @@ export default [
 					{
 						type: Content,
 						size: 'large-top-story',
+						related: {
+							show: true,
+							colspan: { default: 12}
+						},
 						showRelated: true,
 						showStandfirst: true,
 						image: {

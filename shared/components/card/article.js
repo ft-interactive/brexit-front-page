@@ -88,7 +88,7 @@ export default class extends Component {
 						{this.props.lastPublished ? <Timestamp date={this.props.lastPublished} /> : null}
 					</div>
 				</div>
-				{this.props.related ? <Related items={this.props.related} /> : null}
+				{this.props.related && this.props.related.content ? <Related {...this.props.related} /> : null}
 				{this.props.liveBlog ? <LiveBlogGlow {...this.props.liveBlog} /> : null}
 			</article>
 		);
