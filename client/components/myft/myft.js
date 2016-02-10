@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { json as fetchJson } from 'fetchres';
 
-import crossDomainFetch from 'n-jsonp';
+import { crossDomainFetch } from 'n-jsonp';
 import sessionClient from 'next-session-client';
 import * as myFtUi from 'next-myft-ui';
 
