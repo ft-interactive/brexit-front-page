@@ -50,6 +50,11 @@ export default class SectionBrowser extends SectionNode {
 					if(data && data.main && data.main.length) {
 						this.setState({content: data})
 					}
+				})
+				.catch(err => {
+					window.setTimeout(() => {
+						throw err;
+					});
 				});
 		}
 		if(e.type) { //only fire tracking for actual events
