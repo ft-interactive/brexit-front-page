@@ -7,21 +7,22 @@ const toArray = nodeList => Array.prototype.slice.call(nodeList);
 const track = (componentEl, componentPos) =>
 	fireTracking('oTracking.event', { category: 'page', action: 'scrolldepth', componentPos, domPath: getDomPath(componentEl, []) });
 
-const scrollHandlerFactory = components => {
+const scrollHandlerFactory = () => {
 	const componentsViewed = [];
 	return () => {
-		components.forEach((component, index) => {
-			if (component.getBoundingClientRect().top < window.innerHeight && componentsViewed.indexOf(component) === -1) {
-				track(component, index + 1);
-				componentsViewed.push(component);
-			}
-		});
+		toArray(document.querySelectorAll('.section'))
+			.forEach((component, index) => {
+				const componentId = component.getAttribute('data-trackable');
+				if (component.getBoundingClientRect().top < window.innerHeight && componentsViewed.indexOf(componentId) === -1) {
+					track(component, index + 1);
+					componentsViewed.push(componentId);
+				}
+			});
 	};
 };
 
 const init = () => {
-	const components = toArray(document.querySelectorAll('.flexipod, .section'));
-	const scrollHandler = scrollHandlerFactory(components);
+	const scrollHandler = scrollHandlerFactory();
 	window.addEventListener('scroll', throttle(scrollHandler, 250));
 	// fire off an initial tracking
 	scrollHandler();
