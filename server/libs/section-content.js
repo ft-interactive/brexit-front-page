@@ -2,10 +2,10 @@
  * take data from graphql and massage it into a format needed by the sections
  */
 
-const getTopStoriesData = (data, flags) => {
+const getTopStoriesData = (data, flags = {}) => {
 	let main = data.frontPage.topStory.items.concat(data.frontPage.top.items.slice(1));
-	const layoutHint = data.frontPage.topStoriesList.layoutHint;
-	if(flags.frontPageMultipleLayouts && layoutHint === 'standaloneimage') {
+	let layoutHint = flags.frontPageMultipleLayouts ? data.frontPage.topStoriesList.layoutHint : 'standard';
+	if(flags && flags.frontPageMultipleLayouts && layoutHint === 'standaloneimage') {
 		if(data.frontPage.topStoriesList && data.frontPage.topStoriesList.items && data.frontPage.topStoriesList.items.length) {
 			//Picture stories don't come through the page API, so if we have one, take it from the list and put it in the second positio
 			main.splice(1, 0, data.frontPage.topStoriesList.items[0]);
@@ -15,7 +15,7 @@ const getTopStoriesData = (data, flags) => {
 		}
 	}
 	return {
-		layoutHint,
+		layoutHint: layoutHint || 'standard',
 		main,
 		sidebar: data.frontPage.fastFT.items
 	}
