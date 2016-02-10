@@ -30,6 +30,7 @@ export default ({ content, flags }) => ({
 	date: date,
 	isTab: true,
 	layoutId: getLayout(content, flags),
+	trackable: getLayout(content, flags),
 	size: {
 		default: 12
 	},
