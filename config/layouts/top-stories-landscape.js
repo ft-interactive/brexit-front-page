@@ -100,7 +100,7 @@ export default [
 									components: [
 										{
 											type: Content,
-											size: 'small',
+											size: 'tiny',
 											hideTag: true
 										}
 									]
@@ -111,7 +111,7 @@ export default [
 									components: [
 										{
 											type: Content,
-											size: 'small',
+											size: 'tiny',
 											hideTag: true
 										}
 									]
@@ -122,7 +122,7 @@ export default [
 									components: [
 										{
 											type: Content,
-											size: 'small',
+											size: 'tiny',
 											hideTag: true
 										}
 									]
@@ -133,7 +133,18 @@ export default [
 									components: [
 										{
 											type: Content,
-											size: 'small',
+											size: 'tiny',
+											hideTag: true
+										}
+									]
+								},
+								{
+									type: Column,
+									colspan: { default: 12, M: 3, XL: 12 },
+									components: [
+										{
+											type: Content,
+											size: 'tiny',
 											hideTag: true
 										}
 									]
