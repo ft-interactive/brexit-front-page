@@ -66,11 +66,13 @@ const getData = (item, opts) => {
 		if (!opts.hideTag && item.primaryTag) {
 			data.tag = item.primaryTag;
 		}
-		if (opts.showRelated) {
-			data.related = item.relatedContent
+		if (opts.related && opts.related.show) {
+			data.related = Object.assign({
+				content: item.relatedContent
 				.concat((item.primaryTag && item.primaryTag.items) || [])
 				.filter(relatedItem => relatedItem.id !== item.id)
-				.slice(0, 3);
+				.slice(0, 3)
+			}, opts.related);
 		}
 
 		if (item.contentType === 'LiveBlog') {

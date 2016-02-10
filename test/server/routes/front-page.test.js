@@ -36,6 +36,7 @@ describe('Front Page Controller', () => {
 		sinon.stub(poller, 'getData', () => ({
 			top: { items: ['a', 'b'] },
 			topStory: { items: ['a'] },
+			topStoriesList: { layoutHint: 'standard', items: [] },
 			fastFT: { items: ['a'] },
 			opinion: { items: ['a'] },
 			editorsPicks: { items: ['a'] },
@@ -59,6 +60,7 @@ describe('Front Page Controller', () => {
 		sinon.stub(poller, 'getData', () => ({
 			top: { items: ['a', 'b'] },
 			topStory: { items: [] },
+			topStoriesList: { layoutHint: null, items: [] },
 			fastFT: { items: ['a'] },
 			opinion: { items: ['a'] },
 			editorsPicks: { items: ['a'] },
@@ -77,6 +79,7 @@ describe('Front Page Controller', () => {
 		sinon.stub(poller, 'getData', () => ({
 			top: { items: [] },
 			topStory: { items: ['a'] },
+			topStoriesList: { layoutHint: null, items: [] },
 			fastFT: { items: ['a'] },
 			opinion: { items: ['a'] },
 			editorsPicks: { items: ['a'] },
@@ -95,6 +98,7 @@ describe('Front Page Controller', () => {
 		sinon.stub(poller, 'getData', () => ({
 			top: null,
 			topStory: { },
+			topStoriesList: { layoutHint: null, items: ['a'] },
 			fastFT: { items: ['a'] },
 			opinion: { items: ['a'] },
 			editorsPicks: { items: ['a'] },
@@ -114,6 +118,7 @@ describe('Front Page Controller', () => {
 		sinon.stub(poller, 'getData', () => ({
 			top: { items : ['a'] },
 			topStory: { items : ['a'] },
+			topStoriesList: { layoutHint: null, items: [] },
 			fastFT: { items: ['a'] },
 			opinion: { items: ['a'] },
 			editorsPicks: { items: ['a'] },

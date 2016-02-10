@@ -7,6 +7,8 @@ import myftLayout from './myft';
 import opinionLayout from './opinion';
 import topStoriesLayout from './top-stories';
 import topStoriesLandscapeLayout from './top-stories-landscape';
+import topStoriesPictureStoryLayout from './top-stories-picture-story';
+import topStoriesAssassinationLayout from './top-stories-assassination';
 import VideoLayout from './video';
 
 export default {
@@ -19,5 +21,7 @@ export default {
 	'opinion': opinionLayout,
 	'top-stories': topStoriesLayout,
 	'top-stories-landscape': topStoriesLandscapeLayout,
+	'top-stories-picture-story': topStoriesPictureStoryLayout,
+	'top-stories-assassination': topStoriesAssassinationLayout,
 	'video': VideoLayout
 }
