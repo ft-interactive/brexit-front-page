@@ -15,8 +15,7 @@ class FastFt extends Component {
 				size: (index === 0 ? 'small' : 'tiny'),
 				itemIndex: index,
 				isTransparent: true,
-				show: { default: true, L: index > 6 ? false : true, XL: index > 3 ? false : true },
-				isNew: (now - new Date(article.lastPublished).getTime()) < 1000 * 60 * 10
+				show: { default: true, L: index > 6 ? false : true, XL: index > 3 ? false : true }
 			}
 			return <li key={article.id}><Content {...cardProps}/></li>;
 		});
