@@ -18,16 +18,6 @@
 }
 
 .card--liveblog {
-
-	.liveblog__badge {
-		@include oTypographySansBold(s);
-		display: inline-block;
-		text-transform: uppercase;
-		padding: 0.1em 0.5em 0.3em;
-		margin: 0 0.4em 0 0;
-		color: white;
-	}
-
 	.card__tag {
 		display: inline-block;
 	}
@@ -40,24 +30,6 @@
 
 
 		span { margin: 0 0 0 0.2em; }
-
-		.liveblog__live-indicator {
-			display: inline-block;
-			width: 8px;
-			height: 8px;
-			border-radius: 4px;
-			margin: 0 6px 0 4px;
-
-			.glow {
-				display: block;
-				width: 8px;
-				height: 8px;
-				border-radius: 4px;
-				opacity: 0.2;
-				transform-origin: center;
-				transform: scale(2.5, 2.5);
-			}
-		}
 	}
 
 	&.liveblog--comingsoon {
@@ -76,6 +48,33 @@
 		.liveblog__live-indicator .glow {
 			animation: pulse 1.7s ease infinite;
 		}
+	}
+}
+
+.liveblog__badge {
+	@include oTypographySansBold(s);
+	display: inline-block;
+	text-transform: uppercase;
+	padding: 0.1em 0.5em 0.3em;
+	margin: 0 0.4em 0 0;
+	color: white;
+}
+
+.liveblog__live-indicator {
+	display: inline-block;
+	width: 8px;
+	height: 8px;
+	border-radius: 4px;
+	margin: 0 6px 0 4px;
+
+	.glow {
+		display: block;
+		width: 8px;
+		height: 8px;
+		border-radius: 4px;
+		opacity: 0.2;
+		transform-origin: center;
+		transform: scale(2.5, 2.5);
 	}
 }
 
