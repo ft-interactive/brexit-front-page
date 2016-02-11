@@ -37,12 +37,17 @@ export default [
 						type: Content,
 						size: 'medium',
 						itemIndex: 1,
-						show: { default: false, M: true, L: false, XL: true },
+						show: { default: false, M: true, L: false },
 						image: {
-							show: { default: true, L: false },
 							position: { default: 'left', M: 'bottom' },
 							sizes: { default: 449, s: 659, m: 199, l: 259, xl: 322 }
 						}
+					},
+					{
+						type: Content,
+						size: 'medium',
+						itemIndex: 1,
+						show: { default: false, XL: true },
 					},
 					{
 						type: Content,

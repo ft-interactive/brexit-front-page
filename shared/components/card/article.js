@@ -21,7 +21,6 @@ import Timestamp from './timestamp/timestamp';
  * @param {Object} [image]
  * @param {string} image.url
  * @param {string} image.sizes
- * @param {string} [image.show]
  * @param {string} [image.position]
  * @param {Object} [liveBlog]
  * @param {string} liveBlog.status
@@ -41,9 +40,6 @@ export default class extends Component {
 		}
 
 		if (this.props.image) {
-			if (this.props.image.show) {
-				attrs['data-image-show'] = responsiveValue(this.props.image.show);
-			}
 			if (this.props.image.position) {
 				attrs['data-image-position'] = responsiveValue(this.props.image.position);
 			}
