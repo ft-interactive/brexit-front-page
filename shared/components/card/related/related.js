@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import colspanToString from '../../../../client/utils/colspan';
+import { responsiveValue } from '../../../libs/helpers';
 
 /**
  * @param {Object[]) items
@@ -17,7 +18,7 @@ export default class extends Component {
 		);
 
 		return (
-			<ol className="card__related-items">
+			<ol className="card__related-items" data-show={responsiveValue(this.props.show)}>
 				{relatedEls}
 			</ol>
 		);

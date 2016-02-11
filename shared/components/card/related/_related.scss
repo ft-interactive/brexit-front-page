@@ -2,6 +2,22 @@
 	margin: 5px 0 0;
 	padding: 0;
 	list-style-type: none;
+
+	&[data-show~="false"] {
+		display: none;
+	}
+
+	@each $layout-name in $_o-grid-layout-names {
+		@include oGridRespondTo($layout-name) {
+			&[data-show~="#{$layout-name}--true"] {
+				display: block;
+			}
+
+			&[data-show~="#{$layout-name}--false"] {
+				display: none;
+			}
+		}
+	}
 }
 
 .card__related-item {
