@@ -1,5 +1,5 @@
 import SectionNode from './node';
-import nJsonpFetch from 'n-jsonp-fetch';
+import { crossDomainFetch } from 'n-jsonp';
 import Superstore from 'superstore';
 import {json as fetchJson} from 'fetchres';
 import fireTracking from '../../../client/utils/fire-tracking';
@@ -40,17 +40,22 @@ export default class SectionBrowser extends SectionNode {
 			//Save choice to local storage
 			this.defaultSourceStore.set(this.props.dynamicContent.rememberSource, uuid);
 
-			const fetchFn = ('XDomainRequest' in window) ? nJsonpFetch : fetch;
-			fetchFn('https://next-graphql-api.ft.com/data?query=' + encodeURIComponent(this.props.dynamicContent.query(uuid)), {
-				credentials: 'include'
-			})
-			.then(fetchJson)
-			.then((data) => {
-				data = this.props.dynamicContent.parseResults(data);
-				if(data && data.main && data.main.length) {
-					this.setState({content: data})
-				}
-			});
+			crossDomainFetch(
+				`https://next-graphql-api.ft.com/data?query=${encodeURIComponent(this.props.dynamicContent.query(uuid))}`,
+				{ credentials: 'include' }
+			)
+				.then(fetchJson)
+				.then((data) => {
+					data = this.props.dynamicContent.parseResults(data);
+					if(data && data.main && data.main.length) {
+						this.setState({content: data})
+					}
+				})
+				.catch(err => {
+					window.setTimeout(() => {
+						throw err;
+					});
+				});
 		}
 		if(e.type) { //only fire tracking for actual events
 			fireTracking('oTracking.event', { category: 'cta', action: 'change', value: uuid, title: title, domPath: getDomPath(e.target, []) });

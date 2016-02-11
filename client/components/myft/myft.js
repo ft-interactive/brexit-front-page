@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { json as fetchJson } from 'fetchres';
 
-import nJsonpFetch from 'n-jsonp-fetch';
+import { crossDomainFetch } from 'n-jsonp';
 import sessionClient from 'next-session-client';
 import * as myFtUi from 'next-myft-ui';
 
@@ -42,13 +42,6 @@ const query = `
 
 // condense multiple spaces to one
 const slimQuery = query => encodeURIComponent(query.replace(/\s+/g, ' '));
-
-const createFetch = url => {
-	const fetchFn = ('XDomainRequest' in window) ? nJsonpFetch : fetch;
-	return fetchFn(url, {
-		credentials: 'include'
-	});
-};
 
 const errorHandler = err => {
 	window.setTimeout(() => {
@@ -96,7 +89,10 @@ const handleResponse = (myftClient, flags, response) => {
 
 const loadSection = (myftClient, flags) => {
 	if (flags.get('frontPageMyftSection') && flags.get('myFtApi') && sessionClient.cookie()) {
-		createFetch(`https://next-graphql-api.ft.com/data?query=${slimQuery(query)}`)
+		crossDomainFetch(
+			`https://next-graphql-api.ft.com/data?query=${slimQuery(query)}`,
+			{ credentials: 'include' }
+		)
 			.then(fetchJson)
 			.then(handleResponse.bind(undefined, myftClient, flags))
 			.catch(errorHandler);

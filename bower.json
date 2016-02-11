@@ -5,18 +5,19 @@
   ],
   "dependencies": {
     "o-date": "^2.0.0",
-    "n-video": "^3.0.0",
+    "n-video": "^4.0.0",
     "n-message-prompts": "^2.0.0",
     "n-layout": "^6.0.0",
     "n-image": "^2.0.0",
     "o-tabs": "^2.1.0",
-    "n-jsonp-fetch": "^1.0.3",
+    "n-jsonp": "^2.0.0",
     "o-forms": "^2.0.0",
     "superstore": "^2.0.1",
     "next-session-client": "^2.0.0",
     "next-myft-ui": "^6.10.2"
   },
   "resolutions": {
-    "o-ft-icons": "next"
+    "o-ft-icons": "next",
+    "superstore-sync": "^2.1.0"
   }
 }
