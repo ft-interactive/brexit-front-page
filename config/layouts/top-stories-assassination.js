@@ -26,8 +26,8 @@ export default [
 											colspan: { default: 12, S: 4 }
 										},
 										image: {
-											sizes: { default: 449, s: 659, m: 432, l: 357, xl: 411 },
-											position: { default: 'right' }
+											sizes: { default: 100, s: 100, m: 277, l: 226, xl: 233 },
+											position: { default: 'left', M: 'top' }
 										}
 									}
 								]
