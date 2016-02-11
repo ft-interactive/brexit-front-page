@@ -26,7 +26,7 @@ export default [
 											colspan: { default: 12, M: 4 }
 										},
 										image: {
-											sizes: { default: 449, s: 659, m: 432, l: 357, xl: 411 },
+											sizes: { default: 225, s: 330, m: 450, l: 374, xl: 384 },
 											position: { default: 'right' }
 										}
 									}
@@ -46,7 +46,7 @@ export default [
 										type: Content,
 										size: 'small',
 										image: {
-											sizes: { default: 449, s: 659, m: 432, l: 357, xl: 411 },
+											sizes: { default: 449, s: 659, m: 277, l: 226, xl: 233 },
 											position: { default: 'top' }
 										}
 									}
