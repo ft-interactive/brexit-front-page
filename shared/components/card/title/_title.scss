@@ -31,14 +31,11 @@ $text-sizes: (
 	small: (
 		default: 20 22,
 		M: 18 20,
-		L: 20 22,
+		L: 20 24,
 	),
 	medium: (
 		default: 22 24,
-		S: 24 26,
-		M: 22 24,
-		L: 23 24,
-		XL: 25 27
+		S: 24 26
 	),
 	large: (
 		default: 22 24,
@@ -47,10 +44,9 @@ $text-sizes: (
 		L: 36 38
 	),
 	large-top-story: (
-		default: 26 28,
-		S: 28 30,
-		M: 30 32,
-		L: 36 38
+		default: 28 30,
+		S: 34 34,
+		M: 42 40
 	),
 	large-no-image: (
 		default: 40 38,

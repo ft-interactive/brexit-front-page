@@ -23,7 +23,7 @@ export default [
 										showStandfirst: true,
 										related: {
 											show: true,
-											colspan: { default: 12, M: 4 }
+											colspan: { default: 12, S: 4 }
 										},
 										image: {
 											sizes: { default: 225, s: 330, m: 450, l: 374, xl: 384 },
@@ -44,10 +44,10 @@ export default [
 								components: [
 									{
 										type: Content,
-										size: 'small',
+										size: 'medium',
 										image: {
-											sizes: { default: 449, s: 659, m: 277, l: 226, xl: 233 },
-											position: { default: 'top' }
+											sizes: { default: 100, s: 100, m: 277, l: 226, xl: 233 },
+											position: { default: 'left', M: 'top' }
 										}
 									}
 								]
@@ -59,7 +59,7 @@ export default [
 								components: [
 									{
 										type: Content,
-										size: 'small',
+										size: 'medium',
 										showStandfirst: true
 									}
 								]
@@ -71,11 +71,11 @@ export default [
 								components: [
 									{
 										type: Content,
-										size: 'small'
+										size: 'medium'
 									},
 									{
 										type: Content,
-										size: 'small'
+										size: 'medium'
 
 									}
 								]
@@ -100,7 +100,7 @@ export default [
 									components: [
 										{
 											type: Content,
-											size: 'tiny',
+											size: 'small',
 											hideTag: true
 										}
 									]
@@ -111,7 +111,7 @@ export default [
 									components: [
 										{
 											type: Content,
-											size: 'tiny',
+											size: 'small',
 											hideTag: true
 										}
 									]
@@ -122,7 +122,7 @@ export default [
 									components: [
 										{
 											type: Content,
-											size: 'tiny',
+											size: 'small',
 											hideTag: true
 										}
 									]
@@ -133,7 +133,7 @@ export default [
 									components: [
 										{
 											type: Content,
-											size: 'tiny',
+											size: 'small',
 											hideTag: true
 										}
 									]
@@ -144,7 +144,7 @@ export default [
 									components: [
 										{
 											type: Content,
-											size: 'tiny',
+											size: 'small',
 											hideTag: true,
 											show: { default: false, XL: true }
 										}
