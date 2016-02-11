@@ -1,14 +1,6 @@
+include n.Makefile
+
 TEST_APP := "ft-next-front-page-branch-${CIRCLE_BUILD_NUM}"
-
-.PHONY: test
-
-clean:
-	git clean -fxd
-
-install:
-	npm install
-	bower install
-	gem install scss-lint
 
 verify:
 	find ./client ./config ./shared ./server ./test ./views -type f -exec lintspaces -e .editorconfig -i js-comments,html-comments {} + &&\
