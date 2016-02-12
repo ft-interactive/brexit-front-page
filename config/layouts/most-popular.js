@@ -33,7 +33,7 @@ export default [
 						size: 'small',
 						image: {
 							position: { default: 'left', M: 'bottom' },
-							sizes: { default: 100, s: 100, m: 199, l: 259, xl: 322 }
+							sizes: { default: 100, m: 199, l: 259, xl: 322 }
 						}
 					}
 				]
@@ -47,7 +47,7 @@ export default [
 						size: 'small',
 						image: {
 							position: { default: 'left', M: 'bottom' },
-							sizes: { default: 100, s: 100, m: 199, l: 259, xl: 322 }
+							sizes: { default: 100, m: 199, l: 259, xl: 322 }
 						}
 					},
 					{
