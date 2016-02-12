@@ -51,6 +51,10 @@
 	}
 }
 
+.card--picture-story {
+	background-color: oColorsGetPaletteColor('pink-tint1');
+}
+
 .liveblog__badge {
 	@include oTypographySansBold(s);
 	display: inline-block;

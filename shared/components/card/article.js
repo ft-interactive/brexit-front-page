@@ -67,6 +67,10 @@ export default class extends Component {
 			attrs.className += ` card--transparent`;
 		}
 
+		if (this.props.isPictureStory) {
+			attrs.className += ` card--picture-story`;
+		}
+
 		return (
 			<article {...attrs}>
 				<div className={articleContentClasses.join(' ')}>
