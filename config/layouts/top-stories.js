@@ -6,60 +6,74 @@ export default [
 	{
 		type: Row,
 		components: [
-			//Column 0
 			{
+
 				type: Column,
-				colspan: { default: 12, M: 6, XL: 5 },
+				colspan: { default: 12, XL: 9 },
 				components: [
 					{
-						type: Content,
-						size: 'large-top-story',
-						related: {
-							show: true,
-							colspan: { default: 12}
-						},
-						showRelated: true,
-						showStandfirst: true,
-						image: {
-							sizes: { default: 449, s: 659, m: 432, l: 357, xl: 411 }
-						}
+						type: Row,
+						components: [
+
+							//Column 0
+							{
+								type: Column,
+								colspan: { default: 12, M: 6 },
+								components: [
+									{
+										type: Content,
+										size: 'large-top-story',
+										related: {
+											show: true,
+											colspan: { default: 12}
+										},
+										showRelated: true,
+										showStandfirst: true,
+										image: {
+											sizes: { default: 449, s: 659, m: 432, l: 357, xl: 411 }
+										}
+									}
+								]
+							},
+							//Column 1
+							{
+								type: Column,
+								colspan: { default: 12, M: 6},
+								components: [
+									{
+										type: Content,
+										size: 'medium',
+										showStandfirst: true,
+										image: {
+											sizes: { default: 100 },
+											position: { default: 'left' }
+										}
+									},
+									{
+										type: Content,
+										size: 'medium',
+										showStandfirst: true
+									},
+									{
+										type: Content,
+										size: 'medium'
+									},
+									{
+										type: Content,
+										size: 'medium'
+									}
+								]
+							}
+						]
 					}
 				]
 			},
-			//Column 1
-			{
-				type: Column,
-				colspan: { default: 12, M: 6, XL: 5 },
-				components: [
-					{
-						type: Content,
-						size: 'medium',
-						showStandfirst: true,
-						image: {
-							sizes: { default: 100 },
-							position: { default: 'left' }
-						}
-					},
-					{
-						type: Content,
-						size: 'medium',
-						showStandfirst: true
-					},
-					{
-						type: Content,
-						size: 'medium'
-					},
-					{
-						type: Content,
-						size: 'medium'
-					}
-				]
-			},
+
 			//Column 2
 			{
 				type: Column,
 				condensed: true,
-				colspan: { default: 12, XL: 2 },
+				colspan: { default: 12, XL: 3 },
 				components: [
 					{
 						type: Row,
@@ -72,7 +86,7 @@ export default [
 									components: [
 										{
 											type: Content,
-											size: 'tiny',
+											size: 'small',
 											hideTag: true
 										}
 									]
@@ -83,7 +97,7 @@ export default [
 									components: [
 										{
 											type: Content,
-											size: 'tiny',
+											size: 'small',
 											hideTag: true
 										}
 									]
@@ -94,7 +108,7 @@ export default [
 									components: [
 										{
 											type: Content,
-											size: 'tiny',
+											size: 'small',
 											hideTag: true
 										}
 									]
@@ -105,7 +119,7 @@ export default [
 									components: [
 										{
 											type: Content,
-											size: 'tiny',
+											size: 'small',
 											hideTag: true
 										}
 									]
@@ -116,7 +130,7 @@ export default [
 									components: [
 										{
 											type: Content,
-											size: 'tiny',
+											size: 'small',
 											hideTag: true,
 											show: { default: false, XL: true }
 										}
