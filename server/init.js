@@ -85,8 +85,7 @@ app.get('/uk', frontPage('UK'));
 
 app.get(/\/(__)?home\/fastft\.json/, fastft);
 
-const port = process.env.PORT || 3001;
-const listen = app.listen(port, () => { });
+const listen = app.listen(process.env.PORT || 3001);
 
 export default {
 	app,
