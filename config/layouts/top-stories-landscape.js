@@ -59,24 +59,26 @@ export default [
 								components: [
 									{
 										type: Content,
-										size: 'medium',
-										showStandfirst: true
+										size: 'medium'
+									},
+									{
+										type: Content,
+										size: 'medium'
 									}
 								]
 							},
-								//Column 1
+							//Column 2
 							{
 								type: Column,
 								colspan: { default: 12, M: 4 },
 								components: [
 									{
 										type: Content,
-										size: 'medium'
-									},
-									{
-										type: Content,
-										size: 'medium'
-
+										size: 'medium',
+										image: {
+											sizes: { default: 100, s: 100, m: 277, l: 226, xl: 233 },
+											position: { default: 'left', M: 'top' }
+										}
 									}
 								]
 							}
