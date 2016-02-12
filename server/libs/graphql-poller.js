@@ -1,7 +1,6 @@
 import Poller from 'ft-poller';
 import queries from '../../config/queries';
-import { logger } from 'ft-next-logger';
-
+import logger from '@financial-times/n-logger';
 
 let queryResults = {
 	frontPageUK: {

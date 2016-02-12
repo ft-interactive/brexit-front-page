@@ -1,5 +1,5 @@
 import { Check, status } from 'n-health';
-import { logger } from 'ft-next-logger';
+import logger from '@financial-times/n-logger';
 
 import { start as startPolling, getData, getLastFetchedTime } from '../graphql-poller';
 
