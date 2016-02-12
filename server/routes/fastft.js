@@ -1,5 +1,5 @@
 import { getData } from '../libs/graphql-poller';
-import { logger } from 'ft-next-logger';
+import logger from '@financial-times/n-logger';
 
 // bail unless we have at least one top story
 const contentMissing = (data) => {

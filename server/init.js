@@ -5,7 +5,6 @@ import path from 'path';
 
 import express from 'ft-next-express';
 import nHealth from 'n-health';
-import { logger } from 'ft-next-logger';
 
 import additionalHealthChecks from './libs/health-checks/index';
 import { start as startPolling } from './libs/graphql-poller';
@@ -87,9 +86,7 @@ app.get('/uk', frontPage('UK'));
 app.get(/\/(__)?home\/fastft\.json/, fastft);
 
 const port = process.env.PORT || 3001;
-const listen = app.listen(port, () => {
-	logger.info(`Listening on ${port}`);
-});
+const listen = app.listen(port, () => { });
 
 export default {
 	app,

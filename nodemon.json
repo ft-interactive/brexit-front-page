@@ -1,6 +1,7 @@
 {
   "watch": [
     "config",
+    "node_modules",
     "shared",
     "server"
   ]
