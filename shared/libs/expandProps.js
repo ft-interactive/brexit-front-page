@@ -1,5 +1,3 @@
-import {objMap} from './helpers';
-
 const layoutNames = ['S', 'M', 'L', 'XL', 'XXL'];
 
 const cardPropDefaults = {
@@ -24,16 +22,6 @@ const expandToAllLayouts = (property) => {
 	return prop;
 }
 
-const showRelated = (related, relatedContent) => {
-	const relatedItems = relatedContent || [];
-	const maxRelated = Object.keys(related).reduce((max, layout) => Math.max(max, +related[layout]), 0);
-
-	return (Array.apply(null, {length: Math.min(relatedItems.length, maxRelated)})).map((it, i) => {
-		return objMap(related, (count) => count > i);
-	});
-};
-
-
 // Public: expands Card props to produce props for individual card elements
 // (e.g. Tag, Title, ...)
 const expandProps = (props) => {
@@ -43,7 +31,6 @@ const expandProps = (props) => {
 
 	expandedProps.image = expandToAllLayouts(props.image);
 	expandedProps.showStandFirst = expandToAllLayouts(props.standfirst);
-	expandedProps.showRelated = showRelated(props.related, item.relatedContent);
 	expandedProps.last = props.last;
 
 	if(['large', 'huge'].indexOf(props.size) >= 0 && !item.primaryImage) {
