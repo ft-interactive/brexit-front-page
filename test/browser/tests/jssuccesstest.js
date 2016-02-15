@@ -15,7 +15,7 @@ module.exports = {
 				document.cookie = 'next-flags=ads:off; secure=true';
 			})
 			.url(TEST_URL)
-			.waitForElementPresent('html.js.js-success', 60000);
+			.waitForElementPresent('html.enhanced.js-success', 60000);
 	},
 
 	tearDown: function (done) {
