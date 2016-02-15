@@ -73,7 +73,7 @@
     "pre-git": {
       "commit-msg": [],
       "pre-commit": [
-        "make verify"
+        "make verify -j3"
       ],
       "pre-push": [],
       "post-commit": [],
