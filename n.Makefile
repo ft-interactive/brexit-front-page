@@ -89,13 +89,13 @@ _install_scss_lint:
 # VERIFY SUB-TASKS
 
 _verify_eslint:
-	@if [ -e .eslintrc.json ]; then $(NPM_BIN_ENV) && $(call GLOB, '*.js') -exec eslint '{}' + && echo $(DONE); fi
+	@if [ -e .eslintrc.json ]; then $(NPM_BIN_ENV) && $(call GLOB, '*.js') -exec eslint {} + && echo $(DONE); fi
 
 _verify_lintspaces:
 	@if [ -e .editorconfig ] && [ -e package.json ]; then $(NPM_BIN_ENV) && $(call GLOB) -exec lintspaces -e .editorconfig -i js-comments,html-comments {} + && echo $(DONE); fi
 
 _verify_scss_lint:
-	@if [ -e .scss-lint.yml ]; then $(call GLOB, '*.scss') -exec scss-lint -c ./.scss-lint.yml '{}' + && echo $(DONE); fi
+	@if [ -e .scss-lint.yml ]; then $(call GLOB, '*.scss') -exec scss-lint -c ./.scss-lint.yml {} + && echo $(DONE); fi
 
 # DEPLOY SUB-TASKS
 
@@ -107,7 +107,7 @@ _deploy_apex:
 GLOB = find . -type f$(if $1, -name $1) ! -path './.git/*' $(foreach rule, $(shell cat .gitignore), ! -path '*$(rule)*')
 NPM_INSTALL = npm prune --production && npm install
 IS_GIT_IGNORED = grep -q $1 .gitignore
-VERSION = v0.0.37
+VERSION = v0.0.38
 DONE = "✓ $@ done"
 NPM_BIN_ENV = export PATH="$$PATH:node_modules/.bin"
 
