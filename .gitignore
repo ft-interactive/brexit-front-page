@@ -12,3 +12,5 @@
 /test/browser/reports/
 
 !/nodemon.json
+.editorconfig
+.scss-lint.yml

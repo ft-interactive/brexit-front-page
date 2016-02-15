@@ -2,11 +2,6 @@ include n.Makefile
 
 TEST_APP := "ft-next-front-page-branch-${CIRCLE_BUILD_NUM}"
 
-verify:
-	find ./client ./config ./shared ./server ./test ./views -type f -exec lintspaces -e .editorconfig -i js-comments,html-comments {} + &&\
-	eslint -c ./.eslintrc.json ./client ./config ./shared ./server ./test &&\
-	{ find ./client ./shared -type f -name "*.scss" -exec scss-lint -c ./.scss-lint.yml {} +; if [ $$? -ne 0 -a $$? -ne 1 ]; then exit 1; fi; }
-
 unit-test:
 	export NODE_ENV=test; mocha --require server/setup --recursive --reporter spec test/server
 
