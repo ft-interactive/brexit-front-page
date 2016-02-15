@@ -37,7 +37,6 @@
 #
 
 .PHONY: test
-.SECONDARY: functions/*/node_modules
 
 #
 # COMMON TASKS
@@ -49,7 +48,8 @@ clea%:
 	@echo $(DONE)
 
 # install
-instal%: node_modules bower_components _install_scss_lint .editorconfig .eslintrc.json .scss-lint.yml functions/*/node_modules
+instal%: node_modules bower_components _install_scss_lint .editorconfig .eslintrc.json .scss-lint.yml
+	@$(MAKE) $(foreach f, $(shell find functions/* -type d -maxdepth 0 2>/dev/null), $f/node_modules)
 	@echo $(DONE)
 
 # deploy
@@ -94,7 +94,6 @@ _verify_eslint:
 _verify_lintspaces:
 	@if [ -e .editorconfig ] && [ -e package.json ]; then $(NPM_BIN_ENV) && find . -type f ! -name "*.swp" ! -path '*/node_modules/*' ! -path './.git/*' ! -path './coverage/*' ! -path '*/bower_components/*' -exec lintspaces -e .editorconfig -i js-comments,html-comments {} + && echo $(DONE); fi
 
-
 _verify_scss_lint:
 	@if [ -e .scss-lint.yml ]; then scss-lint -c ./.scss-lint.yml $(call GLOB, '*.scss') && echo $(DONE); fi
 
@@ -108,7 +107,7 @@ _deploy_apex:
 GLOB = $(shell find . -name $1 ! -path '*/node_modules/*' ! -path './.git/*' ! -path './coverage/*' ! -path '*/bower_components/*')
 NPM_INSTALL = npm prune --production && npm install
 IS_GIT_IGNORED = grep -q $1 .gitignore
-VERSION = master
+VERSION = v0.0.36
 DONE = "✓ $@ done"
 NPM_BIN_ENV = export PATH="$$PATH:node_modules/.bin"
 
