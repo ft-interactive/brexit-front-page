@@ -63,6 +63,9 @@ const getData = (item, opts) => {
 		if (opts.showStandfirst) {
 			data.standfirst = item.summary;
 		}
+		if (opts.isPictureStory) {
+			data.isPictureStory = opts.isPictureStory;
+		}
 		if (!opts.hideTag && item.primaryTag) {
 			data.tag = item.primaryTag;
 		}
