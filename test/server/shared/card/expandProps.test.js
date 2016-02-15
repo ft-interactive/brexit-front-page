@@ -32,24 +32,5 @@ describe('Card props expansion rules', () => {
 			expect(expandProps(props).size).to.eql('large-no-image');
 		});
 
-
-		it('Sets showRelatedContent correctly', () => {
-			const showRelated = [
-				{default: true, S: true, M: true, L: true},
-				{default: false, S: true, M: true, L: true},
-				{default: false, S: false, M: true, L: true},
-				{default: false, S: false, M: false, L: true}
-			];
-
-			expect(expandProps(inProps).showRelated).to.eql(showRelated);
-		});
-
-		it('Limits showRelatedContent to available related articles', () => {
-			const props = Object.assign({}, inProps, {item: {relatedContent: []}});
-			const showRelated = [];
-
-			expect(expandProps(props).showRelated).to.eql(showRelated);
-		});
-
 	})
 });
