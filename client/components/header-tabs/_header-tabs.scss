@@ -4,7 +4,7 @@
 	@include oGridRespondTo(L) {
 		display: none;
 	}
-	.no-js & {
+	.core & {
 		display: none;
 	}
 }
