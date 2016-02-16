@@ -8,7 +8,6 @@ import nHealth from 'n-health';
 
 import additionalHealthChecks from './libs/health-checks/index';
 import { start as startPolling } from './libs/graphql-poller';
-import videoData from './libs/video-data';
 import colspan from '../client/utils/colspan';
 
 // routes
@@ -53,9 +52,6 @@ const app = express({
 				}
 			};
 			return options.fn(Object.assign({}, this, opts));
-		},
-		videoData: (video, size) => {
-			return videoData(video, size);
 		}
 	},
 	healthChecks: healthChecks.asArray()

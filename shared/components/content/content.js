@@ -28,14 +28,13 @@ const getData = (item, opts) => {
 		isNew: opts.isNew
 	};
 
-	// if renditions, assume it's a video
-	if (item.renditions) {
+	if (item.type === 'Video') {
 		Object.assign(data, {
 			type: 'video',
 			id: item.id,
 			title: item.title
 		});
-	} else if (item.taxonomy) { // assume it's a concept
+	} else if (item.type === 'Concept') {
 		Object.assign(data, {
 			type: 'concept',
 			id: item.id,
@@ -66,8 +65,8 @@ const getData = (item, opts) => {
 		if (opts.isPictureStory) {
 			data.isPictureStory = opts.isPictureStory;
 		}
-		if (!opts.hideTag && item.primaryTag) {
-			data.tag = item.primaryTag;
+		if (!opts.hideTag) {
+			data.tag = item.branding || item.primaryTag;
 		}
 		if (opts.related && opts.related.show) {
 			data.related = Object.assign({
