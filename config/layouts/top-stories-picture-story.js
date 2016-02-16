@@ -25,7 +25,7 @@ export default [
 										related: {
 											show: { default: false, M: true },
 											colspan: { default: 12 }
-										},
+										}
 									}
 								]
 							},

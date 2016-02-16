@@ -5,10 +5,9 @@ import FastFt from '../../shared/components/fast-ft/fast-ft';
 const date = dateFormat(new Date(), 'EEEE MMMM yyyy');
 
 const getLayout = (content, flags) => {
-	return 'top-stories-assassination';
 	const layoutHint = content.layoutHint;
 
-	if(flags.frontPageMultipleLayouts) {
+	if (flags.frontPageMultipleLayouts) {
 		switch(layoutHint) {
 			case 'standaloneimage':
 				return 'top-stories-picture-story';
