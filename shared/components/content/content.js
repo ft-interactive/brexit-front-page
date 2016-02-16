@@ -76,7 +76,6 @@ const getData = (item, opts) => {
 					//.filter(relatedItem => relatedItem.id !== item.id)
 					.slice(0, 3)
 			}, opts.related);
-			console.log(data.related.content);
 		}
 		if (item.contentType === 'LiveBlog') {
 			data.liveBlog = {
