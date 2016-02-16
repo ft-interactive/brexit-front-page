@@ -51,6 +51,10 @@
 			@include nextIcon(pullquote, getColor('cold-1'), 16, $icon-only: true);
 		}
 	}
+
+	.card--main & {
+		padding-right: 10px;
+	}
 }
 
 .card__tag__follow {

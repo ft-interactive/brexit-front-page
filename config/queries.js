@@ -11,10 +11,12 @@ const fragments = `
 		primaryTag {
 			url
 			name
+			taxonomy
 		}
 		branding {
 			url
 			name
+			taxonomy
 		}
 		primaryImage {
 			rawSrc
@@ -112,7 +114,6 @@ const frontPage = (region) => (`
 				... Related
 				branding {
 					headshot
-					taxonomy
 				}
 			}
 		}

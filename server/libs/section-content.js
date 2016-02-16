@@ -2,6 +2,8 @@
  * take data from graphql and massage it into a format needed by the sections
  */
 
+const dedupe = (item, index, items) => items.findIndex(otherItem => otherItem.id === item.id) === index;
+
 const getTopStoriesData = (data, flags = {}) => {
 	let main = data.frontPage.topStory.items.concat(data.frontPage.top.items.slice(1));
 	let layoutHint = flags.frontPageMultipleLayouts ? data.frontPage.topStoriesList.layoutHint : 'standard';
@@ -26,6 +28,8 @@ const getTopStoriesData = (data, flags = {}) => {
 			layoutHint = 'standard';
 		}
 	}
+	// NOTE: only needed while maintaining both a list and a page, but dedupe
+	main = main.filter(dedupe);
 	return {
 		layoutHint,
 		main,
