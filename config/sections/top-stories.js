@@ -15,7 +15,7 @@ const getLayout = (content, flags) => {
 				return 'top-stories-landscape';
 			case 'assassination':
 			case 'bigstory':
-				return 'top-stories-bigstory';
+				return 'top-stories-big-story';
 			case 'standard':
 			default:
 				return 'top-stories';
