@@ -6,8 +6,17 @@
 	color: getColor('warm-6');
 	text-transform: uppercase;
 	font-family: $o-typography-sans;
+	transition: opacity 1s;
 
 	.fast-ft & {
 		color: getColor('fastft-brand');
+	}
+
+	.enhanced & {
+		opacity: 0;
+	}
+
+	&[data-o-date-js] {
+		opacity: 1;
 	}
 }
