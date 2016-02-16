@@ -12,6 +12,7 @@ import getSection from '../../../config/sections/index';
 
 const query = `
 	fragment Basic on Concept {
+		type: __typename
 		id
 		name
 		url

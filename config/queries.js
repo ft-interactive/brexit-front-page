@@ -1,43 +1,22 @@
-const basicFragments = `
+const fragments = `
 	fragment Basic on Content {
 		type: __typename
-		contentType
 		id
 		title
 		lastPublished
 	}
 
 	fragment Extended on Content {
-		genre
 		summary
 		primaryTag {
-			id
 			url
-			taxonomy
+			name
+		}
+		branding {
+			url
 			name
 		}
 		primaryImage {
-			src(width: 400)
-			rawSrc
-		}
-	}
-`;
-
-const fragments = `
-
-	${basicFragments}
-
-	fragment ExtendedSmallImage on Content {
-		genre
-		summary
-		primaryTag {
-			id
-			url
-			taxonomy
-			name
-		}
-		primaryImage {
-			src(width: 250)
 			rawSrc
 		}
 	}
@@ -46,13 +25,6 @@ const fragments = `
 		relatedContent(limit: 3) {
 			id
 			title
-			genre
-			primaryTag {
-				id
-				url
-				taxonomy
-				name
-			}
 		}
 	}
 `;
@@ -73,7 +45,6 @@ const frontPage = (region) => (`
 						text
 					}
 				}
-				genre
 				summary
 				primaryTag {
 					id
@@ -129,7 +100,7 @@ const frontPage = (region) => (`
 			title
 			items(limit: 6) {
 				... Basic
-				... ExtendedSmallImage
+				... Extended
 				... Related
 			}
 		}
@@ -146,15 +117,11 @@ const frontPage = (region) => (`
 			}
 		}
 		videos(limit: 6) {
+			type: __typename
 			id
 			title
 			image {
 				rawSrc
-			}
-			renditions {
-				url
-				frameWidth
-				videoCodec
 			}
 		}
 		technology {
@@ -188,7 +155,7 @@ const frontPage = (region) => (`
 
 const mostPopular = (facet, uuid) => (`
 
-	${basicFragments}
+	${fragments}
 
 	query mostPopular {
 		popularFromHui(${facet}: "${uuid}") {
