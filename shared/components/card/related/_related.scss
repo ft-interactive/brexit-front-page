@@ -2,7 +2,7 @@
 	display: flex;
 	flex: 1;
 	flex-wrap: wrap;
-	margin: 5px 0 0;
+	margin: 5px 0 0 -10px;
 	padding: 0;
 	list-style-type: none;
 
@@ -40,8 +40,11 @@
 	}
 
 	.card__related-items--large & {
+		margin-top: 10px;
+		margin-bottom: 5px;
 		padding: 10px 15px;
 		background-color: getColor('pink-tint1');
+		border-left: 10px solid getColor('pink');
 		font-size: 20px;
 		line-height: 22px;
 
