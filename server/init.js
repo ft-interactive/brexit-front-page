@@ -14,20 +14,9 @@ import colspan from '../client/utils/colspan';
 import frontPage from './routes/front-page';
 import fastft from './routes/fastft';
 
-const srcsets = {
-	lead: { default: 470, s: 720, m: 630, l: 590, xl: 700 },
-	editors: { default: 240, s: 350, m: 350, l: 240, xl: 240 },
-	top: { default: 370, s: 240, m: 320, l: 250, xl: 350 },
-	opinion: { default: 320, s: 200, m: 200, l: 200, xl: 200 },
-	normal: { default: 470, s: 150, m: 200, l: 200, xl: 250 }
-};
 const healthChecks = nHealth(path.resolve(__dirname, './config/health-checks'), additionalHealthChecks);
 const app = express({
 	helpers: {
-		lowercase: (it) => it && it.toLowerCase(),
-		trim: (it, {hash: {sentences}}) => {
-			return it.split(/\.\s/).slice(0, sentences).join('. ') + '.';
-		},
 		reactRenderToString: (klass, props) => {
 			const propsToRender = props.hash;
 			if(props.hash.spread) {
@@ -43,25 +32,9 @@ const app = express({
 
 		},
 		colspan,
-		responsiveImage: options => {
-			const opts = {
-				image: {
-					url: options.hash.img.rawSrc,
-					class: options.hash.class,
-					srcset: (srcsets[options.hash.sizing] || srcsets['normal'])
-				}
-			};
-			return options.fn(Object.assign({}, this, opts));
-		}
 	},
 	healthChecks: healthChecks.asArray()
 });
-
-if (process.env.HOT_LOAD) {
-	const devProxy = require('./dev/proxy');
-	// proxies CSS and JS endpoints to the dev server for hot-loading
-	app.use('/front-page/', devProxy(8888))
-}
 
 app.use(bodyParser.text());
 

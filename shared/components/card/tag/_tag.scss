@@ -28,30 +28,17 @@
 	}
 }
 
-.card__tag--inline:after {
-	content: '';
-	display: inline-block;
-	width: 1px;
-	height: 10px;
-	margin: 0 5px 0 -6px;
-	background-color: getColor('cold-2');
-}
-
 .card__tag--authors {
 	color: getColor(claret);
 }
 
 .card__tag__link {
+	display: inline-block;
 	position: relative;
 	color: inherit;
-	padding-right: 10px;
 	border-bottom: 0;
 	z-index: 1;
 	background-color: getColor('pink');
-
-	.card__tag--inline & {
-		padding-right: 11px;
-	}
 
 	.card__tag--authors & {
 		@include nextIcon(pullquote, getColor('claret'), 16, $icon-only: true);

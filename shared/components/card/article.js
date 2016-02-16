@@ -52,10 +52,6 @@ export default class extends Component {
 			attrs.className += ` card--liveblog liveblog--${this.props.liveBlog.status.toLowerCase()}`;
 		}
 
-		if (this.props.tag && this.props.size === 'tiny') {
-			this.props.tag.isInline = true;
-		}
-
 		if (this.props.isMain) {
 			attrs.className += ' card--main';
 
