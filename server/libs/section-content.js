@@ -2,7 +2,7 @@
  * take data from graphql and massage it into a format needed by the sections
  */
 
-const dedupe = (item, index, items) => items.findIndex(otherItem => otherItem.id === item.id) === index;
+const dedupe = (item, index, items) => !item.id || items.findIndex(otherItem => otherItem.id === item.id) === index;
 
 const getTopStoriesData = (data, flags = {}) => {
 	let main = data.frontPage.topStory.items.concat(data.frontPage.top.items.slice(1));
