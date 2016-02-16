@@ -19,17 +19,13 @@
 		float: left;
 		width: 100px;
 		margin: 0 10px 5px 0;
-
-		&:nth-child(2) {
-			margin-top: 5px;
-		}
 	}
 
 	.card[data-image-position~="right"] & {
 		position: static;
 		float: right;
 		width: 50%;
-		margin: -16px 0 0 10px;
+		margin: -21px 0 0 10px;
 
 		.card--main& {
 			margin-top: 0;
@@ -71,17 +67,13 @@
 				float: left;
 				width: 100px;
 				margin: 0 10px 5px 0;
-
-				&:nth-child(2) {
-					margin-top: 5px;
-				}
 			}
 
 			.card[data-image-position~="#{$layout-name}--right"] & {
 				position: static;
 				float: right;
 				width: 50%;
-				margin: -16px 0 0 10px;
+				margin: -21px 0 0 10px;
 			}
 
 			.card--main[data-image-position~="#{$layout-name}--right"] & {

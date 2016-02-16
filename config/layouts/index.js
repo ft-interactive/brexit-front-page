@@ -8,7 +8,7 @@ import opinionLayout from './opinion';
 import topStoriesLayout from './top-stories';
 import topStoriesLandscapeLayout from './top-stories-landscape';
 import topStoriesPictureStoryLayout from './top-stories-picture-story';
-import topStoriesBigStoryLayout from './top-stories-bigs-tory';
+import topStoriesBigStoryLayout from './top-stories-big-story';
 import VideoLayout from './video';
 
 export default {
