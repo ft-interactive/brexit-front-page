@@ -1,6 +1,9 @@
 .card__related-items {
+	display: flex;
+	flex: 1;
+	flex-wrap: wrap;
 	margin: 5px 0 0;
-	padding: 0 0 10px;
+	padding: 0;
 	list-style-type: none;
 
 	&[data-show~="false"] {
@@ -26,7 +29,33 @@
 	font-size: 16px;
 	line-height: 18px;
 	margin-top: 5px;
-	padding: 0 15px;
+	padding: 10px 15px;
+	border-left: 5px solid getColor('pink');
+	border-right: 5px solid getColor('pink');
+
+	&:first-child {
+		border-left-width: 0;
+	}
+
+	&:last-child {
+		border-right-width: 0;
+	}
+
+	.card__related-items--large & {
+		background-color: getColor('pink-tint1');
+		font-size: 20px;
+		line-height: 22px;
+
+		@include oGridRespondTo(S) {
+			font-size: 22px;
+			line-height: 24px;
+		}
+
+		@include oGridRespondTo(M) {
+			font-size: 24px;
+			line-height: 26px;
+		}
+	}
 }
 
 .card__related-item__link {
@@ -42,5 +71,9 @@
 		left: 0;
 		content: '>';
 		font-size: 25px;
+
+		.card__related-items--large & {
+			display: none;
+		}
 	}
 }

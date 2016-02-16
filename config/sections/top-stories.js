@@ -5,6 +5,7 @@ import FastFt from '../../shared/components/fast-ft/fast-ft';
 const date = dateFormat(new Date(), 'EEEE MMMM yyyy');
 
 const getLayout = (content, flags) => {
+	return 'top-stories-assassination';
 	const layoutHint = content.layoutHint;
 
 	if(flags.frontPageMultipleLayouts) {
@@ -14,7 +15,8 @@ const getLayout = (content, flags) => {
 			case 'landscape':
 				return 'top-stories-landscape';
 			case 'assassination':
-				return 'top-stories-assassination';
+			case 'bigstory':
+				return 'top-stories-bigstory';
 			case 'standard':
 			default:
 				return 'top-stories';

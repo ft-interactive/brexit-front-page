@@ -1,25 +1,40 @@
-@import 'next-sass-setup/main';
+.card__tag-wrapper {
+	position: relative;
+}
 
 .card__tag {
+	position: relative;
 	margin: 0;
 	font-family: $o-typography-sans;
 	font-weight: oFontsWeight(semibold);
 	font-size: 16px;
 	line-height: 1em;
 	color: getColor('claret');
+
+	.card--main & {
+		font-size: 20px;
+		line-height: 26px;
+		margin-bottom: 10px;
+
+		&:after {
+			content: '';
+			display: block;
+			height: 1px;
+			background-color: getColor('warm-3');
+			width: 100%;
+			position: absolute;
+			top: 50%;
+		}
+	}
 }
 
-.card__tag--inline {
-	display: inline;
-
-	&:after {
-		content: '';
-		display: inline-block;
-		width: 1px;
-		height: 10px;
-		margin: 0 5px 0 -6px;
-		background-color: getColor('cold-2');
-	}
+.card__tag--inline:after {
+	content: '';
+	display: inline-block;
+	width: 1px;
+	height: 10px;
+	margin: 0 5px 0 -6px;
+	background-color: getColor('cold-2');
 }
 
 .card__tag--authors {
@@ -27,8 +42,12 @@
 }
 
 .card__tag__link {
+	position: relative;
 	color: inherit;
+	padding-right: 10px;
 	border-bottom: 0;
+	z-index: 1;
+	background-color: getColor('pink');
 
 	.card__tag--inline & {
 		padding-right: 11px;
@@ -45,4 +64,12 @@
 			@include nextIcon(pullquote, getColor('cold-1'), 16, $icon-only: true);
 		}
 	}
+}
+
+.card__tag__follow {
+	position: absolute;
+	top: 0;
+	right: 0;
+	padding-left: 10px;
+	background-color: getColor('pink');
 }

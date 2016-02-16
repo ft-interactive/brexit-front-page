@@ -71,18 +71,21 @@ const getData = (item, opts) => {
 		}
 		if (opts.related && opts.related.show) {
 			data.related = Object.assign({
-				content: item.relatedContent
-				.concat((item.primaryTag && item.primaryTag.items) || [])
-				.filter(relatedItem => relatedItem.id !== item.id)
-				.slice(0, 3)
+				items: item.relatedContent
+					.concat((item.primaryTag && item.primaryTag.items) || [])
+					//.filter(relatedItem => relatedItem.id !== item.id)
+					.slice(0, 3)
 			}, opts.related);
+			console.log(data.related.content);
 		}
-
 		if (item.contentType === 'LiveBlog') {
 			data.liveBlog = {
 				status: item.status,
 				latestUpdate: item.updates[0]
 			};
+		}
+		if (opts.isMain) {
+			data.isMain = true;
 		}
 	}
 
