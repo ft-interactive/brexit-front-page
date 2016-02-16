@@ -41,14 +41,14 @@
 		font-size: 20px;
 		line-height: 22px;
 
-		@include oGridRespondTo(S) {
-			font-size: 22px;
-			line-height: 24px;
+		@include oGridRespondTo(M) {
+			font-size: 18px;
+			line-height: 20px;
 		}
 
-		@include oGridRespondTo(M) {
-			font-size: 24px;
-			line-height: 26px;
+		@include oGridRespondTo(L) {
+			font-size: 20px;
+			line-height: 24px;
 		}
 	}
 }
