@@ -1,39 +1,45 @@
-const fragments = `
-	fragment Basic on Content {
-		type: __typename
-		id
-		title
-		lastPublished
-	}
-
-	fragment Extended on Content {
-		summary
-		primaryTag {
-			url
-			name
-			taxonomy
-		}
-		branding {
-			url
-			name
-			taxonomy
-		}
-		primaryImage {
-			rawSrc
-		}
-	}
-
-	fragment Related on Content {
-		relatedContent(limit: 3) {
+const fragments = {
+	basic: `
+		fragment Basic on Content {
+			type: __typename
 			id
 			title
+			lastPublished
 		}
-	}
-`;
+	`,
+	extended: `
+		fragment Extended on Content {
+			summary
+			primaryTag {
+				url
+				name
+				taxonomy
+			}
+			branding {
+				url
+				name
+				taxonomy
+			}
+			primaryImage {
+				rawSrc
+			}
+		}
+	`,
+	related: `
+		fragment Related on Content {
+			relatedContent(limit: 3) {
+				id
+				title
+			}
+		}
+	`
+};
 
 // Produces a front page query for a given region
 const frontPage = (region) => (`
-	${fragments}
+	${fragments.basic}
+	${fragments.extended}
+	${fragments.related}
 
 	query FrontPage {
 		topStory: top(region: ${region}){
@@ -155,8 +161,8 @@ const frontPage = (region) => (`
 
 
 const mostPopular = (facet, uuid) => (`
-
-	${fragments}
+	${fragments.basic}
+	${fragments.extended}
 
 	query mostPopular {
 		popularFromHui(${facet}: "${uuid}") {
