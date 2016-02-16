@@ -73,7 +73,7 @@ const getData = (item, opts) => {
 			data.related = Object.assign({
 				items: item.relatedContent
 					.concat((item.primaryTag && item.primaryTag.items) || [])
-					//.filter(relatedItem => relatedItem.id !== item.id)
+					.filter(relatedItem => relatedItem.id !== item.id)
 					.slice(0, 3)
 			}, opts.related);
 		}
