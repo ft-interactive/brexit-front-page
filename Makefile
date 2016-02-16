@@ -3,7 +3,8 @@ include n.Makefile
 TEST_APP := "ft-next-front-page-branch-${CIRCLE_BUILD_NUM}"
 
 unit-test:
-	export NODE_ENV=test; mocha --require server/setup --recursive --reporter spec test/server
+	@echo "Testing…"
+	@export NODE_ENV=test; mocha --require server/setup --recursive --reporter spec test/server
 
 test: verify unit-test
 

@@ -8,7 +8,7 @@ import opinionLayout from './opinion';
 import topStoriesLayout from './top-stories';
 import topStoriesLandscapeLayout from './top-stories-landscape';
 import topStoriesPictureStoryLayout from './top-stories-picture-story';
-import topStoriesAssassinationLayout from './top-stories-assassination';
+import topStoriesBigStoryLayout from './top-stories-bigs-tory';
 import VideoLayout from './video';
 
 export default {
@@ -22,6 +22,6 @@ export default {
 	'top-stories': topStoriesLayout,
 	'top-stories-landscape': topStoriesLandscapeLayout,
 	'top-stories-picture-story': topStoriesPictureStoryLayout,
-	'top-stories-assassination': topStoriesAssassinationLayout,
+	'top-stories-big-story': topStoriesBigStoryLayout,
 	'video': VideoLayout
 }

@@ -5,6 +5,7 @@
 	margin-top: 5px;
 	color: getColor('warm-6');
 	text-transform: uppercase;
+	font-family: $o-typography-sans;
 
 	.fast-ft & {
 		color: getColor('fastft-brand');

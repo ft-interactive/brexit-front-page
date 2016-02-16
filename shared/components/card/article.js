@@ -14,7 +14,10 @@ import Timestamp from './timestamp/timestamp';
  * @param {string} id
  * @param {string} size
  * @param {string} [standfirst]
- * @param {string} [tag]
+ * @param {object} [tag]
+ * @param {string} tag.taxonomy
+ * @param {string} tag.url
+ * @param {string} tag.name
  * @param {Object[]} [related]
  * @param {string} related[].title
  * @param {string} related[].id
@@ -53,6 +56,18 @@ export default class extends Component {
 			this.props.tag.isInline = true;
 		}
 
+		if (this.props.isMain) {
+			attrs.className += ' card--main';
+
+			if (this.props.tag) {
+				this.props.tag.isFollowable = true;
+			}
+
+			if (this.props.related) {
+				this.props.related.size = 'large';
+			}
+		}
+
 		const articleContentClasses = [
 			'card__content'
 		];
@@ -84,7 +99,7 @@ export default class extends Component {
 						{this.props.lastPublished ? <Timestamp date={this.props.lastPublished} /> : null}
 					</div>
 				</div>
-				{this.props.related && this.props.related.content ? <Related {...this.props.related} /> : null}
+				{this.props.related && this.props.related.items ? <Related {...this.props.related} /> : null}
 				{this.props.liveBlog ? <LiveBlogGlow {...this.props.liveBlog} /> : null}
 			</article>
 		);

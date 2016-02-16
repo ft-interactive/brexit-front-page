@@ -5,17 +5,29 @@
 const getTopStoriesData = (data, flags = {}) => {
 	let main = data.frontPage.topStory.items.concat(data.frontPage.top.items.slice(1));
 	let layoutHint = flags.frontPageMultipleLayouts ? data.frontPage.topStoriesList.layoutHint : 'standard';
-	if(flags && flags.frontPageMultipleLayouts && layoutHint === 'standaloneimage') {
-		if(data.frontPage.topStoriesList && data.frontPage.topStoriesList.items && data.frontPage.topStoriesList.items.length) {
-			//Picture stories don't come through the page API, so if we have one, take it from the list and put it in the second positio
-			main.splice(1, 0, data.frontPage.topStoriesList.items[0]);
+	if (flags.frontPageMultipleLayouts) {
+		if (
+			data.frontPage.topStoriesList &&
+			data.frontPage.topStoriesList.items &&
+			data.frontPage.topStoriesList.items.length
+		) {
+			// Picture stories don't come through the page API, so if we have one, take it from the list and put it in
+			// the second position
+			if (layoutHint === 'standaloneimage') {
+				main.splice(1, 0, data.frontPage.topStoriesList.items[0]);
+			} else if (['bigstory', 'assassination'].includes(layoutHint)) {
+				// Big story takes the first story from the list, with the next three as related
+				const bigStory = data.frontPage.topStoriesList.items[0];
+				bigStory.relatedContent = data.frontPage.topStoriesList.items.slice(1, 4);
+				main.unshift(bigStory);
+			}
 		} else {
-			//No picture story available, so default to normal layout
+			// No picture story available, so default to normal layout
 			layoutHint = 'standard';
 		}
 	}
 	return {
-		layoutHint: layoutHint || 'standard',
+		layoutHint,
 		main,
 		sidebar: data.frontPage.fastFT.items
 	}

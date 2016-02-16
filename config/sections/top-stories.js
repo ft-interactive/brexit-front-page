@@ -7,14 +7,15 @@ const date = dateFormat(new Date(), 'EEEE MMMM yyyy');
 const getLayout = (content, flags) => {
 	const layoutHint = content.layoutHint;
 
-	if(flags.frontPageMultipleLayouts) {
+	if (flags.frontPageMultipleLayouts) {
 		switch(layoutHint) {
 			case 'standaloneimage':
 				return 'top-stories-picture-story';
 			case 'landscape':
 				return 'top-stories-landscape';
 			case 'assassination':
-				return 'top-stories-assassination';
+			case 'bigstory':
+				return 'top-stories-big-story';
 			case 'standard':
 			default:
 				return 'top-stories';
