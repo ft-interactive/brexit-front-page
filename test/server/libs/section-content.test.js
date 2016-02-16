@@ -30,21 +30,21 @@ describe ('Top stories data', () => {
 	});
 
 	it('uses standard layout if frontPageMultipleLayouts flag is off', () => {
-		data.topStoriesList = { items: ['list-1'], layoutHint: 'assassination' };
+		data.topStoriesList = { items: [{ id: 'list-1' }], layoutHint: 'assassination' };
 		const results = sectionContent( {frontPage: data }, { frontPageMultipleLayouts: false });
 
 		expect(results['top-stories'].layoutHint).to.equal('standard');
 	});
 
 	it('uses editorial layout if frontPageMultipleLayouts flag is on', () => {
-		data.topStoriesList = { items: ['list-1'], layoutHint: 'assassination' };
+		data.topStoriesList = { items: [{ id: 'list-1' }], layoutHint: 'assassination' };
 		const results = sectionContent( {frontPage: data }, { frontPageMultipleLayouts: true });
 
 		expect(results['top-stories'].layoutHint).to.equal('assassination');
 	});
 
 	it('Does not include picture story from list if picture story layout chosen and flag is off', () => {
-		data.topStoriesList = { items: ['picture-story'], layoutHint: 'standaloneimage' };
+		data.topStoriesList = { items: [{ id: 'picture-story' }], layoutHint: 'standaloneimage' };
 		const results = sectionContent( {frontPage: data }, { frontPageMultipleLayouts: false});
 
 		expect(results['top-stories'].layoutHint).to.equal('standard');
@@ -57,14 +57,14 @@ describe ('Top stories data', () => {
 	});
 
 	it('Includes picture story from list if picture story layout chosen and flag is on', () => {
-		data.topStoriesList = { items: ['picture-story'], layoutHint: 'standaloneimage' };
+		data.topStoriesList = { items: [{ id: 'picture-story' }], layoutHint: 'standaloneimage' };
 		const results = sectionContent( {frontPage: data }, { frontPageMultipleLayouts: true});
 
 		expect(results['top-stories'].layoutHint).to.equal('standaloneimage');
 
 		expect(results['top-stories'].main.length).to.equal(4);
 		expect(results['top-stories'].main[0]).to.equal('1-with-more-stuff');
-		expect(results['top-stories'].main[1]).to.equal('picture-story');
+		expect(results['top-stories'].main[1]).to.eql({ id: 'picture-story' });
 		expect(results['top-stories'].main[3]).to.equal('3');
 
 	});
