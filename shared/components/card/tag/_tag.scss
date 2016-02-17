@@ -1,5 +1,23 @@
 .card__tag-wrapper {
 	position: relative;
+
+	.card[data-image-position~="right"]:not(.card--main) & {
+		width: calc(50% - 10px);
+		float: left;
+	}
+
+	@each $layout-name in $_o-grid-layout-names {
+		@include oGridRespondTo($layout-name) {
+			.card[data-image-position*="#{$layout-name}--"] & {
+				width: auto;
+				float: none;
+			}
+			.card[data-image-position~="#{$layout-name}--right"]:not(.card--main) & {
+				width: calc(50% - 10px);
+				float: left;
+			}
+		}
+	}
 }
 
 .card__tag {

@@ -25,15 +25,7 @@
 		position: static;
 		float: right;
 		width: 50%;
-		margin: -21px 0 0 10px;
-
-		.card--main& {
-			margin-top: 0;
-		}
-	}
-
-	.card--main[data-image-position~="right"] & {
-		margin-top: 0;
+		margin: 0 0 0 10px;
 	}
 
 	@each $layout-name in $_o-grid-layout-names {
@@ -73,11 +65,7 @@
 				position: static;
 				float: right;
 				width: 50%;
-				margin: -21px 0 0 10px;
-			}
-
-			.card--main[data-image-position~="#{$layout-name}--right"] & {
-				margin-top: 0;
+				margin: 0 0 0 10px;
 			}
 		}
 	}
@@ -96,8 +84,19 @@
 	}
 }
 
+.card__picture--placeholder {
+	padding-bottom: 56.25%;
+	position: relative;
+}
+
 .card__image {
 	display: block;
-	width: 100%;
+	max-width: 100%;
 	flex: 0 0 auto;
+
+	.card__picture--placeholder & {
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
 }
