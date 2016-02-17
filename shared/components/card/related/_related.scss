@@ -1,6 +1,6 @@
 .card__related-items {
 	@include displayFlex;
-	flex: 1 1 auto;
+	flex: 0 1 auto;
 	-ms-flex-preferred-size: auto;
 	flex-wrap: wrap;
 	margin: 5px 0 0 -10px;
@@ -9,6 +9,10 @@
 
 	&[data-show~="false"] {
 		display: none;
+	}
+
+	.card--main & {
+		flex-grow: 1;
 	}
 
 	@each $layout-name in $_o-grid-layout-names {
