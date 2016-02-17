@@ -1,32 +1,17 @@
-import Ad from '../../shared/components/ad/ad';
-
-export default ({ flags }) => ({
+export default () => ({
 	id: 'editors-picks',
 	title: 'Editor\'s Picks',
 	style: 'editors-picks',
-	layoutId: flags.frontPageMoreAds ? 'editors-picks-ads' : 'editors-picks',
+	layoutId: 'editors-picks',
 	size: {
 		default: 12
-	},
-	sidebarComponent: {
-		id: 'editors-picks-ad',
-		component: Ad,
-		isTab: false,
-		adClasses: 'ad-placeholder--editors-picks'
 	},
 	cols: {
 		meta: {
 			default: 12
 		},
 		content: {
-			default: 12,
-			L: flags.frontPageMoreAds ? 8 : null,
-			XL: flags.frontPageMoreAds ? 9 : null
+			default: 12
 		},
-		sidebar: flags.frontPageMoreAds ? {
-			default: 'hide',
-			L: 4,
-			XL: 3
-		} : null
 	}
 })

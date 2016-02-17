@@ -79,11 +79,3 @@
 	@include oFormsSelect();
 	width: auto;
 }
-
-//The ad gets too wide at this width, so change the column widths
-@media screen and (min-width: 1275px) {
-	.most-popular__column-with-ad,
-	.most-popular__column-after-ad {
-		@include oGridColspan(3);
-	}
-}
