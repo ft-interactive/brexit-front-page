@@ -109,7 +109,7 @@ export default ({ flags }) => ({
 			}
 		]
 	} : null,
-	layoutId: flags.frontPageMoreAds ? 'most-popular-ads' : 'most-popular',
+	layoutId: 'most-popular',
 	size: {
 		default: 12
 	},

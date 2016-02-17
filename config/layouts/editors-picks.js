@@ -9,7 +9,7 @@ export default [
 			//Column 0
 			{
 				type: Column,
-				colspan: { default: 12, S: 6, M: 4, L: 2 },
+				colspan: { default: 12, S: 6, M: 3 },
 				components: [
 					{
 						type: Content,
@@ -17,7 +17,7 @@ export default [
 						image: {
 							stick: true,
 							position: { default: 'left', S: 'bottom' },
-							sizes: { default: 100, s: 315, m: 277, l: 161, xl: 203 }
+							sizes: { default: 100, s: 315, l: 259, xl: 322 }
 						}
 					}
 				]
@@ -25,7 +25,7 @@ export default [
 			//Column 1
 			{
 				type: Column,
-				colspan: { default: 12, S: 6, M: 4, L: 2 },
+				colspan: { default: 12, S: 6, M: 3 },
 				components: [
 					{
 						type: Content,
@@ -33,7 +33,7 @@ export default [
 						image: {
 							stick: true,
 							position: { default: 'left', S: 'bottom' },
-							sizes: { default: 100, s: 315, m: 277, l: 161, xl: 203 }
+							sizes: { default: 100, s: 315, l: 259, xl: 322 }
 						}
 					}
 				]
@@ -41,7 +41,7 @@ export default [
 			//Column 2
 			{
 				type: Column,
-				colspan: { default: 12, S: 6, M: 4, L: 2 },
+				colspan: { default: 12, S: 6, M: 3 },
 				components: [
 					{
 						type: Content,
@@ -49,7 +49,7 @@ export default [
 						image: {
 							stick: true,
 							position: { default: 'left', S: 'bottom' },
-							sizes: { default: 100, s: 315, m: 277, l: 161, xl: 203 }
+							sizes: { default: 100, s: 315, l: 259, xl: 322 }
 						}
 					}
 				]
@@ -57,7 +57,7 @@ export default [
 			//Column 3
 			{
 				type: Column,
-				colspan: { default: 12, S: 6, M: 4, L: 2 },
+				colspan: { default: 12, S: 6, M: 3 },
 				components: [
 					{
 						type: Content,
@@ -65,39 +65,7 @@ export default [
 						image: {
 							stick: true,
 							position: { default: 'left', S: 'bottom' },
-							sizes: { default: 100, s: 315, m: 277, l: 161, xl: 203 }
-						}
-					}
-				]
-			},
-			//Column 4
-			{
-				type: Column,
-				colspan: { default: 12, S: 6, M: 4, L: 2 },
-				components: [
-					{
-						type: Content,
-						size: 'small',
-						image: {
-							stick: true,
-							position: { default: 'left', S: 'bottom' },
-							sizes: { default: 100, s: 315, m: 277, l: 161, xl: 203 }
-						}
-					}
-				]
-			},
-			//Column 5
-			{
-				type: Column,
-				colspan: { default: 12, S: 6, M: 4, L: 2 },
-				components: [
-					{
-						type: Content,
-						size: 'small',
-						image: {
-							stick: true,
-							position: { default: 'left', S: 'bottom' },
-							sizes: { default: 100, s: 315, m: 277, l: 161, xl: 203 }
+							sizes: { default: 100, s: 315, l: 259, xl: 322 }
 						}
 					}
 				]

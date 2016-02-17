@@ -36,13 +36,6 @@
 			display: none;
 		}
 	}
-
-	//Try and match the editors picks cards with the ad height
-	&.editors-picks__column {
-		@include oGridRespondTo(L) {
-			min-height: 264px;
-		}
-	}
 }
 
 .column--condensed {
