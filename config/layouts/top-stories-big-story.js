@@ -22,7 +22,7 @@ export default [
 										showStandfirst: true,
 										isMain: true,
 										image: {
-											sizes: { default: 449, s: 659, m: 450, l: 374 },
+											sizes: { default: 449, s: 659, m: 450, l: 384 },
 											position: { default: 'top', M: 'right' }
 										},
 										related: {

@@ -14,14 +14,17 @@
 
 		.card[data-image-position~="#{$layout-name}--top"] & {
 			padding-top: 56.25%;
+			padding-bottom: 0;
 		}
 
 		.card[data-image-position~="#{$layout-name}--bottom"] & {
+			padding-top: 0;
 			padding-bottom: 56.25%;
 		}
 
 		.card[data-image-position~="#{$layout-name}--left"] &,
 		.card[data-image-position~="#{$layout-name}--right"] & {
+			padding-top: 0;
 			padding-bottom: 0;
 		}
 	}
