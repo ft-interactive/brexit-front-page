@@ -46,6 +46,9 @@ export default (data, flags) => ({
 	myft: {
 		main: data.popularTopics && data.popularTopics.popularTopics
 	},
+	['mid-page-advert']: {
+		main: ['no-content-needed']
+	},
 	['editors-picks']: {
 		main: data.frontPage.editorsPicks.items
 	},
