@@ -3,6 +3,7 @@ import lifeAndArtsSection from './life-and-arts';
 import marketsSection from './markets';
 import mostPopularSection from './most-popular';
 import myftSection from './myft';
+import midPageAdvertSection from './mid-page-advert';
 import opinionSection from './opinion';
 import technologySection from './technology';
 import topStoriesSection from './top-stories';
@@ -16,6 +17,7 @@ const sections = {
 	markets: marketsSection,
 	'most-popular': mostPopularSection,
 	myft: myftSection,
+	'mid-page-advert': midPageAdvertSection,
 	opinion: opinionSection,
 	technology: technologySection,
 	'top-stories': topStoriesSection,

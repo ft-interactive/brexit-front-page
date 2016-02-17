@@ -6,6 +6,7 @@ const pages = {
 		'top-stories',
 		'opinion',
 		'myft',
+		'mid-page-advert',
 		'editors-picks',
 		'most-popular',
 		'technology',

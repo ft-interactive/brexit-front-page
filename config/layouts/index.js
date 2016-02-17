@@ -2,6 +2,7 @@ import editorsPicksLayout from './editors-picks';
 import featuredSectionLayout from './featured-section';
 import mostPopularLayout from './most-popular';
 import myftLayout from './myft';
+import midPageAdvertLayout from './mid-page-advert';
 import opinionLayout from './opinion';
 import topStoriesLayout from './top-stories';
 import topStoriesLandscapeLayout from './top-stories-landscape';
@@ -14,6 +15,7 @@ export default {
 	'featured-section': featuredSectionLayout,
 	'most-popular': mostPopularLayout,
 	'myft': myftLayout,
+	'mid-page-advert': midPageAdvertLayout,
 	'opinion': opinionLayout,
 	'top-stories': topStoriesLayout,
 	'top-stories-landscape': topStoriesLandscapeLayout,
