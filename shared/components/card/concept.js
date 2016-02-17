@@ -37,7 +37,14 @@ const createImageComponentAttrs = (taxonomy, items, isFollowing) => {
 		srcset: { default: 449, s: 659, m: 199, l: 259, xl: 322 }
 	};
 	if (!isFollowing) {
-		attrs.imageServiceParams = { tint: 'FFF1E0' };
+		attrs.imageServiceParams = {
+			tint: 'FFF1E0'
+		};
+	} else {
+		Object.assign(attrs, {
+			picClass: 'card__picture card__picture--placeholder',
+			imgClass: 'card__image'
+		});
 	}
 
 	return attrs;

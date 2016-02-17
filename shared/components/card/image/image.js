@@ -22,7 +22,7 @@ export default class extends Component {
 		attrs.className = classes.join(' ');
 
 		const nImageAttrs = {
-			picClass: 'card__picture',
+			picClass: 'card__picture card__picture--placeholder',
 			imgClass: 'card__image',
 			srcset: this.props.sizes
 		};
