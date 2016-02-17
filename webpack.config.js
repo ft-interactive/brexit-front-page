@@ -6,7 +6,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 module.exports = {
 	context: path.join(__dirname, 'client'),
 	entry: {
-		'main.js': ['babel-polyfill', './main.js'],
+		'main.js': './main.js',
 		'main.css': './main.scss',
 		'ie8.css': './ie8.scss'
 	},
@@ -25,6 +25,7 @@ module.exports = {
 					presets: ['react', 'es2015'],
 					plugins: [
 						'add-module-exports',
+						'transform-runtime',
 						['transform-es2015-classes', { loose: true }]
 					]
 				}
