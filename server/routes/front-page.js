@@ -54,7 +54,6 @@ export default (region) => {
 			preconnect: [
 				'https://next-markets-proxy.ft.com'
 			],
-			minifyHtml: res.locals.flags.frontPageMinifyHtml,
 			adsLayout: res.locals.flags.frontPageAdFormats ? 'prototype' : 'default'
 		};
 		if (res.locals.flags.frontPageHeaderMarketsData) {
