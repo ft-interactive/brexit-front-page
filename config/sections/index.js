@@ -3,7 +3,8 @@ import lifeAndArtsSection from './life-and-arts';
 import marketsSection from './markets';
 import mostPopularSection from './most-popular';
 import myftSection from './myft';
-import midPageAdvertSection from './mid-page-advert';
+import midPageAdvert1Section from './mid-page-advert-1';
+import midPageAdvert2Section from './mid-page-advert-2';
 import opinionSection from './opinion';
 import technologySection from './technology';
 import topStoriesSection from './top-stories';
@@ -17,7 +18,8 @@ const sections = {
 	markets: marketsSection,
 	'most-popular': mostPopularSection,
 	myft: myftSection,
-	'mid-page-advert': midPageAdvertSection,
+	'mid-page-advert-1': midPageAdvert1Section,
+	'mid-page-advert-2': midPageAdvert2Section,
 	opinion: opinionSection,
 	technology: technologySection,
 	'top-stories': topStoriesSection,

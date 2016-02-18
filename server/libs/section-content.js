@@ -46,8 +46,11 @@ export default (data, flags) => ({
 	myft: {
 		main: data.popularTopics && data.popularTopics.popularTopics
 	},
-	['mid-page-advert']: {
-		main: ['no-content-needed']
+	['mid-page-advert-1']: {
+		main: ['no-content-needed'] //HACK: Section component requires everything to have content so hack in some fake stuff
+	},
+	['mid-page-advert-2']: {
+		main: ['no-content-needed'] //HACK: Section component requires everything to have content so hack in some fake stuff
 	},
 	['editors-picks']: {
 		main: data.frontPage.editorsPicks.items

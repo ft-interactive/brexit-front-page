@@ -55,7 +55,7 @@ export default (region) => {
 				'https://next-markets-proxy.ft.com'
 			],
 			minifyHtml: res.locals.flags.frontPageMinifyHtml,
-			adsLayout: res.locals.flags.frontPageAdFormats ? 'prototype' : 'default'
+			adsLayout: res.locals.flags.frontPageAdFormats ? (req.query.adsLayout || 'impression') : 'default'
 		};
 		if (res.locals.flags.frontPageHeaderMarketsData) {
 			renderParams.header = headerParams;
