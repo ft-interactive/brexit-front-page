@@ -10,9 +10,10 @@ import getSection from '../../../config/sections/index';
 import Section from '../../../shared/components/section/section';
 import fireTracking from '../../utils/fire-tracking';
 
-const store = new Superstore('local', 'next-frontpage');
-
-const storeName = 'most-popular';
+const store = {
+	name: 'most-popular',
+	storage: new Superstore('local', 'next-frontpage')
+};
 
 const changeHandler = (flags, ev, { track = true } = {}) => {
 	const target = ev.target;
@@ -20,9 +21,9 @@ const changeHandler = (flags, ev, { track = true } = {}) => {
 	const query = selected === 'initial' ? popularArticles : mostPopular('industry', `http://api.ft.com/things/${selected}`);
 	// store the change
 	if (selected === 'initial') {
-		store.unset(storeName);
+		store.storage.unset(store.name);
 	} else {
-		store.set(storeName, selected);
+		store.storage.set(store.name, selected);
 	}
 
 	crossDomainFetch(
@@ -59,7 +60,7 @@ const init = flags => {
 	const el = document.getElementById('most-popular');
 	el.addEventListener('change', changeHandler.bind(null, flags));
 
-	store.get(storeName)
+	store.storage.get(store.name)
 		.then(storeValue => {
 			if (storeValue) {
 				const select = el.querySelector('.section-sources__select');
