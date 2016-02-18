@@ -20,13 +20,13 @@ run-local:
 	nbt run --local
 
 watch: _webpack_setup
-	webpack --watch --devtool cheap-module-eval-source-map
+	webpack --config webpack-dev.config.js --watch
 
 build: _webpack_setup
-	webpack --devtool cheap-module-eval-source-map
+	webpack --config webpack-dev.config.js
 
 build-production: _webpack_setup
-	webpack -p --devtool source-map
+	webpack
 	nbt build --skip-sass --skip-js
 
 smoke:
