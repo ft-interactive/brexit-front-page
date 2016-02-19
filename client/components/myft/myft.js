@@ -54,6 +54,8 @@ const filterDuplicateConcepts = (concept, index, allConcepts) =>
 	// ideally use findIndex, but not polyfilled for BB - https://github.com/Financial-Times/polyfill-service/pull/582
 	allConcepts.map(allConcept => allConcept.id).indexOf(concept.id) === index;
 
+const filterEmptyConcepts = concept => concept.items.length;
+
 const filterDuplicateArticles = (articles, concept) => {
 	concept.items = concept.items
 		.filter(item => !articles.find(article => article.id === item.id))
@@ -68,6 +70,7 @@ const handleResponse = (myftClient, flags, response) => {
 	// displayed concepts are: followed concepts -> most viewed by this user -> general popular concepts
 	const concepts = followed.concat(viewed, popularTopics)
 		.filter(filterDuplicateConcepts)
+		.filter(filterEmptyConcepts)
 		.slice(0, 3);
 	concepts.reduce(filterDuplicateArticles, []);
 	// get the section
