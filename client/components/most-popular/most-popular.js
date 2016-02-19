@@ -15,6 +15,32 @@ const store = {
 	storage: new Superstore('local', 'next-frontpage')
 };
 
+const handleError = (el, err) => {
+	el.removeAttribute('disabled');
+	window.setTimeout(() => {
+		throw err;
+	});
+};
+
+const updateSection = (el, selected, track, flags, data) => {
+	if (data && (data.popularArticles || data.popularFromHui)) {
+		const main = data[selected === 'initial' ? 'popularArticles' : 'popularFromHui'];
+		const section = getSection('most-popular', { main }, flags.getAll());
+		section.dynamicContent.selected = selected;
+		ReactDOM.render(<Section {...section} />, document.getElementById('most-popular'));
+		if (track) {
+			fireTracking('oTracking.event', {
+				category: 'cta',
+				action: 'change',
+				value: selected,
+				title: section.dynamicContent.sources.find(source => source.uuid === selected).title,
+				domPath: getDomPath(el, [])
+			});
+		}
+	}
+	el.removeAttribute('disabled');
+};
+
 const changeHandler = (flags, ev, { track = true } = {}) => {
 	const target = ev.target;
 	const selected = target.value;
@@ -25,32 +51,15 @@ const changeHandler = (flags, ev, { track = true } = {}) => {
 	} else {
 		store.storage.set(store.name, selected);
 	}
+	target.setAttribute('disabled', 'disabled');
 
 	crossDomainFetch(
 		`https://next-graphql-api.ft.com/data?query=${encodeURIComponent(query)}`,
 		{ credentials: 'include' }
 	)
 		.then(fetchJson)
-		.then(data => {
-			const main = data[selected === 'initial' ? 'popularArticles' : 'popularFromHui'];
-			const section = getSection('most-popular', { main }, flags.getAll());
-			section.dynamicContent.selected = selected;
-			ReactDOM.render(<Section {...section} />, document.getElementById('most-popular'));
-			if (track) {
-				fireTracking('oTracking.event', {
-					category: 'cta',
-					action: 'change',
-					value: selected,
-					title: section.dynamicContent.sources.find(source => source.uuid === selected).title,
-					domPath: getDomPath(target, [])
-				});
-			}
-		})
-		.catch(err => {
-			window.setTimeout(() => {
-				throw err;
-			});
-		});
+		.then(updateSection.bind(null, target, selected, track, flags))
+		.catch(handleError.bind(null, target));
 };
 
 const init = flags => {
