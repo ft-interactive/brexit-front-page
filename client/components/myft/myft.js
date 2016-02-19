@@ -92,7 +92,7 @@ const loadSection = (myftClient, flags) => {
 	if (flags.get('frontPageMyftSection') && flags.get('myFtApi') && sessionClient.cookie()) {
 		crossDomainFetch(
 			`https://next-graphql-api.ft.com/data?query=${slimQuery(query)}`,
-			{ credentials: 'include' }
+			{ credentials: 'include', timeout: 5000 }
 		)
 			.then(fetchJson)
 			.then(handleResponse.bind(undefined, myftClient, flags))
