@@ -6,7 +6,7 @@ chai.should();
 import React from 'react';
 import TestUtils from 'react-addons-test-utils';
 
-const SectionNode = proxyquire('../../../../shared/components/section/node', {
+const SectionNode = proxyquire('../../../../shared/components/section/section', {
 	'./section-content/section-content': stub,
 	'./section-meta/section-meta': stub,
 	'./section-sources/section-sources': stub

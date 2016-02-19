@@ -6,7 +6,7 @@ import { crossDomainFetch } from 'n-jsonp';
 import sessionClient from 'next-session-client';
 import * as myFtUi from 'next-myft-ui';
 
-import Section from '../../../shared/components/section';
+import Section from '../../../shared/components/section/section';
 import MyftPromo from '../../../shared/components/myft-promo/myft-promo';
 import getSection from '../../../config/sections/index';
 

@@ -202,9 +202,22 @@ const popularTopics = `
 	}
 `;
 
+const popularArticles = `
+	${fragments.basic}
+	${fragments.extended}
+
+	query PopularArticles {
+		popularArticles(limit: 9) {
+			... Basic
+			... Extended
+		}
+	}
+`;
+
 export default {
 	frontPage,
 	fastFT,
 	mostPopular,
-	popularTopics
+	popularTopics,
+	popularArticles
 };

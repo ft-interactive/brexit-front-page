@@ -12,7 +12,7 @@ import scrollDepth from './components/scroll-depth/scroll-depth';
 import marketsData from './components/markets-data/markets-data';
 import headerTabs from './components/header-tabs/header-tabs';
 import myft from './components/myft/myft';
-import section from '../shared/components/section/section';
+import mostPopular from './components/most-popular/most-popular';
 
 setup.bootstrap(({flags}) => {
 	// NOTE: make sure we init myft client *before* n-layout
@@ -22,32 +22,18 @@ setup.bootstrap(({flags}) => {
 	const myftClient = myFtClient.init(clientOpts);
 
 	layout.init(flags);
-
 	nVideo.init({
 		placeholder: true,
 		classes: ['video'],
 		selector: '.js-video'
 	});
-
 	oDate.init();
 	prompts.init();
 	highlightDomPath();
 	scrollDepth.init(flags);
-
-	if (flags.get('mostPopularByIndustry')) {
-		const mostPopularContainer = document.getElementById('most-popular');
-
-		if(mostPopularContainer) {
-			const mostPopularContent = JSON.parse(mostPopularContainer.getAttribute('data-section-content'));
-			section.init(mostPopularContainer, mostPopularContent, flags.getAll());
-		}
-	}
-	myft.loadSection(myftClient, flags);
-
-	// NOTE - these are last as they depend on polyfills from the polyfill service
-	// (which fails in e.g. BB10 - https://github.com/3rd-Eden/useragent/issues/83)
-	myFtUi.init({anonymous: !(/FTSession=/.test(document.cookie))});
-
+	myFtUi.init({ anonymous: !(/FTSession=/.test(document.cookie)) });
 	marketsData.init(flags);
 	headerTabs.init();
+	myft.loadSection(myftClient, flags);
+	mostPopular(flags);
 });
