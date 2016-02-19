@@ -55,7 +55,7 @@ const changeHandler = (flags, ev, { track = true } = {}) => {
 
 	crossDomainFetch(
 		`https://next-graphql-api.ft.com/data?query=${encodeURIComponent(query)}`,
-		{ credentials: 'include' }
+		{ credentials: 'include', timeout: 5000 }
 	)
 		.then(fetchJson)
 		.then(updateSection.bind(null, target, selected, track, flags))

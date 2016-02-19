@@ -80,7 +80,7 @@ const init = (flags) => {
 			securities = regionalSecurities['uk'];
 	}
 	const symbols = securities.map(security => security.symbol).join(',');
-	crossDomainFetch(`https://next-markets-proxy.ft.com/securities/v1/quotes?symbols=${symbols}`)
+	crossDomainFetch(`https://next-markets-proxy.ft.com/securities/v1/quotes?symbols=${symbols}`, { timeout: 5000 })
 		.then(response => {
 			if (response.ok) {
 				return response.json();
