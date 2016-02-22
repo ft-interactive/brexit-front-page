@@ -7,16 +7,6 @@
 @import "../fast-ft/fast-ft";
 @import "../column/column";
 
-.full-cell {
-	position: absolute;
-	height: 100%;
-	right: 0;
-	left: oGridGutter();
-
-	@include oGridRespondTo(M) {
-		left: oGridGutter(M);
-	}
-}
 
 .section--video {
 	.core & {
@@ -24,13 +14,16 @@
 	}
 }
 
-.section-nav {
-	// scss-lint:disable ImportantRule
-	padding-bottom: 0 !important;
-}
-
 .section__column {
 	align-items: stretch;
+
+	&[aria-hidden="true"] {
+		display: none;
+
+		@include oGridRespondTo(L) {
+			display: block;
+		}
+	}
 
 	& > * {
 		width: 100%;
@@ -38,29 +31,6 @@
 
 		@include oGridRespondTo(M) {
 			padding-bottom: oGridGutter(M);
-		}
-	}
-}
-
-.section__column--meta {
-	// TODO: better way of defining this
-	.section--top-stories & {
-		@include oGridRespondTo($until: L) {
-			display: none;
-		}
-	}
-}
-
-.section__column,
-// for current front page
-.main-content,
-.sidebar--fastft,
-.header-tabs-panel {
-	&[aria-hidden="true"] {
-		display: none;
-
-		@include oGridRespondTo(L) {
-			display: block;
 		}
 	}
 }
