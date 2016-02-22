@@ -4,7 +4,7 @@ const BowerWebpackPlugin = require('bower-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
-	devtool: 'source-map',
+	devtool: 'cheap-module-eval-source-map',
 	context: path.join(__dirname, 'client'),
 	entry: {
 		'main.js': './main.js',
@@ -44,7 +44,7 @@ module.exports = {
 			{
 				test: /\.scss$/,
 				loader: ExtractTextPlugin.extract(
-					`css?minimize&sourceMap!postcss-loader!sass?sourceMap&includePaths[]=${path.resolve(__dirname, './bower_components')}`
+					`css!postcss-loader!sass?includePaths[]=${path.resolve(__dirname, './bower_components')}`
 				)
 			},
 			{

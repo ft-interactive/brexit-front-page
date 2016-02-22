@@ -2,6 +2,11 @@ include n.Makefile
 
 TEST_APP := "ft-next-front-page-branch-${CIRCLE_BUILD_NUM}"
 
+_webpack_setup:
+	# NOTE: until https://phabricator.babeljs.io/T7010 is addressed, we use an older version of babel-helper-define-map
+	# i.e. the one we define in package.json
+	rm -rf node_modules/babel-preset-es2015/node_modules/babel-plugin-transform-es2015-classes/node_modules/babel-helper-define-map
+
 unit-test:
 	@echo "Testing…"
 	@export NODE_ENV=test; mocha --require server/setup --recursive --reporter spec test/server
@@ -14,20 +19,16 @@ run:
 run-local:
 	nbt run --local
 
-watch:
-	# NOTE: until https://phabricator.babeljs.io/T7010 is addressed, we use an older version of babel-helper-define-map
-	# i.e. the one we define in package.json
-	rm -rf node_modules/babel-preset-es2015/node_modules/babel-plugin-transform-es2015-classes/node_modules/babel-helper-define-map
-	webpack --watch --devtool cheap-module-eval-source-map
+watch: _webpack_setup
+	webpack --config webpack-dev.config.js --watch
 
-build:
-	nbt build --main-sass ie8.scss --skip-js --skip-about --skip-haikro --skip-hash --dev
-	nbt build --dev
+build: _webpack_setup
+	webpack --config webpack-dev.config.js
 
-
-build-production:
-	nbt build --main-sass ie8.scss --skip-js --skip-about --skip-haikro --skip-hash
-	nbt build
+build-production: _webpack_setup
+	webpack
+	uglifyjs public/main.js --in-source-map public/main.js.map --source-map public/main.js.map  --source-map-url ./main.js.map -o public/main.js -c -m
+	nbt build --skip-sass --skip-js
 
 smoke:
 	nbt test-urls ${TEST_APP}
