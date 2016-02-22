@@ -4,9 +4,9 @@ const pages = {
 	// ordered list of sections for the front page
 	'front-page': [
 		'top-stories',
+		'mid-page-advert-1',
 		'opinion',
 		'myft',
-		'mid-page-advert-1',
 		'editors-picks',
 		'most-popular',
 		'mid-page-advert-2',
