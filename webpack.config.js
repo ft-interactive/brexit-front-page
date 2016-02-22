@@ -2,7 +2,6 @@ const path = require('path');
 const autoprefixer = require('autoprefixer');
 const BowerWebpackPlugin = require('bower-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const UglifyJsPlugin = require('webpack/lib/optimize/UglifyJsPlugin');
 
 module.exports = {
 	devtool: 'source-map',
@@ -45,7 +44,7 @@ module.exports = {
 			{
 				test: /\.scss$/,
 				loader: ExtractTextPlugin.extract(
-					`css?sourceMap!postcss-loader!sass?includePaths[]=${path.resolve(__dirname, './bower_components')}`
+					`css?minimize&sourceMap!postcss-loader!sass?sourceMap&includePaths[]=${path.resolve(__dirname, './bower_components')}`
 				)
 			},
 			{
