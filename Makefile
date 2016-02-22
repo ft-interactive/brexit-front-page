@@ -27,7 +27,7 @@ build: _webpack_setup
 
 build-production: _webpack_setup
 	webpack
-	uglifyjs public/main.js --in-source-map public/main.js.map --source-map public/main.js.map  --source-map-url ./main.js.map -o public/main.js
+	uglifyjs public/main.js --in-source-map public/main.js.map --source-map public/main.js.map  --source-map-url ./main.js.map -o public/main.js -c -m
 	nbt build --skip-sass --skip-js
 
 smoke:
