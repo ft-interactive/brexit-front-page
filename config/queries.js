@@ -11,11 +11,13 @@ const fragments = {
 		fragment Extended on Content {
 			summary
 			primaryTag {
+				id
 				url
 				name
 				taxonomy
 			}
 			branding {
+				id
 				url
 				name
 				taxonomy
