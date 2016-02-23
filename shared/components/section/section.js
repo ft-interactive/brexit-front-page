@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
-import SectionMeta from './section-meta/section-meta';
-import SectionContent from './section-content/section-content';
-import SectionSources from './section-sources/section-sources';
+import SectionMeta from './meta/meta';
+import SectionContent from './content/content';
+import SectionSources from './sources/sources';
 import colspan from '../../../client/utils/colspan';
 
 const classify = classes => classes
