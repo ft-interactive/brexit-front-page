@@ -6,6 +6,10 @@
 		float: left;
 	}
 
+	.liveblog__badge + & {
+		padding-top: 3px;
+	}
+
 	@each $layout-name in $_o-grid-layout-names {
 		@include oGridRespondTo($layout-name) {
 			.card[data-image-position*="#{$layout-name}--"] & {

@@ -31,7 +31,7 @@ const app = express({
 			}
 
 		},
-		colspan,
+		colspan
 	},
 	healthChecks: healthChecks.asArray()
 });

@@ -7,9 +7,9 @@ import React from 'react';
 import TestUtils from 'react-addons-test-utils';
 
 const SectionNode = proxyquire('../../../../shared/components/section/section', {
-	'./section-content/section-content': stub,
-	'./section-meta/section-meta': stub,
-	'./section-sources/section-sources': stub
+	'./content/content': stub,
+	'./meta/meta': stub,
+	'./sources/sources': stub
 });
 
 describe('SectionNode', () => {

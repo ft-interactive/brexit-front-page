@@ -76,7 +76,7 @@ const getData = (item, opts) => {
 					.slice(0, 3)
 			}, opts.related);
 		}
-		if (item.contentType === 'LiveBlog') {
+		if (item.type === 'LiveBlog') {
 			data.liveBlog = {
 				status: item.status,
 				latestUpdate: item.updates[0]
