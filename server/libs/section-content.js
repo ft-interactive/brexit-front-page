@@ -40,7 +40,9 @@ const getTopStoriesData = (data, flags = {}) => {
 
 export default (data, flags) => ({
 	['top-stories']: getTopStoriesData(data, flags),
-	['top-stories-more']: getTopStoriesData(data, flags),
+	['top-stories-more']: {
+		main: getTopStoriesData(data, flags).main.slice(-3)
+	},
 	opinion: {
 		main: data.frontPage.opinion.items
 	},
