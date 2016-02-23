@@ -1,19 +1,19 @@
 import oTabs from 'o-tabs';
 
+const toArray = els => [].slice.apply(els);
+
 const init = () => {
 	oTabs.init();
 	document.querySelector('.header-tabs').addEventListener('oTabs.tabSelect', ev => {
-		const panelEls = [].slice.apply(document.querySelectorAll(
-			'.header-tabs-panel, .section__column:not(#top-stories-section-content):not(#top-stories-section-aside)'
+		const sectionEls = toArray(document.querySelectorAll(
+			'.section__column:not(#top-stories-section-content):not(#top-stories-section-aside)'
 		));
 		if (ev.detail.selected === 1) {
-			panelEls.forEach(panelEl => panelEl.setAttribute('aria-hidden', 'true'));
+			sectionEls.forEach(panelEl => panelEl.setAttribute('aria-hidden', 'true'));
 		} else {
-			panelEls.forEach(panelEl => panelEl.removeAttribute('aria-hidden'));
+			sectionEls.forEach(panelEl => panelEl.removeAttribute('aria-hidden'));
 		}
 	});
 };
 
-export default {
-	init
-}
+export default init

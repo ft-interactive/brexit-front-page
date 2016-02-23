@@ -33,7 +33,7 @@ setup.bootstrap(({flags}) => {
 	scrollDepth.init(flags);
 	myFtUi.init({ anonymous: !(/FTSession=/.test(document.cookie)) });
 	marketsData.init(flags);
-	headerTabs.init();
+	headerTabs();
 	myft.loadSection(myftClient, flags);
 	mostPopular(flags);
 });
