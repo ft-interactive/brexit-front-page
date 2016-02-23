@@ -1,6 +1,3 @@
-$upColour: #9cd321;
-$downColour: #ee2f01;
-
 .markets-data-wrapper {
 	background: url('/assets/backgrounds/header-markets-data.png') getColor('black');
 	min-height: 39px;
@@ -61,21 +58,21 @@ $downColour: #ee2f01;
 	padding: 1px 5px;
 }
 .markets-data__item__change--up {
-	color: $upColour;
-	border-color: $upColour;
+	color: getColor('market-up');
+	border-color: getColor('market-up');
 
 	.markets-data__item__link:hover &,
 	.markets-data__item__link:focus & {
-		background-color: rgba($upColour, 0.4);
+		background-color: rgba(getColor('market-up'), 0.4);
 	}
 }
 .markets-data__item__change--down {
-	color: $downColour;
-	border-color: $downColour;
+	color: getColor('market-down');
+	border-color: getColor('market-down');
 
 	.markets-data__item__link:hover &,
 	.markets-data__item__link:focus & {
-		background-color: rgba($downColour, 0.4);
+		background-color: rgba(getColor('market-down'), 0.4);
 	}
 }
 .markets-data__link {
