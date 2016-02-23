@@ -6,8 +6,7 @@ const dedupe = (item, index, items) => !item.id || items.findIndex(otherItem => 
 
 const getTopStoriesData = (data, flags = {}) => {
 	let main = data.frontPage.topStory.items.concat(data.frontPage.top.items.slice(1));
-	//let layoutHint = flags.frontPageMultipleLayouts ? data.frontPage.topStoriesList.layoutHint : 'standard';
-	let layoutHint = 'bigstory';
+	let layoutHint = flags.frontPageMultipleLayouts ? data.frontPage.topStoriesList.layoutHint : 'standard';
 	if (flags.frontPageMultipleLayouts) {
 		if (
 			data.frontPage.topStoriesList &&
