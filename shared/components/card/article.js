@@ -37,15 +37,14 @@ export default class extends Component {
 			'data-trackable': 'card',
 			'data-size': this.props.size
 		};
+		const tag = this.props.tag && Object.assign({}, this.props.tag);
 
 		if (this.props.show) {
 			attrs['data-show'] = responsiveValue(this.props.show);
 		}
 
-		if (this.props.image) {
-			if (this.props.image.position) {
-				attrs['data-image-position'] = responsiveValue(this.props.image.position);
-			}
+		if (this.props.image && this.props.image.position) {
+			attrs['data-image-position'] = responsiveValue(this.props.image.position);
 		}
 
 		if (this.props.liveBlog) {
@@ -55,8 +54,8 @@ export default class extends Component {
 		if (this.props.isMain) {
 			attrs.className += ' card--main';
 
-			if (this.props.tag) {
-				this.props.tag.isFollowable = true;
+			if (tag) {
+				tag.isFollowable = true;
 			}
 
 			if (this.props.related) {
@@ -87,9 +86,9 @@ export default class extends Component {
 				<div className={articleContentClasses.join(' ')}>
 					<div className="card__content__inner">
 						{this.props.liveBlog ? <span className="liveblog__badge">live</span> : null}
-						{this.props.tag && this.props.size !== 'tiny' ? <Tag {...this.props.tag}/> : null}
+						{tag && this.props.size !== 'tiny' ? <Tag {...tag}/> : null}
 						{this.props.image ? <Image {...this.props.image} contentId={this.props.id} /> : null}
-						{this.props.tag && this.props.size === 'tiny' ? <Tag {...this.props.tag} /> : null}
+						{tag && this.props.size === 'tiny' ? <Tag {...tag} /> : null}
 						<Title title={this.props.title} url={`/content/${this.props.id}`} />
 						{this.props.standfirst ? <Standfirst standfirst={this.props.standfirst} /> : null}
 						{this.props.lastPublished ? <Timestamp date={this.props.lastPublished} /> : null}

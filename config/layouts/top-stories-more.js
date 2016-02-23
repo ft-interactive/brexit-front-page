@@ -8,51 +8,38 @@ export default [
 		components: [
 			{
 				type: Column,
-				colspan: {default: 3},
+				colspan: { default: 12, M: 6 },
 				components: [
 					{
 						type: Content,
-						size: 'medium'
+						size: 'medium',
+						showStandfirst: true,
+						image: {
+							position: { default: 'right' },
+							sizes: { default: 225, s: 315, m: 216, l: 276, xl: 339 }
+						}
 					}
 				]
 			},
 			{
 				type: Column,
-				colspan: {default: 3},
+				colspan: { default: 12, M: 3 },
 				components: [
 					{
 						type: Content,
-						size: 'medium'
+						size: 'medium',
+						showStandfirst: true
 					}
 				]
 			},
 			{
 				type: Column,
-				colspan: {default: 2},
+				colspan: { default: 12, M: 3 },
 				components: [
 					{
 						type: Content,
-						size: 'medium'
-					}
-				]
-			},
-			{
-				type: Column,
-				colspan: {default: 2},
-				components: [
-					{
-						type: Content,
-						size: 'medium'
-					}
-				]
-			},
-			{
-				type: Column,
-				colspan: {default: 2},
-				components: [
-					{
-						type: Content,
-						size: 'medium'
+						size: 'medium',
+						showStandfirst: true
 					}
 				]
 			}
