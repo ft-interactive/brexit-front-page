@@ -30,3 +30,8 @@ $o-grid-ie8-rules: 'only';
 @include oGridGenerate;
 
 @import "../shared/components/card/card-ie8";
+
+.o-header__masthead__logo--mobile,
+.o-header__membership-promo-container {
+	display: none;
+}
