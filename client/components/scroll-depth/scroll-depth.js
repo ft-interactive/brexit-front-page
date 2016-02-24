@@ -3,8 +3,8 @@ import throttle from '../../utils/throttle';
 
 const toArray = nodeList => Array.prototype.slice.call(nodeList);
 
-const track = (dataTrackable, componentPos) => {
-	fireTracking('oTracking.event', { category: 'page', action: 'scrolldepth', dataTrackable, componentPos });
+const track = (componentId, componentPos) => {
+	fireTracking('oTracking.event', { category: 'page', action: 'scrolldepth', componentId, componentPos });
 }
 
 const scrollHandlerFactory = () => {
@@ -12,10 +12,10 @@ const scrollHandlerFactory = () => {
 	return () => {
 		toArray(document.querySelectorAll('.js-track-scroll-event'))
 			.forEach((component, index) => {
-				const dataTrackable = component.getAttribute('data-trackable');
-				if (component.getBoundingClientRect().top < window.innerHeight && componentsViewed.indexOf(dataTrackable) === -1) {
-					track(dataTrackable, index + 1);
-					componentsViewed.push(dataTrackable);
+				const componentId = component.getAttribute('id');
+				if (component.getBoundingClientRect().top < window.innerHeight && componentsViewed.indexOf(componentId) === -1) {
+					track(componentId, index + 1);
+					componentsViewed.push(componentId);
 				}
 			});
 	};
