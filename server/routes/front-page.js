@@ -54,7 +54,7 @@ export default (region) => {
 			preconnect: [
 				'https://next-markets-proxy.ft.com'
 			],
-			adsLayout: res.locals.flags.frontPageAdFormats ? (req.query.adsLayout || 'impression') : 'default'
+			adsLayout: req.query.adsLayout || 'default'
 		};
 		if (res.locals.flags.frontPageHeaderMarketsData) {
 			renderParams.header = headerParams;
