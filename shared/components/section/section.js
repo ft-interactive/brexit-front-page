@@ -25,7 +25,7 @@ export default class Section extends Component {
 		}
 		const sectionClasses = classify([
 			'o-grid-row',
-			'section--' + this.props.style
+			this.props.style ? 'section--' + this.props.style : ''
 		]);
 		const sectionContentClasses = classify([
 			'section__column',
