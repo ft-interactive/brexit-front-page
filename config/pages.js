@@ -18,5 +18,10 @@ const pages = {
 	]
 };
 
-export default (pageId, sectionsContent, flags) =>
-	pages[pageId].map(sectionId => getSection(sectionId, sectionsContent[sectionId], flags));
+export default (pageId, sectionsContent, flags) => {
+	//if (flags.frontPageMoreTopStories && pageId === 'front-page') {
+	//	pages['front-page'].splice(1, 'top-stories-more');
+	//}
+
+	return pages[pageId].map(sectionId => getSection(sectionId, sectionsContent[sectionId], flags));
+}

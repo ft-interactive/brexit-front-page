@@ -8,16 +8,23 @@ export default [
 		components: [
 			{
 				type: Column,
-				colspan: { default: 12, M: 6 },
+				colspan: { default: 12, M: 3 },
 				components: [
 					{
 						type: Content,
 						size: 'medium',
-						showStandfirst: true,
-						image: {
-							position: { default: 'right' },
-							sizes: { default: 225, s: 315, m: 216, l: 276, xl: 339 }
-						}
+						showStandfirst: true
+					}
+				]
+			},
+			{
+				type: Column,
+				colspan: { default: 12, M: 3 },
+				components: [
+					{
+						type: Content,
+						size: 'medium',
+						showStandfirst: true
 					}
 				]
 			},
