@@ -38,6 +38,14 @@
 	}
 }
 
-.column--condensed {
-	margin-top: oGridGutter(M);
+.column--list {
+	&:after {
+		content: '';
+		position: absolute;
+		height: 100%;
+		width: 1px;
+		top: 0;
+		right: 0;
+		background-color: getColor('pink');
+	}
 }

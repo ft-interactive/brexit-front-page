@@ -72,12 +72,10 @@ export default [
 			//Column 2
 			{
 				type: Column,
-				condensed: true,
 				colspan: { default: 12, XL: 3 },
 				components: [
 					{
 						type: Row,
-						isCompact: true,
 						components:
 							[
 								{

@@ -18,63 +18,46 @@
 		margin-top: oGridGutter(M);
 	}
 
+	.section--top-stories & {
+		border-bottom: 0;
+
+		&:after {
+			content: '';
+			position: absolute;
+			width: 100%;
+			height: 1px;
+			box-sizing: border-box;
+			left: 0;
+			bottom: 0;
+			border-left: oGridGutter() solid getColor('pink');
+			border-right: oGridGutter() solid getColor('pink');
+			background-color: getColor('warm-3');
+		}
+
+		&.card--picture-story:after {
+			border-width: 0;
+		}
+	}
+
+	.column--list &:before {
+		content: '';
+		position: absolute;
+		height: 100%;
+		width: 1px;
+		box-sizing: border-box;
+		right: 0;
+		top: 0;
+		border-top: oGridGutter() solid getColor('pink');
+		border-bottom: oGridGutter() solid getColor('pink');
+		background-color: getColor('warm-3');
+	}
+
 	&[data-show~="false"] {
 		display: none;
 	}
 
 	.fast-ft & {
 		margin-top: 0;
-	}
-
-	.column--condensed & {
-		margin-top: 0;
-		border-bottom: 0;
-		position: relative;
-
-		@include oGridRespondTo(XL) {
-			justify-content: center;
-		}
-
-		&:after {
-			content: '';
-			position: absolute;
-			left: 5%;
-			bottom: 0;
-			width: 90%;
-			border: 0 solid getColor('warm-3');
-			border-bottom-width: 1px;
-			opacity: 0.5;
-
-			@include oGridRespondTo(M) {
-				left: auto;
-				width: auto;
-				top: 10%;
-				right: 0;
-				height: 80%;
-				border-bottom-width: 0;
-				border-right-width: 1px;
-			}
-
-			@include oGridRespondTo(XL) {
-				left: 5%;
-				top: auto;
-				bottom: 0;
-				width: 90%;
-				border-right-width: 0;
-				border-bottom-width: 1px;
-				height: 0;
-			}
-		}
-	}
-
-	.column--condensed .column:last-child &:after {
-		border: 0;
-	}
-
-	.column--condensed .column:nth-child(n+4) &:after {
-		@include oGridRespondTo($until: XL) {
-			border: 0;
-		}
 	}
 }
 
