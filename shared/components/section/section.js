@@ -25,7 +25,6 @@ export default class Section extends Component {
 		}
 		const sectionClasses = classify([
 			'o-grid-row',
-			'section',
 			'section--' + this.props.style,
 			this.props.trackScrollEvent ? 'js-track-scroll-event' : ''
 		]);
