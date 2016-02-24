@@ -3,6 +3,7 @@ export default () => ({
 	title: 'Life & Arts',
 	style: 'life-and-arts',
 	layoutId: 'featured-section',
+	trackScrollEvent: true,
 	size: {
 		default: 12,
 		M: 4

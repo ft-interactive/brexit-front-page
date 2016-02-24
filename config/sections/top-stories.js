@@ -32,6 +32,7 @@ export default ({ content, flags }) => ({
 	isTab: true,
 	layoutId: getLayout(content, flags),
 	trackable: getLayout(content, flags),
+	trackScrollEvent: true,
 	size: {
 		default: 12
 	},

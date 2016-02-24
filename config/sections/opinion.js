@@ -3,6 +3,7 @@ export default () => ({
 	title: 'Opinion',
 	style: 'opinion',
 	layoutId: 'opinion',
+	trackScrollEvent: true,
 	size: {
 		default: 12
 	},
