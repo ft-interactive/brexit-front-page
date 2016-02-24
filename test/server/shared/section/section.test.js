@@ -15,24 +15,25 @@ const SectionNode = proxyquire('../../../../shared/components/section/section', 
 describe('SectionNode', () => {
 
 	const props = {
+		id: 'section-node-id',
+		style: 'section-node-style',
 		cols: {
 			content: { },
 			sidebar: { }
 		},
-		id: 'sectionNodeId',
 		sidebarComponent: {
-			id: 'sidebarComponentId',
+			id: 'sidebar-component-id',
 			component: stub
 		}
 	}
 
-	it('should render section component with "section" class if correct data provided', () => {
+	it('should render section component with "section--section-node-style" class if correct data provided', () => {
 		const section = TestUtils.renderIntoDocument(
 			<SectionNode
 			content={ { main: [''] } }
 			{...props} />
 		);
-		(() => TestUtils.findRenderedDOMComponentWithClass(section, 'section')).should.not.throw();
+		(() => TestUtils.findRenderedDOMComponentWithClass(section, 'section--section-node-style')).should.not.throw();
 	});
 
 	it('should not render section component if no content provided', () => {
@@ -41,7 +42,7 @@ describe('SectionNode', () => {
 			content={ null }
 			{...props} />
 		);
-		(() => TestUtils.findRenderedDOMComponentWithClass(section, 'section')).should.throw();
+		(() => TestUtils.findRenderedDOMComponentWithClass(section, 'section--section-node-style')).should.throw();
 	});
 
 	it('should not render section component if content without main attribute provided', () => {
@@ -50,7 +51,7 @@ describe('SectionNode', () => {
 			content={ { main: null } }
 			{...props} />
 		);
-		(() => TestUtils.findRenderedDOMComponentWithClass(section, 'section')).should.throw();
+		(() => TestUtils.findRenderedDOMComponentWithClass(section, 'section--section-node-style')).should.throw();
 	});
 
 	it('should not render section component if content with empty main attribute provided', () => {
@@ -59,6 +60,6 @@ describe('SectionNode', () => {
 			content={ { main: [] } }
 			{...props} />
 		);
-		(() => TestUtils.findRenderedDOMComponentWithClass(section, 'section')).should.throw();
+		(() => TestUtils.findRenderedDOMComponentWithClass(section, 'section--section-node-style')).should.throw();
 	});
 });
