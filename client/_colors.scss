@@ -9,3 +9,6 @@
 @include oColorsSetColor('liveblog-amber', #fd9d00);
 
 @include oColorsSetUseCase('dark-bg', 'background', 'cold-1');
+
+@include oColorsSetUseCase('card', 'background', 'pink');
+@include oColorsSetUseCase('card', 'border', 'warm-3');

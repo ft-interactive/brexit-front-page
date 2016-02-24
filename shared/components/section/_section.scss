@@ -35,9 +35,9 @@
 
 .section__column--content {
 	.section--top-stories & {
-		background-color: getColor('pink');
+		background-color: oColorsGetColorFor('card', 'background');
 		padding-left: 0;
-		border-left: oGridGutter() solid getColor('warm-5');
+		border-left: oGridGutter() solid oColorsGetColorFor('page', 'background');
 
 		@include oGridRespondTo(M) {
 			border-left-width: oGridGutter(M);
@@ -50,7 +50,7 @@
 			height: 1px;
 			left: 0;
 			bottom: oGridGutter();
-			background-color: getColor('pink');
+			background-color: oColorsGetColorFor('card', 'background');
 
 			@include oGridRespondTo(M) {
 				bottom: oGridGutter(M);

@@ -65,7 +65,7 @@
 	.card__tag--authors & {
 		@include nextIcon('quote', getColor('claret'), 16, $icon-only: true);
 		background-repeat: no-repeat;
-		background-position: 0 50%;
+		background-position: 0 2px;
 		background-size: 16px 12px;
 		padding-left: 21px;
 
