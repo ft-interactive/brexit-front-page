@@ -102,7 +102,7 @@ export default [
 			},
 			{
 				type: Column,
-				variant: 'list',
+				isList: true,
 				colspan: { default: 12, XL: 3 },
 				components: [
 					{

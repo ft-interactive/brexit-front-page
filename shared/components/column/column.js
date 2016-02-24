@@ -8,8 +8,8 @@ class Column extends Component {
 			return null;
 		}
 		let className = 'column';
-		if (this.props.variant) {
-			className += ` column--${this.props.variant}`;
+		if (this.props.isList) {
+			className += ` column--list`;
 		}
 
 		const renderComponents = (components) => components.map((component, index) =>
