@@ -27,13 +27,13 @@ describe('SectionNode', () => {
 		}
 	}
 
-	it('should render section component with "section--section-node-style" class if correct data provided', () => {
+	it('should render section component if correct data provided', () => {
 		const section = TestUtils.renderIntoDocument(
 			<SectionNode
 			content={ { main: [''] } }
 			{...props} />
 		);
-		(() => TestUtils.findRenderedDOMComponentWithClass(section, 'section--section-node-style')).should.not.throw();
+		(() => TestUtils.findRenderedDOMComponentWithTag(section, 'section')).should.not.throw();
 	});
 
 	it('should not render section component if no content provided', () => {
@@ -42,7 +42,7 @@ describe('SectionNode', () => {
 			content={ null }
 			{...props} />
 		);
-		(() => TestUtils.findRenderedDOMComponentWithClass(section, 'section--section-node-style')).should.throw();
+		(() => TestUtils.findRenderedDOMComponentWithTag(section, 'section')).should.throw();
 	});
 
 	it('should not render section component if content without main attribute provided', () => {
@@ -51,7 +51,7 @@ describe('SectionNode', () => {
 			content={ { main: null } }
 			{...props} />
 		);
-		(() => TestUtils.findRenderedDOMComponentWithClass(section, 'section--section-node-style')).should.throw();
+		(() => TestUtils.findRenderedDOMComponentWithTag(section, 'section')).should.throw();
 	});
 
 	it('should not render section component if content with empty main attribute provided', () => {
@@ -60,6 +60,15 @@ describe('SectionNode', () => {
 			content={ { main: [] } }
 			{...props} />
 		);
-		(() => TestUtils.findRenderedDOMComponentWithClass(section, 'section--section-node-style')).should.throw();
+		(() => TestUtils.findRenderedDOMComponentWithTag(section, 'section')).should.throw();
+	});
+
+	it('should render section component with "section--section-node-style" class if correct data provided', () => {
+		const section = TestUtils.renderIntoDocument(
+			<SectionNode
+			content={ { main: [''] } }
+			{...props} />
+		);
+		(() => TestUtils.findRenderedDOMComponentWithClass(section, 'section--section-node-style')).should.not.throw();
 	});
 });
