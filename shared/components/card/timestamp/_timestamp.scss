@@ -3,13 +3,13 @@
 	font-size: 13px;
 	line-height: 1em;
 	margin-top: 5px;
-	color: #ac825a;
+	color: oColorsGetColorFor('timestamp', 'text');
 	text-transform: uppercase;
 	font-family: $o-typography-sans;
 	transition: opacity 1s;
 
 	.fast-ft & {
-		color: getColor('fastft-brand');
+		color: oColorsGetColorFor('fast-ft', 'text');
 	}
 
 	.enhanced & {

@@ -31,7 +31,7 @@
 	font-weight: oFontsWeight(semibold);
 	font-size: 16px;
 	line-height: 1em;
-	color: getColor('claret');
+	color: oColorsGetColorFor('topic', 'text');
 
 	.card--main & {
 		font-size: 20px;
@@ -42,16 +42,12 @@
 			content: '';
 			display: block;
 			height: 1px;
-			background-color: getColor('warm-3');
+			background-color: oColorsGetColorFor('card', 'border');
 			width: 100%;
 			position: absolute;
 			top: 50%;
 		}
 	}
-}
-
-.card__tag--authors {
-	color: getColor(claret);
 }
 
 .card__tag__link {
@@ -60,17 +56,18 @@
 	color: inherit;
 	border-bottom: 0;
 	z-index: 1;
-	background-color: getColor('pink');
+	background-color: oColorsGetColorFor('card', 'background');
 
 	.card__tag--authors & {
-		@include nextIcon('quote', getColor('claret'), 16, $icon-only: true);
+		@include nextIcon(quote, oColorsGetColorFor('topic', 'text'), 16, $icon-only: true);
 		background-repeat: no-repeat;
 		background-position: 0 2px;
 		background-size: 16px 12px;
 		padding-left: 21px;
 
-		&:hover {
-			@include nextIcon('quote', getColor('cold-1'), 16, $icon-only: true);
+		&:hover,
+		&:focus {
+			@include nextIcon(quote, oColorsGetColorFor('link-hover', 'text'), 16, $icon-only: true);
 		}
 	}
 
@@ -84,5 +81,5 @@
 	top: 0;
 	right: 0;
 	padding-left: 10px;
-	background-color: getColor('pink');
+	background-color: oColorsGetColorFor('card', 'background');
 }

@@ -15,14 +15,14 @@
 	margin: 0;
 	line-height: 17px;
 	padding: 10px;
-	background-color: getColor('fastft-highlight');
+	background-color: oColorsGetColorFor('fast-ft', 'background');
 }
 .fast-ft__link {
 	display: inline-block;
 	border-bottom: 0;
 }
 .fast-ft__logo--fast {
-	@include nextIcon(brand-fast, getColor('fastft-brand'), 30);
+	@include nextIcon(brand-fast, oColorsGetColorFor('fast-ft', 'text'), 30);
 	background-size: 100% 13px;
 }
 .fast-ft__logo--ft {
