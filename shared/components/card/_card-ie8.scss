@@ -1,6 +1,5 @@
 @import 'image/image-ie8';
 
-
 @each $layout-name in $_o-grid-layout-names {
 	.card[data-show~="#{$layout-name}--true"] {
 		display: block;

@@ -1,5 +1,6 @@
 .card__related-items {
 	@include displayFlex;
+	overflow: hidden;
 	flex: 0 1 auto;
 	-ms-flex-preferred-size: auto;
 	flex-wrap: wrap;
