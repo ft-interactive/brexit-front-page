@@ -63,14 +63,14 @@
 	background-color: getColor('pink');
 
 	.card__tag--authors & {
-		@include nextIcon(pullquote, getColor('claret'), 16, $icon-only: true);
+		@include nextIcon('quote', getColor('claret'), 16, $icon-only: true);
 		background-repeat: no-repeat;
 		background-position: 0 50%;
 		background-size: 16px 12px;
 		padding-left: 21px;
 
 		&:hover {
-			@include nextIcon(pullquote, getColor('cold-1'), 16, $icon-only: true);
+			@include nextIcon('quote', getColor('cold-1'), 16, $icon-only: true);
 		}
 	}
 
