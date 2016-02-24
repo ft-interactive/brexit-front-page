@@ -3,6 +3,7 @@ export default () => ({
 	title: 'Editor\'s Picks',
 	style: 'editors-picks',
 	layoutId: 'editors-picks',
+	trackScrollEvent: true,
 	size: {
 		default: 12
 	},

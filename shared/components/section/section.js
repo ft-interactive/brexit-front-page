@@ -23,12 +23,15 @@ export default class Section extends Component {
 		if (this.props.dynamicContent && this.props.dynamicContent.selected !== 'initial') {
 			trackable += ` | alternate-source | ${getSelectedTitle(this.props.dynamicContent)}`
 		}
+		const sectionClasses = classify([
+			'o-grid-row',
+			this.props.style ? 'section--' + this.props.style : ''
+		]);
 		const sectionContentClasses = classify([
 			'section__column',
 			'section__column--content',
 			this.props.isTab ? 'o-tabs__tabpanel' : ''
 		]);
-
 		const sectionAsideClasses = classify([
 			'section__column',
 			'section__column--sidebar',
@@ -36,7 +39,7 @@ export default class Section extends Component {
 		]);
 
 		return (
-			<section className={`o-grid-row section section--${this.props.style}`} data-trackable={trackable}>
+			<section className={sectionClasses} data-trackable={trackable}>
 				{
 					cols.meta ?
 						<div data-o-grid-colspan={colspan(cols.meta)} className="section__column section__column--meta">

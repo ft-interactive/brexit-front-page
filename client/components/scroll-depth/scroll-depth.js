@@ -1,20 +1,20 @@
 import fireTracking from '../../utils/fire-tracking';
 import throttle from '../../utils/throttle';
-import getDomPath from 'n-instrumentation/src/utils/getDomPath';
 
 const toArray = nodeList => Array.prototype.slice.call(nodeList);
 
-const track = (componentEl, componentPos) =>
-	fireTracking('oTracking.event', { category: 'page', action: 'scrolldepth', componentPos, domPath: getDomPath(componentEl, []) });
+const track = (componentId, componentPos) => {
+	fireTracking('oTracking.event', { category: 'page', action: 'scrolldepth', componentId, componentPos });
+}
 
 const scrollHandlerFactory = () => {
 	const componentsViewed = [];
 	return () => {
-		toArray(document.querySelectorAll('.section'))
+		toArray(document.querySelectorAll('.js-track-scroll-event'))
 			.forEach((component, index) => {
-				const componentId = component.getAttribute('data-trackable');
+				const componentId = component.getAttribute('id');
 				if (component.getBoundingClientRect().top < window.innerHeight && componentsViewed.indexOf(componentId) === -1) {
-					track(component, index + 1);
+					track(componentId, index + 1);
 					componentsViewed.push(componentId);
 				}
 			});

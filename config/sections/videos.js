@@ -4,6 +4,7 @@ export default () => ({
 	title: 'Video',
 	style: 'video',
 	layoutId: 'video',
+	trackScrollEvent: true,
 	size: {
 		default: 12
 	},

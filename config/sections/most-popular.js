@@ -105,6 +105,7 @@ export default ({ flags }) => ({
 		]
 	} : null,
 	layoutId: 'most-popular',
+	trackScrollEvent: true,
 	size: {
 		default: 12
 	},
