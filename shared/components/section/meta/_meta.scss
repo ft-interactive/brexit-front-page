@@ -1,9 +1,19 @@
 .section-meta {
-	padding-top: oGridGutter();
+	margin-top: oGridGutter() * 2;
 	position: relative;
-	overflow: hidden;
+
 	@include oGridRespondTo(M) {
-		padding-top: oGridGutter(M);
+		margin-top: oGridGutter(M) * 2;
+	}
+
+	&:after {
+		content: '';
+		position: absolute;
+		left: 0;
+		top: 50%;
+		height: 1px;
+		width: 100%;
+		background-color: oColorsGetColorFor('card', 'border');
 	}
 }
 
@@ -11,38 +21,24 @@
 	border-bottom: 0;
 }
 
-.section-meta__date {
-	@include oTypographySansBold(m);
-
-	&:nth-child(n+2) {
-		margin-top: 10px;
-	}
-}
-
 .section-meta__title {
 	@include oTypographySerifDisplayBold(s);
+	@include oColorsFor(page, background);
+	line-height: 30px;
 	display: inline-block;
-	margin: 0 10px 0 0;
-	padding: 10px 0 0;
+	margin: 0;
+	padding: 0;
 	color: getColor('cold-3');
-	&--sans-serif {
-		@include oTypographySansDataBold(l);
-		font-size: 20px;
-	}
-	&:after {
-		content: '';
-		position: absolute;
-		margin-left: 10px;
-		height: 1px;
-		border-bottom: 1px solid getColor('warm-3');
-		top: 50%;
-		margin-top: 3px;
-		width: 100%;
+	padding-right: oGridGutter();
+	position: relative;
+	z-index: 1;
+
+	@include oGridRespondTo(M) {
+		padding-right: oGridGutter(M);
 	}
 }
 
 .section-meta__myft-icon {
 	@include nextIcon('myft-bolder', getColor('black'), 60);
-	height: 28px;
-	text-indent: -100px;
+	text-indent: -400px;
 }

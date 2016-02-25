@@ -25,13 +25,13 @@
 }
 
 .card__tag {
+	@include oColorsFor(topic, text);
 	position: relative;
 	margin: 0 0 5px;
 	font-family: $o-typography-sans;
 	font-weight: oFontsWeight(semibold);
 	font-size: 16px;
 	line-height: 1em;
-	color: oColorsGetColorFor('topic', 'text');
 
 	.card--main & {
 		font-size: 20px;
@@ -42,7 +42,7 @@
 			content: '';
 			display: block;
 			height: 1px;
-			background-color: oColorsGetColorFor('card', 'border');
+			background-color: oColorsGetColorFor(card, border);
 			width: 100%;
 			position: absolute;
 			top: 50%;
@@ -51,15 +51,15 @@
 }
 
 .card__tag__link {
+	@include oColorsFor(card, background);
 	display: inline-block;
 	position: relative;
 	color: inherit;
 	border-bottom: 0;
 	z-index: 1;
-	background-color: oColorsGetColorFor('card', 'background');
 
 	.card__tag--authors & {
-		@include nextIcon(quote, oColorsGetColorFor('topic', 'text'), 16, $icon-only: true);
+		@include nextIcon(quote, oColorsGetColorFor(topic, text), 16, $icon-only: true);
 		background-repeat: no-repeat;
 		background-position: 0 2px;
 		background-size: 16px 12px;
@@ -67,19 +67,27 @@
 
 		&:hover,
 		&:focus {
-			@include nextIcon(quote, oColorsGetColorFor('link-hover', 'text'), 16, $icon-only: true);
+			@include nextIcon(quote, oColorsGetColorFor(link-hover, text), 16, $icon-only: true);
 		}
 	}
 
 	.card--main & {
-		padding-right: 10px;
+		padding-right: oGridGutter();
+
+		@include oGridRespondTo(M) {
+			padding-right: oGridGutter(M);
+		}
 	}
 }
 
 .card__tag__follow {
+	@include oColorsFor(card, background);
 	position: absolute;
 	top: 0;
 	right: 0;
-	padding-left: 10px;
-	background-color: oColorsGetColorFor('card', 'background');
+	padding-left: oGridGutter();
+
+	@include oGridRespondTo(M) {
+		padding-left: oGridGutter(M);
+	}
 }

@@ -1,14 +1,13 @@
 // TODO get these back into o-colors on the next branch
-
-
+// colours
 @include oColorsSetColor('fastft-brand', #cf191d);
 @include oColorsSetColor('fastft-highlight', #f5dfd9);
-
-
 @include oColorsSetColor('video-border', rgba(253, 248, 242, 0.4));
 @include oColorsSetColor('liveblog-amber', #fd9d00);
 
+// use cases
 @include oColorsSetUseCase('dark-bg', 'background', 'cold-1');
-
 @include oColorsSetUseCase('fast-ft', 'text', 'fastft-brand');
 @include oColorsSetUseCase('fast-ft', 'background', 'fastft-highlight');
+@include oColorsSetUseCase('related-story', 'background', 'pink-tint1');
+@include oColorsSetUseCase('card-picture-story', 'background', 'pink-tint2');

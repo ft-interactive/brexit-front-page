@@ -8,7 +8,7 @@ $downColour: #ee2f01;
 .markets-data {
 	padding-top: 10px;
 	padding-bottom: 10px;
-	color: getColor('warm-5');
+	color: oColorsGetColorFor(page, background);
 }
 .markets-data__items {
 	float: left;
@@ -55,7 +55,7 @@ $downColour: #ee2f01;
 	}
 }
 .markets-data__item__change {
-	border: 1px solid getColor('warm-5');
+	border: 1px solid oColorsGetColorFor(page, background);
 	border-radius: 3px;
 	margin-top: -2px;
 	padding: 1px 5px;
@@ -90,7 +90,7 @@ $downColour: #ee2f01;
 }
 .markets-data-disclaimer {
 	@include oTypographySansSize(s);
-	color: getColor('pink');
+	color: oColorsGetColorFor(page, background);
 	margin: 10px 0;
 }
 

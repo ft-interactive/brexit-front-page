@@ -27,12 +27,28 @@
 
 .section__column--content {
 	.section--top-stories & {
-		background-color: oColorsGetColorFor('card', 'background');
+		@include oColorsFor(card, background);
 		padding-left: 0;
-		border-left: oGridGutter() solid oColorsGetColorFor('page', 'background');
+		border-left: oGridGutter() solid oColorsGetColorFor(page, background);
 
 		@include oGridRespondTo(M) {
 			border-left-width: oGridGutter(M);
+		}
+
+		&:before {
+			// hide card's top rules
+			@include oColorsFor(card, background);
+			content: '';
+			position: absolute;
+			width: 100%;
+			height: 1px;
+			left: 0;
+			top: oGridGutter() / 2;
+			z-index: 1;
+
+			@include oGridRespondTo(M) {
+				top: oGridGutter(M) / 2;
+			}
 		}
 	}
 }
@@ -43,23 +59,4 @@
 
 .section__column__inner {
 	position: relative;
-	padding-bottom: oGridGutter();
-
-	@include oGridRespondTo(M) {
-		padding-bottom: oGridGutter(M);
-	}
-
-	.section--top-stories &:after {
-		content: '';
-		position: absolute;
-		width: 100%;
-		height: 1px;
-		left: 0;
-		bottom: oGridGutter();
-		background-color: oColorsGetColorFor('card', 'background');
-
-		@include oGridRespondTo(M) {
-			bottom: oGridGutter(M);
-		}
-	}
 }

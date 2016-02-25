@@ -1,10 +1,10 @@
 .card {
 	@include displayFlex;
+	@include oColorsFor(card, background);
 	overflow: visible;
 	position: relative;
-	background-color: oColorsGetColorFor('card', 'background');
 	margin-top: oGridGutter();
-	border-bottom: 1px solid oColorsGetColorFor('card', 'border');
+	border-bottom: 1px solid oColorsGetColorFor(card, border);
 	padding: 10px;
 	flex-direction: column;
 	line-height: 1;
@@ -18,45 +18,42 @@
 		margin-top: oGridGutter(M);
 	}
 
-	.section--top-stories & {
+	.section--top-stories .section__column--content & {
 		border-bottom: 0;
 
-		&:after {
+		&:before {
+			// top rule
 			content: '';
 			position: absolute;
 			height: 1px;
 			left: oGridGutter();
 			right: oGridGutter();
-			bottom: 0;
-			background-color: oColorsGetColorFor('card', 'border');
-		}
+			top: -1 * (oGridGutter() / 2);
+			background-color: oColorsGetColorFor(card, border);
 
-		&.card--picture-story:after {
-			left: 0;
-			right: 0;
+			@include oGridRespondTo(M) {
+				top: -1 * (oGridGutter(M) / 2);
+			}
 		}
 	}
 
 	.column--list & {
 		&:before {
+			opacity: 0.5;
+		}
+
+		&:after {
+			// left rule
 			content: '';
 			position: absolute;
 			width: 1px;
 			right: -1 * (oGridGutter() / 2);
 			top: oGridGutter();
 			bottom: oGridGutter();
-			background-color: oColorsGetColorFor('card', 'border');
+			background-color: oColorsGetColorFor(card, border);
 
 			@include oGridRespondTo(M) {
 				right: -1 * (oGridGutter(M) / 2);
-			}
-		}
-
-		&:after {
-			opacity: 0.5;
-
-			@include oGridRespondTo(M) {
-				opacity: 1;
 			}
 		}
 	}

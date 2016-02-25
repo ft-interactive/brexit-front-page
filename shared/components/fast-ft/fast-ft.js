@@ -15,7 +15,7 @@ class FastFt extends Component {
 				isTransparent: true,
 				show: { default: true, L: index <= 6, XL: index <= 3 }
 			};
-			return <li key={article.id}><Content {...cardProps}/></li>;
+			return <li className="fast-ft__item" key={article.id}><Content {...cardProps}/></li>;
 		});
 		return (
 			<div className="fast-ft-wrapper">

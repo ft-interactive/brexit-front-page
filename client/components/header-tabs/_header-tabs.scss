@@ -49,7 +49,7 @@
 			content: '';
 			width: 100%;
 			height: 5px;
-			background-color: getColor('fastft-brand');
+			background-color: oColorsGetColorFor(fast-ft, text);
 		}
 	}
 }

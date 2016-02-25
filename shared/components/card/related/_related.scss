@@ -32,17 +32,17 @@
 .card__related-item {
 	position: relative;
 	font-family: $o-typography-serif-display;
-	border-left: 10px solid getColor('pink');
+	border-left: 10px solid oColorsGetColorFor(card, background);
 	font-size: 16px;
 	line-height: 18px;
 	margin-top: 5px;
 	padding: 0 0 0 15px;
 
 	.card__related-items--large & {
+		@include oColorsFor(related-story, background);
 		margin-top: 10px;
 		margin-bottom: 5px;
 		padding: 10px 15px;
-		background-color: getColor('pink-tint1');
 		font-size: 20px;
 		line-height: 22px;
 

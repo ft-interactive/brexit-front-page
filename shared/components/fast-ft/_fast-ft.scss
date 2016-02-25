@@ -12,10 +12,10 @@
 }
 
 .fast-ft__logo-outer {
+	@include oColorsFor(fast-ft, background);
 	margin: 0;
 	line-height: 17px;
 	padding: 10px;
-	background-color: oColorsGetColorFor('fast-ft', 'background');
 }
 .fast-ft__link {
 	display: inline-block;
