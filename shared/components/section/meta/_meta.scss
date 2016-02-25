@@ -13,7 +13,7 @@
 		top: 50%;
 		height: 1px;
 		width: 100%;
-		background-color: oColorsGetColorFor('card', 'border');
+		background-color: oColorsGetColorFor(card, border);
 	}
 }
 
@@ -40,5 +40,5 @@
 
 .section-meta__myft-icon {
 	@include nextIcon('myft-bolder', getColor('black'), 60);
-	text-indent: -400px;
+	text-indent: -9999px;
 }

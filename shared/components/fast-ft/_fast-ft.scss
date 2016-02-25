@@ -22,7 +22,7 @@
 	border-bottom: 0;
 }
 .fast-ft__logo--fast {
-	@include nextIcon(brand-fast, oColorsGetColorFor('fast-ft', 'text'), 30);
+	@include nextIcon(brand-fast, oColorsGetColorFor(fast-ft, text), 30);
 	background-size: 100% 13px;
 }
 .fast-ft__logo--ft {

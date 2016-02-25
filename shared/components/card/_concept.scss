@@ -114,11 +114,11 @@
 }
 
 .card__concept-article__link {
+	@include oColorsFor(link-hover, text);
 	font-family: $o-typography-serif-display;
 	font-weight: oFontsWeight(light);
 	font-size: 18px;
 	line-height: 20px;
-	color: oColorsGetColorFor('link-hover', 'text');
 	border-bottom-width: 0;
 	margin-top: 8px;
 

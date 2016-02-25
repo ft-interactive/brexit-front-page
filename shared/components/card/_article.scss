@@ -52,7 +52,7 @@
 }
 
 .card--picture-story {
-	background-color: oColorsGetColorFor('card-picture-story', 'background');
+	@include oColorsFor(card-picture-story, background);
 }
 
 .liveblog__badge {
