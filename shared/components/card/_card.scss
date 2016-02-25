@@ -1,11 +1,10 @@
 .card {
 	@include displayFlex;
 	@include oColorsFor(card, background);
-	overflow: visible;
 	position: relative;
 	margin-top: oGridGutter();
 	border-bottom: 1px solid oColorsGetColorFor(card, border);
-	padding: 10px;
+	padding: oGridGutter();
 	flex-direction: column;
 	line-height: 1;
 	flex: 1 1 auto;
@@ -33,27 +32,6 @@
 
 			@include oGridRespondTo(M) {
 				top: -1 * (oGridGutter(M) / 2);
-			}
-		}
-	}
-
-	.column--list & {
-		&:before {
-			opacity: 0.5;
-		}
-
-		&:after {
-			// left rule
-			content: '';
-			position: absolute;
-			width: 1px;
-			right: -1 * (oGridGutter() / 2);
-			top: oGridGutter();
-			bottom: oGridGutter();
-			background-color: oColorsGetColorFor(card, border);
-
-			@include oGridRespondTo(M) {
-				right: -1 * (oGridGutter(M) / 2);
 			}
 		}
 	}
