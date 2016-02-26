@@ -1,7 +1,7 @@
 import chai from 'chai';
 import httpMocks from 'node-mocks-http';
 
-import poller from '../../../server/libs/graphql-poller';
+import * as poller from '../../../server/libs/graphql-poller';
 import sinon from 'sinon';
 import frontPage from '../../../server/routes/front-page';
 
@@ -13,19 +13,14 @@ describe('Front Page Controller', () => {
 	let request;
 	let response;
 	let next;
-
-
-	let flags = {
-
-	};
-
-	function createInstance (params, flags) {
+	let flags = { };
+	const createInstance = (params, flags) => {
 		next = sinon.stub();
 		request = httpMocks.createRequest(params);
 		response = httpMocks.createResponse();
 		response.locals = { flags: flags || {} };
 		return frontPage('uk')(request, response, next);
-	}
+	};
 
 	afterEach(() => {
 		poller.getData.restore();
@@ -47,7 +42,6 @@ describe('Front Page Controller', () => {
 			lifestyle: { items: ['a'] },
 			videos: { items: ['a'] }
 		}));
-
 		createInstance(null, flags);
 
 		expect(next.callCount).to.equal(0);
