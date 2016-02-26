@@ -31,7 +31,7 @@
 			background-color: oColorsGetColorFor(card, border);
 
 			@include oGridRespondTo(M) {
-				top: -1 * (oGridGutter(M) / 2);
+				top: -1 * (ceil(oGridGutter(M) / 2));
 			}
 		}
 	}
