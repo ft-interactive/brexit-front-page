@@ -54,9 +54,9 @@
 	}
 
 	#top-stories &:before {
+		@include oColorsFor(page, background);
 		height: oGridGutter();
 		top: 0;
-		@include oColorsFor(page, background);
 
 		@include oGridRespondTo(M) {
 			height: oGridGutter(M);
