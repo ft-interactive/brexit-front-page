@@ -14,9 +14,9 @@
 		z-index: 1;
 
 		@include oGridRespondTo(M) {
-			left: oGridGutter(M) / 2;
-			top: oGridGutter(M) / 2;
-			bottom: oGridGutter(M) / 2;
+			left: floor(oGridGutter(M) / 2);
+			top: floor(oGridGutter(M) / 2);
+			bottom: floor(oGridGutter(M) / 2);
 		}
 	}
 
@@ -82,6 +82,6 @@
 
 	@include oGridRespondTo(M) {
 		left: oGridGutter(M) + oGridGutter();
-		top: oGridGutter(M) / 2;
+		top: floor(oGridGutter(M) / 2);
 	}
 }
