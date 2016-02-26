@@ -36,3 +36,11 @@ $o-grid-ie8-rules: 'only';
 .o-header__membership-promo-container {
 	display: none;
 }
+
+// Prevents background being hidden in right x-overflow area when browser window narrower than 1220px
+.o-header-before,
+.o-header,
+.n-welcome,
+.o-footer {
+	min-width: 1220px;
+}
