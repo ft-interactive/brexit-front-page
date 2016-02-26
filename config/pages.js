@@ -4,7 +4,6 @@ const pages = {
 	// ordered list of sections for the front page
 	'front-page': [
 		'top-stories',
-		'top-stories-more',
 		'mid-page-advert-1',
 		'opinion',
 		'myft',
@@ -19,9 +18,11 @@ const pages = {
 };
 
 export default (pageId, sectionsContent, flags) => {
-	//if (flags.frontPageMoreTopStories && pageId === 'front-page') {
-	//	pages['front-page'].splice(1, 'top-stories-more');
-	//}
+	// NOTE: need to copy array, so we don't keep inserting 'top-stories-more' into it
+	const page = pages[pageId].slice();
+	if (flags.frontPageMoreTopStories && pageId === 'front-page') {
+		page.splice(1, 0, 'top-stories-more');
+	}
 
-	return pages[pageId].map(sectionId => getSection(sectionId, sectionsContent[sectionId], flags));
+	return page.map(sectionId => getSection(sectionId, sectionsContent[sectionId], flags));
 }

@@ -1,5 +1,5 @@
 export default () => ({
-	id: 'top-stories',
+	id: 'top-stories-more',
 	title: 'More Top Stories',
 	style: 'top-stories',
 	layoutId: 'top-stories-more',

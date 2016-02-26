@@ -34,7 +34,7 @@ const createImageComponentAttrs = (taxonomy, items, isFollowing) => {
 	const attrs = {
 		url: getConceptImage(taxonomy, items),
 		imgClass: 'card__concept-image',
-		srcset: { default: 449, s: 659, m: 199, l: 259, xl: 322 }
+		srcset: { default: 449, s: 659, m: 277, l: 259, xl: 322 }
 	};
 	if (!isFollowing) {
 		attrs.imageServiceParams = {

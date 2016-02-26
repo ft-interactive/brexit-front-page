@@ -39,9 +39,20 @@ const getTopStoriesData = (data, flags = {}) => {
 };
 
 export default (data, flags) => ({
-	['top-stories']: getTopStoriesData(data, flags),
-	['top-stories-more']: {
-		main: getTopStoriesData(data, flags).main.slice(-4)
+	'top-stories': getTopStoriesData(data, flags),
+	'top-stories-more': {
+		main: (() => {
+			const topStories = getTopStoriesData(data, flags);
+			let moreStoriesOffset;
+			if (topStories.layoutHint === 'bigstory') {
+				moreStoriesOffset = 6;
+			} else if (topStories.layoutHint === 'standaloneimage') {
+				moreStoriesOffset = 9;
+			} else {
+				moreStoriesOffset = 8;
+			}
+			return topStories.main.slice(moreStoriesOffset);
+		})()
 	},
 	opinion: {
 		main: data.frontPage.opinion.items
@@ -49,16 +60,16 @@ export default (data, flags) => ({
 	myft: {
 		main: data.popularTopics && data.popularTopics.popularTopics
 	},
-	['mid-page-advert-1']: {
+	'mid-page-advert-1': {
 		main: ['no-content-needed'] //HACK: Section component requires everything to have content so hack in some fake stuff
 	},
-	['mid-page-advert-2']: {
+	'mid-page-advert-2': {
 		main: ['no-content-needed'] //HACK: Section component requires everything to have content so hack in some fake stuff
 	},
-	['editors-picks']: {
+	'editors-picks': {
 		main: data.frontPage.editorsPicks.items
 	},
-	['most-popular']: {
+	'most-popular': {
 		main: data.frontPage.popularArticles
 	},
 	technology: {
@@ -67,7 +78,7 @@ export default (data, flags) => ({
 	markets: {
 		main: data.frontPage.markets.items
 	},
-	['life-and-arts']: {
+	'life-and-arts': {
 		main: data.frontPage.lifestyle.items
 	},
 	videos: {

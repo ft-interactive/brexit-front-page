@@ -88,7 +88,7 @@
 	position: absolute;
 	display: block;
 	top: 0;
-	width: 100%;
+	max-width: 100%;
 	opacity: 0.5;
 
 	.card--followed-concept & {

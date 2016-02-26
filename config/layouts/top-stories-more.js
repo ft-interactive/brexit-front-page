@@ -8,12 +8,25 @@ export default [
 		components: [
 			{
 				type: Column,
-				colspan: { default: 12, M: 3 },
+				colspan: { default: 12, M: 3, XL: 'hide' },
 				components: [
 					{
 						type: Content,
-						size: 'medium',
-						showStandfirst: true
+						size: 'small',
+						hideTag: true,
+						show: { default: true, XL: false }
+					}
+				]
+			},
+			{
+				type: Column,
+				colspan: { default: 12, M: 3, XL: 'hide' },
+				components: [
+					{
+						type: Content,
+						size: 'small',
+						hideTag: true,
+						show: { default: true, XL: false }
 					}
 				]
 			},
@@ -23,8 +36,8 @@ export default [
 				components: [
 					{
 						type: Content,
-						size: 'medium',
-						showStandfirst: true
+						size: 'small',
+						hideTag: true
 					}
 				]
 			},
@@ -34,8 +47,8 @@ export default [
 				components: [
 					{
 						type: Content,
-						size: 'medium',
-						showStandfirst: true
+						size: 'small',
+						hideTag: true
 					}
 				]
 			},
@@ -45,8 +58,21 @@ export default [
 				components: [
 					{
 						type: Content,
-						size: 'medium',
-						showStandfirst: true
+						size: 'small',
+						hideTag: true,
+						show: { default: false, XL: true }
+					}
+				]
+			},
+			{
+				type: Column,
+				colspan: { default: 12, M: 3 },
+				components: [
+					{
+						type: Content,
+						size: 'small',
+						hideTag: true,
+						show: { default: false, XL: true }
 					}
 				]
 			}
