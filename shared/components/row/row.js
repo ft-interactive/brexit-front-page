@@ -1,12 +1,10 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 
-class Row extends Component {
-
+export default class extends Component {
 	render () {
 		if (!this.props.components) {
 			return null;
 		}
-
 		const renderComponents = (components) => components.map((component, index) =>
 			<component.type {...component} items={this.props.items} key={`row-child_${index}`} />
 		);
@@ -18,5 +16,3 @@ class Row extends Component {
 		);
 	}
 }
-
-export default Row;

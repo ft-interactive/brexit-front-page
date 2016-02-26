@@ -1,4 +1,3 @@
-
 const requestAnimationFrame = (fn, args) => {
 	if (window.requestAnimationFrame) {
 		window.requestAnimationFrame(() => fn.apply(null, args));
@@ -7,7 +6,7 @@ const requestAnimationFrame = (fn, args) => {
 	}
 };
 
-module.exports = (fn, threshold) => {
+export default (fn, threshold) => {
 	let lastFired;
 	let timer;
 

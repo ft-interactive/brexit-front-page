@@ -1,6 +1,5 @@
 import { getData } from '../libs/graphql-poller';
 import sectionContent from '../libs/section-content';
-
 import Section from '../../shared/components/section/section';
 import getPage from '../../config/pages';
 
@@ -9,7 +8,7 @@ const contentMissing = (data) => {
 	return !(data && data.top && data.topStory) || data.top.items.length < 1|| data.topStory.items.length < 1 ;
 };
 
-export default (region) => (req, res) => {
+export default region => (req, res) => {
 	const frontPageData = res.locals.flags.mockFrontPage ? 'mockFrontPage' : `frontPage${region}`;
 
 	const data = {
@@ -61,4 +60,4 @@ export default (region) => (req, res) => {
 	}
 
 	res.render('front-page', renderParams);
-};
+}

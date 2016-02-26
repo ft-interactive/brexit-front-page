@@ -1,6 +1,7 @@
 import Poller from 'ft-poller';
-import queries from '../../config/queries';
 import logger from '@financial-times/n-logger';
+
+import queries from '../../config/queries';
 
 let queryResults = {
 	frontPageUK: {
@@ -68,28 +69,25 @@ const pollData = (query, name, flags = {}) => {
 
 };
 
-module.exports = {
-	start: () => {
-
-		if(!readyPromise) {
-			readyPromise = Promise.all([
-				pollData(queries.frontPage('UK'), 'frontPageUK').start({ initialRequest: true}),
-				pollData(queries.frontPage('US'), 'frontPageUS').start({ initialRequest: true}),
-				pollData(queries.fastFT, 'fastFT').start({ initialRequest: true}),
-				pollData(queries.popularTopics, 'popularTopics').start({ initialRequest: true}),
-				pollData(queries.frontPage('UK'), 'mockFrontPage', { mockFrontPage: true }).start({ initialRequest: true})
+const start = () => {
+	if (!readyPromise) {
+		readyPromise = Promise.all([
+				pollData(queries.frontPage('UK'), 'frontPageUK').start({ initialRequest: true }),
+				pollData(queries.frontPage('US'), 'frontPageUS').start({ initialRequest: true }),
+				pollData(queries.fastFT, 'fastFT').start({ initialRequest: true }),
+				pollData(queries.popularTopics, 'popularTopics').start({ initialRequest: true }),
+				pollData(queries.frontPage('UK'), 'mockFrontPage', { mockFrontPage: true }).start({ initialRequest: true })
 			])
-			.catch((e) => {
+			.catch(e => {
 				logger.error(e);
 				throw e;
 			});
-		}
-		return readyPromise;
-	},
-	getData: function (type) {
-		return queryResults[type].data;
-	},
-	getLastFetchedTime: function (type) {
-		return queryResults[type].lastUpdated;
 	}
+	return readyPromise;
 };
+
+const getData = type => queryResults[type].data;
+
+const getLastFetchedTime = type => queryResults[type].lastUpdated;
+
+export { start, getData, getLastFetchedTime }

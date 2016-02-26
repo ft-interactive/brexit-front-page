@@ -6,13 +6,12 @@ import path from 'path';
 import express from 'ft-next-express';
 import nHealth from 'n-health';
 
-import additionalHealthChecks from './libs/health-checks/index';
+import * as additionalHealthChecks from './libs/health-checks/index';
 import { start as startPolling } from './libs/graphql-poller';
 import colspan from '../client/utils/colspan';
 
 // routes
 import frontPage from './routes/front-page';
-import fastft from './routes/fastft';
 
 const healthChecks = nHealth(path.resolve(__dirname, './config/health-checks'), additionalHealthChecks);
 const app = express({
@@ -49,14 +48,10 @@ app.get('/', (req, res) => {
 
 // app routes
 app.get('/front-page', frontPage('UK'));
-app.get('/international', frontPage('US'));
 app.get('/uk', frontPage('UK'));
-
-app.get(/\/(__)?home\/fastft\.json/, fastft);
+app.get('/international', frontPage('US'));
 
 const listen = app.listen(process.env.PORT || 3001);
 
-export default {
-	app,
-	listen
-};
+export default app
+export { listen }

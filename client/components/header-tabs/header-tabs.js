@@ -2,7 +2,7 @@ import oTabs from 'o-tabs';
 
 const toArray = els => [].slice.apply(els);
 
-const init = () => {
+export default () => {
 	oTabs.init();
 	document.querySelector('.header-tabs').addEventListener('oTabs.tabSelect', ev => {
 		const sectionEls = toArray(document.querySelectorAll(
@@ -14,6 +14,4 @@ const init = () => {
 			sectionEls.forEach(panelEl => panelEl.removeAttribute('aria-hidden'));
 		}
 	});
-};
-
-export default init
+}

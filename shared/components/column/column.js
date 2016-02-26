@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
+
 import colspanToString from '../../../client/utils/colspan';
 
-class Column extends Component {
-
+export default class extends Component {
 	render () {
 		if (!this.props.components) {
 			return null;
@@ -11,7 +11,6 @@ class Column extends Component {
 		if (this.props.isList) {
 			className += ` column--list`;
 		}
-
 		const renderComponents = (components) => components.map((component, index) =>
 			<component.type {...component} items={this.props.items} key={`column-child_${index}`} />
 		);
@@ -23,5 +22,3 @@ class Column extends Component {
 		);
 	}
 }
-
-export default Column;

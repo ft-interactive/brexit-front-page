@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-
 import Image from 'n-image';
 import Follow from 'next-myft-ui/templates/follow';
 

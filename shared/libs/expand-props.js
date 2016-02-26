@@ -10,7 +10,7 @@ const cardPropDefaults = {
 	show: { default: true }
 };
 
-const expandToAllLayouts = (property) => {
+const expandToAllLayouts = property => {
 	const prop = Object.assign({}, property);
 	layoutNames.reduce((largestValue, layoutName) => {
 		if (typeof prop[layoutName] === 'undefined') {
@@ -19,12 +19,13 @@ const expandToAllLayouts = (property) => {
 			return prop[layoutName];
 		}
 	}, prop.default);
+
 	return prop;
-}
+};
 
 // Public: expands Card props to produce props for individual card elements
 // (e.g. Tag, Title, ...)
-const expandProps = (props) => {
+export default props => {
 	const expandedProps = {};
 	const item = props.item || {};
 	props = Object.assign({}, cardPropDefaults, props);
@@ -33,7 +34,7 @@ const expandProps = (props) => {
 	expandedProps.showStandFirst = expandToAllLayouts(props.standfirst);
 	expandedProps.last = props.last;
 
-	if(['large', 'huge'].indexOf(props.size) >= 0 && !item.primaryImage) {
+	if (['large', 'huge'].indexOf(props.size) >= 0 && !item.primaryImage) {
 		expandedProps.size = 'large-no-image';
 	} else {
 		expandedProps.size = props.size;
@@ -41,5 +42,3 @@ const expandProps = (props) => {
 
 	return Object.assign({}, props, expandedProps);
 };
-
-export default expandProps;

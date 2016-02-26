@@ -1,11 +1,9 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import Content from '../content/content';
 
-class FastFt extends Component {
+export default class extends Component {
 	render () {
-
 		const items = this.props.articles.filter(article => !!article.title).slice(0, 20);
-
 		const articleEls = items.map((article, index) => {
 			const cardProps = {
 				items: items,
@@ -17,6 +15,7 @@ class FastFt extends Component {
 			};
 			return <li className="fast-ft__item" key={article.id}><Content {...cardProps}/></li>;
 		});
+
 		return (
 			<div className="fast-ft-wrapper">
 				<div className="fast-ft">
@@ -35,5 +34,3 @@ class FastFt extends Component {
 		);
 	}
 }
-
-export default FastFt;

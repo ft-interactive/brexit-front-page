@@ -67,7 +67,7 @@ const regionalSecurities = {
 	]
 };
 
-const init = (flags) => {
+export default flags => {
 	if (!flags.get('frontPageHeaderMarketsData')) {
 		return;
 	}
@@ -126,8 +126,4 @@ const init = (flags) => {
 				throw err;
 			});
 		});
-};
-
-export default {
-	init
 }

@@ -30,10 +30,10 @@ setup.bootstrap(({flags}) => {
 	oDate.init();
 	prompts.init();
 	highlightDomPath();
-	scrollDepth.init(flags);
+	scrollDepth(flags);
 	myFtUi.init({ anonymous: !(/FTSession=/.test(document.cookie)) });
-	marketsData.init(flags);
+	marketsData(flags);
 	headerTabs();
-	myft.loadSection(myftClient, flags);
+	myft(myftClient, flags);
 	mostPopular(flags);
 });

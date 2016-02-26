@@ -1,4 +1,4 @@
-module.exports = (name, data, el = document.body) => {
+export default (name, data, el = document.body) => {
 	const event = (() => {
 		try {
 			return new CustomEvent(name, { bubbles: true, cancelable: true, detail: data });
@@ -6,6 +6,5 @@ module.exports = (name, data, el = document.body) => {
 			return CustomEvent.initCustomEvent(name, true, true, data);
 		}
 	})();
-
 	el.dispatchEvent(event);
-};
+}

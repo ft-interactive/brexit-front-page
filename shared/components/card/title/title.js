@@ -1,10 +1,10 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 
 /**
  * @param {string} title
  * @param {string} url
  */
-export default class Title extends Component {
+export default class extends Component {
 	render () {
 		return (
 			<h2 className="card__title">
