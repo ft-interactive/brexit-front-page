@@ -4,6 +4,8 @@
 
 const dedupe = (item, index, items) => !item.id || items.findIndex(otherItem => otherItem.id === item.id) === index;
 
+const removeArticles = (articles, article) => !articles.find(a => a.id === article.id);
+
 const getTopStoriesData = (data, flags = {}) => {
 	let main = data.frontPage.topStory.items.concat(data.frontPage.top.items.slice(1));
 	let layoutHint = flags.frontPageMultipleLayouts ? data.frontPage.topStoriesList.layoutHint : 'standard';
@@ -21,6 +23,8 @@ const getTopStoriesData = (data, flags = {}) => {
 				// Big story takes the first story from the list, with the next three as related
 				const bigStory = data.frontPage.topStoriesList.items[0];
 				bigStory.relatedContent = data.frontPage.topStoriesList.items.slice(1, 4);
+				// remove the related content from the list of articles
+				main = main.filter(removeArticles.bind(null, bigStory.relatedContent));
 				main.unshift(bigStory);
 			}
 		} else {
