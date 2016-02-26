@@ -67,12 +67,11 @@ export default [
 			},
 			{
 				type: Column,
-				condensed: true,
+				isList: true,
 				colspan: { default: 12, XL: 3 },
 				components: [
 					{
 						type: Row,
-						isCompact: true,
 						components: [
 							{
 								type: Column,

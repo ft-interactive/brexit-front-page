@@ -25,7 +25,7 @@ export default class SectionContent extends Component {
 		components.reduce(assignContentId, 0);
 
 		return (
-			<div>
+			<div className="section__column__inner">
 				{renderComponents(this.props.id, components, items)}
 			</div>
 		)

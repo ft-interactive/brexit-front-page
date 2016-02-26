@@ -51,9 +51,9 @@
 	}
 
 	.card--followed-concept & {
+		@include oColorsFor(topic, text);
 		font-size: 16px;
 		line-height: 1em;
-		color: getColor('claret');
 		padding: 10px 100px 0 0;
 		min-height: 26px;
 	}
@@ -114,11 +114,11 @@
 }
 
 .card__concept-article__link {
+	@include oColorsFor(link-hover, text);
 	font-family: $o-typography-serif-display;
 	font-weight: oFontsWeight(light);
 	font-size: 18px;
 	line-height: 20px;
-	color: getColor('cold-1');
 	border-bottom-width: 0;
 	margin-top: 8px;
 

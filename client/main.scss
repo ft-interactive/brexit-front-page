@@ -50,6 +50,14 @@ html {
 	min-height: 0;
 }
 
+.n-welcome--bar {
+	margin-top: oGridGutter();
+
+	@include oGridRespondTo(M) {
+		margin-top: oGridGutter(M);
+	}
+}
+
 .next-header__logo {
 	line-height: 1.3;
 }

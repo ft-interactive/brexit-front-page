@@ -1,11 +1,10 @@
 .card {
 	@include displayFlex;
-	overflow: hidden;
+	@include oColorsFor(card, background);
 	position: relative;
-	background-color: getColor('pink');
 	margin-top: oGridGutter();
-	border-bottom: 1px solid getColor('warm-3');
-	padding: 10px;
+	border-bottom: 1px solid oColorsGetColorFor(card, border);
+	padding: oGridGutter();
 	flex-direction: column;
 	line-height: 1;
 	flex: 1 1 auto;
@@ -18,63 +17,31 @@
 		margin-top: oGridGutter(M);
 	}
 
+	.section--top-stories .section__column--content & {
+		border-bottom: 0;
+
+		&:before {
+			// top rule
+			content: '';
+			position: absolute;
+			height: 1px;
+			left: oGridGutter();
+			right: oGridGutter();
+			top: -1 * (oGridGutter() / 2);
+			background-color: oColorsGetColorFor(card, border);
+
+			@include oGridRespondTo(M) {
+				top: -1 * (oGridGutter(M) / 2);
+			}
+		}
+	}
+
 	&[data-show~="false"] {
 		display: none;
 	}
 
 	.fast-ft & {
 		margin-top: 0;
-	}
-
-	.column--condensed & {
-		margin-top: 0;
-		border-bottom: 0;
-		position: relative;
-
-		@include oGridRespondTo(XL) {
-			justify-content: center;
-		}
-
-		&:after {
-			content: '';
-			position: absolute;
-			left: 5%;
-			bottom: 0;
-			width: 90%;
-			border: 0 solid getColor('warm-3');
-			border-bottom-width: 1px;
-			opacity: 0.5;
-
-			@include oGridRespondTo(M) {
-				left: auto;
-				width: auto;
-				top: 10%;
-				right: 0;
-				height: 80%;
-				border-bottom-width: 0;
-				border-right-width: 1px;
-			}
-
-			@include oGridRespondTo(XL) {
-				left: 5%;
-				top: auto;
-				bottom: 0;
-				width: 90%;
-				border-right-width: 0;
-				border-bottom-width: 1px;
-				height: 0;
-			}
-		}
-	}
-
-	.column--condensed .column:last-child &:after {
-		border: 0;
-	}
-
-	.column--condensed .column:nth-child(n+4) &:after {
-		@include oGridRespondTo($until: XL) {
-			border: 0;
-		}
 	}
 }
 

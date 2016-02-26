@@ -7,7 +7,6 @@
 @import "../fast-ft/fast-ft";
 @import "../column/column";
 
-
 .section--video {
 	.core & {
 		display: none;
@@ -24,17 +23,43 @@
 			display: block;
 		}
 	}
+}
 
-	& > * {
-		width: 100%;
+.section__column--content {
+	.section--top-stories & {
+		@include oColorsFor(card, background);
+		padding-left: 0;
 		padding-bottom: oGridGutter();
+		border-left: oGridGutter() solid oColorsGetColorFor(page, background);
+		overflow: hidden;
 
 		@include oGridRespondTo(M) {
+			border-left-width: oGridGutter(M);
 			padding-bottom: oGridGutter(M);
+		}
+
+		&:before {
+			// hide cards' top rules
+			@include oColorsFor(card, background);
+			content: '';
+			position: absolute;
+			width: 100%;
+			height: 1px;
+			left: 0;
+			top: oGridGutter() / 2;
+			z-index: 1;
+
+			@include oGridRespondTo(M) {
+				top: oGridGutter(M) / 2;
+			}
 		}
 	}
 }
 
 .section__column--sidebar {
 	flex-direction: column;
+}
+
+.section__column__inner {
+	position: relative;
 }

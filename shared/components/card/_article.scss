@@ -24,8 +24,8 @@
 
 	.card__footer {
 		@include oTypographySans(xs);
+		@include oColorsFor(timestamp, text);
 		text-transform: uppercase;
-		color: oColorsGetColorFor('timestamp', 'text');
 		margin-top: 10px;
 
 
@@ -52,7 +52,7 @@
 }
 
 .card--picture-story {
-	background-color: getColor('pink-tint2');
+	@include oColorsFor(card-picture-story, background);
 }
 
 .liveblog__badge {
