@@ -1,7 +1,7 @@
 import chai from 'chai';
 const expect = chai.expect;
 
-import expandProps from '../../../../shared/libs/expandProps';
+import expandProps from '../../../../shared/libs/expand-props';
 
 describe('Card props expansion rules', () => {
 	const inProps = {

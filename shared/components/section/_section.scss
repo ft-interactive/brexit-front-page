@@ -29,13 +29,11 @@
 	.section--top-stories & {
 		@include oColorsFor(card, background);
 		padding-left: 0;
-		padding-bottom: oGridGutter();
 		border-left: oGridGutter() solid oColorsGetColorFor(page, background);
 		overflow: hidden;
 
 		@include oGridRespondTo(M) {
 			border-left-width: oGridGutter(M);
-			padding-bottom: oGridGutter(M);
 		}
 
 		&:before {
@@ -53,6 +51,10 @@
 				top: oGridGutter(M) / 2;
 			}
 		}
+	}
+
+	#top-stories-more &:before {
+		display: none;
 	}
 }
 

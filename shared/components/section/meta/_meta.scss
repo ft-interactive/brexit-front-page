@@ -38,6 +38,15 @@
 	}
 }
 
+.section-meta__title--sans-serif {
+	@include oTypographySansDataBold(l);
+	font-size: 20px;
+}
+
+.section-meta__link--myft-logo {
+	border-bottom: 0;
+}
+
 .section-meta__myft-icon {
 	@include nextIcon('myft-bolder', getColor('black'), 60);
 	text-indent: -9999px;

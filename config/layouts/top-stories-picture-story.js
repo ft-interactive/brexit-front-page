@@ -111,55 +111,56 @@ export default [
 							//Column 0
 							{
 								type: Column,
-								colspan: { default: 12, M: 3, XL: 12 },
+								colspan: { default: 12, M: 4, XL: 12 },
 								components: [
 									{
 										type: Content,
-										size: 'small',
+										size: 'medium',
 										hideTag: true
 									}
 								]
 							},
 							{
 								type: Column,
-								colspan: { default: 12, M: 3, XL: 12 },
+								colspan: { default: 12, M: 4, XL: 12 },
 								components: [
 									{
 										type: Content,
-										size: 'small',
+										size: 'medium',
 										hideTag: true
 									}
 								]
 							},
 							{
 								type: Column,
-								colspan: { default: 12, M: 3, XL: 12 },
+								colspan: { default: 12, M: 4, XL: 12 },
 								components: [
 									{
 										type: Content,
-										size: 'small',
+										size: 'medium',
 										hideTag: true
 									}
 								]
 							},
 							{
 								type: Column,
-								colspan: { default: 12, M: 3, XL: 12 },
+								colspan: { default: 12 },
 								components: [
 									{
 										type: Content,
-										size: 'small',
-										hideTag: true
+										size: 'medium',
+										hideTag: true,
+										show: { default: false, XL: true }
 									}
 								]
 							},
 							{
 								type: Column,
-								colspan: { default: 12, M: 3, XL: 12 },
+								colspan: { default: 12 },
 								components: [
 									{
 										type: Content,
-										size: 'small',
+										size: 'medium',
 										hideTag: true,
 										show: { default: false, XL: true }
 									}

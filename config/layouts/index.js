@@ -5,9 +5,10 @@ import myftLayout from './myft';
 import midPageAdvertLayout from './mid-page-advert';
 import opinionLayout from './opinion';
 import topStoriesLayout from './top-stories';
-import topStoriesLandscapeLayout from './top-stories-landscape';
-import topStoriesPictureStoryLayout from './top-stories-picture-story';
 import topStoriesBigStoryLayout from './top-stories-big-story';
+import topStoriesLandscapeLayout from './top-stories-landscape';
+import topStoriesMoreLayout from './top-stories-more';
+import topStoriesPictureStoryLayout from './top-stories-picture-story';
 import VideoLayout from './video';
 
 export default {
@@ -18,8 +19,9 @@ export default {
 	'mid-page-advert': midPageAdvertLayout,
 	'opinion': opinionLayout,
 	'top-stories': topStoriesLayout,
-	'top-stories-landscape': topStoriesLandscapeLayout,
-	'top-stories-picture-story': topStoriesPictureStoryLayout,
 	'top-stories-big-story': topStoriesBigStoryLayout,
+	'top-stories-landscape': topStoriesLandscapeLayout,
+	'top-stories-more': topStoriesMoreLayout,
+	'top-stories-picture-story': topStoriesPictureStoryLayout,
 	'video': VideoLayout
 }
