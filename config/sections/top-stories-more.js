@@ -4,7 +4,9 @@ export default () => ({
 	style: 'top-stories',
 	layoutId: 'top-stories-more',
 	size: {
-		default: 12
+		default: 12,
+		L: 8,
+		XL: 9
 	},
 	cols: {
 		content: {
