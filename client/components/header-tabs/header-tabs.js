@@ -2,7 +2,11 @@ import oTabs from 'o-tabs';
 
 const toArray = els => [].slice.apply(els);
 
-export default () => {
+export default flags => {
+	if (flags.get('frontPageFastFTJourney')) {
+		return;
+	}
+
 	oTabs.init();
 	document.querySelector('.header-tabs').addEventListener('oTabs.tabSelect', ev => {
 		const sectionEls = toArray(document.querySelectorAll(
