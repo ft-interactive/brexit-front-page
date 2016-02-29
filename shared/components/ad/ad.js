@@ -1,7 +1,8 @@
-import React, {Component} from 'react';
-import {responsiveValue} from './../../libs/helpers';
+import React, { Component } from 'react';
 
-class Ad extends Component {
+import { responsiveValue } from './../../libs/helpers';
+
+export default class extends Component {
 	render () {
 		const attrs = {
 			'data-trackable': ' ad'
@@ -26,5 +27,3 @@ class Ad extends Component {
 		);
 	}
 }
-
-export default Ad;

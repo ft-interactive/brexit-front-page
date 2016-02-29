@@ -1,5 +1,3 @@
 import GraphQlCheck from './graphql';
 
-export default {
-	graphQl: GraphQlCheck
-}
+export { GraphQlCheck as graphQl }

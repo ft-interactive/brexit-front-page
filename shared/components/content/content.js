@@ -1,4 +1,4 @@
-import React, { Component} from 'react';
+import React, { Component } from 'react';
 
 import ArticleCard from '../card/article';
 import ConceptCard from '../card/concept';
@@ -90,13 +90,14 @@ const getData = (item, opts) => {
 	return data;
 };
 
-class Content extends Component {
+export default class extends Component {
 	render () {
 		const item = this.props.items[typeof this.props.itemIndex !== 'undefined' ? this.props.itemIndex : this.props.id];
 		if (!item) {
 			return null;
 		}
 		const data = getData(item, this.props);
+
 		switch (data.type) {
 			case 'video':
 				return <VideoCard {...data} />;
@@ -107,5 +108,3 @@ class Content extends Component {
 		}
 	}
 }
-
-export default Content;

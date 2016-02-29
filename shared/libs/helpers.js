@@ -52,9 +52,4 @@ const responsiveValue = (value, allValues = false) => {
 	return responsiveClass('', value, allValues);
 };
 
-export default {
-	objMap,
-	mobileFirst,
-	responsiveClass,
-	responsiveValue
-}
+export { objMap, mobileFirst, responsiveClass, responsiveValue }

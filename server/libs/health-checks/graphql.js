@@ -3,7 +3,7 @@ import logger from '@financial-times/n-logger';
 
 import { start as startPolling, getData, getLastFetchedTime } from '../graphql-poller';
 
-class GraphQlCheck extends Check {
+export default class extends Check {
 
 	constructor (options) {
 		super(options);
@@ -61,5 +61,3 @@ class GraphQlCheck extends Check {
 		}
 	}
 }
-
-export default GraphQlCheck;

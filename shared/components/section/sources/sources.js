@@ -1,6 +1,6 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 
-class SectionSources extends Component {
+export default class extends Component {
 	render () {
 		const options = this.props.sources.map(source =>
 			<option key={source.title} value={source.uuid}>{source.title}</option>
@@ -17,5 +17,3 @@ class SectionSources extends Component {
 		);
 	}
 }
-
-export default SectionSources;

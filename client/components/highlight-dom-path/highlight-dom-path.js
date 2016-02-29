@@ -1,5 +1,4 @@
-module.exports = () => {
-
+export default () => {
 	const domPath = document.location.hash.split('#').pop();
 	if (/^domPath:/.test(domPath)) {
 		const selector = domPath

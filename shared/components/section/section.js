@@ -11,8 +11,7 @@ const classify = classes => classes
 
 const getSelectedTitle = dynamicContent => dynamicContent.sources.find(s => s.uuid === dynamicContent.selected).title;
 
-export default class Section extends Component {
-
+export default class extends Component {
 	render () {
 		//if no content, don't render the section
 		if (!(this.props.content && this.props.content.main && this.props.content.main.length)) {

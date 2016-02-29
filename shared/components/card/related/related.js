@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import colspanToString from '../../../../client/utils/colspan';
-import { responsiveValue } from '../../../libs/helpers';
 
+import colspan from '../../../../client/utils/colspan';
+import { responsiveValue } from '../../../libs/helpers';
 import Timestamp from '../timestamp/timestamp';
 
 /**
@@ -14,7 +14,7 @@ import Timestamp from '../timestamp/timestamp';
 export default class extends Component {
 	render () {
 		const relatedEls = this.props.items.map(item =>
-			<li className="card__related-item" key={item.id} data-o-grid-colspan={colspanToString(this.props.colspan)}>
+			<li className="card__related-item" key={item.id} data-o-grid-colspan={colspan(this.props.colspan)}>
 				<a href={`/content/${item.id}`} className="card__related-item__link" data-trackable="related" >
 					{item.title}
 				</a>

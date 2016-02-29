@@ -62,7 +62,7 @@ const changeHandler = (flags, ev, { track = true } = {}) => {
 		.catch(handleError.bind(null, target));
 };
 
-const init = flags => {
+export default flags => {
 	if (!flags.get('mostPopularByIndustry')) {
 		return;
 	}
@@ -77,6 +77,4 @@ const init = flags => {
 				changeHandler(flags, { target: select }, { track: false });
 			}
 		});
-};
-
-export default init;
+}

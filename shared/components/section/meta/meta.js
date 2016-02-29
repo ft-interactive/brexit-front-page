@@ -1,10 +1,7 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 
-class SectionMeta extends Component {
-
-
+export default class extends Component {
 	render () {
-
 		return (
 			<aside className="section-meta">
 				{ this.props.date ? <p className="section-meta__date">{this.props.date}</p> : null }
@@ -13,5 +10,3 @@ class SectionMeta extends Component {
 		);
 	}
 }
-
-export default SectionMeta;

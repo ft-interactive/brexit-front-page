@@ -5,7 +5,7 @@ const toArray = nodeList => Array.prototype.slice.call(nodeList);
 
 const track = (componentId, componentPos) => {
 	fireTracking('oTracking.event', { category: 'page', action: 'scrolldepth', componentId, componentPos });
-}
+};
 
 const scrollHandlerFactory = () => {
 	const componentsViewed = [];
@@ -21,13 +21,9 @@ const scrollHandlerFactory = () => {
 	};
 };
 
-const init = () => {
+export default () => {
 	const scrollHandler = scrollHandlerFactory();
 	window.addEventListener('scroll', throttle(scrollHandler, 250));
 	// fire off an initial tracking
 	scrollHandler();
-};
-
-export default {
-	init
-};
+}

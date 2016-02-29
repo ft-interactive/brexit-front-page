@@ -13,12 +13,11 @@ const assignContentId = (contentIndex, component) => {
 	return contentIndex;
 };
 
-
 const renderComponents = (id, components, items) => components.map((component, index) =>
 	<component.type {...component} items={items} key={`${id}_child${index}`} />
 );
 
-export default class SectionContent extends Component {
+export default class extends Component {
 	render () {
 		const items = this.props.items.slice();
 		const components = this.props.layout;

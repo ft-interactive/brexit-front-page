@@ -91,7 +91,7 @@ const handleResponse = (myftClient, flags, response) => {
 		.catch(errorHandler);
 };
 
-const loadSection = (myftClient, flags) => {
+export default (myftClient, flags) => {
 	if (flags.get('frontPageMyftSection') && flags.get('myFtApi') && sessionClient.cookie()) {
 		crossDomainFetch(
 			`https://next-graphql-api.ft.com/data?query=${slimQuery(query)}`,
@@ -101,8 +101,4 @@ const loadSection = (myftClient, flags) => {
 			.then(handleResponse.bind(undefined, myftClient, flags))
 			.catch(errorHandler);
 	}
-};
-
-export default {
-	loadSection
 }
