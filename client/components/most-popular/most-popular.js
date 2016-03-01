@@ -63,10 +63,10 @@ const changeHandler = (flags, ev, { track = true } = {}) => {
 };
 
 export default flags => {
-	if (!flags.get('mostPopularByIndustry')) {
+	const el = document.getElementById('most-popular');
+	if (!flags.get('mostPopularByIndustry') || !el || !el.querySelector('.section-sources__select')) {
 		return;
 	}
-	const el = document.getElementById('most-popular');
 	el.addEventListener('change', changeHandler.bind(null, flags));
 
 	store.storage.get(store.name)

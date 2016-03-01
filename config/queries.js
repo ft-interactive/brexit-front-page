@@ -193,9 +193,13 @@ const popularTopics = `
 			id
 			name
 			url
+			taxonomy
 			items(limit: 2) {
 				id
 				title
+				... on Article {
+					isPodcast
+				}
 				primaryImage {
 					rawSrc
 				}

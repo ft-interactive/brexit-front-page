@@ -20,6 +20,9 @@ const query = `
 		items(limit: 6) {
 			id
 			title
+			... on Article {
+				isPodcast
+			}
 			primaryImage {
 				rawSrc
 			}
