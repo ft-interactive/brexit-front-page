@@ -34,7 +34,8 @@ export default class extends Component {
 		const sectionAsideClasses = classify([
 			'section__column',
 			'section__column--sidebar',
-			this.props.sidebarComponent && this.props.sidebarComponent.isTab ? 'o-tabs__tabpanel' : ''
+			this.props.sidebarComponent && this.props.sidebarComponent.isTab ? 'o-tabs__tabpanel' : '',
+			this.props.sidebarComponent && this.props.sidebarComponent.hideUntilDesktop ? 'section__column--hide-until-l' : ''
 		]);
 
 		return (

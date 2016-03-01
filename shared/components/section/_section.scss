@@ -72,6 +72,12 @@
 	flex-direction: column;
 }
 
+.section__column--hide-until-l {
+	@include oGridRespondTo($until: L) {
+		display: none;
+	}
+}
+
 .section__column__inner {
 	position: relative;
 }

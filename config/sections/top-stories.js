@@ -39,7 +39,8 @@ export default ({ content, flags }) => ({
 	sidebarComponent: {
 		id: 'fastft',
 		component: FastFt,
-		isTab: true
+		isTab: true,
+		hideUntilDesktop: flags.frontPageFastFTJourney
 	},
 	cols: {
 		content: {
