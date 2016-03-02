@@ -19,7 +19,7 @@ const taxonomyImages = {
 const getConceptImage = (taxonomy, items) => {
 	const conceptImage = items
 		.reduce((images, item) => {
-			if (item.primaryImage) {
+			if (item.primaryImage && !item.isPodcast) {
 				images.push(item.primaryImage.rawSrc);
 			}
 			return images
