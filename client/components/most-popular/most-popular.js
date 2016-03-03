@@ -1,9 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { crossDomainFetch } from 'n-jsonp';
 import { json as fetchJson } from 'fetchres';
-import getDomPath from 'n-instrumentation/src/utils/getDomPath';
 import Superstore from 'superstore';
+import oDate from 'o-date';
+import getDomPath from 'n-instrumentation/src/utils/getDomPath';
+import { crossDomainFetch } from 'n-jsonp';
 
 import { mostPopular, popularArticles } from '../../../config/queries';
 import getSection from '../../../config/sections/index';
@@ -27,7 +28,8 @@ const updateSection = (el, selected, track, flags, data) => {
 		const main = data[selected === 'initial' ? 'popularArticles' : 'popularFromHui'];
 		const section = getSection('most-popular', { main }, flags.getAll());
 		section.dynamicContent.selected = selected;
-		ReactDOM.render(<Section {...section} />, document.getElementById('most-popular'));
+		const sectionComponent = ReactDOM.render(<Section {...section} />, document.getElementById('most-popular'));
+		oDate.init(ReactDOM.findDOMNode(sectionComponent));
 		if (track) {
 			fireTracking('oTracking.event', {
 				category: 'cta',

@@ -1,5 +1,4 @@
 import oDate from 'o-date';
-
 import layout from 'n-layout';
 import setup from 'next-js-setup';
 import nVideo from 'n-video';
