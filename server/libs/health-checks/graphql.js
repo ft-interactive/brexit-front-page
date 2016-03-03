@@ -29,10 +29,12 @@ export default class extends Check {
 	start () {
 		//Wait until the next tick for next-metrics to instrument
 		setImmediate(() => {
-			startPolling().then(() => {
-				this.tick();
-				this.interval = setInterval(this.tick.bind(this), this.pollTime);
-			}).catch(logger.error);
+			startPolling()
+				.then(() => {
+					this.tick();
+					this.interval = setInterval(this.tick.bind(this), this.interval);
+				})
+				.catch(logger.error);
 		});
 	}
 
@@ -40,8 +42,8 @@ export default class extends Check {
 		let data = getData(this.query);
 		let lastFetched = getLastFetchedTime(this.query);
 		this.lastUpdated = new Date();
-		if(data && Object.keys(data).length && lastFetched) {
-			if(this.freshnessThreshold && Date.now() - lastFetched > this.freshnessThreshold) {
+		if (data && Object.keys(data).length && lastFetched) {
+			if (this.freshnessThreshold && Date.now() - lastFetched > this.freshnessThreshold) {
 				this.status = status.STALE;
 			} else {
 				this.status = status.PASSED;
@@ -49,13 +51,12 @@ export default class extends Check {
 		} else {
 			this.status = status.FAILED;
 		}
-		if(this.status === status.PASSED) {
-			this.verifyKeys.forEach((key) => {
-				if(data && data[key]) {
+		if (this.status === status.PASSED) {
+			this.verifyKeys.forEach(key => {
+				if (data && data[key] && (!Array.isArray(data[key]) || data[key].length)) {
 					this.status = status.PASSED;
 				} else {
 					this.status = status.FAILED;
-					return;
 				}
 			});
 		}

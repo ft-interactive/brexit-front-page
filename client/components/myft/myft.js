@@ -9,40 +9,7 @@ import * as myFtUi from 'next-myft-ui';
 import Section from '../../../shared/components/section/section';
 import MyftPromo from '../../../shared/components/myft-promo/myft-promo';
 import getSection from '../../../config/sections/index';
-
-const query = `
-	fragment Basic on Concept {
-		type: __typename
-		id
-		name
-		url
-		taxonomy
-		items(limit: 6) {
-			id
-			title
-			... on Article {
-				isPodcast
-			}
-			primaryImage {
-				rawSrc
-			}
-		}
-	}
-
-	query MyFT {
-		popularTopics(limit: 3) {
-			... Basic
-		}
-		user {
-			viewed(limit: 3) {
-				... Basic
-			}
-			followed(limit: 3) {
-				... Basic
-			}
-		}
-	}
-`;
+import { user as query } from '../../../config/queries';
 
 // condense multiple spaces to one
 const slimQuery = query => encodeURIComponent(query.replace(/\s+/g, ' '));

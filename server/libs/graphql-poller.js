@@ -90,4 +90,4 @@ const getData = type => queryResults[type].data;
 
 const getLastFetchedTime = type => queryResults[type].lastUpdated;
 
-export { start, getData, getLastFetchedTime }
+export { start, getData, getLastFetchedTime };
