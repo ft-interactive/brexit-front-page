@@ -37,6 +37,10 @@ $o-grid-ie8-rules: 'only';
 	display: none;
 }
 
+.page-menu {
+	display: none;
+}
+
 // Prevents background being hidden in right x-overflow area when browser window narrower than 1220px
 .o-header-before,
 .o-header,

@@ -6,7 +6,12 @@
 	<meta name="dfp_zone" content="{{region}}" />
 {{/defineBlock}}
 
-{{> header-tabs newsTabTitle="Top Stories" fastFTPath=flags.frontPageFastFTJourney}}
+{{#if flags.frontPageFastFTJourney}}
+	{{> page-menu}}
+{{else}}
+	{{> header-tabs}}
+{{/if}}
+
 <section
 	id="main-body"
 	class="main-body o-grid-container n-util-clearfix">
