@@ -43,7 +43,7 @@
 	&.page-menu__item--current-page {
 		color: inherit;
 		&:after {
-			background-color: oColorsGetColorFor(fast-ft, text);
+			background-color: oColorsGetColorFor(fast-ft, border);
 		}
 	}
 }
