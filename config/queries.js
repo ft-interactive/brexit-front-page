@@ -34,6 +34,15 @@ const fragments = {
 				title
 			}
 		}
+	`,
+	liveBlog: `
+		fragment LiveBlogInfo on LiveBlog {
+			status
+			updates(limit: 1) {
+				date
+				text
+			}
+		}
 	`
 };
 
@@ -42,19 +51,14 @@ const frontPage = (region) => (`
 	${fragments.basic}
 	${fragments.extended}
 	${fragments.related}
+	${fragments.liveBlog}
 
 	query FrontPage {
 		topStory: top(region: ${region}){
 			items(limit: 1) {
 				... Basic
 				... Related
-				... on LiveBlog {
-					status
-					updates(limit: 1) {
-						date
-						text
-					}
-				}
+				... LiveBlogInfo
 				summary
 				primaryTag {
 					id
@@ -76,13 +80,7 @@ const frontPage = (region) => (`
 				... Basic
 				... Extended
 				... Related
-				... on LiveBlog {
-					status
-					updates(limit: 1) {
-						date
-						text
-					}
-				}
+				... LiveBlogInfo
 			}
 		}
 		topStoriesList(region: ${region}) {
@@ -91,18 +89,12 @@ const frontPage = (region) => (`
 				... Basic
 				... Extended
 				... Related
-				... on LiveBlog {
-					status
-					updates(limit: 1) {
-						date
-						text
-					}
-				}
+				... LiveBlogInfo
 			}
 		}
 
 		fastFT {
-			items(limit: 20) {
+			items(limit: 7) {
 				... Basic
 			}
 		}
@@ -115,7 +107,6 @@ const frontPage = (region) => (`
 			}
 		}
 		opinion {
-			url
 			items {
 				... Basic
 				... Extended
@@ -134,21 +125,18 @@ const frontPage = (region) => (`
 			}
 		}
 		technology {
-			url
 			items(limit: 2, genres: ["analysis", "comment"]) {
 				... Basic
 				... Extended
 			}
 		}
 		markets {
-			url
 			items(limit: 2, genres: ["analysis", "comment"]) {
 				... Basic
 				... Extended
 			}
 		}
 		lifestyle {
-			url
 			items(limit: 2) {
 				... Basic
 				... Extended
@@ -173,19 +161,6 @@ const mostPopular = (facet, uuid) => (`
 		}
 	}
 `);
-
-// fastFT query
-const fastFT = `
-	query FastFT {
-		fastFT {
-			items(limit: 5) {
-				id
-				title
-				lastPublished
-			}
-		}
-	}
-`;
 
 const popularTopics = `
 	query PopularTopics {
@@ -254,4 +229,4 @@ const user = `
 	}
 `;
 
-export default { frontPage, fastFT, mostPopular, popularTopics, popularArticles, user };
+export default { frontPage, mostPopular, popularTopics, popularArticles, user };
