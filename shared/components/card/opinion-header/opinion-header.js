@@ -25,7 +25,7 @@ export default class extends Component {
 						opinionHeader.url ?
 							<a className="card__opinion-header__link" href={opinionHeader.url} data-trackable="link">
 								{opinionHeader.title.split(' ')[0]}
-								<br />
+								{opinionHeader.headshot ? <br /> : null}
 								{opinionHeader.title.split(' ').slice(1)}
 							</a> :
 							opinionHeader.title

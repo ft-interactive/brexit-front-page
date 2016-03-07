@@ -49,7 +49,7 @@ export default (item, opts) => {
 			if (author.isBrand || !brand) {
 				article.opinionHeader = {
 					title: author.name,
-					url: `/stream/authorsId/${author.url}`,
+					url: author.url,
 					headshot: author.headshot
 				};
 			} else {

@@ -111,7 +111,7 @@ const frontPage = (region) => (`
 				... Related
 				authors {
 					name
-					id
+					url
 					headshot
 					isBrand
 				}
