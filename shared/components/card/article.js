@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 
 import { responsiveValue } from './../../libs/helpers';
-import Tag from './tag/tag'
-import Title from './title/title'
-import Standfirst from './standfirst/standfirst'
-import Image from './image/image'
+import Tag from './tag/tag';
+import Title from './title/title';
+import Standfirst from './standfirst/standfirst';
+import Image from './image/image';
 import Related from './related/related';
 import LiveBlogGlow from './live-blog-glow/live-blog-glow';
 import Timestamp from './timestamp/timestamp';

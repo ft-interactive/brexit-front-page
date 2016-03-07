@@ -93,10 +93,8 @@ const frontPage = (region) => (`
 			}
 		}
 
-		fastFT {
-			items(limit: 7) {
-				... Basic
-			}
+		fastFTNew(limit: 7) {
+			... Basic
 		}
 		editorsPicks {
 			title
@@ -111,8 +109,14 @@ const frontPage = (region) => (`
 				... Basic
 				... Extended
 				... Related
-				branding {
+				authors {
+					name
+					id
 					headshot
+				}
+				tags(only: ["genre", "brand"]) {
+					name
+					url
 				}
 			}
 		}
