@@ -11,7 +11,7 @@
 		top: oGridGutter() / 2;
 		bottom: oGridGutter() / 2;
 		background-color: oColorsGetColorFor(column, border);
-		z-index: 1;
+		z-index: 0;
 
 		@include oGridRespondTo(M) {
 			left: floor(oGridGutter(M) / 2);
@@ -26,7 +26,7 @@
 			top: oGridGutter() * 2;
 			bottom: oGridGutter();
 			background-color: oColorsGetColorFor(card, border);
-			z-index: 0;
+			z-index: -1;
 
 			@include oGridRespondTo(M) {
 				top: oGridGutter() + oGridGutter(M);

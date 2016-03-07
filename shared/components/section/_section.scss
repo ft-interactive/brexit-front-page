@@ -45,7 +45,7 @@
 			height: 1px;
 			left: 0;
 			top: oGridGutter() / 2;
-			z-index: 2;
+			z-index: 1;
 
 			@include oGridRespondTo(M) {
 				top: floor(oGridGutter(M) / 2);
