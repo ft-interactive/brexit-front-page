@@ -1,0 +1,22 @@
+.card__author {
+	overflow: hidden;
+	border-bottom: 2px solid oColorsGetColorFor(card, border);
+	padding-bottom: oGridGutter();
+	margin-bottom: oGridGutter();
+}
+
+.card__author__image {
+	border-radius: 40px;
+	float: left;
+}
+
+.card__author__name {
+	margin: 20px 0 0;
+	//@include oTypographySerif(l);
+	@include oTypographySerifDisplay(l);
+}
+
+.card__author__link {
+	border-bottom: 0;
+	color: #8590a1;
+}

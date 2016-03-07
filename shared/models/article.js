@@ -14,6 +14,8 @@ const squareifyImage = srcSet =>
 		return srcSet;
 	}, srcSet);
 
+const isCommentTag = tag => tag.taxonomy === 'genre' && tag.name === 'Comment';
+
 export default (item, opts) => {
 	const article = {
 		type: 'article',
@@ -36,7 +38,10 @@ export default (item, opts) => {
 		article.isPictureStory = opts.isPictureStory;
 	}
 	if (!opts.hideTag) {
-		article.tag = item.branding || item.primaryTag;
+		article.tag = item.primaryTag;
+	}
+	if (item.tags.some(isCommentTag) && item.authors.length) {
+		article.author = item.authors[0];
 	}
 	if (opts.related && opts.related.show) {
 		article.related = Object.assign({

@@ -116,6 +116,7 @@ const frontPage = (region) => (`
 				}
 				tags(only: ["genre", "brand"]) {
 					name
+					taxonomy
 					url
 				}
 			}

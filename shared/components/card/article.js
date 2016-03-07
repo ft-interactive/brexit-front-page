@@ -8,6 +8,7 @@ import Image from './image/image';
 import Related from './related/related';
 import LiveBlogGlow from './live-blog-glow/live-blog-glow';
 import Timestamp from './timestamp/timestamp';
+import Author from './author/author';
 
 /**
  * @param {string} title
@@ -29,55 +30,60 @@ import Timestamp from './timestamp/timestamp';
  * @param {string} liveBlog.status
  * @param {Object} liveBlog.latestUpdate
  * @param {string} liveBlog.latestUpdate.date
+ * @param {Object} [author]
+ * @param {string} author.name
+ * @param {string} author.id
+ * @param {string} [author.headshot]
  */
 export default class extends Component {
 	render () {
+		const article = this.props;
 		const attrs = {
 			className: 'card',
 			'data-trackable': 'card',
-			'data-size': this.props.size
+			'data-size': article.size
 		};
-		const tag = this.props.tag && Object.assign({}, this.props.tag);
+		const tag = article.tag && Object.assign({}, article.tag);
 
-		if (this.props.show) {
-			attrs['data-show'] = responsiveValue(this.props.show);
+		if (article.show) {
+			attrs['data-show'] = responsiveValue(article.show);
 		}
 
-		if (this.props.image && this.props.image.position) {
-			attrs['data-image-position'] = responsiveValue(this.props.image.position);
+		if (article.image && article.image.position) {
+			attrs['data-image-position'] = responsiveValue(article.image.position);
 		}
 
-		if (this.props.liveBlog) {
-			attrs.className += ` card--liveblog liveblog--${this.props.liveBlog.status.toLowerCase()}`;
+		if (article.liveBlog) {
+			attrs.className += ` card--liveblog liveblog--${article.liveBlog.status.toLowerCase()}`;
 		}
 
-		if (this.props.isMain) {
+		if (article.isMain) {
 			attrs.className += ' card--main';
 
 			if (tag) {
 				tag.isFollowable = true;
 			}
 
-			if (this.props.related) {
-				this.props.related.size = 'large';
+			if (article.related) {
+				article.related.size = 'large';
 			}
 		}
 
 		const articleContentClasses = [
 			'card__content'
 		];
-		if (this.props.image) {
+		if (article.image) {
 			articleContentClasses.push('card__content--has-image');
-			if (this.props.image.stick || this.props.image.isHeadshot) {
+			if (article.image.stick || article.image.isHeadshot) {
 				articleContentClasses.push('card__content--grow');
 			}
 		}
 
-		if (this.props.isTransparent) {
+		if (article.isTransparent) {
 			attrs.className += ` card--transparent`;
 		}
 
-		if (this.props.isPictureStory) {
+		if (article.isPictureStory) {
 			attrs.className += ` card--picture-story`;
 		}
 
@@ -85,17 +91,18 @@ export default class extends Component {
 			<article {...attrs}>
 				<div className={articleContentClasses.join(' ')}>
 					<div className="card__content__inner">
-						{this.props.liveBlog ? <span className="liveblog__badge">live</span> : null}
-						{tag && this.props.size !== 'tiny' ? <Tag {...tag}/> : null}
-						{this.props.image ? <Image {...this.props.image} contentId={this.props.id} /> : null}
-						{tag && this.props.size === 'tiny' ? <Tag {...tag} /> : null}
-						<Title title={this.props.title} url={`/content/${this.props.id}`} />
-						{this.props.standfirst ? <Standfirst standfirst={this.props.standfirst} /> : null}
-						{this.props.lastPublished ? <Timestamp date={this.props.lastPublished} /> : null}
+						{article.liveBlog ? <span className="liveblog__badge">live</span> : null}
+						{tag && article.size !== 'tiny' ? <Tag {...tag}/> : null}
+						{article.image ? <Image {...article.image} contentId={article.id} /> : null}
+						{tag && article.size === 'tiny' ? <Tag {...tag} /> : null}
+						{article.author ? <Author {...article.author} /> : null}
+						<Title title={article.title} url={`/content/${article.id}`} />
+						{article.standfirst ? <Standfirst standfirst={article.standfirst} /> : null}
+						{article.lastPublished ? <Timestamp date={article.lastPublished} /> : null}
 					</div>
 				</div>
-				{this.props.related && this.props.related.items ? <Related {...this.props.related} /> : null}
-				{this.props.liveBlog ? <LiveBlogGlow {...this.props.liveBlog} /> : null}
+				{article.related && article.related.items ? <Related {...article.related} /> : null}
+				{article.liveBlog ? <LiveBlogGlow {...article.liveBlog} /> : null}
 			</article>
 		);
 	}
