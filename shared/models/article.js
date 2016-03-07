@@ -40,7 +40,7 @@ export default (item, opts) => {
 	if (!opts.hideTag) {
 		article.tag = item.primaryTag;
 	}
-	if (item.tags.some(isCommentTag) && item.authors.length) {
+	if (item.tags && item.tags.some(isCommentTag) && item.authors.length) {
 		article.author = item.authors[0];
 	}
 	if (opts.related && opts.related.show) {
