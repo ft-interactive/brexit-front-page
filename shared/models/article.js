@@ -7,7 +7,7 @@ const getImageData = item => {
 	return null;
 };
 
-// turn a 16:9 srcSet into squares
+// turn a 16:9 srcSet into a square
 const squareifyImage = srcSet =>
 	Object.keys(srcSet).reduce((srcSet, breakpoint) => {
 		srcSet[breakpoint] = Math.ceil(srcSet[breakpoint] * .5625);
@@ -15,6 +15,8 @@ const squareifyImage = srcSet =>
 	}, srcSet);
 
 const isCommentTag = tag => tag.taxonomy === 'genre' && tag.name === 'Comment';
+
+const propertyEquals = (property, value, object) => object[property] === value;
 
 export default (item, opts) => {
 	const article = {
@@ -40,8 +42,28 @@ export default (item, opts) => {
 	if (!opts.hideTag) {
 		article.tag = item.primaryTag;
 	}
-	if (item.tags && item.tags.some(isCommentTag) && item.authors.length) {
-		article.author = item.authors[0];
+	if (item.tags && item.tags.some(isCommentTag)) {
+		const brand = item.tags.find(propertyEquals.bind(null, 'taxonomy', 'brand'));
+		if (item.authors.length || brand) {
+			const author = item.authors[0];
+			if (author.isBrand || !brand) {
+				article.opinionHeader = {
+					title: author.name,
+					url: `/stream/authorsId/${author.url}`,
+					headshot: author.headshot
+				};
+			} else {
+				article.opinionHeader = {
+					title: `Opinion: ${brand.name}`,
+					url: brand.url
+				};
+			}
+		} else {
+			article.opinionHeader = {
+				title: 'Opinion',
+				url: '/stream/sectionsId/MTE2-U2VjdGlvbnM='
+			};
+		}
 	}
 	if (opts.related && opts.related.show) {
 		article.related = Object.assign({

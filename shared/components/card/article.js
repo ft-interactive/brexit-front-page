@@ -8,7 +8,7 @@ import Image from './image/image';
 import Related from './related/related';
 import LiveBlogGlow from './live-blog-glow/live-blog-glow';
 import Timestamp from './timestamp/timestamp';
-import Author from './author/author';
+import OpinionHeader from './opinion-header/opinion-header';
 
 /**
  * @param {string} title
@@ -30,10 +30,10 @@ import Author from './author/author';
  * @param {string} liveBlog.status
  * @param {Object} liveBlog.latestUpdate
  * @param {string} liveBlog.latestUpdate.date
- * @param {Object} [author]
- * @param {string} author.name
- * @param {string} author.id
- * @param {string} [author.headshot]
+ * @param {Object} [opinionHeader]
+ * @param {string} opinionHeader.name
+ * @param {string} [opinionHeader.url]
+ * @param {string} [opinionHeader.headshot]
  */
 export default class extends Component {
 	render () {
@@ -95,7 +95,7 @@ export default class extends Component {
 						{tag && article.size !== 'tiny' ? <Tag {...tag}/> : null}
 						{article.image ? <Image {...article.image} contentId={article.id} /> : null}
 						{tag && article.size === 'tiny' ? <Tag {...tag} /> : null}
-						{article.author ? <Author {...article.author} /> : null}
+						{article.opinionHeader ? <OpinionHeader {...article.opinionHeader} /> : null}
 						<Title title={article.title} url={`/content/${article.id}`} />
 						{article.standfirst ? <Standfirst standfirst={article.standfirst} /> : null}
 						{article.lastPublished ? <Timestamp date={article.lastPublished} /> : null}

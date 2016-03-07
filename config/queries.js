@@ -113,6 +113,7 @@ const frontPage = (region) => (`
 					name
 					id
 					headshot
+					isBrand
 				}
 				tags(only: ["genre", "brand"]) {
 					name
