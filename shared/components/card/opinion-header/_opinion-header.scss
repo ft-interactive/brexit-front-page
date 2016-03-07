@@ -19,8 +19,8 @@
 }
 
 .card__opinion-header__title {
-	margin: 10px 0 0;
 	@include oTypographySerifDisplayBold(l);
+	margin: 10px 0 0;
 }
 
 .card__opinion-header__link {
