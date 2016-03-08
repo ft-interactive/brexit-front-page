@@ -64,6 +64,9 @@ export default (item, opts, { flags = {} }) => {
 				url: '/stream/sectionsId/MTE2-U2VjdGlvbnM='
 			};
 		}
+		if (opts.size !== 'large') {
+			article.image = null;
+		}
 	}
 	if (opts.related && opts.related.show) {
 		article.related = Object.assign({

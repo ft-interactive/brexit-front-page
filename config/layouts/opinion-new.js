@@ -28,11 +28,13 @@ export default [
 				components: [
 					{
 						type: Content,
-						size: 'medium'
+						size: 'medium',
+						showStandfirst: true
 					},
 					{
 						type: Content,
-						size: 'medium'
+						size: 'medium',
+						showStandfirst: true
 					}
 
 				]
