@@ -87,6 +87,10 @@ export default class extends Component {
 			attrs.className += ` card--picture-story`;
 		}
 
+		if (article.opinionHeader) {
+			article.opinionHeader.size = article.size;
+		}
+
 		return (
 			<article {...attrs}>
 				<div className={articleContentClasses.join(' ')}>

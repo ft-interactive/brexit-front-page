@@ -1,14 +1,19 @@
 .card__opinion-header {
-	overflow: hidden;
-	border-bottom: 6px solid #f6e9d8;
-	margin-top: oGridGutter();
-	margin-bottom: oGridGutter();
-	padding-bottom: oGridGutter();
+	margin-bottom: 5px;
+
+	&.card__opinion-header--large,
+	&.card__opinion-header--medium {
+		overflow: hidden;
+		border-bottom: 6px solid #f6e9d8;
+		margin-top: oGridGutter();
+		margin-bottom: oGridGutter();
+		padding-bottom: oGridGutter();
+	}
 }
 
 .card__opinion-header__image {
 	float: left;
-	width: 60px;
+	width: 65px;
 	margin-right: 15px;
 }
 
@@ -19,8 +24,18 @@
 }
 
 .card__opinion-header__title {
-	@include oTypographySerifDisplayBold(l);
-	margin: 10px 0 0;
+	@include oTypographySerifDisplayBold(s);
+	line-height: 1em;
+	margin: 0;
+
+	.card__opinion-header--with-headshot & {
+		margin-top: 15px;
+	}
+
+	.card__opinion-header--large &,
+	.card__opinion-header--medium & {
+		font-size: 26px;
+	}
 }
 
 .card__opinion-header__link {
