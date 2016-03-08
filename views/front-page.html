@@ -39,6 +39,8 @@
 	Good luck!
 
 	-->
+	<div class="ad-placeholder ad-placeholder--below-header"></div>
+
 	<div class="o-grid-row">
 	{{#each sections}}
 		<div id="{{id}}"{{#if trackScrollEvent}} class="js-track-scroll-event"{{/if}} data-o-grid-colspan="{{colspan size}}">{{#unless isClient}}{{{reactRenderToString ../Section spread=@this}}}{{/unless}}</div>
