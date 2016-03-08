@@ -46,7 +46,7 @@ export default (item, opts, { flags = {} }) => {
 		const brand = item.tags.find(propertyEquals.bind(null, 'taxonomy', 'brand'));
 		if (item.authors.length || brand) {
 			const author = item.authors[0];
-			if (author.isBrand || !brand) {
+			if (author && (author.isBrand || !brand)) {
 				article.opinionHeader = {
 					title: author.name,
 					url: author.url,

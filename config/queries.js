@@ -35,6 +35,21 @@ const fragments = {
 			}
 		}
 	`,
+	opinionData: `
+		fragment OpinionData on Content {
+			authors {
+				name
+				url
+				headshot
+				isBrand
+			}
+			tags(only: ["genre", "brand"]) {
+				name
+				taxonomy
+				url
+			}
+		}
+	`,
 	liveBlog: `
 		fragment LiveBlogInfo on LiveBlog {
 			status
@@ -51,6 +66,7 @@ const frontPage = (region) => (`
 	${fragments.basic}
 	${fragments.extended}
 	${fragments.related}
+	${fragments.opinionData}
 	${fragments.liveBlog}
 
 	query FrontPage {
@@ -80,6 +96,7 @@ const frontPage = (region) => (`
 				... Basic
 				... Extended
 				... Related
+				... OpinionData
 				... LiveBlogInfo
 			}
 		}
@@ -89,6 +106,7 @@ const frontPage = (region) => (`
 				... Basic
 				... Extended
 				... Related
+				... OpinionData
 				... LiveBlogInfo
 			}
 		}
@@ -102,6 +120,7 @@ const frontPage = (region) => (`
 				... Basic
 				... Extended
 				... Related
+				... OpinionData
 			}
 		}
 		opinion {
@@ -109,19 +128,9 @@ const frontPage = (region) => (`
 				... Basic
 				... Extended
 				... Related
+				... OpinionData
 				branding {
 					headshot
-				}
-				authors {
-					name
-					url
-					headshot
-					isBrand
-				}
-				tags(only: ["genre", "brand"]) {
-					name
-					taxonomy
-					url
 				}
 			}
 		}
@@ -137,23 +146,27 @@ const frontPage = (region) => (`
 			items(limit: 2, genres: ["analysis", "comment"]) {
 				... Basic
 				... Extended
+				... OpinionData
 			}
 		}
 		markets {
 			items(limit: 2, genres: ["analysis", "comment"]) {
 				... Basic
 				... Extended
+				... OpinionData
 			}
 		}
 		lifestyle {
 			items(limit: 2) {
 				... Basic
 				... Extended
+				... OpinionData
 			}
 		}
 		popularArticles(limit: 9) {
 			... Basic
 			... Extended
+			... OpinionData
 		}
 	}
 `);
@@ -162,11 +175,13 @@ const frontPage = (region) => (`
 const mostPopular = (facet, uuid) => (`
 	${fragments.basic}
 	${fragments.extended}
+	${fragments.opinionData}
 
 	query mostPopular {
 		popularFromHui(${facet}: "${uuid}") {
 			... Basic
 			... Extended
+				... OpinionData
 		}
 	}
 `);
