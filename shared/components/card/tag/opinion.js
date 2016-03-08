@@ -6,6 +6,10 @@ import Follow from 'next-myft-ui/templates/follow';
  * @param {string} name
  * @param {string} url
  * @param {string} taxonomy
+ * @param {Object} author
+ * @param {string} author.name
+ * @param {string} author.id
+ * @param {string} [author.headshot]
  * @param {boolean} [isFollowable]
  */
 export default class extends Component {

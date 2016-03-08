@@ -18,12 +18,14 @@ const app = express({
 	helpers: {
 		reactRenderToString: (klass, props) => {
 			const propsToRender = props.hash;
-			if(props.hash.spread) {
+			const flags = props.data.root.flags;
+			if (props.hash.spread) {
 				Object.keys(props.hash.spread).forEach(key => {
 					propsToRender[key] = props.hash.spread[key];
 				});
 			}
-			if(props.data.root.flags.mostPopularByIndustry && propsToRender.dynamicContent) {
+			propsToRender.flags = flags;
+			if (flags.mostPopularByIndustry && propsToRender.dynamicContent) {
 				return ReactServer.renderToString(React.createElement(klass, propsToRender));
 			} else {
 				return ReactServer.renderToStaticMarkup(React.createElement(klass, propsToRender));

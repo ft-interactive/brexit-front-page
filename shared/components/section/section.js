@@ -63,6 +63,7 @@ export default class extends Component {
 						style={this.props.style}
 						layout={this.props.layout}
 						items={this.props.content.main}
+						flags={this.props.flags}
 					/>
 				</div>
 				{

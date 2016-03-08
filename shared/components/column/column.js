@@ -11,13 +11,13 @@ export default class extends Component {
 		if (this.props.isList) {
 			className += ` column--list`;
 		}
-		const renderComponents = (components) => components.map((component, index) =>
-			<component.type {...component} items={this.props.items} key={`column-child_${index}`} />
+		const renderComponents = (components, flags) => components.map((component, index) =>
+			<component.type {...component} items={this.props.items} key={`column-child_${index}`} flags={flags} />
 		);
 
 		return (
 			<div className={className} data-o-grid-colspan={colspanToString(this.props.colspan)}>
-				{renderComponents(this.props.components)}
+				{renderComponents(this.props.components, this.props.flags)}
 			</div>
 		);
 	}
