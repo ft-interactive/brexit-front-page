@@ -5,13 +5,13 @@ export default class extends Component {
 		if (!this.props.components) {
 			return null;
 		}
-		const renderComponents = (components) => components.map((component, index) =>
-			<component.type {...component} items={this.props.items} key={`row-child_${index}`} />
+		const renderComponents = (components, { flags = {} }) => components.map((component, index) =>
+			<component.type {...component} items={this.props.items} key={`row-child_${index}`} flags={flags} />
 		);
 
 		return (
 			<div className="o-grid-row">
-				{renderComponents(this.props.components)}
+				{renderComponents(this.props.components, { flags: this.props.flags })}
 			</div>
 		);
 	}

@@ -109,6 +109,9 @@ const frontPage = (region) => (`
 				... Basic
 				... Extended
 				... Related
+				branding {
+					headshot
+				}
 				authors {
 					name
 					url

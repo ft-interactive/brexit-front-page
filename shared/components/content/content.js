@@ -3,14 +3,14 @@ import React, { Component } from 'react';
 import { Article as ArticleCard, Concept as ConceptCard, Video as VideoCard } from '../card';
 import createModel from '../../models';
 
-const getModel = (item, opts) => {
+const getModel = (item, opts, { flags = {} }) => {
 	const model = {
 		size: opts.size,
 		show: opts.show,
 		isTransparent: opts.isTransparent,
 		isNew: opts.isNew
 	};
-	Object.assign(model, createModel(item, opts));
+	Object.assign(model, createModel(item, opts, { flags }));
 
 	return model;
 };
@@ -21,7 +21,7 @@ export default class extends Component {
 		if (!item) {
 			return null;
 		}
-		const model = getModel(item, this.props);
+		const model = getModel(item, this.props, { flags: this.props.flags });
 
 		switch (model.type) {
 			case 'video':

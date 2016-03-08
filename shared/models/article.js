@@ -1,5 +1,5 @@
-const getImageData = item => {
-	if (item.branding && item.branding.taxonomy === 'authors' && item.branding.headshot) {
+const getImageData = (item, showHeadshot) => {
+	if (showHeadshot && item.branding && item.branding.taxonomy === 'authors' && item.branding.headshot) {
 		return { imageServiceUrl: item.branding.headshot, isHeadshot: true };
 	} else if (item.primaryImage && item.primaryImage.rawSrc) {
 		return { url: (item.primaryImage && item.primaryImage.rawSrc) }
@@ -18,14 +18,14 @@ const isCommentTag = tag => tag.taxonomy === 'genre' && tag.name === 'Comment';
 
 const propertyEquals = (property, value, object) => object[property] === value;
 
-export default (item, opts) => {
+export default (item, opts, { flags = {} }) => {
 	const article = {
 		type: 'article',
 		id: item.id,
 		title: item.title,
 		lastPublished: item.lastPublished
 	};
-	const imageData = getImageData(item);
+	const imageData = getImageData(item, !flags.frontPageOpinionCards);
 	if (opts.image && imageData) {
 		article.image = Object.assign({}, opts.image, imageData);
 		if (article.image.isHeadshot && article.image.srcSet) {
@@ -40,9 +40,9 @@ export default (item, opts) => {
 		article.isPictureStory = opts.isPictureStory;
 	}
 	if (!opts.hideTag) {
-		article.tag = item.primaryTag;
+		article.tag = (!flags.frontPageOpinionCards && item.branding) || item.primaryTag;
 	}
-	if (item.tags && item.tags.some(isCommentTag)) {
+	if (flags.frontPageOpinionCards && item.tags && item.tags.some(isCommentTag)) {
 		const brand = item.tags.find(propertyEquals.bind(null, 'taxonomy', 'brand'));
 		if (item.authors.length || brand) {
 			const author = item.authors[0];
@@ -54,7 +54,7 @@ export default (item, opts) => {
 				};
 			} else {
 				article.opinionHeader = {
-					title: `Opinion: ${brand.name}`,
+					title: brand.name,
 					url: brand.url
 				};
 			}

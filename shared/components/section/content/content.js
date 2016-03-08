@@ -13,8 +13,8 @@ const assignContentId = (contentIndex, component) => {
 	return contentIndex;
 };
 
-const renderComponents = (id, components, items) => components.map((component, index) =>
-	<component.type {...component} items={items} key={`${id}_child${index}`} />
+const renderComponents = (id, components, items, { flags = {} }) => components.map((component, index) =>
+	<component.type {...component} items={items} key={`${id}_child${index}`} flags={flags} />
 );
 
 export default class extends Component {
@@ -25,7 +25,7 @@ export default class extends Component {
 
 		return (
 			<div className="section__column__inner">
-				{renderComponents(this.props.id, components, items)}
+				{renderComponents(this.props.id, components, items, { flags: this.props.flags })}
 			</div>
 		)
 	}

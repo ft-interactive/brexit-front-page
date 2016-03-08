@@ -1,8 +1,8 @@
-export default () => ({
+export default ({ flags }) => ({
 	id: 'opinion',
 	title: 'Opinion',
 	style: 'opinion',
-	layoutId: 'opinion',
+	layoutId: (flags.frontPageOpinionCards) ? 'opinion-new' : 'opinion',
 	trackScrollEvent: true,
 	size: {
 		default: 12

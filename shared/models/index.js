@@ -4,7 +4,7 @@ import video from './video';
 
 export { article, concept, video };
 
-export default (item, opts) => {
+export default (item, opts, { flags = {} }) => {
 	const model = {
 		size: opts.size,
 		show: opts.show,
@@ -17,7 +17,7 @@ export default (item, opts) => {
 	} else if (item.type === 'Concept') {
 		Object.assign(model, concept(item, opts));
 	} else {
-		Object.assign(model, article(item, opts));
+		Object.assign(model, article(item, opts, { flags }));
 	}
 
 	return model;
