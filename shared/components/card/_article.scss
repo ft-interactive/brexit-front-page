@@ -27,9 +27,6 @@
 		@include oColorsFor(timestamp, text);
 		text-transform: uppercase;
 		margin-top: 10px;
-
-
-		span { margin: 0 0 0 0.2em; }
 	}
 
 	&.liveblog--comingsoon {
@@ -71,7 +68,7 @@
 	width: 8px;
 	height: 8px;
 	border-radius: 4px;
-	margin: 0 6px 0 4px;
+	margin: 0 10px 0 4px;
 
 	.glow {
 		display: block;
