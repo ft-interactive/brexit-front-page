@@ -23,7 +23,7 @@ export default class extends Component {
 		return (
 			<div className="card__footer">
 				<i className="liveblog__live-indicator"><i className="glow"></i></i>
-				<span>{text}</span>
+				<span>{text} </span>
 				{['InProgress', 'Closed'].indexOf(this.props.status) > -1 ?
 					<time
 						data-o-component="o-date"
