@@ -66,19 +66,19 @@ export default [
 				[
 					{
 						type: Content,
-						size: 'tiny'
+						size: 'small'
 					},
 					{
 						type: Content,
-						size: 'tiny'
+						size: 'small'
 					},
 					{
 						type: Content,
-						size: 'tiny'
+						size: 'small'
 					},
 					{
 						type: Content,
-						size: 'tiny'
+						size: 'small'
 					}
 				]
 			}
