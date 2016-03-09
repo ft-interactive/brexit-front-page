@@ -4,7 +4,7 @@
 
 	&.card__opinion-header--large,
 	&.card__opinion-header--medium {
-		border-bottom: 6px solid #f6e9d8;
+		border-bottom: 6px solid oColorsGetColorFor(author, border);
 		padding-bottom: oGridGutter();
 	}
 }
@@ -16,9 +16,9 @@
 }
 
 .card__opinion-header__image--headshot {
+	@include oColorsFor(author, background);
 	border-radius: 30px;
 	width: 60px;
-	background-color: #f6e9d8;
 }
 
 .card__opinion-header__title {
@@ -64,6 +64,6 @@
 }
 
 .card__opinion-header__link {
+	@include oColorsFor(author, text);
 	border-bottom: 0;
-	color: getColor('dark-blue');
 }
