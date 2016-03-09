@@ -19,6 +19,10 @@
 	.card[data-size="tiny"] & {
 		display: inline;
 	}
+
+	.card__opinion-header ~ & {
+		clear: left;
+	}
 }
 
 // font-size/line-height pairs
