@@ -74,6 +74,7 @@
 .card__picture {
 	display: block;
 	max-width: 100%;
+	overflow: hidden;
 
 	.card__image-link--headshot & {
 		width: 56.25%;
