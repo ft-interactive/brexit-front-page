@@ -55,8 +55,12 @@
 		}
 	}
 
-	#top-stories-more &:before {
-		display: none;
+	#top-stories-more & {
+		border-top-width: 0;
+
+		&:before {
+			display: none;
+		}
 	}
 }
 
