@@ -17,7 +17,7 @@
 }
 
 .card__opinion-header__quote {
-	background-image: url('https://next-geebee.ft.com/image/v1/images/raw/http%3A%2F%2Fdarrenhurley.co.uk%2Fhalf-speechmark.svg?source=next&format=svg&tint=DCE0E5,DCE0E5');
+	@include nextIcon(single-quote, oColorsGetColorFor(author, background), 22, $icon-only: true);
 	background-size: contain;
 	width: 22px;
 	height: 28px;
@@ -74,6 +74,7 @@
 		min-height: 42px;
 		margin-left: 0;
 		padding-top: 18px;
+		padding-bottom: 5px;
 	}
 
 }
