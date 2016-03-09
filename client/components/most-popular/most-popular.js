@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { json as fetchJson } from 'fetchres';
 import Superstore from 'superstore';
 import oDate from 'o-date';
-import getDomPath from 'n-instrumentation/src/utils/getDomPath';
+import getDomPathString from 'n-instrumentation/src/utils/getDomPathString';
 import { crossDomainFetch } from 'n-jsonp';
 
 import { mostPopular, popularArticles } from '../../../config/queries';
@@ -36,7 +36,7 @@ const updateSection = (el, selected, track, flags, data) => {
 				action: 'change',
 				value: selected,
 				title: section.dynamicContent.sources.find(source => source.uuid === selected).title,
-				domPath: getDomPath(el, [])
+				domPath: getDomPathString(el)
 			});
 		}
 	}
