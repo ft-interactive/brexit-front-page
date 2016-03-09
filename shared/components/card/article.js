@@ -95,11 +95,11 @@ export default class extends Component {
 			<article {...attrs}>
 				<div className={articleContentClasses.join(' ')}>
 					<div className="card__content__inner">
+						{article.opinionHeader ? <OpinionHeader {...article.opinionHeader} /> : null}
 						{article.liveBlog ? <span className="liveblog__badge">live</span> : null}
 						{tag && article.size !== 'tiny' ? <Tag {...tag}/> : null}
 						{article.image ? <Image {...article.image} contentId={article.id} /> : null}
 						{tag && article.size === 'tiny' ? <Tag {...tag} /> : null}
-						{article.opinionHeader ? <OpinionHeader {...article.opinionHeader} /> : null}
 						<Title title={article.title} url={`/content/${article.id}`} />
 						{article.standfirst ? <Standfirst standfirst={article.standfirst} /> : null}
 						{article.lastPublished ? <Timestamp date={article.lastPublished} /> : null}

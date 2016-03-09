@@ -1,15 +1,15 @@
+import { json as fetchJson } from 'fetchres';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { json as fetchJson } from 'fetchres';
 
 import { crossDomainFetch } from 'n-jsonp';
-import sessionClient from 'next-session-client';
 import * as myFtUi from 'next-myft-ui';
+import sessionClient from 'next-session-client';
 
-import Section from '../../../shared/components/section/section';
-import MyftPromo from '../../../shared/components/myft-promo/myft-promo';
 import getSection from '../../../config/sections/index';
 import { user as query } from '../../../config/queries';
+import MyftPromo from '../../../shared/components/myft-promo/myft-promo';
+import Section from '../../../shared/components/section/section';
 
 // condense multiple spaces to one
 const slimQuery = query => encodeURIComponent(query.replace(/\s+/g, ' '));
@@ -30,10 +30,11 @@ const filterDuplicateArticles = (articles, concept) => {
 	concept.items = concept.items
 		.filter(item => !articles.find(article => article.id === item.id))
 		.slice(0, 2);
+
 	return articles.concat(concept.items);
 };
 
-const handleResponse = (myftClient, flags, response) => {
+const handleResponse = (myFtContainerEl, myftClient, flags, response) => {
 	const { popularTopics, user: { viewed, followed }} = response;
 	// flag up followed concepts
 	followed.forEach(concept => concept.isFollowing = true);
@@ -55,20 +56,21 @@ const handleResponse = (myftClient, flags, response) => {
 			)
 		);
 	}
-	ReactDOM.render(<Section {...section} />, document.getElementById('myft'));
+	ReactDOM.render(<Section {...section} />, myFtContainerEl);
 	myftClient
 		.then(() => myFtUi.updateUi())
 		.catch(errorHandler);
 };
 
 export default (myftClient, flags) => {
-	if (flags.get('frontPageMyftSection') && flags.get('myFtApi') && sessionClient.cookie()) {
+	const myFtContainerEl = document.getElementById('myft');
+	if (myFtContainerEl && flags.get('frontPageMyftSection') && flags.get('myFtApi') && sessionClient.cookie()) {
 		crossDomainFetch(
 			`https://next-graphql-api.ft.com/data?query=${slimQuery(query)}`,
 			{ credentials: 'include', timeout: 5000 }
 		)
 			.then(fetchJson)
-			.then(handleResponse.bind(undefined, myftClient, flags))
+			.then(handleResponse.bind(undefined, myFtContainerEl, myftClient, flags))
 			.catch(errorHandler);
 	}
 }

@@ -4,13 +4,10 @@ const getImage = headshot =>
 	headshot ?
 		<img
 			className="card__opinion-header__image card__opinion-header__image--headshot"
-			src={`${headshot}?source=next&fit=scale-down&compression=best&width=70`} /> :
+			src={`${headshot}?source=next&fit=scale-down&compression=best&width=60`} /> :
 		<img
 			className="card__opinion-header__image"
 			src="https://next-geebee.ft.com/image/v1/images/raw/http%3A%2F%2Fnext-geebee.ft.com%2Fassets%2Ficons%2Fquote.svg?source=next&format=svg&tint=f6e9d8,f6e9d8" />;
-
-const getTitle = (title, size, hasHeadshot) =>
-	(['large', 'medium'].includes(size) && hasHeadshot) ? [title.split(' ')[0], <br />, title.split(' ').slice(1).join(' ')] : title;
 
 /**
  * @param {string} title
@@ -31,7 +28,7 @@ export default class extends Component {
 				{getImage(opinionHeader.headshot)}
 				<p className="card__opinion-header__title">
 					<a className="card__opinion-header__link" href={opinionHeader.url} data-trackable="link">
-						{getTitle(opinionHeader.title, size, opinionHeader.headshot)}
+						{opinionHeader.title}
 					</a>
 				</p>
 			</div>

@@ -181,7 +181,7 @@ const mostPopular = (facet, uuid) => (`
 		popularFromHui(${facet}: "${uuid}") {
 			... Basic
 			... Extended
-				... OpinionData
+			... OpinionData
 		}
 	}
 `);
@@ -215,6 +215,7 @@ const popularArticles = `
 		popularArticles(limit: 9) {
 			... Basic
 			... Extended
+			... OpinionData
 		}
 	}
 `;
