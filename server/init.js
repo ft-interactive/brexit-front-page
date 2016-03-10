@@ -25,12 +25,7 @@ const app = express({
 				});
 			}
 			propsToRender.flags = flags;
-			if (flags.mostPopularByIndustry && propsToRender.dynamicContent) {
-				return ReactServer.renderToString(React.createElement(klass, propsToRender));
-			} else {
-				return ReactServer.renderToStaticMarkup(React.createElement(klass, propsToRender));
-			}
-
+			return ReactServer.renderToStaticMarkup(React.createElement(klass, propsToRender));
 		},
 		colspan
 	},

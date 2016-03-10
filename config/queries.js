@@ -187,35 +187,6 @@ const frontPage = (region) => (`
 	}
 `);
 
-
-const popularArticlesBy = (facet, uuid) => (`
-	${fragments.basic}
-	${fragments.extended}
-	${fragments.opinionData}
-
-	query PopularArticlesBy {
-		mostPopular: popularFromHui(${facet}: "${uuid}") {
-			... Basic
-			... Extended
-			... OpinionData
-		}
-	}
-`);
-
-const popularArticles = `
-	${fragments.basic}
-	${fragments.extended}
-	${fragments.opinionData}
-
-	query PopularArticles {
-		mostPopular: popularArticles(limit: 9) {
-			... Basic
-			... Extended
-			... OpinionData
-		}
-	}
-`;
-
 const user = `
 	fragment Basic on Concept {
 		type: __typename
@@ -250,4 +221,4 @@ const user = `
 	}
 `;
 
-export default { frontPage, popularArticles, popularArticlesBy, user };
+export default { frontPage, user };
