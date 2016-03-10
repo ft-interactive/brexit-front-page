@@ -14,22 +14,7 @@ let queryResults = {
 		lastUpdated: null,
 		isValid: (data) => data && data.top && data.top.items && data.top.items.length
 	},
-	fastFT: {
-		data: null,
-		lastUpdated: null,
-		isValid: (data) => data && data.fastFT && data.fastFT.items && data.fastFT.items.length
-	},
-	popularTopics: {
-		data: null,
-		lastUpdated: null,
-		isValid: (data) => data && data.popularTopics && data.popularTopics.length
-	},
 	mockFrontPage: {
-		data: null,
-		lastUpdated: null,
-		isValid: (data) => data && data.top && data.top.items && data.top.items.length
-	},
-	mockFrontPageNew: {
 		data: null,
 		lastUpdated: null,
 		isValid: (data) => data && data.top && data.top.items && data.top.items.length
@@ -74,8 +59,6 @@ const start = () => {
 		readyPromise = Promise.all([
 				pollData(queries.frontPage('UK'), 'frontPageUK').start({ initialRequest: true }),
 				pollData(queries.frontPage('US'), 'frontPageUS').start({ initialRequest: true }),
-				pollData(queries.fastFT, 'fastFT').start({ initialRequest: true }),
-				pollData(queries.popularTopics, 'popularTopics').start({ initialRequest: true }),
 				pollData(queries.frontPage('UK'), 'mockFrontPage', { mockFrontPage: true }).start({ initialRequest: true })
 			])
 			.catch(e => {
