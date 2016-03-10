@@ -6,7 +6,7 @@ import oDate from 'o-date';
 import getDomPathString from 'n-instrumentation/src/utils/getDomPathString';
 import { crossDomainFetch } from 'n-jsonp';
 
-import { mostPopular, popularArticles } from '../../../config/queries';
+import { popularArticlesBy, popularArticles } from '../../../config/queries';
 import getSection from '../../../config/sections/index';
 import Section from '../../../shared/components/section/section';
 import fireTracking from '../../utils/fire-tracking';
@@ -24,8 +24,8 @@ const handleError = (el, err) => {
 };
 
 const updateSection = (el, selected, track, flags, data) => {
-	if (data && (data.popularArticles || data.popularFromHui)) {
-		const main = data[selected === 'initial' ? 'popularArticles' : 'popularFromHui'];
+	if (data && data.mostPopular) {
+		const main = data.mostPopular;
 		const section = getSection('most-popular', { main }, flags.getAll());
 		section.dynamicContent.selected = selected;
 		const sectionComponent = ReactDOM.render(<Section {...section} flags={flags.getAll()} />, document.getElementById('most-popular'));
@@ -46,7 +46,7 @@ const updateSection = (el, selected, track, flags, data) => {
 const changeHandler = (flags, ev, { track = true } = {}) => {
 	const target = ev.target;
 	const selected = target.value;
-	const query = selected === 'initial' ? popularArticles : mostPopular('industry', `http://api.ft.com/things/${selected}`);
+	const query = selected === 'initial' ? popularArticles : popularArticlesBy('industry', `http://api.ft.com/things/${selected}`);
 	// store the change
 	if (selected === 'initial') {
 		store.storage.unset(store.name);

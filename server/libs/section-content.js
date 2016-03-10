@@ -62,7 +62,7 @@ export default (data, flags) => ({
 		main: data.frontPage.opinion.items
 	},
 	myft: {
-		main: data.popularTopics && data.popularTopics.popularTopics
+		main: data.frontPage.popularTopics
 	},
 	'mid-page-advert-1': {
 		main: ['no-content-needed'] //HACK: Section component requires everything to have content so hack in some fake stuff

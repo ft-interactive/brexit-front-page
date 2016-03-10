@@ -12,8 +12,7 @@ export default region => (req, res) => {
 	const frontPageData = res.locals.flags.mockFrontPage ? 'mockFrontPage' : `frontPage${region}`;
 
 	const data = {
-		frontPage: getData(frontPageData),
-		popularTopics: getData('popularTopics')
+		frontPage: getData(frontPageData)
 	};
 
 	res.set({

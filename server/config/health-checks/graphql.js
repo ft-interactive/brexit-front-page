@@ -77,7 +77,8 @@ const graphqQlHealthCheck = {
 			type: 'graphQl',
 			interval: '60s',
 			freshnessThreshold: 1800000,
-			query: 'fastFT'
+			query: 'frontPageUK',
+			verifyKeys: ['fastFTNew']
 		},
 		{
 			name: 'Opinion',

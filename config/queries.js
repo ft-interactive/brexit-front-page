@@ -110,18 +110,8 @@ const frontPage = (region) => (`
 				... LiveBlogInfo
 			}
 		}
-
 		fastFTNew(limit: 7) {
 			... Basic
-		}
-		editorsPicks {
-			title
-			items(limit: 6) {
-				... Basic
-				... Extended
-				... Related
-				... OpinionData
-			}
 		}
 		opinion {
 			items {
@@ -134,13 +124,36 @@ const frontPage = (region) => (`
 				}
 			}
 		}
-		videos(limit: 6) {
+		popularTopics(limit: 3) {
 			type: __typename
 			id
-			title
-			image {
-				rawSrc
+			name
+			url
+			taxonomy
+			items(limit: 2) {
+				id
+				title
+				... on Article {
+					isPodcast
+				}
+				primaryImage {
+					rawSrc
+				}
 			}
+		}
+		editorsPicks {
+			title
+			items(limit: 6) {
+				... Basic
+				... Extended
+				... Related
+				... OpinionData
+			}
+		}
+		popularArticles(limit: 9) {
+			... Basic
+			... Extended
+			... OpinionData
 		}
 		technology {
 			items(limit: 2, genres: ["analysis", "comment"]) {
@@ -163,56 +176,38 @@ const frontPage = (region) => (`
 				... OpinionData
 			}
 		}
-		popularArticles(limit: 9) {
-			... Basic
-			... Extended
-			... OpinionData
+		videos(limit: 6) {
+			type: __typename
+			id
+			title
+			image {
+				rawSrc
+			}
 		}
 	}
 `);
 
 
-const mostPopular = (facet, uuid) => (`
+const popularArticlesBy = (facet, uuid) => (`
 	${fragments.basic}
 	${fragments.extended}
 	${fragments.opinionData}
 
-	query mostPopular {
-		popularFromHui(${facet}: "${uuid}") {
+	query PopularArticlesBy {
+		mostPopular: popularFromHui(${facet}: "${uuid}") {
 			... Basic
 			... Extended
 			... OpinionData
 		}
 	}
 `);
-
-const popularTopics = `
-	query PopularTopics {
-		popularTopics(limit: 3) {
-			id
-			name
-			url
-			taxonomy
-			items(limit: 2) {
-				id
-				title
-				... on Article {
-					isPodcast
-				}
-				primaryImage {
-					rawSrc
-				}
-			}
-		}
-	}
-`;
 
 const popularArticles = `
 	${fragments.basic}
 	${fragments.extended}
 
 	query PopularArticles {
-		popularArticles(limit: 9) {
+		mostPopular: popularArticles(limit: 9) {
 			... Basic
 			... Extended
 			... OpinionData
@@ -254,4 +249,4 @@ const user = `
 	}
 `;
 
-export default { frontPage, mostPopular, popularTopics, popularArticles, user };
+export default { frontPage, popularArticles, popularArticlesBy, user };
