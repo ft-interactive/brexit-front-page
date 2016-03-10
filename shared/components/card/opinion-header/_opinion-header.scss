@@ -7,7 +7,10 @@
 }
 
 .card__opinion-header__image {
+	position: relative;
 	float: left;
+	width: 60px;
+	height: 60px;
 	margin-right: 10px;
 	margin-bottom: 5px;
 }
@@ -19,38 +22,33 @@
 }
 
 .card__opinion-header__quote {
-	@include nextIcon(single-quote, oColorsGetColorFor(author, background), 22, $icon-only: true);
+	@include nextIcon(single-quote, oColorsGetColorFor(author, background), 30, $icon-only: true);
+	position: absolute;
+	top: 50%;
+	left: 50%;
 	background-size: contain;
-	width: 22px;
-	height: 28px;
+	width: 30px;
+	height: 39px;
 	opacity: 0.6;
 }
 
 .card__opinion-header__quote--left {
-	float: left;
+	transform: translateY(-50%) translateX(-80%);
 }
 
 .card__opinion-header__quote--right {
-	margin-left: 15px;
+	transform: translateY(-50%) translateX(-20%);
 }
 
 .card__opinion-header__title {
 	font-family: $o-typography-serif-display;
 	font-weight: oFontsWeight(regular);
 	line-height: 1em;
-	margin: 0 0 5px;
-	padding: 0 0 5px 47px;
+	margin: 0 0 5px 70px;
+	padding: 0 0 2px;
 	border-bottom: 6px solid oColorsGetColorFor(author, border);
-	min-height: 28px;
 
-	.card__opinion-header--with-headshot & {
-		min-height: 0;
-		margin-left: 70px;
-		padding-left: 0;
-		padding-bottom: 2px;
-	}
-
-	.card__opinion-header--with-headshot.card__opinion-header--large & {
+	.card__opinion-header--large & {
 		min-height: 60px;
 		margin-left: 0;
 		padding-left: 70px;
