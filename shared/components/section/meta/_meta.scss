@@ -17,37 +17,38 @@
 	}
 }
 
-.section-meta__link--myft-logo {
-	border-bottom: 0;
-}
-
 .section-meta__title {
-	@include oTypographySerifDisplayBold(s);
+	@include oTypographySerifDisplayBold(m);
 	@include oColorsFor(page, background);
-	line-height: 30px;
 	display: inline-block;
 	margin: 0;
-	padding: 0;
+	padding: 0 oGridGutter() 0 0;
 	color: getColor('cold-3');
-	padding-right: oGridGutter();
 	position: relative;
 	z-index: 1;
 
 	@include oGridRespondTo(M) {
 		padding-right: oGridGutter(M);
 	}
-}
 
-.section-meta__title--sans-serif {
-	@include oTypographySansDataBold(l);
-	font-size: 20px;
+	@include oGridRespondTo(M) {
+		@include oTypographySerifDisplayBoldSize(l);
+	}
 }
 
 .section-meta__link--myft-logo {
+	display: inline-block;
 	border-bottom: 0;
 }
 
 .section-meta__myft-icon {
-	@include nextIcon('myft-bolder', getColor('black'), 60);
+	@include nextIcon('myft-bolder', getColor('black'), 67);
+	width: 52px;
+	height: 24px;
 	text-indent: -9999px;
+
+	@include oGridRespondTo(L) {
+		width: 67px;
+		height: 31px;
+	}
 }
