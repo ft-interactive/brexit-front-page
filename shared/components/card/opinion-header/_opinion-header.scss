@@ -24,20 +24,22 @@
 .card__opinion-header__quote {
 	@include nextIcon(single-quote, oColorsGetColorFor(author, background), 30, $icon-only: true);
 	position: absolute;
-	top: 50%;
-	left: 50%;
-	background-size: contain;
-	width: 30px;
-	height: 39px;
+	top: 0;
+	left: 0;
+	background-size: 30px 39px;
+	background-position-y: 50%;
+	background-repeat: no-repeat;
+	width: 100%;
+	height: 100%;
 	opacity: 0.6;
 }
 
 .card__opinion-header__quote--left {
-	transform: translateY(-50%) translateX(-80%);
+	background-position-x: 20%;
 }
 
 .card__opinion-header__quote--right {
-	transform: translateY(-50%) translateX(-20%);
+	background-position-x: 80%;
 }
 
 .card__opinion-header__title {
