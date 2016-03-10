@@ -11,7 +11,6 @@
     "n-image": "^2.0.0",
     "o-tabs": "^2.1.0",
     "n-jsonp": "^2.0.0",
-    "o-forms": "^2.0.0",
     "next-session-client": "^2.0.0",
     "next-myft-ui": "^6.10.2"
   },

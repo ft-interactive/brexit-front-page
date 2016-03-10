@@ -68,6 +68,7 @@ const frontPage = (region) => (`
 	${fragments.related}
 	${fragments.opinionData}
 	${fragments.liveBlog}
+
 	query FrontPage {
 		topStory: top(region: ${region}){
 			items(limit: 1) {
@@ -186,19 +187,6 @@ const frontPage = (region) => (`
 	}
 `);
 
-const popularArticles = `
-	${fragments.basic}
-	${fragments.extended}
-	${fragments.opinionData}
-	query PopularArticles {
-		mostPopular: popularArticles(limit: 9) {
-			... Basic
-			... Extended
-			... OpinionData
-		}
-	}
-`;
-
 const user = `
 	fragment Basic on Concept {
 		type: __typename
@@ -217,6 +205,7 @@ const user = `
 			}
 		}
 	}
+
 	query MyFT {
 		popularTopics(limit: 3) {
 			... Basic
@@ -232,4 +221,4 @@ const user = `
 	}
 `;
 
-export default { frontPage, popularArticles, user };
+export default { frontPage, user };
