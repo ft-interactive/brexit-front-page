@@ -18,10 +18,6 @@
 		margin: 0 10px 10px;
 	}
 
-	.card[data-size="tiny"] & {
-		display: inline;
-	}
-
 	.card__opinion-header ~ & {
 		clear: left;
 	}
