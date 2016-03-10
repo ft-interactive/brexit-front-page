@@ -205,6 +205,7 @@ const popularArticlesBy = (facet, uuid) => (`
 const popularArticles = `
 	${fragments.basic}
 	${fragments.extended}
+	${fragments.opinionData}
 
 	query PopularArticles {
 		mostPopular: popularArticles(limit: 9) {
