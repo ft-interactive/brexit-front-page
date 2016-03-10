@@ -4,6 +4,7 @@ export default ({ flags }) => ({
 	style: 'opinion',
 	layoutId: (flags.frontPageOpinionCards) ? 'opinion-new' : 'opinion',
 	trackScrollEvent: true,
+	background: true,
 	size: {
 		default: 12
 	},

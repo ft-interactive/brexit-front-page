@@ -33,6 +33,7 @@ export default ({ content, flags }) => ({
 	layoutId: getLayout(content, flags),
 	trackable: getLayout(content, flags),
 	trackScrollEvent: true,
+	background: true,
 	size: {
 		default: 12
 	},

@@ -28,7 +28,7 @@ const updateSection = (el, selected, track, flags, data) => {
 		const main = data[selected === 'initial' ? 'popularArticles' : 'popularFromHui'];
 		const section = getSection('most-popular', { main }, flags.getAll());
 		section.dynamicContent.selected = selected;
-		const sectionComponent = ReactDOM.render(<Section {...section} />, document.getElementById('most-popular'));
+		const sectionComponent = ReactDOM.render(<Section {...section} flags={flags.getAll()} />, document.getElementById('most-popular'));
 		oDate.init(ReactDOM.findDOMNode(sectionComponent));
 		if (track) {
 			fireTracking('oTracking.event', {

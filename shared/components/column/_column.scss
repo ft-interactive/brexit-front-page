@@ -2,7 +2,7 @@
 	@include displayFlex;
 	flex-direction: column;
 
-	.section--top-stories &:before {
+	.section--background &:before {
 		// vertical column rule
 		content: '';
 		position: absolute;

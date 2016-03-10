@@ -28,13 +28,12 @@ export default [
 				components: [
 					{
 						type: Content,
-						size: 'medium',
+						size: 'large',
 						showStandfirst: true
 					},
 					{
 						type: Content,
-						size: 'medium',
-						showStandfirst: true
+						size: 'small'
 					}
 
 				]
@@ -44,17 +43,13 @@ export default [
 				type: Column,
 				colspan: { default: 12, M: 3 },
 				components: [
-				{
-						type: Content,
-						size: 'small'
-					},
 					{
 						type: Content,
-						size: 'small'
-					},
-					{
-						type: Content,
-						size: 'small'
+						size: 'large',
+						showStandfirst: true,
+						image: {
+							sizes: { default: 449, s: 659, m: 199, l: 357, xl: 430 }
+						}
 					}
 				]
 			},
@@ -66,19 +61,15 @@ export default [
 				[
 					{
 						type: Content,
-						size: 'tiny'
+						size: 'small'
 					},
 					{
 						type: Content,
-						size: 'tiny'
+						size: 'small'
 					},
 					{
 						type: Content,
-						size: 'tiny'
-					},
-					{
-						type: Content,
-						size: 'tiny'
+						size: 'small'
 					}
 				]
 			}

@@ -24,7 +24,8 @@ export default class extends Component {
 		}
 		const sectionClasses = classify([
 			'o-grid-row',
-			this.props.style ? 'section--' + this.props.style : ''
+			this.props.style ? 'section--' + this.props.style : '',
+			this.props.background ? 'section--background' : ''
 		]);
 		const sectionContentClasses = classify([
 			'section__column',
@@ -43,7 +44,7 @@ export default class extends Component {
 				{
 					cols.meta ?
 						<div data-o-grid-colspan={colspan(cols.meta)} className="section__column section__column--meta">
-							<SectionMeta title={this.props.title} date={this.props.date} />
+							<SectionMeta title={this.props.title} />
 						</div> :
 						null
 				}
