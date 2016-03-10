@@ -2,14 +2,11 @@ import React, { Component } from 'react';
 
 import SectionMeta from './meta/meta';
 import SectionContent from './content/content';
-import SectionSources from './sources/sources';
 import colspan from '../../../client/utils/colspan';
 
 const classify = classes => classes
 	.filter(className => className)
 	.join(' ');
-
-const getSelectedTitle = dynamicContent => dynamicContent.sources.find(s => s.uuid === dynamicContent.selected).title;
 
 export default class extends Component {
 	render () {
@@ -19,9 +16,6 @@ export default class extends Component {
 		}
 		const cols = this.props.cols;
 		let trackable = this.props.trackable || this.props.id;
-		if (this.props.dynamicContent && this.props.dynamicContent.selected !== 'initial') {
-			trackable += ` | alternate-source | ${getSelectedTitle(this.props.dynamicContent)}`
-		}
 		const sectionClasses = classify([
 			'o-grid-row',
 			this.props.style ? 'section--' + this.props.style : '',
@@ -45,13 +39,6 @@ export default class extends Component {
 					cols.meta ?
 						<div data-o-grid-colspan={colspan(cols.meta)} className="section__column section__column--meta">
 							<SectionMeta title={this.props.title} />
-						</div> :
-						null
-				}
-				{
-					this.props.dynamicContent ?
-						<div data-o-grid-colspan="12" className="section__column section__column--sources">
-							<SectionSources {...this.props.dynamicContent} />
 						</div> :
 						null
 				}

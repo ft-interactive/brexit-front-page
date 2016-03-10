@@ -11,7 +11,6 @@ import scrollDepth from './components/scroll-depth/scroll-depth';
 import marketsData from './components/markets-data/markets-data';
 import headerTabs from './components/header-tabs/header-tabs';
 import myft from './components/myft/myft';
-import mostPopular from './components/most-popular/most-popular';
 
 setup.bootstrap(({flags}) => {
 	// NOTE: make sure we init myft client *before* n-layout
@@ -34,5 +33,4 @@ setup.bootstrap(({flags}) => {
 	marketsData(flags);
 	headerTabs(flags);
 	myft(myftClient, flags);
-	mostPopular(flags);
 });
