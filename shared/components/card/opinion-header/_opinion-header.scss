@@ -1,3 +1,5 @@
+@import "../../../../client/vars";
+
 .card__opinion-header {
 	&.card__opinion-header--large {
 		overflow: hidden;
@@ -35,48 +37,39 @@
 .card__opinion-header__title {
 	font-family: $o-typography-serif-display;
 	font-weight: oFontsWeight(regular);
-	font-size: 16px;
 	line-height: 1em;
 	margin: 0 0 5px;
-	padding-bottom: 5px;
+	padding: 0 0 5px 47px;
 	border-bottom: 6px solid oColorsGetColorFor(author, border);
 	min-height: 28px;
 
 	.card__opinion-header--with-headshot & {
 		min-height: 0;
 		margin-left: 70px;
+		padding-left: 0;
 		padding-bottom: 2px;
 	}
 
-	.card__opinion-header--small & {
-		min-height: 21px;
-		font-size: 20px;
-		padding-top: 7px;
-	}
-
-	.card__opinion-header--medium & {
-		min-height: 24px;
-		font-size: 24px;
-		padding-top: 4px;
-	}
-
-	.card__opinion-header--with-headshot.card__opinion-header--small &,
-	.card__opinion-header--with-headshot.card__opinion-header--medium & {
-		padding-top: 0;
-	}
-
-	.card__opinion-header--large & {
-		min-height: 28px;
-		font-size: 36px;
-	}
-
 	.card__opinion-header--with-headshot.card__opinion-header--large & {
-		min-height: 42px;
+		min-height: 60px;
 		margin-left: 0;
-		padding-top: 18px;
+		padding-left: 70px;
 		padding-bottom: 5px;
 	}
+}
 
+@each $size, $breakpoints in $card-title-sizes {
+	.card__opinion-header--#{$size} .card__opinion-header__title {
+		@each $breakpoint, $text-sizes in $breakpoints {
+			@if ($breakpoint == 'default') {
+				font-size: nth($text-sizes, 1) + 0px;
+			} @else {
+				@include oGridRespondTo($breakpoint) {
+					font-size: nth($text-sizes, 1) + 0px;
+				}
+			}
+		}
+	}
 }
 
 .card__opinion-header__link {

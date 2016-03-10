@@ -1,3 +1,5 @@
+@import "../../../../client/vars";
+
 .card__title {
 	font-family: $o-typography-serif-display;
 	font-weight: oFontsWeight(regular);
@@ -25,44 +27,7 @@
 	}
 }
 
-// font-size/line-height pairs
-$text-sizes: (
-	tiny: (
-		default: 18 20,
-		S: 16 16,
-		M: 16 18
-	),
-	small: (
-		default: 20 22,
-		M: 18 20,
-		L: 20 24,
-	),
-	medium: (
-		default: 22 24,
-		S: 24 26
-	),
-	large: (
-		default: 22 24,
-		S: 24 26,
-		M: 22 24,
-		L: 36 38
-	),
-	large-top-story: (
-		default: 28 30,
-		S: 34 34,
-		M: 42 40
-	),
-	large-no-image: (
-		default: 28 30,
-		S: 34 34,
-		M: 42 40,
-		L: 36 38,
-		XL: 42 40
-	)
-
-);
-
-@each $size, $breakpoints in $text-sizes {
+@each $size, $breakpoints in $card-title-sizes {
 	.card[data-size="#{$size}"] .card__title {
 		@each $breakpoint, $text-sizes in $breakpoints {
 			@if ($breakpoint == 'default') {
