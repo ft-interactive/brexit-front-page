@@ -110,7 +110,7 @@ const frontPage = (region) => (`
 				... LiveBlogInfo
 			}
 		}
-		fastFTNew(limit: 7) {
+		fastFT(limit: 7) {
 			... Basic
 		}
 		opinion {
