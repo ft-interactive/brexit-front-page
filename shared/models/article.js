@@ -18,6 +18,9 @@ const isCommentTag = tag => tag.taxonomy === 'genre' && tag.name === 'Comment';
 
 const propertyEquals = (property, value, object) => object[property] === value;
 
+const getPrimaryTag = ({ primaryTheme, primarySection }) =>
+	(primaryTheme && !['organisations', 'regions', 'people'].includes(primaryTheme.taxonomy)) ? primaryTheme : primarySection;
+
 export default (item, opts, { flags = {} }) => {
 	const article = {
 		type: 'article',
@@ -25,6 +28,7 @@ export default (item, opts, { flags = {} }) => {
 		title: item.title,
 		lastPublished: item.lastPublished
 	};
+	const primaryTag = getPrimaryTag({ primaryTheme: item.primaryTheme, primarySection: item.primarySection });
 	const imageData = getImageData(item, !flags.frontPageOpinionCards);
 	if (opts.image && imageData) {
 		article.image = Object.assign({}, opts.image, imageData);
@@ -40,7 +44,7 @@ export default (item, opts, { flags = {} }) => {
 		article.isPictureStory = opts.isPictureStory;
 	}
 	if (!opts.hideTag) {
-		article.tag = (!flags.frontPageOpinionCards && item.branding) || item.primaryTag;
+		article.tag = (!flags.frontPageOpinionCards && item.branding) || primaryTag;
 	}
 	if (flags.frontPageOpinionCards && item.tags && item.tags.some(isCommentTag)) {
 		const brand = item.tags.find(propertyEquals.bind(null, 'taxonomy', 'brand'));
@@ -71,7 +75,7 @@ export default (item, opts, { flags = {} }) => {
 	if (opts.related && opts.related.show) {
 		article.related = Object.assign({
 			items: item.relatedContent
-				.concat((item.primaryTag && item.primaryTag.items) || [])
+				.concat((primaryTag && primaryTag.items) || [])
 				.filter(relatedItem => relatedItem.id !== item.id)
 				.slice(0, 3)
 		}, opts.related);
