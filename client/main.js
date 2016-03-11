@@ -12,7 +12,7 @@ import marketsData from './components/markets-data/markets-data';
 import headerTabs from './components/header-tabs/header-tabs';
 import myft from './components/myft/myft';
 
-setup.bootstrap(({flags}) => {
+setup.bootstrap(({ flags }) => {
 	// NOTE: make sure we init myft client *before* n-layout
 	const clientOpts = [];
 	flags.get('follow') && clientOpts.push({relationship: 'followed', type: 'concept'});
