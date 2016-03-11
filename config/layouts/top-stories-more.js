@@ -13,7 +13,6 @@ export default [
 					{
 						type: Content,
 						size: 'small',
-						hideTag: true,
 						show: { default: true, XL: false }
 					}
 				]
@@ -25,7 +24,6 @@ export default [
 					{
 						type: Content,
 						size: 'small',
-						hideTag: true,
 						show: { default: true, XL: false }
 					}
 				]
@@ -36,8 +34,17 @@ export default [
 				components: [
 					{
 						type: Content,
-						size: 'small',
-						hideTag: true
+						size: 'small'
+					}
+				]
+			},
+			{
+				type: Column,
+				colspan: { default: 12, M: 3 },
+				components: [
+					{
+						type: Content,
+						size: 'small'
 					}
 				]
 			},
@@ -48,18 +55,6 @@ export default [
 					{
 						type: Content,
 						size: 'small',
-						hideTag: true
-					}
-				]
-			},
-			{
-				type: Column,
-				colspan: { default: 12, M: 3 },
-				components: [
-					{
-						type: Content,
-						size: 'small',
-						hideTag: true,
 						show: { default: false, XL: true }
 					}
 				]
@@ -71,7 +66,6 @@ export default [
 					{
 						type: Content,
 						size: 'small',
-						hideTag: true,
 						show: { default: false, XL: true }
 					}
 				]

@@ -37,7 +37,6 @@ export default [
 									{
 										type: Content,
 										size: 'medium',
-										hideTag: true,
 										isPictureStory: true,
 										image: {
 											position: { default: 'right', S: 'top' },
@@ -126,8 +125,7 @@ export default [
 								components: [
 									{
 										type: Content,
-										size: 'medium',
-										hideTag: true
+										size: 'medium'
 									}
 								]
 							},
@@ -137,8 +135,7 @@ export default [
 								components: [
 									{
 										type: Content,
-										size: 'medium',
-										hideTag: true
+										size: 'medium'
 									}
 								]
 							},
@@ -149,19 +146,6 @@ export default [
 									{
 										type: Content,
 										size: 'medium',
-										hideTag: true,
-										show: { default: false, XL: true }
-									}
-								]
-							},
-							{
-								type: Column,
-								colspan: { default: 12 },
-								components: [
-									{
-										type: Content,
-										size: 'medium',
-										hideTag: true,
 										show: { default: false, XL: true }
 									}
 								]

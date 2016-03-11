@@ -77,66 +77,49 @@ export default [
 				components: [
 					{
 						type: Row,
-						components:
-							[
-								{
-									type: Column,
-									colspan: { default: 12, M: 4, XL: 12 },
-									components: [
-										{
-											type: Content,
-											size: 'medium',
-											hideTag: true
-										}
-									]
-								},
-								{
-									type: Column,
-									colspan: { default: 12, M: 4, XL: 12 },
-									components: [
-										{
-											type: Content,
-											size: 'medium',
-											hideTag: true
-										}
-									]
-								},
-								{
-									type: Column,
-									colspan: { default: 12, M: 4, XL: 12 },
-									components: [
-										{
-											type: Content,
-											size: 'medium',
-											hideTag: true
-										}
-									]
-								},
-								{
-									type: Column,
-									colspan: { default: 12 },
-									components: [
-										{
-											type: Content,
-											size: 'medium',
-											hideTag: true,
-											show: { default: false, XL: true }
-										}
-									]
-								},
-								{
-									type: Column,
-									colspan: { default: 12 },
-									components: [
-										{
-											type: Content,
-											size: 'medium',
-											hideTag: true,
-											show: { default: false, XL: true }
-										}
-									]
-								}
-							]
+						components: [
+							{
+								type: Column,
+								colspan: { default: 12, M: 4, XL: 12 },
+								components: [
+									{
+										type: Content,
+										size: 'medium'
+									}
+								]
+							},
+							{
+								type: Column,
+								colspan: { default: 12, M: 4, XL: 12 },
+								components: [
+									{
+										type: Content,
+										size: 'medium'
+									}
+								]
+							},
+							{
+								type: Column,
+								colspan: { default: 12, M: 4, XL: 12 },
+								components: [
+									{
+										type: Content,
+										size: 'medium'
+									}
+								]
+							},
+							{
+								type: Column,
+								colspan: { default: 12 },
+								components: [
+									{
+										type: Content,
+										size: 'medium',
+										show: { default: false, XL: true }
+									}
+								]
+							}
+						]
 					}
 				]
 			}
