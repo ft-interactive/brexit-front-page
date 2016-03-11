@@ -10,7 +10,13 @@ const fragments = {
 	extended: `
 		fragment Extended on Content {
 			summary
-			primaryTag {
+			primaryTheme {
+				id
+				url
+				name
+				taxonomy
+			}
+			primarySection {
 				id
 				url
 				name
@@ -73,21 +79,21 @@ const frontPage = (region) => (`
 		topStory: top(region: ${region}){
 			items(limit: 1) {
 				... Basic
+				... Extended
 				... Related
+				... OpinionData
 				... LiveBlogInfo
-				summary
-				primaryTag {
-					id
-					url
-					taxonomy
-					name
+				primaryTheme {
 					items(limit: 4) {
 						id
 						title
 					}
 				}
-				primaryImage {
-					rawSrc
+				primarySection {
+					items(limit: 4) {
+						id
+						title
+					}
 				}
 			}
 		}
