@@ -37,7 +37,7 @@ const getTopStoriesData = (data, flags = {}) => {
 	return {
 		layoutHint,
 		main,
-		sidebar: data.frontPage.fastFTNew
+		sidebar: data.frontPage.fastFT
 	}
 
 };
