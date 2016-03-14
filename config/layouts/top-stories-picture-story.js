@@ -38,6 +38,7 @@ export default [
 										type: Content,
 										size: 'medium',
 										isPictureStory: true,
+										hideTag: true,
 										image: {
 											position: { default: 'right', S: 'top' },
 											sizes: { default: 225, s: 315, m: 432, l: 357, xl: 366 }
