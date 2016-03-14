@@ -115,8 +115,7 @@ export default [
 								components: [
 									{
 										type: Content,
-										size: 'medium',
-										hideTag: true
+										size: 'medium'
 									}
 								]
 							},
