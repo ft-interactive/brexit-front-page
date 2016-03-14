@@ -9,7 +9,7 @@ const removeArticles = (articles, article) => !articles.find(a => a.id === artic
 const getTopStoriesData = (data, flags = {}) => {
 	let main = data.frontPage.topStory.items.concat(data.frontPage.top.items.slice(1));
 	let layoutHint = flags.frontPageMultipleLayouts ? data.frontPage.topStoriesList.layoutHint : 'standard';
-	if (flags.frontPageMultipleLayouts) {
+	if (flags.frontPageMultipleLayouts && layoutHint !== 'landscape') {
 		if (
 			data.frontPage.topStoriesList &&
 			data.frontPage.topStoriesList.items &&
