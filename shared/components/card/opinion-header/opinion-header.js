@@ -6,7 +6,7 @@ const getImage = headshot =>
 			className="card__opinion-header__image card__opinion-header__image--headshot"
 			width="60"
 			height="60"
-			src={`${headshot}?source=next&fit=scale-down&compression=best&width=60`} /> :
+			src={`${headshot}?source=next&fit=scale-down&compression=best&width=50`} /> :
 		<div className="card__opinion-header__image">
 			<div className="card__opinion-header__quote card__opinion-header__quote--left" />
 			<div className="card__opinion-header__quote card__opinion-header__quote--right" />
@@ -28,12 +28,12 @@ export default class extends Component {
 		}
 		return (
 			<div className={classes} data-trackable="opinion-header">
-				{getImage(opinionHeader.headshot)}
 				<p className="card__opinion-header__title">
 					<a className="card__opinion-header__link" href={opinionHeader.url} data-trackable="link">
 						{opinionHeader.title}
 					</a>
 				</p>
+				{getImage(opinionHeader.headshot)}
 			</div>
 		);
 
