@@ -28,12 +28,12 @@ export default class extends Component {
 		}
 		return (
 			<div className={classes} data-trackable="opinion-header">
+				{getImage(opinionHeader.headshot)}
 				<p className="card__opinion-header__title">
 					<a className="card__opinion-header__link" href={opinionHeader.url} data-trackable="link">
 						{opinionHeader.title}
 					</a>
 				</p>
-				{getImage(opinionHeader.headshot)}
 			</div>
 		);
 
