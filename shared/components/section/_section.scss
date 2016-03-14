@@ -26,13 +26,13 @@
 .section__column--content {
 	.section--background & {
 		@include oColorsFor(card, background);
-		margin-top: oGridGutter();
 		padding-left: 0;
+		border-top: oGridGutter() solid oColorsGetColorFor(page, background);
 		border-left: oGridGutter() solid oColorsGetColorFor(page, background);
 		overflow: hidden;
 
 		@include oGridRespondTo(M) {
-			margin-top: oGridGutter(M);
+			border-top-width: oGridGutter(M);
 			border-left-width: oGridGutter(M);
 		}
 
