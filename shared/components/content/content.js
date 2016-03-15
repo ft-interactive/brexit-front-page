@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import { ConceptCard } from '@financial-times/n-card';
 
-import { Article as ArticleCard, Concept as ConceptCard, Video as VideoCard } from '../card';
+import { Article as ArticleCard, Video as VideoCard } from '../card';
 import createModel from '../../models';
 
 const getModel = (item, opts, { flags = {} }) => {
