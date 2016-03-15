@@ -67,6 +67,10 @@ const regionalSecurities = {
 	]
 };
 
+const createAriaLabel = (priceChangeDirection, percentChange) => {
+	return priceChangeDirection + ' ' + percentChange.toString().replace(/\./, ' point ') + '%';
+};
+
 export default flags => {
 	if (!flags.get('frontPageHeaderMarketsData')) {
 		return;
@@ -107,7 +111,8 @@ export default flags => {
 								class="markets-data__item__link"
 								data-trackable="link">
 								<h2 class="markets-data__item__name">${security.name}</h2>
-								<p class="markets-data__item__change markets-data__item__change--${priceChangeDirection}">
+								<p 	class="markets-data__item__change markets-data__item__change--${priceChangeDirection}"
+									aria-label="${createAriaLabel(priceChangeDirection, percentChange.toFixed(2))}">
 									${priceChangeDirection === 'up' ? '+' : ''}${percentChange.toFixed(2)}%
 								</p>
 							</a>
