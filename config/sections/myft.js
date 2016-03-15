@@ -16,5 +16,5 @@ export default () => ({
 		}
 	},
 	// only the client should render this section (not the server)
-	isClient: true
+	//isClient: true
 })
