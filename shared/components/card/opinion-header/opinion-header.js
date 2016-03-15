@@ -6,7 +6,7 @@ const getImage = headshot =>
 			className="card__opinion-header__image card__opinion-header__image--headshot"
 			width="60"
 			height="60"
-			src={`${headshot}?source=next&fit=scale-down&compression=best&width=60`} /> :
+			src={`${headshot}?source=next&fit=scale-down&compression=best&width=50`} /> :
 		<div className="card__opinion-header__image">
 			<div className="card__opinion-header__quote card__opinion-header__quote--left" />
 			<div className="card__opinion-header__quote card__opinion-header__quote--right" />

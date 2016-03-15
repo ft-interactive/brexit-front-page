@@ -17,10 +17,6 @@
 		@include oTypographySans(m);
 		margin: 0 10px 10px;
 	}
-
-	.card__opinion-header ~ & {
-		clear: left;
-	}
 }
 
 @each $size, $breakpoints in $card-title-sizes {

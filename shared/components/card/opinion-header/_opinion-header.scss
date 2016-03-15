@@ -1,24 +1,25 @@
 @import "../../../../client/vars";
 
 .card__opinion-header {
-	&.card__opinion-header--large {
-		overflow: hidden;
-	}
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	margin-bottom: oGridGutter();
+	overflow: hidden;
 }
 
 .card__opinion-header__image {
 	position: relative;
-	float: left;
-	width: 60px;
-	height: 60px;
-	margin-right: 10px;
-	margin-bottom: 5px;
+	flex: 0 0 50px;
+	float: right;
+	height: 50px;
+	width: 50px;
+	margin-left: oGridGutter();
 }
 
 .card__opinion-header__image--headshot {
 	@include oColorsFor(author, background);
-	border-radius: 30px;
-	width: 60px;
+	border-radius: 25px;
 }
 
 .card__opinion-header__quote {
@@ -35,41 +36,21 @@
 }
 
 .card__opinion-header__quote--left {
-	background-position-x: 20%;
+	background-position: 0 0;
 }
 
 .card__opinion-header__quote--right {
-	background-position-x: 80%;
+	background-position: 100% 0;
 }
 
 .card__opinion-header__title {
+	flex: 1 1 auto;
+	order: -1;
 	font-family: $o-typography-serif-display;
 	font-weight: oFontsWeight(regular);
+	font-size: 20px;
 	line-height: 1em;
-	margin: 0 0 5px 70px;
-	padding: 0 0 2px;
-	border-bottom: 6px solid oColorsGetColorFor(author, border);
-
-	.card__opinion-header--large & {
-		min-height: 60px;
-		margin-left: 0;
-		padding-left: 70px;
-		padding-bottom: 5px;
-	}
-}
-
-@each $size, $breakpoints in $card-title-sizes {
-	.card__opinion-header--#{$size} .card__opinion-header__title {
-		@each $breakpoint, $text-sizes in $breakpoints {
-			@if ($breakpoint == 'default') {
-				font-size: nth($text-sizes, 1) + 0px;
-			} @else {
-				@include oGridRespondTo($breakpoint) {
-					font-size: nth($text-sizes, 1) + 0px;
-				}
-			}
-		}
-	}
+	margin: 0;
 }
 
 .card__opinion-header__link {
