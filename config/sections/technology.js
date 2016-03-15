@@ -2,6 +2,7 @@ export default () => ({
 	id: 'technology',
 	title: 'Technology',
 	style: 'technology',
+	role: 'complementary',
 	layoutId: 'featured-section',
 	trackScrollEvent: true,
 	size: {

@@ -2,6 +2,7 @@ export default ({ flags }) => ({
 	id: 'opinion',
 	title: 'Opinion',
 	style: 'opinion',
+	role: 'complementary',
 	layoutId: (flags.frontPageOpinionCards) ? 'opinion-new' : 'opinion',
 	trackScrollEvent: true,
 	background: true,

@@ -3,6 +3,7 @@ export default () => ({
 	trackable: 'video',
 	title: 'Video',
 	style: 'video',
+	role: 'complementary',
 	layoutId: 'video',
 	trackScrollEvent: true,
 	size: {
