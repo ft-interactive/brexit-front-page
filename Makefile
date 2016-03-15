@@ -26,7 +26,7 @@ build: _webpack_setup
 	webpack --config webpack-dev.config.js
 
 build-production: _webpack_setup
-	webpack
+	webpack --bail
 	uglifyjs public/main.js --in-source-map public/main.js.map --source-map public/main.js.map  --source-map-url ./main.js.map -o public/main.js -c -m
 	nbt build --skip-sass --skip-js
 
