@@ -20,7 +20,13 @@ module.exports = {
 			{
 				test: /\.js$/,
 				loader: 'babel',
-				exclude: /node_modules/,
+				include: [
+					/bower_components/,
+					/n-card/,
+					path.resolve(__dirname, 'client'),
+					path.resolve(__dirname, 'config'),
+					path.resolve(__dirname, 'shared')
+				],
 				query: {
 					cacheDirectory: true,
 					presets: ['react', 'es2015'],
