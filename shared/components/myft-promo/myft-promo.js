@@ -16,7 +16,9 @@ export default class extends Component {
 						srcset={{ default: 177, m: 110, l: 143, xl: 177 }} />
 					<p className="myft-promo__description">You choose the topics, we deliver the news.</p>
 					<p className="myft-promo__link-wrapper">
-						<a href={linkDestination} className="myft-promo__link" data-trackable="link">
+						<a
+							href={linkDestination} className="myft-promo__link" data-trackable="link"
+							aria-label={linkTextPrefix + ' my F T'}>
 							{linkTextPrefix} <em>my</em>FT
 						</a>
 					</p>
