@@ -20,7 +20,7 @@ export default class extends Component {
 			<div className="fast-ft-wrapper">
 				<div className="fast-ft">
 					<h2 className="fast-ft__logo-outer">
-						<a className="fast-ft__link" href="/fastft" data-trackable="go-to-link">
+						<a className="fast-ft__link" href="/fastft" data-trackable="go-to-link" aria-label="fast F T">
 							<span className="fast-ft__logo fast-ft__logo--fast">fast</span><span className="fast-ft__logo fast-ft__logo--ft">FT</span>
 						</a>
 					</h2>
