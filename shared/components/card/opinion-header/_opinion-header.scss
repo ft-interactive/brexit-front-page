@@ -1,20 +1,11 @@
 @import "../../../../client/vars";
 
-.card__opinion-header {
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	margin-bottom: 5px;
-	overflow: hidden;
-}
-
 .card__opinion-header__image {
 	position: relative;
-	flex: 0 0 50px;
 	float: right;
 	height: 50px;
 	width: 50px;
-	margin-left: oGridGutter();
+	margin: 0 0 5px oGridGutter();
 }
 
 .card__opinion-header__image--headshot {
@@ -44,13 +35,11 @@
 }
 
 .card__opinion-header__title {
-	flex: 1 1 auto;
-	order: -1;
 	font-family: $o-typography-serif-display;
 	font-weight: oFontsWeight(regular);
 	font-size: 20px;
 	line-height: 1em;
-	margin: 0;
+	margin: 0 0 5px;
 }
 
 .card__opinion-header__link {
