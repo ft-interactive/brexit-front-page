@@ -11,7 +11,7 @@
 		top: oGridGutter() / 2;
 		bottom: oGridGutter() / 2;
 		background-color: oColorsGetColorFor(column, border);
-		z-index: 0;
+		z-index: 1;
 
 		@include oGridRespondTo(M) {
 			left: floor(oGridGutter(M) / 2);
@@ -23,14 +23,10 @@
 	.column--list & {
 		&:before {
 			// vertical rules between column-list columns
-			top: oGridGutter() * 2;
+			top: oGridGutter();
 			bottom: oGridGutter();
 			background-color: oColorsGetColorFor(card, border);
-			z-index: -1;
-
-			@include oGridRespondTo(M) {
-				top: oGridGutter() + oGridGutter(M);
-			}
+			z-index: 0;
 		}
 	}
 
@@ -77,11 +73,10 @@
 	height: 1px;
 	left: oGridGutter() * 2;
 	right: oGridGutter();
-	top: oGridGutter() / 2;
+	top: -1px;
 	background-color: oColorsGetColorFor(column, border);
 
 	@include oGridRespondTo(M) {
 		left: oGridGutter(M) + oGridGutter();
-		top: floor(oGridGutter(M) / 2);
 	}
 }

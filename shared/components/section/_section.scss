@@ -25,6 +25,7 @@
 
 .section__column--content {
 	.section--background & {
+		@include oColorsFor(card, background);
 		margin-top: oGridGutter();
 		padding-left: 0;
 		border-left: oGridGutter() solid oColorsGetColorFor(page, background);
@@ -34,30 +35,10 @@
 			margin-top: oGridGutter(M);
 			border-left-width: oGridGutter(M);
 		}
-
-		&:before {
-			// hide cards' top rules
-			@include oColorsFor(card, background);
-			content: '';
-			position: absolute;
-			width: 100%;
-			height: 1px;
-			left: 0;
-			top: oGridGutter() / 2;
-			z-index: 1;
-
-			@include oGridRespondTo(M) {
-				top: floor(oGridGutter(M) / 2);
-			}
-		}
 	}
 
 	#top-stories-more & {
 		margin-top: 0;
-
-		&:before {
-			display: none;
-		}
 	}
 }
 
@@ -73,8 +54,4 @@
 
 .section__column__inner {
 	position: relative;
-
-	.section--background & {
-		@include oColorsFor(card, background);
-	}
 }

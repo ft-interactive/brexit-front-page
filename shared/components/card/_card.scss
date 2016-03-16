@@ -7,3 +7,15 @@
 @import 'timestamp/timestamp';
 @import 'title/title';
 @import 'opinion-header/opinion-header';
+
+.section--background .card {
+	margin-top: 0;
+
+	&:before {
+		top: -1px !important;
+
+		#top-stories-more & {
+			top: 0 !important;
+		}
+	}
+}
