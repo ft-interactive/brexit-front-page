@@ -2,6 +2,7 @@ const path = require('path');
 const autoprefixer = require('autoprefixer');
 const BowerWebpackPlugin = require('bower-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const DefinePlugin = require('webpack').DefinePlugin;
 
 module.exports = {
 	devtool: 'source-map',
@@ -68,6 +69,11 @@ module.exports = {
 		}),
 		new ExtractTextPlugin('[name]', {
 			allChunks: true
+		}),
+		new DefinePlugin({
+			'process.env': {
+				'NODE_ENV': '"production"'
+			}
 		})
 	],
 	resolve: {
