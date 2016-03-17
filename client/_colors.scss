@@ -6,7 +6,8 @@
 @include oColorsSetColor('market-down-text', #ff767c);
 @include oColorsSetColor('card-rule', #f0e4d5);
 @include oColorsSetColor('column-rule', #e1c9b2);
-@include oColorsSetColor('author-background', #dce0e5);
+@include oColorsSetColor('author-text', #416e92);
+@include oColorsSetColor('author-background', #d0e2e7);
 
 // use cases
 @include oColorsSetUseCase(dark-bg, background, 'cold-1');
@@ -18,5 +19,5 @@
 @include oColorsSetUseCase(card, border, 'card-rule');
 @include oColorsSetUseCase(card-picture-story, background, 'pink-tint2');
 @include oColorsSetUseCase(column, border, 'column-rule');
-@include oColorsSetUseCase(author, text, 'claret');
+@include oColorsSetUseCase(author, text, 'author-text');
 @include oColorsSetUseCase(author, background, 'author-background');
