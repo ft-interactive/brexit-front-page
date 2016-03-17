@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 
+const headshotSize = 60;
+
 const getImage = headshot =>
 	headshot ?
 		<img
 			className="card__opinion-header__image card__opinion-header__image--headshot"
-			width="60"
-			height="60"
-			src={`${headshot}?source=next&fit=scale-down&compression=best&width=50`} /> :
+			width={headshotSize}
+			height={headshotSize}
+			src={`${headshot}?source=next&fit=scale-down&compression=best&width=${headshotSize}`} /> :
 		<div className="card__opinion-header__image">
 			<div className="card__opinion-header__quote card__opinion-header__quote--left" />
 			<div className="card__opinion-header__quote card__opinion-header__quote--right" />
