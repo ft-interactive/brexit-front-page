@@ -46,11 +46,10 @@
 	-->
 	<div class="ad-placeholder ad-placeholder--below-header"></div>
 
-	<div class="o-grid-row">
+	<div role="main" class="o-grid-row">
 	{{#each sections}}
 		<div
 			id="{{id}}"
-			{{#if role}}role="{{role}}"{{/if}}
 			{{#if trackScrollEvent}} class="js-track-scroll-event"{{/if}}
 			data-o-grid-colspan="{{colspan size}}">{{#unless isClient}}{{{reactRenderToString ../Section spread=@this}}}{{/unless}}</div>
 	{{/each}}

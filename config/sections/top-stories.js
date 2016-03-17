@@ -28,7 +28,6 @@ export default ({ content, flags }) => ({
 	id: 'top-stories',
 	title: 'Top Stories',
 	style: 'top-stories',
-	role: 'main',
 	date: date,
 	isTab: true,
 	layoutId: getLayout(content, flags),

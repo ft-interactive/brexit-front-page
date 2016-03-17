@@ -2,7 +2,6 @@ export default () => ({
 	id: 'myft',
 	title: '<a href="/myft" class="section-meta__link section-meta__link--myft-logo" data-trackable="logo-link"><span class="section-meta__myft-icon">myFT</span></a>',
 	style: 'myft',
-	role: 'complementary',
 	layoutId: 'myft',
 	trackScrollEvent: true,
 	size: {

@@ -26,7 +26,7 @@ export default class extends Component {
 			'section__column--content',
 			this.props.isTab ? 'o-tabs__tabpanel' : ''
 		]);
-		const sectionAsideClasses = classify([
+		const sectionSidebarClasses = classify([
 			'section__column',
 			'section__column--sidebar',
 			this.props.sidebarComponent && this.props.sidebarComponent.isTab ? 'o-tabs__tabpanel' : '',
@@ -56,17 +56,17 @@ export default class extends Component {
 				</div>
 				{
 					cols.sidebar ?
-						<aside
-							id={`${this.props.id}-section-aside`}
+						<div
+							id={`${this.props.id}-section-sidebar`}
 							data-o-grid-colspan={colspan(cols.sidebar)}
-							className={sectionAsideClasses}
+							className={sectionSidebarClasses}
 							data-trackable={this.props.sidebarComponent.id}>
 							<div>
 								<this.props.sidebarComponent.component
 									articles={this.props.content.sidebar ? this.props.content.sidebar : null}
 									adClasses={this.props.sidebarComponent.adClasses} />
 							</div>
-						</aside> :
+						</div> :
 						null
 
 				}

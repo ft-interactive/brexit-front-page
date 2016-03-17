@@ -2,7 +2,6 @@ export default () => ({
 	id: 'most-popular',
 	title: 'Most Read',
 	style: 'most-popular',
-	role: 'complementary',
 	layoutId: 'most-popular',
 	trackScrollEvent: true,
 	size: {
