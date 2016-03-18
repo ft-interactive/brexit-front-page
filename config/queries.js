@@ -220,7 +220,7 @@ const user = `
 			viewed(limit: 3) {
 				... Basic
 			}
-			followed(limit: 3) {
+			followed(limit: 4) {
 				... Basic
 			}
 		}

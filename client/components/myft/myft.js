@@ -8,6 +8,7 @@ import sessionClient from 'next-session-client';
 
 import getSection from '../../../config/sections/index';
 import { user as query } from '../../../config/queries';
+import Content from '../../../shared/components/content/content';
 import MyftPromo from '../../../shared/components/myft-promo/myft-promo';
 import Section from '../../../shared/components/section/section';
 
@@ -34,6 +35,10 @@ const filterDuplicateArticles = (articles, concept) => {
 	return articles.concat(concept.items);
 };
 
+const mapCards = (length, card) => {
+	return length > 1 ? Object.assign(card, { type: Content }) : Object.assign(card, { isMyftUser: true })
+}
+
 const handleResponse = (myFtContainerEl, myftClient, flags, response) => {
 	const { popularTopics, user: { viewed, followed }} = response;
 	// flag up followed concepts
@@ -42,7 +47,7 @@ const handleResponse = (myFtContainerEl, myftClient, flags, response) => {
 	const concepts = followed.concat(viewed, popularTopics)
 		.filter(filterDuplicateConcepts)
 		.filter(filterEmptyConcepts)
-		.slice(0, 3);
+		.slice(0, 4);
 	concepts.reduce(filterDuplicateArticles, []);
 	// get the section
 	const section = getSection('myft', { main: concepts }, flags.getAll());
@@ -52,10 +57,10 @@ const handleResponse = (myFtContainerEl, myftClient, flags, response) => {
 			col.components
 				.reduce((prev, column) => prev.concat(column.components), [])
 				.filter(card => card.type === MyftPromo)
-				.map(card => Object.assign(card, { isMyftUser: true })
-			)
+				.map(mapCards.bind(null, followed.length))
 		);
 	}
+
 	ReactDOM.render(<Section {...section} />, myFtContainerEl);
 	myftClient
 		.then(() => myFtUi.updateUi())
