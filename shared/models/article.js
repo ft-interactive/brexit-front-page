@@ -47,11 +47,9 @@ export default (item, opts) => {
 				url: '/stream/sectionsId/MTE2-U2VjdGlvbnM='
 			};
 		}
-		// don't show images (in non-large cards) and tags on opinion cards
-		if (opts.size !== 'large') {
-			article.image = null;
-		}
+		// don't show tags on opinion cards
 		article.tag = null;
+		article.type = 'opinion';
 	}
 	if (opts.related && opts.related.show) {
 		article.related = Object.assign({

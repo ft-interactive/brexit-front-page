@@ -1,103 +1,13 @@
 .card__image-link {
-	border-bottom: 0;
-	position: absolute;
-	bottom: 0;
-	right: 0;
-	left: 0;
-
-	.card[data-image-show~="false"] & {
-		display: none;
-	}
-
-	.card[data-image-position~="top"] & {
-		top: 0;
-		bottom: auto;
-	}
-
-	.card[data-image-position~="left"] & {
-		position: static;
-		float: left;
-		width: 100px;
-		margin: 0 10px 5px 0;
-	}
-
-	.card[data-image-position~="right"] & {
-		position: static;
-		float: right;
+	.card--opinion[data-image-position~="left"] & {
 		width: 50%;
-		margin: 0 0 5px 10px;
 	}
 
 	@each $layout-name in $_o-grid-layout-names {
 		@include oGridRespondTo($layout-name) {
-			.card[data-image-show~="#{$layout-name}--true"] & {
-				@include displayFlex;
-			}
-
-			.card[data-image-show~="#{$layout-name}--false"] & {
-				display: none;
-			}
-
-			.card[data-image-position~="#{$layout-name}--bottom"] & {
-				position: absolute;
-				top: auto;
-				bottom: 0;
-				width: auto;
-				margin: 0;
-			}
-
-			.card[data-image-position~="#{$layout-name}--top"] & {
-				position: absolute;
-				top: 0;
-				bottom: auto;
-				width: auto;
-				margin: 0;
-			}
-
-			.card[data-image-position~="#{$layout-name}--left"] & {
-				position: static;
-				float: left;
-				width: 100px;
-				margin: 0 10px 5px 0;
-			}
-
-			.card[data-image-position~="#{$layout-name}--right"] & {
-				position: static;
-				float: right;
+			.card--opinion[data-image-position~="#{$layout-name}--left"] & {
 				width: 50%;
-				margin: 0 0 5px 10px;
 			}
 		}
-	}
-}
-
-.card__picture {
-	display: block;
-	max-width: 100%;
-	overflow: hidden;
-
-	.card__image-link--headshot & {
-		width: 56.25%;
-
-		@include oGridRespondTo(M) {
-			margin-left: auto;
-		}
-	}
-}
-
-.card__picture--placeholder {
-	padding-bottom: 56.25%;
-	position: relative;
-}
-
-.card__image {
-	display: block;
-	max-width: 100%;
-	flex: 0 0 auto;
-
-	.card__picture--placeholder & {
-		position: absolute;
-		top: 0;
-		left: 0;
 	}
 }
