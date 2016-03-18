@@ -12,7 +12,6 @@ $o-grid-gutters: (
 $o-grid-start-snappy-mode-at: XXL;
 //Turn off IE8 rules here and output them in an IE specific css file
 $o-grid-ie8-rules: false;
-$o-grid-debug-mode: true;
 
 @import "n-layout/main";
 @import "n-message-prompts/main";
