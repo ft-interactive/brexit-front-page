@@ -22,8 +22,8 @@ export default [
 										showStandfirst: true,
 										isMain: true,
 										image: {
-											sizes: { default: 449, s: 659, m: 450, l: 384 },
-											position: { default: 'top', M: 'right' }
+											position: { default: 'top', M: 'right' },
+											sizes: { default: 449, s: 659, m: 450, l: 384 }
 										},
 										related: {
 											show: true,
@@ -45,8 +45,8 @@ export default [
 										type: Content,
 										size: 'medium',
 										image: {
-											sizes: { default: 449, s: 659, m: 450, l: 374 },
-											position: { default: 'left', M: 'right' }
+											position: { default: 'left', M: 'right' },
+											sizes: { default: 180, s: 274, m: 450, l: 374 }
 										}
 									}
 								]

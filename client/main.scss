@@ -18,8 +18,9 @@ $o-grid-ie8-rules: false;
 @import "n-video/main";
 @import "next-myft-ui/main";
 
-@import "mixins";
 @import "colors";
+@import "functions";
+@import "mixins";
 
 @import "components/header-tabs/header-tabs";
 @import "components/page-menu/page-menu";

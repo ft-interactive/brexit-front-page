@@ -30,28 +30,26 @@ export default (item, opts) => {
 		if (item.authors.length || brand) {
 			const author = item.authors[0];
 			if (author && (author.isBrand || !brand)) {
-				article.opinionHeader = {
+				article.brand = {
 					title: author.name,
 					url: author.url,
 					headshot: author.headshot
 				};
 			} else {
-				article.opinionHeader = {
+				article.brand = {
 					title: brand.name,
 					url: brand.url
 				};
 			}
 		} else {
-			article.opinionHeader = {
+			article.brand = {
 				title: 'Opinion',
 				url: '/stream/sectionsId/MTE2-U2VjdGlvbnM='
 			};
 		}
-		// don't show images (in non-large cards) and tags on opinion cards
-		if (opts.size !== 'large') {
-			article.image = null;
-		}
+		// don't show tags on opinion cards
 		article.tag = null;
+		article.type = 'opinion';
 	}
 	if (opts.related && opts.related.show) {
 		article.related = Object.assign({

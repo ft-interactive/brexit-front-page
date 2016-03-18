@@ -45,8 +45,8 @@ export default [
 										size: 'medium',
 										showStandfirst: true,
 										image: {
-											sizes: { default: 100 },
-											position: { default: 'left' }
+											position: { default: 'left' },
+											sizes: { default: 180, s: 264, m: 173, l: 143, xl: 147 }
 										}
 									},
 									{
