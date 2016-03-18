@@ -35,8 +35,13 @@ const filterDuplicateArticles = (articles, concept) => {
 	return articles.concat(concept.items);
 };
 
-const assignAttributes = (promoBoxRequired, card) => {
-	promoBoxRequired ? Object.assign(card, { isMyftUser: true }) : Object.assign(card, { type: Content })
+// if there is one followed topic then convert promo card; if two or more then replace with a content card
+const convertToContent = (shouldConvert, card) => {
+	if (card.type === MyftPromo) {
+		return shouldConvert ? Object.assign({}, card, { isMyftUser: true }) : Object.assign({}, card, { type: Content });
+	} else {
+		return card;
+	}
 }
 
 const handleResponse = (myFtContainerEl, myftClient, flags, response) => {
@@ -51,15 +56,15 @@ const handleResponse = (myFtContainerEl, myftClient, flags, response) => {
 	concepts.reduce(filterDuplicateArticles, []);
 	// get the section
 	const section = getSection('myft', { main: concepts }, flags.getAll());
-	// if there are already followed topics, update the promo
-	if (followed.length) {
-		section.layout.forEach(col =>
-			col.components
-				.reduce((prev, column) => prev.concat(column.components), [])
-				.filter(card => card.type === MyftPromo)
-				.map(assignAttributes.bind(null, followed.length < 2))
-		);
-	}
+
+	// recursively seek innermost components and call conversion function
+	const changeComponent = component =>
+		component.components ?
+			Object.assign({}, component, { components: component.components.map(changeComponent) }) :
+			convertToContent(followed.length < 2, component);
+
+	// if there is one or more followed topics
+	if (followed.length) section.layout = section.layout.map(changeComponent);
 
 	ReactDOM.render(<Section {...section} />, myFtContainerEl);
 	myftClient
