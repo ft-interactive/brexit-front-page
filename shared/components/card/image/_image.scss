@@ -12,6 +12,21 @@
 		width: 50%;
 	}
 
+	.card[data-image-position~="left"] &,
+	.card[data-image-position~="right"] & {
+		margin-bottom: 0;
+	}
+
+	.card--main[data-image-position~="right"] & {
+		margin-top: 36px;
+	}
+
+	.card--main[data-image-position~="top"] &,
+	.card--main[data-image-position~="bottom"] &,
+	.card--main[data-image-position~="left"] & {
+		margin-top: 0;
+	}
+
 	@each $layout-name in $_o-grid-layout-names {
 		@include oGridRespondTo($layout-name) {
 			.card[data-image-position~="#{$layout-name}--top"] &,
@@ -25,6 +40,21 @@
 
 			.card[data-image-position~="#{$layout-name}--right"] & {
 				width: 50%;
+			}
+
+			.card[data-image-position~="#{$layout-name}--left"] &,
+			.card[data-image-position~="#{$layout-name}--right"] & {
+				margin-bottom: 0;
+			}
+
+			.card--main[data-image-position~="#{$layout-name}--right"] & {
+				margin-top: 36px;
+			}
+
+			.card--main[data-image-position~="#{$layout-name}--top"] &,
+			.card--main[data-image-position~="#{$layout-name}--bottom"] &,
+			.card--main[data-image-position~="#{$layout-name}--left"] & {
+				margin-top: 0;
 			}
 		}
 	}

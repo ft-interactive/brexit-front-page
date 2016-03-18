@@ -1,33 +1,16 @@
 .card__tag-wrapper {
 	position: relative;
 
-	.card[data-image-position~="right"]:not(.card--main) & {
-		width: calc(50% - 10px);
-		float: left;
-	}
-
 	.liveblog__badge + & {
 		padding-top: 3px;
-	}
-
-	@each $layout-name in $_o-grid-layout-names {
-		@include oGridRespondTo($layout-name) {
-			.card[data-image-position*="#{$layout-name}--"] & {
-				width: auto;
-				float: none;
-			}
-			.card[data-image-position~="#{$layout-name}--right"]:not(.card--main) & {
-				width: calc(50% - 10px);
-				float: left;
-			}
-		}
 	}
 }
 
 .card__tag {
 	@include oColorsFor(topic, text);
 	position: relative;
-	margin: 4px 0 5px;
+	margin: 0 0 5px;
+	padding-top: 4px;
 	font-family: $o-typography-sans;
 	font-weight: oFontsWeight(semibold);
 	font-size: 16px;
@@ -52,24 +35,10 @@
 
 .card__tag__link {
 	@include oColorsFor(card, background);
-	display: inline-block;
 	position: relative;
 	color: inherit;
 	border-bottom: 0;
 	z-index: 1;
-
-	.card__tag--authors & {
-		@include nextIcon(quote, oColorsGetColorFor(topic, text), 16, $icon-only: true);
-		background-repeat: no-repeat;
-		background-position: 0 2px;
-		background-size: 16px 12px;
-		padding-left: 21px;
-
-		&:hover,
-		&:focus {
-			@include nextIcon(quote, oColorsGetColorFor(link-hover, text), 16, $icon-only: true);
-		}
-	}
 
 	.card--main & {
 		padding-right: oGridGutter();
