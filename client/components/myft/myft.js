@@ -35,8 +35,8 @@ const filterDuplicateArticles = (articles, concept) => {
 	return articles.concat(concept.items);
 };
 
-const mapCards = (length, card) => {
-	return length > 1 ? Object.assign(card, { type: Content }) : Object.assign(card, { isMyftUser: true })
+const assignAttributes = (promoBoxRequired, card) => {
+	promoBoxRequired ? Object.assign(card, { isMyftUser: true }) : Object.assign(card, { type: Content })
 }
 
 const handleResponse = (myFtContainerEl, myftClient, flags, response) => {
@@ -57,7 +57,7 @@ const handleResponse = (myFtContainerEl, myftClient, flags, response) => {
 			col.components
 				.reduce((prev, column) => prev.concat(column.components), [])
 				.filter(card => card.type === MyftPromo)
-				.map(mapCards.bind(null, followed.length))
+				.map(assignAttributes.bind(null, followed.length < 2))
 		);
 	}
 
