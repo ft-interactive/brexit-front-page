@@ -15,7 +15,7 @@ export default [
 						size: 'small',
 						image: {
 							position: { default: 'left', M: 'bottom', L: 'left' },
-							sizes: { default: 100, m: 277, l: 100 }
+							sizes: { default: 180, s: 264, m: 277, l: 143, xl: 176 }
 						}
 					},
 					{

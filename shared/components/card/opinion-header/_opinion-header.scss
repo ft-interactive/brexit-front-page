@@ -1,18 +1,31 @@
 @import "../../../../client/vars";
 
-$headshot-size: 60px;
+$headshot-sizes: (
+	default: 40,
+	S: 60
+);
 
 .card__opinion-header__image {
 	position: relative;
 	float: right;
-	height: $headshot-size;
-	width: $headshot-size;
 	margin: 0 0 0 oGridGutter();
+
+	@each $breakpoint, $size in $headshot-sizes {
+		@include respondTo($breakpoint) {
+			height: to-px($size);
+			width: to-px($size);
+		}
+	}
 }
 
 .card__opinion-header__image--headshot {
 	@include oColorsFor(author, background);
-	border-radius: $headshot-size / 2;
+
+	@each $breakpoint, $size in $headshot-sizes {
+		@include respondTo($breakpoint) {
+			border-radius: to-px($size / 2);
+		}
+	}
 }
 
 .card__opinion-header__quote {
@@ -20,11 +33,18 @@ $headshot-size: 60px;
 	position: absolute;
 	top: 0;
 	left: 0;
-	background-size: 30px 39px;
 	background-repeat: no-repeat;
 	width: 100%;
 	height: 100%;
 	opacity: 0.4;
+
+	@each $breakpoint, $size in $headshot-sizes {
+		@include respondTo($breakpoint) {
+			$quote-width: $size / 2;
+			$quote-height: $quote-width * (4/3);
+			background-size: to-px($quote-width) to-px($quote-height);
+		}
+	}
 }
 
 .card__opinion-header__quote--left {

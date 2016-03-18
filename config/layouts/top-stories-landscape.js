@@ -46,8 +46,8 @@ export default [
 										type: Content,
 										size: 'medium',
 										image: {
-											sizes: { default: 100, m: 277, l: 226, xl: 233 },
-											position: { default: 'left', M: 'top' }
+											position: { default: 'left', M: 'top' },
+											sizes: { default: 180, s: 264, m: 277, l: 226, xl: 233 }
 										}
 									}
 								]
@@ -76,8 +76,8 @@ export default [
 										type: Content,
 										size: 'medium',
 										image: {
-											sizes: { default: 100, m: 277, l: 226, xl: 233 },
-											position: { default: 'left', M: 'top' }
+											position: { default: 'left', M: 'top' },
+											sizes: { default: 180, s: 264, m: 277, l: 226, xl: 233 }
 										}
 									}
 								]

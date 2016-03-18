@@ -1,11 +1,29 @@
 .card__image-link {
-	.card--opinion[data-image-position~="left"] & {
+	.card[data-image-position~="top"] &,
+	.card[data-image-position~="bottom"] & {
+		width: auto;
+	}
+
+	.card[data-image-position~="left"] & {
+		width: 40%;
+	}
+
+	.card[data-image-position~="right"] & {
 		width: 50%;
 	}
 
 	@each $layout-name in $_o-grid-layout-names {
 		@include oGridRespondTo($layout-name) {
-			.card--opinion[data-image-position~="#{$layout-name}--left"] & {
+			.card[data-image-position~="#{$layout-name}--top"] &,
+			.card[data-image-position~="#{$layout-name}--bottom"] & {
+				width: auto;
+			}
+
+			.card[data-image-position~="#{$layout-name}--left"] & {
+				width: 40%;
+			}
+
+			.card[data-image-position~="#{$layout-name}--right"] & {
 				width: 50%;
 			}
 		}
