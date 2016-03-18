@@ -1,13 +1,13 @@
 @import 'n-card/main';
 @import 'article';
 @import 'video';
+@import 'brand/brand';
 @import 'image/image';
 @import 'related/related';
 @import 'standfirst/standfirst';
 @import 'tag/tag';
 @import 'timestamp/timestamp';
 @import 'title/title';
-@import 'opinion-header/opinion-header';
 
 .section--background .card {
 	margin-top: 0;
