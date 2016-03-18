@@ -74,7 +74,7 @@ export default class extends Component {
 		];
 		if (article.image) {
 			articleContentClasses.push('card__content--has-image');
-			if (article.image.stick || article.image.isHeadshot) {
+			if (article.image.stick) {
 				articleContentClasses.push('card__content--grow');
 			}
 		}
