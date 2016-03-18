@@ -1,19 +1,3 @@
-const getImageData = (item, showHeadshot) => {
-	if (showHeadshot && item.branding && item.branding.taxonomy === 'authors' && item.branding.headshot) {
-		return { imageServiceUrl: item.branding.headshot, isHeadshot: true };
-	} else if (item.primaryImage && item.primaryImage.rawSrc) {
-		return { url: (item.primaryImage && item.primaryImage.rawSrc) }
-	}
-	return null;
-};
-
-// turn a 16:9 srcSet into a square
-const squareifyImage = srcSet =>
-	Object.keys(srcSet).reduce((srcSet, breakpoint) => {
-		srcSet[breakpoint] = Math.ceil(srcSet[breakpoint] * .5625);
-		return srcSet;
-	}, srcSet);
-
 const isCommentTag = tag => tag.taxonomy === 'genre' && tag.name === 'Comment';
 
 const propertyEquals = (property, value, object) => object[property] === value;
@@ -21,7 +5,7 @@ const propertyEquals = (property, value, object) => object[property] === value;
 const getPrimaryTag = ({ primaryTheme, primarySection }) =>
 	(primaryTheme && !['organisations', 'regions', 'people'].includes(primaryTheme.taxonomy)) ? primaryTheme : primarySection;
 
-export default (item, opts, { flags = {} }) => {
+export default (item, opts) => {
 	const article = {
 		type: 'article',
 		id: item.id,
@@ -29,13 +13,8 @@ export default (item, opts, { flags = {} }) => {
 		lastPublished: item.lastPublished
 	};
 	const primaryTag = getPrimaryTag({ primaryTheme: item.primaryTheme, primarySection: item.primarySection });
-	const imageData = getImageData(item, !flags.frontPageOpinionCards);
-	if (opts.image && imageData) {
-		article.image = Object.assign({}, opts.image, imageData);
-		if (article.image.isHeadshot && article.image.srcSet) {
-			// headshot images are squares
-			article.image.srcSet = squareifyImage(Object.assign({}, article.image.srcSet));
-		}
+	if (opts.image && item.primaryImage && item.primaryImage.rawSrc) {
+		article.image = Object.assign({}, opts.image, { url: item.primaryImage.rawSrc });
 	}
 	if (opts.showStandfirst) {
 		article.standfirst = item.summary;
@@ -44,9 +23,9 @@ export default (item, opts, { flags = {} }) => {
 		article.isPictureStory = opts.isPictureStory;
 	}
 	if (!opts.hideTag) {
-		article.tag = (!flags.frontPageOpinionCards && item.branding) || primaryTag;
+		article.tag = primaryTag;
 	}
-	if (flags.frontPageOpinionCards && item.tags && item.tags.some(isCommentTag)) {
+	if (item.tags && item.tags.some(isCommentTag)) {
 		const brand = item.tags.find(propertyEquals.bind(null, 'taxonomy', 'brand'));
 		if (item.authors.length || brand) {
 			const author = item.authors[0];
