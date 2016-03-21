@@ -1,10 +1,11 @@
 @import 'n-card/main';
 
+@import "content/content";
 @import "meta/meta";
 @import "../ad/ad";
-@import "../myft-promo/myft-promo";
-@import "../fast-ft/fast-ft";
 @import "../column/column";
+@import "../fast-ft/fast-ft";
+@import "../myft-promo/myft-promo";
 
 .section--video {
 	.core & {
@@ -51,8 +52,4 @@
 	@include oGridRespondTo($until: L) {
 		display: none;
 	}
-}
-
-.section__column__inner {
-	position: relative;
 }
