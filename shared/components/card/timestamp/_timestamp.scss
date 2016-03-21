@@ -19,4 +19,24 @@
 	&[data-o-date-js] {
 		opacity: 1;
 	}
+
+	.card[data-image-position~="left"] & {
+		margin-left: 40%;
+		padding-left: 10px;
+	}
+
+	@each $layout-name in $_o-grid-layout-names {
+		@include oGridRespondTo($layout-name) {
+			.card[data-image-position~="#{$layout-name}--top"] &,
+			.card[data-image-position~="#{$layout-name}--bottom"] &,
+			.card[data-image-position~="#{$layout-name}--right"] & {
+				margin-left: 0;
+				padding-left: 0;
+			}
+			.card[data-image-position~="#{$layout-name}--left"] & {
+				margin-left: 40%;
+				padding-left: 10px;
+			}
+		}
+	}
 }
