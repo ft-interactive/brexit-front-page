@@ -2,7 +2,7 @@
 
 require('isomorphic-fetch');
 const notifySaucelabs = require('notify-saucelabs');
-const TEST_BASE_URL = `https://${process.env.TEST_APP}.herokuapp.com`;
+const TEST_BASE_URL = `https://${process.env.TEST_APP}`;
 const TEST_URL = `${TEST_BASE_URL}/uk`;
 
 module.exports = {
@@ -15,7 +15,8 @@ module.exports = {
 				document.cookie = 'next-flags=ads:off; secure=true';
 			})
 			.url(TEST_URL)
-			.waitForElementPresent('html.enhanced.js-success', 60000);
+			.waitForElementPresent('html.enhanced.js-success', 60000)
+			.assert.visible('.card__title');
 	},
 
 	tearDown: function (done) {
