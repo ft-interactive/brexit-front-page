@@ -15,7 +15,8 @@ module.exports = {
 				document.cookie = 'next-flags=ads:off; secure=true';
 			})
 			.url(TEST_URL)
-			.waitForElementPresent('html.enhanced.js-success', 60000);
+			.waitForElementPresent('html.enhanced.js-success', 60000)
+			.assert.visible('.card__title');
 	},
 
 	tearDown: function (done) {
