@@ -22,6 +22,9 @@ const scrollHandlerFactory = () => {
 };
 
 export default () => {
+	if (!/spoor-id=0/.test(document.cookie)) {
+		return false;
+	}
 	const scrollHandler = scrollHandlerFactory();
 	window.addEventListener('scroll', throttle(scrollHandler, 250));
 	// fire off an initial tracking
