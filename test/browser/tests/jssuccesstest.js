@@ -2,7 +2,7 @@
 
 require('isomorphic-fetch');
 const notifySaucelabs = require('notify-saucelabs');
-const TEST_BASE_URL = `https://${process.env.TEST_APP}`;
+const TEST_BASE_URL = `https://${process.env.TEST_APP}.herokuapp.com`;
 const TEST_URL = `${TEST_BASE_URL}/uk`;
 
 module.exports = {
