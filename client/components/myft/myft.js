@@ -44,6 +44,12 @@ const convertToContent = (shouldConvert, card) => {
 	}
 }
 
+// recursively seek innermost components and call conversion function
+const changeComponent = (shouldConvert, component) =>
+	component.components ?
+		Object.assign({}, component, { components: component.components.map(changeComponent.bind(null, shouldConvert)) }) :
+		convertToContent(shouldConvert, component);
+
 const handleResponse = (myFtContainerEl, myftClient, flags, response) => {
 	const { popularTopics, user: { viewed, followed }} = response;
 	// flag up followed concepts
@@ -57,14 +63,8 @@ const handleResponse = (myFtContainerEl, myftClient, flags, response) => {
 	// get the section
 	const section = getSection('myft', { main: concepts }, flags.getAll());
 
-	// recursively seek innermost components and call conversion function
-	const changeComponent = component =>
-		component.components ?
-			Object.assign({}, component, { components: component.components.map(changeComponent) }) :
-			convertToContent(followed.length < 2, component);
-
 	// if there is one or more followed topics
-	if (followed.length) section.layout = section.layout.map(changeComponent);
+	if (followed.length) section.layout = section.layout.map(changeComponent.bind(null, followed.length < 2));
 
 	ReactDOM.render(<Section {...section} />, myFtContainerEl);
 	myftClient
