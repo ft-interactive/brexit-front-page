@@ -20,13 +20,13 @@ run-local:
 	$(NPM_BIN_ENV); nbt run --local
 
 watch: _webpack_setup
-	$(NPM_BIN_ENV); webpack --watch --dev
+	@$(MAKE) watch-super
 
 build: _webpack_setup
-	$(NPM_BIN_ENV); webpack --dev
+	@$(MAKE) build-super
 
 build-production: _webpack_setup
-	$(NPM_BIN_ENV); webpack --bail
+	@$(MAKE) build-production-super
 	$(NPM_BIN_ENV); uglifyjs public/main.js --in-source-map public/main.js.map --source-map public/main.js.map  --source-map-url ./main.js.map -o public/main.js -c -m
 	$(NPM_BIN_ENV); nbt build --skip-sass --skip-js
 

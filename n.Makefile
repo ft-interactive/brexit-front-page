@@ -18,7 +18,7 @@ clea%:
 	@$(DONE)
 
 # install
-instal%: node_modules bower_components _install_scss_lint .editorconfig .eslintrc.json .scss-lint.yml .env
+instal%: node_modules bower_components _install_scss_lint .editorconfig .eslintrc.json .scss-lint.yml .env webpack.config.js
 	@$(MAKE) $(foreach f, $(shell find functions/* -type d -maxdepth 0 2>/dev/null), $f/node_modules)
 	@$(DONE)
 
@@ -28,6 +28,17 @@ deplo%: _deploy_apex
 
 # verify
 verif%: _verify_lintspaces _verify_eslint _verify_scss_lint
+	@$(DONE)
+
+# build (includes build-production)
+buil%:
+	@$(warning WARNING: Work in progress, build-production does not yet minify.  Use with caution.)
+	@if [ -e webpack.config.js ]; then $(NPM_BIN_ENV) && webpack $(if $(findstring build-production,$@),--bail,--dev); fi
+	@$(DONE)
+
+# watch
+watc%:
+	@if [ -e webpack.config.js ]; then $(NPM_BIN_ENV) && webpack --watch; fi
 	@$(DONE)
 
 #
@@ -40,12 +51,13 @@ verif%: _verify_lintspaces _verify_eslint _verify_scss_lint
 node_modules: package.json
 	@if [ -e package.json ]; then $(NPM_INSTALL) && $(DONE); fi
 
-# package.json intentionally left blank, used to determine whether to allow npm install task to run
-package.json:
-
 # Regular bower install
-bower_components:
+bower_components: bower.json
 	@if [ -e bower.json ]; then $(NPM_BIN_ENV) && bower install --config.registry.search=http://registry.origami.ft.com --config.registry.search=https://bower.herokuapp.com && $(DONE); fi
+
+# These tasks have been intentionally left blank
+package.json:
+bower.json:
 
 # node_modules for Lambda functions
 functions/%/node_modules:
@@ -55,7 +67,7 @@ _install_scss_lint:
 	@if [ ! -x "$(shell which scss-lint)" ] && [ "$(shell $(call GLOB,'*.scss'))" != "" ]; then gem install scss-lint -v 0.35.0 && $(DONE); fi
 
 # Manage the .editorconfig, .eslintrc.json and .scss-lint files if they're in the .gitignore
-.editorconfig .eslintrc.json .scss-lint.yml:
+.editorconfig .eslintrc.json .scss-lint.yml webpack.config.js:
 	@if $(call IS_GIT_IGNORED); then curl -sL https://raw.githubusercontent.com/Financial-Times/n-makefile/$(VERSION)/config/$@ > $@ && $(DONE); fi
 
 .env:
@@ -80,10 +92,10 @@ _deploy_apex:
 
 # Some handy utilities
 GLOB = git ls-files $1
-NPM_INSTALL = npm prune --production && npm install
+NPM_INSTALL = npm prune --production=false && npm install
 JSON_GET_VALUE = grep $1 | head -n 1 | sed 's/[," ]//g' | cut -d : -f 2
 IS_GIT_IGNORED = grep -q $(if $1, $1, $@) .gitignore
-VERSION = v0.0.54
+VERSION = v0.0.60
 APP_NAME = $(shell cat package.json 2>/dev/null | $(call JSON_GET_VALUE,name))
 DONE = echo ✓ $@ done
 NPM_BIN_ENV = export PATH="$$PATH:node_modules/.bin"

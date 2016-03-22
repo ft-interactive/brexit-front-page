@@ -14,3 +14,4 @@
 !/nodemon.json
 .editorconfig
 .scss-lint.yml
+webpack.config.js
