@@ -61,10 +61,12 @@ const handleResponse = (myFtContainerEl, myftClient, flags, response) => {
 		.slice(0, 4);
 	concepts.reduce(filterDuplicateArticles, []);
 	// get the section
-	const section = getSection('myft', { main: concepts }, flags.getAll());
+	const section = getSection('myft', { content: concepts }, flags.getAll());
 
 	// if there is one or more followed topics
-	if (followed.length) section.layout = section.layout.map(changeComponent.bind(null, followed.length < 2));
+	if (followed.length) {
+		section.layout = section.layout.map(changeComponent.bind(null, followed.length < 2));
+	}
 
 	ReactDOM.render(<Section {...section} />, myFtContainerEl);
 	myftClient
