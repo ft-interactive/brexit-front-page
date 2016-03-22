@@ -1,39 +1,40 @@
-// myFt promo
-.myft-promo__image {
-	max-width: 55%;
-	display: block;
-	margin: 0 auto;
+.myft-promo {
+	align-self: center;
+	padding: 20px;
+	text-align: center;
 }
 
-.myft-promo__description,
-.myft-promo__link-wrapper {
-	text-align: center;
-	margin: 10px 0 0;
+.myft-promo__image {
+	max-width: 100%;
 }
 
 .myft-promo__description {
-	@include oTypographySansSize(l);
+	@include oTypographySansBold(m);
 	color: getColor('cold-1');
+	margin: 10px 35px 15px;
+}
 
-	@include oGridRespondTo(M) {
-		@include oTypographySansSize(m);
-	}
-	@include oGridRespondTo(XL) {
-		@include oTypographySansSize(l);
-	}
+.myft-promo__link-wrapper {
+	margin: 0;
 }
 
 .myft-promo__link {
-	position: relative;
-	display: inline-block;
+	@include oTypographySansBold(m);
 	border-bottom-style: solid;
+	display: inline-block;
+	margin: 0;
+	position: relative;
 
 	&:after {
-		display: inline-block;
+		@include nextIcon('arrow-right', getColorFor('link', text), 10);
+		content: '';
+		margin-top: -5px;
 		position: absolute;
-		right: -13px;
-		top: -2px;
-		font-size: 1.3em;
-		content: '>';
+		right: -15px;
+		top: 50%;
 	}
+}
+
+.card--myft-promo {
+	justify-content: center;
 }

@@ -8,12 +8,12 @@ export default class extends Component {
 		const linkTextPrefix = this.props.isMyftUser ? 'Go to' : 'Take a tour of';
 
 		return (
-			<div className="card card--myft-promo" data-trackable="myft-promo">
+			<div className="card card--concept card--myft-promo" data-trackable="myft-promo">
 				<div className="myft-promo">
 					<Image
-						url="https://next-geebee.ft.com/assets/myft-tour/devices-dot.png"
+						url="https://next-geebee.ft.com/assets/myft-tour/myft-in-situ.png"
 						imgClass="myft-promo__image"
-						srcset={{ default: 177, m: 110, l: 143, xl: 177 }} />
+						srcset={{ default: 150, m: 277 }} />
 					<p className="myft-promo__description">You choose the topics, we deliver the news.</p>
 					<p className="myft-promo__link-wrapper">
 						<a
