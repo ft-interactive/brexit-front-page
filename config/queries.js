@@ -213,14 +213,14 @@ const user = `
 	}
 
 	query MyFT {
-		popularTopics(limit: 3) {
+		popularTopics(limit: 4) {
 			... Basic
 		}
 		user {
-			viewed(limit: 3) {
+			viewed(limit: 4) {
 				... Basic
 			}
-			followed(limit: 3) {
+			followed(limit: 4) {
 				... Basic
 			}
 		}
