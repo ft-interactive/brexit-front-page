@@ -13,7 +13,7 @@ export default class extends Component {
 		const tag = this.props;
 		return (
 			<div className="card__tag-wrapper">
-				<p className={`card__tag card__tag--${tag.taxonomy}`}>
+				<p className="card__tag">
 					<a className="card__tag__link" href={tag.url} data-trackable="primary-tag">
 						{tag.name}
 					</a>
