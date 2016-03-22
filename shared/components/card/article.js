@@ -102,7 +102,7 @@ export default class extends Component {
 					<div className="card__content__inner">
 						{article.image ? <Image {...article.image} contentId={article.id} /> : null}
 						{article.brand ? <Brand {...article.brand} /> : null}
-						{article.liveBlog ? <span className="liveblog__badge">live</span> : null}
+						{article.liveBlog ? <a href={`/content/${article.id}`} className="liveblog__badge" data-trackable="liveblog-badge">live</a> : null}
 						{tag ? <Tag {...tag} /> : null}
 						<Title title={article.title} url={`/content/${article.id}`} />
 						{article.standfirst ? <Standfirst standfirst={article.standfirst} /> : null}
