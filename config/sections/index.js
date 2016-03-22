@@ -10,6 +10,7 @@ import technologySection from './technology';
 import topStoriesSection from './top-stories';
 import topStoriesNewSection from './top-stories-new';
 import topStoriesMoreSection from './top-stories-more';
+import topStoriesMoreNewSection from './top-stories-more-new';
 import videosSection from './videos';
 
 import layouts from '../layouts';
@@ -27,6 +28,7 @@ const sections = {
 	'top-stories': topStoriesSection,
 	'top-stories-new': topStoriesNewSection,
 	'top-stories-more': topStoriesMoreSection,
+	'top-stories-more-new': topStoriesMoreNewSection,
 	videos: videosSection
 };
 

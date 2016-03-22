@@ -34,6 +34,7 @@ const getTopStoriesData = (data, flags = {}) => {
 	}
 	// NOTE: only needed while maintaining both a list and a page, but dedupe
 	content = content.filter(dedupe);
+
 	return {
 		layoutHint,
 		content,
@@ -43,23 +44,25 @@ const getTopStoriesData = (data, flags = {}) => {
 
 };
 
+const getTopStoriesMoreData = (data, flags) => {
+	const topStories = getTopStoriesData(data, flags);
+	let moreStoriesOffset;
+	if (topStories.layoutHint === 'bigstory') {
+		moreStoriesOffset = 6;
+	} else if (topStories.layoutHint === 'standaloneimage') {
+		moreStoriesOffset = 9;
+	} else {
+		moreStoriesOffset = 8;
+	}
+
+	return { content: topStories.content.slice(moreStoriesOffset) };
+};
+
 export default (data, flags) => ({
 	'top-stories': getTopStoriesData(data, flags),
 	'top-stories-new': getTopStoriesData(data, flags),
-	'top-stories-more': {
-		content: (() => {
-			const topStories = getTopStoriesData(data, flags);
-			let moreStoriesOffset;
-			if (topStories.layoutHint === 'bigstory') {
-				moreStoriesOffset = 6;
-			} else if (topStories.layoutHint === 'standaloneimage') {
-				moreStoriesOffset = 9;
-			} else {
-				moreStoriesOffset = 8;
-			}
-			return topStories.content.slice(moreStoriesOffset);
-		})()
-	},
+	'top-stories-more': getTopStoriesMoreData(data, flags),
+	'top-stories-more-new': getTopStoriesMoreData(data, flags),
 	opinion: {
 		content: data.frontPage.opinion.items
 	},
