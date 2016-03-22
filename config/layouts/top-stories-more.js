@@ -19,17 +19,6 @@ export default [
 			},
 			{
 				type: Column,
-				colspan: { default: 12, M: 3, XL: 'hide' },
-				components: [
-					{
-						type: Content,
-						size: 'small',
-						show: { default: true, XL: false }
-					}
-				]
-			},
-			{
-				type: Column,
 				colspan: { default: 12, M: 3 },
 				components: [
 					{
@@ -54,8 +43,7 @@ export default [
 				components: [
 					{
 						type: Content,
-						size: 'small',
-						show: { default: false, XL: true }
+						size: 'small'
 					}
 				]
 			},
