@@ -58,9 +58,13 @@
 	line-height: 21px;
 	display: inline-block;
 	text-transform: uppercase;
+	border-bottom: none;
 	padding: 0 5px;
 	margin-right: 5px;
 	color: white;
+	&:hover {
+	 color: getColorFor(fast-ft, background);
+	}
 }
 
 .liveblog__live-indicator {
