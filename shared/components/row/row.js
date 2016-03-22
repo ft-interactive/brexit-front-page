@@ -6,7 +6,7 @@ export default class extends Component {
 			return null;
 		}
 		const renderComponents = (components, { flags = {} }) => components.map((component, index) =>
-			<component.type {...component} items={this.props.items} key={`row-child_${index}`} flags={flags} />
+			<component.type {...component} data={this.props.data} key={`row-child_${index}`} flags={flags} />
 		);
 
 		return (

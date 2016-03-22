@@ -1,5 +1,5 @@
 import chai from 'chai';
-import sectionContent from '../../../server/libs/section-content';
+import sectionContent from '../../../server/libs/section-data';
 
 chai.should();
 const expect = chai.expect;

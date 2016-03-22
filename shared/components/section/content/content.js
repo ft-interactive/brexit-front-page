@@ -13,19 +13,19 @@ const assignContentId = (contentIndex, component) => {
 	return contentIndex;
 };
 
-const renderComponents = (id, components, items, { flags = {} }) => components.map((component, index) =>
-	<component.type {...component} items={items} key={`${id}_child${index}`} flags={flags} />
+const renderComponents = (id, components, data, { flags = {} }) => components.map((component, index) =>
+	<component.type {...component} data={data} key={`${id}_child${index}`} flags={flags} />
 );
 
 export default class extends Component {
 	render () {
-		const items = this.props.items.slice();
+		const data = this.props.data;
 		const components = this.props.layout;
 		components.reduce(assignContentId, 0);
 
 		return (
 			<div className="section__column__inner">
-				{renderComponents(this.props.id, components, items, { flags: this.props.flags })}
+				{renderComponents(this.props.id, components, data, { flags: this.props.flags })}
 			</div>
 		)
 	}

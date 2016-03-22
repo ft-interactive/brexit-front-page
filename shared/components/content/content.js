@@ -18,7 +18,7 @@ const getModel = (item, opts, { flags = {} }) => {
 
 export default class extends Component {
 	render () {
-		const item = this.props.items[typeof this.props.itemIndex !== 'undefined' ? this.props.itemIndex : this.props.id];
+		const item = this.props.data.content[typeof this.props.itemIndex !== 'undefined' ? this.props.itemIndex : this.props.id];
 		if (!item) {
 			return null;
 		}

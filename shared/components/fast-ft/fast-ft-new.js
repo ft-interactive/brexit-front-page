@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
+
 import Content from '../content/content';
 
 export default class extends Component {
 	render () {
-		const items = this.props.articles.filter(article => !!article.title).slice(0, 20);
+		const items = this.props.data.fastFt.filter(article => !!article.title).slice(0, 20);
 		const articleEls = items.map((article, index) => {
 			const cardProps = {
 				data: { content: items },
@@ -28,7 +29,6 @@ export default class extends Component {
 						{articleEls}
 					</ol>
 				</div>
-				<div className="ad-placeholder ad-placeholder--fast-ft"></div>
 			</div>
 		);
 	}
