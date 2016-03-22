@@ -32,7 +32,7 @@ verif%: _verify_lintspaces _verify_eslint _verify_scss_lint
 
 # build (includes build-production)
 buil%:
-	@$(warning WARNING: Work in progress, build-production does not yet minify.  Use with caution.)
+	@$(warning WARNING: Work in progress, build-production does not yet minify or prepare tarballs for Heroku.  Use with caution.)
 	@if [ -e webpack.config.js ]; then $(NPM_BIN_ENV) && webpack $(if $(findstring build-production,$@),--bail,--dev); fi
 	@$(DONE)
 
@@ -95,7 +95,7 @@ GLOB = git ls-files $1
 NPM_INSTALL = npm prune --production=false && npm install
 JSON_GET_VALUE = grep $1 | head -n 1 | sed 's/[," ]//g' | cut -d : -f 2
 IS_GIT_IGNORED = grep -q $(if $1, $1, $@) .gitignore
-VERSION = v0.0.60
+VERSION = v0.0.61
 APP_NAME = $(shell cat package.json 2>/dev/null | $(call JSON_GET_VALUE,name))
 DONE = echo ✓ $@ done
 NPM_BIN_ENV = export PATH="$$PATH:node_modules/.bin"
