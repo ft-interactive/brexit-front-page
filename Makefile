@@ -20,15 +20,15 @@ run-local:
 	nbt run --local
 
 watch: _webpack_setup
-	webpack --config webpack-dev.config.js --watch
+	$(NPM_BIN_ENV); webpack --watch --dev
 
 build: _webpack_setup
-	webpack --config webpack-dev.config.js
+	$(NPM_BIN_ENV); webpack --dev
 
 build-production: _webpack_setup
-	webpack --bail
-	uglifyjs public/main.js --in-source-map public/main.js.map --source-map public/main.js.map  --source-map-url ./main.js.map -o public/main.js -c -m
-	nbt build --skip-sass --skip-js
+	$(NPM_BIN_ENV); webpack --bail
+	$(NPM_BIN_ENV); uglifyjs public/main.js --in-source-map public/main.js.map --source-map public/main.js.map  --source-map-url ./main.js.map -o public/main.js -c -m
+	$(NPM_BIN_ENV); nbt build --skip-sass --skip-js
 
 smoke:
 	nbt test-urls ${TEST_APP}

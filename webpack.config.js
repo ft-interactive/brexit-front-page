@@ -3,15 +3,12 @@ const autoprefixer = require('autoprefixer');
 const BowerWebpackPlugin = require('bower-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const DefinePlugin = require('webpack').DefinePlugin;
+const config = require('./n-makefile.json');
 
 module.exports = {
-	devtool: 'source-map',
+	devtool: process.argv.indexOf('--dev') === -1 ? 'source-map' : 'cheap-module-eval-source-map',
 	context: path.join(__dirname, 'client'),
-	entry: {
-		'main.js': './main.js',
-		'main.css': './main.scss',
-		'ie8.css': './ie8.scss'
-	},
+	entry: config.assets.entry,
 	output: {
 		path: './public',
 		filename: '[name]'
@@ -30,7 +27,7 @@ module.exports = {
 				],
 				query: {
 					cacheDirectory: true,
-					presets: ['react', 'es2015'],
+					presets: (require('./package.json').dependencies.react ? ['react', 'es2015'] : ['es2015']),
 					plugins: [
 						'add-module-exports',
 						'transform-runtime',
@@ -50,8 +47,9 @@ module.exports = {
 			},
 			{
 				test: /\.scss$/,
-				loader: ExtractTextPlugin.extract(
-					`css?minimize&-autoprefixer&sourceMap!postcss-loader!sass?sourceMap&includePaths[]=${path.resolve(__dirname, './bower_components')}`
+				loader: ExtractTextPlugin.extract(process.argv.indexOf('--dev') === -1
+					? `css?minimize&-autoprefixer&sourceMap!postcss-loader!sass?sourceMap&includePaths[]=${path.resolve(__dirname, './bower_components')}`
+					: `css!postcss-loader!sass?includePaths[]=${path.resolve(__dirname, './bower_components')}`
 				)
 			},
 			{
@@ -63,19 +61,17 @@ module.exports = {
 	postcss: function () {
 		return [autoprefixer({ browsers: ['> 1%', 'last 2 versions', 'ie > 6', 'ff ESR', 'bb >= 7'] })];
 	},
-	plugins: [
-		new BowerWebpackPlugin({
-			includes: /\.js$/
-		}),
-		new ExtractTextPlugin('[name]', {
-			allChunks: true
-		}),
-		new DefinePlugin({
-			'process.env': {
-				'NODE_ENV': '"production"'
-			}
-		})
-	],
+	plugins: (process.argv.indexOf('--dev') === -1
+		? [
+			new BowerWebpackPlugin({ includes: /\.js$/ }),
+			new ExtractTextPlugin('[name]', { allChunks: true }),
+			new DefinePlugin({ 'process.env': { 'NODE_ENV': '"production"' } })
+		]
+		: [
+			new BowerWebpackPlugin({ includes: /\.js$/ }),
+			new ExtractTextPlugin('[name]', { allChunks: true })
+		]
+	),
 	resolve: {
 		root: [
 			path.join(__dirname, 'bower_components')

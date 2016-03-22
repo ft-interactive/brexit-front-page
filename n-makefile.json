@@ -1,0 +1,9 @@
+{
+  "assets": {
+    "entry": {
+      "main.js": "./main.js",
+      "main.css": "./main.scss",
+      "ie8.css": "./ie8.scss"
+    }
+  }
+}
