@@ -136,7 +136,7 @@ const frontPage = (region) => (`
 			name
 			url
 			taxonomy
-			items(limit: 2) {
+			items(limit: 4) {
 				id
 				title
 				... on Article {
