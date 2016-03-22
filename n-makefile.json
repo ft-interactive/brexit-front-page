@@ -1,9 +1,9 @@
 {
   "assets": {
     "entry": {
-      "main.js": "./main.js",
-      "main.css": "./main.scss",
-      "ie8.css": "./ie8.scss"
+      "public/main.js": "./client/main.js",
+      "public/main.css": "./client/main.scss",
+      "public/ie8.css": "./client/ie8.scss"
     }
   }
 }

@@ -7,12 +7,8 @@ const config = require('./n-makefile.json');
 
 module.exports = {
 	devtool: process.argv.indexOf('--dev') === -1 ? 'source-map' : 'cheap-module-eval-source-map',
-	context: path.join(__dirname, 'client'),
 	entry: config.assets.entry,
-	output: {
-		path: './public',
-		filename: '[name]'
-	},
+	output: { filename: '[name]' },
 	module: {
 		loaders: [
 			{
