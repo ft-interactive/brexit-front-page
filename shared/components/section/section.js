@@ -11,7 +11,7 @@ const classify = classes => classes
 export default class extends Component {
 	render () {
 		//if no content, don't render the section
-		if (!this.props.data || Object.keys(this.props.data).every(key => !this.props.data[key].length)) {
+		if (!this.props.data || Object.keys(this.props.data).every(key => !this.props.data[key] || !this.props.data[key].length)) {
 			return null;
 		}
 		const cols = this.props.cols;
