@@ -6,7 +6,7 @@ const DefinePlugin = require('webpack').DefinePlugin;
 const config = require('./n-makefile.json');
 
 module.exports = {
-	devtool: process.argv.indexOf('--dev') === -1 ? 'source-map' : 'cheap-module-eval-source-map',
+	devtool: 'source-map',
 	entry: config.assets.entry,
 	output: { filename: '[name]' },
 	module: {
