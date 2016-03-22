@@ -4,7 +4,7 @@
   "version": "0.0.1",
   "private": "true",
   "dependencies": {
-    "@financial-times/n-card": "^1.0.2",
+    "@financial-times/n-card": "^2.1.0",
     "@financial-times/n-logger": "^5.0.1",
     "babel-core": "^6.4.0",
     "babel-helper-define-map": "6.3.13",
