@@ -1,7 +1,9 @@
 .myft-promo {
 	align-self: center;
-	padding: 20px;
+	box-sizing: border-box;
+	padding: 15px 30px;
 	text-align: center;
+	width: 100%;
 }
 
 .myft-promo__image {
@@ -11,7 +13,7 @@
 .myft-promo__description {
 	@include oTypographySansBold(m);
 	color: getColor('cold-1');
-	margin: 10px 35px 15px;
+	margin: 10px 0 15px;
 }
 
 .myft-promo__link-wrapper {
