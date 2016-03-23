@@ -30,7 +30,7 @@ const filterEmptyConcepts = concept => concept.items.length;
 const filterDuplicateArticles = (articles, concept) => {
 	concept.items = concept.items
 		.filter(item => !articles.find(article => article.id === item.id))
-		.slice(0, 2);
+		.slice(0, 4);
 
 	return articles.concat(concept.items);
 };
