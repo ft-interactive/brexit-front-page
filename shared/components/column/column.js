@@ -12,7 +12,7 @@ export default class extends Component {
 			className += ` column--list`;
 		}
 		const renderComponents = (components, flags) => components.map((component, index) =>
-			<component.type {...component} items={this.props.items} key={`column-child_${index}`} flags={flags} />
+			<component.type {...component} data={this.props.data} key={`column-child_${index}`} flags={flags} />
 		);
 
 		return (

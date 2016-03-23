@@ -1,5 +1,5 @@
 import chai from 'chai';
-import sectionContent from '../../../server/libs/section-content';
+import sectionContent from '../../../server/libs/section-data';
 
 chai.should();
 const expect = chai.expect;
@@ -24,9 +24,9 @@ describe('Section Content', () => {
 	it('Takes top story and combines it with the other top stories', () => {
 		const results = sectionContent({ frontPage: data });
 
-		expect(results['top-stories'].main.length).to.equal(3);
-		expect(results['top-stories'].main[0]).to.equal('1-with-more-stuff');
-		expect(results['top-stories'].main[2]).to.equal('3');
+		expect(results['top-stories'].content.length).to.equal(3);
+		expect(results['top-stories'].content[0]).to.equal('1-with-more-stuff');
+		expect(results['top-stories'].content[2]).to.equal('3');
 
 	});
 
@@ -50,10 +50,10 @@ describe('Section Content', () => {
 
 		expect(results['top-stories'].layoutHint).to.equal('standard');
 
-		expect(results['top-stories'].main.length).to.equal(3);
-		expect(results['top-stories'].main[0]).to.equal('1-with-more-stuff');
-		expect(results['top-stories'].main[1]).to.equal('2');
-		expect(results['top-stories'].main[2]).to.equal('3');
+		expect(results['top-stories'].content.length).to.equal(3);
+		expect(results['top-stories'].content[0]).to.equal('1-with-more-stuff');
+		expect(results['top-stories'].content[1]).to.equal('2');
+		expect(results['top-stories'].content[2]).to.equal('3');
 
 	});
 
@@ -63,10 +63,10 @@ describe('Section Content', () => {
 
 		expect(results['top-stories'].layoutHint).to.equal('standaloneimage');
 
-		expect(results['top-stories'].main.length).to.equal(4);
-		expect(results['top-stories'].main[0]).to.equal('1-with-more-stuff');
-		expect(results['top-stories'].main[1]).to.eql({ id: 'picture-story' });
-		expect(results['top-stories'].main[3]).to.equal('3');
+		expect(results['top-stories'].content.length).to.equal(4);
+		expect(results['top-stories'].content[0]).to.equal('1-with-more-stuff');
+		expect(results['top-stories'].content[1]).to.eql({ id: 'picture-story' });
+		expect(results['top-stories'].content[3]).to.equal('3');
 
 	});
 
@@ -76,10 +76,10 @@ describe('Section Content', () => {
 
 		expect(results['top-stories'].layoutHint).to.equal('standard');
 
-		expect(results['top-stories'].main.length).to.equal(3);
-		expect(results['top-stories'].main[0]).to.equal('1-with-more-stuff');
-		expect(results['top-stories'].main[1]).to.equal('2');
-		expect(results['top-stories'].main[2]).to.equal('3');
+		expect(results['top-stories'].content.length).to.equal(3);
+		expect(results['top-stories'].content[0]).to.equal('1-with-more-stuff');
+		expect(results['top-stories'].content[1]).to.equal('2');
+		expect(results['top-stories'].content[2]).to.equal('3');
 	});
 
 	it('Defaults to standard layout if top stories list has no data', () => {
@@ -88,10 +88,10 @@ describe('Section Content', () => {
 
 		expect(results['top-stories'].layoutHint).to.equal('standard');
 
-		expect(results['top-stories'].main.length).to.equal(3);
-		expect(results['top-stories'].main[0]).to.equal('1-with-more-stuff');
-		expect(results['top-stories'].main[1]).to.equal('2');
-		expect(results['top-stories'].main[2]).to.equal('3');
+		expect(results['top-stories'].content.length).to.equal(3);
+		expect(results['top-stories'].content[0]).to.equal('1-with-more-stuff');
+		expect(results['top-stories'].content[1]).to.equal('2');
+		expect(results['top-stories'].content[2]).to.equal('3');
 	});
 
 	describe('Big Story', () => {
@@ -105,7 +105,7 @@ describe('Section Content', () => {
 			};
 			const frontPage = Object.assign({}, data, { topStoriesList });
 			const results = sectionContent({ frontPage }, { frontPageMultipleLayouts: true });
-			const topStories = results['top-stories'].main;
+			const topStories = results['top-stories'].content;
 
 			results['top-stories'].layoutHint.should.equal('bigstory');
 			topStories.should.have.length(4);
@@ -128,7 +128,7 @@ describe('Section Content', () => {
 			};
 			const frontPage = Object.assign({}, data, { topStoriesList });
 			const results = sectionContent({ frontPage }, { frontPageMultipleLayouts: true });
-			const topStoryRelatedContent = results['top-stories'].main[0].relatedContent;
+			const topStoryRelatedContent = results['top-stories'].content[0].relatedContent;
 
 			topStoryRelatedContent.should.have.length(3);
 			topStoryRelatedContent[0].id.should.equal('related-1');
@@ -156,7 +156,7 @@ describe('Section Content', () => {
 			};
 			const frontPage = Object.assign({}, data, { top, topStory, topStoriesList });
 			const results = sectionContent({ frontPage }, { frontPageMultipleLayouts: true });
-			const topStories = results['top-stories'].main;
+			const topStories = results['top-stories'].content;
 
 			topStories.should.have.length(2);
 			topStories[0].id.should.have.equal('top-story-1');
@@ -190,7 +190,7 @@ describe('Section Content', () => {
 			};
 			const frontPage = Object.assign({}, data, { top, topStory, topStoriesList });
 			const results = sectionContent({ frontPage }, { frontPageMultipleLayouts: true });
-			const topStories = results['top-stories'].main;
+			const topStories = results['top-stories'].content;
 
 			topStories.should.have.length(4);
 			topStories[0].id.should.equal('big-story');

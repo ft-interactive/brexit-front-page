@@ -11,7 +11,7 @@ const classify = classes => classes
 export default class extends Component {
 	render () {
 		//if no content, don't render the section
-		if (!(this.props.content && this.props.content.main && this.props.content.main.length)) {
+		if (!this.props.data || Object.keys(this.props.data).every(key => !this.props.data[key] || !this.props.data[key].length)) {
 			return null;
 		}
 		const cols = this.props.cols;
@@ -50,7 +50,7 @@ export default class extends Component {
 						id={this.props.id}
 						style={this.props.style}
 						layout={this.props.layout}
-						items={this.props.content.main}
+						data={this.props.data}
 						flags={this.props.flags}
 					/>
 				</div>
@@ -63,7 +63,7 @@ export default class extends Component {
 							data-trackable={this.props.sidebarComponent.id}>
 							<div>
 								<this.props.sidebarComponent.component
-									articles={this.props.content.sidebar ? this.props.content.sidebar : null}
+									articles={this.props.data.sidebar ? this.props.data.sidebar : null}
 									adClasses={this.props.sidebarComponent.adClasses} />
 							</div>
 						</div> :

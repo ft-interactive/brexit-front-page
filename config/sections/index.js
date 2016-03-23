@@ -8,7 +8,9 @@ import midPageAdvert2Section from './mid-page-advert-2';
 import opinionSection from './opinion';
 import technologySection from './technology';
 import topStoriesSection from './top-stories';
+import topStoriesNewSection from './top-stories-new';
 import topStoriesMoreSection from './top-stories-more';
+import topStoriesMoreNewSection from './top-stories-more-new';
 import videosSection from './videos';
 
 import layouts from '../layouts';
@@ -24,12 +26,14 @@ const sections = {
 	opinion: opinionSection,
 	technology: technologySection,
 	'top-stories': topStoriesSection,
+	'top-stories-new': topStoriesNewSection,
 	'top-stories-more': topStoriesMoreSection,
+	'top-stories-more-new': topStoriesMoreNewSection,
 	videos: videosSection
 };
 
-export default (sectionId, content, flags) => {
-	const section = sections[sectionId]({ content, flags });
+export default (sectionId, data, flags) => {
+	const section = sections[sectionId]({ data, flags });
 	const layout = layouts[section.layoutId];
-	return Object.assign({}, section, { content, layout });
+	return Object.assign({}, section, { data, layout });
 }

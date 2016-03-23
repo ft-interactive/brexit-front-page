@@ -1,4 +1,5 @@
 import getSection from './sections';
+import sectionData from '../server/libs/section-data';
 
 const pages = {
 	// ordered list of sections for the front page
@@ -17,12 +18,22 @@ const pages = {
 	]
 };
 
-export default (pageId, sectionsContent, flags) => {
+export default (pageId, data, flags) => {
+	const sectionsData = sectionData(data, flags);
 	// NOTE: need to copy array, so we don't keep inserting 'top-stories-more' into it
-	const page = pages[pageId].slice();
-	if (flags.frontPageMoreTopStories && pageId === 'front-page') {
-		page.splice(1, 0, 'top-stories-more');
+	let page = pages[pageId].slice();
+	if (pageId === 'front-page') {
+		if (flags.frontPageMoreTopStories) {
+			if (flags.frontPageNewLayout) {
+				page.splice(1, 0, 'top-stories-more-new');
+			} else {
+				page.splice(1, 0, 'top-stories-more');
+			}
+		}
+		if (flags.frontPageNewLayout) {
+			page = page.map(section => section === 'top-stories' ? 'top-stories-new' : section);
+		}
 	}
 
-	return page.map(sectionId => getSection(sectionId, sectionsContent[sectionId], flags));
+	return page.map(sectionId => getSection(sectionId, sectionsData[sectionId], flags));
 }

@@ -1,10 +1,9 @@
 import { getData } from '../libs/graphql-poller';
-import sectionContent from '../libs/section-content';
 import Section from '../../shared/components/section/section';
 import getPage from '../../config/pages';
 
 // bail unless we have at least one top story
-const contentMissing = (data) => {
+const contentMissing = data => {
 	return !(data && data.top && data.topStory) || data.top.items.length < 1|| data.topStory.items.length < 1 ;
 };
 
@@ -24,7 +23,7 @@ export default region => (req, res) => {
 		throw new Error('Could not fetch content for the front page');
 	}
 
-	const sections = getPage('front-page', sectionContent(data, res.locals.flags), res.locals.flags);
+	const sections = getPage('front-page', data, res.locals.flags);
 
 	const renderParams = {
 		layout: 'wrapper',

@@ -6,13 +6,13 @@ chai.should();
 import React from 'react';
 import TestUtils from 'react-addons-test-utils';
 
-const SectionNode = proxyquire('../../../../shared/components/section/section', {
+const Section = proxyquire('../../../../shared/components/section/section', {
 	'./content/content': stub,
 	'./meta/meta': stub,
 	'./sources/sources': stub
 });
 
-describe('SectionNode', () => {
+describe('Section', () => {
 
 	const props = {
 		id: 'section-node-id',
@@ -29,45 +29,35 @@ describe('SectionNode', () => {
 
 	it('should render section component if correct data provided', () => {
 		const section = TestUtils.renderIntoDocument(
-			<SectionNode
-			content={ { main: [''] } }
-			{...props} />
+			<Section data={ { content: [''] } } {...props} />
 		);
 		(() => TestUtils.findRenderedDOMComponentWithTag(section, 'section')).should.not.throw();
 	});
 
 	it('should not render section component if no content provided', () => {
 		const section = TestUtils.renderIntoDocument(
-			<SectionNode
-			content={ null }
-			{...props} />
+			<Section data={ null } {...props} />
 		);
 		(() => TestUtils.findRenderedDOMComponentWithTag(section, 'section')).should.throw();
 	});
 
 	it('should not render section component if content without main attribute provided', () => {
 		const section = TestUtils.renderIntoDocument(
-			<SectionNode
-			content={ { main: null } }
-			{...props} />
+			<Section data={ { content: null } } {...props} />
 		);
 		(() => TestUtils.findRenderedDOMComponentWithTag(section, 'section')).should.throw();
 	});
 
 	it('should not render section component if content with empty main attribute provided', () => {
 		const section = TestUtils.renderIntoDocument(
-			<SectionNode
-			content={ { main: [] } }
-			{...props} />
+			<Section data={ { content: [] } } {...props} />
 		);
 		(() => TestUtils.findRenderedDOMComponentWithTag(section, 'section')).should.throw();
 	});
 
 	it('should render section component with "section--section-node-style" class if correct data provided', () => {
 		const section = TestUtils.renderIntoDocument(
-			<SectionNode
-			content={ { main: [''] } }
-			{...props} />
+			<Section data={ { content: [''] } } {...props} />
 		);
 		(() => TestUtils.findRenderedDOMComponentWithClass(section, 'section--section-node-style')).should.not.throw();
 	});
