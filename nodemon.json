@@ -1,4 +1,5 @@
 {
+  "ignoreRoot": [],
   "watch": [
     "config",
     "node_modules",

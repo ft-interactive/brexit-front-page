@@ -64,6 +64,9 @@ export default (item, opts) => {
 			status: item.status,
 			latestUpdate: item.updates[0]
 		};
+		// no tags/brands on live blogs
+		article.tag = null;
+		article.brand = null;
 	}
 	if (opts.isMain) {
 		article.isMain = true;
