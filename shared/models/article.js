@@ -10,6 +10,7 @@ export default (item, opts) => {
 		type: 'article',
 		id: item.id,
 		title: item.title,
+		published: item.published,
 		lastPublished: item.lastPublished
 	};
 	const primaryTag = getPrimaryTag({ primaryTheme: item.primaryTheme, primarySection: item.primarySection });
