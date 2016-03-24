@@ -4,6 +4,7 @@ const fragments = {
 			type: __typename
 			id
 			title
+			published
 			lastPublished
 		}
 	`,
