@@ -1,10 +1,7 @@
 /**
  * take data from graphql and massage it into a format needed by the sections
  */
-
 const dedupe = (item, index, items) => !item.id || items.findIndex(otherItem => otherItem.id === item.id) === index;
-
-const removeArticles = (articles, article) => !articles.find(a => a.id === article.id);
 
 const getTopStoriesData = (data, flags = {}) => {
 	let content = data.frontPage.topStory.items.concat(data.frontPage.top.items.slice(1));
@@ -20,12 +17,11 @@ const getTopStoriesData = (data, flags = {}) => {
 			if (layoutHint === 'standaloneimage') {
 				content.splice(1, 0, data.frontPage.topStoriesList.items[0]);
 			} else if (['bigstory', 'assassination'].includes(layoutHint)) {
-				// Big story takes the first story from the list, with the next three as related
-				const bigStory = data.frontPage.topStoriesList.items[0];
-				bigStory.relatedContent = data.frontPage.topStoriesList.items.slice(1, 4);
-				// remove the related content from the list of articles
-				content = content.filter(removeArticles.bind(null, bigStory.relatedContent));
-				content.unshift(bigStory);
+				// put three stories from the list after the first story
+				content
+					.slice(0, 1)
+					.concat(data.frontPage.topStoriesList.items.slice(0, 3))
+					.concat(content.slice(1));
 			}
 		} else {
 			// No picture story available, so default to normal layout
