@@ -18,10 +18,7 @@ const getTopStoriesData = (data, flags = {}) => {
 				content.splice(1, 0, data.frontPage.topStoriesList.items[0]);
 			} else if (['bigstory', 'assassination'].includes(layoutHint)) {
 				// put three stories from the list after the first story
-				content
-					.slice(0, 1)
-					.concat(data.frontPage.topStoriesList.items.slice(0, 3))
-					.concat(content.slice(1));
+				content = data.frontPage.topStoriesList.items.slice(0, 4).concat(content);
 			}
 		} else {
 			// No picture story available, so default to normal layout

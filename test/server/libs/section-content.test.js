@@ -96,10 +96,11 @@ describe('Section Content', () => {
 
 	describe('Big Story', () => {
 
-		it('should add the first story from top stories list to the top of the content', () => {
+		it('should add the stories from top stories list to the top of the content', () => {
 			const topStoriesList = {
 				items: [
-					{ id: 'big-story' }
+					{ id: 'big-story' },
+					{ id: 'other-big-story' }
 				],
 				layoutHint: 'bigstory'
 			};
@@ -108,32 +109,12 @@ describe('Section Content', () => {
 			const topStories = results['top-stories'].content;
 
 			results['top-stories'].layoutHint.should.equal('bigstory');
-			topStories.should.have.length(4);
+			topStories.should.have.length(5);
 			topStories[0].id.should.equal('big-story');
-			topStories[1].should.equal('1-with-more-stuff');
-			topStories[2].should.equal('2');
-			topStories[3].should.equal('3');
-		});
-
-		it('should add the second to fourth story from top stories list as related items to the top story', () => {
-			const topStoriesList = {
-				items: [
-					{ id: 'big-story' },
-					{ id: 'related-1' },
-					{ id: 'related-2' },
-					{ id: 'related-3' },
-					{ id: 'related-4' }
-				],
-				layoutHint: 'bigstory'
-			};
-			const frontPage = Object.assign({}, data, { topStoriesList });
-			const results = sectionContent({ frontPage }, { frontPageMultipleLayouts: true });
-			const topStoryRelatedContent = results['top-stories'].content[0].relatedContent;
-
-			topStoryRelatedContent.should.have.length(3);
-			topStoryRelatedContent[0].id.should.equal('related-1');
-			topStoryRelatedContent[1].id.should.equal('related-2');
-			topStoryRelatedContent[2].id.should.equal('related-3');
+			topStories[1].id.should.equal('other-big-story');
+			topStories[2].should.equal('1-with-more-stuff');
+			topStories[3].should.equal('2');
+			topStories[4].should.equal('3');
 		});
 
 		it('should dedupe stories', () => {
@@ -161,42 +142,6 @@ describe('Section Content', () => {
 			topStories.should.have.length(2);
 			topStories[0].id.should.have.equal('top-story-1');
 			topStories[1].id.should.have.equal('top-story-2');
-		});
-
-		it('should dedupe related stories from main top stories list', () => {
-			const top = {
-				items: [
-					{ id: 'top-story-1' },
-					{ id: 'related-1' },
-					{ id: 'top-story-2' },
-					{ id: 'related-2' },
-					{ id: 'top-story-3' },
-					{ id: 'related-3' }
-				]
-			};
-			const topStory = {
-				items: [
-					{ id: 'top-story-1' }
-				]
-			};
-			const topStoriesList = {
-				items: [
-					{ id: 'big-story' },
-					{ id: 'related-1' },
-					{ id: 'related-2' },
-					{ id: 'related-3' }
-				],
-				layoutHint: 'bigstory'
-			};
-			const frontPage = Object.assign({}, data, { top, topStory, topStoriesList });
-			const results = sectionContent({ frontPage }, { frontPageMultipleLayouts: true });
-			const topStories = results['top-stories'].content;
-
-			topStories.should.have.length(4);
-			topStories[0].id.should.equal('big-story');
-			topStories[1].id.should.equal('top-story-1');
-			topStories[2].id.should.equal('top-story-2');
-			topStories[3].id.should.equal('top-story-3');
 		});
 
 	});
