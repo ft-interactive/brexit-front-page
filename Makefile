@@ -9,15 +9,15 @@ _webpack_setup:
 
 unit-test:
 	@echo "Testing…"
-	$(NPM_BIN_ENV); @export NODE_ENV=test; mocha --require server/setup --recursive --reporter spec test/server
+	@export NODE_ENV=test; mocha --require server/setup --recursive --reporter spec test/server
 
 test: verify unit-test
 
 run:
-	$(NPM_BIN_ENV); nbt run
+	nbt run
 
 run-local:
-	$(NPM_BIN_ENV); nbt run --local
+	nbt run --local
 
 watch: _webpack_setup
 	@$(MAKE) watch-super
@@ -27,23 +27,23 @@ build: _webpack_setup
 
 build-production: _webpack_setup
 	@$(MAKE) build-production-super
-	$(NPM_BIN_ENV); uglifyjs public/main.js --in-source-map public/main.js.map --source-map public/main.js.map  --source-map-url ./main.js.map -o public/main.js -c -m
-	$(NPM_BIN_ENV); nbt build --skip-sass --skip-js
+	uglifyjs public/main.js --in-source-map public/main.js.map --source-map public/main.js.map  --source-map-url ./main.js.map -o public/main.js -c -m
+	nbt build --skip-sass --skip-js
 
 smoke:
-	$(NPM_BIN_ENV); nbt test-urls ${TEST_APP}
-	$(NPM_BIN_ENV); export TEST_APP=${TEST_APP}; nbt nightwatch test/browser/tests/* -e ie9,firefox,chrome,iphone6_plus
+	nbt test-urls ${TEST_APP}
+	export TEST_APP=${TEST_APP}; nbt nightwatch test/browser/tests/* -e ie9,firefox,chrome,iphone6_plus
 
 provision:
-	$(NPM_BIN_ENV); nbt deploy-hashed-assets
-	$(NPM_BIN_ENV); nbt float -md --testapp ${TEST_APP}
+	nbt deploy-hashed-assets
+	nbt float -md --testapp ${TEST_APP}
 	make smoke
 
 tidy:
-	$(NPM_BIN_ENV); nbt destroy ${TEST_APP}
+	nbt destroy ${TEST_APP}
 
 deploy:
-	$(NPM_BIN_ENV); nbt deploy-hashed-assets
-	$(NPM_BIN_ENV); nbt ship -m
+	nbt deploy-hashed-assets
+	nbt ship -m
 
 clean-deploy: clean install build-production deploy
