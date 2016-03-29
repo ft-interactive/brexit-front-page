@@ -22,6 +22,7 @@
 	}
 
 	.fast-ft & {
+		@include oColorsFor(page, background);
 		margin-top: 0;
 	}
 }
