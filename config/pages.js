@@ -20,19 +20,10 @@ const pages = {
 
 export default (pageId, data, flags) => {
 	const sectionsData = sectionData(data, flags);
-	// NOTE: need to copy array, so we don't keep inserting 'top-stories-more' into it
+	// NOTE: need to copy array, so we don't keep inserting the same things into it (immutable FTW)
 	let page = pages[pageId].slice();
-	if (pageId === 'front-page') {
-		if (flags.frontPageMoreTopStories) {
-			if (flags.frontPageNewLayout) {
-				page.splice(1, 0, 'top-stories-more-new');
-			} else {
-				page.splice(1, 0, 'top-stories-more');
-			}
-		}
-		if (flags.frontPageNewLayout) {
-			page = page.map(section => section === 'top-stories' ? 'top-stories-new' : section);
-		}
+	if (pageId === 'front-page' && flags.frontPageNewLayout) {
+		page = page.map(section => section === 'top-stories' ? 'top-stories-new' : section);
 	}
 
 	return page.map(sectionId => getSection(sectionId, sectionsData[sectionId], flags));
