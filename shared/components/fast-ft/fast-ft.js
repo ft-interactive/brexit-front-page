@@ -10,7 +10,6 @@ export default class extends Component {
 				hideTag: true,
 				size: (index === 0 ? 'small' : 'tiny'),
 				itemIndex: index,
-				isTransparent: true,
 				show: { default: true, L: index <= 6, XL: index <= 3 }
 			};
 			return <li className="fast-ft__item" key={article.id}><Content {...cardProps}/></li>;

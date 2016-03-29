@@ -30,6 +30,7 @@ $o-grid-ie8-rules: false;
 @import "../shared/components/section/section";
 
 html {
+	@include oColorsFor(card, background);
 	// Prevent navigation menus from creating
 	// extra space on sides of the page
 	overflow-x: auto;
@@ -49,30 +50,6 @@ html {
 	@include oGridRespondTo(M) {
 		margin-top: oGridGutter(M);
 	}
-}
-
-.next-header__logo {
-	line-height: 1.3;
-}
-
-.n-welcome {
-	[data-o-grid-colspan] {
-		padding-top: 0;
-		padding-bottom: 0;
-	}
-}
-
-.fixed-width-container {
-	margin: 0 auto;
-}
-
-.main-content {
-	padding-top: 10px;
-
-	@include oGridRespondTo(L) {
-		padding-top: 0;
-	}
-
 }
 
 .main-body {
