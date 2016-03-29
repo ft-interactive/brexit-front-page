@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 export default class extends Component {
 	render () {
 		let metaClass = 'section-meta';
-		if (this.props.meta.hide) {
+		if (this.props.isHidden) {
 			metaClass += ' n-util-visually-hidden';
 		}
 		return (
