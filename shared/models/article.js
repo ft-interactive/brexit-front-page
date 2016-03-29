@@ -61,6 +61,7 @@ export default (item, opts) => {
 		}, opts.related);
 	}
 	if (item.type === 'LiveBlog') {
+		article.type = 'live-blog';
 		article.liveBlog = {
 			status: item.status,
 			latestUpdate: item.updates[0]
