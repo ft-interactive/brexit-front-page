@@ -68,10 +68,6 @@ export default [
 					{
 						type: Content,
 						size: 'small'
-					},
-					{
-						type: Content,
-						size: 'small'
 					}
 				]
 			}
