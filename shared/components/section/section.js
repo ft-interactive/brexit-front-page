@@ -38,7 +38,7 @@ export default class extends Component {
 				{
 					cols.meta ?
 						<div data-o-grid-colspan={colspan(cols.meta)} className="section__column section__column--meta">
-							<SectionMeta title={this.props.title} />
+							<SectionMeta title={this.props.title} meta={this.props.cols.meta} />
 						</div> :
 						null
 				}

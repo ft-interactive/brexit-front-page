@@ -39,6 +39,10 @@ export default ({ data, flags }) => ({
 		hideUntilDesktop: flags.frontPageFastFTJourney
 	},
 	cols: {
+		meta: {
+			default: 12,
+			hide: true
+		},
 		content: {
 			default: 12,
 			L: 8,
