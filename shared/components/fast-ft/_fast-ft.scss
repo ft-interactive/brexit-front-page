@@ -7,6 +7,7 @@
 		padding-top: oGridGutter(M);
 	}
 }
+
 .fast-ft {
 	margin-bottom: 10px;
 }
@@ -17,25 +18,34 @@
 	line-height: 17px;
 	padding: 10px;
 }
+
 .fast-ft__link {
 	display: inline-block;
 	border-bottom: 0;
 }
+
 .fast-ft__logo--fast {
 	@include nextIcon(brand-fast, oColorsGetColorFor(fast-ft, text), 30);
 	background-size: 100% 13px;
 }
+
 .fast-ft__logo--ft {
 	@include nextIcon(brand-ft, getColor('warm-4'), 30);
 	background-size: 100% 17px;
 }
+
 .fast-ft__logo {
 	height: 100%;
 	text-indent: -9999px;
 	background-position: 0 100%;
 }
+
 .fast-ft__items {
 	margin: 0 0 10px;
 	padding: 0;
 	list-style: none;
+}
+
+.fast-ft__item {
+	@include oColorsFor(page, background);
 }

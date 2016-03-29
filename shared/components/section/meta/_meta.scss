@@ -1,6 +1,7 @@
 .section-meta {
 	margin-top: oGridGutter() * 2;
 	position: relative;
+	text-align: center;
 
 	@include oGridRespondTo(M) {
 		margin-top: oGridGutter(M) * 2;
@@ -19,16 +20,16 @@
 
 .section-meta__title {
 	@include oTypographySerifDisplayBold(m);
-	@include oColorsFor(page, background);
+	@include oColorsFor(card, background);
 	display: inline-block;
 	margin: 0;
-	padding: 0 oGridGutter() 0 0;
+	padding: 0 oGridGutter();
 	color: getColor('cold-3');
 	position: relative;
 	z-index: 1;
 
 	@include oGridRespondTo(M) {
-		padding-right: oGridGutter(M);
+		padding: 0 oGridGutter(M);
 	}
 
 	@include oGridRespondTo(M) {

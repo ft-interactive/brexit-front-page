@@ -67,7 +67,6 @@ export default [
 			},
 			{
 				type: Column,
-				isList: true,
 				colspan: { default: 12, XL: 3 },
 				components: [
 					{
