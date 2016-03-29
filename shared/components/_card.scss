@@ -10,10 +10,10 @@
 	&:before {
 		content: '';
 		position: absolute;
-		height: 2px;
+		height: 1px;
 		left: 0;
 		right: 0;
-		top: 0;
+		top: -1px;
 		background-color: oColorsGetColorFor(card, border);
 	}
 
@@ -24,6 +24,10 @@
 	.fast-ft & {
 		margin-top: 0;
 	}
+}
+
+.card--editors-pick {
+	@include oColorsFor(editors-pick-card, background);
 }
 
 .card__timestamp {

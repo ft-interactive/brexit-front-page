@@ -35,3 +35,21 @@
 		display: none;
 	}
 }
+
+.section__column__inner {
+	// cancel out the top border of cards that are in the first row
+	&:before {
+		@include oColorsFor(card, background);
+		content: '';
+		position: absolute;
+		height: 1px;
+		left: 0;
+		right: 0;
+		top: oGridGutter() - 1;
+		z-index: 1;
+
+		@include oGridRespondTo(M) {
+			top: oGridGutter(M) - 1;
+		}
+	}
+}
