@@ -2,12 +2,8 @@ import React, { Component } from 'react';
 
 export default class extends Component {
 	render () {
-		let metaClass = 'section-meta';
-		if (this.props.isHidden) {
-			metaClass += ' n-util-visually-hidden';
-		}
 		return (
-			<div className={metaClass}>
+			<div className="section-meta">
 				<h2 className="section-meta__title" dangerouslySetInnerHTML={{ __html: this.props.title }} />
 			</div>
 		);
