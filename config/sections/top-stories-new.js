@@ -4,18 +4,18 @@ const getLayout = (data, flags) => {
 	if (flags.frontPageMultipleLayouts) {
 		switch(layoutHint) {
 			case 'standaloneimage':
-				return 'top-stories-picture-story';
+				return 'top-stories-picture-story-new';
 			case 'landscape':
 				return 'top-stories-landscape-new';
 			case 'assassination':
 			case 'bigstory':
-				return 'top-stories-big-story';
+				return 'top-stories-big-story-new';
 			case 'standard':
 			default:
-				return 'top-stories';
+				return 'top-stories-new';
 		}
 	} else {
-		return 'top-stories';
+		return 'top-stories-new';
 	}
 };
 export default ({ data, flags }) => ({
