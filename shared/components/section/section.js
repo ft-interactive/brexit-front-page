@@ -33,12 +33,18 @@ export default class extends Component {
 			this.props.sidebarComponent && this.props.sidebarComponent.hideUntilDesktop ? 'section__column--hide-until-l' : ''
 		]);
 
+		const sectionMetaClasses = classify([
+			'section__column',
+			'section__column--meta',
+			this.props.cols.meta && this.props.cols.meta.hide ? 'n-util-visually-hidden' : ''
+		]);
+
 		return (
 			<section className={sectionClasses} data-trackable={trackable}>
 				{
 					cols.meta ?
-						<div data-o-grid-colspan={colspan(cols.meta)} className="section__column section__column--meta">
-							<SectionMeta title={this.props.title} isHidden={this.props.cols.meta.hide} />
+						<div data-o-grid-colspan={colspan(cols.meta)} className={sectionMetaClasses}>
+							<SectionMeta title={this.props.title} />
 						</div> :
 						null
 				}
