@@ -24,11 +24,48 @@ export default [
 										image: {
 											position: { default: 'top', M: 'right' },
 											sizes: { default: 449, s: 659, m: 450, l: 384 }
-										},
-										related: {
-											show: true,
-											colspan: { default: 12, S: 4 }
 										}
+									}
+								]
+							}
+						]
+					},
+					{
+						type: Row,
+						components: [
+							{
+								type: Column,
+								colspan: { default: 12, S: 4 },
+								components: [
+									{
+										type: Content,
+										size: 'small',
+										isPictureStory: true,
+										hideTag: true
+									}
+								]
+							},
+							{
+								type: Column,
+								colspan: { default: 12, S: 4 },
+								components: [
+									{
+										type: Content,
+										size: 'small',
+										isPictureStory: true,
+										hideTag: true
+									}
+								]
+							},
+							{
+								type: Column,
+								colspan: { default: 12, S: 4 },
+								components: [
+									{
+										type: Content,
+										size: 'small',
+										isPictureStory: true,
+										hideTag: true
 									}
 								]
 							}
