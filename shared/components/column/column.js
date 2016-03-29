@@ -7,13 +7,13 @@ export default class extends Component {
 		if (!this.props.components) {
 			return null;
 		}
-		const renderComponents = (components, flags) => components.map((component, index) =>
+		const renderComponents = (components, { flags = {} }) => components.map((component, index) =>
 			<component.type {...component} data={this.props.data} key={`column-child_${index}`} flags={flags} />
 		);
 
 		return (
 			<div className="column" data-o-grid-colspan={colspanToString(this.props.colspan)}>
-				{renderComponents(this.props.components, this.props.flags)}
+				{renderComponents(this.props.components, { flags: this.props.flags })}
 			</div>
 		);
 	}
