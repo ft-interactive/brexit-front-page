@@ -9,7 +9,6 @@ import topStoriesLayout from './top-stories';
 import topStoriesBigStoryLayout from './top-stories-big-story';
 import topStoriesLandscapeLayout from './top-stories-landscape';
 import topStoriesLandscapeNewLayout from './top-stories-landscape-new';
-import topStoriesMoreLayout from './top-stories-more';
 import topStoriesPictureStoryLayout from './top-stories-picture-story';
 import VideoLayout from './video';
 
@@ -25,7 +24,6 @@ export default {
 	'top-stories-big-story': topStoriesBigStoryLayout,
 	'top-stories-landscape': topStoriesLandscapeLayout,
 	'top-stories-landscape-new': topStoriesLandscapeNewLayout,
-	'top-stories-more': topStoriesMoreLayout,
 	'top-stories-picture-story': topStoriesPictureStoryLayout,
 	'video': VideoLayout
 }
