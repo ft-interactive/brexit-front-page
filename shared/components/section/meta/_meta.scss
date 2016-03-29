@@ -1,39 +1,47 @@
 .section-meta {
-	margin-top: oGridGutter() * 2;
+	margin-top: oGridGutter(M) * 2;
 	position: relative;
+	text-align: center;
 
-	@include oGridRespondTo(M) {
-		margin-top: oGridGutter(M) * 2;
-	}
-
-	&:after {
+	&:before {
 		content: '';
+		display: block;
 		position: absolute;
-		left: 0;
 		top: 50%;
-		height: 1px;
+		margin-top: -9px;
+		height: 18px;
 		width: 100%;
-		background-color: oColorsGetColorFor(card, border);
+		background: url('/assets/backgrounds/front-page-section-header.png') repeat transparent;
 	}
 }
 
 .section-meta__title {
 	@include oTypographySerifDisplayBold(m);
-	@include oColorsFor(page, background);
+	@include oColorsFor(card, background);
+	font-size: 36px;
+	line-height: 1em;
 	display: inline-block;
 	margin: 0;
-	padding: 0 oGridGutter() 0 0;
+	padding: 0 oGridGutter();
 	color: getColor('cold-3');
 	position: relative;
 	z-index: 1;
 
 	@include oGridRespondTo(M) {
-		padding-right: oGridGutter(M);
+		padding: 0 oGridGutter(M);
 	}
 
-	@include oGridRespondTo(M) {
-		@include oTypographySerifDisplayBoldSize(l);
+	.section--opinion & {
+		@include oColorsFor(author, text);
 	}
+
+	.section--myft & {
+		color: getColorFor('myft');
+	}
+}
+
+.section-meta__link {
+	color: inherit;
 }
 
 .section-meta__link--myft-logo {
@@ -42,13 +50,7 @@
 }
 
 .section-meta__myft-icon {
-	@include nextIcon('myft-bolder', getColor('black'), 67);
-	width: 52px;
-	height: 24px;
+	@include nextIcon('myft-bolder', getColorFor('myft'), 36);
+	width: 77px;
 	text-indent: -9999px;
-
-	@include oGridRespondTo(L) {
-		width: 67px;
-		height: 31px;
-	}
 }

@@ -2,34 +2,6 @@
 	@include displayFlex;
 	flex-direction: column;
 
-	.section--background &:before {
-		// vertical column rule
-		content: '';
-		position: absolute;
-		width: 1px;
-		left: oGridGutter() / 2;
-		top: oGridGutter() / 2;
-		bottom: oGridGutter() / 2;
-		background-color: oColorsGetColorFor(column, border);
-		z-index: 1;
-
-		@include oGridRespondTo(M) {
-			left: floor(oGridGutter(M) / 2);
-			top: floor(oGridGutter(M) / 2);
-			bottom: floor(oGridGutter(M) / 2);
-		}
-	}
-
-	.column--list & {
-		&:before {
-			// vertical rules between column-list columns
-			top: oGridGutter();
-			bottom: oGridGutter();
-			background-color: oColorsGetColorFor(card, border);
-			z-index: 0;
-		}
-	}
-
 	&[data-o-grid-colspan~="hide"] {
 		@include oGridRespondTo($until: S) {
 			display: none;
@@ -63,20 +35,5 @@
 	.o-grid-row {
 		flex: 1 1 auto;
 		-ms-flex-preferred-size: auto;
-	}
-}
-
-.column--list:after {
-	// horizontal rule above column list
-	content: '';
-	position: absolute;
-	height: 1px;
-	left: oGridGutter() * 2;
-	right: oGridGutter();
-	top: -1px;
-	background-color: oColorsGetColorFor(column, border);
-
-	@include oGridRespondTo(M) {
-		left: oGridGutter(M) + oGridGutter();
 	}
 }

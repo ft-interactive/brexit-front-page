@@ -1,5 +1,0 @@
-// hide unhidden rules (due to IE's weird z-index for positioned elements)
-.column--list:after,
-.column--list .column:before {
-	display: none;
-}

@@ -26,21 +26,6 @@
 	}
 }
 
-.section__column--content {
-	.section--background & {
-		@include oColorsFor(card, background);
-		margin-top: oGridGutter();
-		padding-left: 0;
-		border-left: oGridGutter() solid oColorsGetColorFor(page, background);
-		overflow: hidden;
-
-		@include oGridRespondTo(M) {
-			margin-top: oGridGutter(M);
-			border-left-width: oGridGutter(M);
-		}
-	}
-}
-
 .section__column--sidebar {
 	flex-direction: column;
 }
@@ -48,5 +33,23 @@
 .section__column--hide-until-l {
 	@include oGridRespondTo($until: L) {
 		display: none;
+	}
+}
+
+.section__column__inner {
+	// cancel out the top border of cards that are in the first row
+	&:before {
+		@include oColorsFor(card, background);
+		content: '';
+		position: absolute;
+		height: 1px;
+		left: 0;
+		right: 0;
+		top: oGridGutter() - 1;
+		z-index: 1;
+
+		@include oGridRespondTo(M) {
+			top: oGridGutter(M) - 1;
+		}
 	}
 }
