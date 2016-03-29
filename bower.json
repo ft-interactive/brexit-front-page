@@ -7,7 +7,7 @@
     "o-date": "^2.0.0",
     "n-video": "^4.0.0",
     "n-message-prompts": "^2.0.0",
-    "n-layout": "^6.0.0",
+    "n-layout": "#header-footer-tpl",
     "n-image": "^2.0.0",
     "o-tabs": "^2.1.0",
     "n-jsonp": "^2.0.0",
