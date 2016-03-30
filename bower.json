@@ -1,10 +1,13 @@
 {
   "name": "next-front-page",
+  "main": [
+    "client/main.js"
+  ],
   "dependencies": {
     "o-date": "^2.0.0",
     "n-video": "^4.0.0",
     "n-message-prompts": "^2.0.0",
-    "n-layout": "#header-footer-tpl",
+    "n-layout": "^6.0.0",
     "n-image": "^2.0.0",
     "o-tabs": "^2.1.0",
     "n-jsonp": "^2.0.0",
@@ -13,6 +16,7 @@
     "n-card": "^2.1.0"
   },
   "resolutions": {
-    "o-ft-icons": "next"
+    "o-ft-icons": "next",
+    "superstore-sync": "^2.1.0"
   }
 }
