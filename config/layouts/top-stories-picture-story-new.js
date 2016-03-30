@@ -40,7 +40,7 @@ export default [
 										hideTag: true,
 										image: {
 											position: { default: 'top' },
-											sizes: { default: 700 }
+											sizes: { default: 449, s: 315, m: 432, l: 406, xl: 500 }
 										}
 									}
 								]
@@ -74,7 +74,7 @@ export default [
 						size: 'medium',
 						image: {
 							position: { default: 'top', S: 'right', L: 'top' },
-							sizes: { default: 700 }
+							sizes: { default: 210, s: 158, m: 216, l: 259, xl: 322 }
 						}
 					}
 				]
@@ -88,7 +88,7 @@ export default [
 						size: 'medium',
 						image: {
 							position: { default: 'top', S: 'right', L: 'top' },
-							sizes: { default: 700 }
+							sizes: { default: 210, s: 158, m: 216, l: 259, xl: 322 }
 						}
 					}
 				]
