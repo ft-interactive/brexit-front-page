@@ -7,9 +7,7 @@ export { article, concept, video };
 export default (item, opts, { flags = {} }) => {
 	const model = {
 		size: opts.size,
-		show: opts.show,
-		isTransparent: opts.isTransparent,
-		isNew: opts.isNew
+		show: opts.show
 	};
 
 	if (item.type === 'Video') {

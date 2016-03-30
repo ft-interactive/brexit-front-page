@@ -1,19 +1,23 @@
 import React, { Component } from 'react';
+
 import Content from '../content/content';
 
 export default class extends Component {
 	render () {
-		const items = this.props.articles.filter(article => !!article.title).slice(0, 20);
-		const articleEls = items.map((article, index) => {
-			const cardProps = {
-				data: { content: items },
-				hideTag: true,
-				size: (index === 0 ? 'small' : 'tiny'),
-				itemIndex: index,
-				show: { default: true, L: index <= 6, XL: index <= 3 }
-			};
-			return <li className="fast-ft__item" key={article.id}><Content {...cardProps}/></li>;
-		});
+		const articleEls = this.props.articles
+			.filter(article => !!article.title)
+			.slice(0, 20)
+			.map(article => Object.assign({}, article, { type: 'FastFt' }))
+			.map((article, index, articles) => {
+				const cardProps = {
+					data: { content: articles },
+					hideTag: true,
+					size: (index === 0 ? 'small' : 'tiny'),
+					itemIndex: index,
+					show: { default: true, L: index <= 6, XL: index <= 3 }
+				};
+				return <li className="fast-ft__item" key={article.id}><Content {...cardProps} /></li>;
+			});
 
 		return (
 			<div className="fast-ft-wrapper">
