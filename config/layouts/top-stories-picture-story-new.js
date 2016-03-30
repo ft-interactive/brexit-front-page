@@ -55,8 +55,7 @@ export default [
 				components: [
 					{
 						type: FastFt,
-						size: 'medium',
-						show: { default: false, L: true }
+						size: 'medium'
 					}
 				]
 			}
