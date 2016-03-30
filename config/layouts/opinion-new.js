@@ -15,7 +15,6 @@ export default [
 						size: 'large',
 						showStandfirst: true,
 						image: {
-							position: { M: 'top', L: 'bottom' },
 							sizes: { default: 449, s: 659, m: 277, l: 314, xl: 322 }
 						}
 					}
