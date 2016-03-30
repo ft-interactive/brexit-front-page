@@ -1,7 +1,7 @@
 export default () => ({
 	id: 'videos', // Note: calling this "video" breaks BB10
 	trackable: 'video',
-	title: 'Video',
+	title: '<a href="http://video.ft.com/" class="section-meta__link" data-trackable="section-title">Video</a>',
 	style: 'video',
 	layoutId: 'video',
 	trackScrollEvent: true,
