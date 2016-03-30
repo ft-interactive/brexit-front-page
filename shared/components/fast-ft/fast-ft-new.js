@@ -6,7 +6,7 @@ export default class extends Component {
 	render () {
 		const articleEls = this.props.data.fastFt
 			.filter(article => !!article.title)
-			.slice(0, 4)
+			.slice(0, this.props.count || 4)
 			.map(article => Object.assign({}, article, { type: 'FastFt' }))
 			.map((article, index, articles) => {
 				const cardProps = {

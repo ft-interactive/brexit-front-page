@@ -25,10 +25,10 @@
 		@include oColorsFor(page, background);
 		margin-top: 0;
 	}
-}
 
-.card--editors-pick {
-	@include oColorsFor(editors-pick-card, background);
+	.column--related & {
+		margin-top: 0;
+	}
 }
 
 .card__timestamp {

@@ -52,4 +52,9 @@ const responsiveValue = (value, allValues = false) => {
 	return responsiveClass('', value, allValues);
 };
 
-export { objMap, mobileFirst, responsiveClass, responsiveValue }
+const renderClasses = classes =>
+	Object.keys(classes)
+		.filter(className => classes[className])
+		.join(' ');
+
+export { objMap, mobileFirst, responsiveClass, responsiveValue, renderClasses }
