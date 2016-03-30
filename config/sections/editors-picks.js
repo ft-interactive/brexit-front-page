@@ -4,7 +4,6 @@ export default ({ flags }) => ({
 	style: 'editors-picks',
 	layoutId: flags.frontPageNewLayout ? 'editors-picks-new' : 'editors-picks',
 	trackScrollEvent: true,
-	background: true,
 	size: {
 		default: 12
 	},
