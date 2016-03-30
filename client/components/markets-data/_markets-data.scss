@@ -1,11 +1,3 @@
-@import 'o-grid/main';
-
-@include oGridRespondTo($until: M) {
-	.o-header__nav-link--toggle[aria-pressed=true] + .o-header__meganav {
-		top: 86px;
-	}
-}
-
 .markets-data-wrapper {
 	background: url('/assets/backgrounds/header-markets-data.png') getColor('black');
 	min-height: 39px;
