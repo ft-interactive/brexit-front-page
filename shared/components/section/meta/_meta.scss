@@ -42,15 +42,19 @@
 
 .section-meta__link {
 	color: inherit;
+	border-bottom: 0;
 }
 
 .section-meta__link--myft-logo {
 	display: inline-block;
-	border-bottom: 0;
 }
 
 .section-meta__myft-icon {
 	@include nextIcon('myft-bolder', getColorFor('myft'), 36);
 	width: 77px;
 	text-indent: -9999px;
+
+	&:hover {
+		@include nextIcon('myft-bolder', getColor('grey-tint4'), 36, $icon-only: true);
+	}
 }
