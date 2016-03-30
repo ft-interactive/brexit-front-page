@@ -23,7 +23,7 @@ export default [
 										showStandfirst: true,
 										image: {
 											position: { default: 'top', L: 'left' },
-											sizes: { default: 432, s: 432, m: 432, l: 271, xl: 271 }
+											sizes: { default: 210, s: 315, m: 432, l: 221, xl: 271 }
 										}
 									},
 								]
@@ -38,7 +38,7 @@ export default [
 										showStandfirst: true,
 										image: {
 											position: { default: 'top', L: 'right' },
-											sizes: { default: 432, s: 432, m: 432, l: 271, xl: 271 }
+											sizes: { default: 210, s: 315, m: 432, l: 221, xl: 271 }
 										}
 									}
 								]
