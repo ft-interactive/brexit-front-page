@@ -4,6 +4,7 @@ export default ({ flags }) => ({
 	style: 'most-popular',
 	layoutId: flags.frontPageNewLayout ? 'most-popular-new' : 'most-popular',
 	trackScrollEvent: true,
+	articleRanking: true,
 	size: {
 		default: 12
 	},

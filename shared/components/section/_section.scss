@@ -8,6 +8,17 @@
 @import "../myft-promo/myft-promo";
 @import "../card";
 
+.section--article-ranking {
+	counter-reset: ranking;
+}
+
+.section--article-ranking .card__content:before {
+	counter-increment: ranking;
+	content: counter(ranking);
+	font-size: 32px;
+	font-weight: oFontsWeight(bold);
+}
+
 .section--video {
 	.core & {
 		display: none;
