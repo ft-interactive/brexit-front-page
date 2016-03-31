@@ -30,36 +30,16 @@ describe('Section Content', () => {
 
 	});
 
-	it('uses standard layout if frontPageMultipleLayouts flag is off', () => {
+	it('uses editorial layout', () => {
 		data.topStoriesList = { items: [{ id: 'list-1' }], layoutHint: 'assassination' };
-		const results = sectionContent( {frontPage: data }, { frontPageMultipleLayouts: false });
-
-		expect(results['top-stories'].layoutHint).to.equal('standard');
-	});
-
-	it('uses editorial layout if frontPageMultipleLayouts flag is on', () => {
-		data.topStoriesList = { items: [{ id: 'list-1' }], layoutHint: 'assassination' };
-		const results = sectionContent( {frontPage: data }, { frontPageMultipleLayouts: true });
+		const results = sectionContent( {frontPage: data });
 
 		expect(results['top-stories'].layoutHint).to.equal('assassination');
 	});
 
-	it('Does not include picture story from list if picture story layout chosen and flag is off', () => {
+	it('Includes picture story from list if picture story layout chosen', () => {
 		data.topStoriesList = { items: [{ id: 'picture-story' }], layoutHint: 'standaloneimage' };
-		const results = sectionContent( {frontPage: data }, { frontPageMultipleLayouts: false});
-
-		expect(results['top-stories'].layoutHint).to.equal('standard');
-
-		expect(results['top-stories'].content.length).to.equal(3);
-		expect(results['top-stories'].content[0]).to.equal('1-with-more-stuff');
-		expect(results['top-stories'].content[1]).to.equal('2');
-		expect(results['top-stories'].content[2]).to.equal('3');
-
-	});
-
-	it('Includes picture story from list if picture story layout chosen and flag is on', () => {
-		data.topStoriesList = { items: [{ id: 'picture-story' }], layoutHint: 'standaloneimage' };
-		const results = sectionContent( {frontPage: data }, { frontPageMultipleLayouts: true});
+		const results = sectionContent( {frontPage: data });
 
 		expect(results['top-stories'].layoutHint).to.equal('standaloneimage');
 
@@ -72,7 +52,7 @@ describe('Section Content', () => {
 
 	it('Defaults to standard layout if no picture story provided in list', () => {
 		data.topStoriesList = { items: [], layoutHint: 'standaloneimage' };
-		const results = sectionContent( {frontPage: data }, { frontPageMultipleLayouts: true});
+		const results = sectionContent( {frontPage: data });
 
 		expect(results['top-stories'].layoutHint).to.equal('standard');
 
@@ -84,7 +64,7 @@ describe('Section Content', () => {
 
 	it('Defaults to standard layout if top stories list has no data', () => {
 		data.topStoriesList = { items: null, layoutHint: null };
-		const results = sectionContent( {frontPage: data }, { frontPageMultipleLayouts: true});
+		const results = sectionContent( {frontPage: data });
 
 		expect(results['top-stories'].layoutHint).to.equal('standard');
 
@@ -105,7 +85,7 @@ describe('Section Content', () => {
 				layoutHint: 'bigstory'
 			};
 			const frontPage = Object.assign({}, data, { topStoriesList });
-			const results = sectionContent({ frontPage }, { frontPageMultipleLayouts: true });
+			const results = sectionContent({ frontPage });
 			const topStories = results['top-stories'].content;
 
 			results['top-stories'].layoutHint.should.equal('bigstory');
@@ -136,7 +116,7 @@ describe('Section Content', () => {
 				layoutHint: 'bigstory'
 			};
 			const frontPage = Object.assign({}, data, { top, topStory, topStoriesList });
-			const results = sectionContent({ frontPage }, { frontPageMultipleLayouts: true });
+			const results = sectionContent({ frontPage });
 			const topStories = results['top-stories'].content;
 
 			topStories.should.have.length(2);
