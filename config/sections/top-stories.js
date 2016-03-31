@@ -1,23 +1,17 @@
 import FastFt from '../../shared/components/fast-ft/fast-ft';
 
-const getLayout = (data, flags) => {
-	const layoutHint = data.layoutHint;
-
-	if (flags.frontPageMultipleLayouts) {
-		switch(layoutHint) {
-			case 'standaloneimage':
-				return 'top-stories-picture-story';
-			case 'landscape':
-				return 'top-stories-landscape';
-			case 'assassination':
-			case 'bigstory':
-				return 'top-stories-big-story';
-			case 'standard':
-			default:
-				return 'top-stories';
-		}
-	} else {
-		return 'top-stories';
+const getLayout = (layoutHint) => {
+	switch(layoutHint) {
+		case 'standaloneimage':
+			return 'top-stories-picture-story';
+		case 'landscape':
+			return 'top-stories-landscape';
+		case 'assassination':
+		case 'bigstory':
+			return 'top-stories-big-story';
+		case 'standard':
+		default:
+			return 'top-stories';
 	}
 };
 export default ({ data, flags }) => ({
@@ -25,8 +19,8 @@ export default ({ data, flags }) => ({
 	title: 'Top Stories',
 	style: 'top-stories',
 	isTab: true,
-	layoutId: getLayout(data, flags),
-	trackable: getLayout(data, flags),
+	layoutId: getLayout(data.layoutHint),
+	trackable: getLayout(data.layoutHint),
 	trackScrollEvent: true,
 	background: true,
 	size: {
