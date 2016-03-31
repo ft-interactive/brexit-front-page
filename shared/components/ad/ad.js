@@ -7,7 +7,7 @@ export default class extends Component {
 		const attrs = {
 			'data-trackable': ' ad'
 		};
-		let adClassName = 'ad-placeholder';
+		let adClassName = 'o-ads';
 
 		if(this.props.show) {
 			const showCard = responsiveValue(this.props.show);
@@ -23,7 +23,7 @@ export default class extends Component {
 		}
 
 		return (
-				<div {...attrs} className={adClassName} data-trackable="ad"></div>
+				<div {...attrs} className={adClassName} data-trackable="ad" data-o-ads-name={this.props.adName} data-o-ads-targeting={this.props.targeting} aria-hidden="true" data-o-ads-label="false"></div>
 		);
 	}
 }

@@ -12,7 +12,9 @@ export default [
 				components: [
 					{
 						type: Ad,
-						adClasses: 'ad-placeholder--mid-page'
+						adClasses: 'mid-page-2-advert',
+						adName: 'billboard',
+						targeting: 'pos=midpage1;'
 					}
 				]
 			}

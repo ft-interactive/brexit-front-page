@@ -1,13 +1,58 @@
-.ad-placeholder--most-popular,
-.ad-placeholder--editors-picks {
-	margin-top: oGridGutter();
-	@include oGridRespondTo(M) {
-		margin-top: oGridGutter(M);
+
+// Ad breakpoint where leaderboards start working
+$ad-medium-breakpoint: 760px;
+
+.above-header-advert {
+	@media (min-width:$ad-medium-breakpoint) {
+		min-height: 90px;
+		display: block;
+		padding: 10px 0;
+		line-height: 0;
+		white-space: pre;
+		text-align: center;
 	}
 }
 
-//Workaround for Chrome 48 jumping boxes bug https://code.google.com/p/chromium/issues/detail?id=546034#c6
-.ad-placeholder {
-	min-width: 0;
-	min-height: 0;
+.mid-page-1-advert,
+.mid-page-2-advert {
+	display: none;
+}
+
+
+//For the responsive demo, have no padding
+// (NOTE: in reality this should be in the creative wrapper since we don't know when an ad is responsive)
+&[data-ads-layout="highimpact"] {
+	.above-header-advert {
+		padding: 0;
+	}
+}
+
+&[data-ads-layout="highimpact"],
+&[data-ads-layout="billboards"],
+&[data-ads-layout="multiplesizes"],
+&[data-ads-layout="superleaders"] {
+
+	.mid-page-1-advert,
+	.mid-page-2-advert {
+		display: block;
+		text-align: center;
+		padding: 10px 0 0;
+	}
+
+	.mid-page-1-advert {
+		@media (min-width:$ad-medium-breakpoint) {
+			display: none;
+		}
+	}
+}
+
+&[data-ads-layout="highimpact"] {
+	.above-header-advert {
+		padding: 0;
+	}
+}
+
+
+.advert-forecasting-only {
+	display: none;
 }

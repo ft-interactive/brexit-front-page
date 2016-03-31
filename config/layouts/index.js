@@ -3,7 +3,9 @@ import editorsPicksNewLayout from './editors-picks-new';
 import featuredSectionLayout from './featured-section';
 import mostPopularLayout from './most-popular';
 import myftLayout from './myft';
-import midPageAdvertLayout from './mid-page-advert';
+import midPageAdvert1Layout from './mid-page-advert-1';
+import midPageAdvert2SuperleaderboardLayout from './mid-page-advert-2-superleaderboard';
+import midPageAdvert2BillboardLayout from './mid-page-advert-2-billboard';
 import opinionLayout from './opinion';
 import opinionNewLayout from './opinion-new';
 import topStoriesLayout from './top-stories';
@@ -22,7 +24,9 @@ export default {
 	'featured-section': featuredSectionLayout,
 	'most-popular': mostPopularLayout,
 	'myft': myftLayout,
-	'mid-page-advert': midPageAdvertLayout,
+	'mid-page-advert-1': midPageAdvert1Layout,
+	'mid-page-advert-2-superleaderboard': midPageAdvert2SuperleaderboardLayout,
+	'mid-page-advert-2-billboard': midPageAdvert2BillboardLayout,
 	'opinion': opinionLayout,
 	'opinion-new': opinionNewLayout,
 	'top-stories': topStoriesLayout,

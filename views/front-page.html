@@ -6,6 +6,10 @@
 	<meta name="dfp_zone" content="{{region}}" />
 {{/defineBlock}}
 
+{{#defineBlock 'above-header'}}
+	{{> ads/entry }}
+{{/defineBlock}}
+
 {{#if flags.frontPageFastFTJourney}}
 	{{> page-menu}}
 {{else}}
@@ -46,7 +50,6 @@
 	Good luck!
 
 	-->
-	<div class="ad-placeholder ad-placeholder--below-header"></div>
 
 	<div role="main" class="o-grid-row">
 	{{#each sections}}
