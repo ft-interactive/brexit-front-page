@@ -1,6 +1,6 @@
 import FastFt from '../../shared/components/fast-ft/fast-ft';
 
-const getLayout = (layoutHint) => {
+const getLayout = layoutHint => {
 	switch(layoutHint) {
 		case 'standaloneimage':
 			return 'top-stories-picture-story';
