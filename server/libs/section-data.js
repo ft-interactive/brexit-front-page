@@ -3,9 +3,9 @@
  */
 const dedupe = (item, index, items) => !item.id || items.findIndex(otherItem => otherItem.id === item.id) === index;
 
-const getTopStoriesData = (data) => {
+const getTopStoriesData = (data, flags = {}) => {
 	let content = data.frontPage.topStory.items.concat(data.frontPage.top.items.slice(1));
-	let layoutHint = data.frontPage.topStoriesList.layoutHint || 'standard';
+	let layoutHint = flags.frontPageLayout || data.frontPage.topStoriesList.layoutHint || 'standard';
 	if (layoutHint !== 'landscape') {
 		if (
 			data.frontPage.topStoriesList &&
