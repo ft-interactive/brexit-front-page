@@ -36,9 +36,3 @@
 		@include oColorsFor(fast-ft, text);
 	}
 }
-
-.card__title {
-	.card--video & {
-		margin: 0;
-	}
-}
