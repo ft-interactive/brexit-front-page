@@ -37,3 +37,15 @@
 		-ms-flex-preferred-size: auto;
 	}
 }
+
+.column--related {
+	@include oColorsFor(card-editors-pick, background);
+	padding-left: 0;
+	margin-top: oGridGutter();
+	border-left: oGridGutter() solid oColorsGetColorFor(card, background);
+
+	@include oGridRespondTo(M) {
+		margin-top: oGridGutter(M);
+		border-left-width: oGridGutter(M);
+	}
+}

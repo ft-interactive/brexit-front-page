@@ -4,7 +4,6 @@
 @include oColorsSetColor('market-down', #ee2f01);
 @include oColorsSetColor('market-down-text', #ff767c);
 @include oColorsSetColor('card-rule', #f0e4d5);
-@include oColorsSetColor('editors-pick-card-background', #ffe9d7);
 
 // use cases
 @include oColorsSetUseCase(dark-bg, background, 'cold-1');
@@ -13,4 +12,3 @@
 @include oColorsSetUseCase(market-down, border, 'market-down');
 @include oColorsSetUseCase(market-down, text, 'market-down-text');
 @include oColorsSetUseCase(card, border, 'card-rule');
-@include oColorsSetUseCase(editors-pick-card, background, 'editors-pick-card-background');

@@ -12,6 +12,16 @@
 	margin-bottom: 10px;
 }
 
+.fast-ft--new {
+	@include oColorsFor(page, background);
+	flex: 1 1 auto;
+	margin: oGridGutter() 0 0;
+
+	@include oGridRespondTo(M) {
+		margin-top: oGridGutter(M);
+	}
+}
+
 .fast-ft__logo-outer {
 	@include oColorsFor(fast-ft, background);
 	margin: 0;
@@ -44,4 +54,8 @@
 	margin: 0 0 10px;
 	padding: 0;
 	list-style: none;
+
+	.fast-ft--new & {
+		margin: 0;
+	}
 }

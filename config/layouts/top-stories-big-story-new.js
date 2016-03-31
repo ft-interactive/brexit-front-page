@@ -9,6 +9,7 @@ export default [
 		components: [
 			{
 				type: Column,
+				isRelated: true,
 				colspan: { default: 12, L: 9 },
 				components: [
 					{
@@ -22,14 +23,49 @@ export default [
 										type: Content,
 										size: 'large-top-story',
 										showStandfirst: true,
-										related: {
-											show: true,
-											colspan: { default: 12 }
-										},
+										isMain: true,
 										image: {
-											position: { default: 'right' },
-											sizes: { default: 180, s: 264, m: 360, l: 339, xl: 414 }
+											position: { default: 'top', M: 'right' },
+											sizes: { default: 449, s: 659, m: 450, l: 423, xl: 517 }
 										}
+									}
+								]
+							}
+						]
+					},
+					{
+						type: Row,
+						components: [
+							{
+								type: Column,
+								colspan: { default: 12, S: 4 },
+								components: [
+									{
+										type: Content,
+										size: 'medium',
+										hideTag: true
+									}
+								]
+							},
+							{
+								type: Column,
+								colspan: { default: 12, S: 4 },
+								components: [
+									{
+										type: Content,
+										size: 'medium',
+										hideTag: true
+									}
+								]
+							},
+							{
+								type: Column,
+								colspan: { default: 12, S: 4 },
+								components: [
+									{
+										type: Content,
+										size: 'medium',
+										hideTag: true
 									}
 								]
 							}
@@ -44,7 +80,7 @@ export default [
 					{
 						type: FastFt,
 						size: 'medium',
-						count: 4
+						count: 6
 					}
 				]
 			}

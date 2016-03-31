@@ -70,6 +70,9 @@ export default (item, opts) => {
 		article.tag = null;
 		article.brand = null;
 	}
+	if (item.type === 'FastFt') {
+		article.hideTimestampState = true;
+	}
 	if (opts.isMain) {
 		article.isMain = true;
 	}

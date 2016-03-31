@@ -6,9 +6,7 @@ import createModel from '../../models';
 const getModel = (item, opts, { flags = {} }) => {
 	const model = {
 		size: opts.size,
-		show: opts.show,
-		isTransparent: opts.isTransparent,
-		isNew: opts.isNew
+		show: opts.show
 	};
 	Object.assign(model, createModel(item, opts, { flags }));
 
