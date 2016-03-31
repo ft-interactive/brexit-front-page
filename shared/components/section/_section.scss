@@ -11,11 +11,21 @@
 .section--article-ranking {
 	counter-reset: ranking;
 
-	& .card__content:before {
-		counter-increment: ranking;
-		content: counter(ranking);
-		font-size: 32px;
-		font-weight: oFontsWeight(bold);
+	& .card__content {
+		@include oGridRespondTo($until: S) {
+			display: inline-flex;
+		}
+
+		&:before {
+			counter-increment: ranking;
+			content: counter(ranking);
+			font-size: 32px;
+			font-weight: oFontsWeight(bold);
+
+			@include oGridRespondTo($until: S) {
+				padding-right: 20px;
+			}
+		}
 	}
 }
 
