@@ -11,6 +11,7 @@ const fragments = {
 	extended: `
 		fragment Extended on Content {
 			summary
+			isEditorsChoice
 			primaryTheme {
 				id
 				url
