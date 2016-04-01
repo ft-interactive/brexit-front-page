@@ -1,6 +1,6 @@
 export default ({ flags }) => ({
 	id: 'markets',
-	title: 'Markets',
+	title: flags.frontPageNewLayout ? 'Markets News' : 'Markets',
 	style: 'markets',
 	layoutId: flags.frontPageNewLayout ? 'featured-section-new' : 'featured-section',
 	trackScrollEvent: true,
