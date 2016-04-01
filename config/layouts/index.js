@@ -2,6 +2,7 @@ import editorsPicksLayout from './editors-picks';
 import editorsPicksNewLayout from './editors-picks-new';
 import featuredSectionLayout from './featured-section';
 import mostPopularLayout from './most-popular';
+import mostPopularNewLayout from './most-popular-new';
 import myftLayout from './myft';
 import midPageAdvertLayout from './mid-page-advert';
 import opinionLayout from './opinion';
@@ -21,6 +22,7 @@ export default {
 	'editors-picks-new': editorsPicksNewLayout,
 	'featured-section': featuredSectionLayout,
 	'most-popular': mostPopularLayout,
+	'most-popular-new': mostPopularNewLayout,
 	'myft': myftLayout,
 	'mid-page-advert': midPageAdvertLayout,
 	'opinion': opinionLayout,

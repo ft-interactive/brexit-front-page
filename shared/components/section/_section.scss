@@ -8,6 +8,32 @@
 @import "../myft-promo/myft-promo";
 @import "../card";
 
+.section--article-ranking {
+	counter-reset: ranking;
+
+	.card__content {
+		.card__content__inner {
+			margin-left: 35px;
+
+			@include oGridRespondTo(S) {
+				margin-left: 0;
+			}
+		}
+
+		&:before {
+			counter-increment: ranking;
+			content: counter(ranking);
+			font-size: 32px;
+			font-weight: oFontsWeight(bold);
+			float: left;
+
+			@include oGridRespondTo(S) {
+				float: none;
+			}
+		}
+	}
+}
+
 .section--video {
 	.core & {
 		display: none;
