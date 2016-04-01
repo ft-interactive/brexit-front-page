@@ -8,21 +8,22 @@ export default [
 		components: [
 			{
 				type: Column,
-				colspan: { default: 12, S: 6 },
+				colspan: { default: 12, XL: 6 },
 				components: [
 					{
 						type: Content,
 						size: 'large',
 						showStandfirst: true,
 						image: {
-							sizes: { default: 449, s: 315, m: 199, l: 259, xl: 322 }
+							position: { S: 'left', XL: 'bottom' },
+							sizes: { default: 449, s: 264, m: 173, l: 221, xl: 322 }
 						}
 					}
 				]
 			},
 			{
 				type: Column,
-				colspan: { default: 12, S: 6 },
+				colspan: { default: 12, XL: 6 },
 				components: [
 					{
 						type: Content,
