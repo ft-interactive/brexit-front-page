@@ -26,7 +26,7 @@ export default [
 				components: [
 					{
 						type: Content,
-						size: 'small',
+						size: 'medium',
 						showStandfirst: true
 					},
 					{
