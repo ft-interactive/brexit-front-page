@@ -42,7 +42,7 @@ const convertToContent = (shouldConvert, card) => {
 	} else {
 		return card;
 	}
-}
+};
 
 // recursively seek innermost components and call conversion function
 const changeComponent = (shouldConvert, component) =>
@@ -76,7 +76,7 @@ const handleResponse = (myFtContainerEl, myftClient, flags, response) => {
 
 export default (myftClient, flags) => {
 	const myFtContainerEl = document.getElementById('myft');
-	if (myFtContainerEl && flags.get('frontPageMyftSection') && flags.get('myFtApi') && sessionClient.cookie()) {
+	if (myFtContainerEl && flags.get('myFtApi') && sessionClient.cookie()) {
 		crossDomainFetch(
 			`https://next-graphql-api.ft.com/data?query=${slimQuery(query)}`,
 			{ credentials: 'include', timeout: 5000 }
