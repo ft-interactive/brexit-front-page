@@ -36,6 +36,7 @@ export default region => (req, res) => {
 		],
 		adsLayout: data.adsLayout
 	};
+
 	if (res.locals.flags.frontPageHeaderMarketsData) {
 		const marketsDataParams = {
 			header: {

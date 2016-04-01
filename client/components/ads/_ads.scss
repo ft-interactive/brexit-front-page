@@ -1,0 +1,38 @@
+
+// Ad breakpoint where leaderboards start working
+$ad-medium-breakpoint: 760px;
+
+.above-header-advert {
+	@media (min-width:$ad-medium-breakpoint) {
+		min-height: 90px;
+		display: block;
+		padding: 10px 0;
+		line-height: 0;
+		white-space: pre;
+		text-align: center;
+	}
+
+	//TODO: this should be based on the creative served, not the layout
+	[data-ads-layout="highimpact"] & {
+		padding: 0;
+	}
+
+}
+
+.mid-page-1-advert,
+.mid-page-2-advert {
+	display: none;
+	[data-ads-layout="highimpact"],
+	[data-ads-layout="billboards"],
+	[data-ads-layout="multiplesizes"],
+	[data-ads-layout="superleaders"] {
+		display: block;
+		padding: 10px 0 0;
+	}
+}
+
+.mid-page-1-advert {
+	@media (min-width:$ad-medium-breakpoint) {
+		display: none;
+	}
+}

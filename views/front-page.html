@@ -7,7 +7,19 @@
 {{/defineBlock}}
 
 {{#defineBlock 'above-header'}}
-	{{> ads/entry }}
+	{{#ifEquals adsLayout 'default'}}
+		{{> ads/banlb }}
+	{{else}}
+		{{#ifEquals adsLayout 'billboards'}}
+			{{> ads/top-billboard }}
+		{{else}}
+			{{#ifEquals adsLayout 'superleaders'}}
+				{{> ads/top-superleader }}
+			{{else}}
+				{{> ads/top }}
+			{{/ifEquals}}
+		{{/ifEquals}}
+	{{/ifEquals}}
 {{/defineBlock}}
 
 {{#if flags.frontPageFastFTJourney}}
