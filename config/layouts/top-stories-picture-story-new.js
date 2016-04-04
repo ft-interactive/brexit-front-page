@@ -1,6 +1,5 @@
-import Row from '../../shared/components/row/row';
-import Column from '../../shared/components/column/column';
-import Content from '../../shared/components/content/content';
+import { Row, Column, Content } from '@financial-times/n-section';
+
 import FastFt from '../../shared/components/fast-ft/fast-ft-new';
 
 export default [

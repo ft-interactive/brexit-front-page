@@ -16,6 +16,8 @@
   "resolutions": {
     "o-ft-icons": "next",
     "next-ads-component": "refactor-redux",
-    "o-ads": "^3.0.1"
+    "o-ads": "^3.0.1",
+    "n-layout": "header-footer-tpl",
+    "o-header": "^5.0.0"
   }
 }

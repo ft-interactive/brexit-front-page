@@ -13,8 +13,10 @@ $o-grid-start-snappy-mode-at: XXL;
 //Turn off IE8 rules here and output them in an IE specific css file
 $o-grid-ie8-rules: false;
 
+@import 'n-card/main';
 @import "n-layout/main";
 @import "n-message-prompts/main";
+@import 'n-section/main';
 @import "n-video/main";
 @import "next-myft-ui/main";
 
@@ -28,7 +30,7 @@ $o-grid-ie8-rules: false;
 @import "components/video/video";
 @import "components/markets-data/markets-data";
 @import "components/highlight-dom-path/highlight-dom-path";
-@import "../shared/components/section/section";
+@import "../shared/components/main";
 
 html {
 	@include oColorsFor(card, background);

@@ -1,6 +1,5 @@
-import Column from '../../shared/components/column/column';
-import Row from '../../shared/components/row/row';
-import Content from '../../shared/components/content/content';
+import { Row, Column, Content } from '@financial-times/n-section';
+
 import MyftPromo from '../../shared/components/myft-promo/myft-promo';
 
 export default [

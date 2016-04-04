@@ -19,4 +19,4 @@ export default (item, opts, { flags = {} }) => {
 	}
 
 	return model;
-}
+};
