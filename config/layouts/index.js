@@ -1,5 +1,4 @@
 import editorsPicksLayout from './editors-picks';
-import editorsPicksNewLayout from './editors-picks-new';
 import featuredSectionLayout from './featured-section';
 import featuredSectionNewLayout from './featured-section-new';
 import mostPopularLayout from './most-popular';
@@ -20,7 +19,6 @@ import VideoLayout from './video';
 
 export default {
 	'editors-picks': editorsPicksLayout,
-	'editors-picks-new': editorsPicksNewLayout,
 	'featured-section': featuredSectionLayout,
 	'featured-section-new': featuredSectionNewLayout,
 	'most-popular': mostPopularLayout,
