@@ -27,7 +27,6 @@ build: _webpack_setup
 
 build-production: _webpack_setup
 	@$(MAKE) build-production-super
-	nbt build --skip-sass --skip-js
 
 smoke:
 	nbt test-urls ${TEST_APP}
