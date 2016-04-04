@@ -6,7 +6,8 @@
       "./public/ie8.css": "./client/ie8.scss"
     },
     "includes": [
-      "n-section"
+      "n-section",
+      "/n-card/"
     ]
   }
 }
