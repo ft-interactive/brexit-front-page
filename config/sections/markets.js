@@ -1,12 +1,12 @@
-export default () => ({
+export default ({ flags }) => ({
 	id: 'markets',
-	title: 'Markets',
+	title: flags.frontPageNewLayout ? 'Markets News' : 'Markets',
 	style: 'markets',
-	layoutId: 'featured-section',
+	layoutId: flags.frontPageNewLayout ? 'featured-section-new' : 'featured-section',
 	trackScrollEvent: true,
 	size: {
 		default: 12,
-		M: 4
+		M: flags.frontPageNewLayout ? 6 : 4,
 	},
 	cols: {
 		meta: {
