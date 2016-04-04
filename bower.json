@@ -4,15 +4,18 @@
     "o-date": "^2.0.0",
     "n-video": "^4.0.0",
     "n-message-prompts": "^2.0.0",
-    "n-layout": "#header-footer-tpl",
+    "n-layout": "^6.10.3",
     "n-image": "^2.0.0",
     "o-tabs": "^2.1.0",
     "n-jsonp": "^2.0.0",
     "next-session-client": "^2.0.0",
     "next-myft-ui": "^6.10.2",
-    "n-card": "^2.1.0"
+    "n-card": "^2.1.0",
+    "next-ads-component": "#refactor-redux"
   },
   "resolutions": {
-    "o-ft-icons": "next"
+    "o-ft-icons": "next",
+    "next-ads-component": "refactor-redux",
+    "o-ads": "^3.0.1"
   }
 }

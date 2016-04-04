@@ -63,10 +63,10 @@ export default (data, flags) => ({
 		content: data.frontPage.popularTopics
 	},
 	'mid-page-advert-1': {
-		content: ['no-content-needed'] //HACK: Section component requires everything to have content so hack in some fake stuff
+		adsLayout: data.adsLayout
 	},
 	'mid-page-advert-2': {
-		content: ['no-content-needed'] //HACK: Section component requires everything to have content so hack in some fake stuff
+		adsLayout: data.adsLayout
 	},
 	'editors-picks': {
 		content: data.frontPage.editorsPicks.items

@@ -4,7 +4,6 @@ import featuredSectionNewLayout from './featured-section-new';
 import mostPopularLayout from './most-popular';
 import mostPopularNewLayout from './most-popular-new';
 import myftLayout from './myft';
-import midPageAdvertLayout from './mid-page-advert';
 import opinionLayout from './opinion';
 import opinionNewLayout from './opinion-new';
 import topStoriesLayout from './top-stories';
@@ -24,7 +23,6 @@ export default {
 	'most-popular': mostPopularLayout,
 	'most-popular-new': mostPopularNewLayout,
 	'myft': myftLayout,
-	'mid-page-advert': midPageAdvertLayout,
 	'opinion': opinionLayout,
 	'opinion-new': opinionNewLayout,
 	'top-stories': topStoriesLayout,

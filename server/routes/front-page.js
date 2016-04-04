@@ -7,11 +7,16 @@ const contentMissing = data => {
 	return !(data && data.top && data.topStory) || data.top.items.length < 1|| data.topStory.items.length < 1 ;
 };
 
+const getAdsLayout = (requestedLayout) => {
+	return requestedLayout || 'default';
+}
+
 export default region => (req, res) => {
 	const frontPageData = res.locals.flags.mockFrontPage ? 'mockFrontPage' : `frontPage${region}`;
 
 	const data = {
-		frontPage: getData(frontPageData)
+		frontPage: getData(frontPageData),
+		adsLayout: getAdsLayout(req.query.adsLayout)
 	};
 
 	res.set({
@@ -33,8 +38,9 @@ export default region => (req, res) => {
 		preconnect: [
 			'https://next-markets-proxy.ft.com'
 		],
-		adsLayout: req.query.adsLayout || 'default'
+		adsLayout: data.adsLayout
 	};
+
 	if (res.locals.flags.frontPageHeaderMarketsData) {
 		const marketsDataParams = {
 			header: {

@@ -1,0 +1,43 @@
+
+// Ad breakpoint where leaderboards start working
+$ad-medium-breakpoint: 760px;
+
+.above-header-advert {
+	@media (min-width:$ad-medium-breakpoint) {
+		min-height: 90px;
+		display: block;
+		padding: 10px 0;
+		line-height: 0;
+		white-space: pre;
+		text-align: center;
+	}
+
+	&[data-o-ads-loaded="Responsive"] {
+		padding: 0;
+	}
+
+}
+
+.fastft-advert {
+	display: none;
+
+	[data-ads-layout="default"] & {
+		display: block;
+	}
+}
+
+.mid-page-1-advert,
+.mid-page-2-advert {
+	display: block;
+	padding: 10px 0 0;
+	[data-ads-layout="default"] & {
+		display: none;
+		padding: 0;
+	}
+}
+
+.mid-page-1-advert {
+	@media (min-width:$ad-medium-breakpoint) {
+		display: none;
+	}
+}
