@@ -1,8 +1,14 @@
 @import 'o-grid/main';
 
-@include oGridRespondTo($until: M) {
-	.o-header__nav-link--toggle[aria-pressed=true] + .o-header__meganav {
-		top: 86px;
+.o-header__nav-link--toggle[aria-pressed=true] + .o-header__meganav {
+	top: 86px;
+
+	@include oGridRespondTo(S) {
+		top: 84px;
+	}
+
+	@include oGridRespondTo(M) {
+		top: auto;
 	}
 }
 

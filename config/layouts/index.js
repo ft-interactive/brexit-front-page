@@ -1,7 +1,8 @@
 import editorsPicksLayout from './editors-picks';
-import editorsPicksNewLayout from './editors-picks-new';
 import featuredSectionLayout from './featured-section';
+import featuredSectionNewLayout from './featured-section-new';
 import mostPopularLayout from './most-popular';
+import mostPopularNewLayout from './most-popular-new';
 import myftLayout from './myft';
 import opinionLayout from './opinion';
 import opinionNewLayout from './opinion-new';
@@ -17,9 +18,10 @@ import VideoLayout from './video';
 
 export default {
 	'editors-picks': editorsPicksLayout,
-	'editors-picks-new': editorsPicksNewLayout,
 	'featured-section': featuredSectionLayout,
+	'featured-section-new': featuredSectionNewLayout,
 	'most-popular': mostPopularLayout,
+	'most-popular-new': mostPopularNewLayout,
 	'myft': myftLayout,
 	'opinion': opinionLayout,
 	'opinion-new': opinionNewLayout,

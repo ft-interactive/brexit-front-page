@@ -2,7 +2,7 @@ export default ({ flags }) => ({
 	id: 'editors-picks',
 	title: flags.frontPageNewLayout ? 'Highlights' : 'Editor\'s Picks',
 	style: 'editors-picks',
-	layoutId: flags.frontPageNewLayout ? 'editors-picks-new' : 'editors-picks',
+	layoutId: 'editors-picks',
 	trackScrollEvent: true,
 	size: {
 		default: 12

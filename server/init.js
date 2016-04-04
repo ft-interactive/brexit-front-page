@@ -3,7 +3,7 @@ import ReactServer from 'react-dom/server';
 import bodyParser from 'body-parser';
 import path from 'path';
 
-import express from 'ft-next-express';
+import express from '@financial-times/n-express';
 import nHealth from 'n-health';
 
 import * as additionalHealthChecks from './libs/health-checks/index';
@@ -15,6 +15,11 @@ import frontPage from './routes/front-page';
 
 const healthChecks = nHealth(path.resolve(__dirname, './config/health-checks'), additionalHealthChecks);
 const app = express({
+	withFlags: true,
+	withHandlebars: true,
+	withNavigation: true,
+	withAnonMiddleware: true,
+	withBackendAuthentication: true,
 	helpers: {
 		reactRenderToString: (klass, props) => {
 			const propsToRender = props.hash;

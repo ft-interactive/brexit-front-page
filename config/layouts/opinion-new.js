@@ -25,31 +25,14 @@ export default [
 				colspan: { default: 12, M: 4, L: 3 },
 				components: [
 					{
-						type: Row,
-						components: [
-							{
-								type: Column,
-								colspan: { default: 6, M: 12 },
-								components: [
-									{
-										type: Content,
-										size: 'medium',
-										showStandfirst: true
-									}
-								]
-							},
-							{
-								type: Column,
-								colspan: { default: 6, M: 12 },
-								components: [
-									{
-										type: Content,
-										size: 'medium',
-										showStandfirst: true
-									}
-								]
-							}
-						]
+						type: Content,
+						size: 'medium',
+						showStandfirst: true
+					},
+					{
+						type: Content,
+						size: 'medium',
+						showStandfirst: true
 					}
 				]
 			},
