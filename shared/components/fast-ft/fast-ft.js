@@ -31,7 +31,16 @@ export default class extends Component {
 						{articleEls}
 					</ol>
 				</div>
-				<div className="ad-placeholder ad-placeholder--fast-ft"></div>
+				<div className="fastft-advert o-ads o-ads__center"
+					data-o-ads-name="MPU1"
+					data-o-ads-targeting="pos=mpu;"
+					data-o-ads-formats-small="false"
+					data-o-ads-formats-medium="false"
+					data-o-ads-formats-large="MediumRectangle"
+					data-o-ads-center="true"
+					data-o-ads-lazy-load="true"
+					aria-hidden="true">
+				</div>
 			</div>
 		);
 	}
