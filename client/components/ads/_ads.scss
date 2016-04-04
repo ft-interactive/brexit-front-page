@@ -28,13 +28,11 @@ $ad-medium-breakpoint: 760px;
 
 .mid-page-1-advert,
 .mid-page-2-advert {
-	display: none;
-	[data-ads-layout="highimpact"] &,
-	[data-ads-layout="billboards"] &,
-	[data-ads-layout="multiplesizes"] &,
-	[data-ads-layout="superleaders"] & {
-		display: block;
-		padding: 10px 0 0;
+	display: block;
+	padding: 10px 0 0;
+	[data-ads-layout="default"] & {
+		display: none;
+		padding: 0;
 	}
 }
 

@@ -5,7 +5,7 @@ export default ({data}) => {
 			desktopAds='SuperLeaderboard,Leaderboard,Responsive';
 			break;
 		case 'superleaders':
-			desktopAds='Billboard,SuperLeaderboard,Leaderboard,Responsive';
+			desktopAds='Billboard,Responsive';
 			break;
 		default:
 			desktopAds='Billboard,SuperLeaderboard,Leaderboard,Responsive';
