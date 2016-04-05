@@ -48,10 +48,19 @@ app.get('/', (req, res) => {
 	res.sendStatus(404);
 });
 
-// app routes
-app.get('/front-page', frontPage('UK'));
-app.get('/uk', frontPage('UK'));
-app.get('/international', frontPage('US'));
+// Editions
+const usEdition = frontPage('US');
+const ukEdition = frontPage('UK');
+
+// Routes
+app.get('/uk', usEdition);
+app.get('/home', (req, res, next) => {
+	if (req.get('FT-Edition') === 'uk') {
+		return usEdition(req, res, next);
+	}
+	return ukEdition(req, res, next);
+});
+app.get('/international', usEdition);
 
 const listen = app.listen(process.env.PORT || 3001);
 
