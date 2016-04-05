@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-
-import Content from '../content/content';
+import { Content } from '@financial-times/n-section';
 
 export default class extends Component {
 	render () {

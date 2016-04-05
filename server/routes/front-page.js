@@ -1,5 +1,6 @@
+import { Section } from '@financial-times/n-section';
+
 import { getData } from '../libs/graphql-poller';
-import Section from '../../shared/components/section/section';
 import getPage from '../../config/pages';
 
 // bail unless we have at least one top story

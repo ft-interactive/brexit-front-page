@@ -5,6 +5,9 @@
 # ./node_modules/.bin on the PATH
 export PATH := ./node_modules/.bin:$(PATH)
 
+# Use bash not sh
+SHELL := /bin/bash
+
 #
 # META TASKS
 #
@@ -35,9 +38,9 @@ verif%: _verify_lintspaces _verify_eslint _verify_scss_lint
 	@$(DONE)
 
 # build (includes build-production)
-buil%:
-	@$(warning WARNING: Work in progress, build-production does not yet minify or prepare tarballs for Heroku.  Use with caution.)
+buil%: public/__about.json
 	@if [ -e webpack.config.js ]; then webpack $(if $(findstring build-production,$@),--bail,--dev); fi
+	@if [ -e Procfile ] && [ $(findstring build-production,$@) == "build-production" ]; then haikro build; fi
 	@$(DONE)
 
 # watch
@@ -70,8 +73,8 @@ functions/%/node_modules:
 _install_scss_lint:
 	@if [ ! -x "$(shell which scss-lint)" ] && [ "$(shell $(call GLOB,'*.scss'))" != "" ]; then gem install scss-lint -v 0.35.0 && $(DONE); fi
 
-# Manage the .editorconfig, .eslintrc.json and .scss-lint files if they're in the .gitignore
-.editorconfig .eslintrc.json .scss-lint.yml webpack.config.js:
+# Manage various dot/config files if they're in the .gitignore
+.editorconfig .eslintrc.json .scss-lint.yml webpack.config.js: n.Makefile
 	@if $(call IS_GIT_IGNORED); then curl -sL https://raw.githubusercontent.com/Financial-Times/n-makefile/$(VERSION)/config/$@ > $@ && $(DONE); fi
 
 .env:
@@ -94,12 +97,18 @@ _verify_scss_lint:
 _deploy_apex:
 	@if [ -e project.json ]; then $(call CONFIG_VARS,production) | sed 's/\(.*\)/-e \1/' | tr '\n' ' ' | xargs apex deploy && $(DONE); fi
 
+# BUILD SUB-TASKS
+
+# Only apply to Heroku apps for now
+public/__about.json:
+	@if [ -e Procfile ]; then mkdir -p public && echo '{"description":"$(call APP_NAME)","support":"next.team@ft.com","supportStatus":"active","appVersion":"$(shell git rev-parse HEAD | xargs echo -n)","buildCompletionTime":"$(shell date -u +"%Y-%m-%dT%H:%M:%SZ")"}' > $@ && $(DONE); fi
+
 # Some handy utilities
-GLOB = git ls-files $1
+GLOB = git ls-files $1 | xargs -I {} find {} ! -type l
 NPM_INSTALL = npm prune --production=false && npm install
 JSON_GET_VALUE = grep $1 | head -n 1 | sed 's/[," ]//g' | cut -d : -f 2
 IS_GIT_IGNORED = grep -q $(if $1, $1, $@) .gitignore
-VERSION = v0.0.64
+VERSION = v0.0.74
 APP_NAME = $(shell cat package.json 2>/dev/null | $(call JSON_GET_VALUE,name))
 DONE = echo ✓ $@ done
 CONFIG_VARS = curl -sL https://ft-next-config-vars.herokuapp.com/$1/$(if $2,$2,$(call APP_NAME)).env -H "Authorization: `heroku config:get APIKEY --app ft-next-config-vars`"

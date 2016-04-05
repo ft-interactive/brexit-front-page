@@ -3,14 +3,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import { crossDomainFetch } from 'n-jsonp';
+import { Section, Content } from '@financial-times/n-section';
 import * as myFtUi from 'next-myft-ui';
 import sessionClient from 'next-session-client';
 
 import getSection from '../../../config/sections/index';
 import { user as query } from '../../../config/queries';
-import Content from '../../../shared/components/content/content';
 import MyftPromo from '../../../shared/components/myft-promo/myft-promo';
-import Section from '../../../shared/components/section/section';
 
 // condense multiple spaces to one
 const slimQuery = query => encodeURIComponent(query.replace(/\s+/g, ' '));

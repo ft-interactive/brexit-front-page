@@ -29,7 +29,7 @@ $o-grid-ie8-rules: 'only';
 // Generate grid helper classes and data- attributes
 @include oGridGenerate;
 
-@import "../shared/components/section/section-ie8";
+@import 'n-card/main-ie8';
 
 .o-header__masthead__logo--mobile,
 .o-header__membership-promo-container {

@@ -10,12 +10,14 @@
     "n-jsonp": "^2.0.0",
     "next-session-client": "^2.0.0",
     "next-myft-ui": "^6.10.2",
-    "n-card": "^2.1.0",
-    "next-ads-component": "#refactor-redux"
+    "next-ads-component": "#refactor-redux",
+    "n-section": "^1.4.0"
   },
   "resolutions": {
     "o-ft-icons": "next",
     "next-ads-component": "refactor-redux",
-    "o-ads": "^3.0.1"
+    "o-ads": "^3.0.1",
+    "n-layout": "header-footer-tpl",
+    "o-header": "^5.0.0"
   }
 }
