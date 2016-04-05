@@ -141,7 +141,11 @@ export default [
 								components: [
 									{
 										type: Content,
-										size: 'medium'
+										size: 'medium',
+										image: {
+											position: { default: 'right' },
+											sizes: { default: 180, s: 126, m: 173, l: 111, xl: 129 }
+										}
 									}
 								]
 							}
@@ -180,7 +184,11 @@ export default [
 				components: [
 					{
 						type: Content,
-						size: 'small'
+						size: 'small',
+						image: {
+							position: { default: 'right' },
+							sizes: { default: 180, s: 264, m: 80, l: 111, xl: 129 }
+						}
 					}
 				]
 			},
