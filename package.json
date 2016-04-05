@@ -67,7 +67,6 @@
     "sass-loader": "^3.0.0",
     "sinon": "^1.16.1",
     "supertest": "^1.1.0",
-    "uglify-js": "^2.6.1",
     "webpack": "^1.12.11"
   },
   "engines": {
