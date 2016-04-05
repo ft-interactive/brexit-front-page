@@ -17,6 +17,35 @@
 		background-color: oColorsGetColorFor(card, border);
 	}
 
+	// left rule
+	&:after {
+		content: '';
+		position: absolute;
+		width: 1px;
+		left: -5px;
+		top: 5px;
+		bottom: -5px;
+		background-color: oColorsGetColorFor(card, border);
+		@include oGridRespondTo(M) {
+			left: -7px;
+			bottom: -10px;
+		}
+
+		.fast-ft &,
+		.section--myft &,
+		.section--video & {
+			display: none;
+		}
+	}
+
+	&.card--picture-story:after {
+		display: none;
+	}
+
+	.section--opinion & {
+		@include oColorsFor(card, background);
+	}
+
 	.fast-ft & {
 		@include oColorsFor(page, background);
 		margin-top: 0;
