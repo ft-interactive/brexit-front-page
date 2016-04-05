@@ -22,13 +22,14 @@
 		content: '';
 		position: absolute;
 		width: 1px;
-		left: -5px;
-		top: 5px;
-		bottom: -5px;
+		top: oGridGutter() / 2;
+		bottom: oGridGutter() / -2;
+		left: oGridGutter() / -2;
 		background-color: oColorsGetColorFor(card, border);
+
 		@include oGridRespondTo(M) {
-			left: -7px;
-			bottom: -10px;
+			bottom: oGridGutter(M) / -2;
+			left: oGridGutter(M) / -2;
 		}
 
 		.fast-ft &,
