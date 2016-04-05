@@ -12,7 +12,7 @@ const getAdsLayout = (requestedLayout, flags) => {
 	//map some url params to existing ad layout names
 
 	if(flags.adsNewProposition && !requestedLayout) {
-		requestedLayout = 'new';
+		requestedLayout = 'responsive';
 	}
 	const mapping = {
 		'responsive': 'highimpact',
