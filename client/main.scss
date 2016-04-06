@@ -14,6 +14,8 @@ $o-grid-start-snappy-mode-at: XXL;
 $o-grid-ie8-rules: false;
 
 @import "n-layout/main";
+//Override the default page background color
+@include oColorsSetUseCase(page, background, 'pink');
 @import 'n-card/main';
 @import 'n-section/main';
 @import "n-message-prompts/main";
@@ -33,7 +35,7 @@ $o-grid-ie8-rules: false;
 @import "../shared/components/main";
 
 html {
-	@include oColorsFor(card, background);
+	@include oColorsFor(page, background);
 	// Prevent navigation menus from creating
 	// extra space on sides of the page
 	overflow-x: auto;
