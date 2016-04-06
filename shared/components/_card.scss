@@ -1,6 +1,5 @@
 .card {
 	margin-top: oGridGutter();
-	border-bottom-width: 0;
 
 	@include oGridRespondTo(M) {
 		margin-top: oGridGutter(M);
