@@ -1,15 +1,13 @@
-import { Row, Column, Content } from '@financial-times/n-section';
-
 export default [
 	{
-		type: Row,
+		type: 'Row',
 		components: [
 			{
-				type: Column,
+				type: 'Column',
 				colspan: { default: 12, M: 3 },
 				components: [
 					{
-						type: Content,
+						type: 'Content',
 						size: 'large',
 						showStandFirst: true,
 						image: {
@@ -19,15 +17,15 @@ export default [
 				]
 			},
 			{
-				type: Column,
+				type: 'Column',
 				colspan: { default: 12, M: 3 },
 				components: [
 					{
-						type: Content,
+						type: 'Content',
 						size: 'medium'
 					},
 					{
-						type: Content,
+						type: 'Content',
 						size: 'small',
 						image: {
 							position: { default: 'left', M: 'bottom' },
@@ -37,11 +35,11 @@ export default [
 				]
 			},
 			{
-				type: Column,
+				type: 'Column',
 				colspan: { default: 12, M: 3 },
 				components: [
 					{
-						type: Content,
+						type: 'Content',
 						size: 'small',
 						image: {
 							position: { default: 'left', M: 'bottom' },
@@ -49,29 +47,29 @@ export default [
 						}
 					},
 					{
-						type: Content,
+						type: 'Content',
 						size: 'small'
 					}
 				]
 			},
 			{
-				type: Column,
+				type: 'Column',
 				colspan: { default: 12, M: 3 },
 				components: [
 					{
-						type: Content,
+						type: 'Content',
 						size: 'tiny'
 					},
 					{
-						type: Content,
+						type: 'Content',
 						size: 'tiny'
 					},
 					{
-						type: Content,
+						type: 'Content',
 						size: 'tiny'
 					},
 					{
-						type: Content,
+						type: 'Content',
 						size: 'tiny'
 					}
 				]

@@ -1,65 +1,63 @@
-import { Row, Column, Content } from '@financial-times/n-section';
-
 export default [
 	{
-		type: Row,
+		type: 'Row',
 		components: [
 			{
-				type: Column,
+				type: 'Column',
 				colspan: { default: 12, S: 6, M: 4, L: 2 },
 				components: [
 					{
-						type: Content,
+						type: 'Content',
 						size: 'small'
 					}
 				]
 			},
 			{
-				type: Column,
+				type: 'Column',
 				colspan: { default: 12, S: 6, M: 4, L: 2 },
 				components: [
 					{
-						type: Content,
+						type: 'Content',
 						size: 'small'
 					}
 				]
 			},
 			{
-				type: Column,
+				type: 'Column',
 				colspan: { default: 12, S: 6, M: 4, L: 2 },
 				components: [
 					{
-						type: Content,
+						type: 'Content',
 						size: 'small'
 					}
 				]
 			},
 			{
-				type: Column,
+				type: 'Column',
 				colspan: { default: 12, S: 6, M: 4, L: 2 },
 				components: [
 					{
-						type: Content,
+						type: 'Content',
 						size: 'small'
 					}
 				]
 			},
 			{
-				type: Column,
+				type: 'Column',
 				colspan: { default: 12, S: 6, M: 4, L: 2 },
 				components: [
 					{
-						type: Content,
+						type: 'Content',
 						size: 'small'
 					}
 				]
 			},
 			{
-				type: Column,
+				type: 'Column',
 				colspan: { default: 12, S: 6, M: 4, L: 2 },
 				components: [
 					{
-						type: Content,
+						type: 'Content',
 						size: 'small'
 					}
 				]

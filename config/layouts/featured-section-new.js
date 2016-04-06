@@ -1,15 +1,13 @@
-import { Row, Column, Content } from '@financial-times/n-section';
-
 export default [
 	{
-		type: Row,
+		type: 'Row',
 		components: [
 			{
-				type: Column,
+				type: 'Column',
 				colspan: { default: 12, XL: 6 },
 				components: [
 					{
-						type: Content,
+						type: 'Content',
 						size: 'large',
 						showStandfirst: true,
 						image: {
@@ -20,20 +18,20 @@ export default [
 				]
 			},
 			{
-				type: Column,
+				type: 'Column',
 				colspan: { default: 12, XL: 6 },
 				components: [
 					{
-						type: Content,
+						type: 'Content',
 						size: 'medium',
 						showStandfirst: true
 					},
 					{
-						type: Content,
+						type: 'Content',
 						size: 'small'
 					},
 					{
-						type: Content,
+						type: 'Content',
 						size: 'small'
 					}
 				]

@@ -11,7 +11,7 @@
     "next-session-client": "^2.0.0",
     "next-myft-ui": "^6.10.2",
     "next-ads-component": "#refactor-redux",
-    "n-section": "^1.4.0"
+    "n-section": "^2.1.2"
   },
   "resolutions": {
     "o-ft-icons": "next",
