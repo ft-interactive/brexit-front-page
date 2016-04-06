@@ -17,10 +17,6 @@
 		background-color: oColorsGetColorFor(card, border);
 	}
 
-	.section--opinion & {
-		@include oColorsFor(card, background);
-	}
-
 	.fast-ft & {
 		@include oColorsFor(page, background);
 		margin-top: 0;
@@ -29,6 +25,10 @@
 	.column--related & {
 		margin-top: 0;
 	}
+}
+
+.card--opinion:before {
+	background-color: oColorsGetColorFor(author, text);
 }
 
 .card__timestamp {
