@@ -32,20 +32,15 @@
 			bottom: oGridGutter(M) / -2;
 			left: oGridGutter(M) / -2;
 		}
+	}
 
-		.fast-ft &,
-		.section--myft &,
-		.section--video & {
+	&.card--picture-story,
+	.fast-ft &,
+	.section--myft &,
+	.section--video & {
+		&:after {
 			display: none;
 		}
-	}
-
-	&.card--picture-story:after {
-		display: none;
-	}
-
-	.section--opinion & {
-		@include oColorsFor(card, background);
 	}
 
 	.fast-ft & {
