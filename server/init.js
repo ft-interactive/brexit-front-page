@@ -53,7 +53,7 @@ const usEdition = frontPage('US');
 const ukEdition = frontPage('UK');
 
 // Routes
-app.get('/uk', usEdition);
+app.get('/uk', ukEdition);
 app.get('/home', (req, res, next) => {
 	if (req.get('FT-Edition') === 'uk') {
 		return usEdition(req, res, next);
