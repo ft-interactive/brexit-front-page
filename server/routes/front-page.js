@@ -12,8 +12,18 @@ const contentMissing = data => {
 	return !(data && data.top && data.topStory) || data.top.items.length < 1|| data.topStory.items.length < 1 ;
 };
 
-const getAdsLayout = (requestedLayout) => {
-	return requestedLayout || 'default';
+const getAdsLayout = (requestedLayout, flags) => {
+	//map some url params to existing ad layout names
+
+	if(flags.adsNewProposition && !requestedLayout) {
+		requestedLayout = 'responsive';
+	}
+	const mapping = {
+		'responsive': 'highimpact',
+		'non-responsive-1': 'billboards',
+		'non-responsive-2': 'superleaders'
+	};
+	return mapping[requestedLayout] || requestedLayout || 'default';
 }
 
 export default region => (req, res) => {
@@ -23,7 +33,7 @@ export default region => (req, res) => {
 
 	const data = {
 		frontPage: getData(frontPageData),
-		adsLayout: getAdsLayout(req.query.adsLayout)
+		adsLayout: getAdsLayout(req.query.adsLayout, res.locals.flags)
 	};
 
 	res.set({
