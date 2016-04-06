@@ -3,6 +3,10 @@ import { Section } from '@financial-times/n-section';
 import { getData } from '../libs/graphql-poller';
 import getPage from '../../config/pages';
 
+import FastFt from '../../shared/components/fast-ft/fast-ft';
+import FastFtNew from '../../shared/components/fast-ft/fast-ft-new';
+import Components from '@financial-times/n-section';
+
 // bail unless we have at least one top story
 const contentMissing = data => {
 	return !(data && data.top && data.topStory) || data.top.items.length < 1|| data.topStory.items.length < 1 ;
@@ -13,6 +17,8 @@ const getAdsLayout = (requestedLayout) => {
 }
 
 export default region => (req, res) => {
+	Object.assign(Components, { FastFt, FastFtNew });
+
 	const frontPageData = res.locals.flags.mockFrontPage ? 'mockFrontPage' : `frontPage${region}`;
 
 	const data = {

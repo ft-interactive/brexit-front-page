@@ -1,24 +1,20 @@
-import { Row, Column, Content } from '@financial-times/n-section';
-
-import FastFt from '../../shared/components/fast-ft/fast-ft-new';
-
 export default [
 	{
-		type: Row,
+		type: 'Row',
 		components: [
 			{
-				type: Column,
+				type: 'Column',
 				colspan: { default: 12, L: 9 },
 				components: [
 					{
-						type: Row,
+						type: 'Row',
 						components: [
 							{
-								type: Column,
+								type: 'Column',
 								colspan: { default: 12, M: 8 },
 								components: [
 									{
-										type: Content,
+										type: 'Content',
 										size: 'large-top-story',
 										showStandfirst: true,
 										image: {
@@ -29,11 +25,11 @@ export default [
 								]
 							},
 							{
-								type: Column,
+								type: 'Column',
 								colspan: { default: 12, M: 4 },
 								components: [
 									{
-										type: Content,
+										type: 'Content',
 										size: 'medium',
 										showStandfirst: true
 									}
@@ -42,14 +38,14 @@ export default [
 						]
 					},
 					{
-						type: Row,
+						type: 'Row',
 						components: [
 							{
-								type: Column,
+								type: 'Column',
 								colspan: { default: 12, M: 4 },
 								components: [
 									{
-										type: Content,
+										type: 'Content',
 										size: 'medium',
 										image: {
 											position: { default: 'left' },
@@ -59,21 +55,21 @@ export default [
 								]
 							},
 							{
-								type: Column,
+								type: 'Column',
 								colspan: { default: 12, M: 4 },
 								components: [
 									{
-										type: Content,
+										type: 'Content',
 										size: 'medium'
 									}
 								]
 							},
 							{
-								type: Column,
+								type: 'Column',
 								colspan: { default: 12, M: 4 },
 								components: [
 									{
-										type: Content,
+										type: 'Content',
 										size: 'medium'
 									}
 								]
@@ -83,11 +79,11 @@ export default [
 				]
 			},
 			{
-				type: Column,
+				type: 'Column',
 				colspan: { default: 'hide', S: 'hide', M: 'hide', L: 3 },
 				components: [
 					{
-						type: FastFt,
+						type: 'FastFtNew',
 						size: 'medium',
 						count: 5
 					}
@@ -96,44 +92,44 @@ export default [
 		]
 	},
 	{
-		type: Row,
+		type: 'Row',
 		components: [
 			{
-				type: Column,
+				type: 'Column',
 				colspan: { default: 12, M: 3 },
 				components: [
 					{
-						type: Content,
+						type: 'Content',
 						size: 'small'
 					}
 				]
 			},
 			{
-				type: Column,
+				type: 'Column',
 				colspan: { default: 12, M: 3 },
 				components: [
 					{
-						type: Content,
+						type: 'Content',
 						size: 'small'
 					}
 				]
 			},
 			{
-				type: Column,
+				type: 'Column',
 				colspan: { default: 12, M: 3 },
 				components: [
 					{
-						type: Content,
+						type: 'Content',
 						size: 'small'
 					}
 				]
 			},
 			{
-				type: Column,
+				type: 'Column',
 				colspan: { default: 12, M: 3 },
 				components: [
 					{
-						type: Content,
+						type: 'Content',
 						size: 'small'
 					}
 				]
@@ -141,44 +137,44 @@ export default [
 		]
 	},
 	{
-		type: Row,
+		type: 'Row',
 		components: [
 			{
-				type: Column,
+				type: 'Column',
 				colspan: { default: 12, M: 3 },
 				components: [
 					{
-						type: Content,
+						type: 'Content',
 						size: 'small'
 					}
 				]
 			},
 			{
-				type: Column,
+				type: 'Column',
 				colspan: { default: 12, M: 3 },
 				components: [
 					{
-						type: Content,
+						type: 'Content',
 						size: 'small'
 					}
 				]
 			},
 			{
-				type: Column,
+				type: 'Column',
 				colspan: { default: 12, M: 3 },
 				components: [
 					{
-						type: Content,
+						type: 'Content',
 						size: 'small'
 					}
 				]
 			},
 			{
-				type: Column,
+				type: 'Column',
 				colspan: { default: 12, M: 3 },
 				components: [
 					{
-						type: Content,
+						type: 'Content',
 						size: 'small'
 					}
 				]
