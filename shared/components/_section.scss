@@ -1,0 +1,22 @@
+$horizontal-rule-width: 1px;
+
+.section__column__inner {
+	// cancel out the left border of cards that are in the first column
+	overflow: hidden;
+
+	// cancel out the top border of cards that are in the first row
+	&:before {
+		@include oColorsFor(card, background);
+		content: '';
+		position: absolute;
+		height: $horizontal-rule-width;
+		left: 0;
+		right: 0;
+		top: oGridGutter() - $horizontal-rule-width;
+		z-index: 1;
+
+		@include oGridRespondTo(M) {
+			top: oGridGutter(M) - $horizontal-rule-width;
+		}
+	}
+}
