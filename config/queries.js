@@ -164,14 +164,14 @@ const frontPage = (region) => (`
 			... OpinionData
 		}
 		technology {
-			items(limit: 4, genres: ["analysis", "comment"]) {
+			items(limit: 4) {
 				... Basic
 				... Extended
 				... OpinionData
 			}
 		}
 		markets {
-			items(limit: 4, genres: ["analysis", "comment"]) {
+			items(limit: 4) {
 				... Basic
 				... Extended
 				... OpinionData
