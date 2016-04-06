@@ -12,8 +12,6 @@ import { user as query } from '../../../config/queries';
 import MyftPromo from '../../../shared/components/myft-promo/myft-promo';
 import Components from '@financial-times/n-section';
 
-Components.MyftPromo = MyftPromo;
-
 // condense multiple spaces to one
 const slimQuery = query => encodeURIComponent(query.replace(/\s+/g, ' '));
 
@@ -79,6 +77,7 @@ const handleResponse = (myFtContainerEl, myftClient, flags, response) => {
 export default (myftClient, flags) => {
 	const myFtContainerEl = document.getElementById('myft');
 	if (myFtContainerEl && flags.get('myFtApi') && sessionClient.cookie()) {
+		Components.MyftPromo = MyftPromo;
 		crossDomainFetch(
 			`https://next-graphql-api.ft.com/data?query=${slimQuery(query)}`,
 			{ credentials: 'include', timeout: 5000 }
