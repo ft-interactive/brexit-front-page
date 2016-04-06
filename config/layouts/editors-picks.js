@@ -1,16 +1,14 @@
-import { Row, Column, Content } from '@financial-times/n-section';
-
 export default [
 	{
-		type: Row,
+		type: 'Row',
 		components: [
 			//Column 0
 			{
-				type: Column,
+				type: 'Column',
 				colspan: { default: 12, S: 6, M: 4, L: 2 },
 				components: [
 					{
-						type: Content,
+						type: 'Content',
 						size: 'small',
 						image: {
 							stick: true,
@@ -22,11 +20,11 @@ export default [
 			},
 			//Column 1
 			{
-				type: Column,
+				type: 'Column',
 				colspan: { default: 12, S: 6, M: 4, L: 2 },
 				components: [
 					{
-						type: Content,
+						type: 'Content',
 						size: 'small',
 						image: {
 							stick: true,
@@ -38,11 +36,11 @@ export default [
 			},
 			//Column 2
 			{
-				type: Column,
+				type: 'Column',
 				colspan: { default: 12, S: 6, M: 4, L: 2 },
 				components: [
 					{
-						type: Content,
+						type: 'Content',
 						size: 'small',
 						image: {
 							stick: true,
@@ -54,11 +52,11 @@ export default [
 			},
 			//Column 3
 			{
-				type: Column,
+				type: 'Column',
 				colspan: { default: 12, S: 6, M: 4, L: 2 },
 				components: [
 					{
-						type: Content,
+						type: 'Content',
 						size: 'small',
 						image: {
 							stick: true,
@@ -70,11 +68,11 @@ export default [
 			},
 			//Column 4
 			{
-				type: Column,
+				type: 'Column',
 				colspan: { default: 12, S: 6, M: 4, L: 2 },
 				components: [
 					{
-						type: Content,
+						type: 'Content',
 						size: 'small',
 						image: {
 							stick: true,
@@ -86,11 +84,11 @@ export default [
 			},
 			//Column 5
 			{
-				type: Column,
+				type: 'Column',
 				colspan: { default: 12, S: 6, M: 4, L: 2 },
 				components: [
 					{
-						type: Content,
+						type: 'Content',
 						size: 'small',
 						image: {
 							stick: true,

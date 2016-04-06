@@ -1,25 +1,23 @@
-import { Row, Column, Content } from '@financial-times/n-section';
-
 export default [
 	{
-		type: Row,
+		type: 'Row',
 		components: [
 			{
 
-				type: Column,
+				type: 'Column',
 				colspan: { default: 12, XL: 9 },
 				components: [
 					{
-						type: Row,
+						type: 'Row',
 						components: [
 
 							//Column 0
 							{
-								type: Column,
+								type: 'Column',
 								colspan: { default: 12, M: 6 },
 								components: [
 									{
-										type: Content,
+										type: 'Content',
 										size: 'large-top-story',
 										related: {
 											show: true,
@@ -35,11 +33,11 @@ export default [
 							},
 							//Column 1
 							{
-								type: Column,
+								type: 'Column',
 								colspan: { default: 12, M: 6},
 								components: [
 									{
-										type: Content,
+										type: 'Content',
 										size: 'medium',
 										showStandfirst: true,
 										image: {
@@ -48,16 +46,16 @@ export default [
 										}
 									},
 									{
-										type: Content,
+										type: 'Content',
 										size: 'medium',
 										showStandfirst: true
 									},
 									{
-										type: Content,
+										type: 'Content',
 										size: 'medium'
 									},
 									{
-										type: Content,
+										type: 'Content',
 										size: 'medium'
 									}
 								]
@@ -69,48 +67,48 @@ export default [
 
 			//Column 2
 			{
-				type: Column,
+				type: 'Column',
 				colspan: { default: 12, XL: 3 },
 				components: [
 					{
-						type: Row,
+						type: 'Row',
 						components: [
 							{
-								type: Column,
+								type: 'Column',
 								colspan: { default: 12, M: 4, XL: 12 },
 								components: [
 									{
-										type: Content,
+										type: 'Content',
 										size: 'medium'
 									}
 								]
 							},
 							{
-								type: Column,
+								type: 'Column',
 								colspan: { default: 12, M: 4, XL: 12 },
 								components: [
 									{
-										type: Content,
+										type: 'Content',
 										size: 'medium'
 									}
 								]
 							},
 							{
-								type: Column,
+								type: 'Column',
 								colspan: { default: 12, M: 4, XL: 12 },
 								components: [
 									{
-										type: Content,
+										type: 'Content',
 										size: 'medium'
 									}
 								]
 							},
 							{
-								type: Column,
+								type: 'Column',
 								colspan: { default: 12 },
 								components: [
 									{
-										type: Content,
+										type: 'Content',
 										size: 'medium',
 										show: { default: false, XL: true }
 									}

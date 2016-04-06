@@ -1,15 +1,13 @@
-import { Row, Column, Content } from '@financial-times/n-section';
-
 export default [
 	{
-		type: Row,
+		type: 'Row',
 		components: [
 			{
-				type: Column,
+				type: 'Column',
 				colspan: { default: 12, M: 4, L: 3 },
 				components: [
 					{
-						type: Content,
+						type: 'Content',
 						size: 'large',
 						showStandfirst: true,
 						image: {
@@ -19,70 +17,70 @@ export default [
 				]
 			},
 			{
-				type: Column,
+				type: 'Column',
 				colspan: { default: 12, M: 4, L: 3 },
 				components: [
 					{
-						type: Content,
+						type: 'Content',
 						size: 'medium',
 						showStandfirst: true
 					},
 					{
-						type: Content,
+						type: 'Content',
 						size: 'medium',
 						showStandfirst: true
 					}
 				]
 			},
 			{
-				type: Column,
+				type: 'Column',
 				colspan: { default: 12, M: 4, L: 3 },
 				components: [
 					{
-						type: Content,
+						type: 'Content',
 						size: 'medium',
 						showStandfirst: true
 					},
 					{
-						type: Content,
+						type: 'Content',
 						size: 'medium',
 						showStandfirst: true
 					}
 				]
 			},
 			{
-				type: Column,
+				type: 'Column',
 				colspan: { default: 12, M: 12, L: 3 },
 				components: [
 					{
-						type: Row,
+						type: 'Row',
 						components: [
 							{
-								type: Column,
+								type: 'Column',
 								colspan: { default: 12, M: 4, L: 12 },
 								components: [
 									{
-										type: Content,
+										type: 'Content',
 										size: 'small'
 									}
 								]
 							},
 							{
-								type: Column,
+								type: 'Column',
 								colspan: { default: 12, M: 4, L: 12 },
 								components: [
 									{
-										type: Content,
+										type: 'Content',
 										size: 'small'
 									}
 								]
 							},
 							{
-								type: Column,
+								type: 'Column',
 								colspan: { default: 12, M: 4, L: 12 },
 								components: [
 									{
-										type: Content,
+										type: 'Content',
 										size: 'small'
 									}
 								]
