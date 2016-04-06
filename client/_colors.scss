@@ -3,7 +3,6 @@
 @include oColorsSetColor('market-up', #9cd321);
 @include oColorsSetColor('market-down', #ee2f01);
 @include oColorsSetColor('market-down-text', #ff767c);
-@include oColorsSetColor('card-rule', #f0e4d5);
 
 // use cases
 @include oColorsSetUseCase(dark-bg, background, 'cold-1');
@@ -11,4 +10,3 @@
 @include oColorsSetUseCase(market-up, text, 'market-up');
 @include oColorsSetUseCase(market-down, border, 'market-down');
 @include oColorsSetUseCase(market-down, text, 'market-down-text');
-@include oColorsSetUseCase(card, border, 'card-rule');

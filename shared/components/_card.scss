@@ -17,8 +17,30 @@
 		background-color: oColorsGetColorFor(card, border);
 	}
 
-	.section--opinion & {
-		@include oColorsFor(card, background);
+	// left rule
+	&:after {
+		content: '';
+		position: absolute;
+		width: 1px;
+		top: oGridGutter() / 2;
+		bottom: oGridGutter() / -2;
+		left: oGridGutter() / -2;
+		background-color: oColorsGetColorFor(card, border);
+
+		@include oGridRespondTo(M) {
+			top: oGridGutter(M) / 2;
+			bottom: oGridGutter(M) / -2;
+			left: oGridGutter(M) / -2;
+		}
+	}
+
+	&.card--picture-story,
+	.fast-ft &,
+	.section--myft &,
+	.section--video & {
+		&:after {
+			display: none;
+		}
 	}
 
 	.fast-ft & {
@@ -29,6 +51,10 @@
 	.column--related & {
 		margin-top: 0;
 	}
+}
+
+.card--opinion:before {
+	background-color: oColorsGetColorFor(author, text);
 }
 
 .card__timestamp {
