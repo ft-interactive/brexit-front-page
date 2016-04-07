@@ -56,9 +56,9 @@ const ukEdition = frontPage('UK');
 app.get('/uk', ukEdition);
 app.get('/home', (req, res, next) => {
 	if (req.get('FT-Edition') === 'uk') {
-		return usEdition(req, res, next);
+		return ukEdition(req, res, next);
 	}
-	return ukEdition(req, res, next);
+	return usEdition(req, res, next);
 });
 app.get('/international', usEdition);
 
