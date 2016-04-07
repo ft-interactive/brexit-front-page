@@ -34,7 +34,7 @@ $o-grid-ie8-rules: false;
 @import "../shared/components/main";
 
 html {
-	@include oColorsFor(card, background);
+	@include oColorsFor(page, background);
 	// Prevent navigation menus from creating
 	// extra space on sides of the page
 	overflow-x: auto;
