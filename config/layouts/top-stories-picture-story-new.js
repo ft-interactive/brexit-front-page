@@ -16,7 +16,9 @@ export default [
 									{
 										type: 'Content',
 										size: 'large-no-image',
-										showStandfirst: true,
+										standfirst: {
+											show: { default: true }
+										},
 										related: {
 											show: { default: true, S: false, M: true },
 											colspan: { default: 12 }
@@ -32,7 +34,9 @@ export default [
 										type: 'Content',
 										size: 'small',
 										isPictureStory: true,
-										hideTag: true,
+										standfirst: {
+											show: { default: false, S: true, XL: false }
+										},
 										image: {
 											position: { default: 'top' },
 											sizes: { default: 449, s: 315, m: 432, l: 406, xl: 500 }
@@ -101,7 +105,9 @@ export default [
 									{
 										type: 'Content',
 										size: 'medium',
-										showStandfirst: true
+										standfirst: {
+											show: { default: true }
+										}
 									}
 								]
 							},
@@ -112,7 +118,9 @@ export default [
 									{
 										type: 'Content',
 										size: 'medium',
-										showStandfirst: true
+										standfirst: {
+											show: { default: true }
+										}
 									}
 								]
 							}

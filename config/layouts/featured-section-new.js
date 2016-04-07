@@ -9,7 +9,9 @@ export default [
 					{
 						type: 'Content',
 						size: 'large',
-						showStandfirst: true,
+						standfirst: {
+							show: { default: true }
+						},
 						image: {
 							position: { S: 'left', XL: 'bottom' },
 							sizes: { default: 449, s: 264, m: 173, l: 221, xl: 322 }
@@ -24,7 +26,9 @@ export default [
 					{
 						type: 'Content',
 						size: 'medium',
-						showStandfirst: true
+						standfirst: {
+							show: { default: true }
+						}
 					},
 					{
 						type: 'Content',

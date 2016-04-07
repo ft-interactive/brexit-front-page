@@ -24,7 +24,9 @@ export default [
 											colspan: { default: 12}
 										},
 										showRelated: true,
-										showStandfirst: true,
+										standfirst: {
+											show: { default: true }
+										},
 										image: {
 											sizes: { default: 449, s: 659, m: 432, l: 357, xl: 411 }
 										}
@@ -39,7 +41,9 @@ export default [
 									{
 										type: 'Content',
 										size: 'medium',
-										showStandfirst: true,
+										standfirst: {
+											show: { default: true }
+										},
 										image: {
 											position: { default: 'left' },
 											sizes: { default: 180, s: 264, m: 173, l: 143, xl: 147 }
@@ -48,7 +52,9 @@ export default [
 									{
 										type: 'Content',
 										size: 'medium',
-										showStandfirst: true
+										standfirst: {
+											show: { default: true }
+										}
 									},
 									{
 										type: 'Content',
