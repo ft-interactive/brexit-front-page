@@ -18,12 +18,8 @@ const getAdsLayout = (requestedLayout, flags) => {
 	if(flags.adsNewProposition && !requestedLayout) {
 		requestedLayout = 'responsive';
 	}
-	const mapping = {
-		'responsive': 'highimpact',
-		'non-responsive-1': 'billboards',
-		'non-responsive-2': 'superleaders'
-	};
-	return mapping[requestedLayout] || requestedLayout || 'default';
+
+	return requestedLayout || 'default';
 }
 
 export default region => (req, res) => {
