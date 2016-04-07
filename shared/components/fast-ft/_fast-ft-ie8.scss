@@ -1,0 +1,19 @@
+.fast-ft-wrapper {
+	padding-top: oGridGutter(M);
+}
+
+.fast-ft--new {
+	margin-top: oGridGutter(M);
+}
+
+.fast-ft__item {
+	@each $layout-name in $_o-grid-layout-names {
+		&[data-show~="#{$layout-name}--true"] {
+			display: block;
+		}
+
+		&[data-show~="#{$layout-name}--false"] {
+			display: none;
+		}
+	}
+}
