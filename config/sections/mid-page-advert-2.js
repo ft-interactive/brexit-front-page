@@ -16,8 +16,8 @@ export default ({data}) => {
 		},
 		raw: `<div data-trackable="ad"
 			class="mid-page-2-advert o-ads"
-			data-o-ads-name="midpage"
-			data-o-ads-targeting="pos=midpage1;"
+			data-o-ads-name="mid"
+			data-o-ads-targeting="pos=mid;"
 			data-o-ads-formats-default="Responsive,MediumRectangle"
 			data-o-ads-formats-small="Responsive,MediumRectangle"
 			data-o-ads-formats-medium="Leaderboard,Responsive"

@@ -4,8 +4,8 @@ export default () => ({
 	},
 	raw: `<div data-trackable="ad"
 		class="mid-page-1-advert o-ads"
-		data-o-ads-name="entry-below-header"
-		data-o-ads-targeting="pos=entry;"
+		data-o-ads-name="top-below-header"
+		data-o-ads-targeting="pos=top;"
 		data-o-ads-formats-default="MediumRectangle,Responsive"
 		data-o-ads-formats-small="MediumRectangle,Responsive"
 		data-o-ads-formats-medium="false"
