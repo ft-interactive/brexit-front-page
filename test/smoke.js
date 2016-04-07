@@ -1,6 +1,6 @@
 module.exports = [{
 	urls: {
-		'/': 302,
+		'/': 200,
 		'/home': 200
 	}
 }];
