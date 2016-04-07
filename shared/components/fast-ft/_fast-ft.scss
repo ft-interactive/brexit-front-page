@@ -13,7 +13,7 @@
 }
 
 .fast-ft--new {
-	@include oColorsFor(page, background);
+	background-color: getColor('warm-5');
 	flex: 1 1 auto;
 	margin: oGridGutter() 0 0;
 
@@ -57,5 +57,23 @@
 
 	.fast-ft--new & {
 		margin: 0;
+	}
+}
+
+.fast-ft__item {
+	&[data-show~="false"] {
+		display: none;
+	}
+
+	@each $layout-name in $_o-grid-layout-names {
+		@include oGridRespondTo($layout-name) {
+			&[data-show~="#{$layout-name}--true"] {
+				display: block;
+			}
+
+			&[data-show~="#{$layout-name}--false"] {
+				display: none;
+			}
+		}
 	}
 }

@@ -1,4 +1,4 @@
-const layoutNames = ['S', 'M', 'L', 'XL'];
+const layoutNames = ['S', 'M', 'L', 'XL', 'XXL'];
 
 // Public: Filters a responsive property for use with media queries
 // e.g. {default: 1, S: 1, M: 2, L: 2, XL: 2} becomes {default: 1, M: 2}

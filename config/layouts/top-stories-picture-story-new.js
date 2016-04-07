@@ -54,7 +54,9 @@ export default [
 				components: [
 					{
 						type: 'FastFtNew',
-						size: 'medium'
+						count: {
+							default: 4, XL: 5
+						}
 					}
 				]
 			}
