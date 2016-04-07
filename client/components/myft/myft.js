@@ -36,8 +36,8 @@ const filterDuplicateArticles = (articles, concept) => {
 
 // if there is one followed topic then convert promo card; if two or more then replace with a content card
 const convertToContent = (shouldConvert, card) => {
-	if (card.type === MyftPromo) {
-		return shouldConvert ? Object.assign({}, card, { isMyftUser: true }) : Object.assign({}, card, { type: components.Content });
+	if (card.type === 'MyftPromo') {
+		return shouldConvert ? Object.assign({}, card, { isMyftUser: true }) : Object.assign({}, card, { type: 'Content' });
 	} else {
 		return card;
 	}
