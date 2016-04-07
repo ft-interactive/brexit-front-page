@@ -17,7 +17,9 @@ export default [
 									{
 										type: 'Content',
 										size: 'large-no-image',
-										showStandfirst: true,
+										standfirst: {
+											show: { default: true }
+										},
 										related: {
 											show: { default: false, M: true },
 											colspan: { default: 12 }

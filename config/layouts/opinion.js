@@ -10,7 +10,9 @@ export default [
 					{
 						type: 'Content',
 						size: 'large',
-						showStandfirst: true,
+						standfirst: {
+							show: { default: true }
+						},
 						image: {
 							sizes: { default: 449, s: 659, m: 199, l: 357, xl: 430 }
 						}
@@ -25,7 +27,9 @@ export default [
 					{
 						type: 'Content',
 						size: 'large',
-						showStandfirst: true
+						standfirst: {
+							show: { default: true }
+						}
 					},
 					{
 						type: 'Content',
@@ -42,7 +46,9 @@ export default [
 					{
 						type: 'Content',
 						size: 'large',
-						showStandfirst: true,
+						standfirst: {
+							show: { default: true }
+						},
 						image: {
 							sizes: { default: 449, s: 659, m: 199, l: 357, xl: 430 }
 						}

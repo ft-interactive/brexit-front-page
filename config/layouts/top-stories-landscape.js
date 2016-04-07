@@ -16,7 +16,9 @@ export default [
 									{
 										type: 'Content',
 										size: 'large-top-story',
-										showStandfirst: true,
+										standfirst: {
+											show: { default: true }
+										},
 										related: {
 											show: true,
 											colspan: { default: 12, S: 4 }
