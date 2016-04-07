@@ -16,7 +16,6 @@ $o-grid-ie8-rules: false;
 @import "n-layout/main";
 //Override the default page background color
 @include oColorsSetUseCase(page, background, 'pink');
-@import 'n-card/main';
 @import 'n-section/main';
 @import "n-message-prompts/main";
 @import "n-video/main";

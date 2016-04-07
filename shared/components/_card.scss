@@ -43,7 +43,7 @@
 	}
 
 	.fast-ft & {
-		@include oColorsFor(page, background);
+		background-color: getColor('warm-5');
 		margin-top: 0;
 	}
 
