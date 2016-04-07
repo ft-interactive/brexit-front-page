@@ -1,7 +1,6 @@
 module.exports = [{
 	urls: {
-		'/uk': 200,
-		'/international': 200,
+		'/': 302,
 		'/home': 200
 	}
 }];

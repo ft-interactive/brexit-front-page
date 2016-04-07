@@ -57,16 +57,17 @@ app.get('/', (req, res, next) => {
 		}
 		return usEdition(req, res, next);
 	}
-	res.redirect('/home');
+	return res.redirect('/home' + (req.query.edition ? '?edition=' + req.query.edition : ''));
 });
-app.get('/uk', ukEdition);
 app.get('/home', (req, res, next) => {
+	if (res.locals.flags.frontPageNoPath) {
+		return res.redirect('/' + (req.query.edition ? '?edition=' + req.query.edition : ''));
+	}
 	if (req.get('FT-Edition') === 'uk') {
 		return ukEdition(req, res, next);
 	}
 	return usEdition(req, res, next);
 });
-app.get('/international', usEdition);
 
 const listen = app.listen(process.env.PORT || 3001);
 
