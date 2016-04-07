@@ -57,14 +57,6 @@ app.get('/', (req, res, next) => {
 	return usEdition(req, res, next);
 });
 
-// DEPRECATED: Delete me after the service-registry stops routing to this
-app.get('/home', (req, res, next) => {
-	if (req.get('FT-Edition') === 'uk') {
-		return ukEdition(req, res, next);
-	}
-	return usEdition(req, res, next);
-});
-
 const listen = app.listen(process.env.PORT || 3001);
 
 export default app
