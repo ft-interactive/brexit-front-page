@@ -1,10 +1,10 @@
 export default ({data}) => {
 	let desktopAds;
 	switch(data.adsLayout) {
-		case 'billboards':
+		case 'non-responsive-1':
 			desktopAds='SuperLeaderboard,Responsive';
 			break;
-		case 'superleaders':
+		case 'non-responsive-2':
 			desktopAds='Billboard,Responsive';
 			break;
 		default:
