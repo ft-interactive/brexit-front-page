@@ -40,8 +40,9 @@ export default [
 				components: [
 					{
 						type: 'FastFtNew',
-						size: 'medium',
-						count: 4
+						count: {
+							default: 3, XL: 4
+						}
 					}
 				]
 			}

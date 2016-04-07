@@ -88,8 +88,9 @@ export default [
 				components: [
 					{
 						type: 'FastFtNew',
-						size: 'medium',
-						count: 5
+						count: {
+							default: 6
+						}
 					}
 				]
 			}

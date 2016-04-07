@@ -1,11 +1,25 @@
 import React, { Component } from 'react';
 import { Content } from '@financial-times/n-section';
 
+import { responsiveValue } from '../../libs/helpers';
+
+const createShow = (index, count) =>
+	Object.keys(count)
+		.reduce((show, breakpoint) => {
+			show[breakpoint] = index < count[breakpoint];
+			return show;
+		}, {});
+
+const getMaxCount = count =>
+	Object.keys(count)
+		.reduce((maxCount, breakpoint) => Math.max(maxCount, count[breakpoint]), 0);
+
 export default class extends Component {
 	render () {
+		const count = this.props.count;
 		const articleEls = this.props.data.fastFt
 			.filter(article => !!article.title)
-			.slice(0, this.props.count || 4)
+			.slice(0, getMaxCount(count))
 			.map(article => Object.assign({}, article, { type: 'FastFt' }))
 			.map((article, index, articles) => {
 				const cardProps = {
@@ -14,7 +28,13 @@ export default class extends Component {
 					size: (index === 0 ? 'small' : 'tiny'),
 					itemIndex: index
 				};
-				return <li className="fast-ft__item" key={article.id}><Content {...cardProps} /></li>;
+				const show = createShow(index, count);
+
+				return (
+					<li className="fast-ft__item" key={article.id} data-show={responsiveValue(show)}>
+						<Content {...cardProps} />
+					</li>
+				);
 			});
 
 		return (
