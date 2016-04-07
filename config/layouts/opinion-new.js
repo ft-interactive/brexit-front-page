@@ -18,33 +18,61 @@ export default [
 			},
 			{
 				type: 'Column',
-				colspan: { default: 12, M: 4, L: 3 },
+				colspan: { default: 12, M: 8, L: 6 },
 				components: [
 					{
-						type: 'Content',
-						size: 'medium',
-						showStandfirst: true
+						type: 'Row',
+						components: [
+							{
+								type: 'Column',
+								colspan: { default: 12, M: 6 },
+								components: [
+									{
+										type: 'Content',
+										size: 'medium',
+										showStandfirst: true
+									}
+								]
+							},
+							{
+								type: 'Column',
+								colspan: { default: 12, M: 6 },
+								components: [
+									{
+										type: 'Content',
+										size: 'medium',
+										showStandfirst: true
+									}
+								]
+							}
+						]
 					},
 					{
-						type: 'Content',
-						size: 'medium',
-						showStandfirst: true
-					}
-				]
-			},
-			{
-				type: 'Column',
-				colspan: { default: 12, M: 4, L: 3 },
-				components: [
-					{
-						type: 'Content',
-						size: 'medium',
-						showStandfirst: true
-					},
-					{
-						type: 'Content',
-						size: 'medium',
-						showStandfirst: true
+						type: 'Row',
+						components: [
+							{
+								type: 'Column',
+								colspan: { default: 12, M: 6 },
+								components: [
+									{
+										type: 'Content',
+										size: 'medium',
+										showStandfirst: true
+									}
+								]
+							},
+							{
+								type: 'Column',
+								colspan: { default: 12, M: 6 },
+								components: [
+									{
+										type: 'Content',
+										size: 'medium',
+										showStandfirst: true
+									}
+								]
+							}
+						]
 					}
 				]
 			},
