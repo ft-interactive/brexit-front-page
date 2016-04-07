@@ -44,15 +44,21 @@ startPolling();
 app.get('/__gtg', (req, res) => {
 	res.status(200).end();
 });
-app.get('/', (req, res) => {
-	res.sendStatus(404);
-});
 
 // Editions
 const usEdition = frontPage('US');
 const ukEdition = frontPage('UK');
 
 // Routes
+app.get('/', (req, res, next) => {
+	if (res.locals.flags.frontPageNoPath) {
+		if (req.get('FT-Edition') === 'uk') {
+			return ukEdition(req, res, next);
+		}
+		return usEdition(req, res, next);
+	}
+	res.redirect('/home');
+});
 app.get('/uk', ukEdition);
 app.get('/home', (req, res, next) => {
 	if (req.get('FT-Edition') === 'uk') {
