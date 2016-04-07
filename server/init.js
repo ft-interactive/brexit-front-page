@@ -51,18 +51,14 @@ const ukEdition = frontPage('UK');
 
 // Routes
 app.get('/', (req, res, next) => {
-	if (res.locals.flags.frontPageNoPath) {
-		if (req.get('FT-Edition') === 'uk') {
-			return ukEdition(req, res, next);
-		}
-		return usEdition(req, res, next);
+	if (req.get('FT-Edition') === 'uk') {
+		return ukEdition(req, res, next);
 	}
-	return res.redirect('/home' + (req.query.edition ? '?edition=' + req.query.edition : ''));
+	return usEdition(req, res, next);
 });
+
+// DEPRECATED: Delete me after the service-registry stops routing to this
 app.get('/home', (req, res, next) => {
-	if (res.locals.flags.frontPageNoPath) {
-		return res.redirect('/' + (req.query.edition ? '?edition=' + req.query.edition : ''));
-	}
 	if (req.get('FT-Edition') === 'uk') {
 		return ukEdition(req, res, next);
 	}
