@@ -3,7 +3,7 @@ import getPage from '../../config/pages';
 
 import FastFt from '../../shared/components/fast-ft/fast-ft';
 import FastFtNew from '../../shared/components/fast-ft/fast-ft-new';
-import Components from '@financial-times/n-section';
+import components from '@financial-times/n-section';
 
 // bail unless we have at least one top story
 const contentMissing = data => {
@@ -25,7 +25,7 @@ const getAdsLayout = (requestedLayout, flags) => {
 }
 
 export default region => (req, res) => {
-	Object.assign(Components, { FastFt, FastFtNew });
+	Object.assign(components, { FastFt, FastFtNew });
 
 	const frontPageData = res.locals.flags.mockFrontPage ? 'mockFrontPage' : `frontPage${region}`;
 
@@ -47,7 +47,7 @@ export default region => (req, res) => {
 
 	const renderParams = {
 		layout: 'wrapper',
-		Section: Components.Section,
+		Section: components.Section,
 		sections,
 		region,
 		preconnect: [
