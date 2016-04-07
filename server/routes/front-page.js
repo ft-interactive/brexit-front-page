@@ -1,5 +1,3 @@
-import { Section } from '@financial-times/n-section';
-
 import { getData } from '../libs/graphql-poller';
 import getPage from '../../config/pages';
 
@@ -49,7 +47,7 @@ export default region => (req, res) => {
 
 	const renderParams = {
 		layout: 'wrapper',
-		Section,
+		Section: Components.Section,
 		sections,
 		region,
 		preconnect: [

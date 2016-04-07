@@ -3,7 +3,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import { crossDomainFetch } from 'n-jsonp';
-import { Section, Content } from '@financial-times/n-section';
 import * as myFtUi from 'next-myft-ui';
 import sessionClient from 'next-session-client';
 
@@ -38,7 +37,7 @@ const filterDuplicateArticles = (articles, concept) => {
 // if there is one followed topic then convert promo card; if two or more then replace with a content card
 const convertToContent = (shouldConvert, card) => {
 	if (card.type === MyftPromo) {
-		return shouldConvert ? Object.assign({}, card, { isMyftUser: true }) : Object.assign({}, card, { type: Content });
+		return shouldConvert ? Object.assign({}, card, { isMyftUser: true }) : Object.assign({}, card, { type: Components.Content });
 	} else {
 		return card;
 	}
@@ -68,7 +67,7 @@ const handleResponse = (myFtContainerEl, myftClient, flags, response) => {
 		section.layout = section.layout.map(changeComponent.bind(null, followed.length < 2));
 	}
 
-	ReactDOM.render(<Section {...section} />, myFtContainerEl);
+	ReactDOM.render(<Components.Section {...section} />, myFtContainerEl);
 	myftClient
 		.then(() => myFtUi.updateUi())
 		.catch(errorHandler);
