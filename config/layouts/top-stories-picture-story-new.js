@@ -149,7 +149,7 @@ export default [
 										type: 'Content',
 										size: 'medium',
 										image: {
-											show: { default: true, S: false, XL: true },
+											show: { default: true, S: false, XXL: true },
 											position: { default: 'right' },
 											sizes: { default: 180, s: 126, m: 173, l: 111, xl: 129 }
 										}
@@ -193,7 +193,7 @@ export default [
 						type: 'Content',
 						size: 'small',
 						image: {
-							show: { default: true, S: false, XL: true },
+							show: { default: true, S: false, XXL: true },
 							position: { default: 'right' },
 							sizes: { default: 180, s: 264, m: 80, l: 111, xl: 129 }
 						}
