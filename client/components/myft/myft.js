@@ -3,14 +3,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import { crossDomainFetch } from 'n-jsonp';
-import { Section, Content } from '@financial-times/n-section';
 import * as myFtUi from 'next-myft-ui';
 import sessionClient from 'next-session-client';
 
 import getSection from '../../../config/sections/index';
 import { user as query } from '../../../config/queries';
 import MyftPromo from '../../../shared/components/myft-promo/myft-promo';
-import Components from '@financial-times/n-section';
+import components from '@financial-times/n-section';
 
 // condense multiple spaces to one
 const slimQuery = query => encodeURIComponent(query.replace(/\s+/g, ' '));
@@ -38,7 +37,7 @@ const filterDuplicateArticles = (articles, concept) => {
 // if there is one followed topic then convert promo card; if two or more then replace with a content card
 const convertToContent = (shouldConvert, card) => {
 	if (card.type === MyftPromo) {
-		return shouldConvert ? Object.assign({}, card, { isMyftUser: true }) : Object.assign({}, card, { type: Content });
+		return shouldConvert ? Object.assign({}, card, { isMyftUser: true }) : Object.assign({}, card, { type: components.Content });
 	} else {
 		return card;
 	}
@@ -68,7 +67,7 @@ const handleResponse = (myFtContainerEl, myftClient, flags, response) => {
 		section.layout = section.layout.map(changeComponent.bind(null, followed.length < 2));
 	}
 
-	ReactDOM.render(<Section {...section} />, myFtContainerEl);
+	ReactDOM.render(<components.Section {...section} />, myFtContainerEl);
 	myftClient
 		.then(() => myFtUi.updateUi())
 		.catch(errorHandler);
@@ -77,7 +76,7 @@ const handleResponse = (myFtContainerEl, myftClient, flags, response) => {
 export default (myftClient, flags) => {
 	const myFtContainerEl = document.getElementById('myft');
 	if (myFtContainerEl && flags.get('myFtApi') && sessionClient.cookie()) {
-		Components.MyftPromo = MyftPromo;
+		components.MyftPromo = MyftPromo;
 		crossDomainFetch(
 			`https://next-graphql-api.ft.com/data?query=${slimQuery(query)}`,
 			{ credentials: 'include', timeout: 5000 }
