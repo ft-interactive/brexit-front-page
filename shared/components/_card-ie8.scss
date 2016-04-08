@@ -6,5 +6,9 @@
 		top: oGridGutter(M) / 2;
 		bottom: oGridGutter(M) / -2;
 		left: oGridGutter(M) / -2;
+
+		.column--related & {
+			bottom: oGridGutter(M) / 2;
+		}
 	}
 }
