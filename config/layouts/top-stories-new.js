@@ -21,7 +21,7 @@ export default [
 										},
 										image: {
 											position: { default: 'right' },
-											sizes: { default: 500 }
+											sizes: { default: 225, s: 330, m: 294, l: 276, xl: 339 }
 										}
 									}
 								]
@@ -53,7 +53,7 @@ export default [
 										size: 'medium',
 										image: {
 											position: { default: 'left' },
-											sizes: { default: 500 }
+											sizes: { default: 180, s: 264, m: 111, l: 104, xl: 129 }
 										}
 									}
 								]
