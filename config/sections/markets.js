@@ -1,6 +1,6 @@
 export default ({ flags }) => ({
 	id: 'markets',
-	title: flags.frontPageNewLayout ? 'Markets News' : 'Markets',
+	title: `<a href="/markets" class="section-meta__link" data-trackable="section-title">${flags.frontPageNewLayout ? 'Markets News' : 'Markets'}</a>`,
 	style: 'markets',
 	layoutId: flags.frontPageNewLayout ? 'featured-section-new' : 'featured-section',
 	trackScrollEvent: true,
