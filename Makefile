@@ -14,15 +14,6 @@ run:
 run-local:
 	nbt run --local
 
-watch:
-	@$(MAKE) watch-super
-
-build:
-	@$(MAKE) build-super
-
-build-production:
-	@$(MAKE) build-production-super
-
 smoke:
 	nbt test-urls ${TEST_APP}
 	export TEST_APP=${TEST_APP}; nbt nightwatch test/browser/tests/* -e ie9,firefox,chrome,iphone6_plus
