@@ -1,6 +1,6 @@
 export default ({ flags }) => ({
 	id: 'technology',
-	title: 'Technology',
+	title: '<a href="/stream/sectionsId/NTM=-U2VjdGlvbnM=" class="section-meta__link" data-trackable="section-title">Technology</a>',
 	style: 'technology',
 	layoutId: flags.frontPageNewLayout ? 'featured-section-new' : 'featured-section',
 	trackScrollEvent: true,

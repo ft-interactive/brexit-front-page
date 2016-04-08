@@ -1,6 +1,6 @@
 export default () => ({
 	id: 'life-and-arts',
-	title: 'Life & Arts',
+	title: '<a href="/life-arts" class="section-meta__link" data-trackable="section-title">Life & Arts</a>',
 	style: 'life-and-arts',
 	layoutId: 'featured-section',
 	trackScrollEvent: true,
