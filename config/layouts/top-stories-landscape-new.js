@@ -25,7 +25,7 @@ export default [
 										},
 										image: {
 											position: { default: 'top', M: 'right' },
-											sizes: { default: 449, s: 660, m: 360, l: 339, xl: 414 }
+											sizes: { default: 449, s: 659, m: 450, l: 423, xl: 517 }
 										}
 									}
 								]
@@ -60,7 +60,7 @@ export default [
 						size: 'medium',
 						image: {
 							position: { default: 'top', S: 'right', L: 'top' },
-							sizes: { default: 210, s: 126, m: 173, l: 259, xl: 322 }
+							sizes: { default: 210, s: 158, m: 216, l: 259, xl: 322 }
 						}
 					}
 				]
@@ -74,7 +74,7 @@ export default [
 						size: 'medium',
 						image: {
 							position: { default: 'top', S: 'right', L: 'top' },
-							sizes: { default: 210, s: 126, m: 173, l: 259, xl: 322 }
+							sizes: { default: 210, s: 158, m: 216, l: 259, xl: 322 }
 						}
 					}
 				]
@@ -137,7 +137,7 @@ export default [
 										image: {
 											show: { default: true, S: false, XXL: true },
 											position: { default: 'right' },
-											sizes: { default: 180, s: 126, m: 173, l: 111, xl: 129 }
+											sizes: { default: 225, xl: 161 }
 										}
 									}
 								]
@@ -181,7 +181,7 @@ export default [
 						image: {
 							show: { default: true, S: false, XXL: true },
 							position: { default: 'right' },
-							sizes: { default: 180, s: 264, m: 80, l: 111, xl: 129 }
+							sizes: { default: 225, xl: 161 }
 						}
 					}
 				]

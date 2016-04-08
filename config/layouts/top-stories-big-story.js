@@ -21,7 +21,7 @@ export default [
 										isMain: true,
 										image: {
 											position: { default: 'top', M: 'right' },
-											sizes: { default: 449, s: 659, m: 450, l: 384 }
+											sizes: { default: 449, s: 659, m: 450, l: 374, xl: 384 }
 										}
 									}
 								]
@@ -81,7 +81,7 @@ export default [
 										size: 'medium',
 										image: {
 											position: { default: 'left', M: 'right' },
-											sizes: { default: 180, s: 274, m: 450, l: 374 }
+											sizes: { default: 180, s: 264, m: 294, l: 244, xl: 250 }
 										}
 									}
 								]
