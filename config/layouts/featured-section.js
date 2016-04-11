@@ -4,15 +4,35 @@ export default [
 		components: [
 			{
 				type: 'Column',
-				colspan: { default: 12 },
+				colspan: { default: 12, XL: 6 },
 				components: [
 					{
 						type: 'Content',
-						size: 'small',
+						size: 'large',
+						standfirst: {
+							show: { default: true }
+						},
 						image: {
-							position: { default: 'left', M: 'bottom', L: 'left' },
-							sizes: { default: 180, s: 264, m: 277, l: 143, xl: 176 }
+							position: { S: 'left', XL: 'bottom' },
+							sizes: { default: 449, s: 264, m: 173, l: 221, xl: 322 }
 						}
+					}
+				]
+			},
+			{
+				type: 'Column',
+				colspan: { default: 12, XL: 6 },
+				components: [
+					{
+						type: 'Content',
+						size: 'medium',
+						standfirst: {
+							show: { default: true }
+						}
+					},
+					{
+						type: 'Content',
+						size: 'small'
 					},
 					{
 						type: 'Content',

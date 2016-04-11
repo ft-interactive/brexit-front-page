@@ -1,6 +1,6 @@
-export default ({ flags }) => ({
+export default () => ({
 	id: 'editors-picks',
-	title: flags.frontPageNewLayout ? 'Highlights' : 'Editor\’s Picks',
+	title: 'Highlights',
 	style: 'editors-picks',
 	layoutId: 'editors-picks',
 	trackScrollEvent: true,
