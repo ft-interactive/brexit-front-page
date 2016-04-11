@@ -39,7 +39,7 @@ export default [
 				colspan: { default: 'hide', S: 'hide', M: 'hide', L: 3 },
 				components: [
 					{
-						type: 'FastFtNew',
+						type: 'FastFt',
 						count: {
 							default: 3, XL: 4
 						}

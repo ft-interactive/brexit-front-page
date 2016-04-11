@@ -2,7 +2,6 @@ import { getData } from '../libs/graphql-poller';
 import getPage from '../../config/pages';
 
 import FastFt from '../../shared/components/fast-ft/fast-ft';
-import FastFtNew from '../../shared/components/fast-ft/fast-ft-new';
 import components from '@financial-times/n-section';
 
 // bail unless we have at least one top story
@@ -21,7 +20,7 @@ const getAdsLayout = (requestedLayout, flags) => {
 }
 
 export default region => (req, res) => {
-	Object.assign(components, { FastFt, FastFtNew });
+	components.FastFt = FastFt;
 
 	const frontPageData = res.locals.flags.mockFrontPage ? 'mockFrontPage' : `frontPage${region}`;
 
