@@ -37,7 +37,11 @@
 		}
 	}
 
-	&.card--picture-story,
+	&.card--picture-story:after {
+		top: 0;
+		bottom: 0;
+	}
+
 	.fast-ft &,
 	.section--myft &,
 	.section--video & {
