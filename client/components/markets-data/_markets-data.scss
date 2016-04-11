@@ -19,7 +19,7 @@
 .markets-data {
 	padding-top: 10px;
 	padding-bottom: 10px;
-	color: oColorsGetColorFor(page, background);
+	color: getColor('white');
 }
 .markets-data__items {
 	float: left;
