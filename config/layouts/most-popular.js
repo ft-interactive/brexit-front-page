@@ -4,7 +4,7 @@ export default [
 		components: [
 			{
 				type: 'Column',
-				colspan: { default: 12, S: 6, M: 4, L: 2 },
+				colspan: { default: 12, S: 6, M: 4, XL: 2 },
 				components: [
 					{
 						type: 'Content',
@@ -14,7 +14,7 @@ export default [
 			},
 			{
 				type: 'Column',
-				colspan: { default: 12, S: 6, M: 4, L: 2 },
+				colspan: { default: 12, S: 6, M: 4, XL: 2 },
 				components: [
 					{
 						type: 'Content',
@@ -24,7 +24,7 @@ export default [
 			},
 			{
 				type: 'Column',
-				colspan: { default: 12, S: 6, M: 4, L: 2 },
+				colspan: { default: 12, S: 6, M: 4, XL: 2 },
 				components: [
 					{
 						type: 'Content',
@@ -34,7 +34,7 @@ export default [
 			},
 			{
 				type: 'Column',
-				colspan: { default: 12, S: 6, M: 4, L: 2 },
+				colspan: { default: 12, S: 6, M: 4, XL: 2 },
 				components: [
 					{
 						type: 'Content',
@@ -44,7 +44,7 @@ export default [
 			},
 			{
 				type: 'Column',
-				colspan: { default: 12, S: 6, M: 4, L: 2 },
+				colspan: { default: 12, S: 6, M: 4, XL: 2 },
 				components: [
 					{
 						type: 'Content',
@@ -54,7 +54,7 @@ export default [
 			},
 			{
 				type: 'Column',
-				colspan: { default: 12, S: 6, M: 4, L: 2 },
+				colspan: { default: 12, S: 6, M: 4, XL: 2 },
 				components: [
 					{
 						type: 'Content',
