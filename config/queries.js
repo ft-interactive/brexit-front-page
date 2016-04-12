@@ -118,11 +118,11 @@ const frontPage = (region) => (`
 				... LiveBlogInfo
 			}
 		}
-		fastFT(limit: 7) {
+		fastFT(limit: 6) {
 			... Basic
 		}
 		opinion {
-			items {
+			items(limit: 8) {
 				... Basic
 				... Extended
 				... Related
@@ -158,7 +158,7 @@ const frontPage = (region) => (`
 				... OpinionData
 			}
 		}
-		popularArticles(limit: 9) {
+		popularArticles(limit: 6) {
 			... Basic
 			... Extended
 			... OpinionData
