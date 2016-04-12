@@ -4,48 +4,8 @@ export default [
 		components: [
 			{
 				type: 'Column',
-				colspan: { default: 12, M: 3 },
+				colspan: { default: 12, S: 6, M: 4, L: 2 },
 				components: [
-					{
-						type: 'Content',
-						size: 'large',
-						showStandFirst: true,
-						image: {
-							sizes: { default: 449, s: 659, m: 199, l: 259, xl: 322 }
-						}
-					}
-				]
-			},
-			{
-				type: 'Column',
-				colspan: { default: 12, M: 3 },
-				components: [
-					{
-						type: 'Content',
-						size: 'medium'
-					},
-					{
-						type: 'Content',
-						size: 'small',
-						image: {
-							position: { default: 'left', M: 'bottom' },
-							sizes: { default: 180, s: 264, m: 199, l: 259, xl: 322 }
-						}
-					}
-				]
-			},
-			{
-				type: 'Column',
-				colspan: { default: 12, M: 3 },
-				components: [
-					{
-						type: 'Content',
-						size: 'small',
-						image: {
-							position: { default: 'left', M: 'bottom' },
-							sizes: { default: 180, s: 264, m: 199, l: 259, xl: 322 }
-						}
-					},
 					{
 						type: 'Content',
 						size: 'small'
@@ -54,23 +14,51 @@ export default [
 			},
 			{
 				type: 'Column',
-				colspan: { default: 12, M: 3 },
+				colspan: { default: 12, S: 6, M: 4, L: 2 },
 				components: [
 					{
 						type: 'Content',
-						size: 'tiny'
-					},
+						size: 'small'
+					}
+				]
+			},
+			{
+				type: 'Column',
+				colspan: { default: 12, S: 6, M: 4, L: 2 },
+				components: [
 					{
 						type: 'Content',
-						size: 'tiny'
-					},
+						size: 'small'
+					}
+				]
+			},
+			{
+				type: 'Column',
+				colspan: { default: 12, S: 6, M: 4, L: 2 },
+				components: [
 					{
 						type: 'Content',
-						size: 'tiny'
-					},
+						size: 'small'
+					}
+				]
+			},
+			{
+				type: 'Column',
+				colspan: { default: 12, S: 6, M: 4, L: 2 },
+				components: [
 					{
 						type: 'Content',
-						size: 'tiny'
+						size: 'small'
+					}
+				]
+			},
+			{
+				type: 'Column',
+				colspan: { default: 12, S: 6, M: 4, L: 2 },
+				components: [
+					{
+						type: 'Content',
+						size: 'small'
 					}
 				]
 			}

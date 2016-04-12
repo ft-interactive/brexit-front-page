@@ -1,8 +1,8 @@
-export default ({ flags }) => ({
+export default () => ({
 	id: 'opinion',
 	title: '<a href="/stream/sectionsId/MTE2-U2VjdGlvbnM=" class="section-meta__link" data-trackable="section-title">Opinion</a>',
 	style: 'opinion',
-	layoutId: flags.frontPageNewLayout ? 'opinion-new' : 'opinion',
+	layoutId: 'opinion',
 	trackScrollEvent: true,
 	background: true,
 	size: {

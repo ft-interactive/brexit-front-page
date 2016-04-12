@@ -1,45 +1,52 @@
 import React, { Component } from 'react';
 import { Content } from '@financial-times/n-section';
 
+import { responsiveValue } from '../../libs/helpers';
+
+const createShow = (index, count) =>
+	Object.keys(count)
+		.reduce((show, breakpoint) => {
+			show[breakpoint] = index < count[breakpoint];
+			return show;
+		}, {});
+
+const getMaxCount = count =>
+	Object.keys(count)
+		.reduce((maxCount, breakpoint) => Math.max(maxCount, count[breakpoint]), 0);
+
 export default class extends Component {
 	render () {
-		const articleEls = this.props.articles
+		const count = this.props.count;
+		const articleEls = this.props.data.fastFt
 			.filter(article => !!article.title)
-			.slice(0, 20)
+			.slice(0, getMaxCount(count))
 			.map(article => Object.assign({}, article, { type: 'FastFt' }))
 			.map((article, index, articles) => {
 				const cardProps = {
 					data: { content: articles },
 					hideTag: true,
 					size: (index === 0 ? 'small' : 'tiny'),
-					itemIndex: index,
-					show: { default: true, L: index <= 6, XL: index <= 3 }
+					itemIndex: index
 				};
-				return <li className="fast-ft__item" key={article.id}><Content {...cardProps} /></li>;
+				const show = createShow(index, count);
+
+				return (
+					<li className="fast-ft__item" key={article.id} data-show={responsiveValue(show)}>
+						<Content {...cardProps} />
+					</li>
+				);
 			});
 
 		return (
-			<div className="fast-ft-wrapper">
-				<div className="fast-ft">
-					<h2 className="fast-ft__logo-outer">
-						<a className="fast-ft__link" href="/fastft" data-trackable="go-to-link" aria-label="fast F T">
-							<span className="fast-ft__logo fast-ft__logo--fast">fast</span><span className="fast-ft__logo fast-ft__logo--ft">FT</span>
-						</a>
-					</h2>
-					<ol className="fast-ft__items">
-						{articleEls}
-					</ol>
-				</div>
-				<div className="fastft-advert o-ads o-ads__center"
-					data-o-ads-name="MPU1"
-					data-o-ads-targeting="pos=mpu;"
-					data-o-ads-formats-small="false"
-					data-o-ads-formats-medium="false"
-					data-o-ads-formats-large="MediumRectangle"
-					data-o-ads-center="true"
-					data-o-ads-lazy-load="true"
-					aria-hidden="true">
-				</div>
+			<div className="fast-ft">
+				<h2 className="fast-ft__logo-outer">
+					<a className="fast-ft__link" href="/fastft" data-trackable="go-to-link" aria-label="fast F T">
+						<span className="fast-ft__logo fast-ft__logo--fast">fast</span><span className="fast-ft__logo fast-ft__logo--ft">FT</span>
+					</a>
+				</h2>
+				<ol className="fast-ft__items">
+					{articleEls}
+				</ol>
 			</div>
 		);
 	}

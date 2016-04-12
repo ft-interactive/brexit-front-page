@@ -1,5 +1,3 @@
-import FastFt from '../../shared/components/fast-ft/fast-ft';
-
 const getLayout = layoutHint => {
 	switch(layoutHint) {
 		case 'standaloneimage':
@@ -14,7 +12,7 @@ const getLayout = layoutHint => {
 			return 'top-stories';
 	}
 };
-export default ({ data, flags }) => ({
+export default ({ data }) => ({
 	id: 'top-stories',
 	title: 'Top Stories',
 	style: 'top-stories',
@@ -26,26 +24,9 @@ export default ({ data, flags }) => ({
 	size: {
 		default: 12
 	},
-	sidebarComponent: {
-		id: 'fastft',
-		component: FastFt,
-		isTab: true,
-		hideUntilDesktop: flags.frontPageFastFTJourney
-	},
 	cols: {
-		meta: {
-			default: 12,
-			hide: true
-		},
 		content: {
-			default: 12,
-			L: 8,
-			XL: 9
-		},
-		sidebar: {
-			default: 12,
-			L: 4,
-			XL: 3
+			default: 12
 		}
 	}
 })

@@ -1,12 +1,12 @@
-export default ({ flags }) => ({
+export default () => ({
 	id: 'markets',
-	title: `<a href="/markets" class="section-meta__link" data-trackable="section-title">${flags.frontPageNewLayout ? 'Markets News' : 'Markets'}</a>`,
+	title: `<a href="/markets" class="section-meta__link" data-trackable="section-title">Markets News</a>`,
 	style: 'markets',
-	layoutId: flags.frontPageNewLayout ? 'featured-section-new' : 'featured-section',
+	layoutId: 'featured-section',
 	trackScrollEvent: true,
 	size: {
 		default: 12,
-		M: flags.frontPageNewLayout ? 6 : 4,
+		M: 6,
 	},
 	cols: {
 		meta: {

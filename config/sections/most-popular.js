@@ -1,10 +1,10 @@
-export default ({ flags }) => ({
+export default () => ({
 	id: 'most-popular',
 	title: 'Most Read',
 	style: 'most-popular',
-	layoutId: flags.frontPageNewLayout ? 'most-popular-new' : 'most-popular',
+	layoutId: 'most-popular',
 	trackScrollEvent: true,
-	articleRanking: flags.frontPageNewLayout,
+	articleRanking: true,
 	size: {
 		default: 12
 	},

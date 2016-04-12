@@ -1,9 +1,11 @@
 export default [
-	{ type: 'Row',
+	{
+		type: 'Row',
 		components: [
 			{
 				type: 'Column',
-				colspan: { default: 12, XL: 9},
+				isRelated: true,
+				colspan: { default: 12, L: 9 },
 				components: [
 					{
 						type: 'Row',
@@ -21,7 +23,7 @@ export default [
 										isMain: true,
 										image: {
 											position: { default: 'top', M: 'right' },
-											sizes: { default: 449, s: 659, m: 450, l: 374, xl: 384 }
+											sizes: { default: 449, s: 659, m: 450, l: 423, xl: 517 }
 										}
 									}
 								]
@@ -33,56 +35,12 @@ export default [
 						components: [
 							{
 								type: 'Column',
-								colspan: { default: 12, S: 4 },
-								components: [
-									{
-										type: 'Content',
-										size: 'small',
-										isPictureStory: true,
-										hideTag: true
-									}
-								]
-							},
-							{
-								type: 'Column',
-								colspan: { default: 12, S: 4 },
-								components: [
-									{
-										type: 'Content',
-										size: 'small',
-										isPictureStory: true,
-										hideTag: true
-									}
-								]
-							},
-							{
-								type: 'Column',
-								colspan: { default: 12, S: 4 },
-								components: [
-									{
-										type: 'Content',
-										size: 'small',
-										isPictureStory: true,
-										hideTag: true
-									}
-								]
-							}
-						]
-					},
-					{
-						type: 'Row',
-						components: [
-							{
-								type: 'Column',
-								colspan: { default: 12, M: 8},
+								colspan: { default: 12, M: 4 },
 								components: [
 									{
 										type: 'Content',
 										size: 'medium',
-										image: {
-											position: { default: 'left', M: 'right' },
-											sizes: { default: 180, s: 264, m: 294, l: 244, xl: 250 }
-										}
+										hideTag: true
 									}
 								]
 							},
@@ -92,7 +50,19 @@ export default [
 								components: [
 									{
 										type: 'Content',
-										size: 'medium'
+										size: 'medium',
+										hideTag: true
+									}
+								]
+							},
+							{
+								type: 'Column',
+								colspan: { default: 12, M: 4 },
+								components: [
+									{
+										type: 'Content',
+										size: 'medium',
+										hideTag: true
 									}
 								]
 							}
@@ -102,49 +72,109 @@ export default [
 			},
 			{
 				type: 'Column',
-				colspan: { default: 12, XL: 3 },
+				colspan: { default: 'hide', S: 'hide', M: 'hide', L: 3 },
+				components: [
+					{
+						type: 'FastFt',
+						count: {
+							default: 4, XL: 5, XXL: 6
+						}
+					}
+				]
+			}
+		]
+	},
+	{
+		type: 'Row',
+		components: [
+			{
+				type: 'Column',
+				colspan: { default: 6, L: 3 },
+				components: [
+					{
+						type: 'Content',
+						size: 'medium',
+						image: {
+							position: { default: 'top', S: 'right', L: 'top' },
+							sizes: { default: 210, s: 158, m: 216, l: 259, xl: 322 }
+						}
+					}
+				]
+			},
+			{
+				type: 'Column',
+				colspan: { default: 6, L: 3 },
+				components: [
+					{
+						type: 'Content',
+						size: 'medium',
+						image: {
+							position: { default: 'top', S: 'right', L: 'top' },
+							sizes: { default: 210, s: 158, m: 216, l: 259, xl: 322 }
+						}
+					}
+				]
+			},
+			{
+				type: 'Column',
+				colspan: { default: 12, L: 6 },
 				components: [
 					{
 						type: 'Row',
 						components: [
 							{
 								type: 'Column',
-								colspan: { default: 12, M: 4, XL: 12 },
-								components: [
-									{
-										type: 'Content',
-										size: 'medium'
-									}
-								]
-							},
-							{
-								type: 'Column',
-								colspan: { default: 12, M: 4, XL: 12 },
-								components: [
-									{
-										type: 'Content',
-										size: 'medium'
-									}
-								]
-							},
-							{
-								type: 'Column',
-								colspan: { default: 12, M: 4, XL: 12 },
-								components: [
-									{
-										type: 'Content',
-										size: 'medium'
-									}
-								]
-							},
-							{
-								type: 'Column',
-								colspan: { default: 12 },
+								colspan: { default: 12, S: 6 },
 								components: [
 									{
 										type: 'Content',
 										size: 'medium',
-										show: { default: false, XL: true }
+										standfirst: {
+											show: { default: true }
+										}
+									}
+								]
+							},
+							{
+								type: 'Column',
+								colspan: { default: 12, S: 6 },
+								components: [
+									{
+										type: 'Content',
+										size: 'medium',
+										standfirst: {
+											show: { default: true }
+										}
+									}
+								]
+							}
+						]
+					},
+					{
+						type: 'Row',
+						components: [
+							{
+								type: 'Column',
+								colspan: { default: 12, S: 6 },
+								components: [
+									{
+										type: 'Content',
+										size: 'medium'
+									}
+								]
+							},
+							{
+								type: 'Column',
+								colspan: { default: 12, S: 6 },
+								components: [
+									{
+										type: 'Content',
+										size: 'medium',
+										image: {
+											show: { default: true, S: false, XXL: true },
+											position: { default: 'right' },
+											sizes: { default: 225, xl: 161 }
+										}
 									}
 								]
 							}
@@ -153,6 +183,55 @@ export default [
 				]
 			}
 		]
+	},
+	{
+		type: 'Row',
+		components: [
+			{
+				type: 'Column',
+				colspan: { default: 12, M: 3 },
+				components: [
+					{
+						type: 'Content',
+						size: 'small'
+					}
+				]
+			},
+			{
+				type: 'Column',
+				colspan: { default: 12, M: 3 },
+				components: [
+					{
+						type: 'Content',
+						size: 'small'
+					}
+				]
+			},
+			{
+				type: 'Column',
+				colspan: { default: 12, M: 3 },
+				components: [
+					{
+						type: 'Content',
+						size: 'small',
+						image: {
+							show: { default: true, S: false, XXL: true },
+							position: { default: 'right' },
+							sizes: { default: 225, xl: 161 }
+						}
+					}
+				]
+			},
+			{
+				type: 'Column',
+				colspan: { default: 12, M: 3 },
+				components: [
+					{
+						type: 'Content',
+						size: 'small'
+					}
+				]
+			}
+		]
 	}
-
 ];

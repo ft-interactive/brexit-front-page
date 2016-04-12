@@ -1,14 +1,14 @@
 export default [
-	{ type: 'Row',
+	{
+		type: 'Row',
 		components: [
 			{
 				type: 'Column',
-				colspan: { default: 12, XL: 9},
+				colspan: { default: 12, L: 9 },
 				components: [
 					{
 						type: 'Row',
 						components: [
-							//Column 0
 							{
 								type: 'Column',
 								colspan: { default: 12 },
@@ -20,62 +20,12 @@ export default [
 											show: { default: true }
 										},
 										related: {
-											show: true,
-											colspan: { default: 12, S: 4 }
+											show: { default: true, M: false, XL: true },
+											colspan: { default: 12 }
 										},
 										image: {
-											sizes: { default: 225, s: 330, m: 450, l: 374, xl: 384 },
-											position: { default: 'right' }
-										}
-									}
-								]
-							}
-						]
-					},
-					{
-						type: 'Row',
-						components: [
-							//Column 0
-							{
-								type: 'Column',
-								colspan: { default: 12, M: 4 },
-								components: [
-									{
-										type: 'Content',
-										size: 'medium',
-										image: {
-											position: { default: 'left', M: 'top' },
-											sizes: { default: 180, s: 264, m: 277, l: 226, xl: 233 }
-										}
-									}
-								]
-							},
-							//Column 1
-							{
-								type: 'Column',
-								colspan: { default: 12, M: 4 },
-								components: [
-									{
-										type: 'Content',
-										size: 'medium'
-									},
-									{
-										type: 'Content',
-										size: 'medium'
-									}
-								]
-							},
-							//Column 2
-							{
-								type: 'Column',
-								colspan: { default: 12, M: 4 },
-								components: [
-									{
-										type: 'Content',
-										size: 'medium',
-										image: {
-											position: { default: 'left', M: 'top' },
-											sizes: { default: 180, s: 264, m: 277, l: 226, xl: 233 }
+											position: { default: 'top', M: 'right' },
+											sizes: { default: 449, s: 659, m: 450, l: 423, xl: 517 }
 										}
 									}
 								]
@@ -86,49 +36,109 @@ export default [
 			},
 			{
 				type: 'Column',
-				colspan: { default: 12, XL: 3 },
+				colspan: { default: 'hide', S: 'hide', M: 'hide', L: 3 },
+				components: [
+					{
+						type: 'FastFt',
+						count: {
+							default: 3, XL: 4
+						}
+					}
+				]
+			}
+		]
+	},
+	{
+		type: 'Row',
+		components: [
+			{
+				type: 'Column',
+				colspan: { default: 6, L: 3 },
+				components: [
+					{
+						type: 'Content',
+						size: 'medium',
+						image: {
+							position: { default: 'top', S: 'right', L: 'top' },
+							sizes: { default: 210, s: 158, m: 216, l: 259, xl: 322 }
+						}
+					}
+				]
+			},
+			{
+				type: 'Column',
+				colspan: { default: 6, L: 3 },
+				components: [
+					{
+						type: 'Content',
+						size: 'medium',
+						image: {
+							position: { default: 'top', S: 'right', L: 'top' },
+							sizes: { default: 210, s: 158, m: 216, l: 259, xl: 322 }
+						}
+					}
+				]
+			},
+			{
+				type: 'Column',
+				colspan: { default: 12, L: 6 },
 				components: [
 					{
 						type: 'Row',
 						components: [
 							{
 								type: 'Column',
-								colspan: { default: 12, M: 4, XL: 12 },
-								components: [
-									{
-										type: 'Content',
-										size: 'medium'
-									}
-								]
-							},
-							{
-								type: 'Column',
-								colspan: { default: 12, M: 4, XL: 12 },
-								components: [
-									{
-										type: 'Content',
-										size: 'medium'
-									}
-								]
-							},
-							{
-								type: 'Column',
-								colspan: { default: 12, M: 4, XL: 12 },
-								components: [
-									{
-										type: 'Content',
-										size: 'medium'
-									}
-								]
-							},
-							{
-								type: 'Column',
-								colspan: { default: 12 },
+								colspan: { default: 12, S: 6 },
 								components: [
 									{
 										type: 'Content',
 										size: 'medium',
-										show: { default: false, XL: true }
+										standfirst: {
+											show: { default: true }
+										}
+									}
+								]
+							},
+							{
+								type: 'Column',
+								colspan: { default: 12, S: 6 },
+								components: [
+									{
+										type: 'Content',
+										size: 'medium',
+										standfirst: {
+											show: { default: true }
+										}
+									}
+								]
+							}
+						]
+					},
+					{
+						type: 'Row',
+						components: [
+							{
+								type: 'Column',
+								colspan: { default: 12, S: 6 },
+								components: [
+									{
+										type: 'Content',
+										size: 'medium'
+									}
+								]
+							},
+							{
+								type: 'Column',
+								colspan: { default: 12, S: 6 },
+								components: [
+									{
+										type: 'Content',
+										size: 'medium',
+										image: {
+											show: { default: true, S: false, XXL: true },
+											position: { default: 'right' },
+											sizes: { default: 225, xl: 161 }
+										}
 									}
 								]
 							}
@@ -137,6 +147,55 @@ export default [
 				]
 			}
 		]
+	},
+	{
+		type: 'Row',
+		components: [
+			{
+				type: 'Column',
+				colspan: { default: 12, M: 3 },
+				components: [
+					{
+						type: 'Content',
+						size: 'small'
+					}
+				]
+			},
+			{
+				type: 'Column',
+				colspan: { default: 12, M: 3 },
+				components: [
+					{
+						type: 'Content',
+						size: 'small'
+					}
+				]
+			},
+			{
+				type: 'Column',
+				colspan: { default: 12, M: 3 },
+				components: [
+					{
+						type: 'Content',
+						size: 'small',
+						image: {
+							show: { default: true, S: false, XXL: true },
+							position: { default: 'right' },
+							sizes: { default: 225, xl: 161 }
+						}
+					}
+				]
+			},
+			{
+				type: 'Column',
+				colspan: { default: 12, M: 3 },
+				components: [
+					{
+						type: 'Content',
+						size: 'small'
+					}
+				]
+			}
+		]
 	}
-
 ];

@@ -8,7 +8,6 @@ import midPageAdvert2Section from './mid-page-advert-2';
 import opinionSection from './opinion';
 import technologySection from './technology';
 import topStoriesSection from './top-stories';
-import topStoriesNewSection from './top-stories-new';
 import videosSection from './videos';
 
 import layouts from '../layouts';
@@ -24,7 +23,6 @@ const sections = {
 	opinion: opinionSection,
 	technology: technologySection,
 	'top-stories': topStoriesSection,
-	'top-stories-new': topStoriesNewSection,
 	videos: videosSection
 };
 
