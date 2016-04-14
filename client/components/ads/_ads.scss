@@ -10,6 +10,10 @@ $ad-medium-breakpoint: 760px;
 		line-height: 0;
 		white-space: pre;
 		text-align: center;
+
+		&[data-o-ads-loaded="Responsive"] {
+			padding: 0;
+		}
 	}
 }
 
@@ -33,7 +37,6 @@ $ad-medium-breakpoint: 760px;
 
 .advert[data-o-ads-loaded="Responsive"] {
 	height: auto;
-	padding: 0;
 	min-height: calc(100vw * 0.1734); //aspect ratio of responsive creatives
 	@include oGridRespondTo($until: S) {
 		min-height: calc(100vw * 0.481);
