@@ -1,9 +1,16 @@
 // Ad breakpoint where leaderboards start working
 $ad-medium-breakpoint: 760px;
 
+@mixin adWillTransition {
+	will-change: min-height, padding, height;
+	transform: translate3d(0,0,0);
+	transition: height 0.35s ease-in-out, min-height 0.35s ease-in-out, padding 0.35s ease-in-out;
+}
 .above-header-advert {
 	@media (min-width:$ad-medium-breakpoint) {
+		@include adWillTransition();
 		min-height: 90px;
+		height: 90px;
 		display: block;
 		padding: 10px 0;
 		line-height: 0;
@@ -12,15 +19,23 @@ $ad-medium-breakpoint: 760px;
 	}
 
 	&[data-o-ads-loaded="Responsive"] {
+		height: auto;
+		min-height: calc(100vw * 0.1735); //aspect ratio of responsive creatives
 		padding: 0;
 	}
 
+	&[data-o-ads-loaded="Billboard"] {
+		height: 250px;
+	}
+
 }
+
 
 .mid-page-1-advert,
 .mid-page-2-advert {
 	display: block;
 	padding: 10px 0 0;
+	background-color: getColorFor('page', 'background');
 	[data-ads-layout="default"] & {
 		display: none;
 		padding: 0;
