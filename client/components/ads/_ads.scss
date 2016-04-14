@@ -1,14 +1,8 @@
 // Ad breakpoint where leaderboards start working
 $ad-medium-breakpoint: 760px;
 
-@mixin adWillTransition {
-	will-change: min-height, padding, height;
-	transform: translate3d(0,0,0);
-	transition: height 0.35s ease-in-out, min-height 0.35s ease-in-out, padding 0.35s ease-in-out;
-}
 .above-header-advert {
 	@media (min-width:$ad-medium-breakpoint) {
-		@include adWillTransition();
 		min-height: 90px;
 		height: 90px;
 		display: block;
@@ -17,25 +11,14 @@ $ad-medium-breakpoint: 760px;
 		white-space: pre;
 		text-align: center;
 	}
-
-	&[data-o-ads-loaded="Responsive"] {
-		height: auto;
-		min-height: calc(100vw * 0.1735); //aspect ratio of responsive creatives
-		padding: 0;
-	}
-
-	&[data-o-ads-loaded="Billboard"] {
-		height: 250px;
-	}
-
 }
-
 
 .mid-page-1-advert,
 .mid-page-2-advert {
 	display: block;
+	height: 90px;
+	min-height: 90px;
 	padding: 10px 0 0;
-	background-color: getColorFor('page', 'background');
 	[data-ads-layout="default"] & {
 		display: none;
 		padding: 0;
@@ -46,4 +29,36 @@ $ad-medium-breakpoint: 760px;
 	@media (min-width:$ad-medium-breakpoint) {
 		display: none;
 	}
+}
+
+.advert[data-o-ads-loaded="Responsive"] {
+	height: auto;
+	padding: 0;
+	min-height: calc(100vw * 0.1734); //aspect ratio of responsive creatives
+	@media (max-width: 489px) {
+		min-height: calc(100vw * 0.481);
+	}
+}
+
+.advert[data-o-ads-loaded="MediumRectangle"],
+.advert[data-o-ads-loaded="Billboard"] {
+	height: 250px;
+}
+
+.advert--full-bleed {
+	width: 100vw;
+	margin-left: -10px;
+	@include oGridRespondTo(S) {
+		margin-left: -30px;
+	}
+}
+
+.advert--background {
+	background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAALElEQVQIW2M8d2znf2kJMQZkwPjy3vn/T1+8YkCWAAuCVCFLwAWRJVAEYRIAHZ8dptpqH2wAAAAASUVORK5CYII=) repeat;
+}
+
+.advert--transition {
+	will-change: min-height, padding, height;
+	transform: translate3d(0, 0, 0);
+	transition: height 0.35s ease-in-out, min-height 0.35s ease-in-out, padding 0.35s ease-in-out;
 }
