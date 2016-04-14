@@ -35,7 +35,7 @@ $ad-medium-breakpoint: 760px;
 	height: auto;
 	padding: 0;
 	min-height: calc(100vw * 0.1734); //aspect ratio of responsive creatives
-	@media (max-width: 489px) {
+	@include oGridRespondTo($until: S) {
 		min-height: calc(100vw * 0.481);
 	}
 }
