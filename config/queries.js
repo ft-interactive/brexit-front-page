@@ -70,15 +70,15 @@ const fragments = {
 };
 
 // Produces a front page query for a given region
-const frontPage = (region) => (`
+const frontPage = `
 	${fragments.basic}
 	${fragments.extended}
 	${fragments.related}
 	${fragments.opinionData}
 	${fragments.liveBlog}
 
-	query FrontPage {
-		topStory: top(region: ${region}){
+	query FrontPage($region: Region!) {
+		topStory: top(region: $region){
 			items(limit: 1) {
 				... Basic
 				... Extended
@@ -99,7 +99,7 @@ const frontPage = (region) => (`
 				}
 			}
 		}
-		top(region: ${region}) {
+		top(region: $region) {
 			items {
 				... Basic
 				... Extended
@@ -108,7 +108,7 @@ const frontPage = (region) => (`
 				... LiveBlogInfo
 			}
 		}
-		topStoriesList(region: ${region}) {
+		topStoriesList(region: $region) {
 			layoutHint
 			items {
 				... Basic
@@ -193,7 +193,7 @@ const frontPage = (region) => (`
 			}
 		}
 	}
-`);
+`;
 
 const user = `
 	fragment Basic on Concept {
@@ -214,11 +214,11 @@ const user = `
 		}
 	}
 
-	query MyFT {
+	query MyFT($uuid: String) {
 		popularTopics(limit: 4) {
 			... Basic
 		}
-		user {
+		user(uuid: $uuid) {
 			viewed(limit: 4) {
 				... Basic
 			}

@@ -23,15 +23,13 @@ let queryResults = {
 
 let readyPromise;
 
-const pollData = (query, name, flags = {}) => {
+const pollData = (query, variables, name, flags = {}) => {
 	const xFlagsHeader = Object.keys(flags).map(flag => `${flag}:${flags[flag] ? 'on' : 'off'}`).join(',');
 	const poller = new Poller({
 		url: `https://next-graphql-api.ft.com/data?apiKey=${process.env.GRAPHQL_API_KEY}`,
 		options: {
 			method: 'POST',
-			body: JSON.stringify({
-				query: query
-			}),
+			body: JSON.stringify({ query, variables }),
 			headers: {
 				'Content-Type': 'application/json',
 				'X-Flags': xFlagsHeader
@@ -57,9 +55,9 @@ const pollData = (query, name, flags = {}) => {
 const start = () => {
 	if (!readyPromise) {
 		readyPromise = Promise.all([
-				pollData(queries.frontPage('UK'), 'frontPageUK').start({ initialRequest: true }),
-				pollData(queries.frontPage('US'), 'frontPageUS').start({ initialRequest: true }),
-				pollData(queries.frontPage('UK'), 'mockFrontPage', { mockFrontPage: true }).start({ initialRequest: true })
+				pollData(queries.frontPage, { region: 'UK' }, 'frontPageUK').start({ initialRequest: true }),
+				pollData(queries.frontPage, { region: 'US' }, 'frontPageUS').start({ initialRequest: true }),
+				pollData(queries.frontPage, { region: 'UK' }, 'mockFrontPage', { mockFrontPage: true }).start({ initialRequest: true })
 			])
 			.catch(e => {
 				logger.error(e);
