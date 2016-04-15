@@ -77,12 +77,17 @@ export default (myftClient, flags) => {
 	const myFtContainerEl = document.getElementById('myft');
 	if (myFtContainerEl && flags.get('myFtApi') && sessionClient.cookie()) {
 		components.MyftPromo = MyftPromo;
-		crossDomainFetch(
-			`https://next-graphql-api.ft.com/data?query=${slimQuery(query)}`,
-			{ credentials: 'include', timeout: 5000 }
-		)
-			.then(fetchJson)
-			.then(handleResponse.bind(undefined, myFtContainerEl, myftClient, flags))
+		sessionClient.uuid()
+			.then(response => {
+				crossDomainFetch(
+					`https://next-graphql-api.ft.com/data?query=${slimQuery(query)}&variables={"uuid":"${response.uuid}"}`,
+					{ credentials: 'include', timeout: 5000 }
+				)
+					.then(fetchJson)
+					.then(handleResponse.bind(undefined, myFtContainerEl, myftClient, flags))
+					.catch(errorHandler);
+
+			})
 			.catch(errorHandler);
 	}
 }
