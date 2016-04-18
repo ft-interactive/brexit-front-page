@@ -19,6 +19,7 @@ const app = express({
 	withHandlebars: true,
 	withNavigation: true,
 	withAnonMiddleware: true,
+	withRequestTracing: true,
 	withBackendAuthentication: true,
 	helpers: {
 		reactRenderToString: (klass, props) => {
