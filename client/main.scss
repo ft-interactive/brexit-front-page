@@ -14,12 +14,13 @@ $o-grid-start-snappy-mode-at: XXL;
 $o-grid-ie8-rules: false;
 
 @import "n-layout/main";
-//Override the default page background color
-@include oColorsSetUseCase(page, background, 'pink');
-@import 'n-section/main';
 @import "n-message-prompts/main";
 @import "n-video/main";
 @import "next-myft-ui/main";
+
+//Override the default page background color
+@include oColorsSetUseCase(page, background, 'pink');
+@import 'n-section/main';
 
 @import "colors";
 @import "functions";
