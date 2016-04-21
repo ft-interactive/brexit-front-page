@@ -15,13 +15,10 @@ $o-grid-ie8-rules: 'only';
 
 @import "o-grid/main";
 // Mixins to ease the transition to o-grid v4
-@if not mixin-exists(oGridColumn) {
-	@mixin oGridColumn($args...) {
-		@warn "oGridColumn is deprecated. Please use oGridColspan instead.";
-		@include oGridColspan($args...);
-	}
+@mixin oGridColumn($args...) {
+	@warn "oGridColumn is deprecated. Please use oGridColspan instead.";
+	@include oGridColspan($args...);
 }
-
 
 // Surface current layout (for the JS helper)
 @include oGridSurfaceCurrentLayout;
