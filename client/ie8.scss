@@ -30,11 +30,9 @@ $o-grid-ie8-rules: 'only';
 @import "../shared/components/main-ie8";
 
 .o-header__masthead__logo--mobile,
-.o-header__membership-promo-container {
-	display: none;
-}
-
-.page-menu {
+.o-header__membership-promo-container,
+.page-menu,
+.back-to-top {
 	display: none;
 }
 

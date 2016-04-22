@@ -1,0 +1,25 @@
+.back-to-top {
+	padding: 15px 10px 10px;
+	text-align: center;
+
+	.back-to-top__link {
+		display: inline-block;
+		padding: 15px;
+		border-bottom-color: transparent;
+
+		&:before {
+			@include nextIcon(arrow-up, getColor('teal-1'), 10);
+			content: '';
+			margin-left: -5px;
+			padding-right: 10px;
+		}
+
+		&:hover:before {
+			@include nextIcon(arrow-up, getColor('cold-1'), 10, $icon-only: true);
+		}
+	}
+
+	@include oGridRespondTo(S) {
+		display: none;
+	}
+}
