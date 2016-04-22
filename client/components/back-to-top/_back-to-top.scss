@@ -14,7 +14,7 @@
 			padding-right: 10px;
 		}
 
-		&:hover::before {
+		&:hover:before {
 			@include nextIcon(arrow-up, getColor('cold-1'), 10, $icon-only: true);
 		}
 	}
