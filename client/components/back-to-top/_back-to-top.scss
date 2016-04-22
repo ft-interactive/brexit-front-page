@@ -15,7 +15,7 @@
 		}
 
 		&:hover::before {
-			@include nextIcon(arrow-up, getColor('cold-1'), 10);
+			@include nextIcon(arrow-up, getColor('cold-1'), 10, $icon-only: true);
 		}
 	}
 
