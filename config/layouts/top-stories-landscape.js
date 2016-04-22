@@ -1,3 +1,5 @@
+import createImageConfig from '../../shared/libs/create-image-config';
+
 export default [
 	{
 		type: 'Row',
@@ -23,10 +25,7 @@ export default [
 											show: { default: true, M: false, XL: true },
 											colspan: { default: 12 }
 										},
-										image: {
-											position: { default: 'top', M: 'right' },
-											sizes: { default: 449, s: 659, m: 450, l: 423, xl: 517 }
-										}
+										image: createImageConfig({ default: 12, L: 9 }, { default: 'top', M: 'right' }, [659])
 									}
 								]
 							}
@@ -58,10 +57,7 @@ export default [
 					{
 						type: 'Content',
 						size: 'medium',
-						image: {
-							position: { default: 'top', S: 'right', L: 'top' },
-							sizes: { default: 210, s: 158, m: 216, l: 259, xl: 322 }
-						}
+						image: createImageConfig({ default: 6, L: 3 }, { default: 'top', S: 'right', L: 'top' }, [659])
 					}
 				]
 			},
@@ -72,10 +68,7 @@ export default [
 					{
 						type: 'Content',
 						size: 'medium',
-						image: {
-							position: { default: 'top', S: 'right', L: 'top' },
-							sizes: { default: 210, s: 158, m: 216, l: 259, xl: 322 }
-						}
+						image: createImageConfig({ default: 6, L: 3 }, { default: 'top', S: 'right', L: 'top' }, [659])
 					}
 				]
 			},
@@ -134,11 +127,12 @@ export default [
 									{
 										type: 'Content',
 										size: 'medium',
-										image: {
-											show: { default: true, S: false, XXL: true },
-											position: { default: 'right' },
-											sizes: { default: 225, xl: 161 }
-										}
+										image: createImageConfig(
+											{ default: 12, S: 6, L: 3 },
+											{ default: 'right' },
+											[659],
+											{ show: { default: true, S: false, XXL: true }}
+										)
 									}
 								]
 							}
@@ -178,11 +172,12 @@ export default [
 					{
 						type: 'Content',
 						size: 'small',
-						image: {
-							show: { default: true, S: false, XXL: true },
-							position: { default: 'right' },
-							sizes: { default: 225, xl: 161 }
-						}
+						image: createImageConfig(
+							{ default: 12, M: 3 },
+							{ default: 'right' },
+							[659],
+							{ show: { default: true, S: false, XXL: true }}
+						)
 					}
 				]
 			},

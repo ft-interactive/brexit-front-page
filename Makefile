@@ -4,7 +4,7 @@ TEST_APP := "ft-next-front-page-branch-${CIRCLE_BUILD_NUM}"
 
 unit-test:
 	@echo "Testing…"
-	@export NODE_ENV=test; mocha --require server/setup --recursive --reporter spec test/server
+	@export NODE_ENV=test; mocha --require server/setup --recursive --reporter spec test/server test/shared
 
 test: verify unit-test
 

@@ -1,3 +1,5 @@
+import createImageConfig from '../../shared/libs/create-image-config';
+
 export default [
 	{
 		type: 'Row',
@@ -37,10 +39,7 @@ export default [
 										standfirst: {
 											show: { default: false, S: true, XL: false }
 										},
-										image: {
-											position: { default: 'top' },
-											sizes: { default: 449, s: 315, m: 432, l: 406, xl: 500 }
-										}
+										image: createImageConfig({ default: 12, S: 6, L: 4.5 }, { default: 'top' }, [659])
 									}
 								]
 							}
@@ -72,10 +71,7 @@ export default [
 					{
 						type: 'Content',
 						size: 'medium',
-						image: {
-							position: { default: 'top', S: 'right', L: 'top' },
-							sizes: { default: 210, s: 158, m: 216, l: 259, xl: 322 }
-						}
+						image: createImageConfig({ default: 6, L: 3 }, { default: 'top', S: 'right', L: 'top' }, [659])
 					}
 				]
 			},
@@ -86,10 +82,7 @@ export default [
 					{
 						type: 'Content',
 						size: 'medium',
-						image: {
-							position: { default: 'top', S: 'right', L: 'top' },
-							sizes: { default: 210, s: 158, m: 216, l: 259, xl: 322 }
-						}
+						image: createImageConfig({ default: 6, L: 3 }, { default: 'top', S: 'right', L: 'top' }, [659])
 					}
 				]
 			},
@@ -148,11 +141,12 @@ export default [
 									{
 										type: 'Content',
 										size: 'medium',
-										image: {
-											show: { default: true, S: false, XXL: true },
-											position: { default: 'right' },
-											sizes: { default: 225, xl: 161 }
-										}
+										image: createImageConfig(
+											{ default: 12, S: 6, L: 3 },
+											{ default: 'right' },
+											[659],
+											{ show: { default: true, S: false, XXL: true }}
+										)
 									}
 								]
 							}
@@ -192,11 +186,12 @@ export default [
 					{
 						type: 'Content',
 						size: 'small',
-						image: {
-							show: { default: true, S: false, XXL: true },
-							position: { default: 'right' },
-							sizes: { default: 225, xl: 161 }
-						}
+						image: createImageConfig(
+							{ default: 12, M: 3 },
+							{ default: 'right' },
+							[659],
+							{ show: { default: true, S: false, XXL: true }}
+						)
 					}
 				]
 			},

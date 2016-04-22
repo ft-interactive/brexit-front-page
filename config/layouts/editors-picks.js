@@ -1,3 +1,5 @@
+import createImageConfig from '../../shared/libs/create-image-config';
+
 export default [
 	{
 		type: 'Row',
@@ -10,11 +12,12 @@ export default [
 					{
 						type: 'Content',
 						size: 'small',
-						image: {
-							stick: true,
-							position: { default: 'left', S: 'bottom', L: 'left', XL: 'bottom' },
-							sizes: { default: 180, s: 315, m: 277, l: 143, xl: 203 }
-						}
+						image: createImageConfig(
+							{ default: 12, S: 6, M: 4, XL: 2 },
+							{ default: 'left', S: 'bottom', L: 'left', XL: 'bottom' },
+							[659],
+							{ stick: true }
+						)
 					}
 				]
 			},
@@ -26,11 +29,12 @@ export default [
 					{
 						type: 'Content',
 						size: 'small',
-						image: {
-							stick: true,
-							position: { default: 'left', S: 'bottom', L: 'left', XL: 'bottom' },
-							sizes: { default: 180, s: 315, m: 277, l: 143, xl: 203 }
-						}
+						image: createImageConfig(
+							{ default: 12, S: 6, M: 4, XL: 2 },
+							{ default: 'left', S: 'bottom', L: 'left', XL: 'bottom' },
+							[659],
+							{ stick: true }
+						)
 					}
 				]
 			},
@@ -42,11 +46,12 @@ export default [
 					{
 						type: 'Content',
 						size: 'small',
-						image: {
-							stick: true,
-							position: { default: 'left', S: 'bottom', L: 'left', XL: 'bottom' },
-							sizes: { default: 180, s: 315, m: 277, l: 143, xl: 203 }
-						}
+						image: createImageConfig(
+							{ default: 12, S: 6, M: 4, XL: 2 },
+							{ default: 'left', S: 'bottom', L: 'left', XL: 'bottom' },
+							[659],
+							{ stick: true }
+						)
 					}
 				]
 			},
@@ -58,11 +63,12 @@ export default [
 					{
 						type: 'Content',
 						size: 'small',
-						image: {
-							stick: true,
-							position: { default: 'left', S: 'bottom', L: 'left', XL: 'bottom' },
-							sizes: { default: 180, s: 315, m: 277, l: 143, xl: 203 }
-						}
+						image: createImageConfig(
+							{ default: 12, S: 6, M: 4, XL: 2 },
+							{ default: 'left', S: 'bottom', L: 'left', XL: 'bottom' },
+							[659],
+							{ stick: true }
+						)
 					}
 				]
 			},
@@ -74,11 +80,12 @@ export default [
 					{
 						type: 'Content',
 						size: 'small',
-						image: {
-							stick: true,
-							position: { default: 'left', S: 'bottom', L: 'left', XL: 'bottom' },
-							sizes: { default: 180, s: 315, m: 277, l: 143, xl: 203 }
-						}
+						image: createImageConfig(
+							{ default: 12, S: 6, M: 4, XL: 2 },
+							{ default: 'left', S: 'bottom', L: 'left', XL: 'bottom' },
+							[659],
+							{ stick: true }
+						)
 					}
 				]
 			},
@@ -90,11 +97,12 @@ export default [
 					{
 						type: 'Content',
 						size: 'small',
-						image: {
-							stick: true,
-							position: { default: 'left', S: 'bottom', L: 'left', XL: 'bottom' },
-							sizes: { default: 180, s: 315, m: 277, l: 143, xl: 203 }
-						}
+						image: createImageConfig(
+							{ default: 12, S: 6, M: 4, XL: 2 },
+							{ default: 'left', S: 'bottom', L: 'left', XL: 'bottom' },
+							[659],
+							{ stick: true }
+						)
 					}
 				]
 			}

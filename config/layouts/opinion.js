@@ -1,3 +1,5 @@
+import createImageConfig from '../../shared/libs/create-image-config';
+
 export default [
 	{
 		type: 'Row',
@@ -12,9 +14,7 @@ export default [
 						standfirst: {
 							show: { default: true }
 						},
-						image: {
-							sizes: { default: 449, s: 659, m: 277, l: 259, xl: 322 }
-						}
+						image: createImageConfig({ default: 12, M: 4, L: 3 }, { default: 'bottom' }, [659])
 					}
 				]
 			},
