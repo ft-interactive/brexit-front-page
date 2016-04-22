@@ -1,7 +1,7 @@
 import chai from 'chai';
 const expect = chai.expect;
 
-import { responsiveClass, responsiveValue } from '../../../../shared/libs/helpers';
+import { responsiveClass, responsiveValue } from '../../../shared/libs/helpers';
 
 describe('Card helpers', () => {
 	describe('#responsiveClass', () => {

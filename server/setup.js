@@ -1,5 +1,11 @@
 // modules that need to be compiled by babel
-const es6Modules = ['@financial-times/n-card', '@financial-times/n-section', 'n-image', 'next-myft-ui', 'o-date'];
+const es6Modules = [
+	'@financial-times/n-card',
+	'@financial-times/n-image',
+	'@financial-times/n-section',
+	'next-myft-ui',
+	'o-date'
+];
 
 require('babel-register')({
 	plugins: [
