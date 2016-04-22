@@ -21,7 +21,7 @@ export default [
 										standfirst: {
 											show: { default: true }
 										},
-										image: createImageConfig({ default: 12, M: 9, L: 6 }, { default: 'right' }, [659])
+										image: createImageConfig({ default: 12, M: 9, L: 6 }, { default: 'right' }, [140, 210, 339])
 									}
 								]
 							},
@@ -50,7 +50,7 @@ export default [
 									{
 										type: 'Content',
 										size: 'medium',
-										image: createImageConfig({ default: 12, M: 4, L: 3 }, { default: 'left' }, [659])
+										image: createImageConfig({ default: 12, M: 4, L: 3 }, { default: 'left' }, [129, 264])
 									}
 								]
 							},

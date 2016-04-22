@@ -11,8 +11,8 @@ describe('Create Image Sizes', () => {
 		const imageSizes = createImageSizes(colspan, position);
 
 		imageSizes.should.eql({
-			default: '100vw - 40px',
-			S: '100vw - 80px',
+			default: 'calc(100vw - 40px)',
+			S: 'calc(100vw - 80px)',
 			XXL: '1390px'
 		});
 	});
@@ -23,8 +23,8 @@ describe('Create Image Sizes', () => {
 		const imageSizes = createImageSizes(colspan, position);
 
 		imageSizes.should.eql({
-			default: '100vw - 40px',
-			S: '100vw - 80px',
+			default: 'calc(100vw - 40px)',
+			S: 'calc(100vw - 80px)',
 			XXL: '1390px'
 		});
 	});
@@ -35,8 +35,8 @@ describe('Create Image Sizes', () => {
 		const imageSizes = createImageSizes(colspan, position);
 
 		imageSizes.should.eql({
-			default: '40vw - 16px',
-			S: '40vw - 32px',
+			default: 'calc(40vw - 16px)',
+			S: 'calc(40vw - 32px)',
 			XXL: '556px'
 		});
 	});
@@ -47,8 +47,8 @@ describe('Create Image Sizes', () => {
 		const imageSizes = createImageSizes(colspan, position);
 
 		imageSizes.should.eql({
-			default: '50vw - 20px',
-			S: '50vw - 40px',
+			default: 'calc(50vw - 20px)',
+			S: 'calc(50vw - 40px)',
 			XXL: '695px'
 		});
 	});
@@ -59,9 +59,9 @@ describe('Create Image Sizes', () => {
 		const imageSizes = createImageSizes(colspan, position);
 
 		imageSizes.should.eql({
-			default: '100vw - 40px',
-			S: '40vw - 32px',
-			L: '100vw - 80px',
+			default: 'calc(100vw - 40px)',
+			S: 'calc(40vw - 32px)',
+			L: 'calc(100vw - 80px)',
 			XXL: '695px'
 		});
 	});
@@ -72,10 +72,10 @@ describe('Create Image Sizes', () => {
 		const imageSizes = createImageSizes(colspan, position);
 
 		imageSizes.should.eql({
-			default: '100vw - 40px',
-			S: '50vw - 55px',
-			M: '50vw - 57.5px',
-			L: '66.667vw - 65px',
+			default: 'calc(100vw - 40px)',
+			S: 'calc(50vw - 55px)',
+			M: 'calc(50vw - 57.5px)',
+			L: 'calc(66.667vw - 65px)',
 			XXL: '1033.75px'
 		});
 	});

@@ -25,7 +25,7 @@ export default [
 											show: { default: true, M: false, XL: true },
 											colspan: { default: 12 }
 										},
-										image: createImageConfig({ default: 12, L: 9 }, { default: 'top', M: 'right' }, [659])
+										image: createImageConfig({ default: 12, L: 9 }, { default: 'top', M: 'right' }, [280, 400, 517, 659])
 									}
 								]
 							}
@@ -57,7 +57,7 @@ export default [
 					{
 						type: 'Content',
 						size: 'medium',
-						image: createImageConfig({ default: 6, L: 3 }, { default: 'top', S: 'right', L: 'top' }, [659])
+						image: createImageConfig({ default: 6, L: 3 }, { default: 'top', S: 'right', L: 'top' }, [150, 216, 322])
 					}
 				]
 			},
@@ -68,7 +68,7 @@ export default [
 					{
 						type: 'Content',
 						size: 'medium',
-						image: createImageConfig({ default: 6, L: 3 }, { default: 'top', S: 'right', L: 'top' }, [659])
+						image: createImageConfig({ default: 6, L: 3 }, { default: 'top', S: 'right', L: 'top' }, [150, 216, 322])
 					}
 				]
 			},
@@ -130,7 +130,7 @@ export default [
 										image: createImageConfig(
 											{ default: 12, S: 6, L: 3 },
 											{ default: 'right' },
-											[659],
+											[161, 225],
 											{ show: { default: true, S: false, XXL: true }}
 										)
 									}
@@ -175,7 +175,7 @@ export default [
 						image: createImageConfig(
 							{ default: 12, M: 3 },
 							{ default: 'right' },
-							[659],
+							[161, 225],
 							{ show: { default: true, S: false, XXL: true }}
 						)
 					}

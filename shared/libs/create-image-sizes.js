@@ -25,7 +25,7 @@ const getSize = (pagePadding, cardPadding, colspan, position) => {
 	const imageRatio = imageWidth[position];
 	const relativeWidth = 100 * colRatio * imageRatio;
 	const pixelPadding = ((pagePadding * colRatio) + cardPadding) * imageRatio;
-	return `${+relativeWidth.toFixed(3)}vw - ${pixelPadding}px`;
+	return `calc(${+relativeWidth.toFixed(3)}vw - ${pixelPadding}px)`;
 };
 
 const getMaxSize = (colspan, position) => {

@@ -15,7 +15,7 @@ export default [
 						image: createImageConfig(
 							{ default: 12, S: 6, M: 4, XL: 2 },
 							{ default: 'left', S: 'bottom', L: 'left', XL: 'bottom' },
-							[659],
+							[143, 203, 277],
 							{ stick: true }
 						)
 					}
@@ -32,7 +32,7 @@ export default [
 						image: createImageConfig(
 							{ default: 12, S: 6, M: 4, XL: 2 },
 							{ default: 'left', S: 'bottom', L: 'left', XL: 'bottom' },
-							[659],
+							[143, 203, 277],
 							{ stick: true }
 						)
 					}
@@ -49,7 +49,7 @@ export default [
 						image: createImageConfig(
 							{ default: 12, S: 6, M: 4, XL: 2 },
 							{ default: 'left', S: 'bottom', L: 'left', XL: 'bottom' },
-							[659],
+							[143, 203, 277],
 							{ stick: true }
 						)
 					}
@@ -66,7 +66,7 @@ export default [
 						image: createImageConfig(
 							{ default: 12, S: 6, M: 4, XL: 2 },
 							{ default: 'left', S: 'bottom', L: 'left', XL: 'bottom' },
-							[659],
+							[143, 203, 277],
 							{ stick: true }
 						)
 					}
@@ -83,7 +83,7 @@ export default [
 						image: createImageConfig(
 							{ default: 12, S: 6, M: 4, XL: 2 },
 							{ default: 'left', S: 'bottom', L: 'left', XL: 'bottom' },
-							[659],
+							[143, 203, 277],
 							{ stick: true }
 						)
 					}
@@ -100,7 +100,7 @@ export default [
 						image: createImageConfig(
 							{ default: 12, S: 6, M: 4, XL: 2 },
 							{ default: 'left', S: 'bottom', L: 'left', XL: 'bottom' },
-							[659],
+							[143, 203, 277],
 							{ stick: true }
 						)
 					}
