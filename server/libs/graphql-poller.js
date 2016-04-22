@@ -24,15 +24,14 @@ let queryResults = {
 let readyPromise;
 
 const pollData = (query, variables, name, flags = {}) => {
-	const xFlagsHeader = Object.keys(flags).map(flag => `${flag}:${flags[flag] ? 'on' : 'off'}`).join(',');
+	
 	const poller = new Poller({
 		url: `https://next-graphql-api.ft.com/data?apiKey=${process.env.GRAPHQL_API_KEY}`,
 		options: {
 			method: 'POST',
 			body: JSON.stringify({ query, variables }),
 			headers: {
-				'Content-Type': 'application/json',
-				'X-Flags': xFlagsHeader
+				'Content-Type': 'application/json'
 			}
 		},
 		parseData: function (results) {
