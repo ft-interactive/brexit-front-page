@@ -2,6 +2,10 @@
 	padding: 15px 10px 10px;
 	text-align: center;
 
+	@include oGridRespondTo(S) {
+		display: none;
+	}
+
 	.back-to-top__link {
 		display: inline-block;
 		padding: 15px;
@@ -18,9 +22,5 @@
 		&:focus:before {
 			@include nextIcon(arrow-up, getColor('cold-1'), 10, $icon-only: true);
 		}
-	}
-
-	@include oGridRespondTo(S) {
-		display: none;
 	}
 }
