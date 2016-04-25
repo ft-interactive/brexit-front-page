@@ -43,3 +43,6 @@ $o-grid-ie8-rules: 'only';
 .o-footer {
 	min-width: 1220px;
 }
+
+$o-header-is-silent: false;
+@import "o-header/main";
