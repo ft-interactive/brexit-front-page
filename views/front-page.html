@@ -1,6 +1,6 @@
 {{#defineBlock 'head'}}
 	<!--[if lte IE 8]>
-		<link rel="stylesheet" href="{{#hashedAsset}}ie8.css{{/hashedAsset}}" />
+		<link rel="stylesheet" href="{{#hashedAsset}}main-ie8.css{{/hashedAsset}}" />
 	<![endif]-->
 	<meta name="dfp_site" content="home" />
 	<meta name="dfp_zone" content="{{region}}" />
@@ -28,10 +28,7 @@
 	{{> header-tabs}}
 {{/if}}
 
-<section
-	id="site-content"
-	class="main-body o-grid-container n-util-clearfix">
-
+<section id="site-content" class="main-body o-grid-container n-util-clearfix">
 	<h1 class="n-util-visually-hidden">Financial Times Home</h1>
 	<!--!
 
@@ -62,14 +59,11 @@
 	Good luck!
 
 	-->
-
 	<div role="main" class="o-grid-row">
-	{{#each sections}}
-		<div
-			id="{{id}}"
-			{{#if trackScrollEvent}} class="js-track-scroll-event"{{/if}}
-			data-o-grid-colspan="{{colspan size}}">{{#unless isClient}}{{{reactRenderToString ../Section spread=@this}}}{{/unless}}</div>
-	{{/each}}
+		{{#each sections}}
+			<div id="{{id}}"{{#if trackScrollEvent}} class="js-track-scroll-event"{{/if}} data-o-grid-colspan="{{colspan size}}"
+				>{{#unless isClient}}{{{reactRenderToString ../Section spread=@this}}}{{/unless}}</div>
+		{{/each}}
 	</div>
 </section>
 

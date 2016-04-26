@@ -1,21 +1,19 @@
 {
   "name": "next-front-page",
   "dependencies": {
-    "o-date": "^2.0.0",
-    "n-video": "^4.0.0",
-    "n-message-prompts": "^2.0.0",
-    "n-layout": "^6.10.3",
     "n-image": "^2.0.0",
-    "o-tabs": "^2.1.0",
     "n-jsonp": "^2.0.0",
-    "next-session-client": "^2.0.0",
-    "next-myft-ui": "^6.10.2",
+    "n-layout": "^6.10.3",
+    "n-message-prompts": "^2.0.0",
+    "n-section": "^3.0.0",
+    "n-video": "^4.0.0",
     "next-ads-component": "^8.0.0",
-    "n-section": "^3.0.0"
+    "next-myft-ui": "^6.10.2",
+    "next-session-client": "^2.0.0",
+    "o-date": "^2.0.0",
+    "o-tabs": "^2.1.0"
   },
   "resolutions": {
-    "o-ft-icons": "next",
-    "n-layout": "header-footer-tpl",
-    "o-header": "^5.0.0"
+    "o-ft-icons": "next"
   }
 }
