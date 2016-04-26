@@ -9,16 +9,9 @@ $o-grid-gutters: (
 	default: 10px,
 	M:       15px
 );
-
 $o-grid-fixed-layout: 'XL';
 $o-grid-ie8-rules: 'only';
-
-@import "o-grid/main";
-// Mixins to ease the transition to o-grid v4
-@mixin oGridColumn($args...) {
-	@warn "oGridColumn is deprecated. Please use oGridColspan instead.";
-	@include oGridColspan($args...);
-}
+@import 'o-grid/main';
 
 // Surface current layout (for the JS helper)
 @include oGridSurfaceCurrentLayout;
@@ -26,8 +19,13 @@ $o-grid-ie8-rules: 'only';
 // Generate grid helper classes and data- attributes
 @include oGridGenerate;
 
+$o-header-is-silent: false;
+@import 'o-header/main';
+
+@import 'n-layout/main-ie8';
 @import 'n-section/main-ie8';
-@import "../shared/components/main-ie8";
+
+@import '../shared/components/main-ie8';
 
 .o-header__masthead__logo--mobile,
 .o-header__membership-promo-container,
@@ -43,6 +41,3 @@ $o-grid-ie8-rules: 'only';
 .o-footer {
 	min-width: 1220px;
 }
-
-$o-header-is-silent: false;
-@import "o-header/main";

@@ -5,19 +5,17 @@ import FastFt from '../../shared/components/fast-ft/fast-ft';
 import components from '@financial-times/n-section';
 
 // bail unless we have at least one top story
-const contentMissing = data => {
-	return !(data && data.top && data.topStory) || data.top.items.length < 1|| data.topStory.items.length < 1 ;
-};
+const contentMissing = data =>
+	!(data && data.top && data.topStory) || data.top.items.length < 1|| data.topStory.items.length < 1 ;
 
 const getAdsLayout = (requestedLayout, flags) => {
-	//map some url params to existing ad layout names
-
-	if(flags.adsNewProposition && !requestedLayout) {
+	// map some url params to existing ad layout names
+	if (flags.adsNewProposition && !requestedLayout) {
 		requestedLayout = 'new-proposition';
 	}
 
 	return requestedLayout || 'default';
-}
+};
 
 export default region => (req, res) => {
 	components.FastFt = FastFt;
