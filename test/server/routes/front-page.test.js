@@ -18,6 +18,7 @@ describe('Front Page Controller', () => {
 		next = sinon.stub();
 		request = httpMocks.createRequest(params);
 		response = httpMocks.createResponse();
+		response.cache = () => null;
 		response.locals = { flags: flags || {} };
 		return frontPage('uk')(request, response, next);
 	};

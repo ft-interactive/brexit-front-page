@@ -27,10 +27,7 @@ export default region => (req, res) => {
 		adsLayout: getAdsLayout(req.query.adsLayout, res.locals.flags)
 	};
 
-	res.set({
-		// needs to be private so we can vary for signed in state, ab tests, etc
-		'Surrogate-Control': 'max-age=60,stale-while-revalidate=6,stale-if-error=259200'
-	});
+	res.cache('short', {'max-age': 60});
 
 	if (contentMissing(data.frontPage)) {
 		throw new Error('Could not fetch content for the front page');
