@@ -46,7 +46,8 @@ export default region => (req, res) => {
 		preconnect: [
 			'https://next-markets-proxy.ft.com'
 		],
-		adsLayout: data.adsLayout
+		adsLayout: data.adsLayout,
+		hasIe8Stylesheet: true
 	};
 
 	if (res.locals.flags.frontPageHeaderMarketsData) {
