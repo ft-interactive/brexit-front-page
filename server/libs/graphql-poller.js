@@ -34,7 +34,7 @@ const pollData = (query, variables, name, flags = {}) => {
 			}),
 			headers: {
 				'Content-Type': 'application/json',
-				'FT-Graphql-Mock-Data': flags.mockFrontPage
+				'FT-Graphql-Mock-Data': flags.mockFrontPage ? '1' : '0'
 			}
 		},
 		parseData: function (results) {
