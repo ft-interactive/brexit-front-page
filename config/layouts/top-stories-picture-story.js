@@ -13,7 +13,7 @@ export default [
 						components: [
 							{
 								type: 'Column',
-								colspan: { default: 12, S: 6 },
+								colspan: { default: 12, S: 6, L: 5 },
 								components: [
 									{
 										type: 'Content',
@@ -30,7 +30,7 @@ export default [
 							},
 							{
 								type: 'Column',
-								colspan: { default: 12, S: 6 },
+								colspan: { default: 12, S: 6, L: 7 },
 								components: [
 									{
 										type: 'Content',
@@ -39,7 +39,7 @@ export default [
 										standfirst: {
 											show: { default: false, S: true, XL: false }
 										},
-										image: createImageConfig({ default: 12, S: 6, L: 4.5 }, { default: 'top' }, [322, 500])
+										image: createImageConfig({ default: 12, S: 12, L: 12 }, { default: 'top' }, [322, 500])
 									}
 								]
 							}
