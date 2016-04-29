@@ -12,17 +12,13 @@ $o-grid-gutters: (
 $o-grid-start-snappy-mode-at: XXL;
 // Turn off IE8 rules here and output them in an IE specific css file
 $o-grid-ie8-rules: false;
-
 $n-layout-is-silent: false;
-@import 'n-layout/main';
-
+@import 'n-layout/critical';
 //Override the default page background color
 @include oColorsSetUseCase(page, background, 'pink');
 @import 'n-section/main';
 
-@import 'colors';
-@import 'functions';
-@import 'mixins';
+@import 'setup';
 
 @import 'components/ads/ads';
 @import 'components/page-menu/page-menu';

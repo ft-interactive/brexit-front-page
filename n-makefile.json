@@ -1,9 +1,10 @@
 {
   "assets": {
     "entry": {
-      "./public/head": "./client/head.scss",
-      "./public/main": ["./client/main.scss", "./client/main.js"],
-      "./public/main-ie8": "./client/main-ie8.scss"
+      "./public/main.js": "./client/main.js",
+      "./public/head.css": "./client/head.scss",
+      "./public/main.css": "./client/main.scss",
+      "./public/main-ie8.css": "./client/main-ie8.scss"
     },
     "includes": [
       "n-image",

@@ -1,7 +1,10 @@
 @import 'next-sass-setup/main';
 
+@import 'n-layout/non-critical';
 @import "n-message-prompts/main";
 @import "n-video/main";
+
+@import 'setup';
 
 @import "components/back-to-top/back-to-top";
 @import "components/video/video";
