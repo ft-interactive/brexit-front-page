@@ -50,7 +50,7 @@
     "jsdom": "^8.0.2",
     "lintspaces-cli": "^0.1.1",
     "mocha": "^2.2.5",
-    "next-build-tools": "^5.18.6",
+    "next-build-tools": "Financial-Times/n-heroku-tools#fix-pipelines",
     "nightwatch": "^0.8.5",
     "node-mocks-http": "^1.5.1",
     "node-sass": "^3.4.2",
