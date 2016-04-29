@@ -1,67 +1,16 @@
-$o-grid-layouts: (
-	S:   490px,
-	M:   740px,
-	L:   980px,
-	XL:  1220px,
-	XXL: 1220px
-);
-$o-grid-gutters: (
-	default: 10px,
-	M:       15px
-);
-$o-grid-start-snappy-mode-at: XXL;
-//Turn off IE8 rules here and output them in an IE specific css file
-$o-grid-ie8-rules: false;
-$n-layout-is-silent: false;
-@import "n-layout/main";
+@import 'next-sass-setup/main';
+
 @import "n-message-prompts/main";
 @import "n-video/main";
 @import "next-myft-ui/main";
-@import 'n-section/main';
 
-@import "colors";
-@import "functions";
-@import "mixins";
-
-@import "components/ads/ads";
 @import "components/back-to-top/back-to-top";
-@import "components/header-tabs/header-tabs";
-@import "components/page-menu/page-menu";
 @import "components/video/video";
-@import "components/markets-data/markets-data";
-@import "components/highlight-dom-path/highlight-dom-path";
-@import "../shared/components/main";
-
-html {
-	background-color: getColor('pink');
-	// Prevent navigation menus from creating
-	// extra space on sides of the page
-	overflow-x: auto;
-
-	@include oGridTargetModernBrowsers {
-		overflow-x: hidden;
-	}
-}
-
-.n-layout {
-	min-height: 0;
-}
 
 .n-welcome--bar {
 	margin-top: oGridGutter();
 
 	@include oGridRespondTo(M) {
 		margin-top: oGridGutter(M);
-	}
-}
-
-.main-body {
-	@include oGridRespondTo(S) {
-		padding-left: 30px;
-		padding-right: 30px;
-	}
-	@include oGridRespondTo(XXL) {
-		padding-left: oGridGutter(M);
-		padding-right: oGridGutter(M);
 	}
 }

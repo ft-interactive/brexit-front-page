@@ -1,3 +1,5 @@
+import './_highlight-dom-path.scss';
+
 export default () => {
 	const domPath = document.location.hash.split('#').pop();
 	if (/^domPath:/.test(domPath)) {

@@ -1,0 +1,56 @@
+$o-grid-layouts: (
+	S:   490px,
+	M:   740px,
+	L:   980px,
+	XL:  1220px,
+	XXL: 1220px
+);
+$o-grid-gutters: (
+	default: 10px,
+	M:       15px
+);
+$o-grid-start-snappy-mode-at: XXL;
+// Turn off IE8 rules here and output them in an IE specific css file
+$o-grid-ie8-rules: false;
+
+$n-layout-is-silent: false;
+@import 'n-layout/main';
+
+//Override the default page background color
+@include oColorsSetUseCase(page, background, 'pink');
+@import 'n-section/main';
+
+@import 'colors';
+@import 'functions';
+@import 'mixins';
+
+@import 'components/ads/ads';
+@import 'components/page-menu/page-menu';
+@import "components/markets-data/markets-data";
+@import '../shared/components/main';
+
+html {
+	@include oColorsFor(page, background);
+	// Prevent navigation menus from creating
+	// extra space on sides of the page
+	overflow-x: auto;
+
+	@include oGridTargetModernBrowsers {
+		overflow-x: hidden;
+	}
+}
+
+.n-layout {
+	min-height: 0;
+}
+
+.main-body {
+	@include oGridRespondTo(S) {
+		padding-left: 30px;
+		padding-right: 30px;
+	}
+	@include oGridRespondTo(XXL) {
+		padding-left: oGridGutter(M);
+		padding-right: oGridGutter(M);
+	}
+}
