@@ -13,6 +13,12 @@
     "o-tabs": "^2.1.0"
   },
   "resolutions": {
+    "n-layout": "^7.0.0",
+    "n-normalize": "^2.0.0",
+    "n-third-party-code": "^2.0.0",
+    "n-util": "^2.0.0",
+    "next-ads-component": "^9.0.0",
+    "next-sass-setup": "^8.0.1",
     "o-ft-icons": "next"
   }
 }
