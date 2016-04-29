@@ -21,14 +21,14 @@
 		content: '';
 		position: absolute;
 		width: 1px;
-		top: oGridGutter() / 2;
-		bottom: oGridGutter() / -2;
+		top: 0px;
+		bottom: oGridGutter() * -2;
 		left: oGridGutter() / -2;
 		background-color: oColorsGetColorFor(card, border);
 
 		@include oGridRespondTo(M) {
-			top: oGridGutter(M) / 2;
-			bottom: oGridGutter(M) / -2;
+			top: 0px;
+			bottom: oGridGutter(M) * -2;
 			left: oGridGutter(M) / -2;
 
 			.column--related & {
