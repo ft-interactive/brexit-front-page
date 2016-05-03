@@ -30,6 +30,7 @@
     "react-dom": "^0.14.6"
   },
   "devDependencies": {
+    "@financial-times/n-heroku-tools": "^6.1.5",
     "autoprefixer": "^6.3.1",
     "babel-loader": "^6.2.1",
     "babel-plugin-transform-es2015-classes": "^6.4.5",
@@ -50,7 +51,6 @@
     "jsdom": "^8.0.2",
     "lintspaces-cli": "^0.1.1",
     "mocha": "^2.2.5",
-    "next-build-tools": "^5.18.9",
     "nightwatch": "^0.8.5",
     "node-mocks-http": "^1.5.1",
     "node-sass": "^3.4.2",
