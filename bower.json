@@ -9,7 +9,8 @@
     "next-myft-ui": "^6.10.2",
     "next-sass-setup": "^8.0.2",
     "next-session-client": "^2.0.0",
-    "o-date": "^2.0.0"
+    "o-date": "^2.0.0",
+    "o-tabs": "^2.3.2"
   },
   "resolutions": {
     "o-ft-icons": "next"
