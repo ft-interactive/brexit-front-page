@@ -6,6 +6,7 @@
       "./public/main-ie8.css": "./client/main-ie8.scss"
     },
     "includes": [
+      "n-image",
       "n-section"
     ]
   }

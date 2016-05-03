@@ -1,7 +1,6 @@
 {
   "name": "next-front-page",
   "dependencies": {
-    "n-image": "^2.0.0",
     "n-jsonp": "^2.0.0",
     "n-layout": "^7.0.0",
     "n-message-prompts": "^2.0.0",
