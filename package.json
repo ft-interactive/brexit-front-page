@@ -5,6 +5,7 @@
   "private": "true",
   "dependencies": {
     "@financial-times/n-express": "^16.0.0",
+    "@financial-times/n-image": "^3.0.4",
     "@financial-times/n-logger": "^5.0.1",
     "@financial-times/n-section": "^3.0.0",
     "babel-core": "^6.4.0",
@@ -23,13 +24,13 @@
     "ft-poller": "^2.2.0",
     "lodash.clonedeep": "^4.0.1",
     "n-health": "^1.0.2",
-    "n-image": "^2.1.0",
     "next-myft-ui": "^6.10.2",
     "o-date": "https://github.com/Financial-Times/o-date/archive/1.1.1.tar.gz",
     "react": "^0.14.6",
     "react-dom": "^0.14.6"
   },
   "devDependencies": {
+    "@financial-times/n-heroku-tools": "^6.1.5",
     "autoprefixer": "^6.3.1",
     "babel-loader": "^6.2.1",
     "babel-plugin-transform-es2015-classes": "^6.4.5",
@@ -50,7 +51,6 @@
     "jsdom": "^8.0.2",
     "lintspaces-cli": "^0.1.1",
     "mocha": "^2.2.5",
-    "next-build-tools": "^5.18.9",
     "nightwatch": "^0.8.5",
     "node-mocks-http": "^1.5.1",
     "node-sass": "^3.4.2",

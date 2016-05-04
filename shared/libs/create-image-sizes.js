@@ -1,4 +1,4 @@
-const breakpoints = ['default', 'S', 'M', 'L', 'XL', 'XXL'];
+const breakpoints = ['default', 'S', 'M', 'L', 'XL'];
 
 const pagePadding = {
 	default: 10,
@@ -18,7 +18,7 @@ const imageWidth = {
 	'right': 0.5
 };
 
-const maxPageSize = 1425;
+const maxPageSize = 1205;
 
 const getSize = (pagePadding, cardPadding, colspan, position) => {
 	const colRatio = colspan / 12;
@@ -52,13 +52,13 @@ export default (colspan, position) => {
 			(newCardPadding && newCardPadding !== currentCardPadding) ||
 			(newColspan && newColspan !== currentColspan) ||
 			(newPosition && newPosition !== currentPosition) ||
-			breakpoint === 'XXL'
+			breakpoint === 'XL'
 		) {
 			currentPagePadding = newPagePadding || currentPagePadding;
 			currentCardPadding = newCardPadding || currentCardPadding;
 			currentColspan = newColspan || currentColspan;
 			currentPosition = newPosition || currentPosition;
-			const size = breakpoint === 'XXL' ?
+			const size = breakpoint === 'XL' ?
 				getMaxSize(currentColspan, currentPosition) :
 				getSize(currentPagePadding, currentCardPadding, currentColspan, currentPosition);
 			if (size !== currentSize) {

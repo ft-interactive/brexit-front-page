@@ -1,7 +1,6 @@
 {
   "name": "next-front-page",
   "dependencies": {
-    "n-image": "^2.0.0",
     "n-jsonp": "^2.0.0",
     "n-layout": "^7.0.0",
     "n-message-prompts": "^2.0.0",
@@ -11,7 +10,7 @@
     "next-sass-setup": "^8.0.2",
     "next-session-client": "^2.0.0",
     "o-date": "^2.0.0",
-    "o-tabs": "^2.1.0"
+    "o-tabs": "^2.3.2"
   },
   "resolutions": {
     "o-ft-icons": "next"

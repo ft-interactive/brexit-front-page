@@ -60,6 +60,10 @@
 	}
 }
 
+.card--concept {
+	background-color: #f4e3d5;
+}
+
 .card--opinion:before {
 	background-color: oColorsGetColorFor(author, text);
 }
