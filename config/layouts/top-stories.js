@@ -1,6 +1,6 @@
 import createImageConfig from '../../shared/libs/create-image-config';
 
-export default [
+export default () => [
 	{
 		type: 'Row',
 		components: [

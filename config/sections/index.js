@@ -28,6 +28,9 @@ const sections = {
 
 export default (sectionId, data, flags) => {
 	const section = sections[sectionId]({ data, flags });
-	const layout = layouts[section.layoutId];
+	let layout = layouts[section.layoutId];
+	if (typeof layout === 'function') {
+		layout = layout();
+	}
 	return Object.assign({}, section, { data, layout });
 }
