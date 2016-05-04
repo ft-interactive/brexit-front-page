@@ -9,8 +9,8 @@
     },
     "includes": [
       "n-image",
-      "n-layout",
-      "n-section"
+      "n-section",
+      "n-card"
     ]
   }
 }

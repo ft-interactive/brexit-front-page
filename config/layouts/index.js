@@ -7,6 +7,7 @@ import topStoriesLayout from './top-stories';
 import topStoriesBigStoryLayout from './top-stories-big-story';
 import topStoriesLandscapeLayout from './top-stories-landscape';
 import topStoriesPictureStoryLayout from './top-stories-picture-story';
+import topStoriesAsymmetrical from './top-stories-asymmetrical';
 import VideoLayout from './video';
 
 export default {
@@ -19,5 +20,6 @@ export default {
 	'top-stories-big-story': topStoriesBigStoryLayout,
 	'top-stories-landscape': topStoriesLandscapeLayout,
 	'top-stories-picture-story': topStoriesPictureStoryLayout,
+	"top-stories-asymmetrical": topStoriesAsymmetrical,
 	'video': VideoLayout
 }

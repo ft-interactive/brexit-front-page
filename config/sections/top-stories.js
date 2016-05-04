@@ -7,6 +7,8 @@ const getLayout = layoutHint => {
 		case 'assassination':
 		case 'bigstory':
 			return 'top-stories-big-story';
+		case 'asymmetrical':
+			return 'top-stories-asymmetrical';
 		case 'standard':
 		default:
 			return 'top-stories';
