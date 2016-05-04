@@ -13,7 +13,7 @@
 }
 
 .markets-data-wrapper {
-	background: url('/assets/backgrounds/header-markets-data.png') getColor('black');
+	background: url('https://next-geebee.ft.com/assets/backgrounds/header-markets-data.png') getColor('black');
 	min-height: 39px;
 }
 .markets-data {
@@ -96,7 +96,7 @@
 }
 
 // set up the markets data columns
-$breakpoints: default S M L XL XXL;
+$breakpoints: default S M L XL;
 @for $index from 1 through length($breakpoints) {
 	$breakpoint: nth($breakpoints, $index);
 	$indexPlusOne: $index + 1;
