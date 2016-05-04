@@ -1,4 +1,5 @@
 import fs from 'fs';
+import path from 'path';
 
 import components from '@financial-times/n-section';
 
@@ -41,7 +42,7 @@ export default region => (req, res) => {
 	const sections = getPage('front-page', data, res.locals.flags);
 
 	// get head css
-	const headCss = fs.readFileSync(`${__dirname}/../../public/head.css`, 'utf-8');
+	const headCss = fs.readFileSync(path.join(__dirname, '..', '..', 'public', 'head.css'), 'utf-8');
 
 	const renderParams = {
 		headCss,
@@ -52,8 +53,7 @@ export default region => (req, res) => {
 		preconnect: [
 			'https://next-markets-proxy.ft.com'
 		],
-		adsLayout: data.adsLayout,
-		hasIe8Stylesheet: true
+		adsLayout: data.adsLayout
 	};
 
 	if (res.locals.flags.frontPageHeaderMarketsData) {
