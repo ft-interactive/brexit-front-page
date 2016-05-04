@@ -1,8 +1,11 @@
+import fs from 'fs';
+import path from 'path';
+
+import components from '@financial-times/n-section';
+
 import { getData } from '../libs/graphql-poller';
 import getPage from '../../config/pages';
-
 import FastFt from '../../shared/components/fast-ft/fast-ft';
-import components from '@financial-times/n-section';
 
 // bail unless we have at least one top story
 const contentMissing = data =>
@@ -38,7 +41,11 @@ export default region => (req, res) => {
 
 	const sections = getPage('front-page', data, res.locals.flags);
 
+	// get head css
+	const headCss = fs.readFileSync(path.resolve(__dirname, '..', '..', 'public', 'head.css'), 'utf-8');
+
 	const renderParams = {
+		headCss,
 		layout: 'wrapper',
 		Section: components.Section,
 		sections,
@@ -46,8 +53,7 @@ export default region => (req, res) => {
 		preconnect: [
 			'https://next-markets-proxy.ft.com'
 		],
-		adsLayout: data.adsLayout,
-		hasIe8Stylesheet: true
+		adsLayout: data.adsLayout
 	};
 
 	if (res.locals.flags.frontPageHeaderMarketsData) {

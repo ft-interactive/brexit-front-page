@@ -2,11 +2,14 @@
   "assets": {
     "entry": {
       "./public/main.js": "./client/main.js",
+      "./public/head.css": "./client/head.scss",
+      "./public/head-ie8.css": "./client/head-ie8.scss",
       "./public/main.css": "./client/main.scss",
       "./public/main-ie8.css": "./client/main-ie8.scss"
     },
     "includes": [
       "n-image",
+      "n-layout",
       "n-section"
     ]
   }
