@@ -3,7 +3,7 @@ export default ({flags}) => ({
 		default: 12
 	},
 	raw: `<div data-trackable="ad"
-		class="mid-page-1-advert o-ads advert ${flags.adLoadingImprovements ? 'advert--full-bleed advert--transition' : ''}"
+		class="mid-page-1-advert o-ads advert ${flags.adLoadingImprovements ? 'advert--transition' : ''}"
 		data-o-ads-name="top-below-header"
 		data-o-ads-targeting="pos=top;"
 		data-o-ads-formats-default="MediumRectangle,Responsive"

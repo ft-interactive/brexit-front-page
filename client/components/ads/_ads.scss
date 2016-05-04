@@ -3,6 +3,7 @@ $ad-medium-breakpoint: 760px;
 
 .above-header-advert {
 	@media (min-width:$ad-medium-breakpoint) {
+		display: block;
 		min-height: 90px;
 		height: 90px;
 		padding: 10px 0;
@@ -14,10 +15,19 @@ $ad-medium-breakpoint: 760px;
 			padding: 0;
 		}
 	}
+
+	&.o-ads__empty,
+	&[data-o-ads-loaded="false"] {
+		height: 0;
+		min-height: 0;
+		padding: 0;
+	}
 }
+
 
 .mid-page-1-advert,
 .mid-page-2-advert {
+	display: block;
 	height: 90px;
 	min-height: 90px;
 	padding: 10px 0 0;
@@ -25,6 +35,14 @@ $ad-medium-breakpoint: 760px;
 		display: none;
 		padding: 0;
 	}
+
+	&.o-ads__empty,
+	&[data-o-ads-loaded="false"] {
+		height: 0;
+		min-height: 0;
+		padding: 0;
+	}
+
 }
 
 .mid-page-1-advert {
@@ -44,14 +62,6 @@ $ad-medium-breakpoint: 760px;
 .advert[data-o-ads-loaded="MediumRectangle"],
 .advert[data-o-ads-loaded="Billboard"] {
 	height: 250px;
-}
-
-.advert--full-bleed {
-	width: 100vw;
-	margin-left: -10px;
-	@include oGridRespondTo(S) {
-		margin-left: -30px;
-	}
 }
 
 .advert--background {
