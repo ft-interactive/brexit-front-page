@@ -76,7 +76,7 @@ export default [
 					{
 						type: 'FastFt',
 						count: {
-							default: 4, XL: 5, XXL: 6
+							default: 4, XL: 6
 						}
 					}
 				]
@@ -167,7 +167,7 @@ export default [
 											{ default: 12, S: 6, L: 3 },
 											{ default: 'right' },
 											[161, 225],
-											{ show: { default: true, S: false, XXL: true }}
+											{ show: { default: true, S: false, XL: true }}
 										)
 									}
 								]
@@ -212,7 +212,7 @@ export default [
 							{ default: 12, M: 3 },
 							{ default: 'right' },
 							[161, 225],
-							{ show: { default: true, S: false, XXL: true }}
+							{ show: { default: true, S: false, XL: true }}
 						)
 					}
 				]
