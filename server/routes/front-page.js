@@ -42,7 +42,7 @@ export default region => (req, res) => {
 	const sections = getPage('front-page', data, res.locals.flags);
 
 	// get head css
-	const headCss = fs.readFileSync(path.join(__dirname, '..', '..', 'public', 'head.css'), 'utf-8');
+	const headCss = fs.readFileSync(path.resolve(__dirname, '..', '..', 'public', 'head.css'), 'utf-8');
 
 	const renderParams = {
 		headCss,
