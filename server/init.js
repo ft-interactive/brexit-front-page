@@ -21,6 +21,7 @@ const app = express({
 	withAnonMiddleware: true,
 	withRequestTracing: true,
 	withBackendAuthentication: true,
+	hasHeadCss: true,
 	helpers: {
 		reactRenderToString: (klass, props) => {
 			const propsToRender = props.hash;
