@@ -77,7 +77,7 @@ export default [
 								components: [
 									{
 										type: 'Content',
-										size: 'small',
+										size: 'large',
 										standfirst: {
 											show:{default:true}
 										},
@@ -91,11 +91,11 @@ export default [
 								components: [
 									{
 										type: 'Content',
-										size: 'small'
+										size: 'medium'
 									},
 									{
 										type: 'Content',
-										size: 'small'
+										size: 'medium'
 									}
 								]
 							},
@@ -105,8 +105,11 @@ export default [
 								components: [
 									{
 										type:'Content',
-										size:'small',
-										image: createImageConfig({default:12, M:12},{default:'right', M:'top'},[161,266])
+										size:'medium',
+										standfirst: {
+											show:{default:true}
+										},
+										image: createImageConfig({default:12},{default:'right', M:'top'},[50,266])
 									}
 								]
 							}
@@ -121,7 +124,7 @@ export default [
 								components: [
 									{
 										type: 'Content',
-										size: 'small'
+										size: 'medium'
 									}
 								]
 							},
@@ -131,8 +134,8 @@ export default [
 								components: [
 									{
 										type:'Content',
-										size:'small',
-										image: createImageConfig({default:9},{default:'left'},[161,266])
+										size:'medium',
+										image: createImageConfig({},{default:'left'},[161,266])
 									}
 								]
 							}
