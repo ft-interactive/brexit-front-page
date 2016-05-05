@@ -14,7 +14,7 @@ export default [
 						standfirst: {
 							show: { default: true }
 						},
-						image: createImageConfig({ default: 12, M: 6, XL: 3 }, { default: 'left', XL: 'bottom' }, [112, 221, 322])
+						image: createImageConfig({ default: 12, M: 6, XL: 3 }, { default: 'right', M:'bottom'}, [112, 221, 322])
 					}
 				]
 			},
