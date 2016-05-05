@@ -19,6 +19,5 @@ const pages = {
 
 export default (pageId, data, flags) => {
 	const sectionsData = sectionData(data, flags);
-
 	return pages[pageId].map(sectionId => getSection(sectionId, sectionsData[sectionId], flags));
 }
