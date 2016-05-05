@@ -1,6 +1,3 @@
-import fs from 'fs';
-import path from 'path';
-
 import components from '@financial-times/n-section';
 
 import { getData } from '../libs/graphql-poller';
@@ -9,7 +6,7 @@ import FastFt from '../../shared/components/fast-ft/fast-ft';
 
 // bail unless we have at least one top story
 const contentMissing = data =>
-	!(data && data.top && data.topStory) || data.top.items.length < 1|| data.topStory.items.length < 1 ;
+	!(data && data.top && data.topStory) || data.top.items.length < 1|| data.topStory.items.length < 1;
 
 const getAdsLayout = (requestedLayout, flags) => {
 	// map some url params to existing ad layout names
@@ -41,11 +38,7 @@ export default region => (req, res) => {
 
 	const sections = getPage('front-page', data, res.locals.flags);
 
-	// get head css
-	const headCss = fs.readFileSync(path.resolve(__dirname, '..', '..', 'public', 'head.css'), 'utf-8');
-
 	const renderParams = {
-		headCss,
 		layout: 'wrapper',
 		Section: components.Section,
 		sections,
