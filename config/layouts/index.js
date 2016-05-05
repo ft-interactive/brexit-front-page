@@ -1,4 +1,5 @@
 import editorsPicksLayout from './editors-picks';
+import editorsPicksAsymmetricalLayout from './editors-picks-asymmectrical';
 import featuredSectionLayout from './featured-section';
 import mostPopularLayout from './most-popular';
 import myftLayout from './myft';
@@ -13,6 +14,7 @@ import VideoLayout from './video';
 
 export default {
 	'editors-picks': editorsPicksLayout,
+	'editors-picks-asymmetrical': editorsPicksAsymmetricalLayout,
 	'featured-section': featuredSectionLayout,
 	'most-popular': mostPopularLayout,
 	'myft': myftLayout,
