@@ -22,6 +22,7 @@ const app = express({
 	withRequestTracing: true,
 	withBackendAuthentication: true,
 	hasHeadCss: true,
+	layoutsDir: path.join(process.cwd(), '/bower_components/n-ui/layout'),
 	helpers: {
 		reactRenderToString: (klass, props) => {
 			const propsToRender = props.hash;

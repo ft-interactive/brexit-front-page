@@ -10,7 +10,7 @@ $o-grid-gutters: (
 );
 $o-grid-fixed-layout: 'XL';
 $o-grid-ie8-rules: 'only';
-@import 'o-grid/main';
+@import 'n-ui/grid/main';
 
 // Surface current layout (for the JS helper)
 @include oGridSurfaceCurrentLayout;
@@ -19,7 +19,7 @@ $o-grid-ie8-rules: 'only';
 @include oGridGenerate;
 
 $o-header-is-silent: false;
-@import 'o-header/main';
+@import 'n-ui/header/main';
 @import 'n-section/main-ie8';
 
 @import '../shared/components/main-ie8';

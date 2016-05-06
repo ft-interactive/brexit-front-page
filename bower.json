@@ -1,18 +1,15 @@
 {
   "name": "next-front-page",
   "dependencies": {
-    "n-jsonp": "^2.0.0",
-    "n-layout": "^7.0.0",
-    "n-message-prompts": "^2.0.0",
     "n-section": "^3.0.0",
     "n-video": "^4.0.0",
-    "next-myft-ui": "^6.10.2",
-    "next-sass-setup": "^8.0.2",
-    "next-session-client": "^2.0.0",
-    "o-date": "^2.0.0",
-    "o-tabs": "^2.3.2"
+    "o-tabs": "^2.3.2",
+    "n-ui": "^1.0.0-beta.1",
+    "n-jsonp": "^2.3.1",
+    "next-session-client": "^2.0.0"
   },
   "resolutions": {
-    "o-ft-icons": "next"
+    "o-ft-icons": "next",
+    "o-viewport": "^2.0.0"
   }
 }

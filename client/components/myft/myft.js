@@ -3,7 +3,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import { crossDomainFetch } from 'n-jsonp';
-import * as myFtUi from 'next-myft-ui';
+import {ui as myFtUi} from 'n-ui/myft';
 import sessionClient from 'next-session-client';
 
 import getSection from '../../../config/sections/index';
