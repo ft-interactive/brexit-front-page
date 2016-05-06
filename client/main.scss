@@ -22,10 +22,25 @@ $next-sass-setup-is-silent: true;
 // TODO (PW 6/5/16): If we decide to use these fonts they should be added in properly via n-card and type modules
 
 .asymmetrical-layout {
-	.card__standfirst,
-	.card__related-item,
+	.card__standfirst {
+		font: 14px/1.3 Georgia, serif;
+	}
+
+	.card--article[data-size*=large] .card__standfirst {
+		font: 14px/1.3 Georgia, serif;
+	}
+
+	.card--has-related[data-size*=large] .card__standfirst,
+	.card--opinion[data-size*=large] .card__standfirst {
+		font: 16px/1.4 Georgia, serif;
+	}
+
+	.card__related-item {
+		font: 14px/1.3 Georgia, serif;
+	}
+
 	.card__concept-article-link {
-		font-family: Georgia, serif;
+		font: 16px/1.3 Georgia, serif;
 	}
 
 }
