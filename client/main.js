@@ -1,6 +1,5 @@
 import setup from 'n-ui';
 import nVideo from 'n-video';
-import {client as myFtClient} from 'n-ui/myft';
 
 import highlightDomPath from './components/highlight-dom-path/highlight-dom-path';
 import scrollDepth from './components/scroll-depth/scroll-depth';
@@ -18,5 +17,5 @@ setup.bootstrap(({ flags }) => {
 	scrollDepth(flags);
 	marketsData(flags);
 	headerTabs(flags);
-	myft(myftClient, flags);
+	myft(flags);
 });

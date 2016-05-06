@@ -4,7 +4,7 @@
     "n-section": "^3.0.0",
     "n-video": "^4.0.0",
     "o-tabs": "^2.3.2",
-    "n-ui": "^1.0.0-beta.1",
+    "n-ui": "^1.0.0-beta.2",
     "n-jsonp": "^2.3.1",
     "next-session-client": "^2.0.0"
   },
