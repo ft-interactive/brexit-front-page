@@ -16,12 +16,12 @@ const getLayout = (layoutHint, flags) => {
 			return 'top-stories';
 	}
 };
-export default ({ data }) => ({
+export default ({ data, flags }) => ({
 	id: 'top-stories',
 	title: 'Top Stories',
 	style: 'top-stories',
 	isTab: true,
-	layoutId: getLayout(data.layoutHint, data.flags),
+	layoutId: getLayout(data.layoutHint, flags),
 	trackable: getLayout(data.layoutHint),
 	trackScrollEvent: true,
 	background: true,
