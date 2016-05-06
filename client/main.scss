@@ -18,3 +18,14 @@ $next-sass-setup-is-silent: true;
 		margin-top: oGridGutter(M);
 	}
 }
+
+// TODO (PW 6/5/16): If we decide to use these fonts they should be added in properly via n-card and type modules
+
+.asymmetrical-layout {
+	.card__standfirst,
+	.card__related-item,
+	.card__concept-article-link {
+		font-family: Georgia, serif;
+	}
+
+}

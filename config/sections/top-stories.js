@@ -1,4 +1,8 @@
-const getLayout = layoutHint => {
+const getLayout = (layoutHint, flags) => {
+	if(flags && flags.asymmetricalFrontPageLayout){
+		return 'top-stories-asymmetrical';
+	}
+
 	switch(layoutHint) {
 		case 'standaloneimage':
 			return 'top-stories-picture-story';
@@ -7,19 +11,17 @@ const getLayout = layoutHint => {
 		case 'assassination':
 		case 'bigstory':
 			return 'top-stories-big-story';
-		case 'asymmetrical':
-			return 'top-stories-asymmetrical';
 		case 'standard':
 		default:
 			return 'top-stories';
 	}
 };
-export default ({ data }) => ({
+export default ({ data, flags }) => ({
 	id: 'top-stories',
 	title: 'Top Stories',
 	style: 'top-stories',
 	isTab: true,
-	layoutId: getLayout(data.layoutHint),
+	layoutId: getLayout(data.layoutHint, flags),
 	trackable: getLayout(data.layoutHint),
 	trackScrollEvent: true,
 	background: true,

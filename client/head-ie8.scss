@@ -1,25 +1,8 @@
-$o-grid-layouts: (
-	S:   490px,
-	M:   740px,
-	L:   980px,
-	XL:  1220px
-);
-$o-grid-gutters: (
-	default: 10px,
-	M:       15px
-);
-$o-grid-fixed-layout: 'XL';
+$o-grid-fixed-layout: XL;
 $o-grid-ie8-rules: 'only';
-@import 'o-grid/main';
+@import 'head';
 
-// Surface current layout (for the JS helper)
-@include oGridSurfaceCurrentLayout;
-
-// Generate grid helper classes and data- attributes
-@include oGridGenerate;
-
-$o-header-is-silent: false;
-@import 'o-header/main';
+$o-card-is-silent: true;
 @import 'n-section/main-ie8';
 
 @import '../shared/components/main-ie8';
