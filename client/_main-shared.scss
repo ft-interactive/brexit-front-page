@@ -4,17 +4,12 @@ $n-ui-is-silent: true;
 @import 'n-ui/message-prompts/main';
 @import 'n-video/main';
 
-@import 'setup';
 @import 'components/back-to-top/back-to-top';
 @import 'components/highlight-dom-path/highlight-dom-path';
 @import 'components/video/video';
 
 .n-welcome--bar {
 	margin-top: oGridGutter();
-
-	@include oGridRespondTo(M) {
-		margin-top: oGridGutter(M);
-	}
 }
 
 // TODO (PW 6/5/16): All of this stuff is hacked in - if they want to go ahead with it it needs doing properly

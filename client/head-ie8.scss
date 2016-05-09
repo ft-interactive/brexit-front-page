@@ -1,6 +1,6 @@
 $o-grid-fixed-layout: 'XL';
 $o-grid-ie8-rules: 'only';
-@import 'head';
+@import 'head-shared';
 
 $o-card-is-silent: true;
 @import 'n-section/main-ie8';
@@ -21,3 +21,8 @@ $o-card-is-silent: true;
 .o-footer {
 	min-width: 1220px;
 }
+
+/* split:main.css */
+@import 'main-shared';
+
+@import 'n-header-footer/footer/footer-ie8';
