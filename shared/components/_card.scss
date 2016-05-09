@@ -65,7 +65,7 @@
 }
 
 .card--opinion:before {
-	background-color: oColorsGetColorFor(author, text);
+	background-color: oColorsGetColorFor(card, border);
 }
 
 .card__timestamp {
