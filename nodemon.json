@@ -3,6 +3,8 @@
   "watch": [
     "config",
     "node_modules",
+    "public/head.css",
+    "public/head-ie8.css",
     "shared",
     "server"
   ]
