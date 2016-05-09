@@ -53,12 +53,13 @@
 }
 .markets-data__item__name,
 .markets-data__item__change {
-	@include oTypographySans(s);
+	@include oTypographySansBoldSize(s);
 	float: left;
 	margin: 0;
 }
 .markets-data__item__name {
 	margin-right: 5px;
+	font-weight: normal;
 
 	.markets-data__item__link:hover &,
 	.markets-data__item__link:focus & {
@@ -80,7 +81,7 @@
 	@include oColorsFor(market-down, text);
 }
 .markets-data__link {
-	@include oTypographySans(s);
+	@include oTypographySansBoldSize(s);
 	float: right;
 	text-align: right;
 
