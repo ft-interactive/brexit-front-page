@@ -9,25 +9,25 @@ unit-test:
 test: verify unit-test
 
 run:
-	nbt run
+	nht run
 
 run-local:
-	nbt run --local
+	nht run --local
 
 smoke:
-	nbt test-urls ${TEST_APP}
-	export TEST_APP=${TEST_APP}; nbt nightwatch test/browser/tests/* -e ie9,firefox,chrome,iphone6_plus
+	nht test-urls ${TEST_APP}
+	export TEST_APP=${TEST_APP}; nht nightwatch test/browser/tests/* -e ie9,firefox,chrome,iphone6_plus
 
 provision:
-	nbt deploy-hashed-assets
-	nbt float -md --testapp ${TEST_APP}
+	nht deploy-hashed-assets
+	nht float -md --testapp ${TEST_APP}
 	make smoke
 
 tidy:
-	nbt destroy ${TEST_APP}
+	nht destroy ${TEST_APP}
 
 deploy:
-	nbt deploy-hashed-assets
-	nbt ship -m
+	nht deploy-hashed-assets
+	nht ship -m
 
 clean-deploy: clean install build-production deploy
