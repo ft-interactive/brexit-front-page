@@ -22,7 +22,8 @@ $o-card-is-silent: true;
 	min-width: 1220px;
 }
 
-/* split:main.css */
+/*! start:main-ie8.css */
 @import 'main-shared';
 
 @import 'n-header-footer/footer/footer-ie8';
+/*! end:main-ie8.css */
