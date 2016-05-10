@@ -65,4 +65,9 @@ $next-sass-setup-is-silent: true;
 		background-image: url('https://image.webservices.ft.com/v1/images/raw/https%3A%2F%2Fnext-geebee.ft.com%2Fassets%2Ficons%2Fquote-marks-patterned.svg?source=next&format=svg');
 	}
 
+	//todo (PW 10/5/16) Where should this bit go?
+	.section--editors-picks .card--article[data-size="large"] {
+		@include oColorsFor(card-highlights-first, background);
+	}
+
 }

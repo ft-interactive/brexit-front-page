@@ -77,7 +77,7 @@ export default [
 								components: [
 									{
 										type: 'Content',
-										size: 'large',
+										size: 'medium',
 										standfirst: {
 											show:{default:true}
 										},
@@ -91,11 +91,11 @@ export default [
 								components: [
 									{
 										type: 'Content',
-										size: 'medium'
-									},
-									{
-										type: 'Content',
-										size: 'medium'
+										size: 'medium',
+										standfirst: {
+											show:{default:true}
+										},
+										image: createImageConfig({default:12},{default:'top'},[161,266])
 									}
 								]
 							},
