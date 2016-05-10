@@ -75,7 +75,7 @@ const handleResponse = (myFtContainerEl, myftClient, flags, response) => {
 
 export default (myftClient, flags) => {
 	const myFtContainerEl = document.getElementById('myft');
-	if (myFtContainerEl && flags.get('myFtApi') && sessionClient.cookie()) {
+	if (myFtContainerEl && flags.get('myFtApi') && flags.get('frontPageMyFtSection') && sessionClient.cookie()) {
 		components.MyftPromo = MyftPromo;
 		sessionClient.uuid()
 			.then(response => {
