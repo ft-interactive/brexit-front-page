@@ -1,9 +1,8 @@
 $n-ui-is-silent: true;
-@import 'n-ui/bootstrap';
 
 @import 'n-ui/non-critical';
 @import "n-ui/message-prompts/main";
-@import "n-ui/video/main";
+@import "n-video/main";
 
 @import 'setup';
 
