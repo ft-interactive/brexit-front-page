@@ -1,14 +1,13 @@
 $n-ui-is-silent: true;
 
 @import 'n-ui/non-critical';
-@import "n-ui/message-prompts/main";
-@import "n-video/main";
+@import 'n-ui/message-prompts/main';
+@import 'n-video/main';
 
 @import 'setup';
-
-@import "components/back-to-top/back-to-top";
-@import "components/highlight-dom-path/highlight-dom-path";
-@import "components/video/video";
+@import 'components/back-to-top/back-to-top';
+@import 'components/highlight-dom-path/highlight-dom-path';
+@import 'components/video/video';
 
 .n-welcome--bar {
 	margin-top: oGridGutter();
@@ -65,7 +64,7 @@ $n-ui-is-silent: true;
 	}
 
 	//todo (PW 10/5/16) Where should this bit go?
-	.section--editors-picks .card--article[data-size="large"] {
+	.section--editors-picks .card--article[data-size='large'] {
 		@include oColorsFor(card-highlights-first, background);
 	}
 
