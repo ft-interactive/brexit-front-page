@@ -38,7 +38,7 @@ $n-ui-is-silent: true;
 
 	.card--editors-pick {
 		@include oColorsFor(card-editors-pick, background);
-		background-image: url('https://image.webservices.ft.com/v1/images/raw/https%3A%2F%2Fnext-geebee.ft.com%2Fassets%2Fbackgrounds%2Ffold-with-bg.svg?source=next');
+		background-image: url('https://next-geebee.ft.com/image/v1/images/raw/https%3A%2F%2Fnext-geebee.ft.com%2Fassets%2Fbackgrounds%2Ffold-with-bg.svg?source=next');
 		background-position: top right;
 		background-repeat: no-repeat;
 		background-size: 50px 55px;
@@ -55,7 +55,7 @@ $n-ui-is-silent: true;
 	//todo (PW 9/5/16) This icon needs to go into o-icons and the code belongs in n-card
 
 	.card__brand__quote {
-		background-image: url('https://image.webservices.ft.com/v1/images/raw/https%3A%2F%2Fnext-geebee.ft.com%2Fassets%2Ficons%2Fquote-marks-patterned.svg?source=next&format=svg');
+		background-image: url('https://next-geebee.ft.com/image/v1/images/raw/https%3A%2F%2Fnext-geebee.ft.com%2Fassets%2Ficons%2Fquote-marks-patterned.svg?source=next&format=svg');
 	}
 
 	//todo (PW 10/5/16) Where should this bit go?

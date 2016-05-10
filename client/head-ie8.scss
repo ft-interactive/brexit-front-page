@@ -4,7 +4,6 @@ $o-grid-ie8-rules: 'only';
 
 $o-card-is-silent: true;
 @import 'n-section/main-ie8';
-
 @import '../shared/components/main-ie8';
 
 .o-header__masthead__logo--mobile,
@@ -24,6 +23,5 @@ $o-card-is-silent: true;
 
 /*! start:main-ie8.css */
 @import 'main-shared';
-
-@import 'n-header-footer/footer/footer-ie8';
+@import 'n-ui/footer/main-ie8';
 /*! end:main-ie8.css */
