@@ -43,9 +43,6 @@ export default region => (req, res) => {
 		Section: components.Section,
 		sections,
 		region,
-		preconnect: [
-			'https://next-markets-proxy.ft.com'
-		],
 		adsLayout: data.adsLayout
 	};
 
