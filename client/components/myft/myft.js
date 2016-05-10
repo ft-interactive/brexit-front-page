@@ -2,8 +2,9 @@ import { json as fetchJson } from 'fetchres';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import { crossDomainFetch } from 'n-jsonp';
-import * as myFtUi from 'next-myft-ui';
+import { crossDomainFetch } from 'o-fetch-jsonp';
+import {ui as myFtUi} from 'n-ui/myft';
+import {client as myFtClient} from 'n-ui/myft';
 import sessionClient from 'next-session-client';
 
 import getSection from '../../../config/sections/index';
@@ -49,7 +50,7 @@ const changeComponent = (shouldConvert, component) =>
 		Object.assign({}, component, { components: component.components.map(changeComponent.bind(null, shouldConvert)) }) :
 		convertToContent(shouldConvert, component);
 
-const handleResponse = (myFtContainerEl, myftClient, flags, response) => {
+const handleResponse = (myFtContainerEl, flags, response) => {
 	const { popularTopics, user: { viewed, followed }} = response;
 	// flag up followed concepts
 	followed.forEach(concept => concept.isFollowing = true);
@@ -68,12 +69,13 @@ const handleResponse = (myFtContainerEl, myftClient, flags, response) => {
 	}
 
 	ReactDOM.render(<components.Section {...section} />, myFtContainerEl);
-	myftClient
-		.then(() => myFtUi.updateUi())
+	myFtClient
+		.init()
+		.then(() => myFtUi.updateUi(myFtContainerEl))
 		.catch(errorHandler);
 };
 
-export default (myftClient, flags) => {
+export default (flags) => {
 	const myFtContainerEl = document.getElementById('myft');
 	if (myFtContainerEl && flags.get('myFtApi') && flags.get('frontPageMyFtSection') && sessionClient.cookie()) {
 		components.MyftPromo = MyftPromo;
@@ -84,7 +86,7 @@ export default (myftClient, flags) => {
 					{ credentials: 'include', timeout: 5000 }
 				)
 					.then(fetchJson)
-					.then(handleResponse.bind(undefined, myFtContainerEl, myftClient, flags))
+					.then(handleResponse.bind(undefined, myFtContainerEl, flags))
 					.catch(errorHandler);
 
 			})

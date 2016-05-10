@@ -1,8 +1,7 @@
-$next-sass-setup-is-silent: true;
-@import 'next-sass-setup/main';
+$n-ui-is-silent: true;
 
-@import 'n-layout/non-critical';
-@import "n-message-prompts/main";
+@import 'n-ui/non-critical';
+@import "n-ui/message-prompts/main";
 @import "n-video/main";
 
 @import 'setup';

@@ -1,4 +1,4 @@
-import { crossDomainFetch } from 'n-jsonp';
+import { crossDomainFetch } from 'o-fetch-jsonp';
 
 const regionalSecurities = {
 	uk: [

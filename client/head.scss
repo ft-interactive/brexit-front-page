@@ -12,7 +12,7 @@ $o-grid-start-snappy-mode-at: XL !default;
 // Turn off IE8 rules here and output them in an IE specific css file
 $o-grid-ie8-rules: false !default;
 $n-layout-is-silent: false;
-@import 'n-layout/critical';
+@import 'n-ui/critical';
 @import 'n-section/main';
 
 @import 'setup';
