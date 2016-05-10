@@ -5,10 +5,9 @@ $n-ui-is-silent: true;
 @import "n-video/main";
 
 @import 'setup';
-
-@import "components/back-to-top/back-to-top";
-@import "components/highlight-dom-path/highlight-dom-path";
-@import "components/video/video";
+@import 'components/back-to-top/back-to-top';
+@import 'components/highlight-dom-path/highlight-dom-path';
+@import 'components/video/video';
 
 .n-welcome--bar {
 	margin-top: oGridGutter();
