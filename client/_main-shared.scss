@@ -54,8 +54,9 @@ $n-ui-is-silent: true;
 
 	//todo (PW 9/5/16) This icon needs to go into o-icons and the code belongs in n-card
 
-	.card__brand__quote {
-		background-image: url('https://next-geebee.ft.com/image/v1/images/raw/https%3A%2F%2Fnext-geebee.ft.com%2Fassets%2Ficons%2Fquote-marks-patterned.svg?source=next&format=svg');
+	.card__brand__quote--left {
+		background-image: url('https://image.webservices.ft.com/v1/images/raw/https%3A%2F%2Fnext-geebee.ft.com%2Fassets%2Ficons%2Fquote-marks-patterned.svg?source=next&format=svg');
+		opacity: 0.8;
 	}
 
 	//todo (PW 10/5/16) Where should this bit go?
