@@ -38,13 +38,21 @@ $n-ui-is-silent: true;
 
 	.card--editors-pick {
 		@include oColorsFor(card-editors-pick, background);
-		background-image: url('https://next-geebee.ft.com/image/v1/images/raw/https%3A%2F%2Fnext-geebee.ft.com%2Fassets%2Fbackgrounds%2Ffold-with-bg.svg?source=next');
-		background-position: top right;
-		background-repeat: no-repeat;
-		background-size: 50px 55px;
+		position: relative;
+
 
 		&:before {
-			display: none;
+			position: absolute;
+			right: 0;
+			top: 0;
+			left: auto;
+			width: 50px;
+			height: 55px;
+			background-image: url('https://next-geebee.ft.com/image/v1/images/raw/https%3A%2F%2Fnext-geebee.ft.com%2Fassets%2Fbackgrounds%2Ffold-with-bg.svg?source=next');
+			background-position: top right;
+			background-repeat: no-repeat;
+			background-size: 100%;
+			z-index: 2;
 		}
 
 		.card__content {
