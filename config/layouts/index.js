@@ -1,3 +1,4 @@
+import brexitCoverageLayout from './brexit-coverage';
 import editorsPicksLayout from './editors-picks';
 import editorsPicksAsymmetricalLayout from './editors-picks-asymmectrical';
 import featuredSectionLayout from './featured-section';
@@ -13,6 +14,7 @@ import topStoriesAsymmetrical from './top-stories-asymmetrical';
 import VideoLayout from './video';
 
 export default {
+	'brexit-coverage': brexitCoverageLayout,
 	'editors-picks': editorsPicksLayout,
 	'editors-picks-asymmetrical': editorsPicksAsymmetricalLayout,
 	'featured-section': featuredSectionLayout,

@@ -8,13 +8,11 @@ import nHealth from 'n-health';
 
 import * as additionalHealthChecks from './libs/health-checks/index';
 import { start as startPolling } from './libs/graphql-poller';
-import { start as startBrexitPolling } from './libs/brexit-poller';
+import { startBrexitPolling } from './libs/brexit';
 import colspan from '../client/utils/colspan';
 
 // routes
 import frontPage from './routes/front-page';
-
-console.log('>>>>>>>> INIT');
 
 const healthChecks = nHealth(path.resolve(__dirname, './config/health-checks'), additionalHealthChecks);
 const app = express({
@@ -45,35 +43,28 @@ const app = express({
 
 app.use(bodyParser.text());
 
-console.log('>>>>>>>> ABOUT TO START POLLING GRAPHQL');
-
 startPolling();
 
-console.log('>>>>>>>> ABOUT TO START BREXIT POLLING');
-startBrexitPolling().then(() => {
-	console.log('>>>>>>>> CREATING GTG ROUTE');
+// start the brexit poller too (this can be removed after the june referendum)
+startBrexitPolling();
 
-	app.get('/__gtg', (req, res) => {
-		res.status(200).end();
-	});
-
-	// Editions
-	const usEdition = frontPage('US');
-	const ukEdition = frontPage('UK');
-
-	// Routes
-	app.get('/', (req, res, next) => {
-		if (req.get('FT-Edition') === 'uk') {
-			return ukEdition(req, res, next);
-		}
-		return usEdition(req, res, next);
-	});
-
-	console.log('>>>>>>>> LISTENING...');
-
-	// const listen = app.listen(process.env.PORT || 3001);
-	app.listen(process.env.PORT || 3001);
-
-	// export default app
-	// export { listen }
+app.get('/__gtg', (req, res) => {
+	res.status(200).end();
 });
+
+// Editions
+const usEdition = frontPage('US');
+const ukEdition = frontPage('UK');
+
+// Routes
+app.get('/', (req, res, next) => {
+	if (req.get('FT-Edition') === 'uk') {
+		return ukEdition(req, res, next);
+	}
+	return usEdition(req, res, next);
+});
+
+const listen = app.listen(process.env.PORT || 3001);
+
+export default app
+export { listen }

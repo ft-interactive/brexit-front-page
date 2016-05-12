@@ -4,6 +4,7 @@ import sectionData from '../server/libs/section-data';
 const pages = {
 	// ordered list of sections for the front page
 	'front-page': [
+		'brexit-coverage',
 		'top-stories',
 		'mid-page-advert-1',
 		'opinion',
