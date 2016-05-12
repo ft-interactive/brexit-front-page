@@ -27,7 +27,9 @@ tidy:
 	nht destroy ${TEST_APP}
 
 deploy:
-	nht deploy-hashed-assets
-	nht ship -m
+	# nht deploy-hashed-assets
+	# nht ship -m
+	nbt configure ft-next-front-page ft-ig-brexit-front-page --overrides NODE_ENV=ig
+	nht deploy ft-ig-brexit-front-page
 
 clean-deploy: clean install build-production deploy
