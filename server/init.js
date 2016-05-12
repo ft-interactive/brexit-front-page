@@ -8,6 +8,7 @@ import nHealth from 'n-health';
 
 import * as additionalHealthChecks from './libs/health-checks/index';
 import { start as startPolling } from './libs/graphql-poller';
+import { startBrexitPolling } from './libs/brexit';
 import colspan from '../client/utils/colspan';
 
 // routes
@@ -43,6 +44,9 @@ const app = express({
 app.use(bodyParser.text());
 
 startPolling();
+
+// start the brexit poller too (this can be removed after the june referendum)
+startBrexitPolling();
 
 app.get('/__gtg', (req, res) => {
 	res.status(200).end();

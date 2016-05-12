@@ -1,8 +1,9 @@
 import components from '@financial-times/n-section';
-
 import { getData } from '../libs/graphql-poller';
+import { getBrexitCoverageData } from '../libs/brexit';
 import getPage from '../../config/pages';
 import FastFt from '../../shared/components/fast-ft/fast-ft';
+import BrexitCoverage from '../../shared/components/brexit-coverage/brexit-coverage';
 
 // bail unless we have at least one top story
 const contentMissing = data =>
@@ -19,6 +20,7 @@ const getAdsLayout = (requestedLayout, flags) => {
 
 export default region => (req, res) => {
 	components.FastFt = FastFt;
+	components.BrexitCoverage = BrexitCoverage;
 
 	const frontPageData = res.locals.flags.mockFrontPage ? 'mockFrontPage' : `frontPage${region}`;
 
@@ -34,6 +36,11 @@ export default region => (req, res) => {
 
 	if (contentMissing(data.frontPage)) {
 		throw new Error('Could not fetch content for the front page');
+	}
+
+	// add data for brexit components (this can be removed after the june referendum)
+	if (res.locals.flags.brexitFrontPage) {
+		data.brexitCoverage = getBrexitCoverageData();
 	}
 
 	const sections = getPage('front-page', data, res.locals.flags);

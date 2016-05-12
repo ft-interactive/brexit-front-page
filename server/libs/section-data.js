@@ -52,6 +52,7 @@ const getTopStoriesMoreData = (data, flags) => {
 };
 
 export default (data, flags) => ({
+	'brexit-coverage': data.brexitCoverage,
 	'top-stories': getTopStoriesData(data, flags),
 	'top-stories-new': getTopStoriesData(data, flags),
 	'top-stories-more': getTopStoriesMoreData(data, flags),
