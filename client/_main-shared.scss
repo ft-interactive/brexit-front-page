@@ -16,16 +16,16 @@ $n-ui-is-silent: true;
 
 .asymmetrical-layout {
 	.card__standfirst {
-		font: 14px/1.3 Georgia, serif;
+		font: 16px/1.3 Georgia, serif;
 	}
 
 	.card--article[data-size*=large] .card__standfirst {
-		font: 14px/1.3 Georgia, serif;
+		font: 16px/1.3 Georgia, serif;
 	}
 
 	.card--has-related[data-size*=large] .card__standfirst,
 	.card--opinion[data-size*=large] .card__standfirst {
-		font: 16px/1.4 Georgia, serif;
+		font: 16px/1.3 Georgia, serif;
 	}
 
 	.card__related-item {
