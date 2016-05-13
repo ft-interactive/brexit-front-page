@@ -16,6 +16,7 @@ $n-layout-is-silent: false;
 @import 'components/page-menu/page-menu';
 @import 'components/markets-data/markets-data';
 @import '../shared/components/main';
+@import 'n-ui/message-prompts/main';
 
 html {
 	background-color: getColor('pink');
