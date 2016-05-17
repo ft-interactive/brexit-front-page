@@ -4,10 +4,68 @@ export default [
 		components: [
 			{
 				type: 'Column',
-				colspan: { default: 12 },
+				colspan: { default: 7 },
 				components: [
 					{
-						type: 'BrexitCoverage'
+						type: 'BrexitLiveResults'
+					}
+				]
+			},
+			{
+				type: 'Column',
+				colspan: { default: 5 },
+				components: [
+					{
+						type: 'Content',
+						size: 'large',
+						standfirst: {
+							show: { default: true }
+						}
+					}
+				]
+			}
+		]
+	},
+	{
+		type: 'Row',
+		components: [
+			{
+				type: 'Column',
+				colspan: { default: 3 },
+				components: [
+					{
+						type: 'Content',
+						size: 'small'
+					}
+				]
+			},
+			{
+				type: 'Column',
+				colspan: { default: 3 },
+				components: [
+					{
+						type: 'Content',
+						size: 'small'
+					}
+				]
+			},
+			{
+				type: 'Column',
+				colspan: { default: 3 },
+				components: [
+					{
+						type: 'Content',
+						size: 'small'
+					}
+				]
+			},
+			{
+				type: 'Column',
+				colspan: { default: 3 },
+				components: [
+					{
+						type: 'Content',
+						size: 'small'
 					}
 				]
 			}
