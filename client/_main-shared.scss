@@ -68,7 +68,7 @@ $n-ui-is-silent: true;
 	}
 
 	//todo (PW 10/5/16) Where should this bit go?
-	.section--editors-picks .card--article[data-size='large'] {
+	.section--editors-picks .card[data-size='large'] {
 		@include oColorsFor(card-highlights-first, background);
 	}
 
@@ -82,8 +82,11 @@ $n-ui-is-silent: true;
 	}
 
 	@include oGridRespondTo(M) {
-		.card[data-image~="M--top"] .card__image-link {
-			width: auto;
+		.card[data-image~="M--top"],
+		.card[data-image~="M--bottom"] {
+			.card__image-link {
+				width: auto;
+			}
 		}
 	}
 
