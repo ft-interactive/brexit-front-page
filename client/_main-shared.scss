@@ -72,4 +72,20 @@ $n-ui-is-silent: true;
 		@include oColorsFor(card-highlights-first, background);
 	}
 
+	.card--main,
+	.column--related {
+		background-color: #E9DECF;
+	}
+
+	.card[data-image~="right"] .card__image-link {
+		width: 45%;
+	}
+
+	@include oGridRespondTo(M) {
+		.card[data-image~="M--top"] .card__image-link {
+			width: auto;
+		}
+	}
+
+
 }

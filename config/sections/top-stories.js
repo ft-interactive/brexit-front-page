@@ -1,21 +1,9 @@
 const getLayout = (layoutHint, flags) => {
-	if(flags && flags.asymmetricalFrontPageLayout){
-		return 'top-stories-asymmetrical';
-	}
-
-	switch(layoutHint) {
-		case 'standaloneimage':
-			return 'top-stories-picture-story';
-		case 'landscape':
-			return 'top-stories-landscape';
-		case 'assassination':
-		case 'bigstory':
-			return 'top-stories-big-story';
-		case 'standard':
-		default:
-			return 'top-stories';
-	}
+	return flags && flags.asymmetricalFrontPageLayout ?
+		'top-stories-asymmetrical' :
+		'top-stories';
 };
+
 export default ({ data, flags }) => ({
 	id: 'top-stories',
 	title: 'Top Stories',

@@ -4,7 +4,7 @@ import sectionContent from '../../../server/libs/section-data';
 chai.should();
 const expect = chai.expect;
 
-describe('Section Content', () => {
+describe.only('Section Content', () => {
 
 	const data = {
 		top: { items: ['1-with-more-stuff', '2', '3'] },
@@ -23,10 +23,9 @@ describe('Section Content', () => {
 
 	it('Takes top story and combines it with the other top stories', () => {
 		const results = sectionContent({ frontPage: data });
-
-		expect(results['top-stories'].content.length).to.equal(3);
-		expect(results['top-stories'].content[0]).to.equal('1-with-more-stuff');
-		expect(results['top-stories'].content[2]).to.equal('3');
+		expect(results['headlines'].content.length).to.equal(3);
+		expect(results['headlines'].content[0]).to.equal('1-with-more-stuff');
+		expect(results['headlines'].content[2]).to.equal('3');
 
 	});
 
@@ -34,19 +33,19 @@ describe('Section Content', () => {
 		data.topStoriesList = { items: [{ id: 'list-1' }], layoutHint: 'assassination' };
 		const results = sectionContent( {frontPage: data });
 
-		expect(results['top-stories'].layoutHint).to.equal('assassination');
+		expect(results['headlines'].layoutHint).to.equal('assassination');
 	});
 
 	it('Includes picture story from list if picture story layout chosen', () => {
 		data.topStoriesList = { items: [{ id: 'picture-story' }], layoutHint: 'standaloneimage' };
 		const results = sectionContent( {frontPage: data });
 
-		expect(results['top-stories'].layoutHint).to.equal('standaloneimage');
+		expect(results['headlines'].layoutHint).to.equal('standaloneimage');
 
-		expect(results['top-stories'].content.length).to.equal(4);
-		expect(results['top-stories'].content[0]).to.equal('1-with-more-stuff');
-		expect(results['top-stories'].content[1]).to.eql({ id: 'picture-story' });
-		expect(results['top-stories'].content[3]).to.equal('3');
+		expect(results['headlines'].content.length).to.equal(4);
+		expect(results['headlines'].content[0]).to.equal('1-with-more-stuff');
+		expect(results['headlines'].content[1]).to.eql({ id: 'picture-story' });
+		expect(results['headlines'].content[3]).to.equal('3');
 
 	});
 
@@ -54,24 +53,24 @@ describe('Section Content', () => {
 		data.topStoriesList = { items: [], layoutHint: 'standaloneimage' };
 		const results = sectionContent( {frontPage: data });
 
-		expect(results['top-stories'].layoutHint).to.equal('standard');
+		expect(results['headlines'].layoutHint).to.equal('standard');
 
-		expect(results['top-stories'].content.length).to.equal(3);
-		expect(results['top-stories'].content[0]).to.equal('1-with-more-stuff');
-		expect(results['top-stories'].content[1]).to.equal('2');
-		expect(results['top-stories'].content[2]).to.equal('3');
+		expect(results['headlines'].content.length).to.equal(3);
+		expect(results['headlines'].content[0]).to.equal('1-with-more-stuff');
+		expect(results['headlines'].content[1]).to.equal('2');
+		expect(results['headlines'].content[2]).to.equal('3');
 	});
 
 	it('Defaults to standard layout if top stories list has no data', () => {
 		data.topStoriesList = { items: null, layoutHint: null };
 		const results = sectionContent( {frontPage: data });
 
-		expect(results['top-stories'].layoutHint).to.equal('standard');
+		expect(results['headlines'].layoutHint).to.equal('standard');
 
-		expect(results['top-stories'].content.length).to.equal(3);
-		expect(results['top-stories'].content[0]).to.equal('1-with-more-stuff');
-		expect(results['top-stories'].content[1]).to.equal('2');
-		expect(results['top-stories'].content[2]).to.equal('3');
+		expect(results['headlines'].content.length).to.equal(3);
+		expect(results['headlines'].content[0]).to.equal('1-with-more-stuff');
+		expect(results['headlines'].content[1]).to.equal('2');
+		expect(results['headlines'].content[2]).to.equal('3');
 	});
 
 	describe('Big Story', () => {
@@ -86,9 +85,9 @@ describe('Section Content', () => {
 			};
 			const frontPage = Object.assign({}, data, { topStoriesList });
 			const results = sectionContent({ frontPage });
-			const topStories = results['top-stories'].content;
+			const topStories = results['headlines'].content;
 
-			results['top-stories'].layoutHint.should.equal('bigstory');
+			results['headlines'].layoutHint.should.equal('bigstory');
 			topStories.should.have.length(5);
 			topStories[0].id.should.equal('big-story');
 			topStories[1].id.should.equal('other-big-story');
@@ -117,7 +116,7 @@ describe('Section Content', () => {
 			};
 			const frontPage = Object.assign({}, data, { top, topStory, topStoriesList });
 			const results = sectionContent({ frontPage });
-			const topStories = results['top-stories'].content;
+			const topStories = results['headlines'].content;
 
 			topStories.should.have.length(2);
 			topStories[0].id.should.have.equal('top-story-1');
@@ -125,5 +124,37 @@ describe('Section Content', () => {
 		});
 
 	});
+
+	describe.only('Top Stories', () => {
+
+		before(() => {
+			data.topStory.items = ['0', '1', '2', '3', '4', '5', '6']
+		});
+
+		it('Should remove the first 4 stories if the layoutHint is bigstory', () => {
+
+			data.topStoriesList.layoutHint = 'bigstory';
+			data.topStoriesList.items = ['item'];
+			const results = sectionContent( {frontPage: data });
+			let fullList = results['headlines'].content.length;
+			expect(results['top-stories'].content.length).to.equal(fullList-4);
+		});
+
+		it('Should remove the first story if the layoutHint is landscape', () => {
+			data.topStoriesList.layoutHint = 'landscape';
+			data.topStoriesList.items = ['item'];
+			const results = sectionContent( {frontPage: data });
+			let fullList = results['headlines'].content.length;
+			expect(results['top-stories'].content.length).to.equal(fullList-1);
+		});
+
+		it('Should remove the 2 stories if the layoutHint is standaloneimage', () => {
+			data.topStoriesList.layoutHint = 'standaloneimage';
+			data.topStoriesList.items = ['item'];
+			const results = sectionContent( {frontPage: data });
+			let fullList = results['headlines'].content.length;
+			expect(results['top-stories'].content.length).to.equal(fullList-2);
+		})
+	})
 
 });
