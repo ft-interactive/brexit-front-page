@@ -78,6 +78,6 @@
 	border: 0;
 }
 
-#top-stories-section-content .card {
-	margin-top: 10px;
+#top-stories-section-content .section__column__inner:before {
+	display: none;
 }
