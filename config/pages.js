@@ -7,11 +7,11 @@ const getPages = flags => {
 		'front-page': [
 			'headlines',
 			'top-stories',
-			'opinion',
 			'mid-page-advert-1',
+			'opinion',
 			'myft',
-			'editors-picks',
 			'mid-page-advert-2',
+			'editors-picks',
 			'most-popular',
 			'technology',
 			'markets',
