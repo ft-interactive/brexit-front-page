@@ -1,5 +1,5 @@
-import Poller from 'ft-poller';
 import logger from '@financial-times/n-logger';
+import Poller from 'ft-poller';
 
 const poller = new Poller({
 	// TODO point this to the real data source (a microservice we are yet to write)
@@ -18,9 +18,9 @@ export const startBrexitPolling = () => {
 	return readyPromise;
 };
 
-// function that returns template data for rendering the BrexitCoverage component
+// function that returns template data for rendering the BrexitLiveResults component
 // (based on data from the poller)
-export const getBrexitCoverageData = () => {
+export const getBrexitLiveResultsData = () => {
 	const pollerData = poller.getData();
 	if (!pollerData) return null;
 

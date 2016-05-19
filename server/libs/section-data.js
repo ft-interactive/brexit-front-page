@@ -52,7 +52,10 @@ const getTopStoriesMoreData = (data, flags) => {
 };
 
 export default (data, flags) => ({
-	'brexit-coverage': data.brexitCoverage,
+	'brexit-coverage': {
+		brexitLiveResults: data.brexitLiveResults,
+		content: data.frontPage.brexit.items,
+	},
 	'top-stories': getTopStoriesData(data, flags),
 	'top-stories-new': getTopStoriesData(data, flags),
 	'top-stories-more': getTopStoriesMoreData(data, flags),

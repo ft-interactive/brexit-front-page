@@ -8,7 +8,7 @@ import nHealth from 'n-health';
 
 import * as additionalHealthChecks from './libs/health-checks/index';
 import { start as startPolling } from './libs/graphql-poller';
-import { startBrexitPolling } from './libs/brexit';
+import { startBrexitPolling } from './libs/brexit-live-results';
 import colspan from '../client/utils/colspan';
 
 // routes
