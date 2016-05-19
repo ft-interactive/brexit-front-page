@@ -1,10 +1,11 @@
-$o-grid-fixed-layout: 'XL';
 $o-grid-ie8-rules: 'only';
-@import 'head-shared';
+$o-grid-fixed-layout: 'XL';
 
 $o-card-is-silent: true;
+@import 'o-grid/main';
 @import 'n-section/main-ie8';
 @import '../shared/components/main-ie8';
+
 
 .o-header__masthead__logo--mobile,
 .o-header__membership-promo-container,
@@ -21,7 +22,4 @@ $o-card-is-silent: true;
 	min-width: 1220px;
 }
 
-/*! start:main-ie8.css */
-@import 'main-shared';
-@import 'n-ui/footer/main-ie8';
-/*! end:main-ie8.css */
+@import 'main';

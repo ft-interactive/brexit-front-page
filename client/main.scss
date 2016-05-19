@@ -1,6 +1,51 @@
-$n-ui-is-silent: true;
+@import 'n-ui/configure';
 
-@import 'n-ui/non-critical';
+@include nUiConfigure((
+	preset: complete,
+	critical: true
+));
+
+@import 'n-ui/bootstrap';
+
+/*! start:head.css */
+@import 'n-section/main';
+
+@import 'colors';
+@import 'functions';
+@import 'mixins';
+@import 'components/ads/ads';
+@import 'components/page-menu/page-menu';
+@import 'components/markets-data/markets-data';
+@import '../shared/components/main';
+
+html {
+	background-color: getColor('pink');
+	// Prevent navigation menus from creating
+	// extra space on sides of the page
+	overflow-x: auto;
+
+	@include oGridTargetModernBrowsers {
+		overflow-x: hidden;
+	}
+}
+
+.n-layout {
+	min-height: 0;
+}
+
+/*! end:head.css */
+
+.main-body {
+	@include oGridRespondTo(S) {
+		padding-left: 30px;
+		padding-right: 30px;
+	}
+	@include oGridRespondTo(XL) {
+		padding-left: oGridGutter(M);
+		padding-right: oGridGutter(M);
+	}
+}
+
 @import 'n-video/main';
 
 @import 'components/back-to-top/back-to-top';
@@ -103,4 +148,10 @@ $n-ui-is-silent: true;
 		}
 	}
 
+}
+
+.n-welcome--bar {
+	@include oGridRespondTo(M) {
+		margin-top: oGridGutter(M);
+	}
 }
