@@ -83,6 +83,7 @@ const frontPage = `
 				... Basic
 				... Extended
 				... OpinionData
+				... LiveBlogInfo
 			}
 		}
 		topStory: top(region: $region){

@@ -1,3 +1,73 @@
-.brexit-coverage {
+@import 'o-grid/main';
 
+.section--brexit-coverage {
+	background-color: white;
+	.section-meta {
+
+		&:before {
+			display: none;
+		}
+
+		&:after {
+			content: '';
+			display: block;
+			clear: both;
+		}
+
+		.section-meta__title {
+			background-color: transparent;
+		}
+
+		.section-meta__title,
+		.n-myft-ui--follow {
+			float: left;
+		}
+
+		.o-expander__toggle {
+			float: right;
+		}
+
+		@mixin adjustHeader($logo-size, $font-size, $vertical-spacing) {
+			$horizontal-spacing: ($logo-size / 6);
+
+			line-height: $logo-size;
+			padding: $vertical-spacing 0;
+
+			.section-meta__title {
+				font-size: $font-size;
+				margin: 0 $horizontal-spacing 0 ($logo-size + $horizontal-spacing);
+
+				&:before {
+					$image-size: ($logo-size * 2) / 1px;
+
+					content: '';
+					position: absolute;
+					background-size: contain;
+					background-repeat: no-repeat;
+					height: $logo-size;
+					width: $logo-size;
+					left: -($logo-size + $horizontal-spacing);
+					background-image: url('https://image.webservices.ft.com/v1/images/raw/http%3A%2F%2Fig.ft.com%2F_other%2Fbrexit-stream%2Flogo.png?source=next-stream-page&width=#{$image-size}&height=#{$image-size}&format=png');
+				}
+			}
+		};
+
+		@include adjustHeader(35px, 25px, 10px);
+
+		@include oGridRespondTo(S) {
+			@include adjustHeader(40px, 32px, 10px);
+		}
+
+		@include oGridRespondTo(M) {
+			@include adjustHeader(50px, 37px, 10px);
+		}
+
+		@include oGridRespondTo(L) {
+			@include adjustHeader(60px, 40px, 10px);
+		}
+	}
+
+	.card__tag {
+		display: none;
+	}
 }
