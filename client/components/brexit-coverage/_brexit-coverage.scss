@@ -1,8 +1,13 @@
 @import 'o-grid/main';
 
 .section--brexit-coverage {
-	background-color: white;
+	margin-top: 20px;
+
 	.section-meta {
+
+		background-color: white;
+		border-bottom: 1px solid oColorsGetPaletteColor('pink-tint2');
+		margin-top: 0;
 
 		&:before {
 			display: none;
@@ -16,6 +21,16 @@
 
 		.section-meta__title {
 			background-color: transparent;
+			font-family: oFontsGetFontFamilyWithFallbacks(MetricWeb);
+
+			a {
+				color: black;
+				border-bottom: 0;
+
+				&:hover {
+					border-bottom: 1px dotted black;
+				}
+			}
 		}
 
 		.section-meta__title,
@@ -46,24 +61,32 @@
 					background-repeat: no-repeat;
 					height: $logo-size;
 					width: $logo-size;
-					left: -($logo-size + $horizontal-spacing);
+					left: -($logo-size + $horizontal-spacing - 10);
 					background-image: url('https://image.webservices.ft.com/v1/images/raw/http%3A%2F%2Fig.ft.com%2F_other%2Fbrexit-stream%2Flogo.png?source=next-stream-page&width=#{$image-size}&height=#{$image-size}&format=png');
 				}
 			}
 		};
 
-		@include adjustHeader(35px, 25px, 10px);
+		@include adjustHeader(31px, 31px, 10px);
 
 		@include oGridRespondTo(S) {
-			@include adjustHeader(40px, 32px, 10px);
+			@include adjustHeader(37px, 37px, 10px);
 		}
 
 		@include oGridRespondTo(M) {
-			@include adjustHeader(50px, 37px, 10px);
+			@include adjustHeader(45px, 45px, 10px);
 		}
 
 		@include oGridRespondTo(L) {
-			@include adjustHeader(60px, 40px, 10px);
+			@include adjustHeader(50px, 50px, 10px);
+		}
+	}
+
+	.section__column__inner {
+		background-color: white;
+
+		&:before {
+			display: none;
 		}
 	}
 
