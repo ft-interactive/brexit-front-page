@@ -26,6 +26,9 @@
     "n-health": "^1.0.2",
     "next-myft-ui": "^6.10.2",
     "o-date": "https://github.com/Financial-Times/o-date/archive/1.1.1.tar.gz",
+    "preact": "^4.8.0",
+    "preact-compat": "^1.7.1",
+    "proptypes": "^0.14.3",
     "react": "^0.14.6",
     "react-dom": "^0.14.6"
   },
