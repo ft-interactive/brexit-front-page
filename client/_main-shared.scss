@@ -90,4 +90,17 @@ $n-ui-is-silent: true;
 		}
 	}
 
+	// Make sure we don't show right-aligned images for opinion cards
+	.card--opinion[data-image="right"] .card__image-link {
+		display: none;
+	}
+
+	@each $layout-name in $_o-grid-layout-names {
+		@include oGridRespondTo($layout-name) {
+			.card--opinion[data-image~="#{$layout-name}--right"] .card__image-link {
+				display: none;
+			}
+		}
+	}
+
 }
