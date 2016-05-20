@@ -7,12 +7,13 @@
 
 @import 'n-ui/bootstrap';
 
-/*! start:head.css */
-@import 'n-section/main';
-
 @import 'colors';
 @import 'functions';
 @import 'mixins';
+
+/*#{nUiCriticalStart()}*/
+@import 'n-section/main';
+
 @import 'components/ads/ads';
 @import 'components/page-menu/page-menu';
 @import 'components/markets-data/markets-data';
@@ -33,8 +34,6 @@ html {
 	min-height: 0;
 }
 
-/*! end:head.css */
-
 .main-body {
 	@include oGridRespondTo(S) {
 		padding-left: 30px;
@@ -46,18 +45,7 @@ html {
 	}
 }
 
-@import 'n-video/main';
-
-@import 'components/back-to-top/back-to-top';
-@import 'components/highlight-dom-path/highlight-dom-path';
-@import 'components/video/video';
-
-.n-welcome--bar {
-	margin-top: oGridGutter();
-}
-
 // TODO (PW 6/5/16): All of this stuff is hacked in - if they want to go ahead with it it needs doing properly
-
 .asymmetrical-layout {
 	.card__standfirst {
 		font: 16px/1.3 Georgia, serif;
@@ -147,10 +135,18 @@ html {
 			}
 		}
 	}
-
 }
+/*#{nUiCriticalEnd()}*/
+
+@import 'n-video/main';
+
+@import 'components/back-to-top/back-to-top';
+@import 'components/highlight-dom-path/highlight-dom-path';
+@import 'components/video/video';
 
 .n-welcome--bar {
+	margin-top: oGridGutter();
+
 	@include oGridRespondTo(M) {
 		margin-top: oGridGutter(M);
 	}

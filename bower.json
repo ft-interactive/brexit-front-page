@@ -3,7 +3,7 @@
   "dependencies": {
     "n-section": "^3.0.0",
     "n-video": "^4.0.0",
-    "n-ui": "1.0.0-beta.19",
+    "n-ui": "^1.0.0-rc.2",
     "next-session-client": "^2.0.0",
     "o-fetch-jsonp": "^1.0.1"
   },
