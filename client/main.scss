@@ -1,18 +1,51 @@
-$n-ui-is-silent: true;
+@import 'n-ui/configure';
 
-@import 'n-ui/non-critical';
-@import 'n-video/main';
+@include nUiConfigure((
+	preset: complete,
+	critical: true
+));
 
-@import 'components/back-to-top/back-to-top';
-@import 'components/highlight-dom-path/highlight-dom-path';
-@import 'components/video/video';
+@import 'n-ui/bootstrap';
 
-.n-welcome--bar {
-	margin-top: oGridGutter();
+@import 'colors';
+@import 'functions';
+@import 'mixins';
+
+/*#{nUiCriticalStart()}*/
+@import 'n-section/main';
+
+@import 'components/ads/ads';
+@import 'components/page-menu/page-menu';
+@import 'components/markets-data/markets-data';
+@import '../shared/components/main';
+
+html {
+	background-color: getColor('pink');
+	// Prevent navigation menus from creating
+	// extra space on sides of the page
+	overflow-x: auto;
+
+	@include oGridTargetModernBrowsers {
+		overflow-x: hidden;
+	}
+}
+
+.n-layout {
+	min-height: 0;
+}
+
+.main-body {
+	@include oGridRespondTo(S) {
+		padding-left: 30px;
+		padding-right: 30px;
+	}
+	@include oGridRespondTo(XL) {
+		padding-left: oGridGutter(M);
+		padding-right: oGridGutter(M);
+	}
 }
 
 // TODO (PW 6/5/16): All of this stuff is hacked in - if they want to go ahead with it it needs doing properly
-
 .asymmetrical-layout {
 	.card__standfirst {
 		font: 16px/1.3 Georgia, serif;
@@ -102,5 +135,19 @@ $n-ui-is-silent: true;
 			}
 		}
 	}
+}
+/*#{nUiCriticalEnd()}*/
 
+@import 'n-video/main';
+
+@import 'components/back-to-top/back-to-top';
+@import 'components/highlight-dom-path/highlight-dom-path';
+@import 'components/video/video';
+
+.n-welcome--bar {
+	margin-top: oGridGutter();
+
+	@include oGridRespondTo(M) {
+		margin-top: oGridGutter(M);
+	}
 }
