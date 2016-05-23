@@ -5,13 +5,9 @@
 
 	.section-meta {
 
-		background-color: white;
 		border-bottom: 1px solid oColorsGetPaletteColor('pink-tint2');
 		margin-top: 0;
-
-		&:before {
-			display: none;
-		}
+		padding: 10px 0;
 
 		&:after {
 			content: '';
@@ -20,73 +16,26 @@
 		}
 
 		.section-meta__title {
-			background-color: transparent;
-			float: left;
 			font-family: oFontsGetFontFamilyWithFallbacks(MetricWeb);
+			font-size: 20px;
+			top: 3px;
 
 			a {
-				color: black;
+				@include oColorsFor(topic, text);
 				border-bottom: 0;
-
-				&:hover {
-					border-bottom: 1px dotted black;
-				}
 			}
 		}
 
-		.n-myft-ui--follow {
-			background-color: transparent;
-			float: left;
+		.section-meta__follow {
 			top: 0;
 		}
 
 		.o-expander__toggle {
 			float: right;
 		}
-
-		@mixin adjustHeader($logo-size, $font-size, $vertical-spacing) {
-			$horizontal-spacing: ($logo-size / 6);
-
-			line-height: $logo-size;
-			padding: $vertical-spacing 0;
-
-			.section-meta__title {
-				font-size: $font-size;
-				margin: 0 $horizontal-spacing 0 ($logo-size + $horizontal-spacing);
-
-				&:before {
-					$image-size: ($logo-size * 2) / 1px;
-
-					content: '';
-					position: absolute;
-					background-size: contain;
-					background-repeat: no-repeat;
-					height: $logo-size;
-					width: $logo-size;
-					left: -($logo-size + $horizontal-spacing - 10);
-					background-image: url('https://image.webservices.ft.com/v1/images/raw/http%3A%2F%2Fig.ft.com%2F_other%2Fbrexit-stream%2Flogo.png?source=next-stream-page&width=#{$image-size}&height=#{$image-size}&format=png');
-				}
-			}
-		};
-
-		@include adjustHeader(31px, 31px, 10px);
-
-		@include oGridRespondTo(S) {
-			@include adjustHeader(37px, 37px, 10px);
-		}
-
-		@include oGridRespondTo(M) {
-			@include adjustHeader(45px, 45px, 10px);
-		}
-
-		@include oGridRespondTo(L) {
-			@include adjustHeader(50px, 50px, 10px);
-		}
 	}
 
 	.section__column__inner {
-		background-color: white;
-
 		&:before {
 			display: none;
 		}
@@ -94,5 +43,24 @@
 
 	.card__tag {
 		display: none;
+	}
+
+	.brexit-live-results {
+		position: relative;
+		.remain-image {
+			width: 100%;
+		}
+		.remain-result {
+			color: white;
+			font-size: 40px;
+			max-width: 45%;
+			padding: 10px;
+			position: absolute;
+			top: 13%;
+			left: 10%;
+			@include oGridRespondTo(M) {
+				font-size: 60px;
+			}
+		}
 	}
 }
