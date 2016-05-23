@@ -12,9 +12,21 @@ const headlineStoryCount = layout => {
 	}
 };
 
+const getLayoutHint = (data, flags) => {
+	if(flags.frontPageLayout){
+		return flags.frontPageLayout;
+	}
+
+	if(data.frontPage.topStoriesList && data.frontPage.topStoriesList.layoutHint){
+		return data.frontPage.topStoriesList.layoutHint
+	}
+
+	return 'standard';
+};
+
 const getTopStoriesData = (data, flags = {}) => {
 	let content = data.frontPage.topStory.items.concat(data.frontPage.top.items.slice(1));
-	let layoutHint = flags.frontPageLayout || data.frontPage.topStoriesList.layoutHint || 'standard';
+	let layoutHint = getLayoutHint(data, flags);
 	if (layoutHint !== 'landscape') {
 		if (
 			data.frontPage.topStoriesList &&
