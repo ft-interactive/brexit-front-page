@@ -21,6 +21,7 @@
 
 		.section-meta__title {
 			background-color: transparent;
+			float: left;
 			font-family: oFontsGetFontFamilyWithFallbacks(MetricWeb);
 
 			a {
@@ -33,9 +34,10 @@
 			}
 		}
 
-		.section-meta__title,
 		.n-myft-ui--follow {
+			background-color: transparent;
 			float: left;
+			top: 0;
 		}
 
 		.o-expander__toggle {

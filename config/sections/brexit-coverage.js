@@ -9,8 +9,8 @@ export default () => ({
 	// background: true, // ?
 	followButton: {
 		conceptId: 'NDdiMzAyNzctMTRlMy00Zjk1LWEyZjYtYmYwZWIwYWU2NzAy-VG9waWNz',
-		name: 'UK\'S EU referendum',
-		taxonomy: 'topics',
+		name: 'UK\'s EU referendum',
+		taxonomy: 'topics'
 	},
 	size: {
 		default: 12
