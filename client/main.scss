@@ -11,7 +11,7 @@
 @import 'functions';
 @import 'mixins';
 
-/*#{nUiCriticalStart()}*/
+@include nUiCriticalStart();
 @import 'n-section/main';
 
 @import 'components/ads/ads';
@@ -136,7 +136,7 @@ html {
 		}
 	}
 }
-/*#{nUiCriticalEnd()}*/
+@include nUiCriticalEnd();
 
 @import 'n-video/main';
 
