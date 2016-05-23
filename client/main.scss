@@ -107,17 +107,17 @@ html {
 
 	.card--main,
 	.column--related {
-		background-color: #E9DECF;
+		background-color: #e9decf;
 	}
 
 	.card[data-image~="right"] .card__image-link {
 		width: 45%;
 	}
 
-	@include oGridRespondTo(M) {
-		.card[data-image~="M--top"],
-		.card[data-image~="M--bottom"] {
-			.card__image-link {
+	.card[data-image~="M--top"],
+	.card[data-image~="M--bottom"] {
+		.card__image-link {
+			@include oGridRespondTo(M) {
 				width: auto;
 			}
 		}
