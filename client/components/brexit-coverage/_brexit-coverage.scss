@@ -1,3 +1,72 @@
-.brexit-coverage {
+@import 'o-grid/main';
 
+.section--brexit-coverage {
+	margin-top: 20px;
+
+	.section-meta {
+
+		border-bottom: 1px solid oColorsGetPaletteColor('pink-tint2');
+		margin-top: 0;
+		padding: 10px 0;
+
+		&:after {
+			content: '';
+			display: block;
+			clear: both;
+		}
+
+		.section-meta__title {
+			font-family: oFontsGetFontFamilyWithFallbacks(MetricWeb);
+			font-size: 20px;
+			top: 3px;
+
+			a {
+				@include oColorsFor(topic, text);
+				border-bottom: 0;
+			}
+		}
+
+		.section-meta__follow {
+			top: 0;
+		}
+
+		.o-expander__toggle {
+			float: right;
+		}
+	}
+
+	.section__column__inner {
+		&:before {
+			display: none;
+		}
+	}
+
+	.card__tag {
+		display: none;
+	}
+
+	.brexit-live-results {
+		position: relative;
+		.remain-image {
+			width: 100%;
+		}
+		.remain-result {
+			color: white;
+			font-size: 40px;
+			max-width: 45%;
+			padding: 10px;
+			position: absolute;
+			top: 13%;
+			left: 10%;
+			@include oGridRespondTo(M) {
+				font-size: 60px;
+			}
+		}
+	}
+}
+
+.asymmetrical-layout .section--brexit-coverage {
+	.card--article[data-size*=large] .card__standfirst {
+		font: 16px/1.4 Georgia, serif;
+	}
 }
