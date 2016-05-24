@@ -1,0 +1,77 @@
+@import 'o-grid/main';
+
+.section--brexit-buildup {
+	.section-meta__title {
+		font-family: oFontsGetFontFamilyWithFallbacks(MetricWeb);
+		font-size: 20px;
+		line-height: 22px;
+		font-weight: 600;
+		margin-right: 0 !important;
+		top: 2px;
+
+		a {
+			@include oColorsFor(topic, text);
+			border-bottom: 0;
+		}
+	}
+
+	.section-meta {
+
+		@mixin adjustHeader($logo-size, $font-size, $vertical-spacing) {
+			$horizontal-spacing: ($logo-size / 6);
+
+			line-height: $logo-size;
+			padding: $vertical-spacing 0;
+
+			.section-meta__title {
+				font-size: $font-size;
+				@media (min-width: 360px) {
+					margin: 0 $horizontal-spacing 0 ($logo-size + $horizontal-spacing);
+
+					&:before {
+						$image-size: ($logo-size * 2) / 1px;
+
+						@include oColorsFor(card, background);
+						content: '';
+						position: absolute;
+						background-size: contain;
+						background-repeat: no-repeat;
+						background-position-x: right;
+						height: $logo-size;
+						width: $logo-size;
+						top: -2px;
+						left: -($logo-size + $horizontal-spacing - 10);
+						background-image: url('https://image.webservices.ft.com/v1/images/raw/http%3A%2F%2Fig.ft.com%2F_other%2Fbrexit-stream%2Flogo.png?source=next-stream-page&width=#{$image-size}&height=#{$image-size}&format=png');
+						margin-left: -(oGridGutter());
+						padding-right: oGridGutter();
+
+						@include oGridRespondTo(S) {
+							top: -10px;
+							margin-left: -(oGridGutter(S));
+							padding-right: oGridGutter(S);
+						}
+					}
+				}
+			}
+		};
+
+		@include adjustHeader(26px, 16px, 10px);
+
+		@include oGridRespondTo(S) {
+			@include adjustHeader(40px, 20px, 10px);
+		}
+	}
+
+	.section-meta__follow {
+		display: none;
+		top: 0;
+
+		@media (min-width: 300px) {
+			display: inline-block;
+		}
+	}
+
+	.card__tag {
+		display: none;
+	}
+}

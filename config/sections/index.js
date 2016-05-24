@@ -10,6 +10,7 @@ import technologySection from './technology';
 import headlinesSection from './headlines';
 import topStoriesSection from './top-stories';
 import brexitCoverageSection from './brexit-coverage';
+import brexitBuildupSection from './brexit-buildup';
 import videosSection from './videos';
 
 import layouts from '../layouts';
@@ -27,6 +28,7 @@ const sections = {
 	'headlines': headlinesSection,
 	'top-stories': topStoriesSection,
 	'brexit-coverage': brexitCoverageSection,
+	'brexit-buildup': brexitBuildupSection,
 	videos: videosSection
 };
 

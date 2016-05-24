@@ -20,7 +20,6 @@ const getAdsLayout = (requestedLayout, flags) => {
 
 export default region => (req, res) => {
 	components.FastFt = FastFt;
-	components.BrexitLiveResults = BrexitLiveResults;
 
 	const frontPageData = res.locals.flags.mockFrontPage ? 'mockFrontPage' : `frontPage${region}`;
 
@@ -38,8 +37,11 @@ export default region => (req, res) => {
 		throw new Error('Could not fetch content for the front page');
 	}
 
+	console.log('>>>>>data.frontPage<<<<<', data.frontPage);
+
 	// add data for brexit components (this can be removed after the june referendum)
 	if (res.locals.flags.brexitFrontPage) {
+		components.BrexitLiveResults = BrexitLiveResults;
 		data.brexitLiveResults = getBrexitLiveResultsData();
 	}
 

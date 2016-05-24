@@ -82,13 +82,16 @@ const getTopStoriesWithoutMainStoriesData = (data, flags) => {
 export default (data, flags) => ({
 	'brexit-coverage': {
 		brexitLiveResults: data.brexitLiveResults,
-		content: data.frontPage.brexit.items
+		content: data.frontPage.brexitCoverage.items
 	},
 	'top-stories': getTopStoriesWithoutMainStoriesData(data, flags),
 	'headlines': getTopStoriesData(data, flags),
 	'top-stories-new': getTopStoriesData(data, flags),
 	'top-stories-more': getTopStoriesMoreData(data, flags),
 	'top-stories-more-new': getTopStoriesMoreData(data, flags),
+	'brexit-buildup': {
+		content: data.frontPage.brexitBuildup.items
+	},
 	opinion: {
 		content: data.frontPage.opinion.items
 	},
