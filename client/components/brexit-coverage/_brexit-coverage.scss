@@ -64,3 +64,9 @@
 		}
 	}
 }
+
+.asymmetrical-layout .section--brexit-coverage {
+	.card--article[data-size*=large] .card__standfirst {
+		font: 16px/1.4 Georgia, serif;
+	}
+}
