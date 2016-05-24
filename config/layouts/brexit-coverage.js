@@ -4,7 +4,7 @@ export default [
 		components: [
 			{
 				type: 'Column',
-				colspan: { default: 7 },
+				colspan: { default: 12, M: 6 },
 				components: [
 					{
 						type: 'BrexitLiveResults'
@@ -13,11 +13,11 @@ export default [
 			},
 			{
 				type: 'Column',
-				colspan: { default: 5 },
+				colspan: { default: 12, M: 6 },
 				components: [
 					{
 						type: 'Content',
-						size: 'large',
+						size: 'large-no-image',
 						standfirst: {
 							show: { default: true }
 						}
@@ -31,7 +31,7 @@ export default [
 		components: [
 			{
 				type: 'Column',
-				colspan: { default: 3 },
+				colspan: { default: 12, S: 6, L: 3 },
 				components: [
 					{
 						type: 'Content',
@@ -41,7 +41,7 @@ export default [
 			},
 			{
 				type: 'Column',
-				colspan: { default: 3 },
+				colspan: { default: 12, S: 6, L: 3 },
 				components: [
 					{
 						type: 'Content',
@@ -51,7 +51,7 @@ export default [
 			},
 			{
 				type: 'Column',
-				colspan: { default: 3 },
+				colspan: { default: 12, S: 6, L: 3 },
 				components: [
 					{
 						type: 'Content',
@@ -61,7 +61,7 @@ export default [
 			},
 			{
 				type: 'Column',
-				colspan: { default: 3 },
+				colspan: { default: 12, S: 6, L: 3 },
 				components: [
 					{
 						type: 'Content',
