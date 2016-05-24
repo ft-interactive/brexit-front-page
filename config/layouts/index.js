@@ -5,11 +5,12 @@ import featuredSectionLayout from './featured-section';
 import mostPopularLayout from './most-popular';
 import myftLayout from './myft';
 import opinionLayout from './opinion';
-import opinnionAsymmetricalLayout from './opinion-asymmetrical';
+import opinionAsymmetricalLayout from './opinion-asymmetrical';
 import topStoriesLayout from './top-stories';
-import topStoriesBigStoryLayout from './top-stories-big-story';
-import topStoriesLandscapeLayout from './top-stories-landscape';
-import topStoriesPictureStoryLayout from './top-stories-picture-story';
+import headlinesBigStoryLayout from './headlines-big-story';
+import headlinesLandscapeLayout from './headlines-landscape';
+import headlinesPictureStoryLayout from './headlines-picture-story';
+import headlinesStandardLayout from './headlines';
 import topStoriesAsymmetrical from './top-stories-asymmetrical';
 import VideoLayout from './video';
 
@@ -21,11 +22,12 @@ export default {
 	'most-popular': mostPopularLayout,
 	'myft': myftLayout,
 	'opinion': opinionLayout,
-	'opinion-asymmetrical': opinnionAsymmetricalLayout,
+	'opinion-asymmetrical': opinionAsymmetricalLayout,
 	'top-stories': topStoriesLayout,
-	'top-stories-big-story': topStoriesBigStoryLayout,
-	'top-stories-landscape': topStoriesLandscapeLayout,
-	'top-stories-picture-story': topStoriesPictureStoryLayout,
+	'headlines': headlinesStandardLayout,
+	'headlines-big-story': headlinesBigStoryLayout,
+	'headlines-landscape': headlinesLandscapeLayout,
+	'headlines-picture-story': headlinesPictureStoryLayout,
 	"top-stories-asymmetrical": topStoriesAsymmetrical,
 	'video': VideoLayout
 }

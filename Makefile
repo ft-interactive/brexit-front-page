@@ -16,7 +16,7 @@ run-local:
 
 smoke:
 	nht test-urls ${TEST_APP}
-	export TEST_APP=${TEST_APP}; nht nightwatch test/browser/tests/* -e ie9,firefox,chrome,iphone6_plus
+	export TEST_APP=${TEST_APP}; nht nightwatch test/browser/tests/*
 
 provision:
 	nht deploy-hashed-assets

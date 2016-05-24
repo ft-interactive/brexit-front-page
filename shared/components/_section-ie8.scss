@@ -1,7 +1,0 @@
-$horizontal-rule-width: 1px;
-
-.section__column__inner {
-	&:before {
-		top: oGridGutter(M) - $horizontal-rule-width;
-	}
-}

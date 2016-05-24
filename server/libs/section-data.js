@@ -3,9 +3,30 @@
  */
 const dedupe = (item, index, items) => !item.id || items.findIndex(otherItem => otherItem.id === item.id) === index;
 
+const headlineStoryCount = layout => {
+	switch(layout) {
+		case 'bigstory': return 4;
+		case 'landscape': return 1;
+		case 'standaloneimage': return 2;
+		default: return 5;
+	}
+};
+
+const getLayoutHint = (data, flags) => {
+	if(flags.frontPageLayout){
+		return flags.frontPageLayout;
+	}
+
+	if(data.frontPage.topStoriesList && data.frontPage.topStoriesList.layoutHint){
+		return data.frontPage.topStoriesList.layoutHint
+	}
+
+	return 'standard';
+};
+
 const getTopStoriesData = (data, flags = {}) => {
 	let content = data.frontPage.topStory.items.concat(data.frontPage.top.items.slice(1));
-	let layoutHint = flags.frontPageLayout || data.frontPage.topStoriesList.layoutHint || 'standard';
+	let layoutHint = getLayoutHint(data, flags);
 	if (layoutHint !== 'landscape') {
 		if (
 			data.frontPage.topStoriesList &&
@@ -25,6 +46,7 @@ const getTopStoriesData = (data, flags = {}) => {
 			layoutHint = 'standard';
 		}
 	}
+
 	// NOTE: only needed while maintaining both a list and a page, but dedupe
 	content = content.filter(dedupe);
 
@@ -34,7 +56,6 @@ const getTopStoriesData = (data, flags = {}) => {
 		sidebar: data.frontPage.fastFT,
 		fastFt: data.frontPage.fastFT
 	}
-
 };
 
 const getTopStoriesMoreData = (data, flags) => {
@@ -51,12 +72,20 @@ const getTopStoriesMoreData = (data, flags) => {
 	return { content: topStories.content.slice(moreStoriesOffset) };
 };
 
+//todo - this is the stupidest named function ever
+const getTopStoriesWithoutMainStoriesData = (data, flags) => {
+	let topStories = getTopStoriesData(data, flags);
+	topStories.content = topStories.content.slice(headlineStoryCount(topStories.layoutHint));
+	return topStories;
+};
+
 export default (data, flags) => ({
 	'brexit-coverage': {
 		brexitLiveResults: data.brexitLiveResults,
 		content: data.frontPage.brexit.items
 	},
-	'top-stories': getTopStoriesData(data, flags),
+	'top-stories': getTopStoriesWithoutMainStoriesData(data, flags),
+	'headlines': getTopStoriesData(data, flags),
 	'top-stories-new': getTopStoriesData(data, flags),
 	'top-stories-more': getTopStoriesMoreData(data, flags),
 	'top-stories-more-new': getTopStoriesMoreData(data, flags),
