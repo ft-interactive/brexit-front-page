@@ -14,24 +14,16 @@
 			display: block;
 			clear: both;
 		}
+	}
 
-		.section-meta__title {
-			font-family: oFontsGetFontFamilyWithFallbacks(MetricWeb);
-			font-size: 20px;
-			top: 3px;
+	.section-meta__title {
+		font-family: oFontsGetFontFamilyWithFallbacks(MetricWeb);
+		font-size: 20px;
+		top: 3px;
 
-			a {
-				@include oColorsFor(topic, text);
-				border-bottom: 0;
-			}
-		}
-
-		.section-meta__follow {
-			top: 0;
-		}
-
-		.o-expander__toggle {
-			float: right;
+		a {
+			@include oColorsFor(topic, text);
+			border-bottom: 0;
 		}
 	}
 
@@ -39,6 +31,10 @@
 		&:before {
 			display: none;
 		}
+	}
+
+	.section-meta__follow {
+		top: 0;
 	}
 
 	.card__tag {
