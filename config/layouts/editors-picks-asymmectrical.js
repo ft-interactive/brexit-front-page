@@ -11,7 +11,6 @@ export default [
 					{
 						type:'Content',
 						size:'large',
-						standfirst:{show:{default:true}},
 						image: createImageConfig({}, {default:'top'}, [166,266,600])
 					}
 				]

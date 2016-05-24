@@ -7,6 +7,7 @@ import midPageAdvert1Section from './mid-page-advert-1';
 import midPageAdvert2Section from './mid-page-advert-2';
 import opinionSection from './opinion';
 import technologySection from './technology';
+import headlinesSection from './headlines';
 import topStoriesSection from './top-stories';
 import brexitCoverageSection from './brexit-coverage';
 import videosSection from './videos';
@@ -23,6 +24,7 @@ const sections = {
 	'mid-page-advert-2': midPageAdvert2Section,
 	opinion: opinionSection,
 	technology: technologySection,
+	'headlines': headlinesSection,
 	'top-stories': topStoriesSection,
 	'brexit-coverage': brexitCoverageSection,
 	videos: videosSection
