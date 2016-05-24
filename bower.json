@@ -1,7 +1,7 @@
 {
   "name": "next-front-page",
   "dependencies": {
-    "n-section": "^3.0.0",
+    "n-section": "^3.2.0",
     "n-ui": "^1.0.1",
     "n-video": "^4.0.0",
     "next-session-client": "^2.0.0",
