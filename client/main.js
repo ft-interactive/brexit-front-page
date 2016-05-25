@@ -17,7 +17,8 @@ bootstrap(({ flags, mainCss }) => {
 		nVideo.init({
 			placeholder: true,
 			classes: ['video'],
-			selector: '.js-video'
+			selector: '.js-video',
+			advertising: (flags.get('videojsPlayerAdvertising') && flags.get('videojsPlayer')) ? true : false
 		});
 	});
 });
