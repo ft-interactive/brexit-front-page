@@ -38,7 +38,7 @@ export default region => (req, res) => {
 	}
 
 	// add data for brexit components (this can be removed after the june referendum)
-	if (res.locals.flags.brexitFrontPage) {
+	if (res.locals.flags.brexitCoverageComponent) {
 		components.BrexitLiveResults = BrexitLiveResults;
 		data.brexitLiveResults = getBrexitLiveResultsData();
 	}

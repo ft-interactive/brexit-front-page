@@ -4,7 +4,7 @@ export default [
 		components: [
 			{
 				type: 'Column',
-				colspan: { default: 12, M: 6 },
+				colspan: { default: 12, M: 4 },
 				components: [
 					{
 						type: 'Content',
@@ -14,7 +14,7 @@ export default [
 			},
 			{
 				type: 'Column',
-				colspan: { default: 12, M: 6 },
+				colspan: { default: 12, M: 8 },
 				components: [
 					{
 						type: 'Row',
