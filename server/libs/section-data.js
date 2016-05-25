@@ -80,10 +80,6 @@ const getTopStoriesWithoutMainStoriesData = (data, flags) => {
 };
 
 export default (data, flags) => ({
-	'brexit-coverage': {
-		brexitLiveResults: data.brexitLiveResults,
-		content: data.frontPage.brexitCoverage.items
-	},
 	'top-stories': getTopStoriesWithoutMainStoriesData(data, flags),
 	'headlines': getTopStoriesData(data, flags),
 	'top-stories-new': getTopStoriesData(data, flags),
