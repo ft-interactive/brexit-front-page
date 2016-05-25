@@ -78,8 +78,16 @@ const frontPage = `
 	${fragments.liveBlog}
 
 	query FrontPage($region: Region!) {
-		brexit {
+		brexitCoverage {
 			items(limit: 6) {
+				... Basic
+				... Extended
+				... OpinionData
+				... LiveBlogInfo
+			}
+		}
+		brexitBuildup {
+			items(limit: 5) {
 				... Basic
 				... Extended
 				... OpinionData

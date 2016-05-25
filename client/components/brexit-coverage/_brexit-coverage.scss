@@ -18,8 +18,15 @@
 
 	.section-meta__title {
 		font-family: oFontsGetFontFamilyWithFallbacks(MetricWeb);
-		font-size: 20px;
+		font-size: 16px;
 		top: 3px;
+		line-height: 22px;
+		font-weight: 600;
+		top: 3px;
+
+		@include oGridRespondTo(S) {
+			font-size: 20px;
+		}
 
 		a {
 			@include oColorsFor(topic, text);
@@ -34,7 +41,12 @@
 	}
 
 	.section-meta__follow {
+		display: none;
 		top: 0;
+
+		@media (min-width: 300px) {
+			display: inline-block;
+		}
 	}
 
 	.card__tag {
