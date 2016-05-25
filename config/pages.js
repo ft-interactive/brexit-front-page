@@ -3,7 +3,7 @@ import sectionData from '../server/libs/section-data';
 
 const getPages = flags => {
 
-	return {
+	let pages = {
 		'front-page': [
 			'headlines',
 			'top-stories',
@@ -17,7 +17,16 @@ const getPages = flags => {
 			'markets',
 			'videos'
 		]
+	};
+
+	if (flags.brexitCoverageComponent) {
+		pages['front-page'].splice(0, 0, 'brexit-coverage');
 	}
+	if (flags.brexitBuildupComponent) {
+		pages['front-page'].splice(pages['front-page'].indexOf('opinion'), 0, 'brexit-buildup');
+	}
+
+	return pages;
 };
 
 
