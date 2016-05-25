@@ -87,7 +87,7 @@ const frontPage = `
 			}
 		}
 		brexitBuildup {
-			items(limit: 4) {
+			items(limit: 5) {
 				... Basic
 				... Extended
 				... OpinionData
